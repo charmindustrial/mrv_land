@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>MRV — The Quiz Show</title>
+<style>
+  :root {
+    color-scheme: light;
+    --stage: #12336b;
+    --stage-dark: #0d2652;
+    --gold: #f4c430;
+    --gold-bright: #ffe84a;
+    --red: #c8342a;
+    --red-dark: #9a2219;
+    --orange: #e8852a;
+    --cream: #f5ebd4;
+    --cream-dark: #e6d9b3;
+    --ink: #2a1a08;
+    --ink-soft: #5a4430;
+    --green: #2d8a59;
+    --green-bright: #5fc48a;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; min-height: 100%;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--stage);
+    background-image:
+      radial-gradient(ellipse at top, #1a4580 0%, var(--stage) 35%, var(--stage-dark) 100%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 80px, transparent 80px, transparent 160px);
+    background-attachment: fixed;
+  }
+  .show-header { text-align: center; padding: 30px 20px 24px; position: relative; }
+  .show-title {
+    display: inline-block;
+    background: linear-gradient(180deg, #ffdb3a 0%, #f4c430 45%, #d9a310 55%, #f4c430 100%);
+    color: var(--red-dark);
+    font-family: "Impact", "Arial Black", "Helvetica Neue", sans-serif;
+    font-weight: 900; letter-spacing: 0.04em;
+    font-size: clamp(28px, 6vw, 52px); line-height: 1;
+    padding: 18px 40px 16px; border: 4px solid var(--red); border-radius: 8px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 0 0 4px var(--gold-bright), 0 0 0 8px var(--red), 0 0 30px rgba(255,232,74,0.4), 0 8px 24px rgba(0,0,0,0.4);
+    transform: skewX(-3deg); position: relative;
+  }
+  .show-title .line1 { display: block; font-size: 0.45em; letter-spacing: 0.3em; color: var(--red); margin-bottom: 6px; font-weight: 700; }
+  .show-title .line2 { display: block; }
+  .show-sub {
+    margin-top: 18px; color: var(--gold-bright);
+    font-family: "Georgia", "Times New Roman", serif;
+    font-style: italic; font-size: 15px; letter-spacing: 0.02em;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 16px 60px; }
+  .panel {
+    background: var(--cream); border-radius: 10px; padding: 26px 28px 28px;
+    position: relative; color: var(--ink);
+    box-shadow: inset 0 0 0 4px var(--cream-dark), 0 12px 32px rgba(0,0,0,0.35);
+    margin-top: 8px;
+  }
+  .panel::before {
+    content: ''; position: absolute; inset: -14px; border-radius: 14px;
+    background: radial-gradient(circle at 11px 11px, var(--gold-bright) 5px, var(--gold) 6px, transparent 7px) 0 0 / 22px 22px, var(--red);
+    box-shadow: 0 0 24px rgba(255,232,74,0.35), inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0,0,0,0.2);
+    z-index: -1; animation: bulb-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes bulb-pulse { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.15); } }
+  .panel + .panel { margin-top: 28px; }
+  h2 {
+    font-family: "Impact", "Arial Black", sans-serif;
+    font-size: 17px; margin: 0 0 10px; color: var(--red-dark);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    border-bottom: 3px solid var(--gold); padding-bottom: 6px;
+  }
+  p { line-height: 1.5; margin: 0 0 10px; font-size: 14px; }
+  .muted { color: var(--ink-soft); font-size: 13px; }
+
+  /* Name input */
+  .name-input-row { display: flex; gap: 10px; align-items: center; margin: 12px 0 8px; }
+  input.name-input {
+    flex: 1; padding: 12px 16px;
+    border: 3px solid var(--red-dark); border-radius: 6px;
+    font-size: 16px; font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600; background: #fff; color: var(--ink);
+    box-shadow: inset 0 2px 0 var(--cream-dark);
+  }
+  input.name-input:focus { outline: none; border-color: var(--gold); box-shadow: inset 0 2px 0 var(--cream-dark), 0 0 14px var(--gold); }
+
+  .module-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; margin: 12px 0 16px; }
+  .module-grid label { font-size: 13px; display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600; color: var(--ink); }
+  .module-grid input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--red); }
+  .count-row { display: flex; gap: 10px; margin: 10px 0 4px; flex-wrap: wrap; }
+  .count-row button {
+    flex: 1; min-width: 80px; padding: 12px 14px;
+    border: 3px solid var(--red-dark); background: var(--cream); border-radius: 6px;
+    cursor: pointer; font-size: 14px; font-weight: 700;
+    font-family: "Impact", "Arial Black", sans-serif;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--red-dark);
+    box-shadow: 0 3px 0 var(--red-dark); transition: transform 0.08s, box-shadow 0.08s;
+  }
+  .count-row button:hover { transform: translateY(1px); box-shadow: 0 2px 0 var(--red-dark); }
+  .count-row button.active { background: var(--gold); color: var(--red-dark); box-shadow: 0 3px 0 var(--red-dark), inset 0 0 0 2px var(--gold-bright); }
+  button.primary {
+    background: linear-gradient(180deg, #e84c3a 0%, var(--red) 50%, var(--red-dark) 100%);
+    color: var(--gold-bright); border: 3px solid var(--gold); border-radius: 8px;
+    padding: 14px 28px; font-family: "Impact", "Arial Black", sans-serif;
+    font-size: 17px; cursor: pointer;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    box-shadow: 0 4px 0 var(--red-dark), 0 6px 16px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    transition: transform 0.08s, box-shadow 0.08s;
+  }
+  button.primary:hover { transform: translateY(1px); box-shadow: 0 3px 0 var(--red-dark), 0 5px 12px rgba(0,0,0,0.3); }
+  button.primary:disabled { background: #888; color: #ddd; border-color: #666; box-shadow: 0 3px 0 #555; cursor: not-allowed; }
+  button.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink-soft); border-radius: 6px; padding: 10px 18px; cursor: pointer; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  button.ghost:hover { background: var(--cream-dark); }
+  .scoreboard { display: flex; justify-content: space-between; align-items: stretch; gap: 10px; margin-bottom: 14px; }
+  .score-tile {
+    background: var(--stage-dark); color: var(--gold-bright);
+    padding: 8px 14px; border: 2px solid var(--gold); border-radius: 6px;
+    font-family: "Courier New", monospace; font-size: 14px; font-weight: 700;
+    text-shadow: 0 0 8px rgba(255,232,74,0.5); letter-spacing: 0.08em;
+    flex: 1; text-align: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    min-width: 0; overflow: hidden;
+  }
+  .score-tile .lbl { font-size: 9px; color: var(--gold); letter-spacing: 0.2em; display: block; margin-bottom: 2px; text-shadow: none; }
+  .score-tile .name-val { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+  .progress-bar {
+    height: 10px; background: var(--stage-dark); border: 2px solid var(--red-dark);
+    border-radius: 3px; overflow: hidden; margin-bottom: 18px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+  }
+  .progress-bar > div {
+    height: 100%;
+    background: repeating-linear-gradient(90deg, var(--gold-bright) 0, var(--gold-bright) 8px, var(--gold) 8px, var(--gold) 16px);
+    transition: width 0.3s; box-shadow: 0 0 10px var(--gold-bright);
+  }
+  .module-chip {
+    display: inline-block; background: var(--red-dark); color: var(--gold-bright);
+    font-family: "Impact", "Arial Black", sans-serif;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em;
+    padding: 5px 12px; border-radius: 3px; border: 2px solid var(--gold); margin-bottom: 12px;
+  }
+  .q-text {
+    font-size: 20px; line-height: 1.35; margin: 8px 0 22px;
+    font-weight: 600; color: var(--ink);
+    font-family: "Georgia", "Times New Roman", serif;
+  }
+  .choices { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+  .choice {
+    border: 3px solid var(--red-dark);
+    background: linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
+    border-radius: 6px; padding: 12px 16px; cursor: pointer;
+    font-size: 15px; line-height: 1.4; text-align: left;
+    display: flex; align-items: center; gap: 12px;
+    transition: all 0.12s; color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    box-shadow: 0 3px 0 var(--red-dark); position: relative;
+  }
+  .choice:hover:not(.locked) { transform: translateY(1px); box-shadow: 0 2px 0 var(--red-dark); background: linear-gradient(180deg, var(--cream) 0%, #fff3d0 100%); }
+  .choice.selected { background: linear-gradient(180deg, #fff7b8 0%, var(--gold) 100%); border-color: var(--red-dark); box-shadow: 0 3px 0 var(--red-dark), 0 0 14px var(--gold-bright); }
+  .choice.correct { background: linear-gradient(180deg, var(--green-bright) 0%, var(--green) 100%); border-color: #0f5a35; color: #fff; box-shadow: 0 3px 0 #0f5a35, 0 0 18px rgba(95,196,138,0.7); animation: win-pulse 0.6s ease-out; }
+  .choice.wrong { background: linear-gradient(180deg, #f06a60 0%, var(--red) 100%); border-color: var(--red-dark); color: #fff; box-shadow: 0 3px 0 var(--red-dark); animation: shake 0.5s; }
+  .choice.locked { cursor: default; }
+  .choice-letter {
+    flex: 0 0 32px; height: 32px; border-radius: 50%;
+    background: var(--red-dark); color: var(--gold-bright);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Impact", sans-serif; font-size: 18px; font-weight: 900;
+    border: 2px solid var(--gold); text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+  }
+  .choice.correct .choice-letter { background: #0f5a35; color: var(--gold-bright); }
+  .choice.wrong .choice-letter { background: var(--red-dark); color: var(--gold-bright); }
+  @keyframes win-pulse { 0% { transform: scale(1); } 40% { transform: scale(1.02); } 100% { transform: scale(1); } }
+  @keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-5px); } 40% { transform: translateX(5px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
+  input.sa {
+    width: 100%; padding: 14px 16px;
+    border: 3px solid var(--red-dark); border-radius: 6px;
+    font-size: 18px; font-family: "Courier New", monospace;
+    background: #fff7e0; color: var(--ink);
+    box-shadow: inset 0 3px 0 var(--cream-dark), 0 3px 0 var(--red-dark);
+    font-weight: 700; letter-spacing: 0.02em;
+  }
+  input.sa:focus { outline: none; border-color: var(--gold); box-shadow: inset 0 3px 0 var(--cream-dark), 0 3px 0 var(--red-dark), 0 0 14px var(--gold); }
+  input.sa.correct { background: #d4f4e0; border-color: #0f5a35; color: #0f5a35; }
+  input.sa.wrong { background: #fbd8d4; border-color: var(--red-dark); color: var(--red-dark); }
+  .feedback { margin-top: 18px; padding: 16px 20px; border-radius: 8px; position: relative; overflow: hidden; }
+  .feedback.correct { background: linear-gradient(180deg, #7ed69e 0%, var(--green) 100%); border: 3px solid #0f5a35; color: #fff; box-shadow: 0 0 24px rgba(95,196,138,0.6); }
+  .feedback.wrong { background: linear-gradient(180deg, #f27e74 0%, var(--red) 100%); border: 3px solid var(--red-dark); color: #fff; box-shadow: 0 0 18px rgba(200,52,42,0.4); }
+  .feedback .verdict { font-family: "Impact", "Arial Black", sans-serif; font-size: 28px; line-height: 1; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
+  .feedback .correct-answer { font-size: 15px; margin-bottom: 10px; background: rgba(255,255,255,0.15); padding: 8px 12px; border-radius: 4px; }
+  .feedback .explain { font-size: 14px; line-height: 1.55; margin-bottom: 10px; }
+  .feedback .source { font-size: 12px; font-style: italic; opacity: 0.9; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.4); }
+  .action-row { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; gap: 10px; flex-wrap: wrap; }
+  .score-big { font-family: "Impact", sans-serif; font-size: 96px; line-height: 1; margin: 10px 0; color: var(--red-dark); text-shadow: 3px 3px 0 var(--gold), 6px 6px 0 rgba(0,0,0,0.15); letter-spacing: -0.02em; text-align: center; }
+  .score-sub { color: var(--ink); font-size: 16px; margin-bottom: 18px; text-align: center; font-style: italic; font-weight: 600; }
+  .module-breakdown { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; font-size: 13px; margin: 10px 0 4px; padding: 10px 14px; background: var(--stage-dark); border-radius: 6px; }
+  .module-breakdown .name { color: var(--gold-bright); font-weight: 600; }
+  .module-breakdown .count { font-family: "Courier New", monospace; color: var(--gold-bright); font-weight: 700; }
+  .missed-list { margin-top: 14px; }
+  .missed-item { border-left: 4px solid var(--red-dark); padding: 12px 14px; background: #fff; margin-bottom: 10px; border-radius: 0 6px 6px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  .missed-item .q { font-size: 14px; margin-bottom: 6px; font-weight: 600; }
+  .missed-item .a { font-size: 13px; color: var(--ink-soft); }
+  .missed-item .src { font-size: 11px; color: var(--ink-soft); font-style: italic; margin-top: 6px; }
+  .pool-status { display: inline-block; background: var(--stage-dark); color: var(--gold-bright); font-family: "Courier New", monospace; font-size: 12px; padding: 4px 10px; border-radius: 3px; border: 1px solid var(--gold); margin-left: 8px; }
+  .reset-link { background: transparent; border: none; color: var(--red-dark); font-size: 12px; cursor: pointer; text-decoration: underline; padding: 0; margin-left: 8px; font-family: inherit; }
+  .reset-link:hover { color: var(--red); }
+
+  /* Leaderboard */
+  .lb-list { margin: 8px 0 0; padding: 0; list-style: none; }
+  .lb-row {
+    display: grid; grid-template-columns: 38px 1fr auto auto;
+    gap: 10px; align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px dashed var(--cream-dark);
+    font-size: 14px;
+  }
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row.you {
+    background: linear-gradient(180deg, #fff7b8 0%, var(--gold) 100%);
+    border: 2px solid var(--red-dark); border-radius: 4px;
+    box-shadow: 0 0 12px rgba(255,232,74,0.6);
+    margin: 4px -4px;
+    font-weight: 700;
+  }
+  .lb-rank {
+    font-family: "Impact", sans-serif; font-size: 22px;
+    color: var(--red-dark); text-align: center;
+    background: var(--gold); border-radius: 50%; height: 30px; width: 30px;
+    line-height: 30px; border: 2px solid var(--red-dark);
+  }
+  .lb-row.rank-1 .lb-rank { background: linear-gradient(180deg, #ffeb62, var(--gold)); box-shadow: 0 0 10px var(--gold-bright); }
+  .lb-row.rank-2 .lb-rank { background: #d8d8d8; border-color: #666; color: #333; }
+  .lb-row.rank-3 .lb-rank { background: #d4a574; border-color: #7a4a1c; color: #3a2818; }
+  .lb-name { font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lb-score { font-family: "Courier New", monospace; color: var(--ink-soft); font-size: 13px; font-weight: 700; }
+  .lb-pct { font-family: "Impact", sans-serif; font-size: 18px; color: var(--red-dark); min-width: 50px; text-align: right; }
+  .lb-empty { padding: 18px; text-align: center; color: var(--ink-soft); font-style: italic; font-size: 13px; }
+  .lb-status {
+    font-size: 11px; color: var(--ink-soft);
+    text-align: center; margin-top: 10px; font-style: italic;
+  }
+  .lb-status.warn { color: var(--red-dark); font-weight: 600; }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="show-header">
+  <div class="show-title">
+    <span class="line1">Isometric Presents</span>
+    <span class="line2">THE MRV QUIZ SHOW</span>
+  </div>
+  <div class="show-sub">Mental calisthenics on the Standard v2.0 &amp; applicable modules</div>
+</div>
+
+<div class="wrap">
+
+<!-- SETUP SCREEN -->
+<div id="setup" class="panel">
+  <h2>&#9733; Who's Playing? &#9733;</h2>
+  <p class="muted">Enter your name so your score can hit the leaderboard.</p>
+  <div class="name-input-row">
+    <input type="text" id="name-input" class="name-input" placeholder="Your name" maxlength="24" autocomplete="off"/>
+  </div>
+
+  <h2 style="margin-top:18px;">&#9733; Pick Your Modules &#9733;</h2>
+  <p class="muted">Once answered, a question retires from your pool for 3 days.</p>
+  <div class="module-grid" id="module-filters"></div>
+
+  <h2 style="margin-top:18px;">&#9733; Round Length &#9733;</h2>
+  <div class="count-row" id="count-row">
+    <button data-count="10">10 Qs</button>
+    <button data-count="20">20 Qs</button>
+    <button data-count="30" class="active">30 Qs</button>
+  </div>
+
+  <div class="action-row" style="margin-top:20px;">
+    <span class="muted">
+      <span id="pool-count"></span>
+      <span id="retired-info"></span>
+    </span>
+    <button class="primary" id="start-btn">Let's Play &raquo;</button>
+  </div>
+
+  <h2 style="margin-top:26px;">&#9733; Top 10 Leaderboard &#9733;</h2>
+  <ul class="lb-list" id="lb-setup"></ul>
+  <div class="lb-status" id="lb-status-setup"></div>
+</div>
+
+<!-- QUIZ SCREEN -->
+<div id="quiz" class="panel hidden">
+  <div class="scoreboard">
+    <div class="score-tile"><span class="lbl">Player</span><span class="name-val" id="player-tile"></span></div>
+    <div class="score-tile"><span class="lbl">Question</span><span id="prog-label"></span></div>
+    <div class="score-tile"><span class="lbl">Score</span><span id="score-label"></span></div>
+  </div>
+  <div class="progress-bar"><div id="prog-fill" style="width:0%"></div></div>
+  <div class="module-chip" id="q-module"></div>
+  <div class="q-text" id="q-text"></div>
+  <div id="q-body"></div>
+  <div id="feedback" class="hidden"></div>
+  <div class="action-row">
+    <button class="ghost" id="quit-btn">Quit Round</button>
+    <button class="primary" id="submit-btn" disabled>Submit</button>
+  </div>
+</div>
+
+<!-- RESULTS SCREEN -->
+<div id="results" class="panel hidden">
+  <h2 style="text-align:center; border:none;">Game Over</h2>
+  <div class="score-big" id="final-score"></div>
+  <div class="score-sub" id="final-pct"></div>
+
+  <h2 style="margin-top:12px;">Top 10 Leaderboard</h2>
+  <ul class="lb-list" id="lb-results"></ul>
+  <div class="lb-status" id="lb-status-results"></div>
+
+  <h2 style="margin-top:18px;">By Module</h2>
+  <div class="module-breakdown" id="module-breakdown"></div>
+
+  <div id="missed-section">
+    <h2 style="margin-top:18px;">Review &mdash; What You Missed</h2>
+    <div class="missed-list" id="missed-list"></div>
+  </div>
+
+  <div class="action-row" style="margin-top:20px;">
+    <button class="ghost" id="retry-missed-btn">Retry Missed Only</button>
+    <button class="primary" id="restart-btn">Play Again &raquo;</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+/* =====================================================================
+   SHARED LEADERBOARD CONFIG  —  fill these in once, then share the file
+   =====================================================================
+   1. Sign up free at https://jsonbin.io (takes 30 seconds)
+   2. Create a new bin at https://jsonbin.io/app/create with this content:
+        {"scores": []}
+      Make it PRIVATE (default) if you want only authorized keys to read.
+   3. Copy the Bin ID (e.g. "654a1b2c3d4e5f6a7b8c9d01") → JSONBIN_BIN_ID
+   4. On the "API Keys" page, copy your X-Master-Key → JSONBIN_API_KEY
+   5. Save this file. Anyone who opens it will share the leaderboard.
+   Leaving these blank falls back to a per-device local leaderboard.
+   ===================================================================== */
+const JSONBIN_BIN_ID  = '';
+const JSONBIN_API_KEY = '';
+
+const RETIREMENT_MS = 3 * 24 * 60 * 60 * 1000;
+const STORAGE_KEY   = 'isometric_mrv_quiz_retired_v1';
+const NAME_KEY      = 'isometric_mrv_quiz_name_v1';
+const LOCAL_LB_KEY  = 'isometric_mrv_quiz_localboard_v1';
+
+const QUESTIONS = [
+  {id:1,type:'mc',module:'Isometric Standard v2.0',question:"Under Isometric Standard v2.0, what is the materiality threshold for discrepancies between a Project Proponent's claimed net Removal/Reduction and the VVB's estimate?",choices:["1% of net Removal","5% of net Removal","10% of net Removal","16% of net Removal"],answer:1,explain:"Considering the totality of all omissions, errors and misstatements, the VVB may issue a Verification Opinion only if discrepancies are below 5% of net Removal or Reduction.",source:"Isometric Standard v2.0, \u00a74.3"},
+  {id:2,type:'sa',module:'Isometric Standard v2.0',question:"When applying a conservative estimate under Options B or C (variance propagation or Monte Carlo) to a normally-distributed parameter, you must take at least how many standard deviations below the mean? (Answer as a number.)",accept:["1","one","1.0"],canonical:"1",explain:"The Standard specifies the Conservative estimate must be at least 1 standard deviation (\u221avariance) below the mean \u2014 equivalent to \u226416th percentile for a normal distribution.",source:"Isometric Standard v2.0, \u00a73.7.3 / \u00a73.7.4"},
+  {id:3,type:'mc',module:'Isometric Standard v2.0',question:"Under Isometric Standard v2.0, what buffer pool contribution applies to a \"Very Low Risk\" project? (Note: this changed in v2.0.)",choices:["0.5%","1%","2%","5%"],answer:1,explain:"v2.0 reduced the Very Low Risk tier buffer from 2% to 1%. Salt-cavern storage typically qualifies as Very Low Risk; permeable-reservoir storage typically sits at Low Risk (5%).",source:"Isometric Standard v2.0, Appendix C / v2.0 Changelog"},
+  {id:4,type:'mc',module:'Isometric Standard v2.0',question:"The Medium Risk Level buffer pool contribution was lowered in v2.0 from 10% to:",choices:["5%","7%","8%","9%"],answer:1,explain:"v2.0 re-tiered buffer contributions based on improved risk assessment. Medium Risk (Risk Level 3-4) was reduced from 10% \u2192 7%.",source:"Isometric Standard v2.0, Appendix C / v2.0 Changelog"},
+  {id:5,type:'sa',module:'Isometric Standard v2.0',question:"In the absence of an explicit Durability Threshold in a Protocol or Module, what is the default minimum durability (in years) that a removal must demonstrate? (Answer as a number.)",accept:["1000","1,000","one thousand"],canonical:"1,000 years",explain:"Where a Protocol or Module does not specify a Durability Threshold or declare the impact permanent, the default is 1,000 years.",source:"Isometric Standard v2.0, \u00a72.5.7"},
+  {id:6,type:'mc',module:'Isometric Standard v2.0',question:"A reversal must be classified as \"avoidable\" when:",choices:["It occurs within the Project boundary","The Project Proponent has influence or control over it AND it likely could have been averted through reasonable risk mitigation","The buffer pool is insufficient to cover it","The VVB detects it during a site visit"],answer:1,explain:"An avoidable reversal requires both (a) Project Proponent influence/control and (b) averted through reasonable mitigation. All others are unavoidable.",source:"Isometric Standard v2.0, \u00a75.6.1"},
+  {id:7,type:'sa',module:'Isometric Standard v2.0',question:"Project Proponents must retain all relevant data and information for how many years after the end of the Monitoring Period? (Answer as a number.)",accept:["10","ten"],canonical:"10 years",explain:"Records must be maintained for at least 10 years after the end of the Monitoring Period \u2014 matches the default 10-year crediting period and supports post-hoc audits.",source:"Isometric Standard v2.0, \u00a76.6.2"},
+  {id:8,type:'mc',module:'Isometric Standard v2.0',question:"Isometric's VVB rotation rule limits a single VVB to Verification work for a given Project during no more than:",choices:["3 out of 5 consecutive years","4 out of 6 consecutive years","5 out of 7 consecutive years","6 out of 8 consecutive years"],answer:2,explain:"Two constraints: (1) no more than 5 CONSECUTIVE years with the same VVB, and (2) no more than 5 OUT OF 7 consecutive years.",source:"Isometric Standard v2.0, \u00a74.5"},
+  {id:9,type:'sa',module:'Isometric Standard v2.0',question:"What is the maximum number of CONSECUTIVE years a Project may work with a single VVB before rotation is required? (Answer as a number.)",accept:["5","five"],canonical:"5 years",explain:"5 consecutive years max. The Standard layers a second rule on top \u2014 5 out of any 7 \u2014 to prevent trivial rotation-and-return arrangements.",source:"Isometric Standard v2.0, \u00a74.5"},
+  {id:10,type:'mc',module:'Isometric Standard v2.0',question:"All Isometric CRCF Projects must convert non-CO\u2082 GHG emissions to CO\u2082e using the 100-year Global Warming Potentials set out in:",choices:["IPCC AR5 directly","IPCC AR6 directly","Annex I to Delegated Regulation (EU) 2020/1044","The UNFCCC National Inventory Guidelines"],answer:2,explain:"The Standard is explicit: GWPs from Annex I of EU Delegated Regulation 2020/1044, 100-year horizon. Absent protocol specification, AR6 is the IPCC baseline for the GWP values themselves.",source:"Isometric Standard v2.0, \u00a76.7.1 / \u00a72.5.5"},
+  {id:11,type:'sa',module:'Isometric Standard v2.0',question:"What is the default Crediting Period length (in years) for Isometric projects, absent a protocol-specified alternative? (Answer as a number.)",accept:["10","ten"],canonical:"10 years",explain:"Default is 10 years. Renewal requires an updated PDD and re-Validation. Some pathways (DAC, BiCRS/biochar) use 15-year crediting periods per their specific modules.",source:"Isometric Standard v2.0, \u00a75.7"},
+  {id:12,type:'mc',module:'Isometric Standard v2.0',question:"Under the Isometric Standard, Validation and Verification must be carried out in line with which ISO standards?",choices:["ISO 9001 and ISO 14001","ISO 14064-1 and ISO 14064-2","ISO 14064-3 and ISO 14065","ISO 19011 and ISO 17025"],answer:2,explain:"ISO 14064-3 governs the Validation/Verification process; ISO 14065 governs requirements for the VVBs performing it.",source:"Isometric Standard v2.0, \u00a74.2"},
+  {id:13,type:'mc',module:'Isometric Standard v2.0',question:"To demonstrate Regulatory Additionality, a Project Proponent must show that the Project:",choices:["Is the lowest-cost mitigation option available","Exceeds voluntary industry benchmarks","Is not required by existing laws, regulations, policies, or other binding obligations","Secured carbon finance before construction began"],answer:2,explain:"Regulatory Additionality = not mandated. If law requires it, it's not Additional. Financial Additionality (\u00a73.5.2) is the separate test on carbon-finance dependence.",source:"Isometric Standard v2.0, \u00a73.5.3"},
+  {id:14,type:'mc',module:'Isometric Standard v2.0',question:"Under the Standard, a site visit is required:",choices:["During every Verification without exception","During the first Validation or Verification; for subsequent Verifications, the VVB decides based on an independent risk assessment","Only when a VVB rotation occurs","Only when a Reversal is detected"],answer:1,explain:"Initial on-site is mandatory. After that, the VVB's risk assessment determines whether subsequent Verifications need a site visit \u2014 enabling efficient remote verification for stable operations.",source:"Isometric Standard v2.0, \u00a74.2"},
+  {id:15,type:'mc',module:'Isometric Standard v2.0',question:"Type A uncertainty under the Isometric Standard is:",choices:["Evaluated by scientific judgment based on a priori distributions","Assessed by making repeated observations of the parameter of interest","Limited to systematic (non-random) error sources","Required only for secondary data"],answer:1,explain:"Type A = measured repeatedly (statistical). Type B = judged a priori from available information (non-statistical). Distinct paths to uncertainty quantification.",source:"Isometric Standard v2.0, Appendix A"},
+  {id:16,type:'mc',module:'Isometric Standard v2.0',question:"Under the Standard, when potential Leakage is identified, it must be:",choices:["Disclosed in the PDD but not deducted","Covered by the buffer pool allocation","Quantified and deducted from the Removals or Reductions","Offset via purchase of external credits"],answer:2,explain:"Leakage is a direct deduction against net Removals/Reductions \u2014 not a buffer matter. Includes activity-shifting, market transformation, and ecosystem-shift categories.",source:"Isometric Standard v2.0, \u00a73.6"},
+  {id:17,type:'sa',module:'Biomass Feedstock v1.3',question:"How many years is a counterfactual storage assessment valid for under the Biomass Feedstock Accounting module? (Answer as a number.)",accept:["10","ten"],canonical:"10 years",explain:"Counterfactual storage captures feedstock carbon that would have remained durably stored without the project \u2014 that fraction is NOT creditable. Reassessment required every 10 years.",source:"Biomass Feedstock Accounting v1.3, \u00a73.0"},
+  {id:18,type:'sa',module:'Biomass Feedstock v1.3',question:"Market Leakage assessments under the Biomass Feedstock module are valid for how many years before reassessment? (Answer as a number.)",accept:["10","ten"],canonical:"10 years",explain:"Market leakage captures induced-demand effects (activity-shifting, land-use change) from increased feedstock sourcing. Reassessed every 10 years, same cadence as counterfactual storage.",source:"Biomass Feedstock Accounting v1.3, \u00a71"},
+  {id:19,type:'mc',module:'Biomass Feedstock v1.3',question:"How often must Sustainability Criteria be evidenced for Biomass Feedstock sourcing?",choices:["Once at initial Validation only","At each Crediting Period renewal","For each Reporting Period \u2014 new evidence or confirmed up-to-date existing evidence","Only when a feedstock source changes"],answer:2,explain:"Per Reporting Period: produce new evidence OR confirm existing evidence is still current. The burden is on the Project Proponent for every claimed removal \u2014 not a one-time check.",source:"Biomass Feedstock Accounting v1.3, \u00a72.1"},
+  {id:20,type:'mc',module:'Bio-oil Permeable Reservoirs',question:"To be eligible under the Bio-oil Storage in Permeable Reservoirs Module, the injection site must have a current UIC well permit of which class(es)?",choices:["Class II only","Class III only","Class I or Class V","Any UIC class approved by the state regulator"],answer:2,explain:"The module specifies Class I or V UIC permits. Note: exceptions to the literal permit-class requirement may be negotiated with the verifier based on site-specific permit structure and verification precedent.",source:"Bio-oil Storage in Permeable Reservoirs, \u00a72.0"},
+  {id:21,type:'sa',module:'Bio-oil Permeable Reservoirs',question:"At minimum, how often must site characterizations and analytical modeling be reviewed under the Permeable Reservoirs Module? (Answer in years, as a number.)",accept:["10","ten"],canonical:"Every 10 years",explain:"Decennial review is the floor \u2014 tied to the UIC permit renewal cycle. Also at regulator request or when monitoring/operational conditions warrant.",source:"Bio-oil Storage in Permeable Reservoirs, \u00a72.3"},
+  {id:22,type:'mc',module:'Salt Caverns',question:"Under the Salt Cavern Module, at what minimum cadence must cavern pressure be monitored?",choices:["Continuously (real-time)","Daily","Weekly","Monthly"],answer:1,explain:"Daily pressure monitoring is the explicit minimum. Temperature is 6-monthly, well integrity per site plan.",source:"Biomass or Bio-oil Storage in Salt Caverns, \u00a73.2"},
+  {id:23,type:'mc',module:'Salt Caverns',question:"Cavern temperature monitoring under the Salt Cavern Module must occur at least:",choices:["Daily","Weekly","Monthly","Every 6 months"],answer:3,explain:"Semi-annual (6-monthly) temperature monitoring is the minimum. Much less frequent than pressure (daily) because thermal changes are slower.",source:"Biomass or Bio-oil Storage in Salt Caverns, \u00a73.2"},
+  {id:24,type:'mc',module:'Salt Caverns',question:"Sump depth / cavern fill verification (depth to top of emplaced volume) must be confirmed:",choices:["Daily","Weekly","Monthly","Quarterly"],answer:3,explain:"Quarterly depth-to-top verification reconciles emplaced volume against cavern volume. Catches settlement, salt creep, or geometry drift between sonar surveys.",source:"Biomass or Bio-oil Storage in Salt Caverns, \u00a73.2"},
+  {id:25,type:'sa',module:'Salt Caverns',question:"What minimum resolution (in vol%) is required for gas monitoring of CO\u2082, CH\u2084, and VOCs under the Salt Cavern Module? (Answer as a decimal number, e.g., 0.01)",accept:["0.01",".01","0.01%","0.01 vol%"],canonical:"0.01 vol%",explain:"0.01 vol% minimum resolution. Any above-background detection triggers full chemical analysis (CO\u2082, CH\u2084, N\u2082, O\u2082, VOCs) \u2014 a tripwire for containment loss.",source:"Biomass or Bio-oil Storage in Salt Caverns, \u00a73.2"},
+  {id:26,type:'mc',module:'Salt Caverns',question:"Periodic sonar surveys of the cavern must be conducted, at minimum:",choices:["Annually throughout the life of the cavern","Prior to emplacement, and at set capacity milestones (e.g., 33% and 66% full, or 50%) per cavern-specific plan and regulator agreement","Only upon regulator request after detected reversals","Every 5 years, aligned with mechanical integrity testing"],answer:1,explain:"Baseline before emplacement, then milestone-triggered (33%/66% or 50%, site-specific). Operator-specific permit conditions may require additional milestones (e.g., half-full) on top of module requirements.",source:"Biomass or Bio-oil Storage in Salt Caverns, \u00a73.2"},
+  {id:27,type:'mc',module:'Transportation v1.1',question:"The minimum system boundary for transportation emissions under the Isometric Transportation module covers:",choices:["Only direct tank-to-wheel (TTW) combustion emissions","Both direct combustion AND upstream fuel/electricity production emissions (full WTW)","Only upstream well-to-tank (WTT) emissions","Only on-road emissions (off-road excluded)"],answer:1,explain:"Full well-to-wheel (WTW): direct combustion + upstream fuel/electricity production & distribution.",source:"Transportation Emissions Accounting v1.1, \u00a72.0"},
+  {id:28,type:'mc',module:'Transportation v1.1',question:"How must emissions from a multi-leg transportation journey be calculated?",choices:["Aggregated across all legs using a weighted-average EF","Separately for each leg, then summed","Using only the longest leg's distance with an applied correction factor","Using only the first and last legs (point-to-point)"],answer:1,explain:"Leg-by-leg. Each leg has its own mode, distance, and EF \u2014 aggregation would mask mode-specific emissions and prevent targeted reductions.",source:"Transportation Emissions Accounting v1.1, \u00a73.1"},
+  {id:29,type:'sa',module:'Energy Use v1.3',question:"Above what annual consumption (in GWh) is a facility considered \"intensive,\" triggering marginal/hourly emission factors with temporal matching instead of grid-average? (Answer as a number.)",accept:["200","200 gwh","two hundred"],canonical:"200 GWh/year",explain:"200 GWh/year is the threshold. Below \u2192 location-based grid average OK. Above \u2192 hourly-matched marginal EFs required (unless exempted). Significantly stricter accounting for large facilities.",source:"Energy Use Accounting v1.3, \u00a75"},
+  {id:30,type:'mc',module:'GHG Accounting v1.0',question:"When collecting activity data (for anything other than a direct CO\u2082e measurement), the Isometric GHG Accounting module requires:",choices:["Whichever data source is lowest cost","Primary (project-specific, directly measured) data must always be used over secondary when available","Secondary data for conservativeness","Regional benchmarks unless the VVB explicitly requests otherwise"],answer:1,explain:"Primary first, always \u2014 because secondary data carries more uncertainty. Primary = meter readings, fuel invoices, BoQ material quantities. Secondary = regional benchmarks, average EFs, expenditure proxies.",source:"GHG Accounting v1.0, \u00a73.2"},
+  {id:31,type:'mc',module:'Isometric Standard v2.0',question:"What must a Project Proponent submit alongside a GHG Statement to demonstrate the impact of each input parameter's uncertainty on the final net CO\u2082e uncertainty?",choices:["A list of input parameters only","A sensitivity analysis","A conservative-bound estimate only","A Monte Carlo simulation report in all cases"],answer:1,explain:"Every GHG Statement submission must include both (a) a list of all parameters used in calculations and (b) a sensitivity analysis showing each parameter's contribution to net CO\u2082e uncertainty.",source:"Isometric Standard v2.0, \u00a73.7"},
+  {id:32,type:'mc',module:'Isometric Standard v2.0',question:"Type B uncertainty under the Isometric Standard is:",choices:["Assessed by making repeated observations of the parameter","Founded on a priori distributions, evaluated by scientific judgment based on all available information","Limited to systematic (non-random) error sources","Required only for primary data"],answer:1,explain:"Type B is the non-statistical path \u2014 scientific judgment from available information, a priori distributions. Contrasts Type A (repeated measurements).",source:"Isometric Standard v2.0, Appendix A"},
+  {id:33,type:'mc',module:'Isometric Standard v2.0',question:"Under the Standard, all relevant measuring equipment must be calibrated and checked against measurement standards traceable to:",choices:["State or provincial measurement standards","National measurement standards only","International measurement standards where available","The Project Proponent's internal QA system"],answer:2,explain:"International traceability is the bar \u2014 where available. Calibration at regular intervals including prior to use. Internal QA is not a substitute.",source:"Isometric Standard v2.0, \u00a76.7.2"},
+  {id:34,type:'mc',module:'Isometric Standard v2.0',question:"The initial Crediting Period Start Date for a Project is the LATER of:",choices:["Project activity start date vs. first GHG Statement submission","Contract execution date vs. project activity start","Project activity start date vs. Isometric approval of the initial Validation Report","First verified removal vs. the Validation site visit"],answer:2,explain:"Credits can only be issued for removals occurring after BOTH (a) project activities began and (b) Isometric approved the Validation Report. Pre-approval activity is not creditable.",source:"Isometric Standard v2.0, \u00a75.7"},
+  {id:35,type:'mc',module:'Isometric Standard v2.0',question:"A project scored at Risk Level 5 or higher falls into the High Risk tier. Its buffer pool contribution range is:",choices:["2\u20135%","5\u20137%","7\u201310%","10\u201320%"],answer:3,explain:"v2.0 Appendix C tiers: L0 = 1% (VLR), L1\u20132 = 5% (Low), L3\u20134 = 7% (Med), L5+ = 10\u201320% (High). Higher reversal risk = deeper buffer.",source:"Isometric Standard v2.0, Appendix C"},
+  {id:36,type:'mc',module:'Isometric Standard v2.0',question:"Project baselines (counterfactuals) under the Standard must be:",choices:["Based on the best-case project scenario","Static \u2014 locked at Validation for the full project life","Calculated using conservative assumptions AND reassessed whenever the Crediting Period is renewed","Set by the VVB during Verification"],answer:2,explain:"Conservative assumptions + reassessment at Crediting Period renewal. Baselines can't be frozen for life-of-project \u2014 policy/regulatory shifts may require a fresh counterfactual.",source:"Isometric Standard v2.0, \u00a72.5.3"},
+  {id:37,type:'mc',module:'Isometric Standard v2.0',question:"Project Baselines must account for:",choices:["Voluntary industry codes only","Any existing government policies or legal requirements that lower GHG emissions","Only policies in the project's host country","Only policies that require emission REDUCTIONS, not removals"],answer:1,explain:"If policy/law already lowers emissions, that reduction belongs in the baseline \u2014 crediting only applies above and beyond mandated activity.",source:"Isometric Standard v2.0, \u00a72.5.3"},
+  {id:38,type:'mc',module:'Isometric Standard v2.0',question:"Which of the following must be described in a CRCF monitoring plan?",choices:["Only the direct measurement equipment specifications","Only the reporting cadence and format","Personnel-competence procedures, default values + sources, laboratories used, measurement methods with written procedures, AND QA requirements","Only the data archival strategy and retention length"],answer:2,explain:"Monitoring plan is comprehensive. All five elements are required in PDDs and GHG Statements \u2014 missing any one is grounds for verification findings.",source:"Isometric Standard v2.0, \u00a76.6.2"},
+  {id:39,type:'mc',module:'Isometric Standard v2.0',question:"For crediting non-permanent emission impacts, Project Proponents must:",choices:["Identify the single most likely reversal mechanism","Undertake a FULL risk assessment identifying ALL possible mechanisms leading to Reversals, with a monitoring plan quantifying each","Submit a historical reversal rate from similar projects","Rely on the VVB's independent reversal analysis"],answer:1,explain:"Full scope: every possible reversal mechanism identified, with a monitoring plan that quantifies potential reversal via each.",source:"Isometric Standard v2.0, \u00a72.5.7.2"},
+  {id:40,type:'sa',module:'Isometric Standard v2.0',question:"What is the name of the parameter (2 words) that defines the minimum permanence a Project must demonstrate under a given Protocol or Module?",accept:["durability threshold","project durability threshold","durability"],canonical:"Durability Threshold",explain:"\"Durability Threshold.\" Default = 1,000 years. Where a Protocol or Module doesn't specify or declare permanence, the default applies.",source:"Isometric Standard v2.0, \u00a72.5.7"},
+  {id:41,type:'mc',module:'Isometric Standard v2.0',question:"A VVB's primary accreditation path under the Standard is via:",choices:["A state regulatory board certification","An International Accreditation Forum (IAF) member against ISO 14065 (or a relevant ISO standard such as 14034, 17020, 17029), or a governmental/intergovernmental regulatory body","An Isometric staff interview only","A Project Proponent's written endorsement"],answer:1,explain:"IAF accreditation against ISO 14065 (or equivalent) is the standard path. Govt/intergov regulatory bodies also qualify.",source:"Isometric Standard v2.0, \u00a74.1"},
+  {id:42,type:'mc',module:'Isometric Standard v2.0',question:"Before engagement with a Project, each VVB must:",choices:["Post a public notice of engagement","Complete a Conflict of Interest disclosure","Receive written consent from the Project Proponent's Board","Execute a financial guarantee bond"],answer:1,explain:"Conflict of interest disclosure is mandatory. Pairs with rotation rules (5 consecutive / 5-of-7 years) to preserve VVB independence.",source:"Isometric Standard v2.0, \u00a74.1"},
+  {id:43,type:'mc',module:'Isometric Standard v2.0',question:"Prior to Validation or Verification, the VVB must prepare a plan that includes ALL of the following EXCEPT:",choices:["Scope and objectives","Identification of team and roles","Schedule of activities and site visits, plus Materiality and level of assurance","The Project Proponent's internal profit projections"],answer:3,explain:"The V&V plan covers scope, team, schedule, level of assurance, Verification criteria, Materiality, and schedule for site visits. Internal financials are not part of the VVB plan.",source:"Isometric Standard v2.0, \u00a74.2"},
+  {id:44,type:'mc',module:'Biomass Feedstock v1.3',question:"Feedstock eligibility under the module requires passing three gates. Which is NOT one of them?",choices:["Sustainability Criteria compliance (\u00a72.1)","Prohibited Feedstock screening (\u00a74.1)","Counterfactual storage + market leakage assessment","First-come-first-served feedstock registration with Isometric"],answer:3,explain:"Three gates: Sustainability, Prohibited screen, Counterfactual/Leakage. There's no registration-based allocation \u2014 the module is criteria-based.",source:"Biomass Feedstock Accounting v1.3, \u00a72.0"},
+  {id:45,type:'mc',module:'Biomass Feedstock v1.3',question:"Forestry-residue feedstock must be sourced from:",choices:["Any FSC-certified entity, regardless of geography","An approved forestry certification/management program (Table 6) OR an equivalent risk-assessed region; where certification cannot be evidenced, an independent third-party risk-based low-risk determination is required","Only domestic (US) forests","Only mill residues, never field residues"],answer:1,explain:"Table 6 lists approved programs. Equivalent risk-assessed regions accepted. Where certification cannot be evidenced, an independent third-party low-risk determination substitutes.",source:"Biomass Feedstock Accounting v1.3, SC1.1"},
+  {id:46,type:'mc',module:'Biomass Feedstock v1.3',question:"\"Counterfactual storage\" under the Biomass Feedstock module refers to:",choices:["Carbon stored in the feedstock that would have REMAINED durably stored in absence of Project activities \u2014 NOT creditable","Carbon the project stores in an alternative location if primary storage fails","A contingency buffer for market-leakage events","The theoretical maximum storage if all project steps were 100% efficient"],answer:0,explain:"Counterfactual storage = what would have stayed locked away anyway (e.g., unharvested residues that would have decayed slowly). That fraction is excluded from credits. Valid 10 years.",source:"Biomass Feedstock Accounting v1.3, \u00a73.0"},
+  {id:47,type:'mc',module:'Bio-oil Permeable Reservoirs',question:"Which of the following is REQUIRED as part of pre-injection site characterization under the Permeable Reservoirs Module?",choices:["Maximum daily ambient surface temperature","\u03b4\u00b9\u00b3C of bio-oil compounds","Nearest residential address within 50 miles","Historical crude-oil production volume from the reservoir"],answer:1,explain:"Required parameters include lithology/mineralogy, porosity/permeability, cap-rock integrity, fluid chemistry, dissolved gas, formation fluid isotopes (\u03b4\u00b9\u2078O + \u03b4D), \u03b4\u00b9\u00b3C of bio-oil compounds, and pre-existing hydrocarbon quantities.",source:"Bio-oil Storage in Permeable Reservoirs, \u00a72.2"},
+  {id:48,type:'mc',module:'Bio-oil Permeable Reservoirs',question:"Allowable wellhead injection pressures, gas detection, and related surface/USDW-protection systems must be:",choices:["Set by default to federal UIC limits without site-specific justification","Negotiated with the VVB during Verification","Documented in the Monitoring Plan, with the Project Proponent demonstrating long-term stability, limited lateral migration, and limited degradation","Reported only if a leak is detected"],answer:2,explain:"Monitoring Plan is the locus \u2014 pressure limits, gas detection, and USDW/surface-protection systems all documented there. Proponent must also justify injection stability with modeling/core analysis.",source:"Bio-oil Storage in Permeable Reservoirs, \u00a73.1.1"},
+  {id:49,type:'mc',module:'Salt Caverns',question:"If gas monitoring detects concentrations ABOVE background atmospheric levels, what action is required?",choices:["Increase monitoring frequency but take no sample","A sample must be taken to establish chemical composition, including CO\u2082, CH\u2084, N\u2082, O\u2082, and VOCs","Immediately halt all injection activity","Notify Isometric within 60 days"],answer:1,explain:"Above-background detection = tripwire. Take a sample; analyze full composition (CO\u2082, CH\u2084, N\u2082, O\u2082, VOCs). Establishes whether the detection is from the cavern (containment loss) vs. a background source.",source:"Biomass or Bio-oil Storage in Salt Caverns, \u00a73.2"},
+  {id:50,type:'mc',module:'Salt Caverns',question:"Sonar survey frequency for the cavern must be:",choices:["Set by the Project Proponent alone, no regulator input","Determined by cavern-specific data AND in agreement with regulators","Fixed at annual intervals","Only required upon detection of salt creep"],answer:1,explain:"Frequency is site-specific AND must be agreed with the regulator. Operator-specific permit conditions layer on top of module requirements.",source:"Biomass or Bio-oil Storage in Salt Caverns, \u00a73.2"},
+  {id:51,type:'mc',module:'Energy Use v1.3',question:"Which of the following is IN scope under Energy Use Accounting?",choices:["On-road freight transport of bio-oil to the injection site","Non-mobile machinery; primary non-road mobile sources such as fork trucks/loaders; fuels combusted for heat, steam, startup, or powering eligible mobile sources","Employee commute emissions","Embodied emissions of capital equipment"],answer:1,explain:"Direct on-site consumption \u2014 process machinery and material-handling fork trucks/loaders are in scope. On-road transport is Transportation module; embodied emissions are a separate module.",source:"Energy Use Accounting v1.3, \u00a73.0"},
+  {id:52,type:'mc',module:'Energy Use v1.3',question:"A facility consuming 150 GWh/year (non-intensive) may use which electricity emission factor basis?",choices:["Marginal/hourly EFs with hourly temporal matching required","Grid-average (location-based) emission factors","Whichever is most conservative on paper","Only market-based EFs backed by EACs"],answer:1,explain:"Below 200 GWh/year threshold \u2192 non-intensive \u2192 location-based grid-average EFs acceptable. Above 200 \u2192 intensive \u2192 marginal/hourly required (with exemptions).",source:"Energy Use Accounting v1.3, \u00a75"},
+  {id:53,type:'mc',module:'GHG Accounting v1.0',question:"Emission factors used under GHG Accounting must:",choices:["Cover only CO\u2082 emissions, not other GHGs","Use 20-year GWPs from the most recent IPCC report","Account for total GHG emissions as CO\u2082e (per-GHG EFs permitted, converted using 100-yr GWPs from the most recent IPCC AR \u2014 currently AR6)","Be selected by the VVB, not the Project Proponent"],answer:2,explain:"EFs must cover total GHG as CO\u2082e. Separate per-GHG EFs allowed, converted via 100-yr GWPs from the latest AR (AR6 today).",source:"GHG Accounting v1.0, \u00a73.3"},
+  {id:54,type:'mc',module:'GHG Accounting v1.0',question:"When selecting among multiple available emission factors, GHG Accounting ranks quality by:",choices:["Alphabetical source order","Publisher reputation only","Technology specificity, geographic specificity, temporal recency, and scope coverage","Lowest numeric value (for conservativeness)"],answer:2,explain:"Four criteria: technology, geographic, temporal, scope. Highest combined specificity/recency usually wins \u2014 but a more-recent-but-poorly-matched EF may lose to an older EF that better fits project characteristics.",source:"GHG Accounting v1.0, \u00a73.4"},
+  {id:55,type:'mc',module:'GHG Accounting v1.0',question:"Which of the following is an example of PRIMARY data?",choices:["A regional average EF from a government database","An expenditure-based emission proxy","Electricity meter readings, fuel invoices, or bill-of-quantities material amounts","An industry-sector benchmark from a peer-reviewed paper"],answer:2,explain:"Primary = project-specific, directly measured (but not CO\u2082e-direct). Meter readings, fuel invoices, BoQ quantities. A, B, D are all secondary.",source:"GHG Accounting v1.0, \u00a73.2"},
+  {id:56,type:'mc',module:'GHG Accounting v1.0',question:"Which is an example of SECONDARY data under GHG Accounting?",choices:["Site-specific electricity consumption from a calibrated meter","Regional benchmarks, average EFs, or expenditure-based proxies","A project-specific lab-measured density","Truck odometer readings for project shipments"],answer:1,explain:"Secondary = non-project-specific, publicly available. Benchmarks, average EFs, expenditure proxies. Higher uncertainty; primary must always be used over secondary when available.",source:"GHG Accounting v1.0, \u00a73.2"},
+  {id:57,type:'mc',module:'Isometric Standard v2.0',question:"For conservative estimates of an input parameter with a uniform distribution (Option A), which percentile rule applies?",choices:["Always use the 16th percentile","Always use the 84th percentile","Use whichever of \u226416th or \u226584th percentile yields the more conservative estimate","Use the median"],answer:2,explain:"The direction matters \u2014 if the parameter lowers net removals when it's small, use 16th; when small increases it, use 84th. Always pick the value that REDUCES claimed removals.",source:"Isometric Standard v2.0, \u00a73.7.2"},
+  {id:58,type:'sa',module:'Isometric Standard v2.0',question:"Unless otherwise stated in a Protocol or Module, what time horizon (in years) must be used for GWP values? (Answer as a number.)",accept:["100","one hundred"],canonical:"100 years",explain:"100-year GWP is the baseline horizon. 20-year values are sometimes used for short-lived climate pollutant analyses but not for Isometric standard accounting unless a Protocol specifies.",source:"Isometric Standard v2.0, \u00a72.5.5 / \u00a76.7.1"},
+  {id:59,type:'mc',module:'Isometric Standard v2.0',question:"The \"Low Risk Level\" tier (Risk Level 1\u20132) corresponds to what buffer pool contribution?",choices:["1%","5%","7%","10%"],answer:1,explain:"Low Risk = 5%. Permeable-reservoir storage typically sits here. Full tier structure: 0 = 1% (VLR), 1\u20132 = 5% (Low), 3\u20134 = 7% (Med), 5+ = 10\u201320% (High).",source:"Isometric Standard v2.0, Appendix C"},
+  {id:60,type:'mc',module:'Isometric Standard v2.0',question:"Renewing a Project's Crediting Period requires:",choices:["A simple written notification to Isometric","An updated PDD AND re-Validation of the Project","A unanimous VVB rotation vote","Payment of a renewal fee only"],answer:1,explain:"Renewal = refresh and re-prove. Updated PDD + re-Validation. Baseline and Monitoring Plan get reassessed; it's effectively a Validation redux.",source:"Isometric Standard v2.0, \u00a75.7"}
+];
+
+// ---- RETIREMENT STORAGE ----
+function loadRetired() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return {};
+    const obj = JSON.parse(raw);
+    const now = Date.now();
+    const clean = {};
+    Object.keys(obj).forEach(k => { if (now - obj[k] < RETIREMENT_MS) clean[k] = obj[k]; });
+    return clean;
+  } catch (e) { return {}; }
+}
+function saveRetired(obj) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {} }
+function retireQuestion(id) { const r = loadRetired(); r[id] = Date.now(); saveRetired(r); }
+function isRetired(id) { const r = loadRetired(); if (!r[id]) return false; return (Date.now() - r[id]) < RETIREMENT_MS; }
+function clearRetired() { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} }
+
+// ---- LEADERBOARD ----
+const LB_CONFIGURED = !!(JSONBIN_BIN_ID && JSONBIN_API_KEY);
+
+async function lbFetch() {
+  // Try remote first if configured
+  if (LB_CONFIGURED) {
+    try {
+      const r = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
+        headers: { 'X-Master-Key': JSONBIN_API_KEY, 'X-Bin-Meta': 'false' }
+      });
+      if (r.ok) {
+        const data = await r.json();
+        const scores = (data && data.record && Array.isArray(data.record.scores)) ? data.record.scores : [];
+        // Cache
+        try { localStorage.setItem(LOCAL_LB_KEY, JSON.stringify(scores)); } catch (e) {}
+        return { scores, source: 'shared', error: null };
+      }
+      return { scores: lbLoadLocal(), source: 'cache', error: `HTTP ${r.status}` };
+    } catch (e) {
+      return { scores: lbLoadLocal(), source: 'cache', error: e.message };
+    }
+  }
+  return { scores: lbLoadLocal(), source: 'local', error: null };
+}
+
+async function lbSubmit(entry) {
+  // Always write to local fallback
+  const local = lbLoadLocal();
+  local.push(entry);
+  lbSaveLocal(lbSort(local).slice(0, 50));
+
+  if (!LB_CONFIGURED) return { ok: true, source: 'local' };
+
+  // Remote: fetch, append, put (best-effort; last writer wins)
+  try {
+    const r = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
+      headers: { 'X-Master-Key': JSONBIN_API_KEY, 'X-Bin-Meta': 'false' }
+    });
+    let scores = [];
+    if (r.ok) {
+      const data = await r.json();
+      scores = (data && data.record && Array.isArray(data.record.scores)) ? data.record.scores : [];
+    }
+    scores.push(entry);
+    scores = lbSort(scores).slice(0, 200);
+    const p = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`, {
+      method: 'PUT',
+      headers: { 'X-Master-Key': JSONBIN_API_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ scores })
+    });
+    if (!p.ok) return { ok: false, source: 'local', error: `HTTP ${p.status}` };
+    try { localStorage.setItem(LOCAL_LB_KEY, JSON.stringify(scores)); } catch (e) {}
+    return { ok: true, source: 'shared' };
+  } catch (e) {
+    return { ok: false, source: 'local', error: e.message };
+  }
+}
+
+function lbLoadLocal() {
+  try { const raw = localStorage.getItem(LOCAL_LB_KEY); return raw ? JSON.parse(raw) : []; } catch (e) { return []; }
+}
+function lbSaveLocal(arr) { try { localStorage.setItem(LOCAL_LB_KEY, JSON.stringify(arr)); } catch (e) {} }
+function lbSort(arr) {
+  return arr.slice().sort((a, b) => {
+    if (b.pct !== a.pct) return b.pct - a.pct;
+    if (b.total !== a.total) return b.total - a.total;
+    return a.ts - b.ts;
+  });
+}
+
+function renderLeaderboard(containerId, statusId, scores, source, errorMsg, highlightEntry) {
+  const ul = document.getElementById(containerId);
+  const status = document.getElementById(statusId);
+  ul.innerHTML = '';
+
+  const top = lbSort(scores).slice(0, 10);
+  if (top.length === 0) {
+    const li = document.createElement('li');
+    li.className = 'lb-empty';
+    li.textContent = 'No scores yet — be the first!';
+    ul.appendChild(li);
+  } else {
+    top.forEach((s, i) => {
+      const rank = i + 1;
+      const li = document.createElement('li');
+      li.className = `lb-row rank-${rank}`;
+      if (highlightEntry && s.ts === highlightEntry.ts && s.name === highlightEntry.name) li.classList.add('you');
+      li.innerHTML = `
+        <div class="lb-rank">${rank}</div>
+        <div class="lb-name">${escapeHtml(s.name)}</div>
+        <div class="lb-score">${s.score}/${s.total}</div>
+        <div class="lb-pct">${s.pct}%</div>
+      `;
+      ul.appendChild(li);
+    });
+  }
+
+  let statusText = '';
+  let warn = false;
+  if (!LB_CONFIGURED) {
+    statusText = 'Local leaderboard only — edit the HTML to add a JSONBin bin for shared play.';
+  } else if (source === 'shared') {
+    statusText = '✓ Shared leaderboard (JSONBin)';
+  } else if (source === 'cache') {
+    statusText = `Offline — showing cached scores${errorMsg ? ` (${errorMsg})` : ''}`;
+    warn = true;
+  }
+  status.textContent = statusText;
+  status.className = 'lb-status' + (warn ? ' warn' : '');
+}
+
+// ---- STATE ----
+let state = {
+  pool: [], idx: 0, selectedChoice: null, saValue: "",
+  correctCount: 0, answered: false, results: [], count: 30,
+  playerName: ""
+};
+
+function uniqueModules() { return Array.from(new Set(QUESTIONS.map(q => q.module))); }
+function normalize(s) {
+  return (s || "").toString().toLowerCase().trim()
+    .replace(/[,]/g, "").replace(/%/g, "")
+    .replace(/\s*years?\b/g, "").replace(/\s*vol\b/g, "")
+    .replace(/\s+/g, " ").trim();
+}
+function saCorrect(input, accept) { const n = normalize(input); return accept.some(a => normalize(a) === n); }
+function shuffle(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function availablePool(mods) { return QUESTIONS.filter(q => mods.has(q.module) && !isRetired(q.id)); }
+function selectedModuleSet() {
+  const boxes = document.querySelectorAll('#module-filters input[type=checkbox]');
+  const set = new Set(); boxes.forEach(b => { if (b.checked) set.add(b.value); }); return set;
+}
+
+function renderSetup() {
+  const mf = document.getElementById('module-filters'); mf.innerHTML = '';
+  uniqueModules().forEach(m => {
+    const label = document.createElement('label');
+    const cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = true; cb.value = m;
+    cb.addEventListener('change', updatePoolCount);
+    label.appendChild(cb);
+    const span = document.createElement('span'); span.textContent = m; label.appendChild(span);
+    mf.appendChild(label);
+  });
+  document.querySelectorAll('#count-row button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('#count-row button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active'); state.count = parseInt(b.dataset.count, 10); updatePoolCount();
+    });
+  });
+
+  // Restore name if saved
+  const nameInput = document.getElementById('name-input');
+  try {
+    const saved = localStorage.getItem(NAME_KEY);
+    if (saved) nameInput.value = saved;
+  } catch (e) {}
+  nameInput.addEventListener('input', updatePoolCount);
+
+  document.getElementById('start-btn').addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    if (!name) { nameInput.focus(); return; }
+    state.playerName = name;
+    try { localStorage.setItem(NAME_KEY, name); } catch (e) {}
+    startQuiz(false);
+  });
+  updatePoolCount();
+
+  // Load leaderboard
+  lbFetch().then(({ scores, source, error }) => renderLeaderboard('lb-setup', 'lb-status-setup', scores, source, error, null));
+}
+
+function updatePoolCount() {
+  const mods = selectedModuleSet();
+  const poolEligible = QUESTIONS.filter(q => mods.has(q.module));
+  const available = availablePool(mods);
+  const retired = poolEligible.length - available.length;
+  const n = Math.min(state.count, available.length);
+  const pc = document.getElementById('pool-count');
+  const ri = document.getElementById('retired-info');
+  const hasName = document.getElementById('name-input').value.trim().length > 0;
+  if (available.length === 0) {
+    pc.innerHTML = '<span style="color:#c8342a;font-weight:600;">No questions available \u2014 all are retired or no modules selected.</span>';
+    ri.innerHTML = '';
+  } else if (!hasName) {
+    pc.innerHTML = '<span style="color:#c8342a;font-weight:600;">Enter your name above to begin.</span>';
+    ri.innerHTML = '';
+  } else {
+    pc.innerHTML = `<strong>${n}</strong> questions from ${available.length} available (bank: ${poolEligible.length}).`;
+    if (retired > 0) {
+      ri.innerHTML = ` <span class="pool-status">${retired} retired \u2264 3d</span><button class="reset-link" id="reset-btn">reset retirement</button>`;
+      const rb = document.getElementById('reset-btn');
+      if (rb) rb.onclick = () => { if (confirm('Clear retirement cooldown on all questions?')) { clearRetired(); updatePoolCount(); } };
+    } else { ri.innerHTML = ''; }
+  }
+  document.getElementById('start-btn').disabled = available.length === 0 || !hasName;
+}
+
+function startQuiz(retryMissed) {
+  let pool;
+  if (retryMissed && state.results.length) {
+    const missedIds = new Set(state.results.filter(r => !r.correct).map(r => r.id));
+    pool = QUESTIONS.filter(q => missedIds.has(q.id));
+  } else { const mods = selectedModuleSet(); pool = availablePool(mods); }
+  pool = shuffle(pool);
+  const n = retryMissed ? pool.length : Math.min(state.count, pool.length);
+  state.pool = pool.slice(0, n);
+  state.idx = 0; state.correctCount = 0; state.results = []; state.answered = false;
+  state.selectedChoice = null; state.saValue = "";
+  show('quiz'); renderQuestion();
+}
+
+function show(which) { ['setup', 'quiz', 'results'].forEach(id => { document.getElementById(id).classList.toggle('hidden', id !== which); }); }
+
+function renderQuestion() {
+  const q = state.pool[state.idx];
+  state.answered = false; state.selectedChoice = null; state.saValue = "";
+  document.getElementById('player-tile').textContent = state.playerName || '—';
+  document.getElementById('prog-label').textContent = `${state.idx + 1}/${state.pool.length}`;
+  document.getElementById('score-label').textContent = `${state.correctCount}`;
+  document.getElementById('prog-fill').style.width = `${(state.idx / state.pool.length) * 100}%`;
+  document.getElementById('q-module').textContent = q.module;
+  document.getElementById('q-text').textContent = q.question;
+  const body = document.getElementById('q-body'); body.innerHTML = '';
+  if (q.type === 'mc') {
+    const wrap = document.createElement('div'); wrap.className = 'choices';
+    q.choices.forEach((c, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice'; btn.type = 'button';
+      btn.innerHTML = `<span class="choice-letter">${String.fromCharCode(65 + i)}</span><span>${escapeHtml(c)}</span>`;
+      btn.addEventListener('click', () => {
+        if (state.answered) return;
+        state.selectedChoice = i;
+        wrap.querySelectorAll('.choice').forEach(x => x.classList.remove('selected'));
+        btn.classList.add('selected');
+        document.getElementById('submit-btn').disabled = false;
+      });
+      wrap.appendChild(btn);
+    });
+    body.appendChild(wrap);
+  } else {
+    const input = document.createElement('input');
+    input.className = 'sa'; input.type = 'text'; input.autocomplete = 'off';
+    input.placeholder = 'TYPE YOUR ANSWER\u2026';
+    input.addEventListener('input', (e) => { state.saValue = e.target.value; document.getElementById('submit-btn').disabled = state.saValue.trim() === ''; });
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !document.getElementById('submit-btn').disabled) submitAnswer(); });
+    body.appendChild(input);
+    setTimeout(() => input.focus(), 50);
+  }
+  document.getElementById('feedback').classList.add('hidden');
+  const submitBtn = document.getElementById('submit-btn');
+  submitBtn.textContent = 'Submit'; submitBtn.disabled = true; submitBtn.onclick = submitAnswer;
+}
+
+function submitAnswer() {
+  const q = state.pool[state.idx];
+  let correct = false;
+  if (q.type === 'mc') {
+    correct = (state.selectedChoice === q.answer);
+    const btns = document.querySelectorAll('#q-body .choice');
+    btns.forEach((btn, i) => {
+      btn.classList.add('locked'); btn.classList.remove('selected');
+      if (i === q.answer) btn.classList.add('correct');
+      else if (i === state.selectedChoice) btn.classList.add('wrong');
+    });
+  } else {
+    correct = saCorrect(state.saValue, q.accept);
+    const input = document.querySelector('#q-body input.sa');
+    input.readOnly = true; input.classList.add(correct ? 'correct' : 'wrong');
+  }
+  state.answered = true;
+  if (correct) state.correctCount++;
+  state.results.push({ id: q.id, correct, module: q.module });
+  retireQuestion(q.id);
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback ' + (correct ? 'correct' : 'wrong');
+  let correctText = q.type === 'mc' ? `${String.fromCharCode(65 + q.answer)}. ${q.choices[q.answer]}` : q.canonical;
+  const verdictMsg = correct ? (['Ding Ding Ding!','You Got It!','Nailed It!','Winner!','Yes Indeed!'][Math.floor(Math.random()*5)]) : (['Awww, Sorry!','So Close!','Not Quite!','Nope!','Oof!'][Math.floor(Math.random()*5)]);
+  fb.innerHTML = `
+    <div class="verdict">${verdictMsg}</div>
+    ${correct ? '' : `<div class="correct-answer"><strong>The answer:</strong> ${escapeHtml(correctText)}</div>`}
+    <div class="explain">${escapeHtml(q.explain)}</div>
+    <div class="source">&#9733; ${escapeHtml(q.source)}</div>
+  `;
+  fb.classList.remove('hidden');
+  const submitBtn = document.getElementById('submit-btn');
+  submitBtn.disabled = false;
+  submitBtn.textContent = (state.idx + 1 >= state.pool.length) ? 'See Results \u00bb' : 'Next \u00bb';
+  submitBtn.onclick = nextQuestion;
+  document.getElementById('score-label').textContent = `${state.correctCount}`;
+}
+
+function nextQuestion() { if (state.idx + 1 >= state.pool.length) showResults(); else { state.idx++; renderQuestion(); } }
+
+async function showResults() {
+  show('results');
+  const total = state.pool.length;
+  const correct = state.correctCount;
+  const pct = total === 0 ? 0 : Math.round((correct / total) * 100);
+  document.getElementById('final-score').textContent = `${correct} / ${total}`;
+  document.getElementById('final-pct').textContent = `${pct}% \u2014 ${verdictText(pct)}`;
+
+  // Module breakdown
+  const bd = {};
+  state.results.forEach(r => { bd[r.module] = bd[r.module] || { c: 0, t: 0 }; bd[r.module].t++; if (r.correct) bd[r.module].c++; });
+  const bdEl = document.getElementById('module-breakdown'); bdEl.innerHTML = '';
+  Object.keys(bd).sort().forEach(m => {
+    const name = document.createElement('div'); name.className = 'name'; name.textContent = m;
+    const count = document.createElement('div'); count.className = 'count'; count.textContent = `${bd[m].c} / ${bd[m].t}`;
+    bdEl.appendChild(name); bdEl.appendChild(count);
+  });
+
+  // Missed review
+  const missed = state.results.filter(r => !r.correct);
+  const missedSection = document.getElementById('missed-section');
+  const missedList = document.getElementById('missed-list'); missedList.innerHTML = '';
+  if (missed.length === 0) missedSection.classList.add('hidden');
+  else {
+    missedSection.classList.remove('hidden');
+    missed.forEach(r => {
+      const q = QUESTIONS.find(x => x.id === r.id);
+      const item = document.createElement('div'); item.className = 'missed-item';
+      const answerText = q.type === 'mc' ? q.choices[q.answer] : q.canonical;
+      item.innerHTML = `<div class="q">${escapeHtml(q.question)}</div><div class="a"><strong>Answer:</strong> ${escapeHtml(answerText)}</div><div class="src">&#9733; ${escapeHtml(q.source)}</div>`;
+      missedList.appendChild(item);
+    });
+  }
+  const retryBtn = document.getElementById('retry-missed-btn');
+  retryBtn.disabled = missed.length === 0;
+  retryBtn.onclick = () => startQuiz(true);
+  document.getElementById('restart-btn').onclick = () => { show('setup'); updatePoolCount(); lbFetch().then(({ scores, source, error }) => renderLeaderboard('lb-setup', 'lb-status-setup', scores, source, error, null)); };
+
+  // Leaderboard submit (skip retry-missed rounds to avoid duplicate entries from same attempt)
+  const isRetryMissed = state.results.every(r => !state.results.some(rr => rr.correct));
+  const entry = { name: state.playerName.slice(0, 24), score: correct, total, pct, ts: Date.now() };
+  // Render placeholder
+  renderLeaderboard('lb-results', 'lb-status-results', [], LB_CONFIGURED ? 'shared' : 'local', null, null);
+  document.getElementById('lb-status-results').textContent = 'Submitting score\u2026';
+  const sub = await lbSubmit(entry);
+  const { scores, source, error } = await lbFetch();
+  // Ensure our entry is in the displayed list (in case fetch lags)
+  let allScores = scores.slice();
+  if (!allScores.some(s => s.ts === entry.ts && s.name === entry.name)) allScores.push(entry);
+  renderLeaderboard('lb-results', 'lb-status-results', allScores, source, error, entry);
+
+  // If user didn't make top 10, append a note showing their rank
+  const sorted = lbSort(allScores);
+  const rank = sorted.findIndex(s => s.ts === entry.ts && s.name === entry.name) + 1;
+  const status = document.getElementById('lb-status-results');
+  if (rank > 10) {
+    status.innerHTML = status.textContent + ` &middot; Your rank: #${rank} of ${sorted.length}`;
+  } else if (rank >= 1) {
+    status.innerHTML = status.textContent + ` &middot; You're #${rank}!`;
+  }
+}
+
+function verdictText(pct) {
+  if (pct === 100) return "A PERFECT SCORE! Come on down!";
+  if (pct >= 90) return "Excellent. Just a couple of edge cases to sharpen.";
+  if (pct >= 75) return "Strong round. Revisit the missed items and go again.";
+  if (pct >= 60) return "Decent \u2014 but too many slips for audit-grade recall. Repeat.";
+  if (pct >= 40) return "Room to grow. Focus on the modules where you dropped points.";
+  return "Time to open the PDFs. Run it again after a review session.";
+}
+
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+document.getElementById('quit-btn').addEventListener('click', () => { if (confirm('Quit this round and return to setup?')) { show('setup'); updatePoolCount(); } });
+
+renderSetup();
+</script>
+</body>
+</html>

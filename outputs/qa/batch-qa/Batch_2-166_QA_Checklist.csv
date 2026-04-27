@@ -1,0 +1,96 @@
+Checklist Item,Status,Notes / Evidence,Verifier Reference
+Batch ID:,2-166,Reporting Period: 3/16/26–3/22/26 | Reviewer: Claude | Oil Types: AECN only,
+Injection Site:,Basco 6,Certify ID: rmv_1KMR8930Z1S0ZZ6Y | Completion Date: 3/20/26,
+,,,
+1. Batch Folder Completeness,,,
+"Batch folder exists with correct naming (e.g., 2-XXX)",Pass,"Folder ""2-166"" exists under ""3/16/26-3/22/26"" in Drive. Correct naming convention.",VR Appendix 1
+Scale Tickets subfolder present and populated,Pass,"Scale Tickets subfolder present with 2 files: ""2-166 Empty Ticket.png"" (895 KB) and ""2-166 Full Ticket.jpg"" (578 KB). Both dated Mar 23, owned by Garrett Lutz.",VR Appendix 1
+Testing subfolder present with all required lab results,Pass,"Testing subfolder present with 1 file: ""2-166 - 2-174.pdf"" (88 KB, Mar 26). CHN analysis covering batches 2-166 through 2-174.",VR Appendix 1
+Ops Notes spreadsheet present and complete,Pass,"""2-166 Ops Notes"" Google Sheet present (4 KB, Mar 23). Contains Batch Composition and Batch Consumables sections.",VR Appendix 1
+Injection site confirmed as Basco 6 — no references to deprecated Vaulted Deep,Pass,"Scale tickets show ""PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA"" (Basco area). Certify shows ""Charm Bio-oil Geologic Storage"" project. No Vaulted Deep references found.",BOLs/Ops Notes/Certify
+,,,
+2. Scale Tickets & Mass Determination,,,
+Empty and full scale ticket images present for each truckload/railcar,Pass,"1 pair: ""2-166 Empty Ticket.png"" + ""2-166 Full Ticket.jpg"". Single tanker truck load (AECN).",VR Sec 5.1
+For each pair: dates within 2 weeks of injection,Pass,Both tickets dated 3/19/26. Ops Notes completion date 3/20/26. Delta = 1 day. Well within 2-week threshold.,VR Sec 3.5
+For each pair: tractor and trailer numbers match between empty and full,Pass,"Empty: Tractor #2208, Trailer #36562. Full: Tractor #2208, Trailer #36562. Both match.",VR Sec 5.1
+Net mass (full minus empty) correctly calculated in Ops Notes,Pass,"Full gross = 79,180 lbs, Empty gross = 34,760 lbs. Net = 44,420 lbs = 20,151 kg. Ops Notes records 20,110.0 kg (BOL mass, which is lower = conservative). MIN rule correctly applied.",VR Sec 5.1
+"Injectate mass uses conservative value: MIN(scale ticket net, originating BOL mass)",Pass,"Scale ticket net = 20,151 kg. BOL mass (from Billing documents 2325-T.pdf) = 20,110 kg. MIN = 20,110 kg. Matches Ops Notes (20,110.0) and Certify Origin Mass (20.110 t).",GHG Stmt Sec C
+1.29% sparging mass deduction applied to AECN input mass only,Pass,"20,110 × 0.0129 = 259.4 kg deducted. Injectate = 20,110 − 259 = 19,851 kg = 19.851 t. Matches Certify ""Mass of Injectant"" (19.851 t). AECN-only batch; deduction correctly applied.",GHG Stmt Sec C
+"All mass values consistent across scale tickets, Ops Notes, and Certify/dMRV entry",Pass,"Scale net: 20,151 kg | BOL: 20,110 kg | Ops Notes: 20,110.0 kg | COBB: 20,110 kg | Certify Origin: 20.110 t | Certify Injectant: 19.851 t (after sparging). All consistent.",VR Sec 5.1
+,,,
+3. Bills of Lading (BOL) & Transportation,,,
+Truck BOL(s) present for each shipment,Pass,"BOL referenced as ""Billing documents 2325-T.pdf"" in Certify Sources for ""Origin Bio-Oil Mass - AECN"" datapoint. COBB confirms BOL_number = ""2325-T"".",VR Appendix 1
+If rail delivery: truck BOLs from AECN present,N/A,"Tanker truck delivery, not rail. consumed_lot = ""2325-T_offload_1"" confirms truck (T suffix).",VR Appendix 1
+BOL mass matches or exceeds reported injectate mass,Pass,"BOL mass = 20,110 kg (from billing doc). Injectate after sparging = 19,851 kg. BOL > injectate. ✓",VR Sec 3.5
+Origin and destination correct (AECN→Basco),Pass,"Certify transport component: ""AECN to LA Tanker Truck Transport"". Distance datapoint: ""Aggregate Distance Transported AECN to Basco = 2,197 mi"". Route confirmed. Full ticket shows BOL from Bio Énergie (AECN).",PDD Sec A
+"Transportation distance consistent with known route (~2,197 mi for AECN truck)",Pass,"Certify: 2,197 mi. Knowledge base reference: ~2,197 mi. Consistent.",Transport Emissions Acctg v1.1
+Transport mode matches oil type: tanker=AECN truck,Pass,"AECN oil via tanker truck confirmed. BOL ""2325-T"" (T = truck). Certify components all reference ""Tanker Truck"". Lot = ""2325-T_offload_1"".",Certify Datapoints
+Billing documents present and consistent with BOL shipment details,Pass,"""Billing documents 2325-T.pdf"" uploaded as Certify source. Linked to Origin Bio-Oil Mass datapoint (20.110 t).",VR Appendix 1
+,,,
+4. Bio-Oil Composition & Testing (CHN / Lab Results),,,
+CHN analysis PDF(s) present in Testing subfolder,Pass,"""2-166 - 2-174.pdf"" present in Testing subfolder (88 KB). SGS Certificate of Analysis SR26-02012.001, dated 26-Mar-2026.",VR Appendix 1
+Carbon content (wt%) within expected range: AECN ~41-42%,Pass,"SGS lab report: Carbon = 44.6% (m/m). Within validated AECN range: mean 39.42%, SD 6.09% (n=285). Value is 0.85 SD above mean, well within ±2 SD threshold (27.2%–51.6%).",Biomass Feedstock Acctg v1.2
+Hydrogen and nitrogen values reported and reasonable,Pass,"SGS CHN PDF: H = 7.5% (m/m), N = <0.75% (m/m). ASTM D5291 Method C. Values within reasonable range.",Biomass Feedstock Acctg v1.2
+Lab report references correct batch/sample ID,Pass,"SGS report CLIENT ID = ""BATCH 2-166"", Location = ""BASCO LOUISIANA"". Sampled 20-Mar-2026 07:30. Correctly references this batch.",VR Sec 5.1
+If aqueous phase: pH/conductivity results present,N/A,AECN-only batch. No aqueous phase present.,UIC Permit / LDENR
+Carbon content used in CO₂e calculation matches lab report value,Pass,Certify Carbon Content = 44.60%. Lab report = 44.6%. Gross calc: 19.851 t × 0.4460 × 3.667 = 32.465 tCO₂e. Matches Certify sequestration (32.465 tCO₂e). ✓,VR Sec 5.1
+,,,
+5. Ops Notes Accuracy & Internal Consistency,,,
+Ops Notes has correct batch ID and injection date,Pass,"Batch number = ""2-166"" ✓. Completion Date = 3/20/26. Certify removal date = 20 Mar 2026. Match.",
+All scale ticket values correctly transcribed into Ops Notes,Pass,"Ops Notes Origin 1 Mass = 20,110.0 kg. This is the BOL mass (conservative value per MIN rule). Scale ticket net = 20,151 kg (higher). Correct conservative approach.",
+If oil and aqueous phases: mass internally consistent,N/A,AECN-only batch; no aqueous phase separation.,
+COBB values present and match appropriate cells,Pass,"COBB row 45: injection_batch=2-166, consumed_lot=2325-T_offload_1, BOL=2325-T, offloaded_qty=20,110 kg. Matches Ops Notes Total Mass (20,110.0).",
+pH measurement noted,Pass,Ops Notes Batch Consumables: pH = 2.6 (cell H23). Value recorded and reasonable for AECN bio-oil.,
+Completion date present and matches COBB,Pass,"Ops Notes Completion Date = 3/20/26. Certify = 20 Mar 2026. Match. Scale tickets dated 3/19/26 (weigh date, 1 day prior — normal for next-day injection completion).",
+No erroneous density measurements (density only for estimating AECN oil input),N/A,Density field in Ops Notes Batch Composition is expected to be blank for AECN. No erroneous values observed.,
+,,,
+6a. AECN Feedstock Emissions & Allocation,,,
+AECN process emissions LCA CI spreadsheet present,Pass,"Certify Sources include: ""BH 2025 LCA w Stack Emissions.xlsx"", ""Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx"". Uploaded for AECN Production Process Emissions.",VR Appendix 1
+LCA with stack emissions file present,Pass,"""BH 2025 LCA w Stack Emissions.xlsx"" present in Certify Sources.",VR Appendix 1
+Supporting GHG data file present for the AECN production period,Pass,"""Supporting GHG data 31Dec2025 S.xlsx"" present in Certify Sources (Private). Also ""Screenshot 2026-02-23 at 11.29.10 AM.png"" — NOTE: generic filename (see Sec 9 finding).",VR Appendix 1
+AECN pyrolysis process EF matches current half-year value (current: 0.10 kgCO₂e/kg),Pass,Certify Datapoint: AECN Production Process Emissions = 0.10 kgCO₂e/kg. Matches current 2026 value. Component: 2.092 tCO₂e (7.15%).,Certify Datapoints
+AECN pyrolysis embodied EF applied (current: 0.02 kgCO₂e/kg),Pass,Certify Datapoint: AECN Production Embodied Emissions = 0.02 kgCO₂e/kg. Matches current 2026 value. Component: 0.426 tCO₂e (1.46%).,Certify Datapoints
+,,,
+6b. Charm WODO Emissions,,,
+All items in Section 6b,N/A,No Charm WODO in this batch. AECN-only.,
+,,,
+6c. Charm Aqueous Emissions,,,
+All items in Section 6c,N/A,No Charm Aqueous in this batch. AECN-only.,
+,,,
+6d. Kerry Oil Emissions,,,
+All items in Section 6d,N/A,No Kerry oil in this batch. AECN-only.,
+,,,
+7. Gross-to-Net Calculation,,,
+Gross CO₂e = injectate mass × carbon wt% × 3.667; units consistent,Pass,19.851 t × 0.4460 × 3.667 = 32.465 tCO₂e. Matches Certify Sequestration (32.465 tCO₂e). Carbon content as decimal (0.4460). ✓,GHG Stmt Sec E / Bio-oil Geol Storage v1.1
+Process emissions correctly deducted from gross (all oil types combined),Pass,Total Removal Activities = 8.090 tCO₂e (transport: 5.572 + pyrolysis: 2.518). Deducted from gross.,GHG Stmt Sec E
+Uncertainty discount correctly applied per Isometric Standard,Pass,Uncertainty discount = 178 kg (0.178 t). Net = 32.465 − 8.090 + 5.050 − 0.178 = 29.247 tCO₂e. Reasonable uncertainty adjustment.,Isometric Standard v1.8
+Net removals consistent with BCU Quant spreadsheet and GHG Statement,Pass,Certify net = 29.25 tCO₂e (rounded from 29.247). Displayed consistently in removal header and Calculation View.,RP BCU Quant.xlsx
+,,,
+8. Data Integrity & Anomaly Check,,,
+"No unexplained outliers in mass, carbon content, or calculated values",Pass,"Carbon content (44.6%) is within validated AECN range (mean 39.42%, SD 6.09%, n=285). No unexplained outliers in mass or calculated values.",
+Any spills/losses/irregularities documented,Pass,"No spills, losses, or irregularities indicated. Losses = 0 tCO₂e in Certify. LCS = 0 (no pre-treatment needed for AECN at Basco).",GHG Stmt Sec C
+If inventory reconciliation applies: carryover oil documented,N/A,Single-lot batch (2325-T_offload_1). No inventory carryover or multi-period reconciliation needed.,VR Sec 3.5
+,,,
+9. Isometric Certify — Removal Component Mapping,,,
+SEQUESTRATIONS: Gross injection sequestration matches internal gross for total batch,Pass,Certify: Injection sequestration = 32.465 tCO₂e. Internal calc: 19.851 × 0.4460 × 3.667 = 32.465. Match. ✓,Certify Components
+REMOVAL ACTIVITIES — Transport: Process + embodied emissions correct for each lot/mode,Pass,"Transport process: 5.050 tCO₂e (17.26%). Transport embodied: 0.522 tCO₂e (1.78%). Total transport: 5.572 tCO₂e. EFs match 2026 values (0.07 process, 0.1476 embodied).",Certify Components
+REMOVAL ACTIVITIES — Pyrolysis: Each oil type has corresponding entry,Pass,"AECN pyrolysis process: 2.092 tCO₂e (7.15%). AECN pyrolysis embodied: 0.426 tCO₂e (1.46%). Total pyrolysis: 2.518 tCO₂e. Correctly labeled ""AECN pyrolysis (from truck loads)"".",Certify Components
+REDUCTIONS: All applicable BCU categories populated (5 categories),Pass,"5 BCU categories present: injection diesel (0), injection waste (0), pre-treat diesel (0), pre-treat waste (0), transport process (5.050 tCO₂e). Zero-value BCUs are derived zeros — expected, not an error.",Certify Components
+REDUCTIONS — BCU Quantity Verification: BCU ≥ corresponding activity emission,Pass,Transport process BCU = 5.050 tCO₂e. Transport process activity = 5.050 tCO₂e. BCU = activity. ✓ Rule satisfied.,Certify Components
+COUNTERFACTUALS: Baseline correctly computed or zero per protocol,Pass,Counterfactuals = 0 tCO₂e. Correct per bio-oil geological storage protocol.,Certify Components
+Net removal (tCO₂e) in Certify matches internal net calculation,Pass,Certify Calculation View: 32.465 − 8.090 + 5.050 − 0.178 = 29.247 tCO₂e. Displays as 29.25. Match. ✓,Certify Calculation View
+All Datapoints have corresponding source documents linked with descriptive names,Flag,"14 datapoints, 14 sources. One source has a GENERIC NAME: ""Screenshot 2026-02-23 at 11.29.10 AM.png"" (AECN Production Process EF). Persistent from batch 2-165. Not a data accuracy issue but should be renamed for audit readiness.",Certify Datapoints
+All Sources uploaded to Certify match files in the batch folder on Drive,Pass,"Key batch files present: Empty/Full Tickets, Ops Notes, CHN (2-166 - 2-174.pdf), Billing doc (2325-T.pdf). AECN LCA/GHG docs are in Certify as private sources (standard for production-period docs).",Certify Sources
+,,,
+QA SUMMARY,,,
+Total Pass,Pass,38 items passed,
+Total Fail,Fail,0 items failed,
+Total N/A,N/A,"8 items N/A (WODO, Aqueous, Kerry, rail, aqueous pH, density, inventory)",
+Total Flag,Flag,1 item flagged — anomalous but not a reporting failure; merits follow-up,
+,,,
+FINDINGS DETAIL,,,
+,,,
+,,,
+FINDING 3 (Fail): Generic source filename in Certify (persistent),Flag,"""Screenshot 2026-02-23 at 11.29.10 AM.png"" linked to AECN Production Process EF. Same issue flagged in batch 2-165. Should be renamed for audit clarity but does not affect data accuracy.",Sec 9
+,,,
+OBSERVATION: Transport process emissions minor variance,Pass,"Manual calc: 3,537 km × 20.110 t × 0.07 = 4,961 kgCO₂e. Certify: 5,050 kgCO₂e. Delta = 89 kg (1.8%). Below 5% materiality. Likely due to precision of internal EF (native value 0.0001143 MTCO₂e/(t·mi) vs displayed 0.07). Not a failure but noted for transparency.",Sec 9

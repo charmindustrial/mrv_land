@@ -128,6 +128,39 @@ This document captures real failure patterns from batch QA sessions spanning bat
 
 ---
 
+## Failure Category 8: Methodology Confusion — Embodied vs Process
+
+### Batch 2-182 — Suggested per-T-mi for embodied
+**What happened:** The agent saw a Standard EFs sheet entry labeled "Vehicle Embodied Emissions --Railcar | 0.0000311307 MT CO2e/T-mi" and proposed switching rail embodied from per-mile to per-T-mi methodology — which would have inflated rail embodied by ~70x. The unit label on that sheet entry is a typo (should read /mi); the correct convention is per-mile.
+
+**Root cause:** The agent took the published unit label at face value without sanity-checking against the methodology. Embodied emissions are about manufacturing the vehicle. The vehicle is built once and amortizes its manufacture EE over lifetime miles. The cargo mass it carries on any given trip does not change how much manufacturing it took to build the vehicle. There is no transport context in which embodied emissions scale with ton-miles.
+
+**The convention (lock this in):**
+- **Embodied emissions = per-mile.** Derivation: `total lifetime manufacture EE / EPA useful life miles -> g/mi -> *deadhead factor -> MTCO2e/mi`. Same shape for railcar, tanker truck, non-tanker truck, trailer.
+- **Process emissions = per-T-mi.** Fuel use scales with cargo mass and distance.
+- The Standard EFs sheet 2026 derivation tables for Truck and Trailer EE walk through this explicitly. Rail follows the same pattern. If a per-T-mi unit appears on a vehicle embodied entry, it's a typo on the sheet, not a methodology change.
+
+**The principle:** Before adopting any EF magnitude or unit, sanity-check it against the underlying methodology. A unit that doesn't make physical sense is a red flag, not a directive.
+
+---
+
+## Failure Category 9: Per-Removal vs Whole-Railcar Framing — Discrete Weights Belong to THE REMOVAL
+
+### Batch 2-183 — Flagged a correct ±72.57 kg rail-leg uncertainty as too low
+**What happened:** The agent opened the SOPOR→Opelousas Rail Process Emissions modal, saw Mass-of-load uncertainty = ±72.57 kg, and FLAGged it against SKILL.md guidance that read "72.57 kg × number of trucks loaded INTO the railcar" (=217.71 kg for a 3-in railcar) and Charm's in-practice "out-rule" (=290.28 kg for a 4-out railcar). The agent reasoned the modal value was 4× too low.
+
+**Root cause:** Misframing. The agent treated rail-leg mass uncertainty as a property of the RAILCAR (whole-railcar accounting: total mass = 78,020 kg, uncertainty propagated from N inbound or N outbound weighings). But Charm books AECN rail batches per-offload — each removal accounts only for the oil used in THAT removal. A per-batch removal's mass is fixed by ONE outbound discrete weight at the Basco offload (one full + empty scale ticket pair). One discrete weight → ±72.57 kg → modal value is correct.
+
+**The lesson (lock this in):**
+1. **A removal accounts only for the oil used in that removal.** Never the railcar's full mass, never another batch's slice. Sole exception: removals burdened by site emissions, where overhead is allocated across removals.
+2. **Before checking any rail-leg mass uncertainty, count the discrete weights that determine THIS removal's mass.** For per-batch offload removals, the answer is always 1 (the outbound weighing). Mass-of-load uncertainty on every leg = ±72.57 kg per removal.
+3. **Out-trucks > in-trucks ⇒ per-offload framing is automatically conservative.** A typical AECN railcar discharges in 4 outbound trucks vs. 3 inbound BOLs. Summed across sister batches, total mass uncertainty booked = 4 × 72.57 = 290.28 kg vs. only 3 × 72.57 = 217.71 kg the inbound weighings produced. The verifier sees more uncertainty than the inputs strictly required — favorable conservatism.
+4. **Conservatism precondition: N_offloads ≥ N_inbound_BOLs.** The per-offload framing is conservative *iff* this holds. If a railcar drew down in fewer offloads than BOLs loaded, summed per-offload uncertainty would under-book mass uncertainty by (N_BOLs − N_offloads) × 72.57 kg, and the discount must be widened. Verify on the *last* batch of the railcar (running balance ≈ 0 or documented-loss residual) by counting populated offload rows in Ops Notes vs. BOL rows in BOLs Loaded. See Section 8 🚂 Rail check (`references/checklist_structure.md`).
+
+**The principle:** Skill-doc guidance can carry the wrong framing. When a stated rule conflicts with the per-removal accounting model, the per-removal model wins — but the safeguard isn't tribal knowledge, it's the explicit precondition test (N_offloads ≥ N_BOLs) on the last batch of the railcar. Do not validate Section 7a per-offload uncertainty without confirming Section 8's last-batch check has been performed (or scheduled, if the railcar isn't yet fully drawn down).
+
+---
+
 ## General Principles (Distilled)
 
 1. **Every piece of feedback represents a class.** Apply every correction universally.
@@ -140,3 +173,4 @@ This document captures real failure patterns from batch QA sessions spanning bat
 8. **Certify display values are rounded.** Use the Standard EF Sheet for calculations.
 9. **Track your row.** Verify cell A before reading ANY COBB value.
 10. **Own the error.** Every penalty is a lesson. Every clean batch is earned.
+11. **A removal accounts only for oil used in that removal.** Per-offload rail uncertainty is ±72.57 kg per leg (one outbound discrete weight). Verify N_offloads ≥ N_BOLs on the last batch of each railcar.

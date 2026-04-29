@@ -10,11 +10,15 @@ Last updated: 2026-04-24 (post brief-writer build + feedstock rename). The works
 MRV Expert/
 ├── README.txt         ← plain-text overview (keep in sync with this file)
 ├── FOLDER_INDEX.md    ← this file (richer markdown version)
+├── CLAUDE.md          ← auto-loaded by Claude Code at session start; points to README + this file
+├── .claude/skills/    ← Claude Code skill discovery (symlinks to canonical skills under skills/)
 ├── skills/            ← skill source (SKILL.md + .skill archive + skill-internal references)
 ├── outputs/           ← everything skills produce (data artifacts, prose deliverables)
 ├── knowledge-base/    ← shared reference material every skill reads from
 └── archive/           ← old drafts, evals, superseded files
 ```
+
+`.claude/skills/` is how Claude Code discovers this workspace's skills. Each entry is a symlink to the canonical skill folder under `skills/`. Edit the canonical `SKILL.md`, not the symlink. To add a new skill, drop it under `skills/<cluster>/<skill-name>/` and add a matching symlink in `.claude/skills/`.
 
 ## skills/ — Skill Source
 

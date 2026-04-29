@@ -239,10 +239,12 @@ Charm uses Option B (Variance Propagation) per Isometric Standard S3.7.3. Per-co
 | Transport — AECN->Basco Tanker | Mass of Load | 72.57 kg per discrete weight |
 | Transport — AECN->SOPOR Tanker | Mass of Load | 72.57 kg per discrete weight |
 | Transport — Opelousas->B6 Tanker | Mass of Load | 72.57 kg per discrete weight |
-| Transport — SOPOR->Opelousas Rail | Mass of Load | 72.57 kg x number of trucks loaded into railcar |
+| Transport — SOPOR->Opelousas Rail | Mass of Load | 72.57 kg per discrete weight — i.e., ±72.57 kg per offload removal (one outbound weighing determines the removal's mass) |
 | Transport (all modes) | Distance Traveled | No uncertainty required (use longest Google Maps distance) |
 | AECN Pyrolysis Process Emissions | Bio-Oil Mass | 72.57 kg per discrete weight |
 | AECN Pyrolysis Embodied Emissions | Bio-Oil Mass | 72.57 kg per discrete weight |
+
+**Per-removal framing (rail batches):** A removal accounts only for the oil used in that removal — never the full railcar mass, never another batch's slice (sole exception: removals burdened by site emissions). The mass attributed to a per-batch offload removal is fixed by ONE outbound discrete weight at Basco, so per-leg Mass-of-Load uncertainty = ±72.57 kg on every leg, including rail. This framing is conservative on transport uncertainty *iff* N_offloads ≥ N_inbound_BOLs across the railcar's full draw-down (out-trucks ≥ in-trucks ⇒ summed per-offload uncertainty ≥ inbound uncertainty). If a railcar discharges in fewer trucks than were loaded, summed per-offload uncertainty < inbound uncertainty and the discount must be widened — see Section 8 🚂 Rail check on the *last* batch of a railcar (`references/checklist_structure.md`).
 
 **Three-layer uncertainty verification:**
 1. **Completeness:** Every component requiring uncertainty has it, applied to the correct datapoint
@@ -324,8 +326,8 @@ The file `skills/qa/batch-qa/qa_active_batches.json` in the MRV Expert workspace
 | Standard EFs | Live Google Sheet, 2026 tab | Column F = final emission factor values |
 
 **COBB Tracker URL:** https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350
-- Tab: "Basco Injection -- COBB" (for direct AECN truck loads)
-- Tab: "COBB (with offload info)" (for AECN rail offloads at Opelousas)
+- Tab: "Basco Injection -- COBB" — current live tab for ALL Basco injection batches, both truck and rail. For rail batches, `consumed_lot` follows `Rail_<RAILCAR>_<DATE>_offload_N` (e.g., `Rail_GPRX 5188_2.27.26_offload_1`), `BOL_number` lists the 3 input BOLs, `origin_quantity_kg` is the full railcar mass, and `offloaded_quantity_kg` is this batch's truck-out share.
+- Tab: "COBB (with offload info)" — older / archived (max batch ~2-122). Do NOT use for current rail batches. (Corrected April 27, 2026 after batch 2-182 training pass.)
 
 **QA Output folder (current RP):** https://drive.google.com/drive/folders/11n-sN6JPCy58t1-zOYOVRxLfGeGJX8dh
 

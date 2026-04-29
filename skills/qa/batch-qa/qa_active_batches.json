@@ -24,6 +24,73 @@
       ],
       "date_sent": "2026-04-06",
       "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-185",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777493651.023269",
+      "checklist_path": "outputs/qa/batch-2-185/Batch_2-185_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ7Y0Y4S1S023MT/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "GPRX 5188",
+      "reporting_period": "Apr 2026 (Certify removal date 02 Apr 2026)",
+      "T0_initiation": "2026-04-29T19:04:06Z",
+      "T1_data_gathering_complete": "2026-04-29T19:25:25Z",
+      "T2_checklist_draft_complete": "2026-04-29T19:31:26Z",
+      "T3_adversarial_review_complete": "2026-04-29T19:38:32Z",
+      "T5_max_review_start": "2026-04-29T19:38:32Z",
+      "fail_items": [
+        {"row": 16, "section": "2.4", "what_to_verify": "Ops Notes Cargo (kg) for offload_4 corrected from 12,031.44 to 12,419.35 kg (= scale ticket math (56,660-29,280)*0.453592). Sparging Loss recomputed to 160.21 kg, Mass of Bio-Oil Injected recomputed to 12,259.13 kg. Certify Allocated Bio-Oil Mass datapoint updated.", "certify_location": "Allocated Bio-Oil Mass - AECN via Rail datapoint"},
+        {"row": 17, "section": "2.5", "what_to_verify": "Resolves automatically when R16 is fixed (mass chain becomes consistent)", "certify_location": "Same as R16"},
+        {"row": 19, "section": "2.7", "what_to_verify": "Resolves automatically when R16 is fixed; verify scale tickets, COBB, Ops Notes, and Certify all show 12,419.35 kg post-fix", "certify_location": "Allocated Bio-Oil Mass datapoint"},
+        {"row": 37, "section": "5.2", "what_to_verify": "Resolves automatically when R16 is fixed", "certify_location": "N/A (Ops Notes only)"},
+        {"row": 39, "section": "5.4", "what_to_verify": "Resolves automatically when R16 is fixed (COBB row 62 already correct at 12,419.35)", "certify_location": "N/A (cross-check COBB vs Ops Notes)"},
+        {"row": 71, "section": "7.1", "what_to_verify": "Resolves automatically when R16 is fixed; gross calc will match scale-ticket-derived mass", "certify_location": "Injection Sequestration component"},
+        {"row": 86, "section": "9.8", "what_to_verify": "Resolves when Certify Allocated Bio-Oil Mass datapoint and Mass of Injectant updated; Net will increase from 17.094 to ~17.6 tCO2e", "certify_location": "Mass of Injectant + Allocated Bio-Oil Mass datapoints"},
+        {"row": "CRITICAL: SISTER BATCH 2-184", "section": "tandem fix", "what_to_verify": "Update sister batch 2-184 Ops Notes offload_3 Cargo (kg) from 21,844.99 to 21,457.08 kg (= COBB row 61). Recompute Sparging+Injected. Update Certify removal rmv_1KQ7Y019T1S0X0WC. Net for 2-184 will decrease by ~3%; total railcar Net CDR conserved.", "certify_location": "rmv_1KQ7Y019T1S0X0WC Allocated Bio-Oil Mass + Mass of Injectant"}
+      ],
+      "flag_items": [
+        {"row": 18, "section": "2.6", "what_to_verify": "Auto-resolves when R16 is fixed (sparging will be recomputed on correct base)", "certify_location": "N/A"},
+        {"row": 41, "section": "5.6", "what_to_verify": "COBB column I 'order_line_completed_on' = 2026-03-27 19:52:03 (same across all 4 sister batches) vs Ops Notes Completion Date 4/2/2026. Confirm whether order_line_completed_on is the intended COBB date for protocol comparison or a different column should be used.", "certify_location": "N/A (COBB convention question)"},
+        {"row": 48, "section": "6.4", "what_to_verify": "Confirm AECN Pyrolysis Process EF 0.1038 ±0.00209 tCO2e/t (Certify modal) is the correct H2 2025 LCA value (vs KB current 0.10402). Source: Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx. Either confirm 0.1038 is correct H2 2025 value, or update to 0.10402.", "certify_location": "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail) datapoint"},
+        {"row": 74, "section": "7.4", "what_to_verify": "Structural — RP-level BCU Quant cross-check is part of RP finalization, not per-batch QA. No action required at batch level.", "certify_location": "N/A"},
+        {"row": 87, "section": "9.9", "what_to_verify": "Rename 4 non-descriptive filenames (shared rail-batch datapoints): (1) 'image (44).png' → 'AECN_Rail_SOPOR_to_Opelousas_Distance_Watco_email.png'; (2) 'Screenshot 2026-04-10 at 3.19.33 PM.png' → 'Standard_EFs_Tanker_Truck_Process_2026.png'; (3) 'Screenshot 2026-02-23 at 11.29.10 AM.png' → 'AECN_Pyrolysis_Process_CI_H2_2025_Source.png'; (4) 'Screenshot 2026-01-27 125934.png' → 'Opelousas_to_Basco_Truck_Distance_GoogleMaps.png'.", "certify_location": "Sources tab — multiple datapoints"}
+      ],
+      "date_sent": "2026-04-29",
+      "status": "awaiting_max_review"
+    },
+    {
+      "batch_id": "2-182",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1777415879.464249",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777412787.803389",
+      "checklist_path": "outputs/qa/batch-qa/Batch_2-182_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ7XY3Q81S0T52T/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "GPRX 5188",
+      "reporting_period": "4/1/26-4/5/26",
+      "T0_initiation": "2026-04-28T20:47:51Z",
+      "fail_items": [
+        {
+          "row": 81,
+          "section": "9.2",
+          "what_to_verify": "Update Rail Embodied EF datapoint from stale 0.0000352240 MTCO2e/mi (= 0.03522 kgCO2e/mi shown in modal) to 2026 value 0.0000311307 MTCO2e/mi (= 0.03113 kgCO2e/mi). Source: Standard Emission Factors + Calculations sheet, '2026 Railcar Embodied Emissions' tab (65.37 MT CTGate / 2.1M mi lifetime). Magnitude impact this removal: 2.48 kg (0.008%, immaterial) but propagates across all rail removals via shared datapoint.",
+          "certify_location": "SOPOR to Opelousas Rail Transport Embodied Emissions component, Distance emission factor input"
+        }
+      ],
+      "flag_items": [
+        {
+          "row": 87,
+          "section": "9.8",
+          "what_to_verify": "Rename 4 non-descriptive filenames to descriptive ones: (1) 'Screenshot 2026-04-10 at 3.19.33 PM.png' (Truck Transport EF source); (2) 'Screenshot 2026-02-23 at 11.29.10 AM.png' (AECN Pyrolysis Process EF support); (3) 'Screenshot 2026-01-27 125934.png' (Allocated Distance Opelousas to B6); (4) 'image (44).png' (SOPOR to Opelousas RAIL distance).",
+          "certify_location": "Sources tab — multiple datapoints"
+        }
+      ],
+      "date_sent": "2026-04-28",
+      "status": "awaiting_garrett"
     }
   ],
   "_pending_max_input": [

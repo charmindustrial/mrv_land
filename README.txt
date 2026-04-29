@@ -15,15 +15,21 @@ That's the rule. Out-of-date readmes are worse than no readme.
 TOP-LEVEL LAYOUT
 ----------------
 
-Four parent folders, plus this readme and the longer FOLDER_INDEX.md:
+Four parent folders, plus the readme files and Claude Code config:
 
     skills/            Skill source code (SKILL.md + .skill archive per skill)
     outputs/           Everything skills produce (data artifacts + prose)
     knowledge-base/    Shared reference material every skill reads from
     archive/           Old drafts, evals, superseded files
+    .claude/           Claude Code workspace config (skills/ contains symlinks
+                       to the canonical skills under skills/ — Claude Code auto-
+                       discovers them when launched from this folder).
+    CLAUDE.md          Auto-loaded by Claude Code at session start; points back
+                       to this README and FOLDER_INDEX.md as source of truth.
 
-Nothing else lives at the root except FOLDER_INDEX.md and this README.txt.
-Loose files at the root are wrong — they should be in one of the four folders.
+Nothing else lives at the root except FOLDER_INDEX.md, this README.txt, and
+CLAUDE.md. Loose files at the root are wrong — they should be in one of the
+four content folders.
 
 
 SKILLS/  --  WHAT EACH SKILL DOES

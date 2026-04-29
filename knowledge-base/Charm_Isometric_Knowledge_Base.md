@@ -176,7 +176,9 @@ The complete biocarbon removal pathway:
 
 ## 2. Injection Sites
 
-### Vaulted Deep (Kansas)
+### Vaulted Deep (Kansas) — FORMER PARTNER
+- **Location:** Hutchinson, Kansas
+- **Relationship status:** No longer an operational partner. Vaulted is a third-party salt cavern operator that served as Charm's injection/storage partner from March 2024 through August 2025. The relationship has been concluded — Charm no longer operates at Vaulted.
 - **Formation Type:** Salt cavern storage
 - **Well Class:** Class III UIC
 - **Regulator:** KDHE (Kansas Department of Health and Environment)
@@ -184,7 +186,7 @@ The complete biocarbon removal pathway:
 - **Protocol:** Bio-oil Storage in Salt Caverns Module v1.1
 - **Risk Level:** Very Low Risk
 - **Buffer Allocation:** 2%
-- **Monitoring:** See Section 8 (Vaulted KDHE Monitoring)
+- **Monitoring:** See Section 8 (Vaulted KDHE Monitoring) — applies to post-injection / decommissioning monitoring obligations only.
 
 ### Basco 6 (Louisiana)
 - **Formation Type:** Permeable reservoir storage
@@ -202,17 +204,43 @@ The complete biocarbon removal pathway:
 ## 3. Oil Types & Feedstock Streams
 
 ### AECN Oil
-- **Source:** AECN facility, Quebec (Ensyn/Honeywell UOP pyrolysis of waste wood)
-- **Transport Methods:** Tanker truck or rail car (via SOPOR Quebec)
+- **Source:** AECN facility, Quebec — **third-party vendor that sells bio-oil to Charm for injection** (Ensyn/Honeywell UOP pyrolysis of waste wood). Not a Charm facility; AECN is a separate company.
+- **Transport Methods:** Tanker truck (direct AECN→Basco) or rail (AECN→SOPOR truck → SOPOR→Opelousas rail → Opelousas→Basco truck)
 - **Density:** ~1.28 g/cm³ (cleaned mean)
 - **Certify Recording:**
   - Origin: "Origin Bio-Oil Mass - AECN"
   - Transport: "Tanker Truck Transport" or "Railcar"
-  - Pyrolysis: "AECN Pyrolysis Process/Embodied Emissions"
+  - Pyrolysis: "AECN Pyrolysis Process/Embodied Emissions" (truck batches) or "AECN pyrolysis (from rail loads) - process/embodied emissions" (rail batches — see rail batch reference below)
 - **Status:** Primary verified stream since March 2024
 
+### AECN Rail Batch Reference (added April 27, 2026 from batch 2-182 training pass)
+
+Rail-delivered AECN batches differ structurally from truck-delivered AECN batches in several ways. This block captures the conventions; first rail batch QA'd was 2-182 (railcar GPRX 5188).
+
+**Transport structure — 6 components, not 2.** Three legs each get process + embodied:
+- AECN → SOPOR Tanker Truck Transport — Process and Embodied
+- SOPOR → Opelousas Rail Transport — Process and Embodied
+- Opelousas → Basco Tanker Truck Transport — Process and Embodied
+
+**Pyrolysis component naming.** Rail batches use `AECN pyrolysis (from rail loads) - process emissions` and `... embodied emissions`, vs. the truck-batch convention `AECN Pyrolysis Process/Embodied Emissions`. Same EFs, different label. Per Max: the rail-specific label is a signal to the VVB to expect **scale tickets as the authoritative mass source**, not the BOL.
+
+**Authoritative mass source.** Truck batches: BOL is authoritative for mass. **Rail batches: scale tickets at the offload truck-out are authoritative.** BOLs document the input side (3 BOLs into the railcar at SOPOR), but offload mass at Basco comes from the truck-out scale tickets.
+
+**Distance evidence — no Google Maps for rail.** Email or written confirmation from the rail logistics provider (Watco, in current operations) is the authoritative distance evidence. This is a deliberate exception to the "use longest Google Maps distance" convention used for truck legs. Filename hygiene still matters — generic names like `image (44).png` are FLAG-level findings.
+
+**3 BOLs in / 4 trucks out per railcar.** Three input BOLs feed into one railcar at SOPOR (~26 MT each, ~78 MT total). Railcar gets offloaded at Opelousas into 4 truck-out deliveries to Basco. Each delivery becomes its own batch ID. Sister batches share a railcar load (e.g., 2-182 through 2-185 all from GPRX 5188).
+
+**Allocated distance methodology (under per-mile EF).** Ops Notes' offload table pre-computes `allocated distance = full leg distance × this batch's upstream allocation fraction`, where upstream allocation = (this batch's offloaded mass) ÷ (full railcar mass). Example for 2-182: rail allocated distance = 2,199 mi × 0.2757 = 606.24 mi. Embodied calculation then uses allocated distance × per-mile EF. Mathematically equivalent to full distance × per-mile EF × mass fraction.
+
+**Ops Notes rail-batch shape.** The rail Ops Notes (e.g., `2-182 Ops Notes Rail`) has different sections from the truck version:
+- `Batch Composition` — railcar metadata (number, sparging rate, full-leg distances, truck-trip count)
+- `BOLs Loaded` — 3 input BOLs into the railcar with masses
+- Offload table — 4 rows (one per truck-out), each with `Upstream Allocation` fraction and pre-allocated distances. Only populated rows carry data; unpopulated rows are zero.
+
+**COBB tracker.** Rail batches go in the **`Basco Injection -- COBB`** tab (same as truck batches), NOT `COBB (with offload info)`. See Section 11A. For rail batches, `consumed_lot` follows `Rail_<RAILCAR>_<DATE>_offload_N`, `BOL_number` lists all 3 input BOLs, `origin_quantity_kg` is the full railcar mass, `offloaded_quantity_kg` is this batch's truck-out share. The Loads tab in the same workbook contains the railcar inbound record (carrier, asset ID, receive/dwell dates, total MT).
+
 ### Charm WODO (Wood-Derived Oil)
-- **Source:** Charm Fort Lupton, CO pyrolysis facility (operational from August 2024)
+- **Source:** Charm Fort Lupton, CO pyrolysis facility (operational from August 2024). **Fort Lupton is the only Charm-owned production facility; it produces WODO, Aqueous fraction, AND Charm biochar from the same pyrolysis operation.**
 - **Feedstock:** Wood chips → high-temperature pressurized reactor
 - **Transport:** Flatbed truck in totes (Fort Lupton → El Dorado KS → injection site)
 - **Density:** Same as bio-oil (>1.01 g/cm³)
@@ -305,16 +333,23 @@ All streams exceed formation fluid density (1.01 g/cm³) — confirmed via densi
 | AECN Embodied | 21.16 kgCO₂e/t | 21.16 | 21.16 | 0.0212 kgCO₂e/kg (Certify precise value; KB previously rounded to 0.02) |
 | Tanker Truck Process | 0.08 kgCO₂e/(km·t) | 0.08 | 0.07 | 0.07 kgCO₂e/(km·t) display — **native source value: 0.0001143 MTCO₂e/(t·mi)** |
 | Tanker Truck Embodied | 0.0477 kgCO₂e/km | 0.0477 | 0.0490 | 0.1476 kgCO₂e/km (=0.00023756059 MTCO₂e/mi) |
+| Rail Process (Fuel Use, Well-to-Wheel) | N/A | N/A | N/A | 0.0000259104 MTCO₂e/(t·mi) (GLEC V3.2 2025) |
+| Railcar Embodied | N/A | N/A | N/A | **0.0000311307 MTCO₂e/mi** (GLEC V3.2 2025; per-mile, NOT per-T-mi) |
 | Flatbed Process | N/A | N/A | 0.14 kg/(t·mi) | N/A |
 | Flatbed Embodied | N/A | N/A | 0.0401 kgCO₂e/km | N/A |
 | LCS Embodied | 1,540.65 kg/m³ | 1,540.65 | 1,505.78 | 1,505.78 |
 | Charm Production (PP5) | N/A | N/A | 0.73 kgCO₂e/kg | N/A |
 
+**Methodology convention (LOCK THIS IN):**
+- **Embodied emissions are always per-mile** (or per-vehicle-lifetime amortized to per-mile). Derivation pattern on the Standard EFs sheet: `total lifetime manufacture EE ÷ EPA useful life miles × deadhead factor → MTCO₂e/mi`. Same shape for tanker truck, non-tanker truck, trailer, and railcar. If a per-T-mi unit ever appears on a vehicle embodied entry, treat it as a sheet typo, not a methodology change.
+- **Process emissions are per-T-mi** (fuel use scales with cargo mass × distance).
+- This convention exists because manufacturing a vehicle once, then amortizing its embodied burden across its lifetime miles, doesn't depend on what cargo is being carried on any given trip — but the fuel burned on a trip does. There is no transport context where embodied scales with ton-miles.
+
 **Notes:**
 - **CRITICAL: Never use Certify's displayed EF values for independent calculations.** Certify rounds/converts EFs for display (e.g., shows "0.07 kgCO₂e/(km·t)" when the native source value is 0.0001143 MTCO₂e/(t·mi)). Always pull the full-precision EF from the Standard Emission Factors sheet and use its native units. Using the rounded display value introduces phantom variances.
 - Emission factors have generally remained stable with minor refinements
 - Unit conversions standardized over time (lbs → kg, tonne → t)
-- Railcar embodied emissions: 23.958 MT CO₂e (v8, using eGRID 2023 at 0.350 kg CO₂e/kWh)
+- **Railcar Embodied updated for 2026** to 0.0000311307 MTCO₂e/mi. Derivation is on the Standard EFs sheet's `2026 Railcar Embodied Emissions` tab: **65.37 MT CTGate** (V17 DOT-111 LCA, full BOM model on the same tab) **÷ 2,100,000 mi expected lifetime** (35 yr × 60,000 mi/yr per Cambridge Systematics) = 0.0000311307 MT/mi. Prior published value 0.0000352240 MTCO₂e/mi is stale; Certify still references the older value as of April 27, 2026 — pending update. Older v8/eGRID-2023 figure of 23.958 MT CO₂e (per-railcar lifetime) is fully deprecated; current methodology is per-mile, not per-railcar amortized.
 - **Tanker Truck Embodied EF updated for 2026** from 0.0490 to 0.1476 kgCO₂e/km (confirmed 3/30/26)
 
 ### Standard Emission Factors — Live Source (2026)
@@ -402,8 +437,8 @@ Worked through with Tom Sellers and Seb Green:
 
 **COBB (Completion of Batch Basis) — Bio-oil Injection Tracker:**
 - **URL:** https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350#gid=1627433350
-- **Tab "Basco Injection -- COBB":** For directly trucked loads (AECN tanker trucks, Charm flatbed totes)
-- **Tab "COBB (with offload info)":** For trucks offloading oil from a railcar at the Opelousas rail yard to Basco
+- **Tab "Basco Injection -- COBB":** Live tab for current bio-oil injection batches at Basco. **Both truck-delivered AND rail-delivered batches live here** (e.g., 2-182 through 2-185 from railcar GPRX 5188 are in this tab, not the rail-named one below). For rail batches, `consumed_lot` follows the pattern `Rail_<RAILCAR>_<DATE>_offload_N`, `BOL_number` lists all 3 input BOLs, `origin_quantity_kg` is the full railcar mass, and `offloaded_quantity_kg` is this batch's truck-out share.
+- **Tab "COBB (with offload info)":** Older / archived tab. Contains only historical entries (max batch ~2-122 / 3-54). Do NOT use for current rail batches. Corrected April 27, 2026 after batch 2-182 training pass surfaced that the rail tab pointer was stale.
 - **Key columns:** injection_batch, consumed_lot, BOL_number, offloaded_quantity_kg, order_line_quantity_completed, injection_completion_date, injection_ph
 - **Note:** COBB data is maintained in this live tracker, NOT in per-batch Ops Notes. Always reference this sheet for COBB verification.
 - **CRITICAL — Navigation:** The "Basco Injection -- COBB" tab contains far more rows than fit in the initial viewport. Data extends well past the first screenful. To find a batch: use the Name Box (top-left cell reference box) to jump to A50, A100, etc., or use Ctrl+F search. NEVER conclude a batch is absent based only on what is visible on screen. The initial viewport typically shows ~24 data rows (up to ~batch 2-146); newer batches require scrolling or direct navigation. If Ctrl+End or scroll fails to move the view, use the Name Box to jump to a specific cell.
@@ -462,7 +497,7 @@ Used per-batch to verify every injection event before submission to Certify/veri
 - If rail delivery: truck BOLs from AECN present (destination = railyard); standard practice is 3 BOLs per railcar [VR Appendix 1]
 - BOL mass matches or exceeds reported injectate mass [VR Sec 3.5]
 - Origin and destination correct (AECN→Basco, Charm→Basco, or AECN→SOPOR→Basco for rail) [PDD Sec A]
-- Transportation distance consistent with known route: AECN truck ~2,197mi; AECN rail ~2,199mi via SOPOR; Charm varies [Transport Emissions Acctg v1.1]
+- Transportation distance consistent with known route. AECN truck route ~2,197 mi (AECN→Basco direct). AECN rail route is THREE legs, not one: AECN→SOPOR (107.5 mi single-truck × 3 trucks = 322.5 mi total trucking) + SOPOR→Opelousas rail leg ~2,199 mi + Opelousas→Basco short-haul truck ~42.9 mi. The 2,199 figure is JUST the SOPOR→Opelousas rail leg, not the full rail route. [Transport Emissions Acctg v1.1]
 - Transport mode matches oil type: tanker=AECN truck, railcar=AECN rail, flatbed=Charm/Kerry totes [Certify Datapoints]
 - Billing documents present and consistent with BOL shipment details [VR Appendix 1]
 
@@ -530,7 +565,7 @@ Charm uses Option B (Variance Propagation) per Isometric Standard §3.7.3. Charm
 - Injection Sequestration → Carbon Content: 0.004 × Measured Value (0.4%)
 - Injection Sequestration → Mass of Product: 72.57 kg per discrete weight (one vehicle with one load)
 - Transport (AECN→SOPOR Tanker, AECN→B6 Tanker, Opelousas→B6 Tanker) → Mass of Load: 72.57 kg per discrete weight (one vehicle with one load)
-- Transport (SOPOR→Opelousas Rail) → Mass of Load: 72.57 kg × number of trucks loaded into the railcar
+- Transport (SOPOR→Opelousas Rail) → Mass of Load: published rule is `72.57 kg × number of trucks loaded into the railcar` (per-truck-IN). In practice Charm applies the per-truck-OUT rule (72.57 kg per delivery truck × N trucks-out across the railcar's offloads), which accumulates slightly more uncertainty for the railcar total than the strict in-rule and is acceptable as a conservative choice. For a 3-in / 4-out railcar (typical pattern, e.g., GPRX 5188 → 4 batches), in-rule = 217.71 kg, out-rule = 290.28 kg — Charm uses the latter.
 - Transport (all modes) → Distance Traveled: No uncertainty required (use longest Google Maps distance)
 - AECN Pyrolysis Process Emissions → Bio-Oil Mass: 72.57 kg per discrete weight (one vehicle with one load)
 - AECN Pyrolysis Embodied Emissions → Bio-Oil Mass: 72.57 kg per discrete weight (one vehicle with one load)
@@ -818,7 +853,8 @@ For detailed per-category evidence requirements, calc logic, Certify component n
 **Approval Date:** 04 Aug 2025
 **Crediting Period:** 01 Mar 2024 – 01 Mar 2029
 **Protocol:** Biochar Production and Storage v1.0 (CCP Accredited)
-**Location:** Hutchinson, Kansas (37.966°N, -97.941°W)
+**Production facility:** Fort Lupton, CO (same Charm pyrolysis operation that produces WODO and Aqueous bio-oil — shared upstream data across pathways)
+**Application model — DISTRIBUTED OFFTAKERS:** Charm biochar is sold and delivered to **multiple offtakers across many sites**, not a single canonical application location. Hutchinson, Kansas (37.966°N, -97.941°W) was the *first* verified application site under the registry — by coincidence the same city as the former Vaulted Deep injection partner, but the two are unrelated. The distributed-offtaker model is central to the operational reality of this project and was the core tension in the BSSE v1.2 negotiation (single project proponent / Section 6.3 ownership requirements vs. distributed downstream chain). Any analysis or document that treats Hutchinson as "the" application location is wrong — every offtaker site needs to be tracked individually for chain-of-custody and verification.
 **Risk Level:** Very Low (2% buffer)
 
 ### Credit Issuances (as of April 6, 2026)

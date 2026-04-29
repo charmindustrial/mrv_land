@@ -1,0 +1,234 @@
+{
+  "batch_id": "2-182",
+  "oil_type": "AECN",
+  "delivery_mode": "RAIL",
+  "injection_site": "Basco 6, Louisiana",
+  "T0_initiation": "2026-04-27T19:33:13Z",
+  "certify_removal_id": "rmv_1KQ7XY3Q81S0T52T",
+  "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ7XY3Q81S0T52T/edit",
+  "drive_folder_url": "https://drive.google.com/drive/folders/1gVM2Ib9x3oq4SmU9_YRrdxCuEOHfsIxV",
+  "drive_folder_contents": [
+    "Scale Tickets (subfolder, modified Apr 1)",
+    "Testing (subfolder, modified Apr 17)",
+    "2-182 Ops Notes Rail (Google Sheet, modified today 11:00 AM)"
+  ],
+  "rail_specific_calibration_from_max": [
+    {
+      "id": "RAIL-1",
+      "topic": "Pyrolysis component naming",
+      "max_answer": "Just labeling. Signals to VVB to expect SCALE TICKETS rather than BOL (truck batches use BOL as authoritative mass; rail batches use scale tickets).",
+      "verification_implication": "Section 9 mapping should accept either 'AECN Pyrolysis Process/Embodied' OR 'AECN pyrolysis (from rail loads)...' as valid. Mass authority on rail batches = scale tickets, not BOL."
+    },
+    {
+      "id": "RAIL-2",
+      "topic": "Six transport components vs two",
+      "max_answer": "Expected. 3 legs (AECN>SOPOR, SOPOR>Opelousas, Opelousas>Basco) each with process + embodied = 6.",
+      "verification_implication": "Standard rail structure. Watch for unit-conversion errors across the 3 legs — Max flagged unit conversions on the rail components are annoying and error-prone."
+    },
+    {
+      "id": "RAIL-3-CRITICAL",
+      "topic": "Rail embodied EF + mileage",
+      "max_answer": "Both the EF and the mileage on the rail component appear to be WRONG. Most of the evidence on the distance datapoint is also erroneous.",
+      "verification_implication": "REAL FAIL. Need to: (a) read EF used in Certify rail components, (b) read distance value, (c) check distance datapoint linked sources, (d) compare to Standard EF Sheet rail factor and Google Maps SOPOR>Opelousas distance, (e) recompute correct values. Both rail process AND embodied likely affected."
+    },
+    {
+      "id": "RAIL-4",
+      "topic": "Only BCU's Transport visible",
+      "max_answer": "Expected. Transport process is the ONLY BCU category for typical batches (truck or rail). Other BCU categories only appear when removals are burdened with site emissions.",
+      "verification_implication": "1 BCU line is correct for this batch. Confirm BCU quantity matches transport process activity sum (already verified: 1.594 = 0.264 + 1.225 + 0.105)."
+    }
+  ],
+  "components_tab": {
+    "sequestrations_total_tCO2e": 33.323,
+    "sequestrations_breakdown": [
+      {"name": "Injection sequestration", "tCO2e": 33.323}
+    ],
+    "removal_activities_total_tCO2e": 4.338,
+    "removal_activities_breakdown": [
+      {"name": "AECN to SOPOR Tanker Truck Transport Process Emissions", "tCO2e": 0.264, "pct_of_total": "0.87%"},
+      {"name": "SOPOR to Opelousas Rail Transport Process Emissions", "tCO2e": 1.225, "pct_of_total": "4.02%"},
+      {"name": "Opelousas to Basco - Tanker Truck Transport Process Emissions", "tCO2e": 0.105, "pct_of_total": "0.34%"},
+      {"name": "Opelousas to Basco Tanker Truck Transport Embodied Emissions", "tCO2e": 0.010, "pct_of_total": "0.03%"},
+      {"name": "SOPOR to Opelousas Rail Transport Embodied Emissions", "tCO2e": 0.021, "pct_of_total": "0.07%"},
+      {"name": "AECN to SOPOR Tanker Truck Transport Embodied Emissions - AECN", "tCO2e": 0.021, "pct_of_total": "0.07%"},
+      {"name": "AECN pyrolysis (from rail loads) - process emissions", "tCO2e": 2.237, "pct_of_total": "7.34%"},
+      {"name": "AECN pyrolysis (from rail loads) - embodied emissions", "tCO2e": 0.455, "pct_of_total": "1.49%"}
+    ],
+    "reductions_total_tCO2e": 1.594,
+    "reductions_breakdown": [
+      {"name": "BCU's Transport", "tCO2e": 1.594, "pct_of_total": "5.23%"}
+    ],
+    "counterfactuals_total_tCO2e": 0,
+    "losses_total_tCO2e": 0,
+    "project_emissions_amortized_tCO2e": 30.46
+  },
+  "calculation_view": null,
+  "datapoints_tab": null,
+  "certify_sources_tab_total": null,
+  "rail_embodied_component_deep_read": {
+    "component_name": "SOPOR to Opelousas Rail Transport Embodied Emissions",
+    "component_id": "cmp_1KQ7XY3Q81S0BPWK",
+    "tco2e_value": 0.021,
+    "pct_of_total": "0.07%",
+    "calculation_formula": "output = distance * carbon_intensity (no mass term in formula; mass-allocation is baked into the 'allocated distance' input)",
+    "blueprint": "Distance-based emissions",
+    "key": "distance_based_ci_emissions",
+    "arithmetic_check_OLD_METHODOLOGY": "606.2422 mi * 0.03522 kgCO2e/mi = 21.35 kgCO2e = 0.021 tCO2e (internally consistent under OLD per-mile + manually-allocated distance methodology)",
+    "arithmetic_check_NEW_METHODOLOGY": "606.2422 mi * 0.0311307 kgCO2e/mi = 18.87 kgCO2e = 0.01887 tCO2e (under NEWER GLEC V3.2 2025 per-mile EF, with the published unit label corrected from 'T-mi' to 'mi'). Embodied is always per-mile, never per-T-mi. Per-T-mi is only used for process emissions where fuel scales with cargo mass.",
+    "delta_old_vs_new": "~12% lower under newer EF (small but material)",
+    "convention_locked_in_lessons_learned": "Embodied emissions = per-mile (or per-vehicle-lifetime amortized to per-mile). Process emissions = per-T-mi. Sheet derivation: total manufacture EE / EPA useful life miles -> g/mi -> *deadhead factor -> MTCO2e/mi. Same shape for railcar, truck, trailer.",
+    "inputs": {
+      "distance_emission_factor": {
+        "datapoint_name": "Emissions Factor - Vehicle Embodied Emissions -- Railcar (per Standard EF Sheet)",
+        "value_displayed": "0.03522 kgCO2e/mi",
+        "source_count": 1,
+        "matches_standard_ef_sheet": "Yes - matches OLDER 'Updated' entry (0.0000352240 MT CO2e/mi, source USDOT/USEPA/Cambridge Systematics) exactly. Standard EF sheet has a NEWER 'Updated' entry at 0.0000311307 MT CO2e/T-mi (GLEC V3.2 2025) which Certify is NOT using.",
+        "RETRACTION": "Originally flagged as wrong factor TYPE (truck applied to rail). RETRACTED - the datapoint is named 'Vehicle Embodied Emissions - Railcar', i.e. the railcar-specific entry from the Vehicle Embodied family. EF is correct under old methodology.",
+        "active_issue": "EF is stale per the most recent Standard EF sheet entry, which switches to per-T-mi methodology. Magnitude under new methodology would be ~70x higher."
+      },
+      "distance_traveled": {
+        "datapoint_name": "Allocated Distance Sopor Quebec to Opelousas",
+        "value_displayed": "606.2422 mi",
+        "source_count": 5,
+        "RETRACTION": "Originally flagged as wrong distance (606 mi can't be Quebec-LA). RETRACTED - this is correctly an ALLOCATED distance: full SOPOR>Opelousas rail leg = 2199 mi, allocated to this batch via upstream allocation fraction = 21509/78020 = 0.2757. 2199 * 0.2757 = 606.30 mi (matches 606.2422 within rounding).",
+        "ops_notes_match": "Rail (Miles) column in offload_1 row of Ops Notes 2-182 = 606.2422773 - exact match.",
+        "todo_optional": "Open all 5 sources on this datapoint to confirm what evidence supports the full 2199 mi + the 0.2757 allocation derivation"
+      }
+    },
+    "methodology_resolution_per_max_2026_04_27": {
+      "current_correct_EF": "0.0000311307 MT CO2e/mi (the newer GLEC V3.2 2025 entry, with the sheet's '/T-mi' unit label corrected to '/mi')",
+      "stale_EF_in_certify": "0.0000352240 MT CO2e/mi (older USDOT/USEPA/Cambridge Systematics entry)",
+      "classification": "FAIL - stale EF in Certify",
+      "corrected_value_for_this_batch": "606.2422 mi * 0.0000311307 MT CO2e/mi = 0.01887 tCO2e",
+      "current_certify_value": "0.02136 tCO2e",
+      "delta": "0.00249 tCO2e reduction (~12%)",
+      "net_impact_on_2-182": "Net moves from 30.46 tCO2e to ~30.46 tCO2e (rounding) - delta is 0.07% level, immaterial at headline",
+      "propagation": "Same shared datapoint feeds 4 rail process components per the Usages count. Fixing the source datapoint updates all four removals using it.",
+      "sheet_followup": "Standard EFs sheet 2026 tab newer entry has unit label '/T-mi' that should read '/mi'. Embodied is always per-mile.",
+      "v17_LCA_followup_open": "Neither published value (old 0.0000352240 nor new 0.0000311307) reflects the V17 DOT-111 LCA's 65.37 MT CTGate. Implied lifetime mileage at 0.0000311307 is ~2.10M mi. Whether to re-derive cleanly against V17 + a current EPA/AAR lifetime mileage figure is a separate decision."
+    },
+    "ops_notes_observations": {
+      "railcar_number": "GPRX 5188",
+      "bols_loaded": [
+        {"BOL": "2310-R", "MT": 26.01},
+        {"BOL": "2312-R", "MT": 26.00},
+        {"BOL": "2313-R", "MT": 26.01}
+      ],
+      "total_railcar_load_MT": 78.02,
+      "this_batch_offload_position": "Offload 1 of 4 - rows 2-4 are zero, suggesting 3 more batches will come from same railcar (likely 2-183, 2-184, 2-185)",
+      "this_batch_mass_kg": 21509.33,
+      "upstream_allocation_fraction": 0.2757,
+      "sparging_loss_kg": 277.47,
+      "mass_injected_kg": 21231.86,
+      "pH": 3.1,
+      "distance_allocations": {
+        "rail_full_mi": 2199,
+        "rail_allocated_to_this_batch_mi": 606.2422773,
+        "AECN_to_SOPOR_full_mi": "107.5 single trip x 3 trucks = 322.5 mi total",
+        "AECN_to_SOPOR_allocated_mi": 88.91 ,
+        "Opelousas_to_Basco_full_mi": 42.9
+      }
+    }
+  },
+  "rail_process_component_deep_read": {
+    "component_name": "SOPOR to Opelousas Rail Transport Process Emissions",
+    "component_id": "cmp_1KQ7XY3Q81S0GR9M",
+    "tco2e_value": 1.225,
+    "pct_of_total": "4.02%",
+    "calculation_formula": "output = mass * distance * carbon_intensity",
+    "inputs": {
+      "emission_factor": {
+        "datapoint_id": "dtp_1KQ7XXH4X1S0X9NM",
+        "datapoint_full_name": "Emission Factors - Rail Transport Fuel Use (Well to Wheel)",
+        "value_displayed": "0.0259 kgCO2e/(t*mi)",
+        "date_added": "2026-04-27",
+        "source_count": 1,
+        "source_filename": "Standard Emission Factors + Calculations (...",
+        "usages_count": 4,
+        "evidence_concerns": [
+          "UNIT SUSPICION: GLEC V3.2 rail freight well-to-wheel EFs are typically published per t-km, not t-mi. Value of 0.0259 kgCO2e/(t-mi) is in the right magnitude range to be a t-km value (~0.022-0.030 typical for diesel rail freight in US/CA per GLEC). Need to open Standard EF sheet 2026 tab to verify whether the source value is per t-km vs per t-mi, and whether unit conversion was applied correctly.",
+          "If source is per t-km but Certify is treating as per t-mi: rail process under-counts emissions by factor of 1.609.",
+          "If source value should be 0.0259/1.609 = 0.0161 per t-mi: Certify over-counts emissions by factor of 1.609."
+        ]
+      },
+      "distance_traveled": {
+        "datapoint_id": "dtp_1KQ7XXJKC1S0R88K",
+        "datapoint_name": "Distance from SOPOR to Opelousas (RAIL)",
+        "value": "2,199 mi",
+        "date_added": "2026-04-27",
+        "uncertainty_justification": "None (KB says distance does not require uncertainty - sensitivity flag may still trigger Certify warning)",
+        "usages_count": 4,
+        "usages_breakdown": [
+          {"component": "SOPOR to Opelousas Rail Transport Process Emissions (THIS removal, 2-182)", "tCO2e": 1.225},
+          {"component": "SOPOR to Opelousas Rail Transport Process Emissions (other removal)", "tCO2e": 1.289},
+          {"component": "SOPOR to Opelousas Rail Transport Process Emissions (other removal)", "tCO2e": 1.244},
+          {"component": "SOPOR to Opelousas Rail Transport Process Emissions (other removal)", "tCO2e": 0.685}
+        ],
+        "important_observation": "Rail Embodied component is NOT in this datapoint's Usages list. Rail embodied uses a separate distance datapoint - need to verify whether it has the same value or differs.",
+        "sources_count": 1,
+        "source_filenames": ["image (44).png"],
+        "source_evidence_content": "PNG screenshot of an email from Matt P. Bergeland (Rail Logistics Specialist, Watco, Fort Worth TX, matthew.bergeland@watco.com) addressed to Antoinette. Body text: 'Hi Antoinette, The total milage for this move was 2199. Thanks, Matt Bergeland'. No date visible in capture, no Google Maps screenshot, no rail manifest/waybill, no specification of which leg 'this move' refers to (whole AECN->Basco shipment or just SOPOR->Opelousas rail leg).",
+        "evidence_issues_RETAINED": [
+          "FILENAME: Generic 'image (44).png' - not descriptive (FLAG-level hygiene issue)"
+        ],
+        "evidence_issues_RETRACTED_PER_MAX": [
+          "EVIDENCE TYPE: Originally flagged as wrong evidence type vs Google Maps. RETRACTED - there is no Google Maps for rail. Email from rail transport provider IS the authoritative evidence per Max.",
+          "LEG ATTRIBUTION: Originally questioned whether 'this move' covers SOPOR>Opelousas only or full route. RETRACTED - Watco IS a rail logistics company (Matt Bergeland = Rail Logistics Specialist) so 'this move' refers specifically to the rail leg they handle. 2199 mi is plausible Quebec>LA rail distance.",
+          "MISSING UNCERTAINTY JUSTIFICATION: Originally flagged that Certify shows 'No uncertainty justification' on this datapoint. KB exempts distance from uncertainty, so this is moot - dropping unless raised as 'Certify wants something the protocol does not require' hygiene note."
+        ]
+      },
+      "mass_of_load": {
+        "datapoint_name": "Allocated Bio-Oil Mass - AECN via Rail",
+        "value": "21,509.33 kg",
+        "uncertainty": "+/- 72.57 kg",
+        "uncertainty_methodology_RETRACTED": "Originally flagged as wrong methodology (per-truck rule applied instead of per-railcar rule). RETRACTED per Max: 3 BOLs go INTO the railcar (3-truck input uncertainty = 217.71 kg), but the railcar gets offloaded into 4 trucks OUT, each carrying its own ~72.57 kg uncertainty. Applying the per-truck-out rule across 4 trucks = 290.28 kg total batch uncertainty, slightly more conservative than the strict in-rule. Acceptable.",
+        "source_count": 1
+      }
+    }
+  },
+  "ops_notes": null,
+  "scale_tickets": null,
+  "bol_documents": null,
+  "chn_lab_results": null,
+  "cobb_row_id_verified": false,
+  "cobb_cell_A_value": null,
+  "cobb_data": {
+    "status": "FOUND - row 59 in 'Basco Injection -- COBB' tab (NOT 'COBB (with offload info)' as the KB stated)",
+    "previous_claim_RETRACTED": "Earlier in this pass I claimed COBB had not been populated. That was wrong - the Drive MCP natural-language read returned an abbreviated view that omitted the data tabs. After re-fetching as binary xlsx via download_file_content and parsing all 60+ tabs locally, the row was found in 'Basco Injection -- COBB'.",
+    "method_used": "download_file_content (xlsx export) + openpyxl parse",
+    "tab_name": "Basco Injection -- COBB",
+    "row_number": 59,
+    "kb_correction_needed": "KB Section on Bio-oil Injection Tracker says rail batches use 'COBB (with offload info)' tab. Actually rail batches (including this one and its sister offloads 2-183/184/185) are in 'Basco Injection -- COBB'. The 'COBB (with offload info)' tab contains older entries (max batch 2-122 / 3-54). KB should be corrected.",
+    "row_data": {
+      "injection_batch": "2-182",
+      "injected_product": "bio_oil",
+      "consumed_lot": "Rail_GPRX 5188_2.27.26_offload_1",
+      "security_tag": null,
+      "BOL_number": "2310-R, 2312-R, 2313-R",
+      "quantity_consumed_in_injection_kg": 21509.33264,
+      "offloaded_quantity_kg": 21509.33264,
+      "origin_quantity_kg": 78020.0,
+      "order_line_completed_on": "2026-03-27 19:52:03",
+      "purchase_order_link": "https://charm-industrial.manufacturo.cloud/app/inventory/purchase-orders/...",
+      "offload_order_link": "https://charm-industrial.manufacturo.cloud/app/eworkin-plus-execution/order-execution/...",
+      "injection_completion_date": "2026-04-02",
+      "injection_ph": 3.1,
+      "week_of_year": 14,
+      "week_starting_injected": "2026-03-30"
+    },
+    "cross_check_results": {
+      "consumed_lot_matches_ops_notes": true,
+      "BOL_numbers_match_ops_notes": true,
+      "offloaded_quantity_matches_ops_notes_and_certify": true,
+      "origin_quantity_matches_sum_of_3_BOLs": "78020 = 26010 + 26000 + 26010 = 78020 - exact",
+      "injection_completion_date_matches_certify": "2026-04-02 matches Certify removal date '02 Apr 2026'",
+      "ph_matches_ops_notes": true
+    },
+    "sister_batches_in_same_railcar": [
+      {"batch": "2-183", "consumed_lot": "Rail_GPRX 5188_2.27.26_offload_2", "offloaded_kg": 22634.2408},
+      {"batch": "2-184", "consumed_lot": "Rail_GPRX 5188_2.27.26_offload_3", "offloaded_kg": 21457.0776},
+      {"batch": "2-185", "consumed_lot": "Rail_GPRX 5188_2.27.26_offload_4", "offloaded_kg": 12419.34896}
+    ],
+    "loads_tab_inbound_record": "Loads tab row 270: Q1 2026, BOLs 2310-R/2312-R/2313-R, carrier Watco, asset GPRX5188, received 2026-02-27, dwell to 2026-03-16, total 78.02 MT, work order 'Rail_GPRX 5188_2.27.26'"
+  }
+}

@@ -4,3 +4,10 @@
 # Local Claude Code config — contains machine-specific symlinks and may hold
 # auth tokens / session data. Never push this.
 .claude/
+
+# Microsoft Office lock/temp files (created while a doc is open)
+~$*
+*.tmp
+
+# LibreOffice / OpenOffice lock files
+.~lock.*

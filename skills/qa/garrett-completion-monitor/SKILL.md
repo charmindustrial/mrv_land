@@ -15,11 +15,18 @@ After the QA agent sends findings to Garrett, there's a gap — Garrett works in
 ## First Steps
 
 1. Read `Charm_Isometric_Knowledge_Base.md` from the MRV Expert workspace folder — you need it for protocol references, BCU rules, and verification logic during re-review.
-2. Read `qa_active_batches.json` from the MRV Expert workspace folder — this is your registry of all batches currently awaiting Garrett's response.
+2. Read **all active-batch registries** in the MRV Expert workspace:
+   - `skills/qa/batch-qa/qa_active_batches.json` — AECN batches
+   - `skills/qa/batch-qa-kerry/qa_active_kerry_batches.json` — Kerry batches
+   - (Future: WODO and Aqueous registries when those skills are built)
 
-## The Active Batches Registry
+   Each registry has the same `active_batches` array shape. Sweep them in sequence; treat the union as your full registry of in-flight batches awaiting Garrett's response. When updating or removing an entry, update the originating registry file (the AECN entry comes out of the AECN registry, the Kerry entry out of the Kerry registry).
 
-`qa_active_batches.json` lives in the MRV Expert workspace folder. It tracks every batch that has been sent to Garrett and is awaiting his completion signal. The QA workflow adds entries when Max approves a checklist and it gets sent to Garrett (Step 4 of Section 13B). This skill removes entries when the re-review cycle closes.
+## The Active Batches Registries
+
+There is one registry file per oil-type-specific QA skill. Each tracks every batch of its oil type that has been sent to Garrett and is awaiting his completion signal. The originating QA workflow adds entries when Max approves a checklist and it gets sent to Garrett (Step 4 of Section 13B). This skill removes entries when the re-review cycle closes — from the appropriate registry.
+
+Kerry batches use `consumed_lot` pattern `kc_NNNN` and have a `delivery_mode` field (`tote` or `tanker`) that AECN entries lack; otherwise the schema matches.
 
 ### Registry Schema
 
@@ -153,7 +160,12 @@ After closing a batch (all resolved), trigger the `qa-performance-monitor` skill
 
 ## Adding a New Batch to the Registry
 
-When the QA workflow reaches Step 4 of Section 13B (Slack Garrett with findings after Max approves), the calling agent should add an entry to `qa_active_batches.json`. The entry needs:
+When the QA workflow reaches Step 4 of Section 13B (Slack Garrett with findings after Max approves), the calling agent should add an entry to **the registry file matching the oil type**:
+
+- AECN batches → `skills/qa/batch-qa/qa_active_batches.json`
+- Kerry batches → `skills/qa/batch-qa-kerry/qa_active_kerry_batches.json`
+
+The entry needs:
 
 1. `batch_id` — from the QA session
 2. `slack_channel` and `thread_ts` — from the Slack message sent to Garrett
@@ -162,6 +174,9 @@ When the QA workflow reaches Step 4 of Section 13B (Slack Garrett with findings 
 5. `fail_items` and `flag_items` — populated from the checklist findings, with enough detail for re-review
 6. `date_sent` — timestamp of when Garrett was notified
 7. `status` — set to `"awaiting_garrett"`
+8. `oil_type` — `"AECN"` or `"Kerry"` (drives which registry the entry lives in)
+9. (Kerry only) `delivery_mode` — `"tote"` or `"tanker"`
+10. (Kerry only) `consumed_lot` — `kc_NNNN` pattern
 
 This registration step is what makes the monitoring generic — no need to create per-batch scheduled tasks anymore.
 

@@ -1,0 +1,171 @@
+- application [ref=e1]:
+  - iframe [ref=e2]:
+    
+  - iframe [ref=e3]:
+    
+  - banner "Menu bar" [ref=e4]:
+    - generic [ref=e7]:
+      - link "Sheets home" [ref=e9] [cursor=pointer]:
+        - /url: https://docs.google.com/spreadsheets/u/0/?authuser=0&usp=sheets_web
+      - generic [ref=e16]:
+        - generic "Bio-oil Injection Tracker" [ref=e18]:
+          - generic [ref=e19]:
+            - generic: Bio-oil Injection Tracker
+            - textbox "Rename" [ref=e21]: Bio-oil Injection Tracker
+          - generic [ref=e22]:
+            - button "Shared externally" [ref=e24] [cursor=pointer]
+            - checkbox "Star" [ref=e28] [cursor=pointer]
+            - button "Move" [ref=e32] [cursor=pointer]
+            - 'button "Document status: Saved to Drive." [ref=e36]':
+              - generic [ref=e41] [cursor=pointer]: Saved to Drive
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - button "Garrett Lutz" [ref=e50]:
+              - img "Garrett Lutz" [ref=e55] [cursor=pointer]
+            - button "Show chat" [ref=e57] [cursor=pointer]
+          - button "Last edit was made 1 hour ago by Jackson Lisec" [ref=e61] [cursor=pointer]
+          - button "Show all comments" [ref=e65] [cursor=pointer]
+          - button "Join a call here or present this tab to the call" [ref=e69] [cursor=pointer]
+          - generic [ref=e74]:
+            - button "Share. Warning, this document contains sensitive content." [ref=e75] [cursor=pointer]: Share
+            - button "Quick sharing actions" [ref=e77] [cursor=pointer]
+          - generic [ref=e80]:
+            - generic:
+              - button "Ask Gemini" [ref=e83] [cursor=pointer]:
+                - img [ref=e86]
+              - tooltip [ref=e89]: Ask Gemini
+          - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=e92] [cursor=pointer]':
+            - img [ref=e93]
+    - generic [ref=e94]:
+      - menubar [ref=e96]:
+        - menuitem "File" [ref=e97] [cursor=pointer]
+        - menuitem "Edit" [ref=e98] [cursor=pointer]
+        - menuitem "View" [ref=e99] [cursor=pointer]
+        - menuitem "Insert" [ref=e100] [cursor=pointer]
+        - menuitem "Format" [ref=e101] [cursor=pointer]
+        - menuitem "Data" [ref=e102] [cursor=pointer]
+        - menuitem "Tools" [ref=e103] [cursor=pointer]
+        - menuitem "Gemini" [ref=e104] [cursor=pointer]
+        - menuitem "Extensions" [ref=e105] [cursor=pointer]
+        - menuitem "Help" [ref=e106] [cursor=pointer]
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - toolbar "Search the menus (Option+/)" [ref=e109]:
+            - combobox "Menus" [ref=e111]
+          - toolbar "Main" [ref=e112]:
+            - button "Undo (⌘Z)" [ref=e113] [cursor=pointer]
+            - button "Redo (⌘Y)" [ref=e118] [cursor=pointer]
+            - button "Print (⌘P)" [ref=e123] [cursor=pointer]
+            - button "Paint format" [ref=e128] [cursor=pointer]
+            - combobox "Zoom" [ref=e133] [cursor=pointer]:
+              - option "Zoom list. 100% selected." [selected] [ref=e136]:
+                - textbox "Zoom" [ref=e137]: 100%
+            - separator [disabled] [ref=e141]
+            - button "Format as currency" [ref=e142] [cursor=pointer]:
+              - generic [ref=e144]: $
+            - button "Format as percent" [ref=e145] [cursor=pointer]:
+              - generic [ref=e147]: "%"
+            - button "Decrease decimal places" [ref=e148] [cursor=pointer]
+            - button "Increase decimal places" [ref=e153] [cursor=pointer]
+            - button "More formats" [ref=e158] [cursor=pointer]:
+              - generic [ref=e161]: "123"
+            - separator [disabled] [ref=e162]
+            - listbox "Font" [ref=e163] [cursor=pointer]:
+              - option "Font list. Roboto selected." [selected] [ref=e166]: Roboto
+            - separator [disabled] [ref=e170]
+            - button "Decrease font size (⌘+Shift+comma)" [ref=e171] [cursor=pointer]
+            - combobox "Font size" [ref=e176] [cursor=pointer]:
+              - option "Font size list. 10 selected." [selected] [ref=e179]:
+                - textbox "Font size" [ref=e180]: "10"
+            - button "Increase font size (⌘+Shift+period)" [ref=e181] [cursor=pointer]
+            - separator [disabled] [ref=e186]
+            - button "Bold (⌘B)" [ref=e187] [cursor=pointer]
+            - button "Italic (⌘I)" [ref=e192] [cursor=pointer]
+            - button "Strikethrough (⌘+Shift+X)" [ref=e197] [cursor=pointer]
+            - button "Text color" [ref=e202] [cursor=pointer]
+            - separator [disabled] [ref=e209]
+            - button "Fill color" [ref=e210] [cursor=pointer]
+            - button "Borders" [ref=e217] [cursor=pointer]
+            - button "Merge cells" [ref=e223] [cursor=pointer]
+            - button "Select merge type" [ref=e228] [cursor=pointer]
+            - separator [disabled] [ref=e234]
+            - button "Horizontal align" [ref=e235] [cursor=pointer]
+            - button "Vertical align" [ref=e244] [cursor=pointer]
+            - button "Text wrapping" [ref=e253] [cursor=pointer]
+            - button "Text rotation" [ref=e262] [cursor=pointer]
+            - separator [disabled] [ref=e271]
+            - button "More" [ref=e272] [cursor=pointer]
+        - toolbar "Mode and view" [ref=e279]:
+          - button "Hide the menus (Ctrl+Shift+F)" [ref=e280] [cursor=pointer]
+    - generic:
+      - generic:
+        - button "Show side panel":
+          - img [ref=e286] [cursor=pointer]
+    - generic [ref=e291]:
+      - generic "Name box (⌘ + J)" [ref=e292]:
+        - textbox [ref=e293]: A1:Z200
+        - button "Name box menu button. Select one of the menu items to navigate to its corresponding named range." [ref=e295] [cursor=pointer]
+      - textbox [ref=e308]:
+        - generic [ref=e310]: =CONCATENATE( " ", "Microsoft SQL Server Import", char(10), " ", "⚠️ ", IFERROR(IFS( (now()-"2026/05/03 14:19") <= 0, "", AND((now()-"2026/05/03 14:19") * 1440 >= 0, (now()-"2026/05/03 14:19") * 1440 <= 5), "Last updated just now", (now()-"2026/05/03 14:19") * 1440 <= 60, "Last updated "&FLOOR((now()-"2026/05/03 14:19")*1440)&" minutes ago", (now()-"2026/05/03 14:19") * 24 <= 24, "Last updated "&FLOOR((now()-"2026/05/03 14:19")*24) & IF(FLOOR((now()-"2026/05/03 14:19")*24) <= 1, " hour ago", " hours ago"), (now()-"2026/05/03 14:19") <= 30, "Last updated "&FLOOR((now()-"2026/05/03 14:19")) & IF(FLOOR((now()-"2026/05/03 14:19")) <= 1, " day ago", " days ago"), (now()-"2026/05/03 14:19") > 30, "Last updated " & FLOOR((now()-"2026/05/03 14:19")/7) & IF(FLOOR((now()-"2026/05/03 14:19")) <= 1, " week ago", " weeks ago") ),"Last updated on 2026/05/03 14:19") )
+      - button "Summarize this data" [ref=e311] [cursor=pointer]:
+        - img [ref=e312]
+        - generic [ref=e314]: Summarize this data
+  - generic [ref=e317]:
+    - generic [ref=e326]:
+      - generic:
+        - generic:
+          - generic "coeff__dataSourceImg" [ref=e335]:
+            - img [ref=e337]
+          - generic "coeff__onsheetRunDataImport" [ref=e338]:
+            - img [ref=e340]
+          - generic "coeff__poweredImg" [ref=e341]:
+            - img [ref=e343]
+          - generic "coeff__openSidePanelByHeader" [ref=e344]:
+            - img [ref=e346]
+    - navigation "Sheet tab bar" [ref=e373]:
+      - toolbar [ref=e374]:
+        - button "Add Sheet" [ref=e375] [cursor=pointer]
+        - button "All Sheets" [ref=e380] [cursor=pointer]
+        - button "Canvas menu" [ref=e385] [cursor=pointer]
+      - toolbar [ref=e394]:
+        - button "Naming Conventions" [ref=e395] [cursor=pointer]:
+          - generic [ref=e399]: Naming Conventions
+        - button "15 Loads" [ref=e403] [cursor=pointer]:
+          - generic [ref=e406]:
+            - generic [ref=e407]:
+              - img [ref=e408]
+              - generic [ref=e410]: "15"
+            - generic [ref=e411]: Loads
+        - button "COAs" [ref=e415] [cursor=pointer]:
+          - generic [ref=e419]: COAs
+        - button "1 BOLs" [ref=e423] [cursor=pointer]:
+          - generic [ref=e426]:
+            - generic [ref=e427]:
+              - img [ref=e428]
+              - generic [ref=e430]: "1"
+            - generic [ref=e431]: BOLs
+        - button "2 PCBs" [ref=e435] [cursor=pointer]:
+          - generic [ref=e438]:
+            - generic [ref=e439]:
+              - img [ref=e440]
+              - generic [ref=e442]: "2"
+            - generic [ref=e443]: PCBs
+        - button "Basco Injection -- COBB" [ref=e447]:
+          - generic [ref=e451]: Basco Injection -- COBB
+        - button "Oil Quantites Injected by Product" [ref=e455] [cursor=pointer]:
+          - generic [ref=e459]: Oil Quantites Injected by Product
+        - button "Detail4-2026-04-06-bio_oil" [ref=e463] [cursor=pointer]:
+          - generic [ref=e467]: Detail4-2026-04-06-bio_oil
+      - toolbar [ref=e471]:
+        - button "Scroll left" [disabled] [ref=e472]
+        - button "Scroll right" [ref=e477] [cursor=pointer]
+      - listbox [ref=e483] [cursor=pointer]:
+        - 'option "Count: 1,150" [selected] [ref=e484]'
+  - generic [ref=e486]:
+    - textbox [active]
+  - link "Turn on screen reader support" [ref=e487] [cursor=pointer]:
+    - /url: "#"
+  - textbox [ref=e488]
+  - region [ref=e489]: To enable screen reader support, press ⌘+Option+Z To learn about keyboard shortcuts, press ⌘slash
+  - region
+  - generic [ref=e490]: Garrett Lutz has joined the document.

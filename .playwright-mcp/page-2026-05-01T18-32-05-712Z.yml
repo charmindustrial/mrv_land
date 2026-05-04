@@ -1,0 +1,399 @@
+- generic [ref=e2]:
+  - alert [ref=e1]
+  - region "0 notifications."
+  - generic [ref=e3]:
+    - navigation [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - link "Isometric Registry" [ref=e12] [cursor=pointer]:
+            - /url: /
+            - img [ref=e14]
+          - generic [ref=e27]:
+            - link "Registry" [ref=e28] [cursor=pointer]:
+              - /url: /
+            - link "Suppliers" [ref=e29] [cursor=pointer]:
+              - /url: /suppliers
+            - link "Protocols" [ref=e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - link "Account" [ref=e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=e36]: "|"
+          - button "Current user menu" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]: Menu
+            - img [ref=e39]
+    - main [ref=e41]:
+      - generic [ref=e43]:
+        - button "Collapse sidebar" [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+        - navigation "Breadcrumbs" [ref=e49]:
+          - list [ref=e51]:
+            - listitem [ref=e52]:
+              - link "All projects" [ref=e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=e54]: /
+            - listitem [ref=e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [ref=e57]: /
+            - listitem [ref=e58]:
+              - link "Removals" [ref=e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/removals
+              - generic [ref=e60]: /
+            - listitem [ref=e61]: rmv_1KQB5KCQG1S0JYZ2
+      - generic [ref=e62]:
+        - navigation [ref=e66]:
+          - generic [ref=e68]:
+            - link "Overview" [ref=e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=e70] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+          - generic [ref=e71]:
+            - generic [ref=e72]: Project setup
+            - generic [ref=e73]:
+              - link "General" [ref=e74] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=e76] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=e77] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=e78]:
+            - generic [ref=e79]: Carbon accounting
+            - generic [ref=e80]:
+              - link "LCA" [ref=e81] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=e83] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "Removal data" [ref=e84] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/removals
+          - link "Templates" [ref=e87] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=e89]:
+          - generic [ref=e91]:
+            - generic [ref=e92]:
+              - heading "Removal" [level=1] [ref=e93]
+              - button "Toggle timeline sidebar" [ref=e95] [cursor=pointer]:
+                - img [ref=e96]
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e100]: 29.64 tCO₂e
+                - generic [ref=e101]: "|"
+                - generic [ref=e102]: 03 Apr 2026
+                - generic [ref=e103]: "|"
+                - generic [ref=e104]: rmv_1KQB5KCQG1S0JYZ2
+              - button "Action menu" [ref=e106] [cursor=pointer]:
+                - img [ref=e107]
+          - generic [ref=e109]:
+            - tablist [ref=e112]:
+              - tab "Components" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]: Components
+              - tab "Calculation view" [ref=e115] [cursor=pointer]:
+                - generic [ref=e116]: Calculation view
+              - tab "Datapoints" [ref=e117] [cursor=pointer]:
+                - generic [ref=e118]: Datapoints
+              - tab "Sources" [active] [selected] [ref=e119] [cursor=pointer]:
+                - generic [ref=e120]: Sources
+            - tabpanel "Sources" [ref=e752]:
+              - generic [ref=e753]:
+                - heading "Sources (23)" [level=2] [ref=e754]
+                - grid "Sources" [ref=e757]:
+                  - rowgroup [ref=e758]:
+                    - row "Name Data points Type Public visibility" [ref=e759]:
+                      - columnheader "Name" [ref=e760]:
+                        - generic [ref=e761]: Name
+                      - columnheader "Data points" [ref=e762]:
+                        - generic [ref=e763]: Data points
+                      - columnheader "Type" [ref=e764]:
+                        - generic [ref=e765]: Type
+                      - columnheader "Public visibility" [ref=e766]:
+                        - generic [ref=e767]: Public visibility
+                  - rowgroup [ref=e768]:
+                    - row "2-189 Ops Notes Rail.xlsx" [ref=e769]:
+                      - rowheader "2-189 Ops Notes Rail.xlsx" [ref=e770]:
+                        - link "2-189 Ops Notes Rail.xlsx" [ref=e771] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQCXMZV81S0QRKW"
+                          - generic [ref=e772]:
+                            - img [ref=e773]
+                            - generic [ref=e775]: 2-189 Ops Notes Rail.xlsx
+                      - gridcell "Allocated Distance AECN to Sopor Quebec (truck)" [ref=e776]:
+                        - generic [ref=e778]: Allocated Distance AECN to Sopor Quebec (truck)
+                      - gridcell "Document" [ref=e779]
+                      - gridcell "Private" [ref=e780]:
+                        - generic [ref=e784]: Private
+                    - row "2-189 Ops Notes Rail.xlsx" [ref=e785]:
+                      - rowheader "2-189 Ops Notes Rail.xlsx" [ref=e786]:
+                        - link "2-189 Ops Notes Rail.xlsx" [ref=e787] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQCXM3QW1S0E6J9"
+                          - generic [ref=e788]:
+                            - img [ref=e789]
+                            - generic [ref=e791]: 2-189 Ops Notes Rail.xlsx
+                      - gridcell "Allocated Distance Sopor Quebec to Opelousas (rail)" [ref=e792]:
+                        - generic [ref=e794]: Allocated Distance Sopor Quebec to Opelousas (rail)
+                      - gridcell "Document" [ref=e795]
+                      - gridcell "Private" [ref=e796]:
+                        - generic [ref=e800]: Private
+                    - row "2-189 Ops Notes Rail.xlsx" [ref=e801]:
+                      - rowheader "2-189 Ops Notes Rail.xlsx" [ref=e802]:
+                        - link "2-189 Ops Notes Rail.xlsx" [ref=e803] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQCXHDAC1S06QJJ"
+                          - generic [ref=e804]:
+                            - img [ref=e805]
+                            - generic [ref=e807]: 2-189 Ops Notes Rail.xlsx
+                      - gridcell "Allocated Bio-Oil Mass - AECN via Rail" [ref=e808]:
+                        - generic [ref=e810]: Allocated Bio-Oil Mass - AECN via Rail
+                      - gridcell "Document" [ref=e811]
+                      - gridcell "Private" [ref=e812]:
+                        - generic [ref=e816]: Private
+                    - row "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e817]:
+                      - rowheader "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e818]:
+                        - link "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e819] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQCX4H6T1S0VTEF"
+                          - generic [ref=e820]:
+                            - img [ref=e821]
+                            - generic [ref=e823]: Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf
+                      - gridcell "Emission Factors - Rail Transport Fuel Use (Well to Wheel)" [ref=e824]:
+                        - generic [ref=e826]: Emission Factors - Rail Transport Fuel Use (Well to Wheel)
+                      - gridcell "Document" [ref=e827]
+                      - gridcell "Private" [ref=e828]:
+                        - generic [ref=e832]: Private
+                    - row "CHN-186-189.pdf" [ref=e833]:
+                      - rowheader "CHN-186-189.pdf" [ref=e834]:
+                        - link "CHN-186-189.pdf" [ref=e835] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5KC061S0ZTVW"
+                          - generic [ref=e836]:
+                            - img [ref=e837]
+                            - generic [ref=e839]: CHN-186-189.pdf
+                      - gridcell "Carbon Content of Bio-oil Injected (per injection)" [ref=e840]:
+                        - generic [ref=e842]: Carbon Content of Bio-oil Injected (per injection)
+                      - gridcell "Document" [ref=e843]
+                      - gridcell "Public" [ref=e844]:
+                        - generic [ref=e848]: Public
+                    - row "2-189 Empty Scale Ticket.jpg" [ref=e849]:
+                      - rowheader "2-189 Empty Scale Ticket.jpg" [ref=e850]:
+                        - link "2-189 Empty Scale Ticket.jpg" [ref=e851] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5KC891S0X1S4"
+                          - generic [ref=e852]:
+                            - img [ref=e853]
+                            - generic [ref=e855]: 2-189 Empty Scale Ticket.jpg
+                      - gridcell "Mass of Injectant (per injection)" [ref=e856]:
+                        - generic [ref=e858]: Mass of Injectant (per injection)
+                      - gridcell "Document" [ref=e859]
+                      - gridcell "Public" [ref=e860]:
+                        - generic [ref=e864]: Public
+                    - row "2-189 Full Scale Ticket (1).jpg" [ref=e865]:
+                      - rowheader "2-189 Full Scale Ticket (1).jpg" [ref=e866]:
+                        - link "2-189 Full Scale Ticket (1).jpg" [ref=e867] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5KC891S0GPMS"
+                          - generic [ref=e868]:
+                            - img [ref=e869]
+                            - generic [ref=e871]: 2-189 Full Scale Ticket (1).jpg
+                      - gridcell "Mass of Injectant (per injection)" [ref=e872]:
+                        - generic [ref=e874]: Mass of Injectant (per injection)
+                      - gridcell "Document" [ref=e875]
+                      - gridcell "Public" [ref=e876]:
+                        - generic [ref=e880]: Public
+                    - row "2-189 Ops Notes Rail.xlsx" [ref=e881]:
+                      - rowheader "2-189 Ops Notes Rail.xlsx" [ref=e882]:
+                        - link "2-189 Ops Notes Rail.xlsx" [ref=e883] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5KC891S09CXF"
+                          - generic [ref=e884]:
+                            - img [ref=e885]
+                            - generic [ref=e887]: 2-189 Ops Notes Rail.xlsx
+                      - gridcell "Mass of Injectant (per injection)" [ref=e888]:
+                        - generic [ref=e890]: Mass of Injectant (per injection)
+                      - gridcell "Document" [ref=e891]
+                      - gridcell "Public" [ref=e892]:
+                        - generic [ref=e896]: Public
+                    - row "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e897]:
+                      - rowheader "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e898]:
+                        - link "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e899] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5H10E1S0GZE1"
+                          - generic [ref=e900]:
+                            - img [ref=e901]
+                            - generic [ref=e903]: Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf
+                      - gridcell "Emissions Factor - Vehicle Embodied Emissions -- Railcar" [ref=e904]:
+                        - generic [ref=e906]: Emissions Factor - Vehicle Embodied Emissions -- Railcar
+                      - gridcell "Document" [ref=e907]
+                      - gridcell "Public" [ref=e908]:
+                        - generic [ref=e912]: Public
+                    - row "Documents camion 2317-R.pdf" [ref=e913]:
+                      - rowheader "Documents camion 2317-R.pdf" [ref=e914]:
+                        - link "Documents camion 2317-R.pdf" [ref=e915] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5JKQP1S0QNV9"
+                          - generic [ref=e916]:
+                            - img [ref=e917]
+                            - generic [ref=e919]: Documents camion 2317-R.pdf
+                      - gridcell "Allocated Bio-Oil Mass - AECN via Rail" [ref=e920]:
+                        - generic [ref=e922]: Allocated Bio-Oil Mass - AECN via Rail
+                      - gridcell "Document" [ref=e923]
+                      - gridcell "Public" [ref=e924]:
+                        - generic [ref=e928]: Public
+                    - row "Billing Truck 2316-R.pdf" [ref=e929]:
+                      - rowheader "Billing Truck 2316-R.pdf" [ref=e930]:
+                        - link "Billing Truck 2316-R.pdf" [ref=e931] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5JKQP1S040ZM"
+                          - generic [ref=e932]:
+                            - img [ref=e933]
+                            - generic [ref=e935]: Billing Truck 2316-R.pdf
+                      - gridcell "Allocated Bio-Oil Mass - AECN via Rail" [ref=e936]:
+                        - generic [ref=e938]: Allocated Bio-Oil Mass - AECN via Rail
+                      - gridcell "Document" [ref=e939]
+                      - gridcell "Public" [ref=e940]:
+                        - generic [ref=e944]: Public
+                    - row "Billing Truck 2314-T Corrections (1).pdf" [ref=e945]:
+                      - rowheader "Billing Truck 2314-T Corrections (1).pdf" [ref=e946]:
+                        - link "Billing Truck 2314-T Corrections (1).pdf" [ref=e947] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5JKQP1S0WQ8A"
+                          - generic [ref=e948]:
+                            - img [ref=e949]
+                            - generic [ref=e951]: Billing Truck 2314-T Corrections (1).pdf
+                      - gridcell "Allocated Bio-Oil Mass - AECN via Rail" [ref=e952]:
+                        - generic [ref=e954]: Allocated Bio-Oil Mass - AECN via Rail
+                      - gridcell "Document" [ref=e955]
+                      - gridcell "Public" [ref=e956]:
+                        - generic [ref=e960]: Public
+                    - row "Screenshot 2026-04-10 at 3.19.33 PM.png" [ref=e961]:
+                      - rowheader "Screenshot 2026-04-10 at 3.19.33 PM.png" [ref=e962]:
+                        - link "Screenshot 2026-04-10 at 3.19.33 PM.png" [ref=e963] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5GME61S04F19"
+                          - generic [ref=e964]:
+                            - img [ref=e965]
+                            - generic [ref=e967]: Screenshot 2026-04-10 at 3.19.33 PM.png
+                      - gridcell "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck" [ref=e968]:
+                        - generic [ref=e970]: Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck
+                      - gridcell "Document" [ref=e971]
+                      - gridcell "Public" [ref=e972]:
+                        - generic [ref=e976]: Public
+                    - row "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx" [ref=e977]:
+                      - rowheader "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx" [ref=e978]:
+                        - link "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx" [ref=e979] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5G60Y1S0DVTF"
+                          - generic [ref=e980]:
+                            - img [ref=e981]
+                            - generic [ref=e983]: Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx
+                      - gridcell "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)" [ref=e984]:
+                        - generic [ref=e986]: Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)
+                      - gridcell "Document" [ref=e987]
+                      - gridcell "Public" [ref=e988]:
+                        - generic [ref=e992]: Public
+                    - row "Screenshot 2026-02-23 at 11.29.10 AM.png" [ref=e993]:
+                      - rowheader "Screenshot 2026-02-23 at 11.29.10 AM.png" [ref=e994]:
+                        - link "Screenshot 2026-02-23 at 11.29.10 AM.png" [ref=e995] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5G60Y1S0T6YT"
+                          - generic [ref=e996]:
+                            - img [ref=e997]
+                            - generic [ref=e999]: Screenshot 2026-02-23 at 11.29.10 AM.png
+                      - gridcell "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)" [ref=e1000]:
+                        - generic [ref=e1002]: Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)
+                      - gridcell "Document" [ref=e1003]
+                      - gridcell "Public" [ref=e1004]:
+                        - generic [ref=e1008]: Public
+                    - row "BH 2025 LCA w Stack Emissions.xlsx" [ref=e1009]:
+                      - rowheader "BH 2025 LCA w Stack Emissions.xlsx" [ref=e1010]:
+                        - link "BH 2025 LCA w Stack Emissions.xlsx" [ref=e1011] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5G60Y1S0N5HS"
+                          - generic [ref=e1012]:
+                            - img [ref=e1013]
+                            - generic [ref=e1015]: BH 2025 LCA w Stack Emissions.xlsx
+                      - gridcell "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)" [ref=e1016]:
+                        - generic [ref=e1018]: Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)
+                      - gridcell "Document" [ref=e1019]
+                      - gridcell "Public" [ref=e1020]:
+                        - generic [ref=e1024]: Public
+                    - row "Supporting GHG data 31Dec2025 S.xlsx" [ref=e1025]:
+                      - rowheader "Supporting GHG data 31Dec2025 S.xlsx" [ref=e1026]:
+                        - link "Supporting GHG data 31Dec2025 S.xlsx" [ref=e1027] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5G60Y1S01GP4"
+                          - generic [ref=e1028]:
+                            - img [ref=e1029]
+                            - generic [ref=e1031]: Supporting GHG data 31Dec2025 S.xlsx
+                      - gridcell "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)" [ref=e1032]:
+                        - generic [ref=e1034]: Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)
+                      - gridcell "Document" [ref=e1035]
+                      - gridcell "Public" [ref=e1036]:
+                        - generic [ref=e1040]: Public
+                    - row "Screenshot 2026-01-27 125934.png" [ref=e1041]:
+                      - rowheader "Screenshot 2026-01-27 125934.png" [ref=e1042]:
+                        - link "Screenshot 2026-01-27 125934.png" [ref=e1043] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5K15K1S01XXR"
+                          - generic [ref=e1044]:
+                            - img [ref=e1045]
+                            - generic [ref=e1047]: Screenshot 2026-01-27 125934.png
+                      - gridcell "Allocated Distance Opelousas to B6 (truck) + 1 more" [ref=e1048]:
+                        - generic [ref=e1049]:
+                          - generic [ref=e1050]: Allocated Distance Opelousas to B6 (truck)
+                          - button "+ 1 more" [ref=e1051] [cursor=pointer]
+                      - gridcell "Document" [ref=e1052]
+                      - gridcell "Public" [ref=e1053]:
+                        - generic [ref=e1057]: Public
+                    - row "image (44).png" [ref=e1058]:
+                      - rowheader "image (44).png" [ref=e1059]:
+                        - link "image (44).png" [ref=e1060] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5K2FP1S01D59"
+                          - generic [ref=e1061]:
+                            - img [ref=e1062]
+                            - generic [ref=e1064]: image (44).png
+                      - gridcell "Allocated Distance Sopor Quebec to Opelousas (rail) + 1 more" [ref=e1065]:
+                        - generic [ref=e1066]:
+                          - generic [ref=e1067]: Allocated Distance Sopor Quebec to Opelousas (rail)
+                          - button "+ 1 more" [ref=e1068] [cursor=pointer]
+                      - gridcell "Document" [ref=e1069]
+                      - gridcell "Public" [ref=e1070]:
+                        - generic [ref=e1074]: Public
+                    - row "AECN to SOPOR (Baie Comeau) (2).png" [ref=e1075]:
+                      - rowheader "AECN to SOPOR (Baie Comeau) (2).png" [ref=e1076]:
+                        - link "AECN to SOPOR (Baie Comeau) (2).png" [ref=e1077] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5K3CJ1S0MH8F"
+                          - generic [ref=e1078]:
+                            - img [ref=e1079]
+                            - generic [ref=e1081]: AECN to SOPOR (Baie Comeau) (2).png
+                      - gridcell "Allocated Distance AECN to Sopor Quebec (truck) + 1 more" [ref=e1082]:
+                        - generic [ref=e1083]:
+                          - generic [ref=e1084]: Allocated Distance AECN to Sopor Quebec (truck)
+                          - button "+ 1 more" [ref=e1085] [cursor=pointer]
+                      - gridcell "Document" [ref=e1086]
+                      - gridcell "Public" [ref=e1087]:
+                        - generic [ref=e1091]: Public
+                    - row "Charm-A3-2024-10-24-64-1976.pdf" [ref=e1092]:
+                      - rowheader "Charm-A3-2024-10-24-64-1976.pdf" [ref=e1093]:
+                        - link "Charm-A3-2024-10-24-64-1976.pdf" [ref=e1094] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5JPAC1S0W6FV"
+                          - generic [ref=e1095]:
+                            - img [ref=e1096]
+                            - generic [ref=e1098]: Charm-A3-2024-10-24-64-1976.pdf
+                      - gridcell "BCUs - Applied to Bio-Oil Transport Process Emissions" [ref=e1099]:
+                        - generic [ref=e1101]: BCUs - Applied to Bio-Oil Transport Process Emissions
+                      - gridcell "Document" [ref=e1102]
+                      - gridcell "Public" [ref=e1103]:
+                        - generic [ref=e1107]: Public
+                    - row "Truck Embodied Emissions.png" [ref=e1108]:
+                      - rowheader "Truck Embodied Emissions.png" [ref=e1109]:
+                        - link "Truck Embodied Emissions.png" [ref=e1110] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5GNV91S0NAT6"
+                          - generic [ref=e1111]:
+                            - img [ref=e1112]
+                            - generic [ref=e1114]: Truck Embodied Emissions.png
+                      - gridcell "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck" [ref=e1115]:
+                        - generic [ref=e1117]: Emissions Factor - Vehicle Embodied Emissions - Tanker Truck
+                      - gridcell "Document" [ref=e1118]
+                      - gridcell "Public" [ref=e1119]:
+                        - generic [ref=e1123]: Public
+                    - row "AECN Process Emissions Calculation.xlsx" [ref=e1124]:
+                      - rowheader "AECN Process Emissions Calculation.xlsx" [ref=e1125]:
+                        - link "AECN Process Emissions Calculation.xlsx" [ref=e1126] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQB5GDE81S05GJ7"
+                          - generic [ref=e1127]:
+                            - img [ref=e1128]
+                            - generic [ref=e1130]: AECN Process Emissions Calculation.xlsx
+                      - gridcell "Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail)" [ref=e1131]:
+                        - generic [ref=e1133]: Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail)
+                      - gridcell "Document" [ref=e1134]
+                      - gridcell "Public" [ref=e1135]:
+                        - generic [ref=e1139]: Public

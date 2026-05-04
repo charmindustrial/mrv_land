@@ -54,9 +54,12 @@ SKILLS/  --  WHAT EACH SKILL DOES
 
     skills/qa/                                   --- QA cluster ---
         batch-qa/                  Primary: AECN injection batch QA
+        batch-qa-kerry/            Primary: Kerry bio-oil injection batch QA
+                                   (tote and tanker delivery modes; waste-product system boundary)
         site-emissions-qa/         Primary: site-level (non-batch) QA
         adversarial-reviewer/      Sub-agent: independent challenge of QA findings
-        garrett-completion-monitor/ Sub-agent: monitors Garrett's Slack responses
+        garrett-completion-monitor/ Sub-agent: monitors Garrett's Slack responses;
+                                   sweeps both AECN and Kerry batch registries
         performance-monitor/       Sub-agent: tracks QA KPIs over time
 
         The three sub-agents serve ALL primary QA agents. As new
@@ -76,7 +79,8 @@ OUTPUTS/  --  WHERE EACH SKILL'S WORK GOES
 -------------------------------------------
 
     outputs/lca-model-builder/             DOT-111 models, BOMs, co-product analyses
-    outputs/qa/batch-qa/                   Batch_2-XXX QA checklists + adversarial reviews
+    outputs/qa/batch-qa/                   AECN Batch_2-XXX QA checklists + adversarial reviews
+    outputs/qa/batch-qa-kerry/             Kerry batch QA checklists + adversarial reviews
     outputs/qa/site-emissions-qa/          Site emissions QA spreadsheets, briefs
     outputs/qa/performance-monitor/        Claude_QA_Performance_Tracker.xlsx
     outputs/data-analysis/                 Cross-skill ad-hoc analyses
@@ -96,6 +100,7 @@ ROUTING RULES
     Skill                       --> Writes to
     --------------------------------------------------
     qa-batch-aecn               outputs/qa/batch-qa/
+    qa-batch-kerry              outputs/qa/batch-qa-kerry/
     qa-site-emissions           outputs/qa/site-emissions-qa/
     adversarial-reviewer        same folder as primary it's reviewing
     garrett-completion-monitor  updates primary's checklist in place

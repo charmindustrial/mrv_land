@@ -1,0 +1,122 @@
+- application [ref=e1]:
+  - iframe [ref=e2]:
+    
+  - iframe [ref=e3]:
+    
+  - banner "Menu bar" [ref=e4]:
+    - generic [ref=e7]:
+      - link "Sheets home" [ref=e9] [cursor=pointer]:
+        - /url: https://docs.google.com/spreadsheets/u/0/?authuser=0&usp=sheets_web
+      - generic [ref=e16]:
+        - generic "2-190 Ops Notes Rail" [ref=e18]:
+          - generic [ref=e19]:
+            - generic: 2-190 Ops Notes Rail
+            - textbox "Rename" [ref=e21]: 2-190 Ops Notes Rail
+          - generic [ref=e22]:
+            - checkbox "Star" [ref=e24] [cursor=pointer]
+            - button "Move" [ref=e28] [cursor=pointer]
+            - 'button "Document status: Saved to Drive." [ref=e32]':
+              - generic [ref=e37] [cursor=pointer]: Saved to Drive
+        - generic [ref=e40]:
+          - button "Last edit was made 2 days ago by Garrett Lutz" [ref=e42] [cursor=pointer]
+          - button "Show all comments" [ref=e46] [cursor=pointer]
+          - button "Join a call here or present this tab to the call" [ref=e50] [cursor=pointer]
+          - generic [ref=e55]:
+            - button "Share. Charm Industrial. Anyone in this group with the link can open" [ref=e56] [cursor=pointer]: Share
+            - button "Quick sharing actions" [ref=e58] [cursor=pointer]
+          - generic [ref=e61]:
+            - generic:
+              - button "Ask Gemini" [ref=e64] [cursor=pointer]:
+                - img [ref=e67]
+              - tooltip [ref=e70]: Ask Gemini
+          - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=e73] [cursor=pointer]':
+            - img [ref=e74]
+    - generic [ref=e75]:
+      - menubar [ref=e77]:
+        - menuitem "File" [ref=e78] [cursor=pointer]
+        - menuitem "Edit" [ref=e79] [cursor=pointer]
+        - menuitem "View" [ref=e80] [cursor=pointer]
+        - menuitem "Insert" [ref=e81] [cursor=pointer]
+        - menuitem "Format" [ref=e82] [cursor=pointer]
+        - menuitem "Data" [ref=e83] [cursor=pointer]
+        - menuitem "Tools" [ref=e84] [cursor=pointer]
+        - menuitem "Gemini" [ref=e85] [cursor=pointer]
+        - menuitem "Extensions" [ref=e86] [cursor=pointer]
+        - menuitem "Help" [ref=e87] [cursor=pointer]
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - toolbar "Search the menus (Option+/)" [ref=e90]:
+            - combobox "Menus" [ref=e92]
+          - toolbar "Main" [ref=e93]:
+            - button "Undo (⌘Z)" [ref=e94] [cursor=pointer]
+            - button "Redo (⌘Y)" [ref=e99] [cursor=pointer]
+            - button "Print (⌘P)" [ref=e104] [cursor=pointer]
+            - button "Paint format" [ref=e109] [cursor=pointer]
+            - combobox "Zoom" [ref=e114] [cursor=pointer]:
+              - option "Zoom list. 100% selected." [selected] [ref=e117]:
+                - textbox "Zoom" [ref=e118]: 100%
+            - separator [disabled] [ref=e122]
+            - button "Format as currency" [ref=e123] [cursor=pointer]:
+              - generic [ref=e125]: $
+            - button "Format as percent" [ref=e126] [cursor=pointer]:
+              - generic [ref=e128]: "%"
+            - button "Decrease decimal places" [ref=e129] [cursor=pointer]
+            - button "Increase decimal places" [ref=e134] [cursor=pointer]
+            - button "More formats" [ref=e139] [cursor=pointer]:
+              - generic [ref=e142]: "123"
+            - separator [disabled] [ref=e143]
+            - listbox "Font" [ref=e144] [cursor=pointer]:
+              - option "Font list. Default (Arial) selected." [selected] [ref=e147]: Default (Arial)
+            - separator [disabled] [ref=e151]
+            - button "Decrease font size (⌘+Shift+comma)" [ref=e152] [cursor=pointer]
+            - combobox "Font size" [ref=e157] [cursor=pointer]:
+              - option "Font size list. 10 selected." [selected] [ref=e160]:
+                - textbox "Font size" [ref=e161]: "10"
+            - button "Increase font size (⌘+Shift+period)" [ref=e162] [cursor=pointer]
+            - separator [disabled] [ref=e167]
+            - button "Bold (⌘B)" [pressed] [ref=e168] [cursor=pointer]
+            - button "Italic (⌘I)" [ref=e173] [cursor=pointer]
+            - button "Strikethrough (⌘+Shift+X)" [ref=e178] [cursor=pointer]
+            - button "Text color" [ref=e183] [cursor=pointer]
+            - separator [disabled] [ref=e190]
+            - button "Fill color" [ref=e191] [cursor=pointer]
+            - button "Borders" [ref=e198] [cursor=pointer]
+            - button "Merge cells" [disabled] [ref=e204]
+            - button "Select merge type" [disabled] [ref=e209]
+            - separator [disabled] [ref=e215]
+            - button "Horizontal align" [ref=e216] [cursor=pointer]
+            - button "Vertical align" [ref=e225] [cursor=pointer]
+            - button "Text wrapping" [ref=e234] [cursor=pointer]
+            - button "Text rotation" [ref=e243] [cursor=pointer]
+            - separator [disabled] [ref=e252]
+            - button "More" [ref=e253] [cursor=pointer]
+        - toolbar "Mode and view" [ref=e260]:
+          - button "Hide the menus (Ctrl+Shift+F)" [ref=e261] [cursor=pointer]
+    - generic:
+      - generic:
+        - button "Show side panel":
+          - img [ref=e267] [cursor=pointer]
+    - generic [ref=e272]:
+      - generic "Name box (⌘ + J)" [ref=e273]:
+        - textbox [ref=e274]: G17
+        - button "Name box menu button. Select one of the menu items to navigate to its corresponding named range." [ref=e276] [cursor=pointer]
+      - textbox [ref=e289]
+      - button "Summarize this data" [ref=e290] [cursor=pointer]:
+        - img [ref=e291]
+        - generic [ref=e293]: Summarize this data
+  - navigation "Sheet tab bar" [ref=e329]:
+    - toolbar [ref=e330]:
+      - button "Add Sheet" [ref=e331] [cursor=pointer]
+      - button "All Sheets" [ref=e336] [cursor=pointer]
+      - button "Canvas menu" [ref=e341] [cursor=pointer]
+    - toolbar [ref=e348]:
+      - button "Sheet1" [ref=e349]:
+        - generic [ref=e353]: Sheet1
+    - toolbar [ref=e357]
+  - generic [ref=e358]:
+    - textbox [active]
+  - link "Turn on screen reader support" [ref=e359] [cursor=pointer]:
+    - /url: "#"
+  - textbox [ref=e360]
+  - region
+  - region [ref=e361]: To enable screen reader support, press ⌘+Option+Z To learn about keyboard shortcuts, press ⌘slash

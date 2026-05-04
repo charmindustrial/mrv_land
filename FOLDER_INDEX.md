@@ -31,9 +31,10 @@ skills/
 ├── lca-model-builder/                         ← embodied emissions / capital goods LCA
 ├── qa/                                         ← QA cluster
 │   ├── batch-qa/                              (primary QA agent — AECN injection batches)
+│   ├── batch-qa-kerry/                        (primary QA agent — Kerry bio-oil injection batches; tote and tanker delivery modes)
 │   ├── site-emissions-qa/                     (primary QA agent — site/non-batch emissions)
 │   ├── adversarial-reviewer/                  (sub-agent — serves all QA primaries)
-│   ├── garrett-completion-monitor/            (sub-agent — serves all QA primaries)
+│   ├── garrett-completion-monitor/            (sub-agent — sweeps all batch-qa registries, AECN + Kerry)
 │   └── performance-monitor/                   (sub-agent — serves all QA primaries)
 └── data-analysis/                              ← data analysis cluster
     └── wellhead-data-transform/               (Ignition SCADA → VVB format + compliance charts)
@@ -47,7 +48,8 @@ skills/
 outputs/
 ├── lca-model-builder/                         ← DOT-111 models, BOMs, co-product analyses
 ├── qa/
-│   ├── batch-qa/                              ← Batch_2-XXX_QA_Checklist.xlsx + adversarial reviews + Garrett-edited versions
+│   ├── batch-qa/                              ← Batch_2-XXX_QA_Checklist.xlsx (AECN) + adversarial reviews + Garrett-edited versions
+│   ├── batch-qa-kerry/                        ← Kerry_Batch_K-XXX_QA_Checklist.xlsx + adversarial reviews + Garrett-edited versions
 │   ├── site-emissions-qa/                     ← Site_Emissions_QA_*.xlsx + session briefs
 │   └── performance-monitor/                   ← Claude_QA_Performance_Tracker.xlsx
 ├── data-analysis/                              ← cross-skill ad-hoc analyses
@@ -63,7 +65,8 @@ outputs/
 
 | Skill | Writes to |
 |-------|-----------|
-| qa-batch-aecn (and future batch-QA primaries) | `outputs/qa/batch-qa/` |
+| qa-batch-aecn | `outputs/qa/batch-qa/` |
+| qa-batch-kerry | `outputs/qa/batch-qa-kerry/` |
 | qa-site-emissions (and future site-QA primaries) | `outputs/qa/site-emissions-qa/` |
 | adversarial-reviewer | same folder as the primary it's reviewing |
 | garrett-completion-monitor | updates the primary's checklist in place |

@@ -1,0 +1,312 @@
+{
+  "batch_id": "2-187",
+  "oil_type": "AECN",
+  "delivery_mode": "rail",
+  "railcar": "TIMX201060",
+  "offload_number": 2,
+  "is_last_offload_of_railcar": false,
+  "physical_pull_sequence": "2nd of 4 (per consumed_lot suffix; per Max's note on 2-186, 2-189 is the actual 4th/last physical pull)",
+  "reporting_period": "Apr 2026 (Certify removal date 03 Apr 2026)",
+  "T0_initiation": "2026-05-01T16:52:41Z",
+  "drive_folder_url": "https://drive.google.com/drive/folders/1FZKcMtZYmalLB8J3QAcBtR1ecvfHOxkO",
+  "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQB5JF7Q1S0GN9C/edit",
+  "certify_removal_id": "rmv_1KQB5JF7Q1S0GN9C",
+
+  "ops_notes": {
+    "filename": "2-187 Ops Notes Rail",
+    "url": "https://docs.google.com/spreadsheets/d/1RnVQ7KR1E-u5VBtdlvM2o3B-2sfBHE25yZJLRnRJD7w/edit",
+    "completion_date": "2026-04-03",
+    "batch_number_in_file": "2-187",
+    "railcar_number": "TIMX201060",
+    "sparging_mass_loss_factor": 0.0129,
+    "lbs_to_kg_conversion": 0.453592,
+    "BOLs_loaded": [
+      {"BOL_number": "2314-R", "BOL_mass_MT": 26.05},
+      {"BOL_number": "2316-R", "BOL_mass_MT": 29.06},
+      {"BOL_number": "2317-R", "BOL_mass_MT": 25.50}
+    ],
+    "total_loaded_mass_MT": 80.61,
+    "total_loaded_mass_kg": 80610,
+    "_note_total_loaded": "Post-correction BOL aggregate. Pre-correction was 71,010 kg (still in COBB origin_quantity_kg). 9.6 MT difference per AECN BOL correction recorded in 2-186 batch flag (2026-04-30).",
+    "distances": {
+      "SOPOR_to_Opelousas_full_mi": 2199,
+      "AECN_to_SOPOR_single_truck_mi": 107.5,
+      "AECN_to_SOPOR_total_truckmi_3trucks": 322.5,
+      "Opelousas_to_Basco_mi": 42.9,
+      "truck_trips_in_Canada": 3
+    },
+    "trucks_unloaded": [
+      {
+        "row": 1,
+        "consumed_lot": "Rail_TIMX201060_2.27.26_redo_offload_1",
+        "loaded_lb": 77560,
+        "unloaded_lb": 29380,
+        "cargo_kg": 21854.06256,
+        "sparging_loss_kg": 281.917407,
+        "mass_of_bio_oil_injected_kg": 21572.14515,
+        "pH": 2.9,
+        "upstream_allocation_fraction": 0.2711085791,
+        "rail_miles_allocated": 596.1677654,
+        "truck_leg_1_miles_allocated": 87.43251675,
+        "_note": "This row belongs to sister batch 2-186 (per COBB row 63 mapping). Populated in 2-187 Ops Notes as a running railcar tally, NOT as part of batch 2-187."
+      },
+      {
+        "row": 2,
+        "consumed_lot": "Rail_TIMX201060_2.27.26_redo_offload_2",
+        "loaded_lb": 77900,
+        "unloaded_lb": 29980,
+        "cargo_kg": 21736.12864,
+        "sparging_loss_kg": 280.3960595,
+        "mass_of_bio_oil_injected_kg": 21455.73258,
+        "pH": 3.3,
+        "upstream_allocation_fraction": 0.2696455606,
+        "rail_miles_allocated": 592.9505878,
+        "truck_leg_1_miles_allocated": 86.96069329,
+        "_note": "THIS BATCH (2-187). Allocation fraction = 21,736.12864 / 80,610 = 0.26964556."
+      },
+      {"row": 3, "consumed_lot": "(empty)", "_note": "Unpopulated row, zero by design"},
+      {"row": 4, "consumed_lot": "(empty)", "_note": "Unpopulated row, zero by design"}
+    ],
+    "total_unloaded_mass_MT_running_tally": 43.5901912,
+    "_note_total_unloaded": "Running railcar tally at the time 2-187 was completed (offload_1 + offload_2). NOT batch 2-187's mass. Batch 2-187 = offload_2 only = 21,736.13 kg / 21.736 MT.",
+    "pH_offload_2": 3.3,
+    "density_field": null,
+    "_note_density": "Density field blank for AECN — expected behavior per checklist 5.7 N/A rule."
+  },
+
+  "scale_tickets": {
+    "drive_subfolder": "Scale Tickets",
+    "tickets_present_in_drive": [
+      "2-187 Full Scale Ticket.jpg",
+      "2-187 Empty Scale Ticket.jpg"
+    ],
+    "_note_drive_coverage": "Both Drive scale tickets correspond to OFFLOAD_2 (this batch). Offload_1's scale tickets are not in this batch's Drive folder (they belong to sister batch 2-186 per COBB row 63 mapping).",
+    "full_ticket": {
+      "filename": "2-187 Full Scale Ticket.jpg",
+      "drive_file_id": "1GrSg0x7bC6ksLmqYNlfqeiQ6isO-uvF2",
+      "scale_id": "3122",
+      "scale_location": "PILOT TRAVEL CENTER, 149 EXIT 40, BUNKIE LA",
+      "date": "2026-03-31",
+      "weigh_number": "0762",
+      "tractor": "CH1",
+      "trailer": "KL-192",
+      "company": "CHARM INDUSTRIAL",
+      "steer_axle_lb": 10200,
+      "drive_axle_lb": 33920,
+      "trailer_axle_lb": 33780,
+      "axle_sum_lb": 77900,
+      "gross_weight_lb_per_image": 77900,
+      "fee_paid": "$14.75 PAID Fleet Direct",
+      "matches_ops_notes_offload_2": true
+    },
+    "empty_ticket": {
+      "filename": "2-187 Empty Scale Ticket.jpg",
+      "drive_file_id": "1PuEG6JvXtENDqfN82EA14HzURVjqJgcL",
+      "scale_id": "3122",
+      "scale_location": "PILOT TRAVEL CENTER, 149 EXIT 40, BUNKIE LA",
+      "date": "2026-04-01",
+      "weigh_number": "1778",
+      "tractor": "CH1",
+      "trailer": "KL-192",
+      "company": "CHARM INDUSTRIAL",
+      "steer_axle_lb": 9500,
+      "drive_axle_lb": 11820,
+      "trailer_axle_lb": 8660,
+      "axle_sum_lb": 29980,
+      "gross_weight_lb_per_image": 29980,
+      "fee_paid": "$14.75 PAID Fleet Direct",
+      "matches_ops_notes_offload_2": true
+    },
+    "tractor_match": "CH1 == CH1 ✓",
+    "trailer_match": "KL-192 == KL-192 ✓",
+    "net_load_lb": 47920,
+    "net_load_kg": 21736.12864,
+    "matches_ops_notes_offload_2_cargo_kg": true,
+    "dates_within_2_weeks_of_completion": true
+  },
+
+  "lab_results": {
+    "filename_drive": "SR26-02264.pdf",
+    "filename_certify": "CHN-186-189.pdf",
+    "drive_file_id": "1CUp8nS4_vQnQCZGUvXgR_vJ8gwFj-vXO",
+    "lab": "SGS North America Inc., Oil Gas & Chemicals Services, St. Rose, LA",
+    "sgs_order_no": 5437581,
+    "report_date": "2026-04-07",
+    "page_for_2_187": 2,
+    "certificate_id_for_2_187": "SR26-02264.002",
+    "client_id_on_page": "BATCH 2-187",
+    "location": "BASCO LOUISIANA",
+    "sampled_datetime": "2026-04-02 04:45",
+    "received": "2026-04-06 10:15",
+    "analysed_window": "2026-04-06 15:18 to 2026-04-07 10:46",
+    "completed": "2026-04-07 10:46",
+    "carbon_pct": 41.2,
+    "hydrogen_pct": 6.9,
+    "nitrogen_pct_lt_0_75": true,
+    "viscosity_40C_cSt": 22.04,
+    "titration_solvent_volume_mL": 60,
+    "acid_number_mgKOHpg": 46,
+    "density_15C_gcm3": 1.212,
+    "carbon_in_AECN_2SD_range_27_2_to_51_6_pct": true,
+    "_note_shared_pdf": "Single SR26-02264.pdf covers 2-186, 2-187, 2-188, 2-189, 3-55, 3-56, 3-57. Page 2 is the 2-187 sample. Charm sample size policy (n=3 replicates per test) applies."
+  },
+
+  "cobb": {
+    "tracker_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350",
+    "tab_name": "Basco Injection -- COBB",
+    "row_number": 64,
+    "cobb_cell_A_value": "2-187",
+    "cobb_row_id_verified": true,
+    "injection_batch": "2-187",
+    "tracking_type": "bio_oil",
+    "consumed_lot": "Rail_TIMX201060_2.27.26_redo_offload_2",
+    "BOL_number": "2314-R, 2316-R, 2317-R",
+    "origin_quantity_kg": 71010,
+    "_note_origin_qty_stale": "COBB origin_quantity_kg = 71,010 reflects the PRE-correction BOL aggregate. Post-correction (per AECN BOL correction recorded in 2-186 flag) = 80,610 = Ops Notes Total Loaded Mass. COBB has not been refreshed. Same flag pattern as 2-186 row 63.",
+    "offloaded_quantity_kg": 21736.12864,
+    "quantity_consumed_in_injection": 21736.12864,
+    "order_line_completed_on": "2026-04-02 16:06:02",
+    "injection_completion_date": "2026-04-03",
+    "pH_in_cobb_raw": "33",
+    "_note_pH_typo": "COBB row 64 pH field = '33' instead of '3.3' (per Ops Notes offload_2 pH = 3.3). Garrett-side data-provenance issue (typo in COBB cell). Not verifier-impacting; the verifier looks at Ops Notes and Certify. Same hygiene class as 2-186's COBB-side stale origin_qty.",
+    "sister_batches_railcar_TIMX201060": [
+      {"row": 63, "batch": "2-186", "consumed_lot_suffix": "offload_1", "offloaded_kg": 21854.06256, "pH": 2.9, "_pull_position": "1st pull"},
+      {"row": 64, "batch": "2-187", "consumed_lot_suffix": "offload_2", "offloaded_kg": 21736.12864, "pH": 33, "_pull_position": "2nd pull (THIS BATCH)"},
+      {"row": 65, "batch": "2-188", "consumed_lot_suffix": "offload_4", "offloaded_kg": 5620.17728,  "pH": 3,   "_pull_position": "per consumed_lot 4th but per Max actually 3rd physical pull (suffix doesn't match physical sequence)"},
+      {"row": 66, "batch": "2-189", "consumed_lot_suffix": "offload_3", "offloaded_kg": 21799.63152, "pH": 3,   "_pull_position": "per consumed_lot 3rd but per Max actually 4th/last physical pull"}
+    ],
+    "sister_batches_offloaded_sum_kg": 71010,
+    "_note_sum_matches_stale_origin": "Sum of all 4 sister offloaded_quantity_kg = 71,010.00 = COBB stale origin_quantity_kg. Demonstrates COBB rows are pre-correction. With corrected BOL aggregate of 80,610, the last/back-calc pull (per Max, 2-189) should rise from 21,800 to ~31,400 kg — to be re-verified at 2-189's QA per 2-186 flag."
+  },
+
+  "certify_components": {
+    "removal_id": "rmv_1KQB5JF7Q1S0GN9C",
+    "removal_date": "2026-04-03",
+    "net_co2e_t": 29.476,
+    "displayed_net_co2e_rounded_t": 29.48,
+    "sequestrations_total_t": 32.415,
+    "activities_total_t": 4.382,
+    "adjustments_BCU_total_t": 1.612,
+    "losses_t": 0,
+    "counterfactuals_t": 0,
+    "uncertainty_discount_kg": 170,
+    "components_detail": {
+      "Injection Sequestration": {"value_t": 32.415, "carbon_pct": 41.2, "carbon_uncertainty_pct": 0.1648, "mass_kg": 21455.73, "mass_uncertainty_kg": 72.57},
+      "AECN to SOPOR Tanker Truck Process Emissions": {"value_t": 0.267, "ef_kgCO2e_per_t_mi": 0.1143, "distance_km": 173, "mass_kg": 21736.13, "mass_uncertainty_kg": 72.57},
+      "SOPOR to Opelousas Rail Process Emissions": {"value_t": 1.238, "ef_kgCO2e_per_t_mi": 0.0259, "distance_mi": 2199, "mass_kg": 21736.13, "mass_uncertainty_kg": 72.57},
+      "Opelousas to Basco Tanker Truck Process Emissions": {"value_t": 0.107, "ef_kgCO2e_per_t_mi": 0.1143, "distance_mi": 42.9, "mass_kg": 21736.13, "mass_uncertainty_kg": 72.57},
+      "Opelousas to Basco Tanker Truck Embodied Emissions": {"value_t": 0.010, "ef_kgCO2e_per_mi": 0.23756, "distance_mi": 42.9, "_note": "no mass datapoint — per-mile methodology"},
+      "SOPOR to Opelousas Rail Embodied Emissions": {"value_t": 0.018, "ef_kgCO2e_per_mi": 0.03113, "distance_mi_allocated": 592.95062, "_note": "no mass datapoint"},
+      "AECN to SOPOR Tanker Truck Embodied Emissions": {"value_t": 0.021, "ef_kgCO2e_per_mi": 0.23756, "distance_km_allocated": 139.94605, "distance_mi_allocated": 86.96, "_note": "no mass datapoint"},
+      "AECN pyrolysis (from rail loads) - process emissions": {"value_t": 2.261, "ef_tCO2e_per_t": 0.104, "mass_kg": 21736.13, "mass_uncertainty_kg": 72.57},
+      "AECN pyrolysis (from rail loads) - embodied emissions": {"value_t": 0.460, "ef_tCO2e_per_t": 0.02116, "mass_kg": 21736.13, "mass_uncertainty_kg": 72.57},
+      "BCUs - Applied to Bio-Oil Transport Process Emissions": {"value_t": 1.612, "constant_reduction_kgCO2e": 1612, "_note": "Equals sum of three transport process emissions (0.267 + 1.238 + 0.107 = 1.612). BCU >= activity ✓."}
+    }
+  },
+
+  "certify_calculation_view": {
+    "datapoints_count": 15,
+    "datapoints": {
+      "Mass of Injectant (per injection)": {"value": "21.456 t", "kg": 21455.73, "type": "REPORTED", "sources": ["2-187 Empty Scale Ticket (1).jpg", "2-187 Full Scale Ticket (1).jpg", "2-187 Ops Notes Rail.xlsx"]},
+      "Carbon Content of Bio-oil Injected (per injection)": {"value": "41.20 %", "type": "REPORTED", "sources": ["CHN-186-189.pdf"]},
+      "Allocated Bio-Oil Mass - AECN via Rail": {"value": "21.736 t", "type": "REPORTED", "sources": ["Billing Truck 2314-T Corrections (1).pdf", "Billing Truck 2316-R.pdf", "Documents camion 2317-R.pdf", "2-187 Ops Notes Rail.xlsx"]},
+      "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)": {"value": "0.10 tCO2e/t", "type": "REPORTED", "sources": ["Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx", "Screenshot 2026-02-23 at 11.29.10 AM.png", "BH 2025 LCA w Stack Emissions.xlsx", "Supporting GHG data 31Dec2025 S.xlsx"]},
+      "Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail)": {"value": "0.02 tCO2e/t", "type": "DERIVED", "sources": ["AECN Process Emissions Calculation.xlsx"]},
+      "Distance from AECN to Sopor Quebec (truck)": {"value": "173.00 km", "type": "DERIVED", "sources": ["AECN to SOPOR (Baie Comeau) (2).png"]},
+      "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck": {"value": "0.07 kgCO2e/(km*t)", "native_value": "0.0001143 MTCO2e/(t*mi)", "type": "DERIVED", "sources": ["Screenshot 2026-04-10 at 3.19.33 PM.png"]},
+      "Distance from SOPOR to Opelousas (RAIL)": {"value": "2,199 mi", "type": "DERIVED", "sources": ["image (44).png"]},
+      "Emission Factors - Rail Transport Fuel Use (Well to Wheel)": {"value": "0.02 kgCO2e/(km*t)", "native_value": "0.0000259104 MTCO2e/(t*mi)", "type": "REPORTED", "sources": ["Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf"]},
+      "Distance from Opelousas to B6 (truck)": {"value": "43 mi", "type": "DERIVED", "sources": ["Screenshot 2026-01-27 125934.png"]},
+      "Allocated Distance Opelousas to B6 (truck)": {"value": "43 mi", "type": "REPORTED", "sources": ["Screenshot 2026-01-27 125934.png"]},
+      "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck": {"value": "0.1476 kgCO2e/km", "native_value": "0.00023756059 MTCO2e/mi", "type": "DERIVED", "sources": ["Truck Embodied Emissions.png"]},
+      "Allocated Distance Sopor Quebec to Opelousas (rail)": {"value": "593 mi (precise 592.95062)", "type": "REPORTED", "sources": ["image (44).png", "2-187 Ops Notes Rail.xlsx"]},
+      "Emissions Factor - Vehicle Embodied Emissions -- Railcar": {"value": "0.0193 kgCO2e/km", "native_value": "0.0000311307 MTCO2e/mi", "type": "REPORTED", "sources": ["Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf"], "_note": "2026 corrected EF — 2-182 had stale value 0.0000352240 MTCO2e/mi which has now been updated."},
+      "Allocated Distance AECN to Sopor Quebec (truck)": {"value": "139.95 km (= 86.96 mi)", "type": "REPORTED", "sources": ["AECN to SOPOR (Baie Comeau) (2).png", "2-187 Ops Notes Rail.xlsx"]}
+    }
+  },
+
+  "certify_sources_tab_total": 23,
+  "certify_sources_tab": [
+    {"i": 1,  "filename": "2-187 Ops Notes Rail.xlsx", "linked_datapoint": "Allocated Distance AECN to Sopor Quebec (truck)", "visibility": "PRIVATE"},
+    {"i": 2,  "filename": "2-187 Ops Notes Rail.xlsx", "linked_datapoint": "Allocated Distance Sopor Quebec to Opelousas (rail)", "visibility": "PRIVATE"},
+    {"i": 3,  "filename": "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf", "linked_datapoint": "Emission Factors - Rail Transport Fuel Use (Well to Wheel)", "visibility": "PRIVATE"},
+    {"i": 4,  "filename": "2-187 Ops Notes Rail.xlsx", "linked_datapoint": "Allocated Bio-Oil Mass - AECN via Rail", "visibility": "PRIVATE"},
+    {"i": 5,  "filename": "CHN-186-189.pdf", "linked_datapoint": "Carbon Content of Bio-oil Injected (per injection)", "visibility": "PUBLIC"},
+    {"i": 6,  "filename": "2-187 Full Scale Ticket (1).jpg", "linked_datapoint": "Mass of Injectant (per injection)", "visibility": "PUBLIC"},
+    {"i": 7,  "filename": "2-187 Empty Scale Ticket (1).jpg", "linked_datapoint": "Mass of Injectant (per injection)", "visibility": "PUBLIC"},
+    {"i": 8,  "filename": "2-187 Ops Notes Rail.xlsx", "linked_datapoint": "Mass of Injectant (per injection)", "visibility": "PUBLIC"},
+    {"i": 9,  "filename": "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf", "linked_datapoint": "Emissions Factor - Vehicle Embodied Emissions -- Railcar", "visibility": "PUBLIC"},
+    {"i": 10, "filename": "Documents camion 2317-R.pdf", "linked_datapoint": "Allocated Bio-Oil Mass - AECN via Rail", "visibility": "PUBLIC"},
+    {"i": 11, "filename": "Billing Truck 2316-R.pdf", "linked_datapoint": "Allocated Bio-Oil Mass - AECN via Rail", "visibility": "PUBLIC"},
+    {"i": 12, "filename": "Billing Truck 2314-T Corrections (1).pdf", "linked_datapoint": "Allocated Bio-Oil Mass - AECN via Rail", "visibility": "PUBLIC", "_note": "FILENAME TYPO: '2314-T' should be '2314-R' to match COBB BOL_number list. Same flag as 2-186."},
+    {"i": 13, "filename": "Screenshot 2026-04-10 at 3.19.33 PM.png", "linked_datapoint": "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck", "visibility": "PUBLIC", "_note": "Generic filename - FLAG (Section 9.9)."},
+    {"i": 14, "filename": "Charm-A5-2024-10-24-62-1976.pdf", "linked_datapoint": "BCUs - Applied to Bio-Oil Transport Process Emissions", "visibility": "PUBLIC"},
+    {"i": 15, "filename": "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx", "linked_datapoint": "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)", "visibility": "PUBLIC"},
+    {"i": 16, "filename": "Screenshot 2026-02-23 at 11.29.10 AM.png", "linked_datapoint": "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)", "visibility": "PUBLIC", "_note": "Generic filename - FLAG (Section 9.9)."},
+    {"i": 17, "filename": "BH 2025 LCA w Stack Emissions.xlsx", "linked_datapoint": "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)", "visibility": "PUBLIC"},
+    {"i": 18, "filename": "Supporting GHG data 31Dec2025 S.xlsx", "linked_datapoint": "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)", "visibility": "PUBLIC"},
+    {"i": 19, "filename": "Screenshot 2026-01-27 125934.png", "linked_datapoint": "Allocated Distance Opelousas to B6 (truck) + 1 more", "visibility": "PUBLIC", "_note": "Generic filename - FLAG (Section 9.9)."},
+    {"i": 20, "filename": "image (44).png", "linked_datapoint": "Allocated Distance Sopor Quebec to Opelousas (rail) + 1 more", "visibility": "PUBLIC", "_note": "Generic filename - FLAG (Section 9.9). Watco rail-distance email."},
+    {"i": 21, "filename": "AECN to SOPOR (Baie Comeau) (2).png", "linked_datapoint": "Allocated Distance AECN to Sopor Quebec (truck) + 1 more", "visibility": "PUBLIC"},
+    {"i": 22, "filename": "Truck Embodied Emissions.png", "linked_datapoint": "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck", "visibility": "PUBLIC"},
+    {"i": 23, "filename": "AECN Process Emissions Calculation.xlsx", "linked_datapoint": "Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail)", "visibility": "PUBLIC"}
+  ],
+
+  "drive_inventory": {
+    "batch_folder": [
+      "Testing/ (subfolder)",
+      "Scale Tickets/ (subfolder)",
+      "2-187 Ops Notes Rail (Google Sheet)"
+    ],
+    "Testing_subfolder": ["SR26-02264.pdf"],
+    "Scale_Tickets_subfolder": [
+      "2-187 Full Scale Ticket.jpg",
+      "2-187 Empty Scale Ticket.jpg"
+    ],
+    "_note_no_vaulted_refs": "All docs reference Basco Louisiana / Charm Industrial. No legacy Vaulted references. ✓"
+  },
+
+  "independent_calculations": {
+    "scale_ticket_net_lb": "77900 - 29980 = 47920 lb ✓",
+    "scale_ticket_net_kg": "47920 / 2.20462 = 21736.10 kg (rounding); Ops Notes uses 47920 * 0.453592 = 21736.12864 ✓",
+    "sparging_loss_kg": "21736.12864 * 0.0129 = 280.396 kg ✓",
+    "mass_of_bio_oil_injected_kg": "21736.12864 - 280.396 = 21455.733 kg ✓ matches Certify 21455.73",
+    "gross_co2e_t": "21455.73 kg * 0.412 * 3.667 / 1000 = 32.4151 tCO2e ✓ matches Certify Sequestrations 32.415",
+    "AECN_to_SOPOR_truck_process_t": "21.73613 t * 107.5 mi * 0.0001143 MTCO2e/(t*mi) = 0.2671 tCO2e ✓ matches 0.267",
+    "rail_process_t": "21.73613 t * 2199 mi * 0.0000259104 MTCO2e/(t*mi) = 1.2384 tCO2e ✓ matches 1.238",
+    "Opelousas_to_Basco_truck_process_t": "21.73613 t * 42.9 mi * 0.0001143 MTCO2e/(t*mi) = 0.1066 tCO2e ✓ matches 0.107",
+    "Opelousas_to_Basco_truck_embodied_t": "42.9 mi * 0.00023756059 MTCO2e/mi = 0.01019 tCO2e ✓ matches 0.010",
+    "rail_embodied_t": "592.95062 mi * 0.0000311307 MTCO2e/mi = 0.01846 tCO2e ✓ matches 0.018",
+    "AECN_to_SOPOR_truck_embodied_t": "86.96 mi * 0.00023756059 MTCO2e/mi = 0.02066 tCO2e ✓ matches 0.021",
+    "pyrolysis_process_t": "21.73613 t * 0.10402 = 2.2606 tCO2e ✓ matches 2.261",
+    "pyrolysis_embodied_t": "21.73613 t * 0.02116 = 0.4599 tCO2e ✓ matches 0.460",
+    "activities_sum_t": "0.267 + 1.238 + 0.107 + 0.010 + 0.018 + 0.021 + 2.261 + 0.460 = 4.382 ✓ matches",
+    "BCU_offset_t": "0.267 + 1.238 + 0.107 = 1.612 ✓ exactly equals sum of transport process — BCU >= activity rule satisfied",
+    "net_t": "32.415 + 1.612 - 4.382 - 0.170 = 29.475 ≈ 29.48 displayed (29.476 in Calc View) ✓"
+  },
+
+  "qa_findings_preliminary": {
+    "fails": [],
+    "flags": [
+      {
+        "section": "5.4",
+        "issue": "COBB row 64 pH field shows '33' instead of '3.3' (Ops Notes correctly shows offload_2 pH = 3.3)",
+        "severity": "process hygiene / data provenance",
+        "verifier_impact": "none — verifier reads Ops Notes, not COBB"
+      },
+      {
+        "section": "5.4",
+        "issue": "COBB row 64 origin_quantity_kg = 71,010 (stale pre-correction). Post-correction value = 80,610 per Ops Notes Total Loaded Mass (matches 2-186 flag note). Sister-batch sum (21,854.06 + 21,736.13 + 5,620.18 + 21,799.63 = 71,010) confirms COBB rows are pre-correction.",
+        "severity": "process hygiene / data provenance",
+        "verifier_impact": "none — verifier reads Ops Notes (80.61 MT) and Certify Allocated Bio-Oil Mass (per-batch 21.736 t), not COBB origin_quantity_kg."
+      },
+      {
+        "section": "9.9",
+        "issue": "4 generic Certify source filenames (image (44).png, Screenshot 2026-04-10 at 3.19.33 PM.png, Screenshot 2026-02-23 at 11.29.10 AM.png, Screenshot 2026-01-27 125934.png) plus 'Billing Truck 2314-T Corrections (1).pdf' has '-T' suffix where COBB BOL list has '2314-R'. Same shared rail-batch datapoints as 2-185, 2-186.",
+        "severity": "filename hygiene",
+        "verifier_impact": "none — content correct, naming non-descriptive"
+      }
+    ],
+    "section_8_rail_last_batch_check": "DEFERRED — 2-187 is the 2nd offload of railcar TIMX201060 (NOT last). Per Max's 2-186 note, 2-189 is the actual last/4th physical pull. Section 7a per-offload uncertainty (±72.57 kg per leg) framing is conservative IFF N_offloads >= N_inbound_BOLs at last batch. Verify at 2-189's QA. Note in 2-187 checklist Section 8 that the precondition check is pending."
+  }
+}

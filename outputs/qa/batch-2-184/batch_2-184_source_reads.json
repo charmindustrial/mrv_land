@@ -164,7 +164,8 @@
         "distance_full_mi": 107.5,
         "mass_t": 21.845,
         "mass_unc_kg": 72.57,
-        "math": "21.845 \u00d7 107.5 \u00d7 0.0001143 = 0.2683 \u2713"
+        "math": "21.845 \u00d7 107.5 \u00d7 0.0001143 = 0.2683 \u2713",
+        "EF_MT_per_t_mi": 0.0001143
       },
       "SOPOR\u2192Opelousas Rail Process": {
         "value_t": 1.244,
@@ -172,7 +173,8 @@
         "distance_full_mi": 2199,
         "mass_t": 21.845,
         "mass_unc_kg": 72.57,
-        "math": "21.845 \u00d7 2199 \u00d7 0.0000259104 = 1.244 \u2713"
+        "math": "21.845 \u00d7 2199 \u00d7 0.0000259104 = 1.244 \u2713",
+        "EF_MT_per_t_mi": 2.59104e-05
       },
       "Opelousas\u2192Basco Truck Process": {
         "value_t": 0.107,
@@ -180,7 +182,8 @@
         "distance_full_mi": 42.9,
         "mass_t": 21.845,
         "mass_unc_kg": 72.57,
-        "math": "21.845 \u00d7 42.9 \u00d7 0.0001143 = 0.1071 \u2713"
+        "math": "21.845 \u00d7 42.9 \u00d7 0.0001143 = 0.1071 \u2713",
+        "EF_MT_per_t_mi": 0.0001143
       },
       "AECN\u2192SOPOR Truck Embodied": {
         "value_t": 0.021,
@@ -188,20 +191,26 @@
         "EF_kg_per_km": 0.14761,
         "alloc_distance_km": 145.32,
         "alloc_distance_mi": 90.3,
-        "math": "145.32 km \u00d7 0.14761 = 21.45 kg \u2248 0.021 \u2713"
+        "math": "145.32 km \u00d7 0.14761 = 21.45 kg \u2248 0.021 \u2713",
+        "EF_MT_per_mi": 0.00023756059,
+        "alloc_distance_km_derived": 145.32,
+        "alloc_distance_mi_derived": 90.3
       },
       "SOPOR\u2192Opelousas Rail Embodied": {
         "value_t": 0.019,
         "EF_kg_per_mi": 0.03113,
         "alloc_distance_mi": 615.7,
         "math": "615.70 \u00d7 0.03113 = 19.16 kg \u2248 0.019 \u2713",
-        "note": "Uses NEW 2026 railcar embodied EF (0.0000311307 MTCO\u2082e/mi). KB note about Certify lagging is now stale \u2014 Certify uses current value as of 2026-04-29."
+        "note": "Uses NEW 2026 railcar embodied EF (0.0000311307 MTCO\u2082e/mi). KB note about Certify lagging is now stale \u2014 Certify uses current value as of 2026-04-29.",
+        "EF_MT_per_mi": 3.11307e-05,
+        "alloc_distance_mi_derived": 615.7
       },
       "Opelousas\u2192Basco Truck Embodied": {
         "value_t": 0.01,
         "EF_kg_per_mi": 0.23756,
         "alloc_distance_mi": 42.9,
-        "math": "42.9 \u00d7 0.23756 = 10.19 kg \u2248 0.010 \u2713"
+        "math": "42.9 \u00d7 0.23756 = 10.19 kg \u2248 0.010 \u2713",
+        "EF_MT_per_mi": 0.00023756059
       },
       "AECN Pyrolysis Process": {
         "value_t": 2.268,
@@ -224,7 +233,16 @@
         "note": "Equals sum of transport process emissions (0.268 + 1.244 + 0.107 = 1.619). 100% offset \u2713"
       }
     },
-    "net_check": "34.317 + 1.619 - 4.399 - 0.186 = 31.351 \u2248 31.350 \u2713"
+    "net_check": "34.317 + 1.619 - 4.399 - 0.186 = 31.351 \u2248 31.350 \u2713",
+    "uncertainty_discount_t": 0.186,
+    "gross_kg": 34317,
+    "net_pre_uncertainty_t": 31.537,
+    "activities_net_after_BCU_t": 2.78,
+    "transport_process_sum_t": 1.619,
+    "transport_embodied_sum_t": 0.05,
+    "transport_total_t": 1.669,
+    "pyrolysis_total_t": 2.73,
+    "internal_net_check_t": 31.351
   },
   "certify_datapoints_count": 16,
   "certify_sources_tab_total": 20,
@@ -280,5 +298,15 @@
     "delta_kg": 387.91,
     "delta_pct": 1.78,
     "note": "COBB offloaded_quantity_kg diverges from Ops Notes Cargo and Certify Allocated Bio-Oil Mass. Sister batch 2-183 reconciled cleanly. Net CDR unaffected."
+  },
+  "kb_context": {
+    "aecn_carbon_pct_mean": 39.42,
+    "aecn_carbon_pct_sd": 6.09,
+    "aecn_carbon_pct_2sd_low": 27.2,
+    "aecn_carbon_pct_2sd_high": 51.6,
+    "formation_fluid_density_g_cm3": 1.01,
+    "co2_to_c_ratio": 3.667,
+    "sparging_rate_basco": 0.0129,
+    "kg_per_lb": 0.453592
   }
 }

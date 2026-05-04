@@ -1,0 +1,35 @@
+{
+  "active_batches": [],
+  "_pending_max_input": [],
+  "_schema_notes": {
+    "active_batch_fields": [
+      "batch_id",
+      "checklist_path",
+      "certify_url",
+      "oil_type (always 'Kerry')",
+      "delivery_mode ('tote' or 'tanker')",
+      "consumed_lot (kc_NNNN sequential)",
+      "reporting_period",
+      "T0_initiation",
+      "T1_data_gathering_complete",
+      "T2_checklist_draft_complete",
+      "T3_adversarial_review_complete",
+      "T4_audit_clean",
+      "T5_max_review_start",
+      "T6_max_approval",
+      "T7_garrett_notified",
+      "max_dm_channel",
+      "max_dm_thread_ts",
+      "slack_channel",
+      "thread_ts",
+      "garrett_user_id",
+      "counts {pass, fail, flag, na}",
+      "net_co2e_t",
+      "fail_items",
+      "flag_items",
+      "max_drive_upload_pending",
+      "status"
+    ],
+    "registry_extension_note": "garrett-completion-monitor sweeps both qa_active_batches.json (AECN) and this Kerry registry on its scheduled cadence. See skills/qa/garrett-completion-monitor/SKILL.md for the multi-registry implementation."
+  }
+}

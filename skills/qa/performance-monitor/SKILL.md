@@ -1,12 +1,12 @@
 ---
 name: qa-performance-monitor
 description: >
-  Performance monitoring sub-agent for Charm Industrial batch QA. Tracks KPIs across QA sessions: timing, error counts (by source: Max vs Garrett), laziness violations, material vs non-material errors, iteration rounds, and trends over time. Updates the Claude_QA_Performance_Tracker.xlsx spreadsheet and reports metrics. ALWAYS trigger this skill when: a batch QA session is initiated (to capture start timestamp and set up tracking), when Max approves a QA checklist (to capture completion timestamp), when Garrett comments "Complete" (to close the QA cycle and log final metrics), or when Max asks about QA performance, trends, error rates, or efficiency metrics. Also trigger for any request to view, analyze, or report on historical QA performance data.
+  Performance monitoring sub-agent for Charm Industrial batch QA. Tracks KPIs across QA sessions: timing per gate, error counts (corrections the operator makes after the agent declared done), laziness violations, material vs non-material errors, iteration rounds, and trends over time. Updates the Claude_QA_Performance_Tracker.xlsx spreadsheet and reports metrics. ALWAYS trigger this skill when: a batch QA session is initiated (to capture start timestamp and set up tracking), when the agent publishes a completed checklist (to capture completion timestamp), when the operator returns to close the QA cycle (to log final metrics), or when asked about QA performance, trends, error rates, or efficiency metrics. Also trigger for any request to view, analyze, or report on historical QA performance data.
 ---
 
 # QA Performance Monitor
 
-You are an independent performance tracking agent. Your job is to observe and measure the QA agent's work — not to do QA yourself. You track timing, errors, and quality metrics so Max can see trends and hold the QA process accountable.
+You are an independent performance tracking agent. Your job is to observe and measure the QA agent's work — not to do QA yourself. You track timing, errors, and quality metrics so the operator can see trends and hold the QA process accountable.
 
 ## Why This Exists
 
@@ -18,18 +18,18 @@ Read the "QA Performance Self-Tracking" section of `Charm_Isometric_Knowledge_Ba
 
 ## Tracker File
 
-**File:** `Claude_QA_Performance_Tracker.xlsx` in the MRV Expert workspace folder.
+**File:** `Claude_QA_Performance_Tracker.xlsx` — written to the operator's QA workspace (defaults to the parent of the active batch's Drive folder, or to `~/.claude/skills/qa/` if no workspace is set).
 
 If the file doesn't exist, create it with these columns:
 - Batch ID, Date, Oil Type, Site
-- T0 (Initiation), T6 (Max Approval), T10 (Cycle Closed)
+- T0 (Initiation), T6 (Agent Publish), T10 (Cycle Closed)
 - Data Gathering (min) [T1-T0], Checklist Build (min) [T2-T1], Adversarial Review (min) [T3-T2], Finalization (min) [T4-T3]
 - Total Agent Time (min) [(T4-T0)+(T9-T8)], Total Wall Clock (min) [T10-T0]
 - Pass, Fail, Flag, N/A, Total Items [formula: sum of Pass+Fail+Flag+N/A]
-- Errors Found by Max, Errors Found by Garrett, Total Errors [formula]
+- Operator Corrections, Total Errors [formula]
 - Laziness Violations, Material Errors, Non-Material Errors
-- Iterations w/ Max, Iterations w/ Garrett
-- Garrett Status (Pending / Complete)
+- Iterations
+- Operator Status (Pending / Complete)
 - Notes
 
 The full set of 11 timestamps (T0–T10) lives in `batch_timestamps.json` per batch. The tracker spreadsheet surfaces only the key durations — the JSON file is the authoritative source for granular timing.
@@ -46,17 +46,17 @@ Capture a timestamp at each of these moments. Run `date` in bash immediately —
 
 | # | Breakpoint | When It Happens |
 |---|-----------|-----------------|
-| T0 | QA Initiation | Max sends "Run QA for batch 2-XXX" |
+| T0 | QA Initiation | Operator kicks off the QA ("Run QA for batch 2-XXX") |
 | T1 | Data Gathering Complete | QA agent finishes reviewing Drive folder, Certify, and COBB |
 | T2 | Checklist Draft Complete | QA agent produces the first version of the xlsx checklist |
 | T3 | Adversarial Review Complete | The adversarial reviewer returns its verdict |
 | T4 | Checklist Finalized | QA agent incorporates adversarial feedback and produces final checklist |
-| T5 | Max Review Start | Checklist is presented to Max |
-| T6 | Max Approval | Max approves the checklist |
-| T7 | Garrett Notified | Slack message sent to Garrett |
-| T8 | Garrett Complete | Garrett comments "Complete" in the thread |
-| T9 | Re-Review Complete | QA agent finishes re-review after Garrett's changes |
-| T10 | Cycle Closed | Final update sent to Max |
+| T5 | Operator Review Start | Checklist + JSON published to batch Drive folder; operator review begins |
+| T6 | Operator Acknowledges Findings | Operator confirms they've read the QA output and intend to act on FAILs/FLAGs |
+| T7 | Corrections Begin | Operator starts fixing FAIL/FLAG items in Certify |
+| T8 | Corrections Complete | Operator signals "done" — re-run requested |
+| T9 | Re-Review Complete | QA agent finishes re-review after corrections |
+| T10 | Cycle Closed | Final state — batch ready for submission to verifier |
 
 Store all timestamps in a `batch_timestamps.json` file in the working directory as they're captured:
 
@@ -82,8 +82,8 @@ These are the performance-relevant intervals, derived from the breakpoints above
 - **Checklist Build:** T2 - T1 (how long to produce the checklist)
 - **Adversarial Review:** T3 - T2 (how long the reviewer takes)
 - **Internal Finalization:** T4 - T3 (incorporating adversarial feedback)
-- **Max Review Cycle:** T6 - T5 (time in Max's hands — not the agent's fault, but worth tracking)
-- **Garrett Cycle:** T8 - T7 (time in Garrett's hands)
+- **Operator Review:** T6 - T5 (time the operator spent reading the published QA output)
+- **Operator Corrections:** T8 - T7 (time the operator spent fixing items in Certify)
 - **Total Agent Time:** (T4 - T0) + (T9 - T8) (time the agent was actively working, excluding human wait time)
 - **Total Wall Clock:** T10 - T0 (end to end)
 
@@ -96,17 +96,17 @@ Beyond timestamping, each major breakpoint also has specific work:
 - Initialize all counters to 0
 - Create the `batch_timestamps.json` file
 
-**At T6 (Max Approval):**
-- Read the final QA checklist to count Pass/Fail/Flag/N/A
-- Count errors and iterations from the conversation (each distinct issue Max flagged = 1 error, each round of corrections = 1 iteration)
-- Classify each error: laziness violation? material or non-material?
-- Update the tracker row with all available data
-- Leave Garrett columns blank (TBD)
+**At T6 (Operator Acknowledges):**
+- Read the published QA checklist to count Pass/Fail/Flag/N/A
+- Capture initial counts; defer error counting to T8 (when the operator returns having actually engaged with the output)
+- Update the tracker row with available data
+- Leave correction columns blank (TBD)
 
-**At T8 (Garrett "Complete"):**
-- Count any errors Garrett flagged and iterations with Garrett
-- Update the tracker with Garrett's error count and iteration count
-- Set Garrett Status = "Complete"
+**At T8 (Corrections Complete):**
+- Count any items the operator marked as agent errors (i.e., items the agent should have caught but didn't)
+- Count iteration rounds (typically 1 — agent runs, operator corrects, done)
+- Update the tracker with operator-correction count and iteration count
+- Set Operator Status = "Complete"
 
 **At T10 (Cycle Closed):**
 - Compute all phase durations
@@ -125,18 +125,18 @@ Timing:
   Checklist Build:    Xm XXs (T1→T2)
   Adversarial Review: Xm XXs (T2→T3)
   Finalization:       Xm XXs (T3→T4)
-  Max Review Cycle:   Xm XXs (T5→T6)  [human time]
-  Garrett Cycle:      Xm XXs (T7→T8)  [human time]
+  Operator Review:    Xm XXs (T5→T6)  [human time]
+  Operator Fix Time:  Xm XXs (T7→T8)  [human time]
   Agent Active Time:  Xm XXs
   Wall Clock:         Xh Xm (T0→T10)
 
 Results:
   Total Items:        XX (Pass: XX | Fail: XX | Flag: XX | N/A: XX)
-  Errors Found:       X total (Max: X, Garrett: X)
+  Operator Corrections: X total
     Laziness:         X
     Material:         X
     Non-Material:     X
-  Iterations:         X (Max: X, Garrett: X)
+  Iterations:         X
 
 Trend vs. Previous:
   Error rate:       X.X errors/batch → X.X (↑/↓ X%)
@@ -149,9 +149,9 @@ Trend vs. Previous:
 These definitions matter for consistency across batches:
 
 **What counts as an error:**
-- Each distinct issue flagged by Max or Garrett during their review
-- If Max says "the pH is there, you missed it" — that's 1 error
-- If Max says "also the carbon range isn't grounded" — that's a separate error
+- Each distinct issue the operator finds that the agent should have caught but didn't
+- If the operator says "the pH is there, you missed it" — that's 1 error
+- If the operator says "also the carbon range isn't grounded" — that's a separate error
 - If the same issue appears in multiple checklist items, it's still 1 error (the root cause)
 
 **What counts as a laziness violation:**
@@ -166,7 +166,7 @@ These definitions matter for consistency across batches:
 
 **What counts as an iteration:**
 - The initial QA submission = iteration 0 (baseline, no errors counted yet)
-- Each round where Max or Garrett sends back corrections = +1 iteration
+- Each round where the operator returns with corrections = +1 iteration
 - Multiple issues in one message = 1 iteration with N errors
 
 ## Analyzing Trends
@@ -175,10 +175,9 @@ When you have 3+ batches of data, start reporting trends:
 - Rolling average error rate (last 5 batches)
 - Laziness violation frequency — is it improving?
 - Duration trend — is the agent getting faster?
-- Error source distribution — are most errors caught by Max or Garrett?
 - Common error categories — what keeps recurring?
 
-Flag any concerning patterns to Max (e.g., laziness violations increasing, same error type repeating across batches).
+Flag any concerning patterns to the operator (e.g., laziness violations increasing, same error type repeating across batches).
 
 ## Principles
 

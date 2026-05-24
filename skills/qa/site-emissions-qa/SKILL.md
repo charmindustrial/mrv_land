@@ -33,14 +33,14 @@ Read `Charm_Isometric_Knowledge_Base.md` from the workspace folder. Then read th
 
 ## What You Need to Begin a QA Session
 
-Max will provide:
+The operator will provide:
 1. **Reporting period** — date range (e.g., "Feb-Mar 2026")
 2. **Scapegoat removal(s)** — Certify removal ID(s) carrying site emissions
 3. **Site Emissions Drive folder** — link to the Google Drive folder for this RP's site emissions
 4. **Site** — which injection site (Basco 6 LA or Vaulted Deep KS) — determines which checklist variant to use
 5. **BCU Quant sheet** — if available, the BCU quantification spreadsheet for the period
 
-If any of these are missing, ask Max before proceeding. Do not guess.
+If any of these are missing, ask the operator before proceeding. Do not guess.
 
 ## Site Emission Categories
 
@@ -201,12 +201,12 @@ The Standard Emission Factors list is a multi-tab Google Sheet (ID: `1RPm-t6EyKI
 ### U8: QA Output Standards
 
 The QA checklist reflects the agent's own findings from reviewing the evidence. It never:
-- Quotes Max or includes his process notes verbatim
-- Includes questions Max asked Garrett (those are process conversations, not QA findings)
-- Includes information Max shared as context that the agent hasn't independently verified
-- Uses "Per Max:" as a citation — the agent's authority comes from the evidence, not from Max
+- Quotes the operator or includes their process notes verbatim
+- Includes questions raised in conversation (those are process discussions, not QA findings)
+- Includes context the operator shared but the agent hasn't independently verified
+- Uses "Per operator:" as a citation — the agent's authority comes from the evidence
 
-If Max provides notes or feedback, the agent should extract the underlying principle and apply it universally — not copy-paste his words into the checklist.
+If the operator provides notes or feedback, the agent should extract the underlying principle and apply it universally — not copy-paste their words into the checklist.
 
 ## Known Failure Patterns — Anti-Patterns to Avoid
 
@@ -222,11 +222,11 @@ These are specific failure modes that have occurred in real QA sessions. They ar
 
 ### Anti-Pattern 2: Treating Feedback as Case-Specific
 
-**What it looks like:** Max flags that the diesel calc sheet is missing units on its column headers. The agent adds a check for diesel column headers but doesn't check gasoline, methanol, argon, brine, etc.
+**What it looks like:** The operator flags that the diesel calc sheet is missing units on its column headers. The agent adds a check for diesel column headers but doesn't check gasoline, methanol, argon, brine, etc.
 
-**Why it fails:** When Max identifies a gap, it almost always represents a universal requirement, not a one-off correction. If units are required on diesel headers, they're required on every calc sheet's headers.
+**Why it fails:** When the operator identifies a gap, it almost always represents a universal requirement, not a one-off correction. If units are required on diesel headers, they're required on every calc sheet's headers.
 
-**What to do instead:** Extract the principle ("all calc sheet labels need units") and apply it to every category. If Max flags a missing distance evidence for methanol, check distance evidence for every transport category — don't just fix methanol.
+**What to do instead:** Extract the principle ("all calc sheet labels need units") and apply it to every category. If the operator flags a missing distance evidence for methanol, check distance evidence for every transport category — don't just fix methanol.
 
 ### Anti-Pattern 3: Context Fatigue / Template Filling
 
@@ -240,9 +240,9 @@ These are specific failure modes that have occurred in real QA sessions. They ar
 
 ### Anti-Pattern 4: Including Process Conversations in QA Output
 
-**What it looks like:** The checklist includes entries like "Per Max: 'It looks like they drove the truck to fill up'" or "WEX card question — need to confirm with Garrett."
+**What it looks like:** The checklist includes entries like "Per operator: 'It looks like they drove the truck to fill up'" or "WEX card question — need to confirm with operator."
 
-**Why it fails:** Process conversations between Max and Garrett (or Max and the agent) are not QA findings. They don't belong in the checklist. The checklist is a document that could be handed to a verifier — it should contain only evidence-based findings.
+**Why it fails:** Process conversations between the operator and the agent are not QA findings. They don't belong in the checklist. The checklist is a document that could be handed to a verifier — it should contain only evidence-based findings.
 
 **What to do instead:** If there's an unresolved question (e.g., how diesel was delivered), report what the evidence shows and what's missing: "Diesel delivery method not documented in evidence folder. No delivery receipts or self-haul documentation present. FAIL — delivery transport emissions cannot be verified." Don't include the conversation about it.
 
@@ -260,7 +260,7 @@ These are specific failure modes that have occurred in real QA sessions. They ar
 After completing all 3 gates:
 1. **Trigger the adversarial reviewer** — pass the completed checklist, specifying QA type = "site_emissions"
 2. **Address all challenged items** from the adversarial review
-3. **Present the finalized checklist to Max**
+3. **Publish the finalized checklist + JSON** to the RP's Site Emissions Drive folder per `RESULT_CONTRACT.md`
 4. **Trigger the performance monitor** — log timestamps and session metadata, specifying QA type = "site_emissions"
 
 ## Multi-Scapegoat Periods

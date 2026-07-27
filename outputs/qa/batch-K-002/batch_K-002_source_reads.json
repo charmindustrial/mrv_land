@@ -1,0 +1,252 @@
+{
+  "batch_id": "K-002",
+  "oil_type": "Kerry",
+  "delivery_mode": "tote",
+  "delivery_mode_evidence": "K-002 sheet enumerates 4 distinct tote serials (KC-0005, KC_0006, KC_0007, KC_0008) each with per-tote gross/net/leftover; SGS CoA SR26-02553 has per-tote sample pages (5-8). No single full+empty scale ticket pair exists. → tote mode.",
+  "injection_site": "Basco 6",
+  "reporting_period": "2026-04-21 (per Certify removal date and COBB injection_completion_date)",
+  "certify_removal_id": "rmv_1KQ0QGNBV1S0B315",
+  "certify_project_id": "prj_1HZSSWBQM1S08H83",
+  "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ0QGNBV1S0B315/edit",
+  "drive_folder_url": "https://drive.google.com/drive/folders/1PNK-dv_W-PABRX_asipplRBgWoLlMqNr",
+  "T0_initiation": "2026-05-05T23:45:04Z",
+
+  "drive_folder_contents": {
+    "items_in_root": 3,
+    "items": [
+      {"title": "K-001", "type": "Google Sheet", "note": "Prior batch (KC-0001 through KC-0004) — not this batch"},
+      {"title": "K-002", "type": "Google Sheet", "id": "1HbUqSoD_iSkA8fSdARwDXYS7LYc-yGX77U1CD3Mc2Fg", "note": "THIS batch's Ops-Notes-equivalent"},
+      {"title": "2-158, 2-159, 2-160, 2-161, K-001, SR26-01913.pdf", "type": "PDF", "note": "Prior-batch SGS CoA — NOT for K-002"}
+    ],
+    "subfolders_present": false,
+    "K-002_BOL_in_drive": false,
+    "K-002_scale_tickets_in_drive": false,
+    "K-002_tote_weighing_log_in_drive": false,
+    "K-002_CoA_in_drive": false
+  },
+
+  "K-002_sheet_content": {
+    "source_file": "K-002 (Google Sheet, 1 tab 'Sheet1')",
+    "header": "Kerry Contents, 4/1, C Content Uncertainty",
+    "totes": [
+      {"serial": "KC-0005", "gross_tote_weight_kg": 1185, "net_oil_in_tote_kg": 1092, "leftover_kg": 93, "per_weighing_uncertainty_kg": 1.13398, "carbon_pct": 56.60},
+      {"serial": "KC_0006", "gross_tote_weight_kg": 1284, "net_oil_in_tote_kg": 1209, "leftover_kg": 75, "per_weighing_uncertainty_kg": 1.13398, "carbon_pct": 55.00},
+      {"serial": "KC_0007", "gross_tote_weight_kg": 1261, "net_oil_in_tote_kg": 1176, "leftover_kg": 86, "per_weighing_uncertainty_kg": 1.13398, "carbon_pct": 57.50},
+      {"serial": "KC_0008", "gross_tote_weight_kg": 1223, "net_oil_in_tote_kg": 1142, "leftover_kg": 82, "per_weighing_uncertainty_kg": 1.13398, "carbon_pct": 55.00}
+    ],
+    "wt_avg_carbon_pct_reported": 56.01,
+    "carbon_uncertainty_pct_reported": 0.2241,
+    "carbon_uncertainty_method": "0.40% × Wt Avg = 0.40% × 56.01 = 0.2241%",
+    "total_uncertainty_kg": 4.53592,
+    "total_uncertainty_method": "4 totes × 1.13398 kg/tote",
+    "total_transported_kg": 4953,
+    "total_oil_injected_kg": 4618,
+    "math_checks": {
+      "gross_minus_net_equals_leftover_KC0005": "1185 - 1092 = 93 ✓",
+      "gross_minus_net_equals_leftover_KC0006": "1284 - 1209 = 75 ✓",
+      "gross_minus_net_equals_leftover_KC0007": "1261 - 1176 = 85; sheet says 86 (1 kg rounding)",
+      "gross_minus_net_equals_leftover_KC0008": "1223 - 1142 = 81; sheet says 82 (1 kg rounding)",
+      "sum_gross_kg": 4953,
+      "sum_net_kg": 4619,
+      "sum_leftover_kg": 336,
+      "wt_avg_C_recompute": "(56.6×1092 + 55.0×1209 + 57.5×1176 + 55.0×1142) / 4619 = 258732.2/4619 = 56.013% ≈ 56.01% ✓",
+      "missing_fields": [
+        "measured tote tare per tote (FC-K1 risk)",
+        "weighing date per tote",
+        "weighing location per tote",
+        "weighing scale identifier per tote",
+        "carrier name",
+        "tractor/trailer identifiers",
+        "BOL number",
+        "completion date in sheet (date is in COBB, not sheet)",
+        "pH in sheet (pH is in COBB, not sheet)"
+      ]
+    }
+  },
+
+  "interpretation_of_gross_tote_weight": {
+    "framing_check": "Gross - Net = Leftover (all 4 totes reconcile within ±1 kg). Therefore 'Gross Tote Weight' = oil-only mass delivered (net injected + residue stayed in tote). Does NOT include physical IBC tote tare (~60 kg/tote based on typical IBC).",
+    "implication_for_FC_K2": "Allocated Kerry Oil Gross Mass (4,953 kg) = oil + leftover residue, NOT (oil + tote tares + deck items). Skill spec FC-K2 calls for transport-EF basis = BOL gross including tote tares; current basis EXCLUDES tote tares. Likely under-counts transport process load by ~240 kg (4 × 60 kg tote tare). Without BOL, cannot confirm Charm/Kerry's intended convention.",
+    "FC_K2_status": "FAIL — Mass of Load on Flatbed Process component (4,953 kg) excludes physical tote tares; per FC-K2 should be BOL gross including tote tares + deck items. No BOL available to verify intended convention."
+  },
+
+  "sgs_coa": {
+    "source_doc": "2-192-2-198+Kc0005-Kc-0008.pdf (Certify Sources tab; Drive id 1v6kbqtjUi-r0O6jYA4gRXDKq9DjFrcnb)",
+    "certificate_id": "SR26-02553",
+    "issuance_date": "2026-04-21",
+    "lab": "SGS North America Inc., 151 James Drive West, St. Rose, LA 70087",
+    "samples_received": "2026-04-15 07:30 (all 4 Kerry totes received same time)",
+    "client": "CHARM INDUSTRIAL, 2575 MARIN STREET SAN FRANCISCO CA 94124",
+    "location": "BASCO LOUISIANA",
+    "kerry_per_tote": [
+      {"page": 5, "batch_id": "KC-0005", "carbon_pct": 56.6, "hydrogen_pct": 6.7, "nitrogen_pct": "<0.75", "viscosity_cSt": 3280, "acid_number": 79, "density_g_per_cm3": 1.232},
+      {"page": 6, "batch_id": "KC-0006", "carbon_pct": 55.0, "hydrogen_pct": 6.7, "nitrogen_pct": "<0.75", "viscosity_cSt": 2703, "acid_number": 70, "density_g_per_cm3": 1.242},
+      {"page": 7, "batch_id": "KC-0007", "carbon_pct": 57.5, "hydrogen_pct": 6.8, "nitrogen_pct": "<0.75", "viscosity_cSt": 1632, "acid_number": 46, "density_g_per_cm3": 1.238},
+      {"page": 8, "batch_id": "KC-0008", "carbon_pct": 55.0, "hydrogen_pct": 6.4, "nitrogen_pct": "<0.75", "viscosity_cSt": 1943, "acid_number": 51, "density_g_per_cm3": 1.035}
+    ],
+    "non_kerry_pages": [
+      {"page": 1, "batch": "2-192", "carbon": 53.1},
+      {"page": 2, "batch": "2-193", "carbon": 40.4},
+      {"page": 3, "batch": "2-194 KS-RC", "carbon": 38.2},
+      {"page": 4, "batch": "2-197", "carbon": 42.1},
+      {"page": 9, "batch": "2-198", "carbon": 42.3}
+    ],
+    "anomalies": [
+      "KC-0008 density 1.035 g/cm³ — markedly lower than other 3 Kerry totes (1.232–1.242 g/cm³). Above 1.01 floor for safe injection but anomalous within batch. May indicate water contamination, sampling error, or actual lighter sample. Worth a FLAG for surface."
+    ],
+    "lab_result_ranges": {
+      "carbon_range": "55.0 – 57.5%",
+      "viscosity_range": "1632 – 3280 cSt (much higher than typical AECN ~22 cSt — Kerry oil is markedly more viscous)",
+      "acid_number_range": "46 – 79 mg KOH/g",
+      "density_range_excl_KC0008": "1.232 – 1.242 g/cm³"
+    }
+  },
+
+  "cobb_tracker": {
+    "url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350",
+    "tab": "Basco Injection -- COBB",
+    "cobb_row_id_verified": true,
+    "cobb_cell_A_value": "K-002",
+    "rows_for_K-002": [
+      {"row": 83, "cell_A": "K-002", "injected_product": "Calciner", "consumed_lot": "KC_0005", "BOL_number": "(blank)", "quantity_consumed_kg": 1092, "offloaded_quantity_kg": "(blank)", "origin_quantity_kg": 1185, "order_line_completed_on": "(blank)", "injection_completion_date": "2026-04-21", "injection_ph": 2.9, "week_starting_injected": "2026-04-20"},
+      {"row": 84, "cell_A": "K-002", "injected_product": "Calciner", "consumed_lot": "KC_0008", "BOL_number": "(blank)", "quantity_consumed_kg": 1141.5, "offloaded_quantity_kg": "(blank)", "origin_quantity_kg": 1232, "order_line_completed_on": "(blank)", "injection_completion_date": "2026-04-21", "injection_ph": 2.9, "week_starting_injected": "2026-04-20"},
+      {"row": 85, "cell_A": "K-002", "injected_product": "Calciner", "consumed_lot": "KC_0007", "BOL_number": "(blank)", "quantity_consumed_kg": 1175.5, "offloaded_quantity_kg": "(blank)", "origin_quantity_kg": 1261, "order_line_completed_on": "(blank)", "injection_completion_date": "2026-04-21", "injection_ph": 2.9, "week_starting_injected": "2026-04-20"},
+      {"row": 86, "cell_A": "K-002", "injected_product": "Calciner", "consumed_lot": "KC_0006", "BOL_number": "(blank)", "quantity_consumed_kg": 1209, "offloaded_quantity_kg": "(blank)", "origin_quantity_kg": 1284, "order_line_completed_on": "(blank)", "injection_completion_date": "2026-04-21", "injection_ph": 2.9, "week_starting_injected": "2026-04-20"}
+    ],
+    "kerry_consumed_lot_pattern_check": "COBB uses 'KC_NNNN' (underscore) for K-002. SKILL.md spec is 'kc_NNNN' (lowercase). Acceptable variant.",
+    "cobb_vs_K002_sheet_discrepancy": {
+      "KC_0008_origin_quantity_kg": "COBB row 84 = 1,232 kg; K-002 sheet 'Gross Tote Weight' = 1,223 kg. Discrepancy = 9 kg.",
+      "KC_0007_quantity_consumed_kg": "COBB row 85 = 1,175.5 kg; K-002 sheet 'Net Oil In Tote' = 1,176 kg. Discrepancy = 0.5 kg (rounding).",
+      "KC_0008_quantity_consumed_kg": "COBB row 84 = 1,141.5 kg; K-002 sheet 'Net Oil In Tote' = 1,142 kg. Discrepancy = 0.5 kg (rounding).",
+      "sums_check": "COBB origin_quantity sum = 1185+1232+1261+1284 = 4,962 kg. K-002 sheet Total Transported = 4,953 kg. Certify Allocated Kerry Oil Gross Mass = 4,953 kg. Certify uses K-002 sheet value, not COBB. The 9-kg discrepancy on KC_0008 origin is COBB-side audit-trail issue (verifier looks at Ops Notes/Certify, not COBB)."
+    },
+    "data_completeness": "offloaded_quantity_kg and order_line_completed_on are BLANK for all 4 K-002 rows. AECN comparator rows (e.g., 2-199) have these populated. Kerry tote workflow appears to skip these COBB columns by convention."
+  },
+
+  "certify_sources_tab_total": 8,
+  "certify_sources_enumeration": [
+    {"index": 1, "filename": "K-002 (1).xlsx", "datapoint": "Carbon Content of Bio-oil Injected (per injection)", "type": "Document", "visibility": "Private"},
+    {"index": 2, "filename": "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf", "datapoint": "Distance emission factor", "type": "Document", "visibility": "Private", "note": "FILENAME SAYS 2025 — for an April 2026 batch, expectation is 2026 EFs"},
+    {"index": 3, "filename": "2-192-2-198+Kc0005-Kc-0008.pdf", "datapoint": "Carbon Content of Bio-oil Injected (per injection)", "type": "Document", "visibility": "Public", "note": "SGS SR26-02553 multi-batch CoA"},
+    {"index": 4, "filename": "K-002.xlsx", "datapoint": "Allocated Kerry Oil Gross Mass", "type": "Document", "visibility": "Public"},
+    {"index": 5, "filename": "K-002.xlsx", "datapoint": "Mass of Injectant (per injection)", "type": "Document", "visibility": "Public"},
+    {"index": 6, "filename": "Kerry to Basco Distance.png", "datapoint": "Route Distance Kerry to Basco", "type": "Document", "visibility": "Public"},
+    {"index": 7, "filename": "Charm-A3-2024-10-24-64-1976.pdf", "datapoint": "BCUs - Applied to Bio-Oil Transport Process Emissions", "type": "Document", "visibility": "Public", "note": "RSB Proof of Sustainability for renewable diesel; issued 2024-10-30"},
+    {"index": 8, "filename": "GLEC NA Road Transport.png", "datapoint": "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck", "type": "Document", "visibility": "Public"}
+  ],
+  "certify_sources_missing": [
+    "BOL — required by VR Appendix 1 for transport leg verification. Not in Drive folder, not in Certify Sources tab.",
+    "Per-tote scale tickets / weighing log with measured tare and weighing date+location — not present in Drive or Certify Sources."
+  ],
+
+  "certify_components": {
+    "sequestrations_total_tCO2e": 9.488,
+    "components": [
+      {"name": "Injection sequestration", "value_tCO2e": 9.488, "category": "sequestration"}
+    ],
+    "removal_activities_total_tCO2e": 0.817,
+    "activities": [
+      {"name": "Kerry to Basco Flatbed Truck Transport Process Emissions", "value_tCO2e": 0.747, "pct_of_seq": 7.96},
+      {"name": "Kerry to Basco Flatbed Truck Transport Embodied Emissions", "value_tCO2e": 0.070, "pct_of_seq": 0.75}
+    ],
+    "adjustments_total_tCO2e": 0.747,
+    "adjustments": [
+      {"name": "BCUs - Applied to Bio-Oil Transport Process Emissions", "value_tCO2e": 0.747, "pct_of_seq": 7.96}
+    ],
+    "losses_tCO2e": 0,
+    "counterfactuals_tCO2e": 0,
+    "uncertainty_discount_kg": 39,
+    "net_co2e_tonnes": 9.378,
+    "net_co2e_displayed_header": "9.38 tCO₂e",
+    "no_upstream_kerry_production_components": true,
+    "no_kerry_biomass_sourcing_component": true,
+    "no_injection_site_components_per_batch": "Confirmed — Project emissions section says 'managed according to amortization rules; will show here once added to a GHG statement.' Site emissions are amortized at GHG-statement level, not per-batch."
+  },
+
+  "certify_datapoints": {
+    "count": 7,
+    "datapoints": [
+      {"name": "Route Distance Kerry to Basco", "value": "1,090 mi", "method": "Reported", "source": "Kerry to Basco Distance.png"},
+      {"name": "Distance emission factor", "value": "0.0401 kgCO₂e/km", "method": "Reported", "source": "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf"},
+      {"name": "Allocated Kerry Oil Gross Mass", "value": "4.953 t", "method": "Reported", "source": "K-002.xlsx"},
+      {"name": "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck", "value": "0.09 kgCO₂e/(km·t) display, 0.1384 kgCO₂e/(t·mi) native (per Process modal Inputs)", "method": "Derived", "source": "GLEC NA Road Transport.png"},
+      {"name": "Mass of Injectant (per injection)", "value": "4.619 t", "method": "Reported", "source": "K-002.xlsx"},
+      {"name": "Carbon Content of Bio-oil Injected (per injection)", "value": "56.01 %", "method": "Reported", "source": "2-192-2-198+Kc0005-Kc-0008.pdf + K-002 (1).xlsx"},
+      {"name": "BCUs - Applied to Bio-Oil Transport Process Emissions", "value": "747 kgCO₂e", "method": "Derived", "source": "Charm-A3-2024-10-24-64-1976.pdf"}
+    ]
+  },
+
+  "certify_per_component_uncertainty": {
+    "injection_sequestration_inputs": {
+      "carbon_content": "56.01477 ±0.2241 %",
+      "carbon_content_expected": "0.004 × 56.01 = 0.2240 % → matches (within rounding)",
+      "carbon_content_status": "PASS",
+      "mass_of_product": "4,619 ±4.54 kg",
+      "mass_of_product_expected": "4 totes × 1.13 kg = 4.52 kg → 4.54 matches (uses 1.13398 per K-002 sheet)",
+      "mass_of_product_status": "PASS"
+    },
+    "transport_process_inputs": {
+      "emission_factor": "0.1384 kgCO₂e/(t·mi) native",
+      "distance_traveled": "1,090 mi",
+      "mass_of_load": "4,953 ±4.54 kg (Allocated Kerry Oil Gross Mass)",
+      "mass_of_load_uncertainty_expected": "4 × 1.13 = 4.52 kg → 4.54 matches",
+      "mass_of_load_uncertainty_status": "PASS",
+      "FC_K2_check": "Mass of Load = 4,953 kg = sum of Gross Tote Weights from K-002 sheet. Sheet's Gross = oil-only (delivered before residue subtracted), NOT (oil + tote tares + deck items). Per FC-K2, transport-EF basis should include tote tares. Without BOL, this CANNOT be confirmed correct → FAIL pending BOL clarification.",
+      "process_calc_recompute": "0.1384 × 1090 × 4.953 = 747.19 kg ≈ 0.747 tCO₂e (matches Certify exactly)"
+    },
+    "transport_embodied_inputs": {
+      "distance_emission_factor": "0.0401 kgCO₂e/km (sourced from 'Truck and Trailer EE 2025.pdf')",
+      "distance_traveled": "1,090 mi",
+      "no_mass_of_load_input": "Confirmed — embodied is per-mile, no mass dependency (FC8 ✓)",
+      "embodied_calc_recompute": "0.0401 × 1090 × 1.609344 = 70.34 kg ≈ 0.070 tCO₂e (matches Certify exactly)",
+      "live_2026_sheet_check": {
+        "tab": "Truck and Trailer EE 2026",
+        "non_tanker_truck_embodied_per_km_2026": "0.1197949629 kgCO₂e/km (≈ 0.1198)",
+        "non_tanker_truck_embodied_per_km_2025_used_in_certify": "0.0401 kgCO₂e/km",
+        "ratio": "Live 2026 EF is ~3× higher than Certify's 2025 value",
+        "applicable_year": "K-002 RP is 2026-04-21 → 2026 EFs should apply per KB",
+        "kb_supports_2026_update": "KB confirms Tanker Truck Embodied was updated for 2026 from 0.0490 → 0.1476 kgCO₂e/km. By analogy, non-tanker truck (Kerry flatbed) should also be updated for 2026 → 0.1198 kgCO₂e/km.",
+        "status": "FAIL — Outdated 2025 EF in use. Should be 0.1198 kgCO₂e/km per live 2026 sheet. Material under-reporting of ~140 kg embodied (0.140 tCO₂e), reducing Net CDR by ~1.5%."
+      }
+    },
+    "bcu_inputs": {
+      "constant_co2_reduction": "747 kgCO₂e (matches Process emission exactly)",
+      "bcu_geq_process_check": "747 ≥ 747 → PASS (exactly equal, not over-collateralized)"
+    }
+  },
+
+  "bcu_certificate": {
+    "filename": "Charm-A3-2024-10-24-64-1976.pdf",
+    "drive_id_observed": "1SHUdTJPTDHLcfqz5T5XfeiT8pOEWsYXt",
+    "issuance_date": "2024-10-30",
+    "scheme": "RSB Global; HEFA process; Tallow feedstock; Country: USA",
+    "neat_fuel_producer": "AltAir Paramount LLC, Paramount, CA",
+    "customer_for_attributes": "Charm Industrial, 2360 S Rollie Ave, Fort Lupton, CO 80621",
+    "ghg_intensity_g_co2e_per_mj": 15.71,
+    "fossil_comparator_g_co2e_per_mj": 90,
+    "ghg_savings_pct": 81.4,
+    "mass_neat_rsb_eligible_fuel_MT": 21.927,
+    "energy_content_MJ": 964788,
+    "total_co2_emissions_reduction_MT": 70.68,
+    "k002_consumption_MT": 0.747,
+    "vintage_concern": "Certificate issued 2024-10-30, applied to 2026-04-21 removal — 18 months old. Vintage policy unclear; surface to Garrett."
+  },
+
+  "T0_initiation_iso": "2026-05-05T23:45:04Z",
+  "delivery_mode_detection_summary": "Tote mode confirmed via 4-tote enumeration in K-002 sheet + per-tote SGS samples (KC-0005..KC-0008). FC-K7 detection deliberate.",
+
+  "key_findings_preview": [
+    "BOL absent from both Drive folder AND Certify Sources tab → Section 3.1 FAIL",
+    "Per-tote weighing log with measured tare + weighing date+location absent → Section 2.1/2.2 FAIL (FC-K1)",
+    "Allocated Kerry Oil Gross Mass (4,953 kg) excludes physical tote tare → Section 2.5/8.2 FAIL (FC-K2 — pending BOL clarification)",
+    "Kerry Embodied EF 0.0401 kgCO₂e/km from 2025 sheet — live 2026 sheet shows 0.1198 kgCO₂e/km → Section 8.2 FAIL (material — ~140 kg under-reported)",
+    "KC_0008 density 1.035 g/cm³ anomalously low vs other 3 totes (1.232–1.242) → Section 4 / 7.1 FLAG",
+    "BCU certificate vintage = 2024-10-30 applied to 2026-04-21 removal → 18 mo gap, surface to Garrett → FLAG",
+    "COBB row 84 (KC_0008) origin_quantity_kg = 1,232 vs K-002 sheet 1,223 → 9 kg discrepancy, COBB-side data hygiene → FLAG",
+    "Kerry CHN baseline not yet established (n=8 across K-001 + K-002) → 4.2 FLAG-with-note per skill spec",
+    "No counterfactual (= 0) ✓ Section 8.5 PASS (FC-K6)",
+    "No upstream Kerry production component ✓ Section 8.4 PASS (FC-K5)",
+    "Per-component uncertainty (Sequestration carbon ±0.2241%, mass ±4.54 kg; Process mass ±4.54 kg) all PASS",
+    "BCU 747 kg ≥ Process 747 kg ✓ Section 8.6 PASS"
+  ]
+}

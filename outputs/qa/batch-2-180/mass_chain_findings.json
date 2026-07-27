@@ -1,0 +1,69 @@
+{
+  "batch_id": "2-180",
+  "computed_at": "2026-05-15T14:28:41",
+  "source_reads_path": "outputs/qa/batch-2-180/batch_2-180_source_reads_normalized.json",
+  "checks": [
+    {
+      "check_id": "scale_ticket_subtraction",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "full_lb": 79640,
+        "empty_lb": 35800,
+        "net_lb": 43840,
+        "net_kg": 19885.47
+      },
+      "log_values": {
+        "computed_net_lb": 43840,
+        "computed_net_kg": 19885.47
+      },
+      "note": "Computed: 79640 \u2212 35800 = 43840 lb (19885.47 kg). Log: 43840 lb (19885.47 kg). Match."
+    },
+    {
+      "check_id": "scale_ticket_vs_ops_notes_offload",
+      "materiality": "material",
+      "check_type": "policy",
+      "status": "INSUFFICIENT_DATA",
+      "computed": {},
+      "log_values": {},
+      "note": "No offload_table row matching offload=None."
+    },
+    {
+      "check_id": "bol_list_sum_vs_stated_total",
+      "materiality": "hygiene",
+      "check_type": "computation",
+      "status": "SKIP",
+      "computed": {},
+      "log_values": {},
+      "note": "Not a railcar batch."
+    },
+    {
+      "check_id": "railcar_inbound_outbound_balance",
+      "materiality": "mixed",
+      "check_type": "computation",
+      "status": "SKIP",
+      "computed": {},
+      "log_values": {},
+      "note": "Not a railcar batch."
+    },
+    {
+      "check_id": "last_offload_derivation",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "SKIP",
+      "computed": {},
+      "log_values": {},
+      "note": "Not a railcar batch."
+    },
+    {
+      "check_id": "cobb_offload_consistency",
+      "materiality": "hygiene",
+      "check_type": "policy",
+      "status": "INSUFFICIENT_DATA",
+      "computed": {},
+      "log_values": {},
+      "note": "No offload_table row matching offload=None."
+    }
+  ]
+}

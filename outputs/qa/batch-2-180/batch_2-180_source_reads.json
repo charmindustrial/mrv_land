@@ -1,0 +1,678 @@
+{
+  "_meta": {
+    "batch_id": "2-180",
+    "oil_type": "AECN",
+    "delivery_mode": "truck",
+    "consumed_lot": "2343-T_offload_1",
+    "reporting_period": "Apr 2026 (Certify removal date 01 Apr 2026)",
+    "T0_initiation": "2026-05-11T18:31:33Z",
+    "T1_gate1_complete": "2026-05-11T20:16:00Z",
+    "drive_folder_id": "1W3nJQgf82wgk3GLjOrn6nlJ87nqGbh3R",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1W3nJQgf82wgk3GLjOrn6nlJ87nqGbh3R",
+    "certify_removal_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJFNB7E1S0X8B9/edit",
+    "certify_removal_id": "rmv_1KQJFNB7E1S0X8B9",
+    "certify_net_co2e_t_displayed": 30.77,
+    "certify_net_co2e_t_calc_view": 30.773
+  },
+
+  "drive_folder_contents": {
+    "_source_method": "Playwright Drive folder enumeration via data-tooltip attributes",
+    "items": [
+      {"name": "2-180 Ops Notes", "type": "Google Sheet", "drive_file_id": "1F46loRUaCWHMPZfposf5o4pYEoQO6Ek8hbdR5gCTPb8"},
+      {"name": "Scale Tickets", "type": "Folder", "drive_folder_id": "1X-4Yu1dOSvxOeYV8-BipLq1rk2wFm7n1", "contents": [
+        {"name": "2-180 Full Scale Ticket (1).jpg", "drive_file_id": "1OVuphPpTuCcv0LRGZj6RfCYyQnY3MDpP"},
+        {"name": "2-180 Empty Ticket (1).jpg", "drive_file_id": "1AWbFiKQzu6ljbfRwqNqmRAkW_CnUM9Nu"}
+      ]},
+      {"name": "Testing", "type": "Folder", "drive_folder_id": "1BQloRHufk0J1Oeo-mF9nCgLHz_AIzs8u", "contents": [
+        {"name": "SR26-02231_Batch_2-180-185_COA (1).pdf", "drive_file_id": "1qG8JNyROfr3qAXrx8gTQit6pFOR7WSdv", "note": "Same CHN cert as Certify Sources #5; multi-batch 2-180 to 2-185, page 1 of 6 is 2-180"}
+      ]}
+    ]
+  },
+
+  "scale_tickets": {
+    "_source_method": "Image read of downloaded JPGs (per feedback_ocr_not_primary_source.md). Native-res download via drive.usercontent.google.com/download + browser_network_request response-body capture (per feedback_drive_image_download_pattern.md).",
+    "full_ticket": {
+      "drive_file_id": "1OVuphPpTuCcv0LRGZj6RfCYyQnY3MDpP",
+      "filename": "2-180 Full Scale Ticket (1).jpg",
+      "ticket_number": "1312226084637",
+      "weigh_number": "4637",
+      "date": "3-25-26",
+      "scale_id": "3122",
+      "location": "PILOT TRAVEL CENTER, I-49 EXIT 40, BUNKIE LA",
+      "steer_axle_lb": 13460,
+      "drive_axle_lb": 33300,
+      "trailer_axle_lb": 32880,
+      "gross_weight_lb": 79640,
+      "tractor_number": "2217",
+      "trailer_number": "36629",
+      "company": "KIK CARRIER",
+      "fee_usd": 14.75,
+      "dr_number": "511842",
+      "axle_sum_check_lb": 79640,
+      "axle_sum_matches_gross": true
+    },
+    "empty_ticket": {
+      "drive_file_id": "1AWbFiKQzu6ljbfRwqNqmRAkW_CnUM9Nu",
+      "filename": "2-180 Empty Ticket (1).jpg",
+      "ticket_number": "1312226084638",
+      "weigh_number": "4637",
+      "date": "3-25-26",
+      "time": "09:38",
+      "scale_id": "3122",
+      "location": "PILOT TRAVEL CENTER, I-49 EXIT 40, BUNKIE LA",
+      "steer_axle_lb": 12440,
+      "drive_axle_lb": 14540,
+      "trailer_axle_lb": 8820,
+      "gross_weight_lb": 35800,
+      "tractor_number": "2217",
+      "trailer_number": "36629",
+      "company": "KIK CARRIER",
+      "fee_usd": 5.00,
+      "dr_number": "511842",
+      "reference_to_full_ticket": "1312226084637",
+      "axle_sum_check_lb": 35800,
+      "axle_sum_matches_gross": true
+    },
+    "consistency_checks": {
+      "tractor_numbers_match": true,
+      "trailer_numbers_match": true,
+      "dates_match": true,
+      "scale_match": true,
+      "weigh_numbers_match": true
+    }
+  },
+
+  "bol": {
+    "_source_method": "PDF read via Google Cloud Storage signed URL (Certify Sources tab → object[data] URL → curl download)",
+    "certify_source_filename": "documents 2343-T.pdf",
+    "certify_source_ref": "ref_1KQJFMAD11S0G1XN",
+    "local_path": "outputs/qa/batch-2-180/BOL_2343-T.pdf",
+    "page_count": 5,
+    "bol_number": "2343-T",
+    "date_bol": "2026-03-18",
+    "ship_from_name": "BioEnergie AE Cote-Nord Canada",
+    "ship_from_address": "175 Portage des Mousses, Port-Cartier, Quebec, G5B 2V9, Canada",
+    "ship_to_name": "CHARM Industrial Inc.",
+    "ship_to_address": "4687 LA-115, St Landry, LA 71367, USA",
+    "ship_to_contact": "Russell Marcantel",
+    "carrier": "Tandet Logistics",
+    "driver_name": "Samir Didrie",
+    "truck_id": "2200",
+    "tanker_id": "36629",
+    "tanker_id_matches_scale_ticket_trailer": true,
+    "production_period": "3-2026",
+    "customer_po": "Q4-2025",
+    "tarif_code": "2707.99.9090",
+    "c_of_a_number": "RS3-260318-1",
+    "page1_quantities": {
+      "gallons": 4459,
+      "pounds": 44093,
+      "liters": 16876,
+      "kg_calculated": 19998,
+      "metric_tons": 20.00,
+      "note": "Page 1 kg is calculated from volume × density. Page 3 has the weighed/authoritative value."
+    },
+    "page3_shipping_details": {
+      "volume_loaded_l": 16876,
+      "volume_in_kg_B_times_1_185": 19998,
+      "volume_in_lbs": 44587,
+      "density_60F_g_ml": 1.1993,
+      "tanker_tare_empty_kg": 15680,
+      "tanker_full_kg": 35590,
+      "product_delivered_kg": 19910,
+      "product_delivered_lbs": 43894,
+      "product_delivered_mt_at_60F": 19.91,
+      "qty_shipped_mt": 19.91
+    },
+    "page4_weighbridge_record": {
+      "no_de_pesee": "PC0038060",
+      "date_entry_quebec": "2026/03/18 19:23",
+      "date_exit_quebec": "2026/03/18 21:12",
+      "masse_brute_kg": 35590,
+      "masse_tare_kg": 15680,
+      "masse_nette_kg": 19910,
+      "destination": "PCT-USINE PORT CARTIER (origin loading depot)"
+    },
+    "page5_commercial_invoice": {
+      "invoice_number": "2343-T",
+      "date_invoice": "March 18, 2026",
+      "quantity_mt": 20.00,
+      "unit_value_usd_per_mt": 305,
+      "total_value_usd": 6549.76,
+      "border_crossing": "TBD",
+      "date_of_arrival_usa": "March 20, 2026",
+      "paps_number": "TNDT511842",
+      "paps_matches_scale_ticket_DR_number": true,
+      "paps_to_dr_reconciliation": "PAPS TNDT511842 (page 5) → DR# 511842 on scale tickets (Pilot Bunkie LA on 3-25-26)"
+    },
+    "authoritative_qty_shipped_kg": 19910,
+    "authoritative_qty_shipped_mt": 19.91,
+    "note": "Per protocol: page 3 / page 4 weighbridge nette = 19,910 kg = authoritative BOL mass. Page 1 value 19,998 kg is calculated from volume × density and shown in parentheses (B × 1.185)."
+  },
+
+  "lab_results": {
+    "_source_method": "PDF read via Google Cloud Storage signed URL",
+    "certify_source_filename": "SR26-02231_Batch_2-180-185_COA (1).pdf",
+    "certify_source_ref": "ref_1KQJFNAHW1S0CXAV",
+    "local_path": "outputs/qa/batch-2-180/CHN_SR26-02231.pdf",
+    "certificate_number": "SR26-02231.001",
+    "page_in_multi_batch_certificate": "1 of 6",
+    "multi_batch_certificate_range": "2-180 through 2-185",
+    "lab": "SGS North America Inc.",
+    "lab_location": "151 James Drive West, St. Rose, LA 70087",
+    "client_id": "BATCH 2-180",
+    "sample_location": "BASCO LOUISIANA",
+    "sample_source": "Submitted Sample",
+    "sample_type": "As Submitted",
+    "sampled_date": "26-Mar-2026 16:15",
+    "received_date": "03-Apr-2026 11:15",
+    "analysed_date": "03-Apr-2026 16:07 - 04-Apr-2026 01:44",
+    "report_date": "04-Apr-2026",
+    "lab_supervisor": "Tiffany Scott",
+    "sgs_order_number": "5437581",
+    "carbon_pct": 47.2,
+    "carbon_method": "ASTM D5291 (Method C)",
+    "carbon_outside_test_method_limits_marker": true,
+    "carbon_outside_marker_note": "# marker = outside test method limits and/or analytical range used in method precision study (standard SGS marker for bio-oil C/H/N, not a quality issue)",
+    "hydrogen_pct": 8.2,
+    "hydrogen_method": "ASTM D5291 (Method C)",
+    "nitrogen_pct": "<0.75",
+    "nitrogen_method": "ASTM D5291 (Method C)",
+    "viscosity_40C_cSt": 14.46,
+    "viscosity_method": "ASTM D445",
+    "titration_solvent_volume_mL": 60,
+    "acid_number_mg_KOH_per_g": 55,
+    "acid_number_method": "ASTM D664 (Method A)",
+    "density_15C_g_per_cm3": 1.206,
+    "density_method": "ASTM D4052",
+    "density_above_formation_fluid_floor_1_01": true
+  },
+
+  "ops_notes": {
+    "_source_method": "Google Sheets CSV export (browser-authenticated)",
+    "drive_file_id": "1F46loRUaCWHMPZfposf5o4pYEoQO6Ek8hbdR5gCTPb8",
+    "local_path": "outputs/qa/batch-2-180/2-180_Ops_Notes.csv",
+    "completion_date": "2026-04-01",
+    "batch_number": "2-180",
+    "batch_composition": {
+      "origin_bol": "2343-T",
+      "origin_mass_kg": 19910,
+      "total_mass_kg": 19910
+    },
+    "constants": {
+      "lbs_per_kg": 2.20462,
+      "kg_per_lbs": 0.453592,
+      "sparging_mass_loss": 0.0129
+    },
+    "injection_data": {
+      "truck_1": {
+        "full_mass_lb": 79640,
+        "empty_mass_lb": 35800,
+        "injectate_mass_lbs": 43840,
+        "injectate_mass_kg": 19885.47328,
+        "ph": 3.1
+      },
+      "truck_2": {
+        "full_mass_lb": null,
+        "empty_mass_lb": null,
+        "note": "blank — single-truck batch"
+      },
+      "total_injectate_mass_kg": 19885.47328,
+      "sparging_loss_kg": 256.5226053,
+      "mass_of_bio_oil_injected_kg": 19628.95067
+    },
+    "mass_loss_summary": {
+      "aecn_oil_added_kg": 19910,
+      "aecn_oil_injected_kg": 19628.95067,
+      "loss_kg": 281.0493253,
+      "loss_pct": 1.41
+    },
+    "density_field_present_in_batch_composition": false,
+    "density_field_blank_for_aecn_expected": true
+  },
+
+  "cobb_row_61": {
+    "_source_method": "Google Sheets CSV export, then grep for ^2-180 (CSV line 62 = COBB row 61, since line 1 is metadata and line 3 is header)",
+    "cobb_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350",
+    "tab_name": "Basco Injection -- COBB",
+    "csv_line_number": 62,
+    "cobb_row_id_verified": true,
+    "cobb_cell_A_value": "2-180",
+    "A61_injection_batch": "2-180",
+    "B61_injected_product": "bio_oil",
+    "C61_consumed_lot": "2343-T_offload_1",
+    "D61_security_tag": null,
+    "E61_BOL_number": "2343-T",
+    "F61_quantity_consumed_in_injection_kg": 19885,
+    "G61_offloaded_quantity_kg": 19885.47328,
+    "H61_origin_quantity_kg": 19910,
+    "I61_order_line_completed_on": "2026-03-24 13:41:18",
+    "L61_injection_completion_date": "2026-04-01",
+    "M61_injection_ph": 3.1,
+    "Q61_week_of_year": 14,
+    "R61_iso_week_starting": 4,
+    "S61_week_starting_injected": "2026-03-30"
+  },
+
+  "certify_sources_tab_total": 14,
+  "certify_sources_enumeration": [
+    {"index": 1, "filename": "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx", "ref": "ref_1KQJGRA111S06CB7", "linked_datapoint": "AECN Production Process Emissions", "type": "Document"},
+    {"index": 2, "filename": "BH 2025 LCA w Stack Emissions.xlsx", "ref": "ref_1KQJGRA111S0Z2KX", "linked_datapoint": "AECN Production Process Emissions", "type": "Document"},
+    {"index": 3, "filename": "Screenshot 2026-02-23 at 11.29.10 AM.png", "ref": "ref_1KQJGRA111S0T16W", "linked_datapoint": "AECN Production Process Emissions", "type": "Document", "generic_filename_flag": true},
+    {"index": 4, "filename": "Supporting GHG data 31Dec2025 S.xlsx", "ref": "ref_1KQJGRA111S0JQFJ", "linked_datapoint": "AECN Production Process Emissions", "type": "Document"},
+    {"index": 5, "filename": "SR26-02231_Batch_2-180-185_COA (1).pdf", "ref": "ref_1KQJFNAHW1S0CXAV", "linked_datapoint": "Carbon Content of Bio-oil Injected (per injection)", "type": "Document"},
+    {"index": 6, "filename": "2-180 Ops Notes (2).xlsx", "ref": "ref_1KQJFNAXV1S0KP9P", "linked_datapoint": "Mass of Injectant (per injection)", "type": "Document"},
+    {"index": 7, "filename": "2-180 Full Scale Ticket (1).jpg", "ref": "ref_1KQJFNAXV1S0RQPQ", "linked_datapoint": "Mass of Injectant (per injection)", "type": "Document"},
+    {"index": 8, "filename": "2-180 Full Empty Ticket (1).jpg", "ref": "ref_1KQJFNAXV1S001E1", "linked_datapoint": "Mass of Injectant (per injection)", "type": "Document", "filename_typo_flag": "redundant 'Full' prefix on empty ticket"},
+    {"index": 9, "filename": "Screenshot 2026-04-10 at 3.19.33 PM.png", "ref": "ref_1KQJFMKS31S0F0CQ", "linked_datapoint": "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck", "type": "Document", "generic_filename_flag": true},
+    {"index": 10, "filename": "documents 2343-T.pdf", "ref": "ref_1KQJFMAD11S0G1XN", "linked_datapoint": "Origin Bio-Oil Mass - AECN", "type": "Document"},
+    {"index": 11, "filename": "Charm-A4-2024-10-24-63-1976.pdf", "ref": "ref_1KQJFMDZG1S05Z3K", "linked_datapoint": "BCUs - Applied to Bio-Oil Transport Process Emissions", "type": "Document"},
+    {"index": 12, "filename": "AECN to Basco.png", "ref": "ref_1KQJFMR0Y1S09E77", "linked_datapoint": "Aggregate Distance Transported AECN to Basco + 1 more (Distance from AECN to Basco)", "type": "Document"},
+    {"index": 13, "filename": "Truck Embodied Emissions.png", "ref": "ref_1KQJFMNQ21S0ZW5M", "linked_datapoint": "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck", "type": "Document"},
+    {"index": 14, "filename": "Carbon emission factor", "ref": "ref_1K31MPPWE1S0A1QM", "linked_datapoint": "AECN Production Embodied Emissions", "type": "Document", "generic_filename_flag": true, "filename_typo_flag": "no extension, no descriptor"}
+  ],
+
+  "certify_datapoints": {
+    "_source_method": "Playwright reads of Datapoints tab grid rows",
+    "total_count_per_heading": 10,
+    "datapoints": {
+      "Aggregate_Distance_Transported_AECN_to_Basco": {"value": "2,197 mi", "collection": "REPORTED", "source": "AECN to Basco.png"},
+      "Emissions_Factor_Vehicle_Embodied_Emissions_Tanker_Truck": {"value": "0.1476 kgCO2e/km", "collection": "DERIVED", "source": "Truck Embodied Emissions.png", "native_mi_value": 0.23756, "native_unit": "kgCO2e/mi"},
+      "Origin_Bio_Oil_Mass_AECN": {"value": "19.910 t", "value_kg": 19910, "collection": "REPORTED", "source": "documents 2343-T.pdf"},
+      "Distance_from_AECN_to_Basco": {"value": "2,197 mi", "collection": "DERIVED", "source": "AECN to Basco.png"},
+      "Emissions_Factor_Truck_Transport_Fuel_Use_Tanker_Truck": {"value": "0.07 kgCO2e/(km*t)", "collection": "DERIVED", "source": "Screenshot 2026-04-10 at 3.19.33 PM.png", "native_value_kgCO2e_per_t_mi": 0.1143, "modal_value_kgCO2e_per_t_mi": 0.1143},
+      "AECN_Production_Embodied_Emissions": {"value": "0.02 kgCO2e/kg", "collection": "REPORTED", "source": "Carbon emission factor", "precise_value": 0.0212, "modal_value": 0.0212},
+      "AECN_Production_Process_Emissions": {"value": "0.10 kgCO2e/kg", "collection": "REPORTED", "source": "BH 2025 LCA w Stack Emissions.xlsx + 3 more", "precise_value": 0.10402, "modal_value": 0.104},
+      "Mass_of_Injectant_per_injection": {"value": "19.629 t", "value_kg": 19628.95, "collection": "REPORTED", "source": "2-180 Full Scale Ticket (1).jpg + 2 more"},
+      "Carbon_Content_of_Bio_oil_Injected_per_injection": {"value": "47.20 %", "collection": "REPORTED", "source": "SR26-02231_Batch_2-180-185_COA (1).pdf"},
+      "BCUs_Applied_to_Bio_Oil_Transport_Process_Emissions": {"value": "5.000 tCO2e", "collection": "REPORTED", "source": "Charm-A4-2024-10-24-63-1976.pdf"}
+    }
+  },
+
+  "certify_components": {
+    "_source_method": "Playwright Components tab + 5 component modals opened",
+    "sequestrations": {
+      "Injection_Sequestration": {"value_t": 33.974, "pct": 100.0}
+    },
+    "activities_bio_oil_transport": {
+      "AECN_to_LA_Tanker_Truck_Transport_Embodied_Emissions_AECN": {"value_t": 0.522, "pct_of_gross": 1.70, "component_id": "cmp_1KQJFNB7E1S0RWZ4"},
+      "AECN_to_LA_Tanker_Truck_Transport_Process_Emissions_AECN": {"value_t": 5.000, "pct_of_gross": 16.25, "component_id": "cmp_1KQJFNB7E1S0CHTS"}
+    },
+    "activities_pyrolysis": {
+      "AECN_pyrolysis_from_truck_loads_process_emissions": {"value_t": 2.071, "pct_of_gross": 6.73, "component_id": "cmp_1KQJFNB7E1S08167"},
+      "AECN_pyrolysis_from_truck_loads_embodied_emissions": {"value_t": 0.422, "pct_of_gross": 1.37, "component_id": "cmp_1KQJFNB7E1S0VP1W"}
+    },
+    "activities_total_t": 8.015,
+    "adjustments_bio_oil_transport": {
+      "BCUs_Applied_to_Bio_Oil_Transport_Process_Emissions": {"value_t": 5.000, "pct_of_gross": 16.25}
+    },
+    "adjustments_total_t": 5.000,
+    "losses_total_t": 0,
+    "counterfactuals_total_t": 0,
+    "total_displayed": "30.77 tCO2e"
+  },
+
+  "certify_calculation_view": {
+    "_source_method": "Playwright read of Calculation view tab",
+    "net_co2e_t": 30.773,
+    "sequestrations_t": 33.974,
+    "adjustments_t": 5.000,
+    "activities_t": 8.014,
+    "uncertainty_discount_kg": 187,
+    "uncertainty_discount_t": 0.187,
+    "math_check": "33.974 + 5.000 - 8.014 - 0.187 = 30.773 EXACT MATCH",
+    "datapoints_in_calc_view_count": 9
+  },
+
+  "certify_uncertainty_per_component": {
+    "_source_method": "Playwright reads of 4 component modals INPUTS section (Injection Sequestration + 1 transport process + 2 pyrolysis). Truck Embodied has no Mass-of-Load datapoint per FC8 methodology.",
+    "_status": "All 4 component modals with mass-of-load inputs opened and read; +/- values verified against expected. Mandatory verification sub-task #3 satisfied.",
+    "injection_sequestration": {
+      "carbon_content_pct": 47.2,
+      "carbon_content_uncertainty_pct": 0.1888,
+      "carbon_content_uncertainty_expected": "0.004 * 47.2 = 0.1888",
+      "carbon_content_match": true,
+      "mass_of_injectant_kg": 19628.95,
+      "mass_uncertainty_kg": 72.57,
+      "mass_uncertainty_expected_kg": 72.57,
+      "mass_match": true
+    },
+    "aecn_to_la_tanker_truck_transport_process_emissions": {
+      "ef_kgCO2e_per_t_mi": 0.1143,
+      "distance_mi": 2197,
+      "mass_of_load_kg": 19910,
+      "mass_uncertainty_kg": 72.57,
+      "mass_uncertainty_expected_kg": 72.57,
+      "mass_match": true,
+      "calc_check": "19.910 t * 2197 mi * 0.0001143 = 5.0008 t ≈ 5.000 t"
+    },
+    "aecn_to_la_tanker_truck_transport_embodied_emissions": {
+      "ef_kgCO2e_per_mi": 0.23756,
+      "distance_mi": 2197,
+      "mass_of_load_present": false,
+      "mass_of_load_expected": "Not required for embodied (per-mile EF, not per-T-mi)",
+      "calc_check": "2197 mi * 0.23756 kgCO2e/mi = 521.82 kg ≈ 0.522 t"
+    },
+    "aecn_pyrolysis_process_emissions": {
+      "ef_kgCO2e_per_kg": 0.104,
+      "mass_kg": 19910,
+      "mass_uncertainty_kg": 72.57,
+      "mass_uncertainty_expected_kg": 72.57,
+      "mass_match": true,
+      "calc_check": "19910 * 0.104 = 2070.6 kg ≈ 2.071 t (with precise 0.10402: 19910 * 0.10402 = 2071.1 ≈ 2.071 t)"
+    },
+    "aecn_pyrolysis_embodied_emissions": {
+      "ef_kgCO2e_per_kg": 0.0212,
+      "mass_kg": 19910,
+      "mass_uncertainty_kg": 72.57,
+      "mass_uncertainty_expected_kg": 72.57,
+      "mass_match": true,
+      "calc_check": "19910 * 0.0212 = 422.1 kg ≈ 0.422 t"
+    },
+    "uncertainty_discount_independent_recalc": {
+      "var_carbon_seq_t": 0.1359,
+      "var_mass_seq_t": 0.1256,
+      "var_mass_truck_process_t": 0.01823,
+      "var_mass_pyro_process_t": 0.00755,
+      "var_mass_pyro_embodied_t": 0.00154,
+      "sigma_squared_t2": 0.034635,
+      "sigma_t": 0.186,
+      "expected_discount_kg": 186,
+      "reported_discount_kg": 187,
+      "matches_within_rounding": true
+    }
+  },
+
+  "_derived_values": {
+    "scale_ticket_net_lb": 43840,
+    "scale_ticket_net_kg_recalc": 19885.47,
+    "scale_ticket_net_kg_quoted": "19,885.47",
+    "bol_authoritative_qty_shipped_kg": 19910,
+    "bol_authoritative_qty_shipped_mt": 19.91,
+    "conservative_mass_min_scale_bol_kg": 19885.47,
+    "conservative_mass_min_basis": "MIN(scale 19,885.47 kg, BOL 19,910 kg) = scale ticket net wins by 24.5 kg",
+    "sparging_rate": 0.0129,
+    "sparging_loss_kg": 256.52,
+    "sparging_loss_kg_recalc": 256.52,
+    "mass_of_bio_oil_injected_kg": 19628.95,
+    "carbon_pct_decimal": 0.472,
+    "co2_per_c_factor": 3.667,
+    "gross_co2e_recalc_t": 33.974,
+    "gross_co2e_recalc_basis": "19.62895 t * 0.472 * 3.667 = 33.974 t",
+    "gross_co2e_certify_t": 33.974,
+    "gross_co2e_match": true,
+    "tanker_process_emissions_recalc_t": 5.001,
+    "tanker_process_emissions_recalc_basis": "19.910 t Origin Mass * 2197 mi * 0.0001143 MTCO2e/(t*mi) = 5.0008 t",
+    "tanker_embodied_emissions_recalc_t": 0.522,
+    "tanker_embodied_emissions_recalc_basis": "2197 mi * 0.00023756059 MTCO2e/mi = 0.5219 t",
+    "pyrolysis_process_recalc_t": 2.071,
+    "pyrolysis_process_recalc_basis": "19.910 t Origin Mass * 0.10402 kgCO2e/kg = 2.0710 t",
+    "pyrolysis_embodied_recalc_t": 0.422,
+    "pyrolysis_embodied_recalc_basis": "19.910 t Origin Mass * 0.0212 kgCO2e/kg = 0.4221 t",
+    "transport_process_sum_t": 5.000,
+    "pyrolysis_sum_t": 2.493,
+    "activities_sum_recalc_t": 8.015,
+    "activities_sum_certify_t": 8.014,
+    "activities_sum_diff_t": 0.001,
+    "activities_sum_diff_note": "Sub-tonne rounding only; Calc View carries one extra decimal of precision",
+    "bcu_applied_t": 5.000,
+    "bcu_vs_transport_process_pass_check": "BCU 5.000 >= Transport Process 5.000 (equals, satisfies BCU>=Activity rule)",
+    "net_calc_t": 30.773,
+    "net_calc_basis": "33.974 + 5.000 - 8.014 - 0.187 = 30.773",
+    "net_certify_t": 30.773,
+    "net_match": true,
+    "carbon_pct_2sd_lower": 27.24,
+    "carbon_pct_2sd_upper": 51.60,
+    "carbon_pct_within_2sd_range": true,
+    "carbon_pct_above_mean": true,
+    "carbon_pct_z_score": 1.276,
+    "carbon_pct_z_score_basis": "(47.2 - 39.42) / 6.09 = 1.276 standard deviations above mean (within 2-SD flag threshold)"
+  },
+
+  "live_source_verifications_2026_05_11": {
+    "_note": "Added 2026-05-11 after Max caught the FC10 1.3 confabulation. Each block records that the live primary source was opened — not the SKILL doc — for any EF / constant / range / threshold / absence claim that appears in the checklist.",
+
+    "standard_efs_sheet_2026_tab": {
+      "_primary_source_opened": [
+        {
+          "file": "Standard Emission Factors + Calculations - 2026 tab",
+          "action": "csv_exported",
+          "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit?gid=684080705",
+          "evidence": "CSV export of the 2026 tab; live values read: AECN H1 2026 baseline 0.10380 / final 0.104017 MTCO2e/MT Oil; AECN Embodied 0.02116 / final 0.021160 MTCO2e/MT Oil; Tanker Truck Process Fuel Use 0.0001143 MT CO2e/(t-mi); Tanker Truck Embodied 0.00023756059 MT CO2e/mi."
+        }
+      ],
+      "local_path": "outputs/qa/batch-2-180/Standard_EFs_2026.csv",
+      "aecn_production_h1_2026_baseline_mtco2e_per_mt": 0.10380,
+      "aecn_production_h1_2026_final_mtco2e_per_mt": 0.104017,
+      "aecn_embodied_baseline_mtco2e_per_mt": 0.02116,
+      "aecn_embodied_final_mtco2e_per_mt": 0.021160,
+      "tanker_truck_process_mtco2e_per_t_mi": 0.0001143,
+      "tanker_truck_embodied_mtco2e_per_mi": 0.00023756059,
+      "reconciliation_to_certify": "Certify modal precise 0.104 = sheet final 0.104017 rounded to 3 decimals; modal 0.0212 = 0.02116 rounded to 4 decimals; modal 0.1143 kgCO2e/(t-mi) = 0.0001143 × 1000; modal 0.23756 kgCO2e/mi = 0.00023756059 × 1000."
+    },
+
+    "mrv_aecn_analysis_carbon_range": {
+      "_primary_source_opened": [
+        {
+          "file": "MRV_AECN_Analysis.xlsx (Summary Statistics tab)",
+          "action": "sheet_grid_read",
+          "live_source_url": "outputs/data-analysis/MRV_AECN_Analysis.xlsx (workspace path; sourced from My Drive)",
+          "evidence": "Workbook opened via openpyxl; Summary Statistics tab read. Filter line: Function = MRV, Offtake = AECN, 439 samples filtered."
+        }
+      ],
+      "carbon_mean_pct": 39.420350877193,
+      "carbon_std_dev_pct": 6.09332409018271,
+      "carbon_count": 285,
+      "two_sd_upper_pct": 51.6070,
+      "two_sd_lower_pct": 27.2337,
+      "batch_2_180_carbon_z_score": 1.2766,
+      "batch_2_180_carbon_within_range": true,
+      "reconciliation_to_SKILL_doc": "SKILL.md cites mean 39.42 / SD 6.09 / n=285 — exact match to live spreadsheet rounded to 2 decimals."
+    },
+
+    "pdd_appendix_7_bcu_eligibility": {
+      "_primary_source_opened": [
+        {
+          "file": "Charm_PDD_v1.12_Bio_Oil_Geologic_Storage_Biochar.docx (Appendix 7)",
+          "action": "pdf_read",
+          "live_source_url": "knowledge-base/Charm_PDD_v1.12_Bio_Oil_Geologic_Storage_Biochar.docx",
+          "evidence": "Document opened via python-docx; Appendix 7 BCU Calculation Methodology paragraphs 219-271 read. Key equation at para 263-264: Net CO2eFD = (CO2eTransport + CO2eOn-Site) - (AERD * MassRD). CO2eTransport defined as transport-fuel-use process emissions only. Embodied vehicle emissions not in scope of BCU equation."
+        }
+      ],
+      "rule_summary": "BCUs offset fossil-diesel-use process emissions only (Distance-Based Method transport process + on-site diesel). Embodied vehicle emissions (vehicle manufacturing amortized per-mile) are not in the BCU equation — they aren't fuel-replaceable by renewable diesel.",
+      "bcu_eligible_emissions_for_2_180": "Tanker Truck Transport Process Emissions 5.000 t",
+      "bcu_NOT_eligible_emissions_for_2_180": "Tanker Truck Transport Embodied Emissions 0.522 t; AECN Pyrolysis Process 2.071 t (different protocol section); AECN Pyrolysis Embodied 0.422 t"
+    },
+
+    "bcu_certificate_charm_a4_contents": {
+      "_primary_source_opened": [
+        {
+          "file": "Charm-A4-2024-10-24-63-1976.pdf (BCU certificate, Certify Sources #11)",
+          "action": "pdf_read",
+          "live_source_url": "outputs/qa/batch-2-180/BCU_Charm-A4.pdf (downloaded from Certify-issued signed URL)",
+          "evidence": "1-page Proof of Sustainability (PoS) from World Energy. PoS ID Charm-A4-2024-10-24-63-1976, issued 2024-10-30. Customer for Attributes = Charm Industrial. Producer = AltAir Paramount LLC (HEFA renewable diesel from tallow). Pool quantity 44.205 MT NRF, 1,945,020 MJ energy, GHG savings 81.356% (15.71 vs 90 fossil), Total CO2 Emissions Reduction available: 142.415 MT. RSB Global / SCS Global Services / Mass Balance chain-of-custody."
+        }
+      ],
+      "pos_id": "Charm-A4-2024-10-24-63-1976",
+      "issuance_date": "2024-10-30",
+      "customer_for_attributes": "Charm Industrial",
+      "pool_total_co2_reduction_mt": 142.415,
+      "applied_to_2_180_t": 5.000,
+      "applied_pct_of_pool": 3.51,
+      "cross_batch_application_question": "Same A4 cert (142.415 MT pool) has been linked across multiple batches (2-180 + per active registry: 2-188, 2-190/191/192, 2-201, 2-204). Cumulative applied not yet checked across all uses. Worth Garrett confirmation; quantity for THIS batch verified."
+    },
+
+    "aecn_to_basco_route_map": {
+      "_primary_source_opened": [
+        {
+          "file": "AECN to Basco.png (Certify Sources #12)",
+          "action": "image_read",
+          "live_source_url": "outputs/qa/batch-2-180/screenshots/AECN_to_Basco.png (downloaded from Certify-issued signed URL)",
+          "evidence": "1880x941 PNG of Google Maps route from '175 Bd du Portage des Mousses, Port-Cartier QC' (= BOL origin BioEnergie AE Cote-Nord) to '4687 LA-115, St Landry LA 71367' (= BOL Ship To CHARM Industrial). Primary route 'via ON-401 W: 33 hr (without traffic), 2,197 miles'. 3 route options shown; this is the selected/longest documented."
+        }
+      ],
+      "origin_address": "175 Bd du Portage des Mousses, Port-Cartier QC",
+      "destination_address": "4687 LA-115, St Landry LA 71367",
+      "selected_route": "via ON-401 W",
+      "selected_route_distance_mi": 2197,
+      "selected_route_travel_hours": 33,
+      "alternates": ["via Rte 138 O: 35 hr", "via Rte 138 O and ON-401 W: 34 hr"],
+      "reconciliation_to_certify": "Certify datapoint 'Aggregate Distance Transported AECN to Basco' = 2,197 mi matches Google Maps route exactly."
+    },
+
+    "truck_embodied_ef_source_image": {
+      "_primary_source_opened": [
+        {
+          "file": "Truck Embodied Emissions.png (Certify Sources #13)",
+          "action": "image_read",
+          "live_source_url": "outputs/qa/batch-2-180/screenshots/Truck_Embodied_Emissions.png (downloaded from Certify-issued signed URL)",
+          "evidence": "1567x796 PNG of the Standard Emission Factors + Calculations spreadsheet 'Truck and Trailer EE' tab. Shows GREET 2024 SHEET 26A summary, total embodied emissions, lifetime mileage, deadhead factor (81.91%), and final per-mile EF calc. Underlying data already verified canonically on the live Standard EFs sheet 2026 tab."
+        }
+      ]
+    },
+
+    "glec_road_transport_screenshot": {
+      "_primary_source_opened": [
+        {
+          "file": "Screenshot 2026-04-10 at 3.19.33 PM.png (Certify Sources #9)",
+          "action": "image_read",
+          "live_source_url": "outputs/qa/batch-2-180/screenshots/Screenshot_2026-04-10_Truck_Proc_EF.png (downloaded from Certify-issued signed URL)",
+          "evidence": "2392x1366 PNG of GLEC framework 'Road transport' reference page (Table 4 North American road emission intensity values). Shows WTT/TTW/WTW columns per vehicle type in kgCO2e/(tonne·km). Reference doc for the Truck Transport Fuel Use EF source. Canonical value lives on the Standard EFs sheet 2026 tab."
+        }
+      ]
+    },
+
+    "viridi_global_lca_email_screenshot": {
+      "_primary_source_opened": [
+        {
+          "file": "Screenshot 2026-02-23 at 11.29.10 AM.png (Certify Sources #3)",
+          "action": "image_read",
+          "live_source_url": "outputs/qa/batch-2-180/screenshots/Screenshot_2026-02-23_AECN_Pyro.png (downloaded from Certify-issued signed URL)",
+          "evidence": "2144x756 PNG of email from Jean-Christophe Amado (Viridi Global, AECN's LCA provider) to Max + Jeremy Jampron, dated Feb 17 2026 1:19 PM, attaching Q3-Q4 2025 LCA data. Material CI reduction explanation: (1) propane consumption reductions across Q3-Q4 2025 from production-line increases / fewer unplanned shutdowns / better burnout management, (2) diesel reductions from front-loader/machine efficiency improvements. Supporting context for the H1 2026 AECN EF being lower than prior periods."
+        }
+      ]
+    },
+
+    "source_14_carbon_emission_factor": {
+      "_primary_source_opened": [
+        {
+          "file": "Carbon emission factor (Certify Sources #14, no extension) = Standard Emission Factors + Calculations (4).xlsx",
+          "action": "modal_opened",
+          "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJFNB7E1S0X8B9/edit?tab=sources&reference=ref_1K31MPPWE1S0A1QM",
+          "evidence": "Certify source preview opened. Filename in Sources tab is 'Carbon emission factor' (no extension); underlying file is 'Standard Emission Factors + Calculations (4).xlsx' — a 2025-vintage downloaded snapshot. Visible tabs: 2025, Truck and Trailer EE 2025, 2025 KS/CO Electricity EFs, 2025 MRV Sample Shipping, 2025 Railcar Embodied Emissions, H1 2025 AECN Process Emissions, 2025 LCS Embodied Emissions, 2025 Rock Salt Emissions, Vaulted EE 825 Update, (hidden) 2024. Linked to AECN Production Embodied datapoint. Embodied EF value 0.02116 is unchanged 2025→2026 (verified on live Standard EFs sheet 2026 tab) so functionally OK, but stale-snapshot linkage is a 9.9 hygiene item."
+        }
+      ]
+    },
+
+    "lca_source_files_present": {
+      "_primary_source_opened": [
+        {
+          "file": "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx (Certify Sources #1)",
+          "action": "modal_opened",
+          "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJFNB7E1S0X8B9/edit?tab=sources&reference=ref_1KQJGRA111S06CB7",
+          "evidence": "Certify limited preview of the LCA CI calculation xlsx covering 1Jul2025-31Dec2025 (H2 2025). Visible tabs: Summary / Inputs / Analysis / Distance sawmill-plant / GHG emissions factors. Foundational LCA underlying the AECN H1 2026 EF used in Certify. Full content requires Excel download."
+        },
+        {
+          "file": "BH 2025 LCA w Stack Emissions.xlsx (Certify Sources #2)",
+          "action": "modal_opened",
+          "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJFNB7E1S0X8B9/edit?tab=sources&reference=ref_1KQJGRA111S0Z2KX",
+          "evidence": "Certify limited preview; single tab 'Sheet1'. Stack-emissions data layered onto the LCA. Full content requires Excel download."
+        },
+        {
+          "file": "Supporting GHG data 31Dec2025 S.xlsx (Certify Sources #4)",
+          "action": "modal_opened",
+          "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJFNB7E1S0X8B9/edit?tab=sources&reference=ref_1KQJGRA111S0JQFJ",
+          "evidence": "Certify limited preview; visible tabs 'Inputs for GHG calculation' and 'Diesel fuel'. Supporting diesel-fuel inputs to the H2 2025 LCA. Full content requires Excel download."
+        }
+      ]
+    },
+
+    "vaulted_absence_search": {
+      "_primary_source_opened": [
+        {
+          "file": "BOL_2343-T.pdf (5 pages)",
+          "action": "pdf_read",
+          "evidence": "pdftotext + grep -i 'vaulted' returned no matches across all 5 pages."
+        },
+        {
+          "file": "CHN_SR26-02231.pdf (6 pages)",
+          "action": "pdf_read",
+          "evidence": "pdftotext + grep -i 'vaulted' returned no matches across all 6 pages."
+        },
+        {
+          "file": "BCU_Charm-A4.pdf (1 page)",
+          "action": "pdf_read",
+          "evidence": "pdftotext + grep -i 'vaulted' returned no matches."
+        },
+        {
+          "file": "2-180_Ops_Notes.csv (26 lines)",
+          "action": "csv_exported",
+          "evidence": "grep -i 'vaulted' returned no matches."
+        },
+        {
+          "file": "COBB_Basco_Injection.csv (132 lines, row 61 = batch 2-180)",
+          "action": "csv_exported",
+          "evidence": "grep -i 'vaulted' returned no matches."
+        }
+      ],
+      "all_per_batch_sources_negative": true
+    },
+
+    "spill_absence_search": {
+      "_primary_source_opened": [
+        {
+          "file": "BOL_2343-T.pdf (5 pages)",
+          "action": "pdf_read",
+          "evidence": "pdftotext + grep -i 'spill' returned no matches."
+        },
+        {
+          "file": "CHN_SR26-02231.pdf (6 pages)",
+          "action": "pdf_read",
+          "evidence": "pdftotext + grep -i 'spill' returned no matches."
+        },
+        {
+          "file": "BCU_Charm-A4.pdf (1 page)",
+          "action": "pdf_read",
+          "evidence": "pdftotext + grep -i 'spill' returned no matches."
+        },
+        {
+          "file": "2-180_Ops_Notes.csv",
+          "action": "csv_exported",
+          "evidence": "grep -i 'spill' returned no matches."
+        },
+        {
+          "file": "COBB_Basco_Injection.csv",
+          "action": "csv_exported",
+          "evidence": "grep -i 'spill' returned no matches."
+        }
+      ],
+      "all_per_batch_sources_negative": true
+    },
+
+    "mrv_uncertainty_cheat_sheet": {
+      "_primary_source_opened": [
+        {
+          "file": "MRV_Uncertainty_Evidence_Cheat_Sheet.xlsx (tab '326 Uncertainty V2')",
+          "action": "sheet_grid_read",
+          "live_source_url": "knowledge-base/MRV_Uncertainty_Evidence_Cheat_Sheet.xlsx",
+          "evidence": "Workbook opened via openpyxl. Tab '326 Uncertainty V2' lists per-component uncertainty rules: Injection Seq Carbon Content = .004 * Measured Value; Injection Seq Mass of Product = 72.57 kg per discrete weight (one vehicle with one load); Tanker Truck Mass of Load = 72.57 kg per discrete weight; AECN Pyrolysis Process Bio-Oil Mass = 72.57 kg per discrete weight; AECN Pyrolysis Embodied Bio-Oil Mass = 72.57 kg per discrete weight. All 5 rules apply to batch 2-180."
+        }
+      ],
+      "carbon_uncertainty_factor": 0.004,
+      "mass_uncertainty_per_discrete_weight_kg": 72.57,
+      "reconciliation_to_certify_modals": "Certify Injection Seq Carbon Content ±0.1888 = 0.004 * 47.2 (from cheat sheet rule); all Mass-of-Load ±72.57 = 1 discrete weight * 72.57 (from cheat sheet rule). All matches exact."
+    },
+
+    "drive_testing_subfolder_open": {
+      "_primary_source_opened": [
+        {
+          "file": "Drive Testing subfolder (id 1BQloRHufk0J1Oeo-mF9nCgLHz_AIzs8u)",
+          "action": "sheet_grid_read",
+          "live_source_url": "https://drive.google.com/drive/folders/1BQloRHufk0J1Oeo-mF9nCgLHz_AIzs8u",
+          "evidence": "Drive folder opened via Playwright after Max caught the FC10 1.3 confabulation. Contents: 'SR26-02231_Batch_2-180-185_COA (1).pdf' (drive_file_id 1qG8JNyROfr3qAXrx8gTQit6pFOR7WSdv). Subfolder contains the CHN cert. NOT empty (the original 1.3 evidence was wrong)."
+        }
+      ],
+      "contents": ["SR26-02231_Batch_2-180-185_COA (1).pdf"]
+    }
+  }
+}

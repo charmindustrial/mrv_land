@@ -1,0 +1,927 @@
+{
+  "active_batches": [
+    {
+      "batch_id": "INJ-06-2026-W2",
+      "batch_type": "AECN weekly time-block (SECOND)",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-week2-aecn/Batch_INJ-06-2026-W2_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-week2-aecn/batch_INJ-06-2026-W2_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KVJW9TAM1S0QVQ2/edit",
+      "week": "2026-06-06 to 2026-06-13",
+      "injection_date": "2026-06-14",
+      "railcars": [
+        "GPRX5240",
+        "GPRX5139",
+        "TILX200228",
+        "GPRX5106"
+      ],
+      "T0_initiation": "2026-06-24T13:54:08 PDT",
+      "net_co2e_t_displayed": 416.333,
+      "counts": {
+        "pass": 38,
+        "fail": 12,
+        "flag": 8,
+        "na": 3
+      },
+      "fail_items": [
+        {
+          "section": "1.3",
+          "what": "W2 AECN lab CoA absent from Certify+Drive (gated on lab return)"
+        },
+        {
+          "section": "2.4/2.5/2.7/5.2",
+          "what": "TILX200228 O3 Ops mis-transcription: Ops 78560/29260 vs tickets+COBB 75560/28580 (net 21309.75); spurious back-calc 1046.24 on O4; ~6kg/0.009t over-credit"
+        },
+        {
+          "section": "3.5/9.2",
+          "what": "Embodied allocated distances: AECN->SOPOR 8279.70km=4x Ops 1286.2mi (+0.917t); Opel->Basco 43mi vs Ops 1372.8mi (-0.316t); net +0.6t conservative"
+        },
+        {
+          "section": "4.1",
+          "what": "lab CoA missing (carbon 40.80% mis-linked to scale tickets)"
+        },
+        {
+          "section": "7.1/9.1/9.4/9.10",
+          "what": "Ops Notes not attached in Certify (92 sources, none is Ops Notes); same as W1 attachment gate"
+        }
+      ],
+      "flag_items": [
+        {
+          "section": "5.4",
+          "what": "GPRX5240 O4 COBB 10523.33 vs ticket/Ops/Certify 10750.13 (COBB-side; implies empty 30020 vs ticket 29520)"
+        },
+        {
+          "section": "9.9",
+          "what": "generic EF filenames + duplicate ticket uploads (92 vs ~63) + BCU Dec-2025 RD-EAC cert provenance confirm"
+        },
+        {
+          "section": "3.7",
+          "what": "BOL print typos (prod-period #10-2024 etc.)"
+        },
+        {
+          "section": "4.2/4.3/4.4/4.6",
+          "what": "pending lab CoA"
+        }
+      ],
+      "resolved_on_rerun": [
+        {
+          "section": "2.1",
+          "what": "GPRX5139 O3 empty duplicate fixed 2026-06-25 (new ticket #160902=29560)"
+        }
+      ],
+      "garrett_slack": {
+        "user": "U08JW9HQG5B",
+        "dm_channel": "D08KEFVRJDP",
+        "thread_ts": "1782419770.261539"
+      },
+      "max_approved_garrett_delivery": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "INJ-06-2026-W1",
+      "batch_type": "AECN weekly time-block (FIRST)",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-week1-aecn/Batch_INJ-06-2026-W1_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-week1-aecn/batch_INJ-06-2026-W1_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KTYCT2551S0V1ZT/edit",
+      "week": "2026-05-30 to 2026-06-06",
+      "injection_date": "2026-06-05",
+      "railcars": [
+        "TIMX201060(offload_4)",
+        "GPRX5102(1-4)",
+        "TILX200231(1-4)"
+      ],
+      "T0_initiation": "2026-06-23T17:06:15 PDT",
+      "net_co2e_t_displayed": 230.096,
+      "counts": {
+        "pass": 55,
+        "fail": 0,
+        "flag": 3,
+        "na": 3
+      },
+      "flag_items": [
+        {
+          "section": "2.3",
+          "what": "Tractor/trailer recorded inconsistently across full/empty tickets; within-pair vehicle-ID mismatch on GPRX5102 O1, TILX200231 O1 & O2. Masses reconcile (credited mass anchored to BOL aggregate). Garrett confirm same-truck-recorded-differently vs different trucks."
+        },
+        {
+          "section": "3.7",
+          "what": "Ops origins-ledger BOL dates use railcar-consolidation date (5/7, 5/11) vs actual BOL load dates 5/01-5/08; plus minor BOL print typos (2361 PO, 2364 ship-date, 2368/2369 prod-period, 2370 tanker id). Mass/routing correct."
+        },
+        {
+          "section": "9.9",
+          "what": "Generic/inconsistent source filenames (image (44).png, 2 Screenshots, inconsistent BOL camion naming, low-res O4 full png)."
+        }
+      ],
+      "methodology_notes_for_max": [
+        "NEW Filtration Loss deduction 0.195% (conservative, reduces credited mass) - confirm expected/validated",
+        "Weekly batch uses ONE composite AECN lab sample vs per-injection historically",
+        "FC11 last-offload back-calc now applied PER RAILCAR inside the weekly aggregate",
+        "Mass uncertainty stacks to 653.13 kg = 9 weighings x 72.57"
+      ],
+      "status": "re_reviewed_clean_awaiting_max",
+      "verified_notes": [
+        "8.3 cross-week carve-out VERIFIED clean against INJ-05-2026-W4 (W4=offloads 1-3, W1=offload_4, no overlap)."
+      ],
+      "max_correction_round_2": "Reworked per Max's 7 points: opened ALL 9 BOLs (not 2) + folder cross-check; added empty>=full ticket-date rule (2.2b); per-offload COBB-vs-Ops reconciliation incl 9344 vs 9304 adjustment (5.4); mass-of-injectant tied to Ops MOBI 163346.50 (7.1/9.1); lab C/H/N/density/viscosity vs historical means (4.2/4.3/4.6); routing checked vs Certify map+Watco evidence, 42.9 vs 43.9 surfaced (3.5).",
+      "max_correction_round_3": "3.5 misread fixed (map=42.9 not 43.9), flipped to Pass. Embodied-allocation reconstructed (alloc dist = full x post-adj mass/railcar agg) matches Ops + Certify. Evidence-source matrix applied: mass->tickets+Ops; pyrolysis & transport process->tickets+BOLs+Ops; allocated dist->Ops+Maps; non-allocated->Maps(rail=Watco); EFs->Standard EF sheet. Caught+fixed own 234560 BOL-agg mislabel in 9.4.",
+      "fail_items": [],
+      "root_cause_finding": "RESOLVED \u2014 Ops Notes uploaded + linked to mass/distance datapoints in Certify (live re-review 2026-06-25).",
+      "garrett_slack": {
+        "user": "U08JW9HQG5B",
+        "dm_channel": "D08KEFVRJDP",
+        "thread_ts": "1782322606.594349"
+      },
+      "T_re_review_complete": "2026-06-25T20:55:00Z",
+      "re_review_2026_06_25": "Garrett uploaded INJ-06-2026-W1 Ops Notes to Certify and linked it to Mass of Injectant, Allocated Bio-Oil Mass - AECN via Rail, and all 3 allocated-distance datapoints (+ Carbon Content). Verified on a LIVE Sources-tab read: 39 -> 47 sources, two files added (Ops Notes + RD-EAC BCU cert), none removed; detail-panel preview confirms the genuine weekly workbook. All 5 prior FAILs (3.5/7.1/9.1/9.2/9.4) flipped to Pass. Attachment gate + full audit return 0. BCU RD-EAC retirement cert also newly attached (strengthens 9.5). Net unchanged at 230.096 t. Remaining: 3 standing FLAGs (2.3 vehicle-ID confirm, 3.7 BOL date convention + print typos, 9.9 generic filenames) \u2014 non-blocking hygiene/confirmation, not addressed by the upload and not required to be."
+    },
+    {
+      "batch_id": "2-199",
+      "checklist_path": "outputs/qa/batch-2-199/Batch_2-199_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KRH4CXAP1S0M44D/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "truck",
+      "site_emissions_burdened": true,
+      "reporting_period": "Apr 2026 (Certify removal date 23 Apr 2026)",
+      "T0_initiation": "2026-05-13T19:46:32Z",
+      "T_first_max_delivery": "2026-05-13T21:01:22Z",
+      "T_max_approval": "2026-05-13T22:23:39Z",
+      "T_garrett_notified": "2026-05-13T22:53:39Z",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1778712819.632919",
+      "garrett_user_id": "U08JW9HQG5B",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1778706114.761759",
+      "max_correction_notes": [
+        "Garrett refreshed AECN Process EF from 0.12704 to 0.104 kgCO2e/kg \u2014 Net rose 18.66 to 19.10 t; 5 prior FAILs (6.4/7.2/7.4/9.4/9.8) cleared.",
+        "Max caught 6.1 misclassified Pass despite within-RP source-file divergence narrated in evidence; flipped to Flag. Structural fix locked in: checklist_lib.py Mode 3 audit (WITHIN_RP_INCONSISTENCY_RE) + Failure Category 13 in references/lessons_learned.md.",
+        "Max caught 9.6 equivocating around Railcar BCU shortfall (BCU 0.074 < activity 0.162, 54% gap); flipped to Flag with plain coverage-gap statement."
+      ],
+      "counts": {
+        "pass": 46,
+        "fail": 0,
+        "flag": 6,
+        "na": 6
+      },
+      "net_co2e_t_displayed": 19.1,
+      "net_co2e_t_displayed_pre_garrett_fix": 18.66,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "2.1",
+          "what_to_verify": "Empty scale ticket PNG is a phone screenshot in iOS document viewer with yellow 'Eye Protect' tint. Values legible, math reconciles. Garrett to re-upload direct ticket photo for future batches."
+        },
+        {
+          "section": "4.2",
+          "what_to_verify": "Lab raw Carbon 53.0% (flagged '#' outside SGS method range; 2.23 SD above AECN mean). Certify applies cap to 49.26% via 'AECN C Content Outlier Analysis - 2026 YTD.xlsx'. Math reconciles with capped value. Garrett to confirm cap policy file is authoritative."
+        },
+        {
+          "section": "5.4",
+          "what_to_verify": "COBB row 88 cells F/G/H = 18,080 (pre-correction BOL value). BOL 2352-T page 3 ***Corrections*** corrects tare 16910 to 16190, net 18080 to 18800. Garrett to backfill F/G/H with 18,800."
+        },
+        {
+          "section": "6.1",
+          "what_to_verify": "AECN Production Process Emissions datapoint sourced from generic 'Standard Emission Factors + Calculations (4).xlsx'. Sister AECN truck batches in same April 2026 RP use period-specific files (2-180 BH 2025 LCA w Stack Emissions; 2-181 Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S). Garrett to relink 2-199 to period-specific files for consistent within-RP evidence chain."
+        },
+        {
+          "section": "9.6",
+          "what_to_verify": "BCU - Railcar Emissions 0.074 t vs activity Additional Railcar Movement Emissions 0.162 t \u2014 short 0.088 t (54% gap). Other BCU pairs full coverage. Either increase BCU - Railcar to 0.162 t, or confirm partial 0.074 t is intentional (e.g., only BCU-eligible portion of railcar emissions)."
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "(a) Screenshot 2026-04-10 at 3.19.33 PM.png non-descriptive filename linked to Truck Transport EF (shared sister-batch hygiene set). (b) Generic 'Standard Emission Factors + Calculations (4).xlsx' linked to BOTH AECN Pyrolysis Process and Embodied datapoints (compounds 6.1). (c) BCU cert 'Charm-A5-2024-10-24-63-1976.pdf' \u2014 A5 lot vs sister batches' A4 pattern; BCU quantity 4.721 t exactly matches Transport Process; Garrett to confirm A5 routing is by design."
+        }
+      ],
+      "structural_fixes_locked_in_this_session": [
+        "checklist_lib.py Mode 3 audit: WITHIN_RP_INCONSISTENCY_RE catches Pass-status evidence that narrates within-RP cross-batch divergences. Mechanically enforces 'status reflects the finding, narrative doesn't replace status.'",
+        "Failure Category 13 added to references/lessons_learned.md (and General Principle 15 in distilled list)."
+      ],
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-181",
+      "checklist_path": "outputs/qa/batch-2-181/Batch_2-181_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJFP6Q41S0778B/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "truck",
+      "reporting_period": "Apr 2026 (Certify removal date 01 Apr 2026)",
+      "T0_initiation": "2026-05-11T20:10:07Z",
+      "T1_data_gathering_complete": "2026-05-11T20:25:48Z",
+      "T_final_garrett_delivery": "2026-05-12T21:22:44Z",
+      "max_approval_note": "Approved for Garrett delivery. One forward-looking correction: always show transport process sum explicitly in 9.6 evidence (and Bio-oil transport total in 9.2), even on single-leg truck batches where the sum is degenerate. Convention locked into skills/qa/batch-qa-aecn/references/checklist_structure.md and memory feedback_show_transport_process_sum.md.",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1778620328.722139",
+      "garrett_user_id": "U08JW9HQG5B",
+      "counts": {
+        "pass": 46,
+        "fail": 0,
+        "flag": 5,
+        "na": 7
+      },
+      "net_co2e_t_displayed": 23.23,
+      "net_co2e_t_precise": 23.227,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "1.3",
+          "what_to_verify": "Drive Testing subfolder is empty. Lab cert SR26-02231 (multi-batch, 2-181 = page 2) is in Certify Sources #5. Garrett to copy cert into per-batch Drive Testing subfolder for consistency.",
+          "certify_location": "Drive (per-batch Testing subfolder)"
+        },
+        {
+          "section": "2.1",
+          "what_to_verify": "Empty scale ticket image is a phone screenshot of an SMS thread (rotated CAT ticket at low resolution). Full ticket reads cleanly. Math reconciles. Garrett to re-upload empty ticket as direct photo for future batches.",
+          "certify_location": "Drive (Scale Tickets subfolder)"
+        },
+        {
+          "section": "2.3",
+          "what_to_verify": "Cannot verify tractor/trailer digit match between empty and full tickets due to empty-ticket image quality (see 2.1). Full ticket shows Tractor #815, Trailer #50315. Resolved by re-upload from 2.1.",
+          "certify_location": "Drive (Scale Tickets subfolder)"
+        },
+        {
+          "section": "5.4",
+          "what_to_verify": "COBB row 63 col M injection_ph = 34.8 vs Ops Notes pH = 3.4. Adjacent rows 2.8-3.2 single-decimal pattern. Data entry typo (missing decimal). pH not a Certify datapoint; Ops Notes authoritative. Garrett to backfill COBB col M with 3.4.",
+          "certify_location": "N/A (COBB-side)"
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "(a) 2 non-descriptive Certify filenames [Screenshot 2026-02-23 at 11.29.10 AM.png linked to AECN Production Process Emissions; Screenshot 2026-04-10 at 3.19.33 PM.png linked to EF Truck Transport Fuel Use]. (b) BCU cert provenance: Charm-A4-2024-10-24-63-1976.pdf now reused across 7 distinct shipments (rail batches 2-188/2-190/2-191/2-192/2-201/2-204 AND truck batch 2-181). BCU quantity 5.010 t exactly matches Transport Process emission \u2014 quantity correct. Worth Garrett one-line confirmation of cert provenance.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett",
+      "token_cost_usd": 196.18,
+      "turn_count": 318
+    },
+    {
+      "batch_id": "2-184",
+      "checklist_path": "outputs/qa/batch-2-184/Batch_2-184_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ7Y019T1S0X0WC/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "GPRX 5188",
+      "offload_number": 3,
+      "consumed_lot_suffix": "offload_3",
+      "is_last_offload_of_railcar": false,
+      "reporting_period": "RP TBD (injection date 2026-04-02)",
+      "T0_initiation": "2026-04-29T17:46:29Z",
+      "T4_audit_clean": "2026-04-29T19:30:57Z",
+      "T5_max_review_start": "2026-04-29T19:30:57Z",
+      "T_re_review_complete": "2026-05-11T20:13:50Z",
+      "T6_max_approval": "2026-05-11T20:27:18Z",
+      "T7_garrett_notified": "2026-05-11T20:27:18Z",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1778531275.920909",
+      "garrett_user_id": "U08JW9HQG5B",
+      "max_dm_channel": "DLG4H88UF",
+      "counts": {
+        "pass": 61,
+        "fail": 0,
+        "flag": 5,
+        "na": 20
+      },
+      "net_co2e_t_displayed": 31.34,
+      "net_co2e_t_precise": 31.342,
+      "max_approval_note": "Approved 2026-05-11 after re-review. 3 prior flags resolved (R10 Ops Notes Drive rename, R48 AECN pyrolysis CI refresh to 0.10402, R78 sister-batch 2-185 closing offload_4). Bonus Certify correction caught: Opelousas->Basco truck embodied now round-tripped (0.020 t). Also normalized section header colors to single #D6E4F0 per new feedback memory.",
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "2.3 (R15)",
+          "what_to_verify": "Trailer # on full scale ticket not visually readable due to direct sun glare on the JPG. Tractor CH1 + sequential ticket #s + same scale/day make trailer match operationally certain. Photo-quality, not Garrett-fixable.",
+          "certify_location": "N/A (Drive scale tickets subfolder)"
+        },
+        {
+          "section": "5.4 / 8.2 (R39 / R107)",
+          "what_to_verify": "COBB row 68 cell F68 (offloaded_quantity_kg) = 21,457.0776 kg for batch 2-184. Ops Notes offload_3 Cargo (kg) and Certify Allocated Bio-Oil Mass both = 21,844.99 kg. 388 kg COBB-side divergence. 2-184 is offload_3, not last \u2014 divergence NOT explained by last-offload conservatism. Same finding as on 2-185 review. Garrett/Manufacturo correction needed; verifier unaffected.",
+          "certify_location": "N/A (COBB tracker side); Certify Allocated Bio-Oil Mass datapoint already correct at 21,844.99 kg"
+        },
+        {
+          "section": "7.4 (R74)",
+          "what_to_verify": "Net CDR vs BCU Quant spreadsheet AND GHG Statement cross-check deferred \u2014 both are RP-close artifacts; current RP still open (injection 4/2/2026). Internal consistency clean: 34.317 + 1.619 - 4.415 - 0.180 = 31.341 t = Certify 31.342 t.",
+          "certify_location": "Certify Calculation View"
+        },
+        {
+          "section": "9.9 (R87)",
+          "what_to_verify": "Rename 4 non-descriptive filenames (shared rail-batch datapoints across GPRX 5188 sister batches 2-182/183/184/185): image (44).png; Screenshot 2026-04-10 at 3.19.33 PM.png; Screenshot 2026-02-23 at 11.29.10 AM.png; Screenshot 2026-01-27 125934.png. Suggested names in 2-185 registry entry.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ]
+    },
+    {
+      "batch_id": "2-180",
+      "checklist_path": "outputs/qa/batch-2-180/Batch_2-180_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJFNB7E1S0X8B9/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "truck",
+      "consumed_lot": "2343-T_offload_1",
+      "reporting_period": "Apr 2026 (Certify removal date 01 Apr 2026)",
+      "T0_initiation": "2026-05-11T18:31:33Z",
+      "T1_gate1_complete": "2026-05-11T20:16:00Z",
+      "T4_audit_clean": "2026-05-11T20:21:00Z",
+      "T_final_max_delivery": "2026-05-11T20:26:50Z",
+      "T6_max_approval": "2026-05-13T17:08:38Z",
+      "T7_garrett_notified": "2026-05-13T17:09:06Z",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1778531263.565519",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1778692146.537889",
+      "garrett_user_id": "U08JW9HQG5B",
+      "max_approval_note": "Approved 2026-05-13 after structural fixes + Buckets A/B/C live primary-source verification. Pre-build + post-build audits both clean. New audit gates (negative-claim + SKILL-doc-proxy) wired into checklist_lib + audit_checklist.",
+      "counts": {
+        "pass": 51,
+        "fail": 0,
+        "flag": 1,
+        "na": 6
+      },
+      "net_co2e_t_displayed": 30.77,
+      "net_co2e_t_precise": 30.773,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "9.9",
+          "what_to_verify": "4 hygiene items in Certify Sources: (a) \"Screenshot 2026-02-23 at 11.29.10 AM.png\" #3; (b) \"Screenshot 2026-04-10 at 3.19.33 PM.png\" #9; (c) \"Carbon emission factor\" #14 (no extension/descriptor) on AECN Production Embodied; (d) \"2-180 Full Empty Ticket (1).jpg\" #8 \u2014 redundant \"Full\" prefix on Empty ticket. Content verified correct, only filenames non-descriptive. Garrett to rename for verifier clarity.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "max_correction_1_3_confabulation": "First-pass Item 1.3 flagged Drive Testing subfolder as empty without opening it \u2014 straight FC10 confabulation. Max caught the error. Re-verified by opening folder id 1BQloRHufk0J1Oeo-mF9nCgLHz_AIzs8u; CHN cert IS present (drive_file_id 1qG8JNyROfr3qAXrx8gTQit6pFOR7WSdv). Item 1.3 corrected Flag\u2192Pass; downstream references in 4.1, 9.10, and Hygiene summary also corrected per FC12 dependency-thread discipline.",
+      "max_correction_buckets_b_c": "After 1.3 confabulation caught, Max asked what else was made up without verifying. Buckets enumerated: A (other miscounts/absence claims), B (SKILL-doc-as-proxy citations), C (Certify Sources listed but never opened). All resolved this session: live Standard EFs sheet 2026 tab, MRV_AECN_Analysis.xlsx, PDD App 7 BCU equation, Charm-A4 BCU cert content, AECN to Basco.png route map, Truck Embodied Emissions.png, GLEC screenshot, Viridi Global email, source #14 stale 2025 snapshot, 3 LCA xlsx (limited Certify preview), MRV Uncertainty Cheat Sheet xlsx, 'Vaulted'/'spill' grep across all 5 per-batch sources. Structural fixes also locked in (feedback_primary_source_open_rule.md, _primary_source_opened schema, audit_checklist negative-claim + SKILL-doc-proxy checks, pre-build self-audit gate, SKILL.md/checklist_structure.md updated).",
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-201",
+      "checklist_path": "outputs/qa/batch-2-201/Batch_2-201_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQT77FNY1S0J259/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "TILX200228",
+      "offload_number": 1,
+      "consumed_lot_suffix": "offload_1",
+      "is_last_offload_of_railcar": false,
+      "reporting_period": "Apr 2026 (Certify removal date 23 Apr 2026)",
+      "T0_initiation": "2026-05-06T19:59:54Z",
+      "T4_audit_clean": "2026-05-07T00:31:00Z",
+      "T5_max_review_start": "2026-05-07T00:31:37Z",
+      "T_final_max_delivery": "2026-05-07T00:31:37Z",
+      "T6_max_approval": "2026-05-07T22:56:00Z",
+      "T7_garrett_notified": "2026-05-07T22:56:51Z",
+      "max_approval_note": "Approved with two corrections: (1) item 1.3 reclassified from Pass to Flag \u2014 check item asks 'Testing subfolder present with required lab results' and the subfolder is literally empty; Document Location Rule justifies the cert existing somewhere but doesn't change the literal answer (saved feedback_check_text_literal.md). (2) Section 4 was missing a dedicated density-vs-formation-fluid check; added as 4.6 and added to canonical checklist_structure.md.",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1778113946.241349",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1778194605.153999",
+      "garrett_user_id": "U08JW9HQG5B",
+      "counts": {
+        "pass": 51,
+        "fail": 0,
+        "flag": 3,
+        "na": 4
+      },
+      "net_co2e_t_displayed": 30.58,
+      "net_co2e_t_precise": 30.584,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "1.3",
+          "what_to_verify": "Drive Testing subfolder is empty. Cert 2-199 - 2-201.pdf (SR26-02683.003, p3 of 3) is in Certify Sources #5 + shared parent Testing folder. Garrett to copy the cert into the per-batch Drive subfolder for consistency.",
+          "certify_location": "Drive (per-batch Testing subfolder)"
+        },
+        {
+          "section": "5.4",
+          "what_to_verify": "COBB row 88 col F (quantity_consumed_in_injection) and col G (offloaded_quantity_kg) both = 19,145.0 kg = 76,580/4 exact placeholder equal-split, vs Ops Notes Cargo (kg) 24,430.47. 5,285 kg divergence. Garrett-side data-provenance, NOT verifier-impacting (Certify reads Ops Notes value 24,430.46 t). Action: Garrett to backfill COBB cols F/G with actual 24,430.47.",
+          "certify_location": "N/A (COBB-side)"
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "Same shared rail-batch hygiene set as 2-185/186/187/189/190/191/192/204: (a) 4 non-descriptive Certify filenames [image (44).png, Screenshot 2026-04-10 PM, Screenshot 2026-02-23 AM, Screenshot 2026-01-27 125934.png]; (b) rail PROCESS EF sourced from 'Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf' filename-datapoint mismatch; (c) 'AECN Process Emissions Calculation.xlsx' linked to Pyrolysis EMBODIED datapoint. **BCU cert provenance (substantive, separate):** 'Charm-A4-2024-10-24-63-1976.pdf' now used on three distinct railcars (TILX200231, TIMX201060, TILX200228). BCU quantity 1.811 t = 0.300+1.391+0.120 transport process sum exactly \u2014 quantity correct. Worth Garrett confirmation whether this is a catch-all cert spanning multiple railcars or a mislink.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-204",
+      "checklist_path": "outputs/qa/batch-2-204/Batch_2-204_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQYYB3JV1S0RD0R/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "TILX200228",
+      "offload_number": 4,
+      "consumed_lot_suffix": "offload_4",
+      "is_last_offload_of_railcar": false,
+      "reporting_period": "Apr 2026 (Certify removal date 29 Apr 2026)",
+      "T0_initiation": "2026-05-06T18:19:55Z",
+      "T4_audit_clean": "2026-05-06T19:08:00Z",
+      "T5_max_review_start": "2026-05-06T19:11:21Z",
+      "T_final_max_delivery": "2026-05-06T19:11:21Z",
+      "T_correction_after_max_feedback": "2026-05-06T23:46:04Z",
+      "T_second_correction_per_RP_scope": "2026-05-08T20:47:48Z",
+      "T6_max_approval": "2026-05-08T21:30:00Z",
+      "T7_garrett_notified": "2026-05-08T21:31:12Z",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1778094681.229079",
+      "max_correction_thread_ts": "1778111164.384809",
+      "max_second_correction_thread_ts": "1778273268.711849",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1778275872.078709",
+      "garrett_user_id": "U08JW9HQG5B",
+      "is_last_offload_of_railcar_physically": true,
+      "is_last_RP_reported_offload_of_railcar": false,
+      "RP_scope_correction_note": "Two-step correction: (1) Initial QA missed that 2-204 is the railcar's physical last truck-out (small Cargo 5.8 MT signal). (2) After flipping to 'physical last', I assumed FC11 reconciliation lands on 2-204; Max corrected: middle offloads (2-202/2-203) were pulled in April but re-filtered for solids and injected in May \u2014 they fall in May RP, not April. Within April RP, 2-204 is 2nd-and-last reportable from this railcar (sister offload_1 + 2-204). FC11 mass-reconciliation moves to whichever of 2-202/2-203 reports last in May. April RP entry uses raw scale tickets; Net 6.86 t is correct as-is. FAILs reverted to FLAGs (corner case, not blocking). Memory updated: feedback_railcar_last_offload_signal.md now captures multi-axis framing (physical position vs RP-reported position vs injection timing).",
+      "counts": {
+        "pass": 46,
+        "fail": 0,
+        "flag": 7,
+        "na": 4
+      },
+      "net_co2e_t_displayed": 6.86,
+      "net_co2e_t_precise": 6.861,
+      "net_co2e_t_status": "correct as-is for April RP",
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "8.3",
+          "what_to_verify": "Cross-RP corner case: 2-204 is railcar's physical last truck-out but NOT the railcar's last-reported batch in April RP. Middle offloads 2-202/2-203 inject in May. FC11 mass-reconciliation moves to May-RP last-reported. FC9 N_offloads>=N_BOLs (4>=3) already met. Garrett: track railcar-level reconciliation hand-off across RPs.",
+          "certify_location": "N/A (cross-RP signal)"
+        },
+        {
+          "section": "7.4",
+          "what_to_verify": "Cross-RP signal: April RP Net 6.86 t correct as-is. FC11 reconciliation hooks into May-RP last-reported, not 2-204.",
+          "certify_location": "Calculation View"
+        },
+        {
+          "section": "9.8",
+          "what_to_verify": "Cross-RP signal: same root cause as 7.4.",
+          "certify_location": "Calculation View"
+        },
+        {
+          "section": "2.4",
+          "what_to_verify": "Cross-RP signal: April RP Cargo (kg) 5,805.98 from raw scale tickets is correct as-is.",
+          "certify_location": "Allocated Bio-Oil Mass datapoint"
+        },
+        {
+          "section": "2.5",
+          "what_to_verify": "Cross-RP signal: railcar-level MIN(scale, BOL) reconciliation deferred to May RP last-reported.",
+          "certify_location": "Allocated Bio-Oil Mass datapoint"
+        },
+        {
+          "section": "2.7",
+          "what_to_verify": "Cross-RP signal: 4 sources align at 5,805.98 kg for April RP entry; reconciliation across all 4 offloads happens in May RP.",
+          "certify_location": "Allocated Bio-Oil Mass datapoint"
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "Same shared rail-batch hygiene set as sisters 2-185/186/187/189/190/191/192: (a) 4 generic-named Certify filenames; (b) rail PROCESS EF sourced from 'Standard EFs - 2026 Railcar Embodied Emissions.pdf' filename-datapoint mismatch; (c) 'AECN Process Emissions Calculation.xlsx' linked to Pyrolysis EMBODIED datapoint; (d) BCU certificate 'Charm-A4-2024-10-24-63-1976.pdf' \u2014 same A4 file now used on three distinct railcars (TILX200231, TIMX201060, TILX200228). BCU quantity 0.430 t exactly matches transport process sum \u2014 quantity is correct; only filename-vs-railcar pattern in question.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "action_required": "Garrett to track the railcar-level reconciliation hand-off into the May RP's last-reported TILX200228 batch (whichever of 2-202/2-203 lands last). 2-204's April RP entry stands as-is.",
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-192",
+      "checklist_path": "outputs/qa/batch-2-192/Batch_2-192_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJKRFN61S0EQRP/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "TILX200231",
+      "offload_number": 3,
+      "consumed_lot_suffix": "offload_3",
+      "is_last_offload_of_railcar": false,
+      "reporting_period": "Apr 2026 (Certify removal date 11 Apr 2026)",
+      "T0_initiation": "2026-05-04T17:24:28Z",
+      "T4_audit_clean": "2026-05-04T18:11:12Z",
+      "T5_max_review_start": "2026-05-04T18:11:43Z",
+      "T6_max_approval": "2026-05-04T23:51:24Z",
+      "max_approval_note": "Approved after one revision: 3.5 evidence updated to show explicit mi\u2194km conversion arithmetic per Max's feedback ('You should convert the mi in Ops Notes to the km in the component if they're different. This isn't wrong, just could be documented better.'). Saved to memory feedback_unit_conversion_documentation.md.",
+      "T7_garrett_notified": "2026-05-05T15:53:20Z",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777918298.735339",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1777996375.691689",
+      "garrett_user_id": "U08JW9HQG5B",
+      "counts": {
+        "pass": 51,
+        "fail": 0,
+        "flag": 2,
+        "na": 4
+      },
+      "net_co2e_t_displayed": 40.04,
+      "net_co2e_t_precise": 40.038,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "4.2",
+          "what_to_verify": "Carbon 53.1% is +2.247 SD above AECN mean (n=285, mean 39.42%, SD 6.09%; outside 2-SD upper 51.6%). Lab cert SR26-02553.001 page 1 flags result with '#' (outside method analytical range). Plausible feedstock tail variation but worth Garrett confirming sample handling/result is correct. The elevated carbon drives this batch's higher Net (40.04 t vs sisters 2-190/2-191 ~26 t at ~39% C). Carbon used correctly in Certify; no calc error \u2014 issue is outlier nature of input.",
+          "certify_location": "Datapoint: Carbon Content of Bio-oil Injected (per injection)"
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "Same shared rail-batch hygiene set as sisters 2-185/2-186/2-187/2-189/2-190/2-191: 4 generic-named filenames (image (44).png, Screenshot 2026-04-10 PM, Screenshot 2026-02-23 AM, Screenshot 2026-01-27 125934.png) + rail PROCESS EF sourced from '...Embodied Emissions.pdf' + 'AECN Process Emissions Calculation.xlsx' linked to Pyrolysis Embodied datapoint (file named 'Process' linked to 'Embodied' \u2014 same as 2-190/2-191). NEW for 2-192: 'Correction Costum Documents 2328-R.pdf' (#11) \u2014 filename has typo 'Costum' should be 'Custom' (Customs Documents). BCU certificate 'Charm-A4-2024-10-24-63-1976.pdf' \u2014 same as sisters 2-190/2-191 on same railcar TILX200231. BCU quantity 1.664 t exactly matches process transport sum 0.276+1.278+0.110 \u2014 quantity correct, only filename pattern in question.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-191",
+      "checklist_path": "outputs/qa/batch-2-191/Batch_2-191_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJKQCX31S07CNZ/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "TILX200231",
+      "offload_number": 2,
+      "consumed_lot_suffix": "offload_2",
+      "is_last_offload_of_railcar": false,
+      "reporting_period": "Apr 2026 (Certify removal date 11 Apr 2026)",
+      "T0_initiation": "2026-05-04T09:11:12-07:00",
+      "T4_audit_clean": "2026-05-04T17:03:55Z",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777915092.961549",
+      "T5_max_review_start": "2026-05-04T17:18:12Z",
+      "T6_max_approval": "2026-05-04T18:30:00Z",
+      "max_approval_note": "Approved as clean \u2014 'OK we're good here. Approved, nice work.'",
+      "T7_garrett_notified": "2026-05-04T18:30:00Z",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1777937400.125789",
+      "garrett_user_id": "U08JW9HQG5B",
+      "counts": {
+        "pass": 52,
+        "fail": 0,
+        "flag": 1,
+        "na": 4
+      },
+      "net_co2e_t_displayed": 25.71,
+      "net_co2e_t_precise": 25.714,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "9.9",
+          "what_to_verify": "Same shared rail-batch hygiene set as 2-185/2-186/2-187/2-189/2-190: 4 generic-named filenames (image (44).png, Screenshot 2026-04-10 PM, Screenshot 2026-02-23 AM, Screenshot 2026-01-27 125934.png) + rail PROCESS EF sourced from '...Embodied Emissions.pdf' + 'AECN Process Emissions Calculation.xlsx' linked to Pyrolysis Embodied datapoint (file named 'Process' linked to 'Embodied'). BCU certificate filename 'Charm-A4-2024-10-24-63-1976.pdf' \u2014 same as sister 2-190 on same railcar TILX200231 (consistent within-railcar). BCU quantity 1.587 t exactly matches process transport sum 0.263+1.219+0.105 \u2014 quantity correct, only filename pattern in question. Slight improvement vs sisters: Truck Embodied EF datapoint sourced from descriptive 'Truck Embodied Emissions.png' rather than a Screenshot file.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-190",
+      "checklist_path": "outputs/qa/batch-2-190/Batch_2-190_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQJKPBTM1S0KPEX/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "TILX200231",
+      "offload_number": 1,
+      "consumed_lot_suffix": "offload_1",
+      "is_last_offload_of_railcar": false,
+      "reporting_period": "Apr 2026 (Certify removal date 10 Apr 2026)",
+      "T0_initiation": "2026-05-03T18:13:57-07:00",
+      "T1_data_gathering_complete": "2026-05-03T18:50:00-07:00",
+      "T2_checklist_draft_complete": "2026-05-03T20:50:00-07:00",
+      "T3_adversarial_review_complete": "2026-05-03T20:58:00-07:00",
+      "T4_audit_clean": "2026-05-03T20:59:01-07:00",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777869383.179709",
+      "T5_max_review_start": "2026-05-03T20:59:43-07:00",
+      "T6_max_approval": "2026-05-04T17:35:00-07:00",
+      "max_approval_note": "Max called the batch error-free; instructed to fully document component-level math in Section 9 going forward (memory: feedback_section9_show_the_work.md). 8.3 trimmed to 3 lines, 9.2 expanded with 6 transport per-component recalcs, 9.4 expanded with 2 pyrolysis recalcs.",
+      "T7_garrett_notified": "2026-05-04T17:37:49-07:00",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1777936669.133529",
+      "garrett_user_id": "U08JW9HQG5B",
+      "counts": {
+        "pass": 52,
+        "fail": 0,
+        "flag": 1,
+        "na": 4
+      },
+      "net_co2e_t_displayed": 26.28,
+      "net_co2e_t_precise": 26.277,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "9.9",
+          "what_to_verify": "Same shared rail-batch hygiene set as 2-185/2-186/2-187/2-189: 4 generic-named filenames (image (44).png, Screenshot 2026-04-10 PM, Screenshot 2026-02-23 AM, Screenshot 2026-01-27 125934.png) + rail PROCESS EF sourced from '...Embodied Emissions.pdf'. NEW for 2-190: 'AECN Process Emissions Calculation.xlsx' linked to Pyrolysis Embodied datapoint (file named 'Process' linked to 'Embodied'). NEW for 2-190: BCU certificate filename 'Charm-A4-2024-10-24-63-1976.pdf' \u2014 same as sister 2-188 where Max questioned A4 vs sisters' A3 pattern; for 2-190 this is a NEW railcar (TILX200231) so cert may legitimately differ. BCU quantity 1.593 t exactly matches process transport sum 0.264+1.224+0.105 \u2014 quantity correct, only filename pattern in question.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-188",
+      "checklist_path": "outputs/qa/batch-2-188/Batch_2-188_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQB5MBJB1S0N8MR/edit?component=cmp_1KQB5MBJB1S0HE12",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "TIMX201060",
+      "offload_number": 4,
+      "consumed_lot_suffix": "redo_offload_4",
+      "is_last_offload_of_railcar": true,
+      "reporting_period": "Apr 2026 (Certify removal date 03 Apr 2026)",
+      "T0_initiation": "2026-05-01T21:49:24Z",
+      "T4_audit_clean": "2026-05-01T23:50:08Z",
+      "T5_max_review_start": "2026-05-01T23:51:34Z",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777679494.547659",
+      "counts": {
+        "pass": 46,
+        "fail": 4,
+        "flag": 3,
+        "na": 4
+      },
+      "net_co2e_t_displayed": 25.5,
+      "net_co2e_t_sister_pattern_expected": 21.05,
+      "fail_items": [
+        {
+          "section": "9.5",
+          "what_to_verify": "BCU value 5.582 tCO2e is materially over-applied vs sister pattern. Sisters all match transport process exactly: 2-186=1.621, 2-187=1.612, 2-189=1.617. 2-188 transport process = 0.187 + 0.867 + 0.075 = 1.129 t but BCU = 5.582 t (excess 4.453 t flows into Net CDR as positive credit, inflating Net by ~17%). Source filename Charm-A4-2024-10-24-63-1976.pdf is also DIFFERENT from sisters' Charm-A3-2024-10-24-64-1976.pdf \u2014 likely wrong certificate linked. Garrett needs to either replace BCU with ~1.129 t (sister pattern) or provide allocation documentation justifying 5.582 t for THIS removal.",
+          "certify_location": "BCUs - Applied to Bio-Oil Transport Process Emissions component"
+        },
+        {
+          "section": "7.4",
+          "what_to_verify": "Net CDR 25.50 t cannot be independently verified \u2014 depends on Section 9.5 BCU value being correct. Sister-pattern-expected Net = 21.05 t. Will resolve once BCU is corrected.",
+          "certify_location": "Calculation View"
+        },
+        {
+          "section": "8.1",
+          "what_to_verify": "BCU outlier finding. Same root cause as 9.5.",
+          "certify_location": "Calculation View"
+        },
+        {
+          "section": "9.8",
+          "what_to_verify": "Net removal cannot be confirmed pending BCU resolution. Same root cause as 9.5.",
+          "certify_location": "Calculation View"
+        }
+      ],
+      "flag_items": [
+        {
+          "section": "5.4 + 2.7",
+          "what_to_verify": "COBB row 65 has TWO stale pre-correction values (Garrett-side data-provenance, NOT verifier-impacting): origin_quantity_kg=71,010 (corrected = 80,610) AND offloaded_quantity_kg=5,620.18 (post-correction = 15,220.18). Same origin_quantity_kg=71,010 stale flag on sister rows 63/64/66.",
+          "certify_location": "N/A (COBB-side)"
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "Same shared rail-batch hygiene set as 2-185/2-186/2-187/2-189: 4 generic filenames (image (44).png, Screenshot 2026-04-10 PM, Screenshot 2026-02-23 AM, Screenshot 2026-01-27 125934.png) + 'Billing Truck 2314-T Corrections (1).pdf' -T/-R suffix mismatch + rail PROCESS EF sourced from a PDF named '...Embodied Emissions.pdf'.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "soft_escalation_for_garrett": "2-188 is treated as the physical LAST offload of railcar TIMX201060 (consumed_lot offload_4) per Ops Notes structure (only 2-188 Ops Notes Rail file shows all 4 offload rows populated; 2-189 Ops Notes shows 4th row blank). Per Max's earlier note in 2-186 registry, the consumed_lot suffix doesn't always match physical pull sequence. If 2-188 was NOT physically the last truck pulled, the FC11 last-offload conservatism back-calc belongs on a different batch (likely 2-189) and 2-188's Cargo (kg) would revert to raw 16,274.88 kg. Worth one-line confirmation from Garrett.",
+      "max_drive_upload_pending": true,
+      "status": "awaiting_max_review"
+    },
+    {
+      "batch_id": "2-189",
+      "checklist_path": "outputs/qa/batch-2-189/Batch_2-189_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQB5KCQG1S0JYZ2/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "TIMX201060",
+      "offload_number": 3,
+      "consumed_lot_suffix": "redo_offload_3",
+      "is_last_offload_of_railcar": false,
+      "last_offload_is_2-188": true,
+      "reporting_period": "Apr 2026 (Certify removal date 03 Apr 2026)",
+      "T0_initiation": "2026-05-01T18:10:46Z",
+      "T1_data_gathering_complete": "2026-05-01T18:55:00Z",
+      "T2_checklist_draft_complete": "2026-05-01T19:08:00Z",
+      "T3_adversarial_review_complete": "2026-05-01T19:09:30Z",
+      "T4_audit_clean": "2026-05-01T19:10:00Z",
+      "T5_max_review_start": "2026-05-01T19:12:50Z",
+      "T6_max_approval": "2026-05-01T20:16:00Z",
+      "T7_garrett_notified": "2026-05-01T20:23:01Z",
+      "max_approval_note": "Second clean batch \u2014 Max started a clean review streak per 2026-05-01 message",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777666370.424269",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1777669381.400469",
+      "garrett_user_id": "U08JW9HQG5B",
+      "counts": {
+        "pass": 51,
+        "fail": 0,
+        "flag": 2,
+        "na": 4
+      },
+      "net_co2e_t": 29.64,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "5.4",
+          "what_to_verify": "COBB row 66 origin_quantity_kg=71,010 stale (pre-correction). Post-correction = 80,610 kg per Ops Notes. Same flag as sister rows 63 (2-186) and 64 (2-187). Garrett-side data-provenance, NOT verifier-impacting (Ops Notes / Certify both correct).",
+          "certify_location": "N/A (COBB-side)"
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "Same shared rail-batch hygiene set as 2-185/2-186/2-187: 4 generic filenames (image (44).png, Screenshot 2026-04-10 PM, Screenshot 2026-02-23 AM, Screenshot 2026-01-27 125934.png) + 'Billing Truck 2314-T Corrections (1).pdf' -T/-R suffix mismatch + rail PROCESS EF sourced from a PDF named '...Embodied Emissions.pdf' \u2014 same filename also linked to rail Embodied EF; if the PDF is Embodied-tab-only, source link is wrong (EF value itself is correct).",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett",
+      "_pending_sequence_confirmation": "2026-05-01T23:43Z: Pinged Garrett in thread 1777669381.400469 for confirmation of which truck was physically last pulled from TIMX201060 (2-188 vs 2-189). Issue surfaced during 2-188 QA: 2-189 source-read had captured the Max-vs-data discrepancy as a soft note but didn't promote to a checklist FLAG. Per Max 2026-05-01 (post-2-188-QA): if Garrett confirms 2-189 was physically last, the FC11 back-calc swaps from 2-188 to 2-189; ~1,054.70 kg shifts per-batch (no railcar net change). Awaiting Garrett's response."
+    },
+    {
+      "batch_id": "2-187",
+      "checklist_path": "outputs/qa/batch-2-187/Batch_2-187_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQB5JF7Q1S0GN9C/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "TIMX201060",
+      "offload_number": 2,
+      "consumed_lot_suffix": "offload_2",
+      "is_last_offload_of_railcar": false,
+      "reporting_period": "Apr 2026 (Certify removal date 03 Apr 2026)",
+      "T0_initiation": "2026-05-01T16:52:41Z",
+      "T4_audit_clean": "2026-05-01T17:34:35Z",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777656929.838529",
+      "max_approval_note": "First clean sweep \u2014 all findings legit per Max 2026-05-01",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1777658398.786979",
+      "garrett_user_id": "U08JW9HQG5B",
+      "T7_garrett_notified": "2026-05-01T17:39:58Z",
+      "counts": {
+        "pass": 51,
+        "fail": 0,
+        "flag": 2,
+        "na": 4
+      },
+      "net_co2e_t": 29.48,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "5.4",
+          "what_to_verify": "COBB row 64 has TWO data-provenance issues (Garrett-side, NOT verifier-impacting): (a) origin_quantity_kg=71,010 stale [post-correction = 80,610 kg per Ops Notes; sister-row sum across rows 63-66 (21,854.06 + 21,736.13 + 5,620.18 + 21,799.63) = exactly 71,010 confirms COBB rows are pre-correction, same flag as 2-186 row 63]. (b) pH field shows '33' instead of '3.3' (Ops Notes correctly shows offload_2 pH = 3.3) \u2014 typo. Both Garrett-side data hygiene; verifier reads Ops Notes / Certify (both correct).",
+          "certify_location": "N/A (COBB-side)"
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "Rename 4 non-descriptive Certify source filenames (shared rail-batch datapoints \u2014 same flag as 2-185, 2-186): (1) 'image (44).png' (Watco rail distance email); (2) 'Screenshot 2026-04-10 at 3.19.33 PM.png' (Truck Transport EF source); (3) 'Screenshot 2026-02-23 at 11.29.10 AM.png' (Pyrolysis Process EF support); (4) 'Screenshot 2026-01-27 125934.png' (Opelousas-Basco distance). Plus: 'Billing Truck 2314-T Corrections (1).pdf' has '-T' suffix where COBB BOL list shows '2314-R'.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-186",
+      "checklist_path": "outputs/qa/batch-2-186/Batch_2-186_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQB5HD031S0REDR/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "TIMX201060",
+      "offload_number": 1,
+      "is_last_offload_of_railcar": false,
+      "reporting_period": "Apr 2026 (Certify removal date 03 Apr 2026)",
+      "T0_initiation": "2026-04-30T21:13:47Z",
+      "T4_audit_clean": "2026-04-30T22:05:42Z",
+      "T7_garrett_notified": "2026-04-30T22:31:54Z",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1777590714.140039",
+      "garrett_user_id": "U08JW9HQG5B",
+      "counts": {
+        "pass": 51,
+        "fail": 0,
+        "flag": 2,
+        "na": 4
+      },
+      "net_co2e_t": 30.27,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "5.4",
+          "what_to_verify": "COBB origin_quantity_kg=71,010 is STALE (pre-correction). Per Max+Garrett 2026-04-30: original BOL was short by 9.6 MT; AECN sent corrected BOL adding it back; Ops Notes 80,610 = post-correction is correct. COBB hasn't been updated. Garrett-side data-provenance; NOT 2-186-impacting.",
+          "certify_location": "N/A (COBB-side)"
+        },
+        {
+          "section": "8.3",
+          "what_to_verify": "Per Max 2026-04-30: 2-189 (NOT 2-188) is the actual 4th/last pull (consumed_lot suffix doesn't match physical pull sequence). 2-189's Cargo was policy-capped from pre-correction BOL (71,010); with corrected BOL (80,610), 2-189's correct Cargo is ~31.4 MT (not 21.8 MT). Refresh at 2-189 QA. NOT 2-186-impacting (this batch is the 1st pull, raw scale ticket).",
+          "certify_location": "2-189 Allocated Bio-Oil Mass + Allocated Distance datapoints"
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "Rename 4 non-descriptive Certify source filenames (shared rail-batch datapoints): (1) 'image (44).png'; (2) 'Screenshot 2026-04-10 at 3.19.33 PM.png'; (3) 'Screenshot 2026-02-23 at 11.29.10 AM.png'; (4) 'Screenshot 2026-01-27 125934.png'. Plus: 'Billing Truck 2314-T Corrections (1).pdf' has '-T' suffix where COBB lists '2314-R'.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-174",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1775500311.716359",
+      "checklist_path": "outputs/qa/batch-qa/Batch_2-174_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/removals/rmv_1KMR8G8VC1S0G1ZG",
+      "fail_items": [
+        {
+          "row": 18,
+          "section": "2.3",
+          "what_to_verify": "Tractor number mismatch resolved \u2014 either corrected in Certify or documented explanation provided",
+          "certify_location": "Scale ticket source documents"
+        }
+      ],
+      "flag_items": [
+        {
+          "row": 79,
+          "section": "9.9",
+          "what_to_verify": "Screenshot filename renamed to something descriptive",
+          "certify_location": "Sources tab \u2014 AECN Production Process Emissions"
+        }
+      ],
+      "date_sent": "2026-04-06",
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-185",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777493651.023269",
+      "checklist_path": "outputs/qa/batch-2-185/Batch_2-185_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ7Y0Y4S1S023MT/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "GPRX 5188",
+      "reporting_period": "Apr 2026 (Certify removal date 02 Apr 2026)",
+      "T0_initiation": "2026-04-30T16:14:10Z",
+      "T1_data_gathering_complete": "2026-04-30T18:11:46Z",
+      "T2_checklist_draft_complete": "2026-04-30T19:34:00Z",
+      "T3_adversarial_review_complete": "2026-04-30T19:34:31Z",
+      "T5_max_review_start": "2026-04-30T19:34:31Z",
+      "counts": {
+        "pass": 50,
+        "fail": 0,
+        "flag": 2,
+        "na": 5
+      },
+      "net_co2e_t": 17.094,
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "5.4",
+          "what_to_verify": "COBB row 61 (sister batch 2-184) shows 21,457.08 vs raw scale-ticket math 21,844.99 (= what 2-185 Ops Notes shows for offload_3). ~388 kg COBB-side data-provenance inconsistency. Likely Ops/Manufacturo automation issue. Max handling directly with Garrett. Not verifier-impacting. Note: COBB row 62 (2-185) showing 12,419.35 vs Ops Notes 12,031.44 IS by design (operators record raw scale tickets; MRV applies last-offload policy in Ops Notes).",
+          "certify_location": "N/A (COBB-side, internal data provenance)"
+        },
+        {
+          "section": "9.9",
+          "what_to_verify": "Rename 4 non-descriptive filenames (shared rail-batch datapoints): (1) 'image (44).png' \u2192 'AECN_Rail_SOPOR_to_Opelousas_Distance_Watco_email.png'; (2) 'Screenshot 2026-04-10 at 3.19.33 PM.png' \u2192 'Standard_EFs_Tanker_Truck_Process_2026.png'; (3) 'Screenshot 2026-02-23 at 11.29.10 AM.png' \u2192 'AECN_Pyrolysis_Process_CI_H2_2025_Source.png'; (4) 'Screenshot 2026-01-27 125934.png' \u2192 'Opelousas_to_Basco_Truck_Distance_GoogleMaps.png'.",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "_session_note": "Fresh QA on 2026-04-30 supersedes 2026-04-29 prior session. Initial QA misclassified 9 items as FAILs based on misreading the railcar last-offload mass conservatism policy; Max corrected; 9 reclassified to PASS/FLAG with policy citation. Subsequently a phantom FLAG 5.2 (10-lb axle-vs-gross discrepancy) was retracted after Max questioned it \u2014 Drive OCR had misread the certified gross as 56,650 when the actual JPG shows 56,660 (matches axle sum). Lesson: image Read for digit-critical primary sources, not Drive OCR snippet. Documentation locked into lessons_learned FC11, SKILL.md, checklist_structure.md, project memory + new feedback memory on OCR-vs-image.",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1777583184.153969",
+      "date_sent": "2026-04-30",
+      "T7_garrett_notified": "2026-04-30T20:46:24Z",
+      "max_drive_upload_pending": true,
+      "status": "awaiting_garrett"
+    },
+    {
+      "batch_id": "2-182",
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1777415879.464249",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1777412787.803389",
+      "checklist_path": "outputs/qa/batch-qa/Batch_2-182_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ7XY3Q81S0T52T/edit",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "railcar": "GPRX 5188",
+      "reporting_period": "4/1/26-4/5/26",
+      "T0_initiation": "2026-04-28T20:47:51Z",
+      "fail_items": [
+        {
+          "row": 81,
+          "section": "9.2",
+          "what_to_verify": "Update Rail Embodied EF datapoint from stale 0.0000352240 MTCO2e/mi (= 0.03522 kgCO2e/mi shown in modal) to 2026 value 0.0000311307 MTCO2e/mi (= 0.03113 kgCO2e/mi). Source: Standard Emission Factors + Calculations sheet, '2026 Railcar Embodied Emissions' tab (65.37 MT CTGate / 2.1M mi lifetime). Magnitude impact this removal: 2.48 kg (0.008%, immaterial) but propagates across all rail removals via shared datapoint.",
+          "certify_location": "SOPOR to Opelousas Rail Transport Embodied Emissions component, Distance emission factor input"
+        }
+      ],
+      "flag_items": [
+        {
+          "row": 87,
+          "section": "9.8",
+          "what_to_verify": "Rename 4 non-descriptive filenames to descriptive ones: (1) 'Screenshot 2026-04-10 at 3.19.33 PM.png' (Truck Transport EF source); (2) 'Screenshot 2026-02-23 at 11.29.10 AM.png' (AECN Pyrolysis Process EF support); (3) 'Screenshot 2026-01-27 125934.png' (Allocated Distance Opelousas to B6); (4) 'image (44).png' (SOPOR to Opelousas RAIL distance).",
+          "certify_location": "Sources tab \u2014 multiple datapoints"
+        }
+      ],
+      "date_sent": "2026-04-28",
+      "status": "awaiting_garrett"
+    }
+  ],
+  "_pending_max_input": [
+    {
+      "batch_id": "2-169",
+      "note": "6 of 7 findings resolved (2026-04-01). Row 41 COBB date mismatch: Garrett claims Ops Notes follows Column K, QA checked Column H. Max needs to verify Column K shows 3/21 for 2-169. Once confirmed, Row 41 flips to PASS and thread can be closed. Checklist: outputs/qa/batch-qa/Batch_2-169_QA_Checklist.xlsx"
+    },
+    {
+      "batch_id": "2-160",
+      "note": "Garrett updated EFs (2026-04-01): Vehicle Embodied 0.1476 kgCO2e/km confirmed in Certify; AECN Process EF stated as 0.10402 (Certify UI truncates, cannot verify exactly). Still open: (1) Row 12 scale tickets not confirmed in Drive; (2) Row 86 net removal needs re-check; (3) outputs/qa/batch-qa/Batch_2-160_QA_Checklist.xlsx does not exist in workspace \u2014 Max needs to provide this file before QA can be updated or closed."
+    }
+  ]
+}

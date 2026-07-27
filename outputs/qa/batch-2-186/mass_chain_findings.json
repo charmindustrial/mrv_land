@@ -1,0 +1,113 @@
+{
+  "batch_id": "2-186",
+  "computed_at": "2026-05-15T14:28:41",
+  "source_reads_path": "outputs/qa/batch-2-186/batch_2-186_source_reads_normalized.json",
+  "checks": [
+    {
+      "check_id": "scale_ticket_subtraction",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "full_lb": 77560,
+        "empty_lb": 29380,
+        "net_lb": 48180,
+        "net_kg": 21854.06
+      },
+      "log_values": {
+        "computed_net_lb": 48180,
+        "computed_net_kg": 21854.06256
+      },
+      "note": "Computed: 77560 \u2212 29380 = 48180 lb (21854.06 kg). Log: 48180 lb (21854.06256 kg). Match."
+    },
+    {
+      "check_id": "scale_ticket_vs_ops_notes_offload",
+      "materiality": "material",
+      "check_type": "policy",
+      "status": "PASS",
+      "computed": {
+        "scale_ticket_kg": 21854.06256,
+        "ops_notes_cargo_kg": 21854.06256,
+        "delta_kg": 0.0,
+        "delta_pct": 0.0
+      },
+      "log_values": {
+        "matched_offload_row_id": "Rail_TIMX201060_2.27.26_redo_offload_1"
+      },
+      "note": "Scale ticket = 21854.06256 kg; Ops Notes cargo = 21854.06256 kg; delta = 0.0 kg (0.0%). Match."
+    },
+    {
+      "check_id": "bol_list_sum_vs_stated_total",
+      "materiality": "hygiene",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "bol_sum_MT": 80.61,
+        "bol_count": 3
+      },
+      "log_values": {
+        "total_railcar_loaded_MT": 80.61,
+        "individual_BOL_mass_MT": [
+          26.05,
+          29.06,
+          25.5
+        ]
+      },
+      "note": "\u03a3(BOLs) = 80.61 MT; stated total = 80.61 MT. Match."
+    },
+    {
+      "check_id": "railcar_inbound_outbound_balance",
+      "materiality": "mixed",
+      "check_type": "computation",
+      "status": "FLAG",
+      "computed": {
+        "inbound_kg": 80610.0,
+        "outbound_kg": 21854.06,
+        "loss_kg": 58755.94,
+        "loss_pct": 72.8891
+      },
+      "log_values": {
+        "bol_count": 3,
+        "offload_count": 1
+      },
+      "note": "Inbound = 80610.0 kg; outbound = 21854.06 kg; loss = 58755.94 kg (72.8891%). Loss exceeds 5.0% \u2014 operator should explain in Ops Notes."
+    },
+    {
+      "check_id": "last_offload_derivation",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "FAIL",
+      "computed": {
+        "inbound_kg": 80610.0,
+        "prior_offload_sum_kg": 0,
+        "expected_last_offload_kg": 80610.0,
+        "actual_last_offload_kg": 21854.06256,
+        "delta_kg": -58755.94,
+        "delta_pct": 72.8891
+      },
+      "log_values": {
+        "this_offload": "offload_1",
+        "last_row_id": "Rail_TIMX201060_2.27.26_redo_offload_1"
+      },
+      "note": "Expected = 80610.0 kg (= 80610.0 \u2212 0); actual = 21854.06256 kg; delta = -58755.94 kg (72.8891%). Tolerance \u22640.5%."
+    },
+    {
+      "check_id": "cobb_offload_consistency",
+      "materiality": "hygiene",
+      "check_type": "policy",
+      "status": "PASS",
+      "computed": {
+        "cobb_offloaded_kg": 21854.06256,
+        "ops_notes_cargo_kg": 21854.06256,
+        "delta_kg": 0.0,
+        "delta_pct": 0.0
+      },
+      "log_values": {
+        "cobb_row_id_at_qa": null,
+        "cobb_batch_id_col_a": "2-186",
+        "matched_offload_row_id": "Rail_TIMX201060_2.27.26_redo_offload_1"
+      },
+      "note": "COBB offloaded = 21854.06256 kg; Ops Notes cargo = 21854.06256 kg; delta = 0.0 kg (0.0%). Tolerance \u22640.5%. Match."
+    }
+  ]
+}

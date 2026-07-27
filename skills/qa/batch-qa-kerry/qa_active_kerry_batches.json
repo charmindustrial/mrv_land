@@ -1,5 +1,41 @@
 {
-  "active_batches": [],
+  "active_batches": [
+    {
+      "batch_id": "K-002",
+      "checklist_path": "outputs/qa/batch-K-002/Kerry_Batch_K-002_QA_Checklist.xlsx",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ0QGNBV1S0B315/edit",
+      "oil_type": "Kerry",
+      "delivery_mode": "tote",
+      "consumed_lots": ["KC_0005", "KC_0006", "KC_0007", "KC_0008"],
+      "reporting_period": "2026-04-21",
+      "T0_initiation": "2026-05-05T23:45:04Z",
+      "T1_data_gathering_complete": "2026-05-05T23:59:00Z",
+      "T2_checklist_draft_complete": "2026-05-06T00:08:00Z",
+      "T3_adversarial_review_complete": "2026-05-06T00:11:00Z",
+      "T5_max_review_start": "2026-05-06T00:12:36Z",
+      "T_v2_rebuild_after_max_corrections": "2026-05-06T22:09:35Z",
+      "T7_garrett_notified": "2026-05-08T22:26:35Z",
+      "garrett_user_id": "U08JW9HQG5B",
+      "garrett_dm_channel": "D08KEFVRJDP",
+      "garrett_dm_thread_ts": "1778279225.586309",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1778026415.360119",
+      "counts_v2": {"pass": 16, "fail": 2, "flag": 1, "na": 0},
+      "net_co2e_t": 9.378,
+      "fail_items_v2": ["2B.1", "2B.2"],
+      "flag_items_v2": ["1.4"],
+      "sidebar_count_v2": 4,
+      "v2_notes": [
+        "Restructured around Max's actual QA question framework (Slack 2026-05-06)",
+        "v1 had 10 FAILs cascading from spurious AECN-imported assumptions (BOL absence, weighing metadata, measured tare convention) that don't apply to Kerry tote mode",
+        "v2 retains only the substantive findings: outdated 2025 Embodied EF (FAIL 2B.1+2B.2) + 1kg sheet display rounding (FLAG 1.4)",
+        "Embodied EF investigation: 0.0401 = 2025 Non-Tanker Truck Embodied; 2026 value = 0.1198. Material under-reporting ~140 kg = 0.140 tCO2e (1.5% of Net CDR)",
+        "Certify rendering blocked by SW InvalidStateError — could not directly open Distance.png, GLEC.png, EF 2025 PDF; cross-verified all values via live EF sheet read directly from Drive"
+      ],
+      "max_drive_upload_pending": true,
+      "status": "Awaiting Garrett 'Complete'"
+    }
+  ],
   "_pending_max_input": [],
   "_schema_notes": {
     "active_batch_fields": [

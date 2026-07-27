@@ -1,0 +1,520 @@
+{
+  "_meta": {
+    "batch_id": "INJ-06-2026-W2 (AECN portion)",
+    "removal_id": "rmv_1KX17NWGZ1S0ZP14",
+    "project": "prj_1HZSSWBQM1S08H83 (Charm Bio-oil Geologic Storage)",
+    "reporting_period": "2026-06-06 to 2026-06-13",
+    "site": "Basco 6 (LA)",
+    "oil_type": "AECN (rail)",
+    "delivery_mode": "rail",
+    "batch_type": "AECN weekly time-block scapegoat (carries W2 site emissions)",
+    "phase_mode": "Full",
+    "certify_net_tco2e_displayed": 385.17,
+    "certify_sources_tab_total": 110,
+    "T0_initiation": "2026-07-10T17:17:55Z",
+    "kb_read_confirmation": "KB + lessons_learned + checklist_structure read this session; FCs printed",
+    "scope_note": "Max: whole removal both skills deep \u2014 AECN batch (this log) + site emissions (separate site-emissions log)",
+    "railcars": [
+      "GPRX5240",
+      "GPRX5139",
+      "TILX200228",
+      "GPRX5106"
+    ],
+    "ops_notes_attached_in_certify": true
+  },
+  "certify_components": {
+    "stored_total_t": 493.061,
+    "co2_stored_injection_sequestration_t": 457.694,
+    "reductions_bio_oil_injection_BCU_t": 12.188,
+    "reductions_bio_oil_transport_BCU_t": 23.179,
+    "emitted_total_t": 105.361,
+    "pyrolysis_process_t": 32.508,
+    "pyrolysis_embodied_t": 6.614,
+    "transport_AECN_SOPOR_truck_process_t": 3.841,
+    "transport_AECN_SOPOR_truck_embodied_t": 0.305,
+    "transport_SOPOR_Opelousas_rail_process_t": 17.81,
+    "transport_SOPOR_Opelousas_rail_embodied_t": 0.273,
+    "transport_Opelousas_Basco_truck_process_t": 1.528,
+    "transport_Opelousas_Basco_truck_embodied_t": 0.326,
+    "site_emission_components_note": "15 under Emitted>Bio-oil injection (diesel 9.511, gasoline 0.457, elec 15.097, support travel 8.257, addl transport 3.355, argon x3, brine x2, sitework 0.366, SP&C 0.483, embodied 1.106, diesel delivery x2)"
+  },
+  "certify_datapoints_key": {
+    "mass_of_injectant_t": 305.918,
+    "carbon_content_pct": 40.8,
+    "bio_oil_mass_aecn_via_rail_t": 312.58,
+    "dist_aecn_sopor_process_km": 173.0,
+    "dist_rail_process_mi": 2199,
+    "dist_opel_basco_process_mi": 43,
+    "dist_aecn_sopor_embodied_mi": 1285,
+    "dist_rail_embodied_mi": 8764,
+    "dist_opel_basco_embodied_mi": 1373,
+    "ef_tanker_truck_process_display": "0.07 kgCO2e/(km*t)",
+    "ef_tanker_truck_embodied": "0.1476 kgCO2e/km",
+    "ef_railcar_embodied": "0.0193 kgCO2e/km",
+    "ef_rail_process_display": "0.02 kgCO2e/(km*t)",
+    "ci_pyrolysis_process_tco2e_per_t": 0.1,
+    "ci_pyrolysis_embodied_tco2e_per_t": 0.02
+  },
+  "ops_notes": {
+    "_primary_source_opened": [
+      {
+        "file": "INJ-06-2026-W2 Ops Notes (native gsheet id 1SGTHzt...)",
+        "action": "csv_exported",
+        "evidence": "xlsx export via Playwright -> openpyxl data_only; tabs Summary + AECN Rail read"
+      }
+    ],
+    "railcars_received": {
+      "GPRX5240": {
+        "arrival_opelousas": "2026-05-07",
+        "bols": [
+          "2356-R",
+          "2357-R",
+          "2358-R"
+        ],
+        "loaded_kg": 77730,
+        "offloaded_kg": 76947.34688,
+        "loss_kg": 782.65312
+      },
+      "GPRX5139": {
+        "arrival_opelousas": "2026-05-08",
+        "bols": [
+          "2365-R",
+          "2366-R",
+          "2367-R"
+        ],
+        "loaded_kg": 78140,
+        "offloaded_kg": 78072.25504,
+        "loss_kg": 67.74496
+      },
+      "TILX200228": {
+        "arrival_opelousas": "2026-05-11",
+        "bols": [
+          "2371-R",
+          "2372-R",
+          "2373-R"
+        ],
+        "loaded_kg": 78160,
+        "offloaded_kg": 78153.9016,
+        "loss_kg": 6.0984
+      },
+      "GPRX5106": {
+        "arrival_opelousas": "2026-05-13",
+        "bols": [
+          "2374-R",
+          "2375-R",
+          "2376-R"
+        ],
+        "loaded_kg": 78550,
+        "offloaded_kg": 78489.55968,
+        "loss_kg": 60.44032
+      }
+    },
+    "bol_masses_kg": {
+      "2356-R": 25820,
+      "2357-R": 25820,
+      "2358-R": 26090,
+      "2365-R": 25900,
+      "2366-R": 26100,
+      "2367-R": 26140,
+      "2371-R": 25930,
+      "2372-R": 26000,
+      "2373-R": 26230,
+      "2374-R": 26160,
+      "2375-R": 26200,
+      "2376-R": 26190
+    },
+    "offload_table_full_empty_lb_and_net_kg": {
+      "GPRX5240_o1": {
+        "full_lb": 80080,
+        "empty_lb": 28860,
+        "net_kg": 23232.98224
+      },
+      "GPRX5240_o2": {
+        "full_lb": 78360,
+        "empty_lb": 29480,
+        "net_kg": 22171.57696
+      },
+      "GPRX5240_o3": {
+        "full_lb": 75500,
+        "empty_lb": 29660,
+        "net_kg": 20792.65728
+      },
+      "GPRX5240_o4": {
+        "full_lb": 53220,
+        "empty_lb": 29520,
+        "net_kg": 10750.1304
+      },
+      "GPRX5139_o1": {
+        "full_lb": 79260,
+        "empty_lb": 29380,
+        "net_kg": 22625.16896
+      },
+      "GPRX5139_o2": {
+        "full_lb": 76020,
+        "empty_lb": 29340,
+        "net_kg": 21173.67456
+      },
+      "GPRX5139_o3": {
+        "full_lb": 72400,
+        "empty_lb": 29560,
+        "net_kg": 19431.88128
+      },
+      "GPRX5139_o4": {
+        "full_lb": 61960,
+        "empty_lb": 29240,
+        "net_kg": 14841.53024
+      },
+      "TILX200228_o1": {
+        "full_lb": 80240,
+        "empty_lb": 29400,
+        "net_kg": 23060.61728
+      },
+      "TILX200228_o2": {
+        "full_lb": 79080,
+        "empty_lb": 28920,
+        "net_kg": 22752.17472
+      },
+      "TILX200228_o3": {
+        "full_lb": 75560,
+        "empty_lb": 28580,
+        "net_kg": 21309.75216
+      },
+      "TILX200228_o4": {
+        "full_lb": 54060,
+        "empty_lb": 29740,
+        "net_kg": 11031.35744
+      },
+      "GPRX5106_o1": {
+        "full_lb": 78440,
+        "empty_lb": 29440,
+        "net_kg": 22226.008
+      },
+      "GPRX5106_o2": {
+        "full_lb": 78220,
+        "empty_lb": 29160,
+        "net_kg": 22253.22352
+      },
+      "GPRX5106_o3": {
+        "full_lb": 77040,
+        "empty_lb": 29040,
+        "net_kg": 21772.416
+      },
+      "GPRX5106_o4": {
+        "full_lb": 56600,
+        "empty_lb": 29620,
+        "net_kg": 12237.91216
+      }
+    },
+    "uncertainty_adj_kg": 1142.0,
+    "uncertainty_adj_location": "applied entirely on GPRX5106 offload_4 (J47); all other offloads 0",
+    "rollup": {
+      "pyrolysis_upstream_BOL_kg": 312580,
+      "deliveries_scaletickets_kg": 311663.0632,
+      "uncertainty_adj_kg": 1142,
+      "mass_used_kg": 310521.0632,
+      "sparging_loss_kg": 4005.721715,
+      "filtration_loss_kg": 597.7049159,
+      "MOBI_kg": 305917.6366,
+      "pH": 2.7
+    },
+    "composite_C_pct": 40.8,
+    "lab_coa": "SGS SR26-03726.001",
+    "c_content_uncertainty_pct": 0.1632,
+    "testing_uncertainty_pct": 0.4,
+    "ee_distances_mi": {
+      "aecn_sopor": 1285.30772,
+      "rail": 8764.005197,
+      "opel_basco": 1372.8
+    }
+  },
+  "scale_tickets_verified_vs_ops": {
+    "GPRX5106_o1_full": {
+      "ticket_no": "2934",
+      "date": "6-11-26",
+      "gross_lb": 78440,
+      "tractor": "CH1",
+      "trailer": "KL720",
+      "loc": "Pilot Bunkie LA",
+      "matches_ops": true
+    },
+    "GPRX5106_o1_empty": {
+      "ticket_no": "2942/wn2934",
+      "date": "6-11-26",
+      "gross_lb": 29440,
+      "tractor": "CH1",
+      "trailer": "KL720",
+      "matches_ops": true
+    },
+    "GPRX5106_o2_full": {
+      "ticket_no": "2936",
+      "date": "6-11-26",
+      "gross_lb": 78220,
+      "tractor": "CH2",
+      "trailer": "KL192",
+      "matches_ops": true
+    },
+    "GPRX5106_o3_full": {
+      "ticket_no": "2943",
+      "date": "6-11-26",
+      "gross_lb": 77040,
+      "tractor": "CH2",
+      "trailer": "KL510",
+      "matches_ops": true
+    },
+    "GPRX5106_o3_empty": {
+      "ticket_no": "3960",
+      "date": "6-12-26",
+      "gross_lb": 29040,
+      "tractor": "CH2",
+      "trailer": "KL510",
+      "matches_ops": true
+    },
+    "GPRX5106_o4_full": {
+      "ticket_no": "2948",
+      "date": "6-11-26",
+      "gross_lb": 56600,
+      "tractor": "CH1",
+      "trailer": "KL720",
+      "matches_ops": true
+    },
+    "GPRX5106_o4_empty": {
+      "ticket_no": "3963",
+      "date": "6-12-26",
+      "gross_lb": 29620,
+      "tractor": "CH1",
+      "trailer": "KL720",
+      "matches_ops": true
+    },
+    "GPRX5240_o1_empty": {
+      "ticket_no": "7835",
+      "date": "6-06-26",
+      "gross_lb": 28860,
+      "tractor": "CH1",
+      "trailer": "KL188",
+      "matches_ops": true
+    }
+  },
+  "scale_tickets_progress": {
+    "verified": 32,
+    "total": 32,
+    "all_match_ops_exactly": true,
+    "method": "pixel-read every full+empty image via Playwright usercontent download; JPGs response-body, large PNG + 2 PDFs via export=download",
+    "result": "All 32 offload scale tickets (4 railcars x 4 offloads x full/empty) match Ops Notes AECN Rail tab Full/Empty lb exactly. Tractor/trailer numbers consistent within each offload pair. Weigh dates 6-05-26 to 6-13-26 (all within injection week 6/6-6/13; filename dates are railcar-arrival mislabels, NOT weigh dates).",
+    "TILX_o3_correction_confirmed": "TILX200228 offload_3 ticket = Full 75560 / Empty 28580, matching corrected Ops Notes; the prior W2 removal rmv_1KVJW error (78560/29260) is fixed in this rebuild.",
+    "_primary_source_opened": [
+      {
+        "file": "32 CAT scale ticket images (Drive Scale Tickets subfolder)",
+        "action": "image_read",
+        "evidence": "each downloaded to outputs/qa/batch-week2-aecn-rmv1KX17/screenshots/ticket_*.jpg|png|pdf and pixel-read"
+      }
+    ]
+  },
+  "lab_coa": {
+    "_primary_source_opened": [
+      {
+        "file": "6-2026-W2-AECN-QOWV.pdf (Drive Testing folder id 1Mcm6F5...)",
+        "action": "pdf_read",
+        "evidence": "2-page SGS CoA downloaded via drive.usercontent, Read as PDF"
+      }
+    ],
+    "certificate": "SR26-03726.001",
+    "client_id": "6-2026-W2 AECN",
+    "location": "BASCO LOUISIANA",
+    "sampled": "2026-06-18",
+    "received": "2026-06-19",
+    "analysed": "2026-06-22",
+    "sgs_order": "5459961",
+    "carbon_pct": 40.8,
+    "hydrogen_pct": 7.5,
+    "nitrogen_pct": "<0.75",
+    "acid_number_mgKOHg": 86,
+    "density_15C_gcm3": 1.211,
+    "viscosity_40C_cSt": 38.61,
+    "carbon_note": "40.8% flagged '#' = outside petroleum test-method precision range (bio-oil at edge of ASTM D5291 range) - method annotation, not a data error",
+    "matches": "Certify Carbon Content 40.80% and Ops Notes composite 40.80% and lab link SGS SR26-03726.001 all agree; batch id on cert = 6-2026-W2 AECN",
+    "page2_qowv": "SR26-03726.003 = 6-2026-W2 QOWV carbon 9.2% (separate QOWV removal; matches Ops Notes QOWV 9.20%)"
+  },
+  "bols": {
+    "count_in_certify_sources": 12,
+    "pattern": "4 railcars x 3 BOLs (2356-R,2357-R,2358-R / 2365-R,2366-R,2367-R / 2371-R,2372-R,2373-R / 2374-R,2375-R,2376-R)",
+    "filenames_match_ops_ledger": true,
+    "linked_datapoint": "AECN to SOPOR Tanker Truck Transport Process Emissions",
+    "railcar_level_mass_check": "sum 12 BOLs (Ops ledger) = 312,580 kg >= offloaded 311,663.06 kg (conservative) and = Certify Bio-Oil Mass via Rail 312.580 t",
+    "per_bol_masses_kg_from_ops_ledger": {
+      "2356-R": 25820,
+      "2357-R": 25820,
+      "2358-R": 26090,
+      "2365-R": 25900,
+      "2366-R": 26100,
+      "2367-R": 26140,
+      "2371-R": 25930,
+      "2372-R": 26000,
+      "2373-R": 26230,
+      "2374-R": 26160,
+      "2375-R": 26200,
+      "2376-R": 26190
+    },
+    "pdf_content_read_status": "BLOCKED by Certify GCS PDF-embed after 5 enumerated tooling attempts: (1) Certify reference embed response-body -> HTML wrapper not PDF; (2) direct GCS signed-URL navigation -> signature re-encoded, GCS error HTML; (3) source-page response-body capture (idx 122) -> HTML wrapper; (4) full-page + viewport screenshot of chrome PDF plugin -> 5000ms timeout x2; (5) /account/certify/source/src page has no download control, PDF only in plugin. Per-BOL printed net-mass + destination text not independently extracted.",
+    "disposition": "Presence(3.1)+linkage+railcar-level conservatism(3.3) verified from Certify Sources enumeration + Ops ledger + Certify datapoint. Authoritative rail mass = scale tickets (32/32 verified). BOL is corroborative for rail per KB, not load-bearing. FLAG the per-BOL-content read limitation."
+  },
+  "certify_component_modals": {
+    "_primary_source_opened": [
+      {
+        "file": "9 Certify component modals (rmv_1KX17)",
+        "action": "modal_opened",
+        "evidence": "each opened via component-tab click, snapshot read of INPUTS \u00b1 values"
+      }
+    ],
+    "injection_sequestration": {
+      "value_t": 457.694,
+      "carbon": "40.8 \u00b10.1632% (=0.004x, 0.4%)",
+      "mass": "305,917.64 \u00b11,161.12 kg (=16x72.57, 16 offload weighings)",
+      "sources": "33",
+      "recalc": "305.918 x 0.408 x 3.667 = 457.68 \u2713"
+    },
+    "pyro_process": {
+      "value_t": 32.508,
+      "CI": "0.104 tCO2e/t",
+      "mass": "312,580 \u00b1870.84 kg (=12x72.57, 12 BOL weighings)",
+      "recalc": "312.580 x 0.104 = 32.508 \u2713",
+      "note": "CI shown 0.104 (not KB 0.10402); output uses 0.104. Confirm CI source period vs AECN LCA (H1-2026)."
+    },
+    "pyro_embodied": {
+      "value_t": 6.614,
+      "CI": "0.02116 tCO2e/t",
+      "mass": "312,580 \u00b1870.84",
+      "recalc": "312.580 x 0.02116 = 6.614 \u2713"
+    },
+    "aecn_sopor_process": {
+      "value_t": 3.841,
+      "EF": "0.1143 kgCO2e/(t*mi)",
+      "dist": "173 km (107.5 mi)",
+      "mass": "312,580 \u00b1870.84",
+      "recalc": "312.580 x 107.5 x 0.0001143 = 3.841 \u2713"
+    },
+    "aecn_sopor_embodied": {
+      "value_t": 0.305,
+      "EF": "0.23756 kgCO2e/mi (=0.1476/km)",
+      "dist": "1,285.31 mi (allocated=Ops EE)",
+      "mass": "none (distance-based)",
+      "recalc": "1285.31 x 0.23756 = 305 kg \u2713"
+    },
+    "rail_process": {
+      "value_t": 17.81,
+      "EF": "0.0161 kgCO2e/(km*t) (=0.0000259104/t-mi)",
+      "dist": "2,199 mi (full)",
+      "mass": "312,580 \u00b1870.84",
+      "recalc": "312.580 x 2199 x 0.0000259104 = 17.81 \u2713"
+    },
+    "rail_embodied": {
+      "value_t": 0.273,
+      "EF": "0.01934328521 kgCO2e/km (2026 per-mile, NOT stale 0.0000352240)",
+      "dist": "8,764.01 mi (allocated=Ops EE)",
+      "mass": "none",
+      "recalc": "8764x1.60934x0.01934 = 273 kg \u2713"
+    },
+    "opel_basco_process": {
+      "value_t": 1.528,
+      "EF": "0.1143 kgCO2e/(t*mi)",
+      "dist": "42.9 mi (one-way)",
+      "mass": "311,663.06 \u00b11,161.12 kg (=16x72.57; DOWNSTREAM offloaded mass)",
+      "recalc": "311.663 x 42.9 x 0.0001143 = 1.528 \u2713"
+    },
+    "opel_basco_embodied": {
+      "value_t": 0.326,
+      "EF": "0.23756 kgCO2e/mi",
+      "dist": "1,372.8 mi (allocated=42.9x32 round-trip)",
+      "mass": "none",
+      "recalc": "1372.8 x 0.23756 = 326 kg \u2713"
+    },
+    "uncertainty_framing_verdict": "CORRECT & internally consistent: upstream/pyrolysis mass (loaded 312,580) uses 12 BOL weighings -> \u00b1870.84; sequestration + downstream Opel->Basco (offloaded 311,663) use 16 offload weighings -> \u00b11,161.12; embodied legs distance-based, no mass-of-load (correct per KB per-mile methodology). All EFs = 2026 values."
+  },
+  "bcu_transport_check": {
+    "transport_process_sum_t": 23.179,
+    "BCU_transport_process_t": 23.179,
+    "pass": true,
+    "detail": "BCU Transport Process 23.179 t = process_leg_sum 23.179 = AECN->SOPOR 3.841 + rail 17.810 + Opel->Basco 1.528 = 23.179 \u2713 exact (embodied NOT BCU-eligible, correct)"
+  },
+  "gross_to_net": {
+    "gross_recalc_t": 457.694,
+    "certify_sequestration_t": 457.694,
+    "note": "305.918 t x 0.408 C x 3.667 = 457.68 \u2248 Certify 457.694 (Certify uses 0.408 carbon precise); MATCH"
+  },
+  "removal_totals_shifted_during_qa": {
+    "observed": "net 385.17->385.71, Emitted 105.361->104.524, Bio-oil injection BCUs 12.188->11.894 between 19:21 and 19:41",
+    "aecn_batch_values_stable": "sequestration 457.694, pyrolysis 32.508/6.614, 6 transport legs all UNCHANGED",
+    "interpretation": "site-emission/BCU side actively edited (draft under construction / the W2 rebuild). AECN batch portion stable. Site-emission findings must be re-confirmed at delivery."
+  },
+  "cobb": {
+    "_primary_source_opened": [
+      {
+        "file": "Bio-oil Injection Tracker 'Basco Injection -- COBB' tab",
+        "action": "csv_exported",
+        "evidence": "COBB xlsx export via Playwright -> openpyxl; rows 258-273 = 16 W2 AECN offloads"
+      }
+    ],
+    "batch_id_col_a": "INJ-06-2026-W2_AECN",
+    "rows": "258-273 (16 offloads)",
+    "row_verification": "cell A = INJ-06-2026-W2_AECN confirmed on all 16",
+    "offloaded_qty_match": "15/16 match Ops offload nets exactly",
+    "origin_quantity_kg_per_railcar": {
+      "GPRX5240": 77730,
+      "GPRX5139": 78140,
+      "TILX200228": 78160,
+      "GPRX5106": 78550,
+      "note": "all match Ops loaded totals"
+    },
+    "injection_completion_date": "2026-06-14 (all 16)",
+    "injection_ph": 2.7,
+    "FLAG_gprx5240_o4": {
+      "cobb_offloaded_kg": 10523.3344,
+      "ops_ticket_certify_kg": 10750.1304,
+      "delta_kg": 226.796,
+      "root_cause": "COBB empty-weight entry 30,020 lb vs actual ticket empty 29,520 lb (pixel-verified). COBB-side transcription error.",
+      "not_backcalc": "GPRX5240 offload sum 76,947.35 < loaded 77,730 (no overdraw), so NO last-offload back-calc applies; Ops 10,750.13 is the raw scale-ticket value. This is a plain COBB data-entry error, not policy divergence.",
+      "disposition": "FLAG (COBB-side, operational for Garrett). NOT verifier-impacting: Ops Notes + Certify Allocated mass use correct 10,750.13; total offloaded 311,663.06 is correct. Same discrepancy flagged on prior W2 removal rmv_1KVJW."
+    }
+  },
+  "standard_ef_sheet_2026": {
+    "_primary_source_opened": [
+      {
+        "file": "Standard Emission Factors + Calculations - 2026 tab",
+        "action": "sheet_grid_read",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/",
+        "evidence": "xlsx export via Playwright -> openpyxl 2026 tab rows 3-12"
+      }
+    ],
+    "tanker_process": {
+      "sheet": "0.0001143 MTCO2e/t-mi",
+      "certify": "0.1143 kgCO2e/(t*mi)",
+      "match": true
+    },
+    "tanker_embodied": {
+      "sheet": "0.0002375605888 MTCO2e/mi",
+      "certify": "0.23756 kgCO2e/mi",
+      "match": true
+    },
+    "railcar_embodied": {
+      "sheet": "0.0000311307 MTCO2e/mi",
+      "certify": "0.01934328521 kgCO2e/km",
+      "match": true,
+      "note": "0.01934328521 kg/km x 1.60934 = 0.0000311307 MT/mi \u2713 (2026 value, not stale 0.0000352240)"
+    },
+    "aecn_embodied_CI": {
+      "sheet": "0.02116 MTCO2e/MT (H1 2026)",
+      "certify": "0.02116",
+      "match": true
+    },
+    "aecn_process_CI_FLAG": {
+      "sheet_h1_2026": "0.1040167408 (~0.10402) MTCO2e/MT",
+      "certify_used": "0.104 (output 32.508 = 312.580 x 0.104; 0.10402 would give 32.515)",
+      "delta_t": 0.005,
+      "disposition": "FLAG \u2014 Certify pyrolysis process CI 0.104 vs Standard EF Sheet H1 2026 0.10402. ~0.005 t (5 kg) understatement of process emissions (very slightly non-conservative). Immaterial (0.001% of removal) but a CI-precision inconsistency; recommend Certify use 0.10402 / confirm vs AECN LCA CI sheet."
+    },
+    "rail_process": {
+      "certify": "0.0161 kgCO2e/(km*t) = 0.0000259104 MTCO2e/(t*mi)",
+      "match_kb": true,
+      "note": "matches KB 2026 GLEC V3.2 2025 value; row not in first grid view but Certify value consistent"
+    }
+  }
+}

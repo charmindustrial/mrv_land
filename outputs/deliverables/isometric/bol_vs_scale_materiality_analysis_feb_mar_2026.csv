@@ -1,0 +1,72 @@
+"Direct-Trucked AECN BOLs (Feb–Mar 2026) — Materiality Analysis: BOL-Only vs Current MIN(BOL,Scale) Policy"
+Dataset: 42 direct-trucked AECN batches across the Feb–Mar 2026 RPs. Excluded: 2-174 (spill); 2-155 (fuel-tank artifact); 2-128 (hydrostatic-loss event); 2-179 (multi-BOL combined).
+
+ASSUMPTIONS / CONSTANTS (edit values in column B to test sensitivity)
+C content (mass fraction of bio-oil),0.4
+"CO2e per C (kg CO2e per kg C, = 44/12)",=44/12
+Materiality threshold (% of net CO2e removals; GHG Accounting v1.0 §5.0),1.0
+
+FORMULAS APPLIED PER ROW (encoded in cells below — open in Sheets to see)
+MIN Mass (col F),"= MIN(BOL Mass, Scale Mass)"
+BOL-Only Mass (col G),= BOL Mass
+"Gross CDR — Current/Proposed (cols H, I)",= Mass × C content × (CO2e per C) / 1000   [tCO2e]
+ΔCDR (col J),= Gross CDR proposed − Gross CDR current
+ΔCDR % (col K),= ΔCDR / Gross CDR current × 100
+
+Date,Batch,BOL #,BOL Mass (kg) [SOURCE],Scale Mass (kg) [SOURCE],MIN Mass (kg),BOL-Only Mass (kg),Gross CDR — Current (tCO2e),Gross CDR — Proposed (tCO2e),ΔCDR (tCO2e),ΔCDR (%),Notes
+2/9/2026,2-123,2286T,19710.0,19379.14,"=MIN(D17,E17)",=D17,=F17*$B$5*$B$6/1000,=G17*$B$5*$B$6/1000,=I17-H17,=(J17/H17)*100,Sheet used raw scale ticket for Total Injectate
+2/10/2026,2-124,2287T,19940.0,19958.05,"=MIN(D18,E18)",=D18,=F18*$B$5*$B$6/1000,=G18*$B$5*$B$6/1000,=I18-H18,=(J18/H18)*100,Sheet overrode Total Injectate to BOL
+2/11/2026,2-125,2288T,19750.0,19767.54,"=MIN(D19,E19)",=D19,=F19*$B$5*$B$6/1000,=G19*$B$5*$B$6/1000,=I19-H19,=(J19/H19)*100,Sheet overrode Total Injectate to BOL
+2/12/2026,2-126,2290T,19900.0,19921.76,"=MIN(D20,E20)",=D20,=F20*$B$5*$B$6/1000,=G20*$B$5*$B$6/1000,=I20-H20,=(J20/H20)*100,"Sheet annotated ""Using BOL Mass"""
+2/12/2026,2-127,2293T,19650.0,19685.89,"=MIN(D21,E21)",=D21,=F21*$B$5*$B$6/1000,=G21*$B$5*$B$6/1000,=I21-H21,=(J21/H21)*100,"Sheet annotated ""Using BOL Mass"""
+2/20/2026,2-129,2295T,20640.0,20584.0,"=MIN(D22,E22)",=D22,=F22*$B$5*$B$6/1000,=G22*$B$5*$B$6/1000,=I22-H22,=(J22/H22)*100,
+2/19/2026,2-131,2296T,20450.0,20411.64,"=MIN(D23,E23)",=D23,=F23*$B$5*$B$6/1000,=G23*$B$5*$B$6/1000,=I23-H23,=(J23/H23)*100,Sheet overrode Total Injectate to BOL
+2/23/2026,2-133,2297T,20040.0,20094.13,"=MIN(D24,E24)",=D24,=F24*$B$5*$B$6/1000,=G24*$B$5*$B$6/1000,=I24-H24,=(J24/H24)*100,Sheet overrode Total Injectate to BOL
+2/24/2026,2-134,2298T,20110.0,20121.34,"=MIN(D25,E25)",=D25,=F25*$B$5*$B$6/1000,=G25*$B$5*$B$6/1000,=I25-H25,=(J25/H25)*100,Sheet overrode Total Injectate to BOL
+2/24/2026,2-135,2299T,19530.0,19567.96,"=MIN(D26,E26)",=D26,=F26*$B$5*$B$6/1000,=G26*$B$5*$B$6/1000,=I26-H26,=(J26/H26)*100,Sheet overrode Total Injectate to BOL
+2/25/2026,2-136,2300T,18590.0,18588.2,"=MIN(D27,E27)",=D27,=F27*$B$5*$B$6/1000,=G27*$B$5*$B$6/1000,=I27-H27,=(J27/H27)*100,
+2/25/2026,2-137,2301T,19840.0,19849.19,"=MIN(D28,E28)",=D28,=F28*$B$5*$B$6/1000,=G28*$B$5*$B$6/1000,=I28-H28,=(J28/H28)*100,Sheet overrode Total Injectate to BOL
+2/25/2026,2-140,2302T,19120.0,19268.59,"=MIN(D29,E29)",=D29,=F29*$B$5*$B$6/1000,=G29*$B$5*$B$6/1000,=I29-H29,=(J29/H29)*100,Sheet overrode Total Injectate to BOL
+2/26/2026,2-143,2303T,18890.0,18942.0,"=MIN(D30,E30)",=D30,=F30*$B$5*$B$6/1000,=G30*$B$5*$B$6/1000,=I30-H30,=(J30/H30)*100,Sheet overrode Total Injectate to BOL
+3/1/2026,2-146,2304T,19940.0,19948.98,"=MIN(D31,E31)",=D31,=F31*$B$5*$B$6/1000,=G31*$B$5*$B$6/1000,=I31-H31,=(J31/H31)*100,Sheet overrode Total Injectate to BOL
+3/1/2026,2-147,2305T,19970.0,19994.34,"=MIN(D32,E32)",=D32,=F32*$B$5*$B$6/1000,=G32*$B$5*$B$6/1000,=I32-H32,=(J32/H32)*100,Sheet overrode Total Injectate to BOL
+3/1/2026,2-148,2306T,19900.0,19921.76,"=MIN(D33,E33)",=D33,=F33*$B$5*$B$6/1000,=G33*$B$5*$B$6/1000,=I33-H33,=(J33/H33)*100,Sheet overrode Total Injectate to BOL
+3/1/2026,2-149,2307T,19690.0,19731.25,"=MIN(D34,E34)",=D34,=F34*$B$5*$B$6/1000,=G34*$B$5*$B$6/1000,=I34-H34,=(J34/H34)*100,Sheet overrode Total Injectate to BOL
+3/1/2026,2-150,2308T,18770.0,18914.79,"=MIN(D35,E35)",=D35,=F35*$B$5*$B$6/1000,=G35*$B$5*$B$6/1000,=I35-H35,=(J35/H35)*100,Sheet overrode Total Injectate to BOL
+3/2/2026,2-151,2311T,20050.0,19649.61,"=MIN(D36,E36)",=D36,=F36*$B$5*$B$6/1000,=G36*$B$5*$B$6/1000,=I36-H36,=(J36/H36)*100,Largest negative delta — possible partial fill or measurement issue
+3/2/2026,2-152,2309T,19340.0,19377.45,"=MIN(D37,E37)",=D37,=F37*$B$5*$B$6/1000,=G37*$B$5*$B$6/1000,=I37-H37,=(J37/H37)*100,
+3/12/2026,2-154,2315T,19590.0,19649.61,"=MIN(D38,E38)",=D38,=F38*$B$5*$B$6/1000,=G38*$B$5*$B$6/1000,=I38-H38,=(J38/H38)*100,Sheet overrode Total Injectate to BOL
+3/13/2026,2-156,2319T,20630.0,20593.08,"=MIN(D39,E39)",=D39,=F39*$B$5*$B$6/1000,=G39*$B$5*$B$6/1000,=I39-H39,=(J39/H39)*100,
+3/13/2026,2-157,2320T,19970.0,20094.13,"=MIN(D40,E40)",=D40,=F40*$B$5*$B$6/1000,=G40*$B$5*$B$6/1000,=I40-H40,=(J40/H40)*100,Sheet overrode Total Injectate to BOL
+3/13/2026,2-158,2321T,20480.0,20484.21,"=MIN(D41,E41)",=D41,=F41*$B$5*$B$6/1000,=G41*$B$5*$B$6/1000,=I41-H41,=(J41/H41)*100,
+3/13/2026,2-159,2322T,19520.0,19577.03,"=MIN(D42,E42)",=D42,=F42*$B$5*$B$6/1000,=G42*$B$5*$B$6/1000,=I42-H42,=(J42/H42)*100,Sheet overrode Total Injectate to BOL
+3/19/2026,2-160,2323T,19990.0,19994.34,"=MIN(D43,E43)",=D43,=F43*$B$5*$B$6/1000,=G43*$B$5*$B$6/1000,=I43-H43,=(J43/H43)*100,Sheet overrode Total Injectate to BOL
+3/19/2026,2-161,2326T,19880.0,19976.19,"=MIN(D44,E44)",=D44,=F44*$B$5*$B$6/1000,=G44*$B$5*$B$6/1000,=I44-H44,=(J44/H44)*100,Sheet overrode Total Injectate to BOL
+3/19/2026,2-162,2331T,19370.0,19377.45,"=MIN(D45,E45)",=D45,=F45*$B$5*$B$6/1000,=G45*$B$5*$B$6/1000,=I45-H45,=(J45/H45)*100,Sheet overrode Total Injectate to BOL
+3/20/2026,2-163,2330T,18410.0,18461.19,"=MIN(D46,E46)",=D46,=F46*$B$5*$B$6/1000,=G46*$B$5*$B$6/1000,=I46-H46,=(J46/H46)*100,Sheet overrode Total Injectate to BOL
+3/20/2026,2-164,2329T,19800.0,19876.4,"=MIN(D47,E47)",=D47,=F47*$B$5*$B$6/1000,=G47*$B$5*$B$6/1000,=I47-H47,=(J47/H47)*100,Sheet overrode Total Injectate to BOL
+3/19/2026,2-165,2324T,19760.0,19840.11,"=MIN(D48,E48)",=D48,=F48*$B$5*$B$6/1000,=G48*$B$5*$B$6/1000,=I48-H48,=(J48/H48)*100,Sheet overrode Total Injectate to BOL
+3/20/2026,2-166,2325T,20110.0,20148.56,"=MIN(D49,E49)",=D49,=F49*$B$5*$B$6/1000,=G49*$B$5*$B$6/1000,=I49-H49,=(J49/H49)*100,Sheet overrode Total Injectate to BOL
+3/21/2026,2-167,2327T,19800.0,19867.33,"=MIN(D50,E50)",=D50,=F50*$B$5*$B$6/1000,=G50*$B$5*$B$6/1000,=I50-H50,=(J50/H50)*100,Sheet overrode Total Injectate to BOL
+3/21/2026,2-169,2332T,19190.0,19214.16,"=MIN(D51,E51)",=D51,=F51*$B$5*$B$6/1000,=G51*$B$5*$B$6/1000,=I51-H51,=(J51/H51)*100,
+3/21/2026,2-170,2333T,19760.0,19785.68,"=MIN(D52,E52)",=D52,=F52*$B$5*$B$6/1000,=G52*$B$5*$B$6/1000,=I52-H52,=(J52/H52)*100,Sheet overrode Total Injectate to BOL
+3/21/2026,2-171,2334T,19660.0,19577.03,"=MIN(D53,E53)",=D53,=F53*$B$5*$B$6/1000,=G53*$B$5*$B$6/1000,=I53-H53,=(J53/H53)*100,
+3/21/2026,2-172,2335T,20180.0,20039.69,"=MIN(D54,E54)",=D54,=F54*$B$5*$B$6/1000,=G54*$B$5*$B$6/1000,=I54-H54,=(J54/H54)*100,
+3/21/2026,2-173,2337T,19980.0,19939.9,"=MIN(D55,E55)",=D55,=F55*$B$5*$B$6/1000,=G55*$B$5*$B$6/1000,=I55-H55,=(J55/H55)*100,Newer sheet layout
+3/25/2026,2-175,2336T,19690.0,19767.54,"=MIN(D56,E56)",=D56,=F56*$B$5*$B$6/1000,=G56*$B$5*$B$6/1000,=I56-H56,=(J56/H56)*100,Sheet overrode Total Injectate to BOL
+3/25/2026,2-177,2342T,20510.0,20511.43,"=MIN(D57,E57)",=D57,=F57*$B$5*$B$6/1000,=G57*$B$5*$B$6/1000,=I57-H57,=(J57/H57)*100,Tightest agreement
+3/25/2026,2-178,2341T,19750.0,19731.25,"=MIN(D58,E58)",=D58,=F58*$B$5*$B$6/1000,=G58*$B$5*$B$6/1000,=I58-H58,=(J58/H58)*100,
+
+"AGGREGATE TOTALS (clean dataset, n=42)"
+"Total mass — current MIN(BOL, scale) policy (kg)",=SUM(F17:F58)
+Total mass — proposed BOL-only policy (kg),=SUM(G17:G58)
+Δ mass (kg),=B62-B61
+Δ mass (%),=(B62-B61)/B61*100
+Total gross CDR — current policy (tCO2e),=SUM(H17:H58)
+Total gross CDR — proposed policy (tCO2e),=SUM(I17:I58)
+Δ gross CDR (tCO2e),=B66-B65
+Δ gross CDR (%),=(B66-B65)/B65*100
+
+MATERIALITY TEST — GHG Accounting v1.0 §5.0
+Aggregate ΔCDR / current gross CDR (%),=B68
+Below threshold?,"=IF(ABS(B71)<$B$7,""YES"",""NO"")"

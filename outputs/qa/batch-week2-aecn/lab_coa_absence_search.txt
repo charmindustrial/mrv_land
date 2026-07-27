@@ -1,0 +1,12 @@
+W2 AECN LAB CoA — EXHAUSTIVE ABSENCE SEARCH (2026-06-24)
+Drive searches run (Google Drive connector), all negative for a W2 AECN SGS Certificate of Analysis:
+1. title contains '6-2026-W2' and title contains 'AECN'  -> {} (none)
+2. title contains '6-2026-W2'                            -> {} (none)
+3. fullText contains '6-2026-W2 AECN' or title 'W2 AECN' -> only "June 2026 Week 2 SGS CoC Template" (a chain-of-custody TEMPLATE, not results)
+4. (SGS|SR26|COA|CoA) and modifiedTime>2026-06-13       -> only CoC templates + "AECN COA Solids Content Dataset (June 2026 RP)"
+5. fullText '40.8' + (AECN|COA|SGS|SR26) modified>6/10   -> {} (none)
+Certify Sources tab (92 sources, enumerated in certify_overview.yml / Sources innerText): NO SGS CoA / no '6-2026-W2 AECN.pdf'.
+Carbon Content datapoint linked to scale-ticket images (Full_GPRX5240_offload_2.jpg + 62 more), NOT a lab cert.
+Ops Notes Summary 'Lab COA Link' cell (E17): blank.
+CONCLUSION: W2 AECN lab CoA is absent from Certify Sources, the batch Drive folder, and Drive search. (W1 had '6-2026-W1 AECN.pdf' / SR26-03163.)
+GPRX5139 offload_3 EMPTY: Drive O3 folder enumerated -> file is ticket #1312226161915 gross 29,240 (= a duplicate of offload_4's empty). Genuine O3 empty (29,560) not located in Drive O3 folder.

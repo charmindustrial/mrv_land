@@ -1,0 +1,1342 @@
+{
+  "_meta": {
+    "site": "Basco 6 (Louisiana \u2014 permeable reservoir)",
+    "reporting_period": "April 1 \u2013 April 30, 2026",
+    "phase_mode": "Phase 1",
+    "drive_folder_id": "15IgMdOSbekKv8GCZ8NfmdLqyTN9gsBAi",
+    "drive_folder_url": "https://drive.google.com/drive/folders/15IgMdOSbekKv8GCZ8NfmdLqyTN9gsBAi",
+    "drive_folder_title": "Site Emissions",
+    "parent_folder_title": "April 1 - April 30 RP",
+    "bcu_quant_sheet_id": "1y3X60gtbBLUw8VOompXtTsnR6xWkT4mtQn32xZqtMUY",
+    "bcu_quant_sheet_title": "Apr 1-May 1 RP BCU Quant",
+    "scapegoat_removal_id": "Pending Certify entry",
+    "standard_ef_sheet_id": "1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4",
+    "standard_ef_sheet_tab_verified": "2026 / GLEC V3.2 2025 / GREET 2025",
+    "T0_initiation": "2026-05-07T22:34:25Z",
+    "kb_read_confirmation": true
+  },
+  "drive_folder_inventory": {
+    "subfolders": [
+      {
+        "id": "1DNwpdP2j7PlSQpWQfg0sSuIDh-ucI_VY",
+        "title": "Diesel"
+      },
+      {
+        "id": "1BxST9Ov6zq34G_ZCQZEaLIxhRXmXbcUX",
+        "title": "Gasoline"
+      },
+      {
+        "id": "1uC8gDsZ4nHNJt9ZWJR_zYsDXr4BYGVqn",
+        "title": "Electricity"
+      },
+      {
+        "id": "1armiNmQFDaHgzFmR6u8tVumx7-VWpVa3",
+        "title": "Brine"
+      },
+      {
+        "id": "1-UEw29T3-04zpr6lRaJmI41uSPNR8uvQ",
+        "title": "Support Travel"
+      },
+      {
+        "id": "1k3aYZqHAs0_IgqOxJhgGW8r9Z27P1NVc",
+        "title": "Railcar"
+      },
+      {
+        "id": "1_HJ-WD7Gipa-c_F0Ha3PyTc0w6Gt6-jp",
+        "title": "Waste Disposal"
+      },
+      {
+        "id": "1YtQ6Jeg9GbeaK5Nqsz9q7p--HSRKLrMt",
+        "title": "Embodied Emissions"
+      },
+      {
+        "id": "1dcuolflTELkiaTB1KUYexZCl3wIkgwLc",
+        "title": "Louisiana Sitework"
+      }
+    ],
+    "root_files": [
+      {
+        "id": "1y3X60gtbBLUw8VOompXtTsnR6xWkT4mtQn32xZqtMUY",
+        "title": "Apr 1-May 1 RP BCU Quant"
+      }
+    ],
+    "categories_absent": [
+      "Methanol",
+      "Argon",
+      "Pump Oil",
+      "LCS",
+      "One-offs"
+    ],
+    "filename_period_inconsistencies": [
+      {
+        "file": "Apr 1-May 1 RP BCU Quant",
+        "stated": "Apr 1-May 1",
+        "rp": "Apr 1-Apr 30"
+      },
+      {
+        "file": "4-1->5-1 Gasoline Tracker LA.xlsx",
+        "stated": "4-1 to 5-1",
+        "rp": "4-1 to 4-30"
+      },
+      {
+        "file": "4_2-5_1 Diesel Consumption Calcs_bak.xlsx",
+        "stated": "4-2 to 5-1",
+        "note": "_bak duplicate; canonical sheet is 4-1->4-30"
+      },
+      {
+        "file": "Basco Support Travel Calc Sheet Apr 1 - May 1",
+        "stated": "Apr 1-May 1",
+        "rp": "Apr 1-Apr 30"
+      },
+      {
+        "file": "Basco 6 Capital and Sitework Embodied Emissions Inventory Apr 1 - May 1.xlsx",
+        "stated": "Apr 1-May 1",
+        "rp": "Apr 1-Apr 30"
+      },
+      {
+        "file": "Basco Inj Operations SP+C Inventory Apr 1 - May 1.xlsx",
+        "stated": "Apr 1-May 1",
+        "rp": "Apr 1-Apr 30"
+      },
+      {
+        "file": "Louisiana Sitework Apr 2 - May 1.xlsx",
+        "stated": "Apr 2-May 1",
+        "rp": "Apr 1-Apr 30"
+      }
+    ]
+  },
+  "diesel": {
+    "_source_method": "Drive read_file_content for calc sheet xlsx; per-receipt read_file_content for PDFs",
+    "evidence_files": {
+      "calc_sheet_canonical": {
+        "id": "1DbAwNNp4InRnZFEWaGvdQUd3YLamxr-G",
+        "filename": "4-1->4-30 Diesel Consumption Calcs.xlsx",
+        "extracted_values": {
+          "headers": [
+            "Invoice Date",
+            "Invoice Number",
+            "Total Quantity Delivered (Gal)",
+            "Total Quantity Delivered (L)",
+            "Total Quantity Delivered (kg)"
+          ],
+          "constants": {
+            "liters_per_gallon": 3.78541,
+            "kg_co2e_per_kg_diesel_ef_used": 3.87
+          },
+          "rows": [
+            {
+              "date": "4/1/26",
+              "invoice": 36980412460,
+              "gal": 60.27,
+              "L": 228.139,
+              "kg_in_sheet": 233.237
+            },
+            {
+              "date": "4/6/26",
+              "invoice": 37033017420,
+              "gal": 56.22,
+              "L": 212.812,
+              "kg_in_sheet": 217.568
+            },
+            {
+              "date": "4/9/2026",
+              "invoice": 37080277170,
+              "gal": 48.745,
+              "L": 184.52,
+              "kg_in_sheet": 188.643
+            },
+            {
+              "date": "4/17/26",
+              "invoice": 37183793850,
+              "gal": 53.87,
+              "L": 203.913,
+              "kg_in_sheet": 173.46
+            }
+          ],
+          "total_delivered_gal": 219.1,
+          "total_co2e_kg_in_sheet": 847.917,
+          "total_co2e_formula_inferred": "Total Delivered (gal) \u00d7 3.87 = 219.10 \u00d7 3.87 = 847.917"
+        },
+        "read_method": "download_file_content + openpyxl(data_only=True) \u2014 workbook downloaded as xlsx bytes via download_file_content; cells read via openpyxl with data_only=True so cached cell values (not formula expressions) are returned. Drive read_file_content text renderer NOT used for cell-level findings.",
+        "openpyxl_extracted_2026-05-11": {
+          "invoice_count": 4,
+          "total_gallons": 219.1,
+          "total_kg": 705.502,
+          "total_kg_co2e": 2730.29274,
+          "density_kg_per_gal": 3.22,
+          "density_source": "Chevron Diesel Fuels Technical Review p. 35",
+          "ef_kg_co2e_per_kg_diesel": 3.87,
+          "ef_source": "GLEC V3.2 2025 (Standard EF 2026)",
+          "arithmetic_check": "219.1 \u00d7 3.22 = 705.502 kg \u2713; 705.502 \u00d7 3.87 = 2730.293 kg CO2e \u2713",
+          "_source_method": "openpyxl read of .claude/_scratch/diesel_canonical.xlsx Sheet1."
+        }
+      },
+      "receipt_4_1_26": {
+        "id": "1yEab9ZHCEUSNhxyK1OKa-1xk5xTremE_",
+        "filename": "4.1.26 LA Diesel.pdf",
+        "extracted_values": {
+          "vendor": "Pilot 1105",
+          "address": "7349 La 29, Bunkie, LA, 71322",
+          "date": "Apr 1, 2026 10:22:19 AM",
+          "transaction_id": 36980412460,
+          "gallons": 60.268,
+          "product": "Premium Diesel #2",
+          "driver": "Christopher Vidrine",
+          "vehicle": "West-4235-2022-KS"
+        }
+      },
+      "receipt_4_6_26": {
+        "id": "1V0sRrEg_hwNiqLcj6CfOVc9rTG9-dmno",
+        "filename": "4.6.26 LA Diesel.pdf",
+        "extracted_values": {
+          "vendor": "Pilot 1105",
+          "address": "Bunkie LA 71322",
+          "date": "Apr 6, 2026 2:24:40 PM",
+          "transaction_id": 37033017420,
+          "gallons": 56.219,
+          "product": "Premium Diesel #2",
+          "driver": "Gary OConnor",
+          "vehicle": "West-4235-2022-KS"
+        }
+      },
+      "receipt_4_9_26": {
+        "id": "1H5A6xUjxqA-ccGOfM2M6A6WtlGseeJgO",
+        "filename": "4.9.26 LA Diesel.pdf",
+        "extracted_values": {
+          "vendor": "Pilot 1105",
+          "address": "Bunkie LA 71322",
+          "date": "Apr 9, 2026 1:25:04 PM",
+          "transaction_id": 37080277170,
+          "gallons": 48.745,
+          "product": "Premium Diesel #2",
+          "driver": "Lerlyn Carriere",
+          "vehicle": "West-6257-2022-KS"
+        }
+      },
+      "receipt_4_17_26": {
+        "id": "1EtsFbRb-1oYxoOFHk4DyiAZzU_CKuNTe",
+        "filename": "4.17.26 LA Diesel.pdf",
+        "extracted_values": {
+          "vendor": "Pilot 1105",
+          "address": "Bunkie LA 71322",
+          "date": "Apr 17, 2026 1:04:53 PM",
+          "transaction_id": 37183793850,
+          "gallons": 53.868,
+          "product": "Premium Diesel #2",
+          "driver": "Lerlyn Carriere",
+          "vehicle": "West-6257-2022-KS"
+        }
+      }
+    },
+    "derived": {
+      "sum_of_receipt_gallons": 219.1,
+      "calc_sheet_total_gal": 219.1,
+      "diesel_density_kg_per_gal": 3.21725,
+      "diesel_ef_kgco2e_per_kg_fuel": 3.87,
+      "correct_total_co2e_kg": 2727.8,
+      "as_reported_total_co2e_kg": 847.917,
+      "understatement_kg": 1879.9,
+      "understatement_factor": 3.22,
+      "bcu_quant_value_kg": 847.917,
+      "sum_of_receipt_gallons_arith": "60.268 + 56.219 + 48.745 + 53.868 = 219.100",
+      "correct_total_arith": "219.105 \u00d7 3.21725 \u00d7 3.87 = 2,727.8 kg",
+      "as_reported_total_arith": "219.10 \u00d7 3.87 = 847.917 kg",
+      "delta_arith": "2727.8 \u2212 847.917 = 1879.9 kg",
+      "row_4_1_kg_at_3_87_per_gal": 233.24490000000003,
+      "row_4_1_kg_at_3_21725_per_gal": 193.9036575,
+      "row_4_17_kg_at_3_87_per_gal": 208.4769,
+      "row_4_17_kg_at_3_21725_per_gal": 173.3132575
+    }
+  },
+  "gasoline": {
+    "_source_method": "Drive read_file_content",
+    "evidence_files": {
+      "calc_sheet": {
+        "id": "1dQXyQxCQj4GOmSwONX_qTM3WX7Y4jZWR",
+        "filename": "4-1->5-1 Gasoline Tracker LA.xlsx",
+        "extracted_values": {
+          "constants": {
+            "kg_per_gal": 2.76335,
+            "ef_kgco2e_per_kg_fuel": 3.74,
+            "ef_source": "GLEC V3.2 2025"
+          },
+          "total_gal": 67.75,
+          "total_kg": 187.2,
+          "total_co2e_kg": 700.14
+        },
+        "read_method": "download_file_content + openpyxl(data_only=True) \u2014 workbook downloaded as xlsx bytes via download_file_content; cells read via openpyxl with data_only=True so cached cell values (not formula expressions) are returned. Drive read_file_content text renderer NOT used for cell-level findings."
+      },
+      "receipt_4_1_26": {
+        "id": "1Y3sw9ISp5wcDMhnAQiFYsjomJwwxra51",
+        "extracted_values": {
+          "vendor": "Chevron 0378695",
+          "city": "Ville Platte LA",
+          "date": "Apr 1, 2026",
+          "transaction_id": 36972110970,
+          "gallons": 10.293,
+          "product": "Unleaded Regular",
+          "driver": "Russell Marcantel"
+        }
+      },
+      "receipt_4_3_26": {
+        "id": "17FdZ5fGwlQiZ8380iXhad_EkvT1WRRa9",
+        "extracted_values": {
+          "vendor": "Chevron 0210441",
+          "city": "Bunkie LA",
+          "date": "Apr 3, 2026",
+          "transaction_id": 37001906150,
+          "gallons": 4.812,
+          "product": "Unleaded Regular"
+        }
+      },
+      "receipt_4_8_26": {
+        "id": "1xrwgwiprbVyTrsdFrDPPQrhVIzMD-2b-",
+        "extracted_values": {
+          "vendor": "Chevron 0210441",
+          "city": "Bunkie LA",
+          "date": "Apr 8, 2026",
+          "transaction_id": 37054658400,
+          "gallons": 15.91,
+          "product": "Unleaded Regular"
+        }
+      },
+      "receipt_4_14_26": {
+        "id": "1h_teDq2cRZThRhYujQdbP46-SVT1w-Yg",
+        "extracted_values": {
+          "vendor": "Chevron 0210441",
+          "city": "Bunkie LA",
+          "date": "Apr 14, 2026",
+          "transaction_id": 37126608890,
+          "gallons": 18.283,
+          "product": "Unleaded Regular",
+          "driver": "Brad Byerly"
+        }
+      },
+      "receipt_4_27_26": {
+        "id": "1FPSlftcNxbsqKT13swUJgAs31t6NqfIO",
+        "extracted_values": {
+          "vendor": "Chevron 0210441",
+          "city": "Bunkie LA",
+          "date": "Apr 27, 2026",
+          "transaction_id": 37289302780,
+          "gallons": 18.447,
+          "product": "Unleaded Plus"
+        }
+      }
+    },
+    "derived": {
+      "sum_of_receipt_gallons": 67.745,
+      "math_check_kg": 187.22,
+      "math_check_co2e_kg": 700.14,
+      "product_grade_mix": "4 receipts Unleaded Regular + 1 receipt (4/27) Unleaded Plus",
+      "bcu_quant_value_kg": 700.14,
+      "sum_arith": "10.293 + 4.812 + 15.910 + 18.283 + 18.447 = 67.745",
+      "mass_arith": "67.745 \u00d7 2.76335 = 187.22",
+      "co2e_arith": "187.20 \u00d7 0.00374 = 0.7001 MT = 700.14 kg"
+    }
+  },
+  "electricity": {
+    "_source_method": "Drive read_file_content",
+    "calc_sheet_scope_note": "Calc sheet records utility readings only \u2014 meter, account, daily kWh, period total. NO emissions math, no EF application. Emissions calculation happens in Certify (Phase 2).",
+    "evidence_files": {
+      "utility_xlsx": {
+        "id": "1JU-0l7awxVwezGV643PClrvitwgHc8Yn",
+        "filename": "Basco April 26 Electricity (1).xlsx",
+        "extracted_values": {
+          "meter_number": 168673660,
+          "account_number": 210003486813,
+          "period_start": "April 1, 2026",
+          "period_end": "April 30, 2026",
+          "daily_kwh_count": 30,
+          "total_kwh": 59154.51
+        },
+        "read_method": "download_file_content + openpyxl(data_only=True) \u2014 workbook downloaded as xlsx bytes via download_file_content; cells read via openpyxl with data_only=True so cached cell values (not formula expressions) are returned. Drive read_file_content text renderer NOT used for cell-level findings.",
+        "openpyxl_extracted_2026-05-11": {
+          "meter_number": "168673660",
+          "account_number": "210003486813",
+          "period_label": "April 1,2026 To Apr 30, 2026",
+          "day_count": 30,
+          "total_kwh": 59154.51,
+          "_source_method": "openpyxl read of .claude/_scratch/electricity.xlsx Usage tab. R36 col 3 = sum literal."
+        }
+      }
+    },
+    "derived": {
+      "kwh_total": 59154.51,
+      "bcu_quant_value_kg": 2167.51,
+      "phase_2_pending": [
+        "REC EF application (LA Solar 0.00003664154577 MTCO2e/kWh expected)",
+        "kWh-to-kWh REC offset match",
+        "Certify component value reconciliation"
+      ],
+      "if_la_solar_rec_arith": "59,154.51 \u00d7 0.00003664154577 = 2.16751 MT = 2,167.51 kg",
+      "if_la_grid_arith": "59,154.51 \u00d7 0.0004630140342 = 27.39 MT (= 27,393 kg) \u2014 for comparison only; not the value in BCU Quant"
+    }
+  },
+  "brine": {
+    "_source_method": "Drive read_file_content",
+    "calc_sheet_scope_note": "Calc sheet records inputs (volume) only \u2014 date, barrels, gallons, liters. NO mass calculation, NO distance, NO EF application, NO emissions math. Emissions calculation happens in Certify (Phase 2). Phase 1 verifications limited to volume math + receipt presence.",
+    "evidence_files": {
+      "calc_sheet": {
+        "id": "14PvQcHdPEYarNYR_FLBhESrQK3DZwzRvYrp_TH2_hVY",
+        "filename": "Brine Usage 4/1-4/30",
+        "extracted_values": {
+          "rows": [
+            {
+              "date": "4/20/2026",
+              "barrels": 110,
+              "gallons": 4620,
+              "notes": ""
+            }
+          ],
+          "totals": {
+            "gallons": 4620,
+            "liters": 17488.59
+          },
+          "constants": {
+            "gal_per_bbl": 42,
+            "L_per_gal": 3.78541
+          }
+        }
+      },
+      "vendor_invoice": {
+        "id": "1432di5JN93yRhNLYBrYgm0fhRNEQ55a5",
+        "filename": "20260624_Charm_Basco (1).pdf",
+        "extracted_values": {
+          "vendor": "Bourque Vacuum Services, Inc.",
+          "vendor_address": "713 Colorado Road, Duson, LA 70529",
+          "lpsc_number": "5450-D",
+          "invoice_number": "20260624",
+          "invoice_date": "4/27/2026",
+          "activity_date": "4/20/2026",
+          "truck": "L-779",
+          "load_description": "110 bbls of saltwater hauled to rig",
+          "hours": 5.5,
+          "rate_per_hour": 125.0,
+          "subtotal": 687.5,
+          "fuel_surcharge": 103.13,
+          "balance_due": 790.63
+        }
+      }
+    },
+    "distance_evidence": {
+      "files_in_brine_subfolder_with_distance_data": [],
+      "drive_subfolder_id": "1armiNmQFDaHgzFmR6u8tVumx7-VWpVa3",
+      "subfolder_listing_when_searched": [
+        "Brine Usage 4/1-4/30 (calc sheet)",
+        "Receipts (subfolder)"
+      ]
+    },
+    "derived": {
+      "volume_math_check": "110 bbl \u00d7 42 gal/bbl = 4,620 gal \u2713; 4,620 \u00d7 3.78541 = 17,488.59 L \u2713",
+      "bcu_quant_process_kg": 165,
+      "bcu_quant_embodied_kg": 9,
+      "bcu_quant_total_kg": 174,
+      "phase_2_pending": [
+        "Mass calculation (volume \u00d7 brine density)",
+        "Distance \u00d7 mass \u00d7 Flatbed Process EF",
+        "Distance \u00d7 Non-Tanker Embodied EF",
+        "Certify component values for Brine Process and Brine Embodied",
+        "BCU offset application to brine process emissions"
+      ],
+      "volume_arith": "110 \u00d7 42 = 4620 gal; 4620 \u00d7 3.78541 = 17,488.59 L",
+      "bcu_quant_total_arith": "165 + 9 = 174"
+    }
+  },
+  "support_travel": {
+    "_source_method": "Drive read_file_content for calc sheet; canonical-folder PNG reads via Drive global title search (PNGs are in shared canonical locations referenced by hyperlink from the calc sheet)",
+    "evidence_files": {
+      "calc_sheet": {
+        "id": "1NnGpvSR88R_OPcWhZSjCBmZ4fj1iE3XnpKyM63xLIh4",
+        "filename": "Basco Support Travel Calc Sheet Apr 1 - May 1",
+        "extracted_values": {
+          "trips_count": 7,
+          "trips": [
+            {
+              "employee": "Brent Kamer",
+              "date": "4/1/26",
+              "origin": "DEN",
+              "dest": "BTR",
+              "lodging": "Alexandria",
+              "lodging_to_site_mi_rt": 211.2,
+              "days": 3,
+              "air_kg": 453,
+              "airport_lodging_kg": 123.6803,
+              "lodging_site_kg": 89.4564,
+              "total_kg": 666.1367
+            },
+            {
+              "employee": "Kye Hanson",
+              "date": "4/1/26",
+              "origin": "DEN",
+              "dest": "BTR",
+              "lodging": "Alexandria",
+              "lodging_to_site_mi_rt": 211.2,
+              "days": 3,
+              "total_kg": 666.1367
+            },
+            {
+              "employee": "Evan Weisenberger",
+              "date": "4/6",
+              "origin": "DEN",
+              "dest": "BTR",
+              "lodging": "Alexandria",
+              "lodging_to_site_mi_rt": 281.6,
+              "days": 4,
+              "total_kg": 695.9555
+            },
+            {
+              "employee": "Brent Kamer",
+              "date": "4/20",
+              "lodging_to_site_mi_rt": 281.6,
+              "days": 4,
+              "total_kg": 695.9555
+            },
+            {
+              "employee": "Katrina Leyden",
+              "date": "4/20/26",
+              "lodging_to_site_mi_rt": 281.6,
+              "days": 4,
+              "total_kg": 695.9555
+            },
+            {
+              "employee": "Jonathan Cole",
+              "date": "4/27/26",
+              "lodging_to_site_mi_rt": 281.6,
+              "days": 4,
+              "total_kg": 695.9555
+            },
+            {
+              "employee": "John Zalewski",
+              "date": "4/26",
+              "lodging_to_site_mi_rt": 281.6,
+              "days": 4,
+              "total_kg": 695.9555
+            }
+          ],
+          "constants": {
+            "usepa_mpg_passenger_car": 24.4,
+            "kg_gasoline_per_gal": 2.76335,
+            "ef_gasoline_mtco2e_per_kg_fuel": 0.00374
+          },
+          "reference_distances": {
+            "alexandria_to_basco_rt_mi": 70.4,
+            "btr_to_alexandria_rt_mi": 292,
+            "lafayette_to_basco_rt_mi": 140.4,
+            "btr_to_lafayette_rt_mi": 140.4,
+            "den_dfw_btr_round_trip_kg": 453,
+            "ict_dfw_btr_round_trip_kg": 427,
+            "sfo_dfw_btr_round_trip_kg": 627
+          },
+          "rp_total_kg": 4812.05
+        }
+      },
+      "den_btr_corsia_png": {
+        "id": "1ssOch135zId5QqFZ2a4c33x0Hpglkk86",
+        "filename": "Denver to BTR Round Trip.png",
+        "location_note": "Canonical reference \u2014 PNG lives in shared support-travel evidence folder, hyperlinked from calc sheet (not in per-RP folder)",
+        "extracted_values": {
+          "calculator_source": "ICAO Carbon Emissions Calculator (CORSIA methodology)",
+          "trip_routing": "DEN \u2192 DFW \u2192 BTR Economy Round Trip",
+          "passengers": 1,
+          "total_passenger_co2e_kg_round_trip": 453,
+          "aircraft_fuel_burn_kg_per_journey": 16194,
+          "den_dfw_leg": {
+            "distance_km": 1032,
+            "passenger_co2_kg_per_pax": 112,
+            "cabin": "Economy",
+            "aircraft_fuel_kg": 5605,
+            "aircraft_codes": "319, 320, 321, 32N, 738, 739, 753, 7M8, E75, E7W"
+          },
+          "dfw_btr_leg": {
+            "distance_km": 616,
+            "passenger_co2_kg_per_pax": 114,
+            "cabin": "Economy",
+            "aircraft_fuel_kg": 2496,
+            "aircraft_codes": "CR7, CR9, E70, E75"
+          },
+          "leg_sum_round_trip": "112+114=226 KG one-way \u00d7 2 \u2248 452 KG (calc sheet uses 453)"
+        }
+      },
+      "btr_alexandria_png": {
+        "id": "1Ztt3Wp8gvAQspnV8-nMpQ-Wk7epXNCse",
+        "filename": "BTR to Alexandria Distance.png",
+        "extracted_values": {
+          "origin": "Baton Rouge Metropolitan Airport",
+          "destination": "Alexandria, Louisiana",
+          "route_options_one_way_mi": [
+            123,
+            114,
+            146
+          ],
+          "longest_route_one_way_mi": 146,
+          "longest_route_round_trip_mi": 292,
+          "calc_sheet_uses_mi_rt": 292,
+          "route_convention_per_kb_section_11": "Longest-Google-Maps-distance (KB \u00a711 Transportation Emissions Accounting v1.1) \u2014 conservative pick"
+        }
+      },
+      "alexandria_b6_png": {
+        "id": "1QTB0J9yiZvs7sMM-Y5in9R8CI5IuUL2I",
+        "filename": "Alexandria to B6 Distance.png",
+        "extracted_values": {
+          "origin": "Alexandria, Louisiana",
+          "destination": "4687 LA-115, St Landry, LA 71367",
+          "route_options_one_way_mi": [
+            34.6,
+            32.2,
+            35.2
+          ],
+          "longest_route_one_way_mi": 35.2,
+          "longest_route_round_trip_mi": 70.4,
+          "calc_sheet_uses_mi_rt": 70.4,
+          "route_convention_per_kb_section_11": "Longest-Google-Maps-distance \u2014 conservative pick"
+        }
+      }
+    },
+    "derived": {
+      "air_emissions_methodology": "ICAO CORSIA Carbon Emissions Calculator (verified via DEN\u2192BTR PNG)",
+      "btr_alex_drive_check": "292 mi RT / 24.4 mpg \u00d7 2.76335 kg/gal \u00d7 0.00374 = 0.1237 MT = 123.68 kg \u2713",
+      "alex_basco_3day_check": "3 \u00d7 70.4 = 211.2 mi / 24.4 \u00d7 2.76335 \u00d7 0.00374 = 0.0894 MT = 89.46 kg \u2713",
+      "alex_basco_4day_check": "4 \u00d7 70.4 = 281.6 mi / 24.4 \u00d7 2.76335 \u00d7 0.00374 = 0.1193 MT = 119.28 kg \u2713",
+      "trip_3day_total_check": "453 + 123.68 + 89.46 = 666.14 kg \u2713",
+      "trip_4day_total_check": "453 + 123.68 + 119.28 = 695.96 kg \u2713",
+      "rp_total_check": "2 \u00d7 666.14 + 5 \u00d7 695.96 = 1,332.27 + 3,479.78 = 4,812.05 kg \u2713",
+      "bcu_quant_value_kg": 4812.051
+    }
+  },
+  "railcar": {
+    "_source_method": "Drive read_file_content",
+    "evidence_files": {
+      "calc_sheet": {
+        "id": "1Uz-Y4rmHCb-PYHWg_wCVZsPPXZvY3GWl",
+        "filename": "April 2026 Railcar Emissions Calc Sheet.xlsx",
+        "extracted_values": {
+          "movement_type": "Unloaded railcar movements (one-offs) - no bio-oil transported",
+          "internal_rp_label": "April 2 - May 1, 2026",
+          "trips_count": 3,
+          "trips": [
+            {
+              "start": "4/7/26",
+              "end": "4/17/26",
+              "railcar": "GPRX 5139",
+              "origin": "SARNIA, ON",
+              "dest": "BAIE COMEAU, PQ",
+              "miles": 947
+            },
+            {
+              "start": "4/10/26",
+              "end": "4/24/26",
+              "railcar": "GPRX 5102",
+              "origin": "SARNIA, ON",
+              "dest": "BAIE COMEAU, PQ",
+              "miles": 947
+            },
+            {
+              "start": "4/10/26",
+              "end": "4/24/26",
+              "railcar": "GPRX 5240",
+              "origin": "SARNIA, ON",
+              "dest": "BAIE COMEAU, PQ",
+              "miles": 947
+            }
+          ],
+          "total_car_miles": 2841,
+          "ef_process_mtco2e_per_car_mi": 2.591e-05,
+          "ef_embodied_mtco2e_per_car_mi": 3.1131e-05,
+          "ef_source_in_sheet": "GLEC V3.2 2025",
+          "named_ranges_used": [
+            "ProcessEF (=2.5910374e-05)",
+            "EmbodiedEF (=3.11307e-05)"
+          ],
+          "computed_cells_verified_via_openpyxl_data_only": {
+            "rp_summary_total_car_miles": 2841,
+            "rp_summary_process_total_mt": 0.07361137253,
+            "rp_summary_embodied_total_mt": 0.0884423187,
+            "rp_summary_total_emissions_mt": 0.1620536912,
+            "trip_detail_per_trip_process_mt": 0.02453712418,
+            "trip_detail_per_trip_embodied_mt": 0.0294807729
+          }
+        },
+        "read_method_note": "Sheet downloaded as xlsx via download_file_content; cells read via openpyxl(data_only=True). Cached cell values match BCU Quant exactly. Earlier characterization 'formula errors' was Drive read_file_content renderer artifact \u2014 superseded by the openpyxl read.",
+        "read_method": "download_file_content + openpyxl(data_only=True) \u2014 workbook downloaded as xlsx bytes via download_file_content; cells read via openpyxl with data_only=True so cached cell values (not formula expressions) are returned. Drive read_file_content text renderer NOT used for cell-level findings."
+      },
+      "distance_png": {
+        "id": "1dqRT_KcEIeH_xRv8lMSMBuopErsNvYN3",
+        "filename": "Copy of Railline Distances.png",
+        "extracted_values": {
+          "source": "Email screenshot from Talon L. Cook (rail logistics provider)",
+          "kb_authority": "KB \u00a73 (AECN Rail Batch Reference) authorizes email/written confirmation as authoritative for rail distances \u2014 no Google Maps required",
+          "distances_mi": {
+            "nash_tx_to_baie_comeau_pq": 2063,
+            "opelousas_la_to_cairo_il": 623,
+            "cairo_il_to_baie_comeau_pq": 1598,
+            "baie_comeau_pq_to_sarnia_on": 947
+          },
+          "calc_sheet_uses": "947 mi for Sarnia \u2194 Baie-Comeau \u2713"
+        }
+      }
+    },
+    "derived": {
+      "process_check": "2841 \u00d7 0.000025910 = 0.07361 MT = 73.61 kg \u2713 matches BCU Quant",
+      "embodied_check": "2841 \u00d7 0.000031131 = 0.08844 MT = 88.44 kg \u2713 matches BCU Quant",
+      "bcu_quant_diesel_kg": 73.611,
+      "bcu_quant_nondiesel_kg": 88.442,
+      "bcu_quant_total_kg": 162.053,
+      "bcu_quant_total_arith": "73.611 + 88.442 = 162.053"
+    }
+  },
+  "waste_disposal": {
+    "_source_method": "Drive read_file_content",
+    "evidence_files": {
+      "calc_sheet": {
+        "id": "1-mE9XjPAGBXrW5qDmJI2crz6xGNViZCXBv_6COgmAGo",
+        "filename": "Waste Disposal Emissions Calc Sheet - 4/26",
+        "extracted_values": {
+          "events_count": 1,
+          "manifest_number": "620157 (Waste Pro Ticket)",
+          "profile_number": 5045842,
+          "material_in_calc_sheet": "Bio-Oil Contaminated Gravel",
+          "containers": "1 Roll-Off",
+          "total_lbs_raw": 19980,
+          "scale_uncertainty_lbs": 160,
+          "qty_net_of_uncertainty_lbs": 20140,
+          "qty_net_of_uncertainty_mt_table_a": 9.13535295,
+          "qty_lbs_table_b": 19980,
+          "qty_mt_table_b": 9.062786331,
+          "transporter": "Waste Pro",
+          "destination_in_calc_sheet": "Acadiana Landfill, Crowley LA",
+          "route_distance_mi": 59.4,
+          "transport_type": "Tractor Trailer/Box Truck",
+          "disposal_method": "Landfill Treatment",
+          "generator_certification_date": "03/12/2026",
+          "ef_table": {
+            "flatbed_process": 0.0001384,
+            "non_tanker_embodied": 0.0001927908256,
+            "bio_oil_gravel_landfill_open_dump": 0.000259,
+            "ef_source": "GLEC V3.2 2025 / bespoke openLCA"
+          },
+          "transport_process_mt": 0.07510137,
+          "transport_embodied_mt": 0.01145178,
+          "disposal_mt_table_a": 2.366056414,
+          "disposal_mt_table_b": 2.34726166,
+          "total_mt_table_a": 2.45261
+        }
+      },
+      "distance_png": {
+        "id": "1ijkPa5Ng4TMp7acLd5qV3UhGSjcbdUlg",
+        "filename": "Basco To Acadiana Landfill.png",
+        "extracted_values": {
+          "origin_on_map": "4046 NE Evangeline Thruway, Carencro LA",
+          "destination_on_map": "4675 LA-115, St Landry LA",
+          "route_options_mi": [
+            54.3,
+            59.3,
+            59.4
+          ],
+          "calc_sheet_uses_mi": 59.4,
+          "city_label_discrepancy": "Calc sheet says Crowley LA; PNG says Carencro LA"
+        }
+      },
+      "manifest_ticket_png": {
+        "id": "1a1yjsEfaoqQqZF-ruUveYfHauOdax14C",
+        "filename": "March Oil Spill Disposal.png",
+        "extracted_values": {
+          "facility": "ACADIANA LANDFILL",
+          "ticket_number": 620157,
+          "ticket_date": "3/12/2026",
+          "time_in": "12:21:53",
+          "time_out": "12:33:05",
+          "gross_weight_lb": 0,
+          "tare_weight_lb": 0,
+          "net_weight_lb": 0,
+          "weight_note": "Load NOT weighed; volumetric pricing only",
+          "truck": "AREB004",
+          "truck_type": "ROLLOFF",
+          "customer_code_on_ticket": "L105142/REDBOX",
+          "material_classification_on_ticket": "C&D YD AC / C&D YARD ACADIANA",
+          "quantity": "20.00 yard",
+          "rate_per_yard": 4.44,
+          "amount_subtotal": 88.8,
+          "fuel_surcharge": 10.0,
+          "environmental_fee": 10.0,
+          "total_amount": 108.8
+        }
+      }
+    },
+    "derived": {
+      "transport_process_check": "9.13535 MT \u00d7 59.4 mi \u00d7 0.0001384 = 0.07510 MT \u2713",
+      "transport_embodied_check": "59.4 \u00d7 0.0001927908 = 0.01145 MT \u2713",
+      "disposal_check_table_a": "9135.35 kg \u00d7 0.000259 = 2.366 MT \u2713",
+      "calc_total_mt": 2.45261,
+      "bcu_quant_components_listed": [
+        "Site Diesel Emissions",
+        "Site Gasoline Emissions",
+        "Brine Water - Transport Embodied",
+        "Brine Water - Transport Process",
+        "Embodied Emissions (Capital)",
+        "Spare Parts and Consumables LA",
+        "Louisiana Sitework",
+        "Support Travel",
+        "Railcar Movement",
+        "Basco Site Electricity (RECs)"
+      ],
+      "bcu_quant_disposal_match_count": 0,
+      "rp_window": "April 1 \u2013 April 30, 2026",
+      "ticket_date_literal": "3/12/2026"
+    }
+  },
+  "embodied_capex": {
+    "_source_method": "Drive read_file_content",
+    "evidence_files": {
+      "capex_inventory": {
+        "id": "1BErMZGy_yCJ54EyDW40j76X-Bmgf9vZF",
+        "filename": "Basco 6 Capital and Sitework Embodied Emissions Inventory Apr 1 - May 1.xlsx",
+        "extracted_values": {
+          "la_pool_total_kg_co2e": 377471.88,
+          "la_pool_total_mt_co2e": 377.47188,
+          "est_gross_removals_5y_mt": 271008,
+          "mt_penalty_per_mt": 0.001392846,
+          "kg_penalty_per_mt": 1.392846124,
+          "rp_apr_1_30": {
+            "gross_removals_mt": 421.92,
+            "kg_penalty_per_mt": 1.392846124,
+            "kg_penalty_per_rp": 587.6634837,
+            "spc_ks_la_kg_penalty_per_rp": 457.94
+          },
+          "recently_added_rentals_kg_co2e": {
+            "60kw_diesel_generator": 3187.75,
+            "triton_3panel_shaker": 3750.3,
+            "65bbl_catch_tank": 4856.56,
+            "kerry_6000gal_ss_tank": 1801.86
+          },
+          "la_pool_total_mt_co2e_redundant": 377.47188
+        },
+        "read_method": "download_file_content + openpyxl(data_only=True) \u2014 workbook downloaded as xlsx bytes via download_file_content; cells read via openpyxl with data_only=True so cached cell values (not formula expressions) are returned. Drive read_file_content text renderer NOT used for cell-level findings."
+      },
+      "spc_inventory": {
+        "id": "1OspzCNAuZoEvROF1XZJFz6oAxmtntvpU",
+        "filename": "Basco Inj Operations SP+C Inventory Apr 1 - May 1.xlsx",
+        "extracted_values": {
+          "weekly_total_kg_co2e": 457.93887,
+          "ambiguity": "Calc sheet output is /week per column header; CapEx RP table column 'SP&C KS + LA Kg Penalty/RP' uses same 457.94 value as RP-period figure",
+          "naics_spot_checks_kg_per_2024_usd": {
+            "326122_plastics_pipe_fitting": 0.348,
+            "332722_bolt_nut_screw": 0.207,
+            "332911_industrial_valve": 0.14,
+            "332999_misc_fabricated_metal": 0.256,
+            "339991_gasket_sealing": 0.159,
+            "339999_misc_manufacturing": 0.159
+          }
+        },
+        "read_method": "download_file_content + openpyxl(data_only=True) \u2014 workbook downloaded as xlsx bytes via download_file_content; cells read via openpyxl with data_only=True so cached cell values (not formula expressions) are returned. Drive read_file_content text renderer NOT used for cell-level findings.",
+        "scaling_units_literal_openpyxl_2026-05-11": {
+          "mrv_spc_R1C11_header": "kg CO2e/hot flow hour",
+          "mrv_spc_R2C11_header": "kg CO2e/week",
+          "_source_method": "openpyxl read of .claude/_scratch/spc.xlsx MRV SP&C tab. Two adjacent rows use different time-basis denominators in the same column \u2014 ambiguous which basis applies to scaling."
+        }
+      },
+      "lca_kerry_tank": {
+        "id": "1GcERuyQIJLlRWUvrjV-BNs_JU1ysdFks",
+        "filename": "Kerry 6000 Gal SS Tank.docx",
+        "extracted_values": {
+          "weight_lb": 5000,
+          "weight_kg": 2267.96,
+          "ef_kg_co2e_per_kg_used": 0.794486,
+          "ef_source_cited": "GREET 2024",
+          "gwp_kg_co2e_in_lca": 1801.86,
+          "ef_lca_uses_col8_kgkg_value": 0.794486
+        }
+      },
+      "lca_catch_tank": {
+        "id": "1OznniZM9syfj2RXe9auSHfLvt-7MqBbC",
+        "filename": "65 bbl Catch Tank.docx",
+        "extracted_values": {
+          "weight_lb": 3800,
+          "weight_kg": 1723.65,
+          "weight_basis": "Engineering estimate (geometry + 1/4 in A36 plate \u00d7 10.21 lb/sq ft \u00d7 +30% skid/baffle factor)",
+          "ef_kg_co2e_per_kg_used": 2.8176,
+          "ef_unit_interpretation_in_lca": "MTCO2e per METRIC TONNE (2.817607 MT/MT = 2.8176 kg/kg)",
+          "ef_source_cited": "GREET 2025 (Standard EF Sheet 2026 tab)",
+          "gwp_kg_co2e_in_lca": 4856.56,
+          "ef_lca_uses_col6_value_as_if_kgkg": 2.8176,
+          "ef_correct_per_col8_kgkg": 3.106312
+        },
+        "read_method_note": "LCA cites engineering estimate (3,800 lb derived from geometry + plate weight + 30% skid factor). No vendor datasheet exists for 65 bbl model \u2014 size below catalog range."
+      },
+      "lca_triton_shaker": {
+        "id": "1TjARbQtUGFnIdtsudyWtNMsw6XLlqH2H",
+        "filename": "3-Panel Triton Shale Shaker.docx",
+        "extracted_values": {
+          "weight_lb": 4000,
+          "weight_kg": 1814.37,
+          "weight_basis": "Interpolation from GN Solids America 2-panel/4-panel comparable + conservative round-up",
+          "ef_total_kg_co2e_per_kg": 2.067,
+          "ef_breakdown": {
+            "production": 1.937,
+            "eol_collection": 0.07,
+            "eol_recycling": 0.06
+          },
+          "ef_source_cited": "ecoinvent \u2014 Industrial machine production, heavy, unspecified | APOS, U",
+          "gwp_kg_co2e_in_lca": 3750.3,
+          "ef_lookup_in_standard_ef_sheet_result": "Search for 'Industrial machine production, heavy, unspecified | APOS, U' returned no row in 2026 tab."
+        }
+      },
+      "lca_60kw_generator": {
+        "id": "1L-UbLMMho2GxpyKqeqZPSG8bL95auaoZ",
+        "filename": "60kW Diesel Generator.docx",
+        "extracted_values": {
+          "weight_lb": 3400,
+          "weight_kg": 1542.21,
+          "weight_basis": "HDT Global 60 kW Skid Mounted Generator Datasheet \u2014 direct comparable",
+          "ef_total_kg_co2e_per_kg": 2.067,
+          "ef_source_cited": "ecoinvent \u2014 Industrial machine production, heavy, unspecified | APOS, U",
+          "gwp_kg_co2e_in_lca": 3187.75,
+          "ef_lookup_in_standard_ef_sheet_result": "Search for 'Industrial machine production, heavy, unspecified | APOS, U' returned no row in 2026 tab."
+        }
+      },
+      "ers_rental_invoice": {
+        "id": "1BKDslqjPt1iU0kJsLClzXzSnKhFyg02r",
+        "filename": "ERS Invoice ER206885 - Generator Shaker Catch Tank Rental Apr 26.pdf",
+        "extracted_values": {
+          "vendor": "Equipment Rentals & Service LLC",
+          "invoice_number": "ER206885",
+          "invoice_date": "04/29/2026",
+          "billing_period_stated": "04/01/2026 - 04/30/2026",
+          "equipment_dates": "04/29/2026 - 04/30/2026",
+          "rental_duration_days_actual": 2,
+          "subtotal": 3257.5,
+          "total_with_tax": 3583.25,
+          "delivery_ticket": 8026
+        }
+      },
+      "lca_titan_duplex_strainer": {
+        "id": "1ugeJYpfDq2OQHbe-F5j-cLDH3Gb4RfvM",
+        "filename": "Titan Duplex Strainer.docx",
+        "extracted_values": {
+          "model": "DS696S0200",
+          "manufacturer": "Titan Flow Control",
+          "po_number": "LA-OPS-PRB-251-Rev01",
+          "po_date": "2026-04-07",
+          "vendor": "Specialty Equipment Sales",
+          "quantity_units": 2,
+          "weight_lb_per_unit": 121.3,
+          "weight_kg_per_unit": 55.02,
+          "ef_lca_uses_value": 0.7207,
+          "ef_lca_cited_basis": "Standard EF Sheet 2026 (GREET 2025)",
+          "ef_lca_cited_units": "kgCO2e/kg",
+          "gwp_kg_co2e_per_unit_lca": 39.65,
+          "gwp_kg_co2e_total_lca": 79.3
+        }
+      },
+      "lca_kerr_t30m_pump": {
+        "id": "1f4FbDT0evM9FOcbSFqt52XfGT_0wE3Qv",
+        "filename": "AGI Industries Invoice 3278796 Kerr T30M Pump EE.docx",
+        "extracted_values": {
+          "model": "Kerr T30M Horizontal Triplex Plunger Pump",
+          "manufacturer": "Kerr Pumps via AGI Industries",
+          "agi_invoice": "3278796",
+          "po_number": "LA-OPS-PRB-138",
+          "quantity_units": 1,
+          "weight_lb": 390,
+          "weight_kg": 176.9,
+          "ef_total_kg_co2e_per_kg": 2.067,
+          "ef_breakdown_production": 1.937,
+          "ef_breakdown_eol_collection": 0.07,
+          "ef_breakdown_eol_recycling": 0.06,
+          "ef_source_cited": "ecoinvent - Industrial machine production, heavy, unspecified | APOS, U",
+          "gwp_kg_co2e_in_lca": 365.65
+        }
+      },
+      "lca_gaso_3364_pump": {
+        "id": "1mwXn7ZfjiV0Syy42cnyll9gARG5TiwvY",
+        "filename": "AGI Industries Invoice 3284043 GASO 3364 Pump EE.docx",
+        "extracted_values": {
+          "model": "GASO 3364 Triplex Plunger Pump",
+          "manufacturer": "GASO/NOV via AGI Industries",
+          "agi_invoice": "3284043",
+          "po_number": "LA-OPS-PRB-186",
+          "quantity_units": 1,
+          "weight_lb": 720,
+          "weight_kg": 326.6,
+          "ef_total_kg_co2e_per_kg": 2.067,
+          "ef_source_cited": "ecoinvent - Industrial machine production, heavy, unspecified | APOS, U",
+          "gwp_kg_co2e_in_lca": 675.08
+        }
+      },
+      "lca_mccarr_ss_aodd_pump": {
+        "id": "1NpIEDiwqaj9bCe8-x8RIQXfK5SN15vlC",
+        "filename": "McMaster-Carr Invoice 61320752 SS AODD Pump EE.docx",
+        "extracted_values": {
+          "model": "McMaster-Carr 41655K31",
+          "description": "316 Stainless Steel Air-Powered Double Diaphragm Pump, 150 GPM",
+          "mccarr_invoice": "61320752",
+          "invoice_date": "2026-03-11",
+          "quantity_units": 1,
+          "weight_lb": 135,
+          "weight_kg": 61.2,
+          "ef_total_kg_co2e_per_kg": 2.067,
+          "ef_source_cited": "ecoinvent - Industrial machine production, heavy, unspecified | APOS, U",
+          "ef_alt_stainless_steel_kgkg": 0.794486,
+          "ef_alt_stainless_gwp_per_unit": 48.62,
+          "gwp_kg_co2e_in_lca": 126.5
+        }
+      }
+    },
+    "derived": {
+      "rp_penalty_calc_check": "377.47188 / 271008 \u00d7 421.92 = 0.5877 MT = 587.66 kg \u2713 in calc sheet",
+      "bcu_quant_capex_kg": 527.476,
+      "bcu_quant_minus_calc_sheet_kg": -60.18,
+      "bcu_quant_spc_kg": 457.939,
+      "off_list_ecoinvent_ef_count": 2,
+      "rentals_pool_addition_kg": 11794.61,
+      "mt_penalty_per_mt_explicit": 0.001392846,
+      "calc_sheet_capex_kg": 587.66,
+      "capex_delta_arith": "527.476 \u2212 587.6634837 = -60.18 kg",
+      "carbon_steel_col6_over_col5_ratio_arith": "3.106312 / 2.817607 = 1.10231",
+      "stainless_steel_col6_over_col5_ratio_arith": "0.794486 / 0.720746 = 1.10231",
+      "metric_tonne_per_short_ton_arith": "1 / 0.907185 = 1.10231",
+      "kerry_tank_correctly_uses_col8_kgkg": "0.794486 (Col 8 kg/kg) \u00d7 2,267.96 = 1,801.86 kg \u2713 matches LCA",
+      "catch_tank_incorrectly_used_col6_as_kgkg": "2.8176 (Col 6 per-short-ton) \u00d7 1,723.65 = 4,856.56 kg in LCA; should be 3.106312 (Col 8) \u00d7 1,723.65 = 5,353.85 kg",
+      "catch_tank_understatement_arith": "5353.85 \u2212 4856.56 = 497.29 kg understated",
+      "titan_strainer_used_col6_as_kgkg": "0.7207 (Col 6 per-short-ton) \u00d7 55.02 = 39.65 kg per unit; 2 units = 79.3 kg in LCA",
+      "titan_strainer_correct_per_col8": "0.794486 (Col 8 kg/kg) \u00d7 55.02 = 43.71 kg per unit; 2 units = 87.41 kg correct",
+      "titan_strainer_understatement_arith": "87.41 \u2212 79.3 = 8.11 kg understated",
+      "combined_col6_understatement_arith": "Catch Tank 497.29 + Titan Strainer 8.11 = 505.40 kg total Col-6/Col-8 error",
+      "la_equipment_total_openpyxl_2026-05-11": {
+        "la_equipment_pool_kg_co2e": 377977.63,
+        "_source_method": "openpyxl read of .claude/_scratch/capex.xlsx LA Equipment tab on 2026-05-11. Supersedes earlier value 377,471.88 which was stale."
+      }
+    }
+  },
+  "louisiana_sitework": {
+    "_source_method": "Drive read_file_content",
+    "evidence_files": {
+      "calc_sheet": {
+        "id": "1Fdaf5vSmRh8Gl54kzYeLL-CJ59ZpkYaw",
+        "filename": "Louisiana Sitework Apr 2 - May 1.xlsx",
+        "extracted_values": {
+          "total_diesel_emissions_kg": 856.0227708,
+          "total_non_diesel_emissions_kg": 358.9572382,
+          "total_emissions_kg": 1214.980009,
+          "activities": [
+            {
+              "date": "3/17/26",
+              "activity": "Excavator earthwork - JC's Construction",
+              "hours": 4,
+              "rate_per_hour": 125.0,
+              "fuel_rate_gal_per_hr": 4.2,
+              "fuel_rate_source": "CAT Performance Handbook Ed46 \u2014 CAT 320D2 STD Panther medium-load midpoint",
+              "diesel_kg_co2e": 209.17
+            },
+            {
+              "date": "4/7/26",
+              "activity": "Kerry Tank delivery transport",
+              "weight_mt": 2.268,
+              "miles_in_calc_sheet": 1729,
+              "process_mt_co2e": 0.5427
+            },
+            {
+              "date": "3/17/26",
+              "activity": "JC Construction Mob & Demob",
+              "weight_mt": 22,
+              "miles_in_calc_sheet": 34.2,
+              "process_mt_co2e": 0.10413
+            }
+          ],
+          "ef_used": {
+            "flatbed_process": 0.0001384,
+            "non_tanker_embodied": 0.0001927908,
+            "diesel_density_kg_per_gal": 3.21725,
+            "diesel_ef_mt_per_kg": 0.00387
+          }
+        },
+        "read_method": "download_file_content + openpyxl(data_only=True) \u2014 workbook downloaded as xlsx bytes via download_file_content; cells read via openpyxl with data_only=True so cached cell values (not formula expressions) are returned. Drive read_file_content text renderer NOT used for cell-level findings."
+      },
+      "distance_png_douglas_tank": {
+        "id": "1W9fcNhNb7dYNTOVQMhS1_aAkuu6HpGTJ",
+        "filename": "Douglas Tank to Basco Distance Map.png",
+        "extracted_values": {
+          "origin": "490 E Lambert Rd, La Habra, CA 90631",
+          "destination": "4687 LA-115, St Landry, LA 71367",
+          "route_options_mi": [
+            1759,
+            1756,
+            1779
+          ],
+          "calc_sheet_uses_mi": 1729,
+          "discrepancy_mi": 30,
+          "discrepancy_note": "1,729 mi in calc sheet does NOT match any of the three route options on the source PNG"
+        }
+      },
+      "distance_png_jc_construction": {
+        "id": "1gRLC-LLWQaAIfDpv7YXzO4ngpVntHXxr",
+        "filename": "JC Construction to Basco.png",
+        "extracted_values": {
+          "origin": "2293 Hampton Dupre Rd, Ville Platte, LA",
+          "destination": "4675 LA-115, St Landry, LA 71367",
+          "one_way_mi": 17.1,
+          "calc_sheet_uses_mi_rt": 34.2
+        }
+      },
+      "jc_invoice": {
+        "id": "1vDRga-rfBFwP4xm8LqKI_COdJlPc_EFQ",
+        "filename": "Basco Excavation March 26.pdf",
+        "extracted_values": {
+          "invoice_number": "2027-28",
+          "date": "March 17, 2026",
+          "address": "4687 hwy 115",
+          "description": "Dug ditch and used dirt to build containment levee around well pad",
+          "hours": 4,
+          "rate": 125.0,
+          "mob_demob_charge": 400.0,
+          "subtotal": 900.0,
+          "excavator_model_field_in_invoice": ""
+        }
+      },
+      "cat_handbook": {
+        "id": "13wpJljYez_ulqRlntafHnT87pbSXwvq4",
+        "filename": "Cat Performance Handbook Ed46 Excavator Fuel Tables.pdf",
+        "extracted_values": {
+          "cat_320d2_std_panther_medium_gal_per_hr_range": [
+            3.5,
+            4.9
+          ],
+          "midpoint_gal_per_hr": 4.2
+        }
+      }
+    },
+    "derived": {
+      "diesel_total_check": "Excavator 209.17 + Kerry transport process 542.72 + JC mob/demob process 104.13 = 856.02 \u2713",
+      "kerry_tank_distance_understatement_kg": 15.2,
+      "non_diesel_remainder_kg": 358.957,
+      "bcu_quant_total_kg": 1214.98,
+      "excavator_kg_co2e": 209.17,
+      "kerry_transport_process_kg_co2e": 542.72,
+      "jc_mob_demob_process_kg_co2e": 104.13,
+      "embodied_per_row_sum_mt": 0.33993,
+      "embodied_sheet_total_mt": 0.358957,
+      "embodied_unreconciled_kg": 19.0,
+      "jc_invoice_address_literal": "4687 hwy 115",
+      "douglas_tank_png_destination_literal": "4687 LA-115, St Landry, LA 71367",
+      "jc_distance_png_destination_literal": "4675 LA-115, St Landry, LA 71367",
+      "activity_dates_literal": [
+        "3/17/26",
+        "4/7/26",
+        "3/17/26"
+      ],
+      "totals_openpyxl_2026-05-11": {
+        "diesel_kg_co2e": 982.72,
+        "non_diesel_kg_co2e": 518.26,
+        "total_kg_co2e": 1500.99,
+        "arithmetic_check": "982.72 + 518.26 = 1500.98 \u2248 1500.99 (rounding) \u2713",
+        "_source_method": "openpyxl read of .claude/_scratch/sitework.xlsx Summary tab on 2026-05-11. Supersedes earlier Drive renderer values (856.02 / 358.96 / 1214.98) which were stale before calc-sheet refresh."
+      },
+      "kerry_tank_distance_openpyxl_2026-05-11": {
+        "cell_reference": "Scale Tickets & Transport!R3C7",
+        "literal_value_mi": 1779,
+        "weight_mt": 2.268,
+        "tonne_miles": 4034.772,
+        "process_emission_mt_co2e": 0.5584,
+        "arithmetic_check": "2.268 \u00d7 1779 = 4034.772 t-mi \u2713",
+        "_source_method": "openpyxl read of .claude/_scratch/sitework.xlsx. Distance value matches longest-route PNG option in Distance PNGs folder (1759 / 1756 / 1779). Drive renderer earlier reported 1729; renderer error confirmed superseded."
+      }
+    }
+  },
+  "bcu_quant_sheet": {
+    "_source_method": "Drive read_file_content",
+    "components_enumerated": [
+      {
+        "name": "Site Diesel Emissions",
+        "diesel_kg": 847.917,
+        "non_diesel_kg": 0,
+        "total_kg": 847.917
+      },
+      {
+        "name": "Site Gasoline Emissions",
+        "diesel_kg": 0,
+        "non_diesel_kg": 700.14,
+        "total_kg": 700.14
+      },
+      {
+        "name": "Brine Water - Transport Embodied",
+        "diesel_kg": 0,
+        "non_diesel_kg": 9,
+        "total_kg": 9
+      },
+      {
+        "name": "Brine Water - Transport Process",
+        "diesel_kg": 165,
+        "non_diesel_kg": 0,
+        "total_kg": 165
+      },
+      {
+        "name": "Embodied Emissions (Capital)",
+        "diesel_kg": 0,
+        "non_diesel_kg": 527.476,
+        "total_kg": 527.476
+      },
+      {
+        "name": "Spare Parts and Consumables LA",
+        "diesel_kg": 0,
+        "non_diesel_kg": 457.939,
+        "total_kg": 457.939
+      },
+      {
+        "name": "Louisiana Sitework",
+        "diesel_kg": 856.022,
+        "non_diesel_kg": 358.957,
+        "total_kg": 1214.98
+      },
+      {
+        "name": "Support Travel",
+        "diesel_kg": 0,
+        "non_diesel_kg": 4812.051,
+        "total_kg": 4812.051
+      },
+      {
+        "name": "Railcar Movement",
+        "diesel_kg": 73.611,
+        "non_diesel_kg": 88.442,
+        "total_kg": 162.053
+      },
+      {
+        "name": "Basco Site Electricity (RECs)",
+        "diesel_kg": 0,
+        "non_diesel_kg": 2167.51,
+        "total_kg": 2167.51
+      }
+    ],
+    "totals": {
+      "diesel_kg": 1942.55,
+      "non_diesel_kg": 9121.515,
+      "total_kg": 11064.066
+    },
+    "categories_with_diesel_emissions": [
+      "Site Diesel Emissions",
+      "Brine Water - Transport Process",
+      "Louisiana Sitework",
+      "Railcar Movement"
+    ]
+  },
+  "standard_ef_sheet_reads": {
+    "tab_verified": "2026 / GLEC V3.2 2025 / GREET 2025 / NAICS 1.4.0",
+    "diesel_wtw": {
+      "row_label": "Diesel Fuel Combustion (Total WTW)",
+      "value": 3.87,
+      "units": "kgCO2e/kg fuel",
+      "source": "GLEC V3.2 2025"
+    },
+    "gasoline_wtw": {
+      "row_label": "Gasoline Consumption (Total WTW)",
+      "value": 3.74,
+      "units": "kgCO2e/kg fuel",
+      "source": "GLEC V3.2 2025"
+    },
+    "tanker_truck_process": {
+      "row_label": "Truck Transport Fuel Use (WTW) \u2014 Tanker Truck",
+      "value": 0.0001143,
+      "units": "MTCO2e/t-mi",
+      "source": "GLEC V3.2 2025"
+    },
+    "flatbed_truck_process": {
+      "row_label": "Truck Transport Fuel Use (WTW) \u2014 Flatbed Truck",
+      "value": 0.0001384,
+      "units": "MTCO2e/t-mi",
+      "source": "GLEC V3.2 2025"
+    },
+    "tanker_embodied": {
+      "row_label": "Vehicle Embodied Emissions \u2014 Tanker Truck",
+      "value": 0.00023756059,
+      "units": "MTCO2e/mi",
+      "source": "GLEC V3.2 2025"
+    },
+    "non_tanker_embodied": {
+      "row_label": "Vehicle Embodied Emissions \u2014 Non-Tanker Truck",
+      "value": 0.0001927908256,
+      "units": "MTCO2e/mi",
+      "source": "GLEC V3.2 2025"
+    },
+    "rail_process": {
+      "row_label": "Rail Transport Fuel Use (WTW)",
+      "value": 2.5910374e-05,
+      "units": "MTCO2e/T-mi",
+      "source": "GLEC V3.2 2025"
+    },
+    "railcar_embodied": {
+      "row_label": "Vehicle Embodied Emissions \u2014 Railcar",
+      "value": 3.113066508e-05,
+      "units": "MTCO2e/mi",
+      "source": "GLEC V3.2 2025"
+    },
+    "la_grid_electricity": {
+      "row_label": "Grid Electricity Use \u2014 Louisiana",
+      "value": 0.0004630140342,
+      "units": "MTCO2e/kWh",
+      "source": ""
+    },
+    "la_solar_recs": {
+      "row_label": "Solar RECs Use \u2014 Louisiana",
+      "value": 3.664154577e-05,
+      "units": "MTCO2e/kWh",
+      "source": "Green-E, USEPA, GREET 2025"
+    },
+    "bio_oil_gravel_landfill_open_dump": {
+      "row_label": "Bio-Oil Contaminated Gravel, Landfilling [Open Dump]",
+      "value": 0.000259,
+      "units": "MTCO2e/kg",
+      "source": "Bespoke openLCA"
+    },
+    "stainless_steel": {
+      "row": 25,
+      "col6_label": "Final Quantity (MTCO2e/T Steel where T = short ton)",
+      "col6_value": 0.720746,
+      "col6_units": "MTCO2e per short ton",
+      "col8_label": "kgCO2e/kg (converted)",
+      "col8_value": 0.794486,
+      "col8_units": "kgCO2e/kg",
+      "source": "GREET 2024",
+      "verification": "Col 8 explicit header 'kgCO2e/kg (converted)' confirms Col 6 is per-short-ton (since converting MT/short-ton to kg/kg multiplies by 1.10231 = 1/0.907185)"
+    },
+    "carbon_steel": {
+      "row": 24,
+      "col6_label": "Final Quantity (MTCO2e/T Steel where T = short ton)",
+      "col6_value": 2.817607,
+      "col6_units": "MTCO2e per short ton",
+      "col8_label": "kgCO2e/kg (converted)",
+      "col8_value": 3.106312,
+      "col8_units": "kgCO2e/kg",
+      "source": "GREET 2025",
+      "verification": "Col 8 explicit header 'kgCO2e/kg (converted)' confirms Col 6 is per-short-ton"
+    },
+    "sheet_convention_note": "Standard EF Sheet 2026 tab Col 6 'MTCO2e/T Steel': T = US short ton, per GREET 2025 source convention (verified directly from R&D GREET2_2025.xlsm Steel tab \u2014 Row 300 'US ton/US ton', per-ton/per-lb ratio = 2000.0000). Col 8 'kgCO2e/kg (converted)' is the correct kg/kg-direct conversion from Col 6 (multiply by 1.10231 = 1/0.907185). Verified via openpyxl on local primary-source GREET file, not via Drive renderer or Charm sheet internal logic.",
+    "greet_2025_source_verification": {
+      "file_path_local": "skills/lca-model-builder/Emission Factor Databases/R&D GREET2_2025.xlsm",
+      "tab_read": "Steel",
+      "read_method": "openpyxl(data_only=True) on local xlsm \u2014 primary-source read of GREET model spreadsheet",
+      "row_300_col_a_literal": "6.1) Material Inputs (US ton/US ton of product)",
+      "row_134_unit_columns_literal": [
+        "per ton",
+        "per lb"
+      ],
+      "row_154_col_21_label": "Final Average Stamped Steel Product: Combined",
+      "row_154_col_21_ghgs_g_per_short_ton": 2817606.7360587036,
+      "row_154_col_22_ghgs_g_per_lb": 1408.8033680293518,
+      "per_ton_per_lb_ratio_arith": "2817606.7360587036 / 1408.8033680293518 = 2000.0000",
+      "ratio_implication": "ratio = 2000 only if ton = short ton (1 short ton = 2000 lb). Metric tonne would give ratio 2204.62.",
+      "value_match_to_charm_sheet_col6_arith": "2817606.7360587036 g / 1000000 = 2.81760674 MT per short ton \u2248 Charm Col 6 value 2.817607"
+    }
+  },
+  "kb_sections_read": [
+    "\u00a70 \u2014 Core QA Rule (Exhaustive Work Required)",
+    "\u00a70A \u2014 4-Gate System (batch-qa structure for reference)",
+    "\u00a70B \u2014 Reward & Penalty Framework",
+    "\u00a73 \u2014 Oil Types (incl. AECN Rail Batch Reference: rail email is authoritative for distance)",
+    "\u00a75 \u2014 Certify BCU QA Rule (BCU tCO2e \u2265 Activity tCO2e)",
+    "\u00a76 \u2014 Emission Factor Reference (2026 tab: GLEC V3.2 2025 / GREET 2025)",
+    "\u00a79 \u2014 Mass Accounting + Live Data Sources (Standard EF Sheet ID + tab)",
+    "\u00a710A \u2014 Injection Batch QA Checklist (formatting standard)",
+    "\u00a710B \u2014 Site Emissions QA Agent Architecture",
+    "\u00a711 \u2014 Isometric Protocol Modules (Transportation Emissions Accounting v1.1: longest-Google-Maps-distance convention)",
+    "\u00a713A-II \u2014 Primary Source Verification Requirement"
+  ]
+}

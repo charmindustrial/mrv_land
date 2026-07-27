@@ -133,6 +133,29 @@ For lessons that apply across all oil types (AECN, Kerry, future WODO/Aqueous), 
 
 ---
 
+## FC-K8 — Single-fix laziness (deliver the whole chain, not just what was surfaced)
+
+**Applies to:** All batches, every gate, every Max-correction or Garrett-correction pass.
+
+**Trigger:** Max or Garrett surfaces an issue in a checklist evidence note. Agent fixes only the surfaced item and re-delivers, leaving downstream items that share the same root cause untouched and now contradicting the corrected item.
+
+**Failure mode:** Re-delivery contains internal contradictions. User catches the next dependent item, has to call out the same class of issue a second time. Erodes trust per-iteration faster than the original error did.
+
+**Real example (K-002, 2026-05-06):** Max flagged the 4,619 vs 4,618 contradiction across items 1.4 and 1.5. Agent fixed those two and re-delivered. Item 1.7 still said "evidence value confirms reported value end-to-end" referencing the same `4,619 = sum of per-tote nets` claim that had just been refuted. Max called it out: "Fixing one thing because I find it is bush league. Child behavior. If there's an issue, it's on YOU to follow the thread ALL THE WAY DOWN."
+
+**Mitigation (lock this in):**
+
+1. **Identify the root cause** of any flagged finding before patching.
+2. **Search every checklist evidence note** for the specific number, source filename, datapoint name, or claim that drove the original finding. Don't rely on memory of which items reference what.
+3. **Audit every hit.** For each match, ask: does this item's status/reasoning still hold given the corrected understanding? If not, fix it in the same pass.
+4. **Audit dropped findings too** when restructuring the checklist (v1 → v2 → v3). Real findings can fall through restructuring cracks alongside spurious ones — re-check each prior version's findings list against the new structure before re-delivering.
+5. **Re-run the audit script** after edits — fixed evidence may have new citation tags or quoted numerics.
+6. Only then re-deliver.
+
+This applies on first delivery, on Max-correction passes, AND on Garrett-correction passes. The standard isn't "fix what was named" — it's "deliver a product that's internally consistent." Adversarial-review (Gate 3) MUST include this dependency-thread audit pass for any item that changed since the previous draft.
+
+---
+
 ## Cross-skill lessons (apply equally to Kerry)
 
 For lessons that apply across all oil types, read the AECN file at `skills/qa/batch-qa/references/lessons_learned.md`. Notable carry-overs:

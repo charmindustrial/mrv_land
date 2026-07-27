@@ -27,7 +27,7 @@ Sweep all active QA batch threads sent to Garrett Lutz for completion signals. W
 ### Step 1: Load context
 
 1. Read the `qa-garrett-completion-monitor` skill (SKILL.md in the skills folder) for detailed re-review instructions.
-2. Read `skills/qa/batch-qa/qa_active_batches.json` from the MRV Expert workspace folder. This is the registry of all batches currently awaiting Garrett's response.
+2. Read `skills/qa/batch-qa-aecn/qa_active_batches.json` from the MRV Expert workspace folder. This is the registry of all batches currently awaiting Garrett's response.
 3. Read `knowledge-base/Charm_Isometric_Knowledge_Base.md` from the MRV Expert workspace folder for protocol references and verification logic.
 
 ### Step 2: Check for empty registry
@@ -88,11 +88,11 @@ Follow the re-review workflow from the skill. In summary:
 
 ### Step 4: Save the updated registry
 
-Write the updated `qa_active_batches.json` back to `skills/qa/batch-qa/` in the MRV Expert workspace folder.
+Write the updated `qa_active_batches.json` back to `skills/qa/batch-qa-aecn/` in the MRV Expert workspace folder.
 
 ### Key references
 - Skill: qa-garrett-completion-monitor (skills folder)
-- Registry: skills/qa/batch-qa/qa_active_batches.json (MRV Expert workspace folder)
+- Registry: skills/qa/batch-qa-aecn/qa_active_batches.json (MRV Expert workspace folder)
 - Knowledge base: knowledge-base/Charm_Isometric_Knowledge_Base.md (MRV Expert workspace folder)
 - Garrett's user ID: U08JW9HQG5B
 - Garrett's DM channel: D08KEFVRJDP

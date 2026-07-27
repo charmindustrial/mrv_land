@@ -1,0 +1,113 @@
+{
+  "batch_id": "2-185",
+  "computed_at": "2026-05-15T14:28:41",
+  "source_reads_path": "outputs/qa/batch-2-185/batch_2-185_source_reads_normalized.json",
+  "checks": [
+    {
+      "check_id": "scale_ticket_subtraction",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "full_lb": 56660,
+        "empty_lb": 29280,
+        "net_lb": 27380,
+        "net_kg": 12419.35
+      },
+      "log_values": {
+        "computed_net_lb": 27380,
+        "computed_net_kg": 12419.36
+      },
+      "note": "Computed: 56660 \u2212 29280 = 27380 lb (12419.35 kg). Log: 27380 lb (12419.36 kg). Match."
+    },
+    {
+      "check_id": "scale_ticket_vs_ops_notes_offload",
+      "materiality": "material",
+      "check_type": "policy",
+      "status": "FLAG",
+      "computed": {
+        "scale_ticket_kg": 12419.36,
+        "ops_notes_cargo_kg": 12031.43584,
+        "delta_kg": 387.92,
+        "delta_pct": 3.1235
+      },
+      "log_values": {
+        "matched_offload_row_id": "Rail_GPRX 5188_2.27.26_offload_4"
+      },
+      "note": "Scale ticket = 12419.36 kg; Ops Notes cargo = 12031.43584 kg; delta = 387.92 kg (3.1235%). Difference detected \u2014 route to LLM: is this the MIN( rule selecting BOL mass over scale, FC11 back-calc on a last offload, or a transcription error?"
+    },
+    {
+      "check_id": "bol_list_sum_vs_stated_total",
+      "materiality": "hygiene",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "bol_sum_MT": 78.02,
+        "bol_count": 3
+      },
+      "log_values": {
+        "total_railcar_loaded_MT": 78.02,
+        "individual_BOL_mass_MT": [
+          26.01,
+          26.0,
+          26.01
+        ]
+      },
+      "note": "\u03a3(BOLs) = 78.02 MT; stated total = 78.02 MT. Match."
+    },
+    {
+      "check_id": "railcar_inbound_outbound_balance",
+      "materiality": "mixed",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "inbound_kg": 78020.0,
+        "outbound_kg": 78020.0,
+        "loss_kg": 0.0,
+        "loss_pct": 0.0
+      },
+      "log_values": {
+        "bol_count": 3,
+        "offload_count": 4
+      },
+      "note": "Inbound = 78020.0 kg; outbound = 78020.0 kg; loss = 0.0 kg (0.0%). Within \u22645.0%."
+    },
+    {
+      "check_id": "last_offload_derivation",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "inbound_kg": 78020.0,
+        "prior_offload_sum_kg": 65988.56,
+        "expected_last_offload_kg": 12031.44,
+        "actual_last_offload_kg": 12031.43584,
+        "delta_kg": -0.0,
+        "delta_pct": 0.0
+      },
+      "log_values": {
+        "this_offload": "offload_4",
+        "last_row_id": "Rail_GPRX 5188_2.27.26_offload_4"
+      },
+      "note": "Expected = 12031.44 kg (= 78020.0 \u2212 65988.56); actual = 12031.43584 kg; delta = -0.0 kg (0.0%). Tolerance \u22640.5%."
+    },
+    {
+      "check_id": "cobb_offload_consistency",
+      "materiality": "hygiene",
+      "check_type": "policy",
+      "status": "FLAG",
+      "computed": {
+        "cobb_offloaded_kg": 12419.34896,
+        "ops_notes_cargo_kg": 12031.43584,
+        "delta_kg": 387.91,
+        "delta_pct": 3.1235
+      },
+      "log_values": {
+        "cobb_row_id_at_qa": "62",
+        "cobb_batch_id_col_a": "2-185",
+        "matched_offload_row_id": "Rail_GPRX 5188_2.27.26_offload_4"
+      },
+      "note": "COBB offloaded = 12419.34896 kg; Ops Notes cargo = 12031.43584 kg; delta = 387.91 kg (3.1235%). Tolerance \u22640.5%. Discrepancy detected \u2014 route to LLM for operational context (known correction lag vs. real error)."
+    }
+  ]
+}

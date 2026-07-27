@@ -1,9 +1,13 @@
 # macOS noise
 .DS_Store
 
-# Local Claude Code config — contains machine-specific symlinks and may hold
-# auth tokens / session data. Never push this.
-.claude/
+# Local Claude Code config — selective.
+# Track project-portable pieces (settings.json, hooks/, auto-sync.sh) so they
+# ride with the repo. Ignore machine-specific symlinks under .claude/skills/
+# (they point to absolute paths that don't survive a machine move) and any
+# per-machine settings overrides.
+.claude/skills/
+.claude/settings.local.json
 
 # Microsoft Office lock/temp files (created while a doc is open)
 ~$*
@@ -11,3 +15,20 @@
 
 # LibreOffice / OpenOffice lock files
 .~lock.*
+
+# Playwright session cache (browser profile, downloads, traces — local-only,
+# regenerable, large)
+.playwright-mcp/
+
+# QA evidence screenshots — pointers to Certify, not deliverables. Regenerable
+# from a re-run. Keep them local to avoid bloating the repo.
+outputs/**/screenshots/
+
+# Loose binary captures or scrapes that somehow land at the workspace root
+# (the workspace_hygiene_guard hook should prevent this, but belt-and-suspenders
+# in case the hook is ever disabled). Subfolders are NOT affected.
+/*.png
+/*.jpg
+/*.jpeg
+/*.yml
+/*.yaml

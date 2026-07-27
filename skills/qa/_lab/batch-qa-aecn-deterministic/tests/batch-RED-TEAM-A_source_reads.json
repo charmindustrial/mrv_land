@@ -1,0 +1,77 @@
+{
+  "_schema_version": "1.0",
+  "_red_team": true,
+  "_red_team_notes": "Synthetic test file — 6 deliberate errors injected. DO NOT USE FOR PRODUCTION QA.",
+  "_injected_errors": {
+    "scale_ticket_subtraction": "computed_net_lb=43600 but 81240-37800=43440 (wrong by 160 lb)",
+    "bol_list_sum_vs_stated_total": "BOLs sum to 78.5 MT but total_railcar_loaded_MT=78.0",
+    "scale_ticket_vs_ops_notes_offload": "computed_net_kg=19792.61 (from wrong lb) vs offload_4 cargo=19500 (1.48% delta, policy FLAG)",
+    "railcar_inbound_outbound_balance": "offload sum=79500 kg > BOL inbound=78500 kg (IMPOSSIBLE)",
+    "last_offload_derivation": "offload_4 cargo=19500 but expected=78500-60000=18500 (5.13% error)",
+    "cobb_offload_consistency": "COBB offloaded=18200 vs ops cargo=19500 (6.67% delta, policy FLAG)"
+  },
+  "batch_id": "RED-TEAM-A",
+  "oil_type": "AECN",
+  "delivery_mode": "rail",
+  "injection_site": "Basco 6 LA",
+  "reporting_period": "May 2026",
+  "completion_date": "2026-05-15",
+
+  "offload": "offload_4",
+
+  "railcar": {
+    "id": "GPRX 9999",
+    "offload_number": 4,
+    "is_last_offload": true
+  },
+
+  "scale_tickets": {
+    "full_ticket": {
+      "filename": "RED_TEAM_full_ticket.jpg",
+      "ticket_number": "RT-FULL-001",
+      "date": "2026-05-10",
+      "scale_location": "Test Facility Scale",
+      "tractor": "T-999",
+      "trailer": "TR-999",
+      "gross_weight_lb": 81240
+    },
+    "empty_ticket": {
+      "filename": "RED_TEAM_empty_ticket.jpg",
+      "ticket_number": "RT-EMPTY-001",
+      "date": "2026-05-10",
+      "scale_location": "Test Facility Scale",
+      "tractor": "T-999",
+      "trailer": "TR-999",
+      "gross_weight_lb": 37800
+    },
+    "computed_net_lb": 43600,
+    "computed_net_kg": 19792.61
+  },
+
+  "ops_notes": {
+    "filename": "RED_TEAM_ops_notes.docx",
+    "drive_file_id": "red-team-fake-drive-id",
+    "bols_into_railcar": [
+      {"number": "BOL-RT-001", "mass_MT": 26.1},
+      {"number": "BOL-RT-002", "mass_MT": 25.9},
+      {"number": "BOL-RT-003", "mass_MT": 26.5}
+    ],
+    "total_railcar_loaded_MT": 78.0,
+    "offload_table": [
+      {"id": "Rail_GPRX9999_2026_offload_1", "cargo_kg": 20000},
+      {"id": "Rail_GPRX9999_2026_offload_2", "cargo_kg": 20500},
+      {"id": "Rail_GPRX9999_2026_offload_3", "cargo_kg": 19500},
+      {"id": "Rail_GPRX9999_2026_offload_4", "cargo_kg": 19500}
+    ]
+  },
+
+  "cobb": {
+    "row_id_at_qa": "47",
+    "batch_id_col_a": "RED-TEAM-A",
+    "offloaded_quantity_kg": 18200,
+    "consumed_lot": "Rail_GPRX9999_2026_offload_4",
+    "order_line_quantity_completed_kg": 18200,
+    "origin_quantity_kg_full_railcar": 79500,
+    "injection_completion_date": "2026-05-15"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "_schema_version": "1.0-normalized",
+  "batch_id": "2-187",
+  "oil_type": "AECN",
+  "delivery_mode": "rail",
+  "railcar": "TIMX201060",
+  "injection_site": "",
+  "offload": "offload_2",
+  "scale_tickets": {
+    "full_ticket": {
+      "gross_weight_lb": 77900
+    },
+    "empty_ticket": {
+      "gross_weight_lb": 29980
+    },
+    "computed_net_lb": 47920,
+    "computed_net_kg": 21736.12864
+  },
+  "ops_notes": {
+    "bols_into_railcar": [
+      {
+        "mass_MT": 26.05
+      },
+      {
+        "mass_MT": 29.06
+      },
+      {
+        "mass_MT": 25.5
+      }
+    ],
+    "total_railcar_loaded_MT": 80.61,
+    "offload_table": [
+      {
+        "id": "Rail_TIMX201060_2.27.26_redo_offload_1",
+        "cargo_kg": 21854.06256
+      },
+      {
+        "id": "Rail_TIMX201060_2.27.26_redo_offload_2",
+        "cargo_kg": 21736.12864
+      },
+      {
+        "id": "(empty)",
+        "cargo_kg": null
+      },
+      {
+        "id": "(empty)",
+        "cargo_kg": null
+      }
+    ]
+  },
+  "cobb": {
+    "row_id_at_qa": "64",
+    "batch_id_col_a": "2-187",
+    "offloaded_quantity_kg": 21736.12864
+  }
+}

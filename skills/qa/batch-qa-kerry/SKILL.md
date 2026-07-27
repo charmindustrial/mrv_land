@@ -44,14 +44,17 @@ If you cannot find the Knowledge Base, tell Max and ask where it is. Do not proc
 
 ## What You Need to Begin
 
-Max will provide:
+Max will provide three things:
 1. **Batch ID** — Kerry batch identifier
-2. **Reporting period** — date range
-3. **Certify removal URL** — link to the Isometric registry removal page
-4. **Drive folder URL** — link to the batch's Google Drive folder
-5. **COBB row** — (optional) which row in the Bio-oil Injection Tracker
+2. **Certify removal URL** — link to the Isometric registry removal page
+3. **Drive folder URL** — link to the batch's Google Drive folder
 
-If any of 1–4 are missing, ask before proceeding. Do not guess.
+If any of these is missing, ask before proceeding. Do not guess.
+
+**Derive everything else:**
+- **Reporting period** → from the Certify removal date (read at Gate 1).
+- **COBB row** → search the `Basco Injection -- COBB` tab by cell A = batch ID (ROW VERIFICATION GATE in Gate 1, item 5).
+- **Delivery mode (tote vs tanker)** → detect from Drive contents at Gate 1 (see Detect delivery mode below).
 
 **Confirm Kerry:** If Max doesn't specify the oil type, confirm the batch is Kerry-only before proceeding.
 
@@ -164,43 +167,77 @@ If ANY category is missing or ANY mandatory field is absent, Gate 1 is NOT compl
 **Work:**
 1. Apply final formatting per the Formatting Specification below
 2. Run a final verification pass on status counts
-3. Save the checklist to the MRV Expert workspace folder (`outputs/qa/batch-K-[ID]/`)
+3. Save the checklist to the MRV Expert workspace folder (`outputs/qa/batch-[ID]/`)
 4. Deliver to Max via the Slack Workflow below
-5. **Record `T_final` and log token cost.** Run `date -u +%Y-%m-%dT%H:%M:%SZ`, write to `outputs/qa/batch-K-[ID]/batch_timestamps.json` under `T_final_max_delivery`. Then run `python3 skills/qa/batch-qa/scripts/compute_batch_token_cost.py [ID] --write-summary` (reused from AECN skill).
+5. **Record `T_final` and log token cost.** Run `date -u +%Y-%m-%dT%H:%M:%SZ`, write to `outputs/qa/batch-[ID]/batch_timestamps.json` under `T_final_max_delivery`. Then run `python3 skills/qa/batch-qa-aecn/scripts/compute_batch_token_cost.py [ID] --write-summary` (reused from AECN skill).
 
 **Exit condition:** Checklist delivered to Max. Performance monitor triggered. `token_cost.json` exists for the batch.
 
 ---
 
-## Checklist Structure
+## Checklist Structure (Kerry Tote Mode — Max's Question Framework)
 
-The checklist is an .xlsx file with these sections. Read `references/checklist_structure.md` for the complete item-by-item specification.
+**Authoritative template:** `templates/build_kerry_checklist.py` in this skill directory. Caller passes `findings` dict (item_id → {status, evidence, ref}) and `sidebar` list to the `build_kerry_checklist()` function; the template applies canonical structure, formatting (FAIL red / FLAG yellow / N/A gray italic / PASS no fill), and saves the xlsx.
 
-**Header fields:** Batch ID, Reporting Period, Reviewer (Claude QA Agent), Date, Injection Site (Basco 6), Oil Type: Kerry, Delivery Mode: Tote / Tanker
+The checklist follows Max's actual QA question framework for Kerry tote-mode batches (Max Slack 2026-05-06). When Charm moves Kerry to tankers, this will largely mirror AECN tanker QA — same mass-of-load and per-leg checks — except no biomass-sourcing or conversion emissions (waste boundary).
 
-**Sections:**
-1. Batch Folder Completeness (items 1.1–1.4)
-2. Mass Quantification (items 2.1–2.5) — mode-dependent items
-3. Bills of Lading & Transportation (items 3.1–3.4)
-4. Bio-Oil Composition & Testing (items 4.1–4.3)
-5. Ops Notes Accuracy & Internal Consistency (items 5.1–5.4)
-6. Gross-to-Net Calculation (items 6.1–6.3)
-6a. Per-Component Uncertainty Verification (items 6a.1–6a.3)
-7. Data Integrity & Anomaly Check (items 7.1–7.2)
-8. Isometric Certify — Removal Component Mapping (items 8.1–8.5)
+**Header fields:** Batch ID, Reporting Period, Reviewer, Date, Injection Site (Basco 6), Oil Type (Kerry), Delivery Mode (Tote / Tanker), Certify Removal ID.
+
+**Sections (canonical 19 items + sidebar):**
+
+**Section 1: Injection Sequestration** (7 items)
+- 1.1 Does the C content match the weighted average of tote C contents?
+- 1.2 Does the C content have sources that validate all C contents reported?
+- 1.3 Is uncertainty quantified and reported correctly for the C content?
+- 1.4 Does the Mass of Injectate match the "Total Oil Injected" value in Ops Notes?
+- 1.5 Is the "Total Oil Injected" value in Ops Notes correctly computed?
+- 1.6 Is the uncertainty quantified and reported correctly for the Mass of Injectate?
+- 1.7 Is the "Total Oil Injected" value evidenced properly (evidence value confirms reported value)?
+
+**Section 2A: Transport Emissions (Kerry → Basco) — Process** (7 items)
+- 2A.1 Is the emission factor correct and up to date?
+- 2A.2 Is the emission factor evidenced appropriately (evidence value confirms reported value)?
+- 2A.3 Is the correct distance being used for the Kerry origin → Basco route?
+- 2A.4 Is the distance evidenced appropriately (evidence value confirms reported value)?
+- 2A.5 Does the Mass of Load match the "Total Transported" value in Ops Notes?
+- 2A.6 Is the "Total Transported" value in Ops Notes computed correctly?
+- 2A.7 Is the uncertainty quantified and reported correctly for the "Total Transported"?
+
+**Section 2B: Transport Emissions (Kerry → Basco) — Embodied** (4 items)
+- 2B.1 Is the emission factor correct and up to date?
+- 2B.2 Is the emission factor evidenced appropriately (evidence value confirms reported value)?
+- 2B.3 Is the correct distance being used for the Kerry origin → Basco route?
+- 2B.4 Is the distance evidenced appropriately (evidence value confirms reported value)?
+
+**Section 2C: BCUs vs Transport Process Emissions** (1 item)
+- 2C.1 Does the total BCUs applied match the total transport process emissions?
+
+**Section 3: MRV Parameter Checks** (6 items, modeled on AECN Sections 4+5.5/5.7 — added 2026-05-06)
+- 3.1 Are per-tote densities reported and above the formation-fluid injection floor (1.01 g/cm³)? Any within-batch outliers flagged?
+- 3.2 Are per-tote hydrogen contents reported and within expected range?
+- 3.3 Are per-tote nitrogen contents reported and within expected range?
+- 3.4 Are per-tote viscosities reported?
+- 3.5 Are per-tote acid numbers reported?
+- 3.6 Is pH recorded (Ops Notes or COBB) and within expected range for bio-oil?
+
+**Sidebar Observations:** any out-of-frame system-boundary checks, density anomalies, or process hygiene flags that don't fit the 19-item structure go in a sidebar block at the end with no Pass/Fail status — just a flagged-for-attention listing for Garrett.
 
 **Columns:**
 - **A:** Item number
-- **B:** Check item description
+- **B:** Question (verbatim from Max's framework)
 - **C:** Status (Pass / Fail / Flag / N/A)
-- **D:** Notes / Evidence (specific values from specific sources, with `[log:KEY]` citation)
-- **E:** Verifier Reference
+- **D:** Evidence / Finding (specific values from specific sources, with `[log:KEY]` citation)
+- **E:** Reference
 
-**Kerry-specific N/A patterns (no upstream components in scope):**
-- AECN-style Section 6 (Feedstock Emissions & Allocation): not present in Kerry checklist — section index goes 1, 2, 3, 4, 5, 6 (Gross-to-Net), 6a, 7, 8.
-- Sparging deduction: not part of Kerry credit math (Kerry enters un-sparged).
-- Counterfactual emissions component: expected zero (not "non-zero with CC scenario"). If Certify shows a Kerry counterfactual ≠ 0, FAIL.
-- Density (Ops Notes Batch Composition): convention TBD — leave as PASS-or-FLAG-with-note until Garrett confirms.
+**Kerry tote-mode operational realities (skill-spec corrections per Max 2026-05-06):**
+- Totes do NOT come with BOLs. Don't expect BOL evidence for Kerry tote shipments.
+- Weighing date, location, scale ID, carrier name, tractor/trailer/driver IDs have NEVER been included in Charm Ops Notes — for AECN OR Kerry. Don't import these as expected fields.
+- Ops Notes "Gross Tote Weight" is the per-tote oil mass as reported by the Kerry supplier; Net = injected; Leftover = residue oil staying in tote post-offload.
+- Tare column SHOULD exist in Ops Notes (currently missing from K-002 sheet — flag to Garrett).
+- Sparging deduction does NOT apply to Kerry (Kerry enters un-sparged).
+- Counterfactual = 0 (waste boundary excludes upstream entirely).
+- No upstream production components in Certify (waste boundary).
+- Injection-site emissions amortized at GHG-statement level (Project emissions section), not per-batch.
 
 ## Status Definitions
 
@@ -225,7 +262,9 @@ The checklist is an .xlsx file with these sections. Read `references/checklist_s
 
 ## Citation Discipline (MANDATORY)
 
-Same as AECN skill — see `skills/qa/batch-qa/SKILL.md` Citation Discipline section. Every PASS / FAIL / FLAG status must cite a `[log:KEY]` from `batch_[ID]_source_reads.json`. Adversarial review is log-driven (no hypotheticals). "Blocking" requires three enumerated tooling-path attempts. The pre-delivery audit script (`skills/qa/batch-qa/scripts/audit_checklist.py`, reused) catches gaps.
+Same as AECN skill — see `skills/qa/batch-qa-aecn/SKILL.md` Citation Discipline section. Every PASS / FAIL / FLAG status must cite a `[log:KEY]` from `batch_[ID]_source_reads.json`. Adversarial review is log-driven (no hypotheticals). "Blocking" requires three enumerated tooling-path attempts. The pre-delivery audit script (`skills/qa/batch-qa-aecn/scripts/audit_checklist.py`, reused) catches gaps.
+
+**STRUCTURAL evidence-attachment gate (MANDATORY, all oil types).** The reused `audit_checklist.py` now also runs `audit_attachments.py`, which FAILS the audit (Gate 4 not complete) unless (a) `certify.attachment_map` is captured in the source-read log (each datapoint → its sources actually linked in Certify, read from the Sources tab), and (b) every component has its required evidence attached. Kerry has **no validated matrix yet** — so the gate will refuse to pass until you define `certify.required_evidence` for the batch from its ACTUAL components (do not guess), e.g. `{"Mass of Injectant": ["scale_ticket","ops_notes"], ...}` per Kerry's transport+injection scope. Build it from the first real Kerry batch; once validated, register it in `audit_attachments.MATRICES["KERRY"]`.
 
 ## Formatting Specification
 
@@ -233,9 +272,9 @@ Same as AECN skill — see `skills/qa/batch-qa/SKILL.md` Citation Discipline sec
 - FLAG rows: Yellow fill (#FFF2CC) across all columns, dark gold font (#996600)
 - PASS rows: No fill (default/white)
 - N/A rows: Gray italic, no fill
-- Section headers: Preserve structural formatting (blue/yellow/green)
+- Section headers AND sub-section headers: ALL must use one neutral color **`#D6E4F0`** (light blue), across ALL columns. **Never yellow** (#FFF2CC conflicts with FLAG fill), **never green**, **never any second tone**. One color, every section, every sub-header. If a legacy template arrives with mixed section colors, normalize ALL section/sub-header rows to `#D6E4F0` before delivery. Status row colors (red FAIL / yellow FLAG / white PASS / gray N/A) are the ONLY semantic colors on the sheet.
 - Every new batch starts with NO fills carried over.
-- After applying formatting, audit EVERY cell to verify correctness.
+- After applying formatting, audit EVERY cell to verify correctness. Re-deliveries get the same normalization pass — a checklist that's scannable on first delivery but ambiguous on re-delivery is worse than one that's consistent throughout.
 
 ## Key Formulas & Values (Kerry)
 
@@ -320,6 +359,19 @@ Documents required by VR Appendix 1 (BOLs, billing documents) do NOT need to be 
 1. Check the batch Drive folder first
 2. If not found, check Certify Sources tab
 3. Only FLAG/FAIL if absent from BOTH locations
+
+## Workspace Hygiene — Screenshot & Scratch File Routing
+
+Every Playwright screenshot, Certify YAML scrape, image dump, or other binary capture taken during Kerry batch QA MUST be saved into the per-batch output folder. Never let captures land at the workspace root.
+
+- Screenshots → `outputs/qa/batch-<batch_id>/screenshots/<descriptive_name>.png`
+- YAML scrapes (Certify component dumps, datapoint exports) → `outputs/qa/batch-<batch_id>/<descriptive_name>.yml`
+
+Always pass an explicit `filename` to `mcp__playwright__browser_take_screenshot` with a path starting with `outputs/`. Bare filenames default to the cwd (workspace root) and are the cause of historical clutter. The `workspace_hygiene_guard.sh` PreToolUse hook will deny captures or PNG/YAML writes to the workspace root.
+
+If the `outputs/qa/batch-<batch_id>/screenshots/` folder doesn't exist yet, create it (`mkdir -p`) on first capture.
+
+**End-of-session check:** before delivering, run `ls *.png *.jpg *.yml *.yaml 2>/dev/null` from the workspace root. Expected output: empty. If anything appears, you wrote to the wrong path — move it into the per-batch folder before declaring done.
 
 ## Batch QA Slack Workflow
 

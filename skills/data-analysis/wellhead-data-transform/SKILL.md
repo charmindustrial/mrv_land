@@ -133,6 +133,8 @@ Standard notes to include (adapt as needed):
 
 **Tone and scope of notes:** Provide accurate, complete information. Do not volunteer information that is not required. Do not describe your investigation process, name Slack channels, or mention the absence of findings. State what happened, why, and whether it affects compliance. That's it.
 
+**Do not explain passing data.** If a compliance item passed — annular pressure stayed above 200 psig, surface pressure stayed below 455 psig, differential stayed above 50 psig — do not add a note explaining why the minimum or maximum was what it was. A verifier reading a pass result does not need to know why the minimum was 238 PSI rather than 350 PSI. Volunteering that context draws attention to a variance the verifier wasn't going to question and expands the audit surface for no reason. Notes belong on anomalies, sensor artifacts, and non-obvious data patterns that a verifier would otherwise flag — not on passing readings that speak for themselves.
+
 ### Step 7: Final Assembly
 
 The output Excel workbook should have this tab order:

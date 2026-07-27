@@ -1,0 +1,61 @@
+batch_id,check_id,check_type,materiality,script_status,checklist_has_issue,accuracy,note
+2-180,scale_ticket_subtraction,computation,material,PASS,False,TRUE_NEG,Computed: 79640 − 35800 = 43840 lb (19885.47 kg). Log: 43840 lb (19885.47 kg). Match.
+2-180,scale_ticket_vs_ops_notes_offload,computation,material,INSUFFICIENT_DATA,False,SKIP/INSUF,No offload_table row matching offload=None.
+2-180,bol_list_sum_vs_stated_total,computation,hygiene,SKIP,False,SKIP/INSUF,Not a railcar batch.
+2-180,railcar_inbound_outbound_balance,computation,mixed,SKIP,False,SKIP/INSUF,Not a railcar batch.
+2-180,last_offload_derivation,computation,material,SKIP,False,SKIP/INSUF,Not a railcar batch.
+2-180,cobb_offload_consistency,policy,hygiene,INSUFFICIENT_DATA,False,SKIP/INSUF,No offload_table row matching offload=None.
+2-184,scale_ticket_subtraction,computation,material,PASS,False,TRUE_NEG,Computed: 77900 − 29740 = 48160 lb (21844.99 kg). Log: 48160 lb (21844.99 kg). Match.
+2-184,scale_ticket_vs_ops_notes_offload,computation,material,PASS,False,TRUE_NEG,Scale ticket = 21844.99 kg; Ops Notes cargo = 21844.99 kg; delta = 0.0 kg (0.0%). Tolerance ≤0.5%.
+2-184,bol_list_sum_vs_stated_total,computation,hygiene,PASS,False,TRUE_NEG,Σ(BOLs) = 78.02 MT; stated total = 78.02 MT. Match.
+2-184,railcar_inbound_outbound_balance,computation,mixed,SKIP,False,SKIP/INSUF,Railcar not fully offloaded — one or more offload_table rows have cargo_kg of 0 or null (sister-batch backfill pending).
+2-184,last_offload_derivation,computation,material,SKIP,False,SKIP/INSUF,"This batch is offload_3, not the last offload (last = offload_4). Derivation rule does not apply."
+2-184,cobb_offload_consistency,policy,hygiene,FLAG,False,FALSE_POS,COBB offloaded = 21457.0776 kg; Ops Notes cargo = 21844.99 kg; delta = -387.91 kg (1.7757%). Tolerance ≤0.5%. Discrepanc
+2-185,scale_ticket_subtraction,computation,material,PASS,False,TRUE_NEG,Computed: 56660 − 29280 = 27380 lb (12419.35 kg). Log: 27380 lb (12419.36 kg). Match.
+2-185,scale_ticket_vs_ops_notes_offload,computation,material,FAIL,True,TRUE_POS,Scale ticket = 12419.36 kg; Ops Notes cargo = 12031.43584 kg; delta = 387.92 kg (3.1235%). Tolerance ≤0.5%.
+2-185,bol_list_sum_vs_stated_total,computation,hygiene,PASS,True,FALSE_NEG,Σ(BOLs) = 78.02 MT; stated total = 78.02 MT. Match.
+2-185,railcar_inbound_outbound_balance,computation,mixed,PASS,False,TRUE_NEG,Inbound = 78020.0 kg; outbound = 78020.0 kg; loss = 0.0 kg (0.0%). Within ≤5.0%.
+2-185,last_offload_derivation,computation,material,PASS,False,TRUE_NEG,Expected = 12031.44 kg (= 78020.0 − 65988.56); actual = 12031.43584 kg; delta = -0.0 kg (0.0%). Tolerance ≤0.5%.
+2-185,cobb_offload_consistency,policy,hygiene,FLAG,True,TRUE_POS,COBB offloaded = 12419.34896 kg; Ops Notes cargo = 12031.43584 kg; delta = 387.91 kg (3.1235%). Tolerance ≤0.5%. Discrep
+2-186,scale_ticket_subtraction,computation,material,PASS,False,TRUE_NEG,Computed: 77560 − 29380 = 48180 lb (21854.06 kg). Log: 48180 lb (21854.06256 kg). Match.
+2-186,scale_ticket_vs_ops_notes_offload,computation,material,PASS,True,FALSE_NEG,Scale ticket = 21854.06256 kg; Ops Notes cargo = 21854.06256 kg; delta = 0.0 kg (0.0%). Tolerance ≤0.5%.
+2-186,bol_list_sum_vs_stated_total,computation,hygiene,PASS,True,FALSE_NEG,Σ(BOLs) = 80.61 MT; stated total = 80.61 MT. Match.
+2-186,railcar_inbound_outbound_balance,computation,mixed,FLAG,True,TRUE_POS,Inbound = 80610.0 kg; outbound = 21854.06 kg; loss = 58755.94 kg (72.8891%). Loss exceeds 5.0% — operator should explain
+2-186,last_offload_derivation,computation,material,FAIL,True,TRUE_POS,Expected = 80610.0 kg (= 80610.0 − 0); actual = 21854.06256 kg; delta = -58755.94 kg (72.8891%). Tolerance ≤0.5%.
+2-186,cobb_offload_consistency,policy,hygiene,PASS,True,FALSE_NEG,COBB offloaded = 21854.06256 kg; Ops Notes cargo = 21854.06256 kg; delta = 0.0 kg (0.0%). Tolerance ≤0.5%. Match.
+2-187,scale_ticket_subtraction,computation,material,PASS,False,TRUE_NEG,Computed: 77900 − 29980 = 47920 lb (21736.13 kg). Log: 47920 lb (21736.12864 kg). Match.
+2-187,scale_ticket_vs_ops_notes_offload,computation,material,PASS,True,FALSE_NEG,Scale ticket = 21736.12864 kg; Ops Notes cargo = 21736.12864 kg; delta = 0.0 kg (0.0%). Tolerance ≤0.5%.
+2-187,bol_list_sum_vs_stated_total,computation,hygiene,PASS,True,FALSE_NEG,Σ(BOLs) = 80.61 MT; stated total = 80.61 MT. Match.
+2-187,railcar_inbound_outbound_balance,computation,mixed,SKIP,True,SKIP/INSUF,Railcar not fully offloaded — one or more offload_table rows have cargo_kg of 0 or null (sister-batch backfill pending).
+2-187,last_offload_derivation,computation,material,INSUFFICIENT_DATA,True,SKIP/INSUF,One or more prior offloads lack cargo_kg.
+2-187,cobb_offload_consistency,policy,hygiene,PASS,True,FALSE_NEG,COBB offloaded = 21736.12864 kg; Ops Notes cargo = 21736.12864 kg; delta = 0.0 kg (0.0%). Tolerance ≤0.5%. Match.
+2-191,scale_ticket_subtraction,computation,material,PASS,False,TRUE_NEG,Computed: 76780 − 29580 = 47200 lb (21409.54 kg). Log: 47200 lb (21409.5424 kg). Match.
+2-191,scale_ticket_vs_ops_notes_offload,computation,material,INSUFFICIENT_DATA,False,SKIP/INSUF,No offload_table row matching offload='offload_2'.
+2-191,bol_list_sum_vs_stated_total,computation,hygiene,INSUFFICIENT_DATA,True,SKIP/INSUF,ops_notes.bols_into_railcar is empty.
+2-191,railcar_inbound_outbound_balance,computation,mixed,INSUFFICIENT_DATA,False,SKIP/INSUF,BOL mass_MT values missing or empty.
+2-191,last_offload_derivation,computation,material,INSUFFICIENT_DATA,False,SKIP/INSUF,offload_table empty.
+2-191,cobb_offload_consistency,policy,hygiene,INSUFFICIENT_DATA,False,SKIP/INSUF,No offload_table row matching offload='offload_2'.
+2-192,scale_ticket_subtraction,computation,material,PASS,False,TRUE_NEG,Computed: 78660 − 29200 = 49460 lb (22434.66 kg). Log: 49460 lb (22434.66 kg). Match.
+2-192,scale_ticket_vs_ops_notes_offload,computation,material,PASS,False,TRUE_NEG,Scale ticket = 22434.66 kg; Ops Notes cargo = 22434.66032 kg; delta = -0.0 kg (0.0%). Tolerance ≤0.5%.
+2-192,bol_list_sum_vs_stated_total,computation,hygiene,PASS,True,FALSE_NEG,Σ(BOLs) = 77.27 MT; stated total = 77.27 MT. Match.
+2-192,railcar_inbound_outbound_balance,computation,mixed,SKIP,False,SKIP/INSUF,Railcar not fully offloaded — one or more offload_table rows have cargo_kg of 0 or null (sister-batch backfill pending).
+2-192,last_offload_derivation,computation,material,INSUFFICIENT_DATA,False,SKIP/INSUF,One or more prior offloads lack cargo_kg.
+2-192,cobb_offload_consistency,policy,hygiene,PASS,True,FALSE_NEG,COBB offloaded = 22434.66032 kg; Ops Notes cargo = 22434.66032 kg; delta = 0.0 kg (0.0%). Tolerance ≤0.5%. Match.
+2-199,scale_ticket_subtraction,computation,material,PASS,True,FALSE_NEG,Computed: 76740 − 35220 = 41520 lb (18833.14 kg). Log: 41520 lb (18833.14 kg). Match.
+2-199,scale_ticket_vs_ops_notes_offload,computation,material,INSUFFICIENT_DATA,True,SKIP/INSUF,No offload_table row matching offload=None.
+2-199,bol_list_sum_vs_stated_total,computation,hygiene,SKIP,True,SKIP/INSUF,Not a railcar batch.
+2-199,railcar_inbound_outbound_balance,computation,mixed,SKIP,False,SKIP/INSUF,Not a railcar batch.
+2-199,last_offload_derivation,computation,material,SKIP,True,SKIP/INSUF,Not a railcar batch.
+2-199,cobb_offload_consistency,policy,hygiene,INSUFFICIENT_DATA,True,SKIP/INSUF,No offload_table row matching offload=None.
+2-201,scale_ticket_subtraction,computation,material,PASS,False,TRUE_NEG,Computed: 83060 − 29200 = 53860 lb (24430.47 kg). Log: 53860 lb (24430.47 kg). Match.
+2-201,scale_ticket_vs_ops_notes_offload,computation,material,PASS,True,FALSE_NEG,Scale ticket = 24430.47 kg; Ops Notes cargo = 24430.46512 kg; delta = 0.0 kg (0.0%). Tolerance ≤0.5%.
+2-201,bol_list_sum_vs_stated_total,computation,hygiene,PASS,True,FALSE_NEG,Σ(BOLs) = 76.58 MT; stated total = 76.58 MT. Match.
+2-201,railcar_inbound_outbound_balance,computation,mixed,FLAG,False,FALSE_POS,Inbound = 76580.0 kg; outbound = 24430.47 kg; loss = 52149.53 kg (68.0981%). Loss exceeds 5.0% — operator should explain
+2-201,last_offload_derivation,computation,material,FAIL,True,TRUE_POS,Expected = 76580.0 kg (= 76580.0 − 0); actual = 24430.46512 kg; delta = -52149.53 kg (68.0981%). Tolerance ≤0.5%.
+2-201,cobb_offload_consistency,policy,hygiene,FLAG,True,TRUE_POS,COBB offloaded = 19145.0 kg; Ops Notes cargo = 24430.46512 kg; delta = -5285.47 kg (21.6347%). Tolerance ≤0.5%. Discrepa
+2-204,scale_ticket_subtraction,computation,material,PASS,True,FALSE_NEG,Computed: 41660 − 28860 = 12800 lb (5805.98 kg). Log: 12800 lb (5805.98 kg). Match.
+2-204,scale_ticket_vs_ops_notes_offload,computation,material,PASS,True,FALSE_NEG,Scale ticket = 5805.98 kg; Ops Notes cargo = 5805.9776 kg; delta = 0.0 kg (0.0%). Tolerance ≤0.5%.
+2-204,bol_list_sum_vs_stated_total,computation,hygiene,PASS,True,FALSE_NEG,Σ(BOLs) = 76.58 MT; stated total = 76.58 MT. Match.
+2-204,railcar_inbound_outbound_balance,computation,mixed,FLAG,True,TRUE_POS,Inbound = 76580.0 kg; outbound = 30236.44 kg; loss = 46343.56 kg (60.5165%). Loss exceeds 5.0% — operator should explain
+2-204,last_offload_derivation,computation,material,FAIL,True,TRUE_POS,Expected = 52149.53 kg (= 76580.0 − 24430.47); actual = 5805.9776 kg; delta = -46343.55 kg (88.8667%). Tolerance ≤0.5%.
+2-204,cobb_offload_consistency,policy,hygiene,PASS,True,FALSE_NEG,COBB offloaded = 5805.9776 kg; Ops Notes cargo = 5805.9776 kg; delta = 0.0 kg (0.0%). Tolerance ≤0.5%. Match.

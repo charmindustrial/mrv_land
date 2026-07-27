@@ -1,0 +1,4578 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e4]:
+      - generic [ref=e8]:
+        - generic [ref=e9]:
+          - link "Isometric Registry" [ref=e11] [cursor=pointer]:
+            - /url: /
+            - img [ref=e13]
+          - generic [ref=e26]:
+            - link "Registry" [ref=e27] [cursor=pointer]:
+              - /url: /
+            - link "Suppliers" [ref=e28] [cursor=pointer]:
+              - /url: /suppliers
+            - link "Protocols" [ref=e29] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e31]:
+          - generic [ref=e94]:
+            - link "Account" [ref=e95] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=e96] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=e97]: "|"
+          - button "Current user menu" [ref=e98] [cursor=pointer]:
+            - generic [ref=e99]: Menu
+            - img [ref=e100]
+    - main [ref=e36]:
+      - generic [ref=e104]:
+        - generic [ref=e107]:
+          - generic [ref=e108]: There is a more recent version of this standard - view it for the latest updates.
+          - link "View v2.1→" [ref=e110] [cursor=pointer]:
+            - /url: /standard/2.1
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - heading "Isometric Standard" [level=1] [ref=e115]
+            - generic [ref=e118]: The Isometric Standard lists the requirements that ensure delivered tonnes have measurable climate impact. Tonnes must be additional and calculated using the latest scientific techniques. These tonnes must also include a scientifically robust uncertainty quantification.
+          - generic [ref=e120]:
+            - button "v1.9" [ref=e123] [cursor=pointer]:
+              - generic [ref=e124]: v1.9
+              - img [ref=e126]
+            - generic [ref=e128]:
+              - button "Copy Link" [ref=e129] [cursor=pointer]:
+                - img [ref=e130]
+              - button "Download" [ref=e133] [cursor=pointer]:
+                - img [ref=e134]
+      - generic [ref=e137]:
+        - button [ref=e141] [cursor=pointer]:
+          - img [ref=e142]
+        - article [ref=e146]:
+          - generic [ref=e147]:
+            - heading "Contents" [level=2] [ref=e152]
+            - navigation [ref=e153]:
+              - list [ref=e154]:
+                - listitem [ref=e155]:
+                  - link "1 Introduction" [ref=e156] [cursor=pointer]:
+                    - /url: "#introduction"
+                    - generic [ref=e159]:
+                      - generic [ref=e160]: "1"
+                      - text: Introduction
+                  - list [ref=e161]:
+                    - listitem [ref=e162]:
+                      - link "1.1 Language guide" [ref=e163] [cursor=pointer]:
+                        - /url: "#language-guide"
+                        - generic [ref=e166]:
+                          - generic [ref=e167]: "1.1"
+                          - text: Language guide
+                    - listitem [ref=e168]:
+                      - link "1.2 Purpose and Principles" [ref=e169] [cursor=pointer]:
+                        - /url: "#purpose-and-principles"
+                        - generic [ref=e172]:
+                          - generic [ref=e173]: "1.2"
+                          - text: Purpose and Principles
+                      - list [ref=e174]:
+                        - listitem [ref=e175]:
+                          - link "1.2.1 Purpose" [ref=e176] [cursor=pointer]:
+                            - /url: "#purpose"
+                            - generic [ref=e179]:
+                              - generic [ref=e180]: 1.2.1
+                              - text: Purpose
+                        - listitem [ref=e181]:
+                          - link "1.2.2 Principles" [ref=e182] [cursor=pointer]:
+                            - /url: "#principles"
+                            - generic [ref=e185]:
+                              - generic [ref=e186]: 1.2.2
+                              - text: Principles
+                    - listitem [ref=e187]:
+                      - link "1.3 Scope" [ref=e188] [cursor=pointer]:
+                        - /url: "#scope"
+                        - generic [ref=e191]:
+                          - generic [ref=e192]: "1.3"
+                          - text: Scope
+                      - list [ref=e193]:
+                        - listitem [ref=e194]:
+                          - link "1.3.1 Project Type" [ref=e195] [cursor=pointer]:
+                            - /url: "#project-type"
+                            - generic [ref=e198]:
+                              - generic [ref=e199]: 1.3.1
+                              - text: Project Type
+                        - listitem [ref=e200]:
+                          - link "1.3.2 Geographic Scope" [ref=e201] [cursor=pointer]:
+                            - /url: "#geographic-scope"
+                            - generic [ref=e204]:
+                              - generic [ref=e205]: 1.3.2
+                              - text: Geographic Scope
+                        - listitem [ref=e206]:
+                          - link "1.3.3 Greenhouse Gas (GHG) Eligibility" [ref=e207] [cursor=pointer]:
+                            - /url: "#greenhouse-gas-ghg-eligibility"
+                            - generic [ref=e210]:
+                              - generic [ref=e211]: 1.3.3
+                              - text: Greenhouse Gas (GHG) Eligibility
+                        - listitem [ref=e212]:
+                          - link "1.3.4 Notable Exclusions" [ref=e213] [cursor=pointer]:
+                            - /url: "#notable-exclusions"
+                            - generic [ref=e216]:
+                              - generic [ref=e217]: 1.3.4
+                              - text: Notable Exclusions
+                    - listitem [ref=e218]:
+                      - link "1.4 Versioning" [ref=e219] [cursor=pointer]:
+                        - /url: "#versioning"
+                        - generic [ref=e222]:
+                          - generic [ref=e223]: "1.4"
+                          - text: Versioning
+                    - listitem [ref=e224]:
+                      - link "1.5 Citation" [ref=e225] [cursor=pointer]:
+                        - /url: "#citation"
+                        - generic [ref=e228]:
+                          - generic [ref=e229]: "1.5"
+                          - text: Citation
+                - listitem [ref=e230]:
+                  - link "2 Protocol Requirements" [ref=e231] [cursor=pointer]:
+                    - /url: "#protocol-requirements"
+                    - generic [ref=e234]:
+                      - generic [ref=e235]: "2"
+                      - text: Protocol Requirements
+                  - list [ref=e236]:
+                    - listitem [ref=e237]:
+                      - link "2.1 Protocol Certification Process" [ref=e238] [cursor=pointer]:
+                        - /url: "#protocol-certification-process"
+                        - generic [ref=e241]:
+                          - generic [ref=e242]: "2.1"
+                          - text: Protocol Certification Process
+                    - listitem [ref=e243]:
+                      - link "2.2 Modular Framework" [ref=e244] [cursor=pointer]:
+                        - /url: "#modular-framework"
+                        - generic [ref=e247]:
+                          - generic [ref=e248]: "2.2"
+                          - text: Modular Framework
+                    - listitem [ref=e249]:
+                      - link "2.3 Consultation Requirements" [ref=e250] [cursor=pointer]:
+                        - /url: "#consultation-requirements"
+                        - generic [ref=e253]:
+                          - generic [ref=e254]: "2.3"
+                          - text: Consultation Requirements
+                    - listitem [ref=e255]:
+                      - link "2.4 Updates to Protocols" [ref=e256] [cursor=pointer]:
+                        - /url: "#updates-to-protocols"
+                        - generic [ref=e259]:
+                          - generic [ref=e260]: "2.4"
+                          - text: Updates to Protocols
+                      - list [ref=e261]:
+                        - listitem [ref=e262]:
+                          - link "2.4.1 Protocol update schedule" [ref=e263] [cursor=pointer]:
+                            - /url: "#protocol-update-schedule"
+                            - generic [ref=e266]:
+                              - generic [ref=e267]: 2.4.1
+                              - text: Protocol update schedule
+                        - listitem [ref=e268]:
+                          - link "2.4.2 Impact of Protocol updates on Projects and Credits" [ref=e269] [cursor=pointer]:
+                            - /url: "#impact-of-protocol-updates-on-projects-and-credits"
+                            - generic [ref=e272]:
+                              - generic [ref=e273]: 2.4.2
+                              - text: Impact of Protocol updates on Projects and Credits
+                        - listitem [ref=e274]:
+                          - link "2.4.3 Protocol update materiality" [ref=e275] [cursor=pointer]:
+                            - /url: "#protocol-update-materiality"
+                            - generic [ref=e278]:
+                              - generic [ref=e279]: 2.4.3
+                              - text: Protocol update materiality
+                        - listitem [ref=e280]:
+                          - link "2.4.4 Protocol version number" [ref=e281] [cursor=pointer]:
+                            - /url: "#protocol-version-number"
+                            - generic [ref=e284]:
+                              - generic [ref=e285]: 2.4.4
+                              - text: Protocol version number
+                        - listitem [ref=e286]:
+                          - link "2.4.5 Protocol adoption requirements" [ref=e287] [cursor=pointer]:
+                            - /url: "#protocol-adoption-requirements"
+                            - generic [ref=e290]:
+                              - generic [ref=e291]: 2.4.5
+                              - text: Protocol adoption requirements
+                        - listitem [ref=e292]:
+                          - link "2.4.6 Protocol backward compatibility mechanisms" [ref=e293] [cursor=pointer]:
+                            - /url: "#protocol-backward-compatibility-mechanisms"
+                            - generic [ref=e296]:
+                              - generic [ref=e297]: 2.4.6
+                              - text: Protocol backward compatibility mechanisms
+                    - listitem [ref=e298]:
+                      - link "2.5 Protocol Contents" [ref=e299] [cursor=pointer]:
+                        - /url: "#protocol-contents"
+                        - generic [ref=e302]:
+                          - generic [ref=e303]: "2.5"
+                          - text: Protocol Contents
+                      - list [ref=e304]:
+                        - listitem [ref=e305]:
+                          - link "2.5.1 Boundaries" [ref=e306] [cursor=pointer]:
+                            - /url: "#boundaries"
+                            - generic [ref=e309]:
+                              - generic [ref=e310]: 2.5.1
+                              - text: Boundaries
+                        - listitem [ref=e311]:
+                          - link "2.5.2 Baselines" [ref=e312] [cursor=pointer]:
+                            - /url: "#baselines"
+                            - generic [ref=e315]:
+                              - generic [ref=e316]: 2.5.2
+                              - text: Baselines
+                        - listitem [ref=e317]:
+                          - link "2.5.3 Additionality" [ref=e318] [cursor=pointer]:
+                            - /url: "#additionality"
+                            - generic [ref=e321]:
+                              - generic [ref=e322]: 2.5.3
+                              - text: Additionality
+                          - list [ref=e323]:
+                            - listitem [ref=e324]:
+                              - link "2.5.3.1 Common Practice Analysis" [ref=e325] [cursor=pointer]:
+                                - /url: "#common-practice-analysis"
+                                - generic [ref=e328]:
+                                  - generic [ref=e329]: 2.5.3.1
+                                  - text: Common Practice Analysis
+                              - list [ref=e330]:
+                                - listitem [ref=e331]:
+                                  - link "2.5.3.1.1 (i) Method for assessing Common Practice for distributed technologies" [ref=e332] [cursor=pointer]:
+                                    - /url: "#i-method-for-assessing-common-practice-for-distributed-technologies"
+                                    - generic [ref=e335]:
+                                      - generic [ref=e336]: 2.5.3.1.1
+                                      - text: (i) Method for assessing Common Practice for distributed technologies
+                                - listitem [ref=e337]:
+                                  - link "2.5.3.1.2 (ii) Method for assessing Common Practice for discrete facilities" [ref=e338] [cursor=pointer]:
+                                    - /url: "#ii-method-for-assessing-common-practice-for-discrete-facilities"
+                                    - generic [ref=e341]:
+                                      - generic [ref=e342]: 2.5.3.1.2
+                                      - text: (ii) Method for assessing Common Practice for discrete facilities
+                            - listitem [ref=e343]:
+                              - link "2.5.3.2 Financial Additionality Considerations" [ref=e344] [cursor=pointer]:
+                                - /url: "#financial-additionality-considerations"
+                                - generic [ref=e347]:
+                                  - generic [ref=e348]: 2.5.3.2
+                                  - text: Financial Additionality Considerations
+                            - listitem [ref=e349]:
+                              - link "2.5.3.3 Regulatory and Policy Additionality Considerations" [ref=e350] [cursor=pointer]:
+                                - /url: "#regulatory-and-policy-additionality-considerations"
+                                - generic [ref=e353]:
+                                  - generic [ref=e354]: 2.5.3.3
+                                  - text: Regulatory and Policy Additionality Considerations
+                        - listitem [ref=e355]:
+                          - link "2.5.4 Leakage" [ref=e356] [cursor=pointer]:
+                            - /url: "#leakage"
+                            - generic [ref=e359]:
+                              - generic [ref=e360]: 2.5.4
+                              - text: Leakage
+                        - listitem [ref=e361]:
+                          - link "2.5.5 Default Emission Factors, Proxies and Models" [ref=e362] [cursor=pointer]:
+                            - /url: "#default-emission-factors-proxies-and-models"
+                            - generic [ref=e365]:
+                              - generic [ref=e366]: 2.5.5
+                              - text: Default Emission Factors, Proxies and Models
+                          - list [ref=e367]:
+                            - listitem [ref=e368]:
+                              - link "2.5.5.1 Default Emission Factors" [ref=e369] [cursor=pointer]:
+                                - /url: "#default-emission-factors"
+                                - generic [ref=e372]:
+                                  - generic [ref=e373]: 2.5.5.1
+                                  - text: Default Emission Factors
+                            - listitem [ref=e374]:
+                              - link "2.5.5.2 Proxies" [ref=e375] [cursor=pointer]:
+                                - /url: "#proxies"
+                                - generic [ref=e378]:
+                                  - generic [ref=e379]: 2.5.5.2
+                                  - text: Proxies
+                            - listitem [ref=e380]:
+                              - link "2.5.5.3 Models" [ref=e381] [cursor=pointer]:
+                                - /url: "#models"
+                                - generic [ref=e384]:
+                                  - generic [ref=e385]: 2.5.5.3
+                                  - text: Models
+                        - listitem [ref=e386]:
+                          - link "2.5.6 Common Calculation Factors" [ref=e387] [cursor=pointer]:
+                            - /url: "#common-calculation-factors"
+                            - generic [ref=e390]:
+                              - generic [ref=e391]: 2.5.6
+                              - text: Common Calculation Factors
+                        - listitem [ref=e392]:
+                          - link "2.5.7 Uncertainty in Removals" [ref=e393] [cursor=pointer]:
+                            - /url: "#uncertainty-in-removals"
+                            - generic [ref=e396]:
+                              - generic [ref=e397]: 2.5.7
+                              - text: Uncertainty in Removals
+                          - list [ref=e398]:
+                            - listitem [ref=e399]:
+                              - link "2.5.7.1 Conservative Estimate of Removals" [ref=e400] [cursor=pointer]:
+                                - /url: "#conservative-estimate-of-removals"
+                                - generic [ref=e403]:
+                                  - generic [ref=e404]: 2.5.7.1
+                                  - text: Conservative Estimate of Removals
+                            - listitem [ref=e405]:
+                              - link "2.5.7.2 Guidance on Conservative Estimate of Input Parameters" [ref=e406] [cursor=pointer]:
+                                - /url: "#guidance-on-conservative-estimate-of-input-parameters"
+                                - generic [ref=e409]:
+                                  - generic [ref=e410]: 2.5.7.2
+                                  - text: Guidance on Conservative Estimate of Input Parameters
+                            - listitem [ref=e411]:
+                              - link "2.5.7.3 Guidance on Variance Propagation" [ref=e412] [cursor=pointer]:
+                                - /url: "#guidance-on-variance-propagation"
+                                - generic [ref=e415]:
+                                  - generic [ref=e416]: 2.5.7.3
+                                  - text: Guidance on Variance Propagation
+                            - listitem [ref=e417]:
+                              - link "2.5.7.4 Guidance on Monte Carlo Simulations" [ref=e418] [cursor=pointer]:
+                                - /url: "#guidance-on-monte-carlo-simulations"
+                                - generic [ref=e421]:
+                                  - generic [ref=e422]: 2.5.7.4
+                                  - text: Guidance on Monte Carlo Simulations
+                            - listitem [ref=e423]:
+                              - link "2.5.7.5 Expert Reviews and Updates" [ref=e424] [cursor=pointer]:
+                                - /url: "#expert-reviews-and-updates"
+                                - generic [ref=e427]:
+                                  - generic [ref=e428]: 2.5.7.5
+                                  - text: Expert Reviews and Updates
+                        - listitem [ref=e429]:
+                          - link "2.5.8 Durability and Monitoring" [ref=e430] [cursor=pointer]:
+                            - /url: "#durability-and-monitoring"
+                            - generic [ref=e433]:
+                              - generic [ref=e434]: 2.5.8
+                              - text: Durability and Monitoring
+                          - list [ref=e435]:
+                            - listitem [ref=e436]:
+                              - link "2.5.8.1 Justification of Durability" [ref=e437] [cursor=pointer]:
+                                - /url: "#justification-of-durability"
+                                - generic [ref=e440]:
+                                  - generic [ref=e441]: 2.5.8.1
+                                  - text: Justification of Durability
+                            - listitem [ref=e442]:
+                              - link "2.5.8.2 Monitoring" [ref=e443] [cursor=pointer]:
+                                - /url: "#monitoring"
+                                - generic [ref=e446]:
+                                  - generic [ref=e447]: 2.5.8.2
+                                  - text: Monitoring
+                        - listitem [ref=e448]:
+                          - link "2.5.9 Risk of Reversal" [ref=e449] [cursor=pointer]:
+                            - /url: "#risk-of-reversal"
+                            - generic [ref=e452]:
+                              - generic [ref=e453]: 2.5.9
+                              - text: Risk of Reversal
+                        - listitem [ref=e454]:
+                          - link "2.5.10 GHG Statement Policies" [ref=e455] [cursor=pointer]:
+                            - /url: "#ghg-statement-policies"
+                            - generic [ref=e458]:
+                              - generic [ref=e459]: 2.5.10
+                              - text: GHG Statement Policies
+                        - listitem [ref=e460]:
+                          - link "2.5.11 Applicability" [ref=e461] [cursor=pointer]:
+                            - /url: "#applicability"
+                            - generic [ref=e464]:
+                              - generic [ref=e465]: 2.5.11
+                              - text: Applicability
+                - listitem [ref=e466]:
+                  - link "3 Project Requirements" [ref=e467] [cursor=pointer]:
+                    - /url: "#project-requirements"
+                    - generic [ref=e470]:
+                      - generic [ref=e471]: "3"
+                      - text: Project Requirements
+                  - list [ref=e472]:
+                    - listitem [ref=e473]:
+                      - link "3.1 Ownership" [ref=e474] [cursor=pointer]:
+                        - /url: "#ownership"
+                        - generic [ref=e477]:
+                          - generic [ref=e478]: "3.1"
+                          - text: Ownership
+                    - listitem [ref=e479]:
+                      - link "3.2 Documentation" [ref=e480] [cursor=pointer]:
+                        - /url: "#documentation"
+                        - generic [ref=e483]:
+                          - generic [ref=e484]: "3.2"
+                          - text: Documentation
+                    - listitem [ref=e485]:
+                      - link "3.3 Eligibility" [ref=e486] [cursor=pointer]:
+                        - /url: "#eligibility"
+                        - generic [ref=e489]:
+                          - generic [ref=e490]: "3.3"
+                          - text: Eligibility
+                    - listitem [ref=e491]:
+                      - link "3.4 Project Crediting" [ref=e492] [cursor=pointer]:
+                        - /url: "#project-crediting"
+                        - generic [ref=e495]:
+                          - generic [ref=e496]: "3.4"
+                          - text: Project Crediting
+                    - listitem [ref=e497]:
+                      - link "3.5 Stakeholder Input Process" [ref=e498] [cursor=pointer]:
+                        - /url: "#stakeholder-input-process"
+                        - generic [ref=e501]:
+                          - generic [ref=e502]: "3.5"
+                          - text: Stakeholder Input Process
+                    - listitem [ref=e503]:
+                      - link "3.6 Regulatory Compliance" [ref=e504] [cursor=pointer]:
+                        - /url: "#regulatory-compliance"
+                        - generic [ref=e507]:
+                          - generic [ref=e508]: "3.6"
+                          - text: Regulatory Compliance
+                    - listitem [ref=e509]:
+                      - link "3.7 Environmental and Social Impacts" [ref=e510] [cursor=pointer]:
+                        - /url: "#environmental-and-social-impacts"
+                        - generic [ref=e513]:
+                          - generic [ref=e514]: "3.7"
+                          - text: Environmental and Social Impacts
+                      - list [ref=e515]:
+                        - listitem [ref=e516]:
+                          - link "3.7.1 Environmental Impacts" [ref=e517] [cursor=pointer]:
+                            - /url: "#environmental-impacts"
+                            - generic [ref=e520]:
+                              - generic [ref=e521]: 3.7.1
+                              - text: Environmental Impacts
+                        - listitem [ref=e522]:
+                          - link "3.7.2 Social Impacts" [ref=e523] [cursor=pointer]:
+                            - /url: "#social-impacts"
+                            - generic [ref=e526]:
+                              - generic [ref=e527]: 3.7.2
+                              - text: Social Impacts
+                        - listitem [ref=e528]:
+                          - link "3.7.3 Sustainable Development Impacts" [ref=e529] [cursor=pointer]:
+                            - /url: "#sustainable-development-impacts"
+                            - generic [ref=e532]:
+                              - generic [ref=e533]: 3.7.3
+                              - text: Sustainable Development Impacts
+                    - listitem [ref=e534]:
+                      - link "3.8 Data sharing" [ref=e535] [cursor=pointer]:
+                        - /url: "#data-sharing"
+                        - generic [ref=e538]:
+                          - generic [ref=e539]: "3.8"
+                          - text: Data sharing
+                - listitem [ref=e540]:
+                  - link "4 Validation and Verification Requirements" [ref=e541] [cursor=pointer]:
+                    - /url: "#validation-and-verification-requirements"
+                    - generic [ref=e544]:
+                      - generic [ref=e545]: "4"
+                      - text: Validation and Verification Requirements
+                  - list [ref=e546]:
+                    - listitem [ref=e547]:
+                      - link "4.1 Validation and Verification Body Qualification Requirements" [ref=e548] [cursor=pointer]:
+                        - /url: "#validation-and-verification-body-qualification-requirements"
+                        - generic [ref=e551]:
+                          - generic [ref=e552]: "4.1"
+                          - text: Validation and Verification Body Qualification Requirements
+                    - listitem [ref=e553]:
+                      - link "4.2 Validation and Verification Process" [ref=e554] [cursor=pointer]:
+                        - /url: "#validation-and-verification-process"
+                        - generic [ref=e557]:
+                          - generic [ref=e558]: "4.2"
+                          - text: Validation and Verification Process
+                    - listitem [ref=e559]:
+                      - link "4.3 Materiality Threshold" [ref=e560] [cursor=pointer]:
+                        - /url: "#materiality-threshold"
+                        - generic [ref=e563]:
+                          - generic [ref=e564]: "4.3"
+                          - text: Materiality Threshold
+                    - listitem [ref=e565]:
+                      - link "4.4 Conflicts of Interest" [ref=e566] [cursor=pointer]:
+                        - /url: "#conflicts-of-interest"
+                        - generic [ref=e569]:
+                          - generic [ref=e570]: "4.4"
+                          - text: Conflicts of Interest
+                    - listitem [ref=e571]:
+                      - link "4.5 Rotation of Validation and Verification Bodies" [ref=e572] [cursor=pointer]:
+                        - /url: "#rotation-of-validation-and-verification-bodies"
+                        - generic [ref=e575]:
+                          - generic [ref=e576]: "4.5"
+                          - text: Rotation of Validation and Verification Bodies
+                    - listitem [ref=e577]:
+                      - link "4.6 Validation and Verification Body Oversight" [ref=e578] [cursor=pointer]:
+                        - /url: "#validation-and-verification-body-oversight"
+                        - generic [ref=e581]:
+                          - generic [ref=e582]: "4.6"
+                          - text: Validation and Verification Body Oversight
+                - listitem [ref=e583]:
+                  - link "5 Crediting" [ref=e584] [cursor=pointer]:
+                    - /url: "#crediting"
+                    - generic [ref=e587]:
+                      - generic [ref=e588]: "5"
+                      - text: Crediting
+                  - list [ref=e589]:
+                    - listitem [ref=e590]:
+                      - link "5.1 Credit Attributes" [ref=e591] [cursor=pointer]:
+                        - /url: "#credit-attributes"
+                        - generic [ref=e594]:
+                          - generic [ref=e595]: "5.1"
+                          - text: Credit Attributes
+                    - listitem [ref=e596]:
+                      - link "5.2 Issuance Process" [ref=e597] [cursor=pointer]:
+                        - /url: "#issuance-process"
+                        - generic [ref=e600]:
+                          - generic [ref=e601]: "5.2"
+                          - text: Issuance Process
+                    - listitem [ref=e602]:
+                      - link "5.3 Transfer and Delivery Rules and Ownership History" [ref=e603] [cursor=pointer]:
+                        - /url: "#transfer-and-delivery-rules-and-ownership-history"
+                        - generic [ref=e606]:
+                          - generic [ref=e607]: "5.3"
+                          - text: Transfer and Delivery Rules and Ownership History
+                    - listitem [ref=e608]:
+                      - link "5.4 Retirement Rules" [ref=e609] [cursor=pointer]:
+                        - /url: "#retirement-rules"
+                        - generic [ref=e612]:
+                          - generic [ref=e613]: "5.4"
+                          - text: Retirement Rules
+                    - listitem [ref=e614]:
+                      - link "5.5 Retirement Certificates" [ref=e615] [cursor=pointer]:
+                        - /url: "#retirement-certificates"
+                        - generic [ref=e618]:
+                          - generic [ref=e619]: "5.5"
+                          - text: Retirement Certificates
+                    - listitem [ref=e620]:
+                      - link "5.6 Reversals and Buffer Pools" [ref=e621] [cursor=pointer]:
+                        - /url: "#reversals-and-buffer-pools"
+                        - generic [ref=e624]:
+                          - generic [ref=e625]: "5.6"
+                          - text: Reversals and Buffer Pools
+                      - list [ref=e626]:
+                        - listitem [ref=e627]:
+                          - link "5.6.1 Reversals" [ref=e628] [cursor=pointer]:
+                            - /url: "#reversals"
+                            - generic [ref=e631]:
+                              - generic [ref=e632]: 5.6.1
+                              - text: Reversals
+                        - listitem [ref=e633]:
+                          - link "5.6.2 Buffer Pools (Uncertainty in Storage)" [ref=e634] [cursor=pointer]:
+                            - /url: "#buffer-pools-uncertainty-in-storage"
+                            - generic [ref=e637]:
+                              - generic [ref=e638]: 5.6.2
+                              - text: Buffer Pools (Uncertainty in Storage)
+                    - listitem [ref=e639]:
+                      - link "5.7 No Double Counting" [ref=e640] [cursor=pointer]:
+                        - /url: "#no-double-counting"
+                        - generic [ref=e643]:
+                          - generic [ref=e644]: "5.7"
+                          - text: No Double Counting
+                      - list [ref=e645]:
+                        - listitem [ref=e646]:
+                          - link "5.7.1 Prevention of Scheme Hopping" [ref=e647] [cursor=pointer]:
+                            - /url: "#prevention-of-scheme-hopping"
+                            - generic [ref=e650]:
+                              - generic [ref=e651]: 5.7.1
+                              - text: Prevention of Scheme Hopping
+                    - listitem [ref=e652]:
+                      - link "5.8 CORSIA" [ref=e653] [cursor=pointer]:
+                        - /url: "#corsia"
+                        - generic [ref=e656]:
+                          - generic [ref=e657]: "5.8"
+                          - text: CORSIA
+                    - listitem [ref=e658]:
+                      - link "5.9 Non-Conformities and Sanctions" [ref=e659] [cursor=pointer]:
+                        - /url: "#non-conformities-and-sanctions"
+                        - generic [ref=e662]:
+                          - generic [ref=e663]: "5.9"
+                          - text: Non-Conformities and Sanctions
+                      - list [ref=e664]:
+                        - listitem [ref=e665]:
+                          - link "5.9.1 Non-Conformities" [ref=e666] [cursor=pointer]:
+                            - /url: "#non-conformities"
+                            - generic [ref=e669]:
+                              - generic [ref=e670]: 5.9.1
+                              - text: Non-Conformities
+                        - listitem [ref=e671]:
+                          - link "5.9.2 Sanctions" [ref=e672] [cursor=pointer]:
+                            - /url: "#sanctions"
+                            - generic [ref=e675]:
+                              - generic [ref=e676]: 5.9.2
+                              - text: Sanctions
+                - listitem [ref=e677]:
+                  - link "6 CRCF" [ref=e678] [cursor=pointer]:
+                    - /url: "#crcf"
+                    - generic [ref=e681]:
+                      - generic [ref=e682]: "6"
+                      - text: CRCF
+                  - list [ref=e683]:
+                    - listitem [ref=e684]:
+                      - link "6.1 Appointment of Certification Bodies" [ref=e685] [cursor=pointer]:
+                        - /url: "#appointment-of-certification-bodies"
+                        - generic [ref=e688]:
+                          - generic [ref=e689]: "6.1"
+                          - text: Appointment of Certification Bodies
+                    - listitem [ref=e690]:
+                      - link "6.2 Exclusion Criteria" [ref=e691] [cursor=pointer]:
+                        - /url: "#exclusion-criteria"
+                        - generic [ref=e694]:
+                          - generic [ref=e695]: "6.2"
+                          - text: Exclusion Criteria
+                    - listitem [ref=e696]:
+                      - link "6.3 Grievances" [ref=e697] [cursor=pointer]:
+                        - /url: "#grievances"
+                        - generic [ref=e700]:
+                          - generic [ref=e701]: "6.3"
+                          - text: Grievances
+                    - listitem [ref=e702]:
+                      - link "6.4 Remediation for Fraud" [ref=e703] [cursor=pointer]:
+                        - /url: "#remediation-for-fraud"
+                        - generic [ref=e706]:
+                          - generic [ref=e707]: "6.4"
+                          - text: Remediation for Fraud
+                    - listitem [ref=e708]:
+                      - link "6.5 Internal Monitoring" [ref=e709] [cursor=pointer]:
+                        - /url: "#internal-monitoring"
+                        - generic [ref=e712]:
+                          - generic [ref=e713]: "6.5"
+                          - text: Internal Monitoring
+                    - listitem [ref=e714]:
+                      - link "6.6 Planning and Reporting" [ref=e715] [cursor=pointer]:
+                        - /url: "#planning-and-reporting"
+                        - generic [ref=e718]:
+                          - generic [ref=e719]: "6.6"
+                          - text: Planning and Reporting
+                      - list [ref=e720]:
+                        - listitem [ref=e721]:
+                          - link "6.6.1 Activity Plans" [ref=e722] [cursor=pointer]:
+                            - /url: "#activity-plans"
+                            - generic [ref=e725]:
+                              - generic [ref=e726]: 6.6.1
+                              - text: Activity Plans
+                        - listitem [ref=e727]:
+                          - link "6.6.2 Monitoring Plans" [ref=e728] [cursor=pointer]:
+                            - /url: "#monitoring-plans"
+                            - generic [ref=e731]:
+                              - generic [ref=e732]: 6.6.2
+                              - text: Monitoring Plans
+                        - listitem [ref=e733]:
+                          - link "6.6.3 Monitoring Reports" [ref=e734] [cursor=pointer]:
+                            - /url: "#monitoring-reports"
+                            - generic [ref=e737]:
+                              - generic [ref=e738]: 6.6.3
+                              - text: Monitoring Reports
+                    - listitem [ref=e739]:
+                      - link "6.7 Other Delegated Act Requirements" [ref=e740] [cursor=pointer]:
+                        - /url: "#other-delegated-act-requirements"
+                        - generic [ref=e743]:
+                          - generic [ref=e744]: "6.7"
+                          - text: Other Delegated Act Requirements
+                      - list [ref=e745]:
+                        - listitem [ref=e746]:
+                          - link "6.7.1 Global Warming Potential of non-CO2 GHGs" [ref=e747] [cursor=pointer]:
+                            - /url: "#global-warming-potential-of-non-co2-ghgs"
+                            - generic [ref=e750]:
+                              - generic [ref=e751]: 6.7.1
+                              - text: Global Warming Potential of non-CO2 GHGs
+                        - listitem [ref=e752]:
+                          - link "6.7.2 Quality Assurance" [ref=e753] [cursor=pointer]:
+                            - /url: "#quality-assurance"
+                            - generic [ref=e756]:
+                              - generic [ref=e757]: 6.7.2
+                              - text: Quality Assurance
+                        - listitem [ref=e758]:
+                          - link "6.7.3 Climate Change Adaptation" [ref=e759] [cursor=pointer]:
+                            - /url: "#climate-change-adaptation"
+                            - generic [ref=e762]:
+                              - generic [ref=e763]: 6.7.3
+                              - text: Climate Change Adaptation
+                    - listitem [ref=e764]:
+                      - link "6.8 CRCF Glossary" [ref=e765] [cursor=pointer]:
+                        - /url: "#crcf-glossary"
+                        - generic [ref=e768]:
+                          - generic [ref=e769]: "6.8"
+                          - text: CRCF Glossary
+                - listitem [ref=e770]:
+                  - link "7 Definitions and Acronyms" [ref=e771] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms"
+                    - generic [ref=e774]:
+                      - generic [ref=e775]: "7"
+                      - text: Definitions and Acronyms
+                - listitem [ref=e776]:
+                  - link "8 Appendix A. Types of uncertainties" [ref=e777] [cursor=pointer]:
+                    - /url: "#appendix-a-types-of-uncertainties"
+                    - generic [ref=e780]:
+                      - generic [ref=e781]: "8"
+                      - text: Appendix A. Types of uncertainties
+                  - list [ref=e782]:
+                    - listitem [ref=e783]:
+                      - link "8.1 Emission factor uncertainty" [ref=e784] [cursor=pointer]:
+                        - /url: "#emission-factor-uncertainty"
+                        - generic [ref=e787]:
+                          - generic [ref=e788]: "8.1"
+                          - text: Emission factor uncertainty
+                    - listitem [ref=e789]:
+                      - link "8.2 Measured parameter uncertainty" [ref=e790] [cursor=pointer]:
+                        - /url: "#measured-parameter-uncertainty"
+                        - generic [ref=e793]:
+                          - generic [ref=e794]: "8.2"
+                          - text: Measured parameter uncertainty
+                    - listitem [ref=e795]:
+                      - link "8.3 Laboratory analysis uncertainty" [ref=e796] [cursor=pointer]:
+                        - /url: "#laboratory-analysis-uncertainty"
+                        - generic [ref=e799]:
+                          - generic [ref=e800]: "8.3"
+                          - text: Laboratory analysis uncertainty
+                    - listitem [ref=e801]:
+                      - link "8.4 Unknown uncertainties" [ref=e802] [cursor=pointer]:
+                        - /url: "#unknown-uncertainties"
+                        - generic [ref=e805]:
+                          - generic [ref=e806]: "8.4"
+                          - text: Unknown uncertainties
+                    - listitem [ref=e807]:
+                      - link "8.5 Conservative estimate examples" [ref=e808] [cursor=pointer]:
+                        - /url: "#conservative-estimate-examples"
+                        - generic [ref=e811]:
+                          - generic [ref=e812]: "8.5"
+                          - text: Conservative estimate examples
+                - listitem [ref=e813]:
+                  - 'link "9 Appendix B: Stepwise process for uncertainty assessment" [ref=e814] [cursor=pointer]':
+                    - /url: "#appendix-b-stepwise-process-for-uncertainty-assessment"
+                    - generic [ref=e817]:
+                      - generic [ref=e818]: "9"
+                      - text: "Appendix B: Stepwise process for uncertainty assessment"
+                - listitem [ref=e819]:
+                  - 'link "10 Appendix C: Risk Reversal Questionnaire" [ref=e820] [cursor=pointer]':
+                    - /url: "#appendix-c-risk-reversal-questionnaire"
+                    - generic [ref=e823]:
+                      - generic [ref=e824]: "10"
+                      - text: "Appendix C: Risk Reversal Questionnaire"
+                  - list [ref=e825]:
+                    - listitem [ref=e826]:
+                      - link "10.1 Worked examples" [ref=e827] [cursor=pointer]:
+                        - /url: "#worked-examples"
+                        - generic [ref=e830]:
+                          - generic [ref=e831]: "10.1"
+                          - text: Worked examples
+                - listitem [ref=e832]:
+                  - link "Footnotes" [ref=e833] [cursor=pointer]:
+                    - /url: "#footnote-label"
+                    - generic [ref=e836]: Footnotes
+                - listitem [ref=e837]:
+                  - link "Changelog" [ref=e838] [cursor=pointer]:
+                    - /url: "#changelog"
+                    - generic [ref=e841]: Changelog
+          - generic [ref=e842]:
+            - generic [ref=e845]:
+              - generic [ref=e846]:
+                - generic [ref=e847]: "1.0"
+                - generic [ref=e848]:
+                  - button "Jump to table of contents" [ref=e849] [cursor=pointer]:
+                    - img [ref=e850]
+                  - button "Copy link to section" [ref=e852] [cursor=pointer]:
+                    - img [ref=e853]
+              - generic [ref=e855]: Introduction
+            - heading "Introduction" [level=2] [ref=e858]
+            - paragraph [ref=e859]:
+              - text: The Isometric
+              - link "Registry" [ref=e860] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-registry"
+              - text: records Verified
+              - link "Credits" [ref=e861] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-credit"
+              - text: that represent net
+              - link "Removals" [ref=e862] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-removal"
+              - text: of atmospheric carbon dioxide equivalent (CO
+              - subscript [ref=e863]: "2"
+              - text: e) which satisfy the latest
+              - link "Version" [ref=e864] [cursor=pointer]:
+                - /url: "#versioning"
+              - text: of the Isometric Standard. The Isometric Standard, detailed in this document, lists the requirements that ensure
+              - link "Delivered" [ref=e865] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-delivery"
+              - text: Credits have measurable climate impact. In summary, Credits must be
+              - link "Durable" [ref=e866] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-durability"
+              - text: ","
+              - link "Additional" [ref=e867] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-environmental-additionality"
+              - text: ", and calculated using the latest scientific techniques. These Credits must also include a scientifically robust"
+              - link "Uncertainty" [ref=e868] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-uncertainty"
+              - text: quantification meeting at minimum with the requirements outlined in the Standard.
+            - paragraph [ref=e869]:
+              - text: As outlined in this Isometric Standard, Isometric coordinates data curation, quantification and
+              - link "Verification" [ref=e870] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-verification"
+              - text: necessary to
+              - link "Issue" [ref=e871] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-issuance"
+              - text: Credits on the Isometric Registry. All data, calculations and evidence associated with Credits are publicly available.
+            - paragraph [ref=e872]: This Isometric Standard sets out the duties and obligations of stakeholders in relation to the Isometric Registry. Its purpose is also to provide for a consistent and predictable experience for all parties engaging with the Isometric Registry.
+            - paragraph [ref=e873]: This Standard and the rules contained herein were designed and developed by Isometric HQ Limited.
+          - generic [ref=e874]:
+            - generic [ref=e876]:
+              - generic [ref=e877]:
+                - generic [ref=e878]: "1.1"
+                - generic [ref=e879]:
+                  - button "Jump to table of contents" [ref=e880] [cursor=pointer]:
+                    - img [ref=e881]
+                  - button "Copy link to section" [ref=e883] [cursor=pointer]:
+                    - img [ref=e884]
+              - generic [ref=e886]: Language guide
+            - heading "Language guide" [level=3] [ref=e889]
+            - paragraph [ref=e890]: "Throughout this Standard, and throughout Isometric Protocols, the words below are to be interpreted as follows:"
+            - list [ref=e891]:
+              - listitem [ref=e892]: “Must” indicates a requirement.
+              - listitem [ref=e893]: “Should” indicates a recommendation.
+              - listitem [ref=e894]: “May” indicates a permissible course of action.
+              - listitem [ref=e895]: “Will” indicates standard operating procedures implemented by Isometric.
+          - generic [ref=e896]:
+            - generic [ref=e898]:
+              - generic [ref=e899]:
+                - generic [ref=e900]: "1.2"
+                - generic [ref=e901]:
+                  - button "Jump to table of contents" [ref=e902] [cursor=pointer]:
+                    - img [ref=e903]
+                  - button "Copy link to section" [ref=e905] [cursor=pointer]:
+                    - img [ref=e906]
+              - generic [ref=e908]: Purpose and Principles
+            - heading "Purpose and Principles" [level=3] [ref=e911]
+          - generic [ref=e912]:
+            - generic [ref=e914]:
+              - generic [ref=e915]:
+                - generic [ref=e916]: 1.2.1
+                - generic [ref=e917]:
+                  - button "Jump to table of contents" [ref=e918] [cursor=pointer]:
+                    - img [ref=e919]
+                  - button "Copy link to section" [ref=e921] [cursor=pointer]:
+                    - img [ref=e922]
+              - generic [ref=e924]: Purpose
+            - heading "Purpose" [level=4] [ref=e927]
+            - paragraph [ref=e928]:
+              - text: The
+              - link "Isometric Crediting Program" [ref=e929] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-isometric-crediting-program"
+              - text: "is guided by the Isometric Standard, and exists to:"
+            - list [ref=e930]:
+              - listitem [ref=e931]:
+                - paragraph [ref=e932]:
+                  - text: provide guidance, transparent infrastructure and to set a high scientific caliber that fosters high quality climate action in the form of Durable net Removals of CO
+                  - subscript [ref=e933]: "2"
+                  - text: e; and
+              - listitem [ref=e934]:
+                - paragraph [ref=e935]: Issue Verified Credits that can be used as an evidentiary statement of their ownership for Removal claims and reporting purposes.
+            - paragraph [ref=e936]: The Isometric Standard sets requirements that all Isometric Protocols must meet at a minimum.
+          - generic [ref=e937]:
+            - generic [ref=e939]:
+              - generic [ref=e940]:
+                - generic [ref=e941]: 1.2.2
+                - generic [ref=e942]:
+                  - button "Jump to table of contents" [ref=e943] [cursor=pointer]:
+                    - img [ref=e944]
+                  - button "Copy link to section" [ref=e946] [cursor=pointer]:
+                    - img [ref=e947]
+              - generic [ref=e949]: Principles
+            - heading "Principles" [level=4] [ref=e952]
+            - paragraph [ref=e953]: "The Isometric Crediting Program adheres to the following principles:"
+            - paragraph [ref=e954]:
+              - strong [ref=e955]: Collaboration
+            - list [ref=e956]:
+              - listitem [ref=e957]:
+                - paragraph [ref=e958]:
+                  - text: Isometric engages with relevant governmental and
+                  - link "Non-Governmental Organizations (NGOs)" [ref=e959] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-ngo"
+                  - text: to facilitate equitable representation of
+                  - link "stakeholders" [ref=e960] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-stakeholder"
+                  - text: in a predominantly private industry and advance the creation of high quality industry standards.
+              - listitem [ref=e961]:
+                - paragraph [ref=e962]: Isometric engages the scientific community and collaborates with experts in areas such as sensor development, physical inspection, auditing, earth-system modeling and data analysis to Verify Deliveries.
+              - listitem [ref=e963]:
+                - paragraph [ref=e964]:
+                  - text: Where appropriate and practicable,
+                  - link "Isometric Systems" [ref=e965] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-isometric-systems"
+                  - text: may be integrated with similar tracking systems to help ensure full and accurate information for Buyers of Removals and minimize the potential for
+                  - link "Double Counting" [ref=e966] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-double-counting"
+                  - text: .
+            - paragraph [ref=e967]:
+              - strong [ref=e968]: Incentive Alignment
+            - list [ref=e969]:
+              - listitem [ref=e970]:
+                - paragraph [ref=e971]: Isometric does not sell or broker the sale of credits.
+              - listitem [ref=e972]:
+                - paragraph [ref=e973]:
+                  - text: Isometric charges Buyers – not
+                  - link "Project Proponents" [ref=e974] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-project-proponent"
+                  - text: – a single flat fee per
+                  - link "Offtake" [ref=e975] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-offtake"
+                  - text: or purchase which is based on effort required for monitoring, reporting, and verification of a specific pathway/process. This price structure is independent from the number of Credits issued and thus reduces incentives for overcrediting.
+              - listitem [ref=e976]:
+                - paragraph [ref=e977]: Isometric collects fees from Buyers on a payment schedule decoupled from the credit delivery schedule. This mechanism eliminates incentives for early crediting.
+              - listitem [ref=e978]:
+                - paragraph [ref=e979]:
+                  - text: Isometric does not receive payments from Project Proponents to Verify the delivery of tonnes and adherence to
+                  - link "Certified" [ref=e980] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-certification"
+                  - link "Protocols" [ref=e981] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-protocol"
+                  - text: .
+              - listitem [ref=e982]:
+                - paragraph [ref=e983]:
+                  - text: Isometric undertakes the cost of Protocol development and
+                  - link "third-party Verification" [ref=e984] [cursor=pointer]:
+                    - /url: "#validation-and-verification-process"
+                  - text: to ensure neither Buyers nor Project Proponents can have undue influence over this process.
+              - listitem [ref=e985]:
+                - paragraph [ref=e986]:
+                  - text: Isometric
+                  - link "independently and impartially" [ref=e987] [cursor=pointer]:
+                    - /url: "#validation-and-verification-body-qualification-requirements"
+                  - text: chooses third-party
+                  - link "Validation and Verification Bodies (VVBs)" [ref=e988] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-vvbs"
+                  - text: for
+                  - link "Projects" [ref=e989] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-project"
+                  - text: .
+            - paragraph [ref=e990]:
+              - strong [ref=e991]: Scientific Rigor
+            - list [ref=e992]:
+              - listitem [ref=e993]:
+                - paragraph [ref=e994]: Isometric uses the latest science to quantify net negativity, durability, uncertainty and Additionality across a variety of heterogeneous Removal Pathways.
+              - listitem [ref=e995]:
+                - paragraph [ref=e996]: Isometric will review and update Protocols without a penalty on previously Issued Credits in order to incentivize continued investigation of underlying scientific questions – through which Removal estimates can be further constrained.
+              - listitem [ref=e997]:
+                - paragraph [ref=e998]:
+                  - text: Isometric quantifies all
+                  - link "Carbon Fluxes" [ref=e999] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-carbon-flux"
+                  - text: related to the Removal activity taken by the Project Proponent in a
+                  - link "Conservative" [ref=e1000] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-conservative"
+                  - text: manner that incorporates uncertainty – including second order effects on
+                  - link "leakage" [ref=e1001] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-leakage"
+                  - text: .
+            - paragraph [ref=e1002]:
+              - strong [ref=e1003]: Transparency
+            - list [ref=e1004]:
+              - listitem [ref=e1005]:
+                - paragraph [ref=e1006]:
+                  - text: Isometric provides Buyers and
+                  - link "Beneficiaries" [ref=e1007] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-beneficiary"
+                  - text: with access to full traceability of Carbon Fluxes involved in the quantification of Removals, alongside the evidence gathered for the
+                  - link "Validation and Verification Process" [ref=e1008] [cursor=pointer]:
+                    - /url: "#validation-and-verification-process"
+                  - text: .
+              - listitem [ref=e1009]:
+                - paragraph [ref=e1010]:
+                  - text: Protocols and quantification
+                  - link "Models" [ref=e1011] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-model"
+                  - text: are transparently versioned, allowing for public tracking of changes, and public consultation after major updates.
+              - listitem [ref=e1012]:
+                - paragraph [ref=e1013]: Each Credit Issued by Isometric is publicly accessible – allowing for inspection of the information used to quantify Removals.
+          - generic [ref=e1014]:
+            - generic [ref=e1016]:
+              - generic [ref=e1017]:
+                - generic [ref=e1018]: "1.3"
+                - generic [ref=e1019]:
+                  - button "Jump to table of contents" [ref=e1020] [cursor=pointer]:
+                    - img [ref=e1021]
+                  - button "Copy link to section" [ref=e1023] [cursor=pointer]:
+                    - img [ref=e1024]
+              - generic [ref=e1026]: Scope
+            - heading "Scope" [level=3] [ref=e1029]
+          - generic [ref=e1030]:
+            - generic [ref=e1032]:
+              - generic [ref=e1033]:
+                - generic [ref=e1034]: 1.3.1
+                - generic [ref=e1035]:
+                  - button "Jump to table of contents" [ref=e1036] [cursor=pointer]:
+                    - img [ref=e1037]
+                  - button "Copy link to section" [ref=e1039] [cursor=pointer]:
+                    - img [ref=e1040]
+              - generic [ref=e1042]: Project Type
+            - heading "Project Type" [level=4] [ref=e1045]
+            - paragraph [ref=e1046]:
+              - text: Isometric works with Carbon Dioxide Removal (CDR) Projects conforming to a Protocol which has undergone or will undergo the
+              - link "Isometric Certification Process" [ref=e1047] [cursor=pointer]:
+                - /url: "#protocol-certification-process"
+              - text: .
+          - generic [ref=e1048]:
+            - generic [ref=e1050]:
+              - generic [ref=e1051]:
+                - generic [ref=e1052]: 1.3.2
+                - generic [ref=e1053]:
+                  - button "Jump to table of contents" [ref=e1054] [cursor=pointer]:
+                    - img [ref=e1055]
+                  - button "Copy link to section" [ref=e1057] [cursor=pointer]:
+                    - img [ref=e1058]
+              - generic [ref=e1060]: Geographic Scope
+            - heading "Geographic Scope" [level=4] [ref=e1063]
+            - paragraph [ref=e1064]: Isometric works with Projects worldwide. Isometric works in English. Additional languages may be considered given translation by a trusted source.
+            - paragraph [ref=e1065]:
+              - text: In some instances,
+              - link "Modules" [ref=e1066] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-module"
+              - text: within Protocols may be tailored for Projects which have geographical specificities. In this circumstance, geography-specific alterations to utilized Modules will be made clear in order to maintain transparency amongst Project Proponents.
+          - generic [ref=e1067]:
+            - generic [ref=e1069]:
+              - generic [ref=e1070]:
+                - generic [ref=e1071]: 1.3.3
+                - generic [ref=e1072]:
+                  - button "Jump to table of contents" [ref=e1073] [cursor=pointer]:
+                    - img [ref=e1074]
+                  - button "Copy link to section" [ref=e1076] [cursor=pointer]:
+                    - img [ref=e1077]
+              - generic [ref=e1079]: Greenhouse Gas (GHG) Eligibility
+            - heading "Greenhouse Gas (GHG) Eligibility" [level=4] [ref=e1082]
+            - paragraph [ref=e1083]:
+              - text: Isometric Issues Credits for the Removal of atmospheric CO₂ only. In evaluating the comprehensive greenhouse gas (GHG) emissions of a Project, all GHGs are considered. Isometric uses the United States Environmental Protection Agency definition of GHGs
+              - superscript [ref=e1084]:
+                - link "1" [ref=e1085] [cursor=pointer]:
+                  - /url: "#user-content-fn-ghg"
+              - text: ", which includes: carbon dioxide (CO₂), methane (CH"
+              - subscript [ref=e1086]: "4"
+              - text: ), nitrous oxide (N
+              - subscript [ref=e1087]: "2"
+              - text: O), and fluorinated gases such as hydrofluorocarbons (HFCs), perfluorocarbons (PFCs), sulfur hexafluoride (SF
+              - subscript [ref=e1088]: "6"
+              - text: ), and nitrogen trifluoride (NF
+              - subscript [ref=e1089]: "3"
+              - text: ).
+          - generic [ref=e1090]:
+            - generic [ref=e1092]:
+              - generic [ref=e1093]:
+                - generic [ref=e1094]: 1.3.4
+                - generic [ref=e1095]:
+                  - button "Jump to table of contents" [ref=e1096] [cursor=pointer]:
+                    - img [ref=e1097]
+                  - button "Copy link to section" [ref=e1099] [cursor=pointer]:
+                    - img [ref=e1100]
+              - generic [ref=e1102]: Notable Exclusions
+            - heading "Notable Exclusions" [level=4] [ref=e1105]
+            - paragraph [ref=e1106]:
+              - text: Projects partaking solely in any of the following will not meet
+              - link "Isometric Protocol Requirements" [ref=e1107] [cursor=pointer]:
+                - /url: "#protocol-requirements"
+              - text: .
+            - list [ref=e1108]:
+              - listitem [ref=e1109]:
+                - paragraph [ref=e1110]: Projects that do not meet the conditions to justify the minimum Durability set out in the applicable Protocol or Module
+              - listitem [ref=e1111]:
+                - paragraph [ref=e1112]: Emissions reductions
+              - listitem [ref=e1113]:
+                - paragraph [ref=e1114]: Point source fossil fuel emission carbon capture and storage
+              - listitem [ref=e1115]:
+                - paragraph [ref=e1116]:
+                  - text: Reducing Emissions from Deforestation and Degradation (REDD+)
+                  - superscript [ref=e1117]:
+                    - link "2" [ref=e1118] [cursor=pointer]:
+                      - /url: "#user-content-fn-redd"
+            - paragraph [ref=e1119]: Projects partaking in activities leading to Enhanced Hydrocarbon Recovery (EHR) will also not meet Isometric Protocol Requirements.
+          - generic [ref=e1120]:
+            - generic [ref=e1122]:
+              - generic [ref=e1123]:
+                - generic [ref=e1124]: "1.4"
+                - generic [ref=e1125]:
+                  - button "Jump to table of contents" [ref=e1126] [cursor=pointer]:
+                    - img [ref=e1127]
+                  - button "Copy link to section" [ref=e1129] [cursor=pointer]:
+                    - img [ref=e1130]
+              - generic [ref=e1132]: Versioning
+            - heading "Versioning" [level=3] [ref=e1135]
+            - paragraph [ref=e1136]: This Isometric Standard was first published 4th October 2023.
+            - paragraph [ref=e1137]: This document will be updated on an ongoing basis to reflect changes in the operation, governance and/or rules that apply to either Projects on, or activity described by, the Registry.
+            - paragraph [ref=e1138]: Any proposed material changes to the Standard will be put forward for review by the independent Science Network. Following any amendments resulting from that process, the draft changes will be put out for public comment. After having incorporated any further amendments, the final changes will be published in an updated version of the Standard, alongside a clear explanation of the stakeholder input received and how this informed the final changes that were made.
+            - paragraph [ref=e1139]: Version numbers follow the MAJOR.MINOR.PATCH format, where three non-negative integers denote the version of the Standard.
+            - paragraph [ref=e1140]: "Incrementing each number signifies a different type and magnitude of change:"
+            - list [ref=e1141]:
+              - listitem [ref=e1142]:
+                - strong [ref=e1143]: Major
+                - text: – Material changes significantly altering the scope, applicability, or foundational framework of the Standard.
+              - listitem [ref=e1144]:
+                - strong [ref=e1145]: Minor
+                - text: – Material changes that may have significant impact on Project eligibility, Verification practices, or Credit issuance.
+              - listitem [ref=e1146]:
+                - strong [ref=e1147]: Patch
+                - text: – Improvements without introducing material changes, such as fixing typographic errors, clarifying wording, or adding examples.
+            - paragraph [ref=e1148]: A full changelog, along with all previously published versions and their dates of publication, is publicly available on Isometric’s website.
+          - generic [ref=e1149]:
+            - generic [ref=e1151]:
+              - generic [ref=e1152]:
+                - generic [ref=e1153]: "1.5"
+                - generic [ref=e1154]:
+                  - button "Jump to table of contents" [ref=e1155] [cursor=pointer]:
+                    - img [ref=e1156]
+                  - button "Copy link to section" [ref=e1158] [cursor=pointer]:
+                    - img [ref=e1159]
+              - generic [ref=e1161]: Citation
+            - heading "Citation" [level=3] [ref=e1164]
+            - paragraph [ref=e1165]: The appropriate citation for the document is the Isometric Standard (2026), version 1.9.
+          - generic [ref=e1166]:
+            - generic [ref=e1169]:
+              - generic [ref=e1170]:
+                - generic [ref=e1171]: "2.0"
+                - generic [ref=e1172]:
+                  - button "Jump to table of contents" [ref=e1173] [cursor=pointer]:
+                    - img [ref=e1174]
+                  - button "Copy link to section" [ref=e1176] [cursor=pointer]:
+                    - img [ref=e1177]
+              - generic [ref=e1179]: Protocol Requirements
+            - heading "Protocol Requirements" [level=2] [ref=e1182]
+            - paragraph [ref=e1183]: This section outlines the requirements for all Isometric Certified Protocols including Isometric Certified Modules.
+          - generic [ref=e1184]:
+            - generic [ref=e1186]:
+              - generic [ref=e1187]:
+                - generic [ref=e1188]: "2.1"
+                - generic [ref=e1189]:
+                  - button "Jump to table of contents" [ref=e1190] [cursor=pointer]:
+                    - img [ref=e1191]
+                  - button "Copy link to section" [ref=e1193] [cursor=pointer]:
+                    - img [ref=e1194]
+              - generic [ref=e1196]: Protocol Certification Process
+            - heading "Protocol Certification Process" [level=3] [ref=e1199]
+            - paragraph [ref=e1200]:
+              - text: All Projects must be
+              - link "Validated" [ref=e1201] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-validation"
+              - text: against, and
+              - link "Removals" [ref=e1202] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-removal"
+              - text: Verified against, an Isometric Certified Protocol.
+            - paragraph [ref=e1203]:
+              - text: An Isometric Certified Protocol is a Protocol developed by Isometric that has undergone
+              - link "Public Consultation" [ref=e1204] [cursor=pointer]:
+                - /url: "#consultation-requirements"
+              - text: ", and is listed as Certified on the Isometric Registry. Protocols may incorporate Modules, using the"
+              - link "Isometric Modular Framework" [ref=e1205] [cursor=pointer]:
+                - /url: "#modular-framework"
+              - text: .
+            - paragraph [ref=e1206]: Isometric will not list multiple Protocols or Modules as Certified where they pertain to the same or essentially the same underlying carbon removal activities.
+          - generic [ref=e1207]:
+            - generic [ref=e1209]:
+              - generic [ref=e1210]:
+                - generic [ref=e1211]: "2.2"
+                - generic [ref=e1212]:
+                  - button "Jump to table of contents" [ref=e1213] [cursor=pointer]:
+                    - img [ref=e1214]
+                  - button "Copy link to section" [ref=e1216] [cursor=pointer]:
+                    - img [ref=e1217]
+              - generic [ref=e1219]: Modular Framework
+            - heading "Modular Framework" [level=3] [ref=e1222]
+            - paragraph [ref=e1223]: A Protocol can incorporate an existing Isometric Certified Module. Modules are developed by Isometric and follow the same Certification process.
+            - paragraph [ref=e1224]: Each Protocol minor version specifies and locks in the exact minor versions of all Modules which it incorporates. Once certified, this combination never changes, so the Protocol minor version number alone specifies which Module versions apply.
+            - paragraph [ref=e1225]: All Protocols will incorporate the same Modules for GHG accounting, in order to create a consistent accounting framework across all Projects.
+            - paragraph [ref=e1226]:
+              - text: Isometric will review individual Modules annually and be responsible for version changes in accordance with our
+              - link "Updates to Protocols" [ref=e1227] [cursor=pointer]:
+                - /url: "#updates-to-protocols"
+              - text: policy.
+          - generic [ref=e1228]:
+            - generic [ref=e1230]:
+              - generic [ref=e1231]:
+                - generic [ref=e1232]: "2.3"
+                - generic [ref=e1233]:
+                  - button "Jump to table of contents" [ref=e1234] [cursor=pointer]:
+                    - img [ref=e1235]
+                  - button "Copy link to section" [ref=e1237] [cursor=pointer]:
+                    - img [ref=e1238]
+              - generic [ref=e1240]: Consultation Requirements
+            - heading "Consultation Requirements" [level=3] [ref=e1243]
+            - paragraph [ref=e1244]: "The external Consultation process will be as follows:"
+            - list [ref=e1245]:
+              - listitem [ref=e1246]:
+                - paragraph [ref=e1247]:
+                  - text: Expert review through the
+                  - link "Isometric Science Network" [ref=e1248] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-science-network"
+              - listitem [ref=e1249]:
+                - paragraph [ref=e1250]:
+                  - link "Public Consultation" [ref=e1251] [cursor=pointer]:
+                    - /url: "#definitions-and-acronyms-public-consultation"
+            - paragraph [ref=e1252]: Expert review will be conducted through the Isometric Science Network. Expert review is the process in which the internal Isometric Science Team invites individuals with deep subject matter expertise to submit feedback on a Protocol or Module. Isometric generously compensates experts for their detailed review with a flat hourly fee paid upon feedback submission.
+            - paragraph [ref=e1253]:
+              - text: Public Consultation will be announced on the Isometric Registry and to the Isometric Science Network. Protocols and Modules are open for public commenting for a minimum of 30 days. All relevant
+              - link "stakeholder" [ref=e1254] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-stakeholder"
+              - text: comments are considered and responded to by the internal Isometric Science Team, and the results of the Consultation will be published on the Registry. All anonymized comments and reviews will be made available upon request.
+            - paragraph [ref=e1255]: Typically, at least 5-10 scientific experts are engaged for a given Module or Protocol via the combination of the above processes.
+            - paragraph [ref=e1256]: When a Protocol is updated and the changes to it are limited to introducing, upgrading, or removing Modules that have already undergone Consultation, the Module Consultations fulfill the Protocol Consultation requirement. A Module Consultation must address the impact of the Module on any Protocol that will incorporate it.
+            - paragraph [ref=e1257]:
+              - text: The Consultation process will be conducted in compliance with the Isometric
+              - link "Stakeholder Input Process" [ref=e1258] [cursor=pointer]:
+                - /url: "#stakeholder-input-process"
+              - text: for Projects.
+          - generic [ref=e1259]:
+            - generic [ref=e1261]:
+              - generic [ref=e1262]:
+                - generic [ref=e1263]: "2.4"
+                - generic [ref=e1264]:
+                  - button "Jump to table of contents" [ref=e1265] [cursor=pointer]:
+                    - img [ref=e1266]
+                  - button "Copy link to section" [ref=e1268] [cursor=pointer]:
+                    - img [ref=e1269]
+              - generic [ref=e1271]: Updates to Protocols
+            - heading "Updates to Protocols" [level=3] [ref=e1274]
+          - generic [ref=e1275]:
+            - generic [ref=e1277]:
+              - generic [ref=e1278]:
+                - generic [ref=e1279]: 2.4.1
+                - generic [ref=e1280]:
+                  - button "Jump to table of contents" [ref=e1281] [cursor=pointer]:
+                    - img [ref=e1282]
+                  - button "Copy link to section" [ref=e1284] [cursor=pointer]:
+                    - img [ref=e1285]
+              - generic [ref=e1287]: Protocol update schedule
+            - heading "Protocol update schedule" [level=4] [ref=e1290]
+            - paragraph [ref=e1291]:
+              - text: The internal Isometric Science Team will review a Protocol or Module if Isometric deems it necessary due to material changes in realms such as scientific knowledge, technology and/or regulatory frameworks. This review will be completed within a period of 6 months from the date an issue is raised. If the review results in substantial changes to a Protocol or Module such that a new version is required, these changes will adhere to the
+              - link "Protocol Certification process" [ref=e1292] [cursor=pointer]:
+                - /url: "#protocol-certification-process"
+              - text: .
+            - paragraph [ref=e1293]: "In addition to the triggers for review outlined above, each Protocol will be reviewed at the sooner of the following criteria:"
+            - list [ref=e1294]:
+              - listitem [ref=e1295]: after 2 years have passed since the original Certification; or
+              - listitem [ref=e1296]:
+                - text: whenever the number of Credits
+                - link "Issued" [ref=e1297] [cursor=pointer]:
+                  - /url: "#definitions-and-acronyms-issuance"
+                - text: "under a Protocol passes the following milestones: 100,000 Credits Issued; 500,000 Credits Issued; 1,000,000 Credits Issued; 5,000,000 Credits Issued."
+            - paragraph [ref=e1298]:
+              - text: Major and minor changes will be documented on the Isometric Registry and published alongside the results of a public commenting period of a minimum duration of 30 days. All versions of Protocols and Modules will be documented, archived and made publicly available. All revisions and updates will be systematically versioned according to the
+              - link "Protocol version number" [ref=e1299] [cursor=pointer]:
+                - /url: "#protocol-version-number"
+              - text: format.
+            - paragraph [ref=e1300]: Isometric reserves the right to suspend and/or withdraw a Protocol if deemed necessary due to credible, evidence-based concerns that carbon removal activities are being overestimated or that additionality may not be ensured. In such exceptional cases, Isometric may take immediate action to suspend and/or withdraw a Protocol. The Protocol may then be re-introduced following the usual period of public consultation in the case of any material change.
+          - generic [ref=e1301]:
+            - generic [ref=e1303]:
+              - generic [ref=e1304]:
+                - generic [ref=e1305]: 2.4.2
+                - generic [ref=e1306]:
+                  - button "Jump to table of contents" [ref=e1307] [cursor=pointer]:
+                    - img [ref=e1308]
+                  - button "Copy link to section" [ref=e1310] [cursor=pointer]:
+                    - img [ref=e1311]
+              - generic [ref=e1313]: Impact of Protocol updates on Projects and Credits
+            - heading "Impact of Protocol updates on Projects and Credits" [level=4] [ref=e1316]
+            - paragraph [ref=e1317]:
+              - text: Credits issued against a previous Protocol version are not affected by Protocol updates, unless otherwise specified with justification in the updated Protocol. Projects must update to newer Protocol versions according to
+              - link "Protocol adoption requirements" [ref=e1318] [cursor=pointer]:
+                - /url: "#protocol-adoption-requirements"
+              - text: ", with continuity of operations protected by"
+              - link "Protocol backward compatibility mechanisms" [ref=e1319] [cursor=pointer]:
+                - /url: "#protocol-backward-compatibility-mechanisms"
+              - text: .
+          - generic [ref=e1320]:
+            - generic [ref=e1322]:
+              - generic [ref=e1323]:
+                - generic [ref=e1324]: 2.4.3
+                - generic [ref=e1325]:
+                  - button "Jump to table of contents" [ref=e1326] [cursor=pointer]:
+                    - img [ref=e1327]
+                  - button "Copy link to section" [ref=e1329] [cursor=pointer]:
+                    - img [ref=e1330]
+              - generic [ref=e1332]: Protocol update materiality
+            - heading "Protocol update materiality" [level=4] [ref=e1335]
+            - paragraph [ref=e1336]: For the purposes of Protocol versioning, material changes are defined as those which affect how Validations and Verifications are conducted, or their outcomes. If a change requires Validation and Verification Bodies to modify their approach, methods, or decisions, it is considered material.
+          - generic [ref=e1337]:
+            - generic [ref=e1339]:
+              - generic [ref=e1340]:
+                - generic [ref=e1341]: 2.4.4
+                - generic [ref=e1342]:
+                  - button "Jump to table of contents" [ref=e1343] [cursor=pointer]:
+                    - img [ref=e1344]
+                  - button "Copy link to section" [ref=e1346] [cursor=pointer]:
+                    - img [ref=e1347]
+              - generic [ref=e1349]: Protocol version number
+            - heading "Protocol version number" [level=4] [ref=e1352]
+            - paragraph [ref=e1353]:
+              - text: Version numbers follow the
+              - code [ref=e1354]: MAJOR.MINOR.PATCH
+              - text: "format, where three non-negative integers denote the version of the Protocol or Module. Incrementing each number signifies a different type and magnitude of change:"
+            - list [ref=e1355]:
+              - listitem [ref=e1356]:
+                - strong [ref=e1357]: Major
+                - text: – A significant departure from a previous version, introducing material changes to validation and verification rules. Typically used to remove support for old practices.
+              - listitem [ref=e1358]:
+                - strong [ref=e1359]: Minor
+                - text: – An evolution from a previous version, introducing material changes to validation and verification rules. Typically used to introduce support for new practices, adapt to scientific or legal developments, or systematize existing rules.
+              - listitem [ref=e1360]:
+                - strong [ref=e1361]: Patch
+                - text: – An improvement without introducing material changes. For example – fixing typographic errors, clarifying wording, or adding examples.
+            - paragraph [ref=e1362]: A full changelog for each Protocol, along with all previously published versions and their dates of publication, is publicly available on Isometric's website.
+          - generic [ref=e1363]:
+            - generic [ref=e1365]:
+              - generic [ref=e1366]:
+                - generic [ref=e1367]: 2.4.5
+                - generic [ref=e1368]:
+                  - button "Jump to table of contents" [ref=e1369] [cursor=pointer]:
+                    - img [ref=e1370]
+                  - button "Copy link to section" [ref=e1372] [cursor=pointer]:
+                    - img [ref=e1373]
+              - generic [ref=e1375]: Protocol adoption requirements
+            - heading "Protocol adoption requirements" [level=4] [ref=e1378]
+            - paragraph [ref=e1379]: New Projects must validate against the most recent certified major and minor version of the relevant Protocol. Projects may qualify for an earlier version by commencing Validation or initiating Project registration on the Registry prior to the new version's certification. Isometric may also, at its discretion, permit a Project Proponent to validate a Project against an earlier Protocol version in other scenarios; for example if the most recent version has not been approved by ICVCM or CORSIA.
+            - paragraph [ref=e1380]: "The adoption requirements upon release of a new Protocol version are as follows:"
+            - list [ref=e1381]:
+              - listitem [ref=e1382]:
+                - strong [ref=e1383]: Major
+                - text: – Projects are not required to adopt a new major version until they seek renewal of their Crediting Period.
+              - listitem [ref=e1384]:
+                - strong [ref=e1385]: Minor
+                - text: – Projects have 12 months from certification to adopt the new minor version (or a more recent one) for subsequent verifications. A different adoption period may be specified in the changelog, subject to public consultation.
+              - listitem [ref=e1386]:
+                - strong [ref=e1387]: Patch
+                - text: – Take effect automatically upon release. Projects operate under the latest patch version of their current Protocol minor version.
+          - generic [ref=e1388]:
+            - generic [ref=e1390]:
+              - generic [ref=e1391]:
+                - generic [ref=e1392]: 2.4.6
+                - generic [ref=e1393]:
+                  - button "Jump to table of contents" [ref=e1394] [cursor=pointer]:
+                    - img [ref=e1395]
+                  - button "Copy link to section" [ref=e1397] [cursor=pointer]:
+                    - img [ref=e1398]
+              - generic [ref=e1400]: Protocol backward compatibility mechanisms
+            - heading "Protocol backward compatibility mechanisms" [level=4] [ref=e1403]
+            - paragraph [ref=e1404]: "When new Protocol versions are Certified, Projects can continue operating uninterrupted through the use of the following backward compatibility mechanisms:"
+            - list [ref=e1405]:
+              - listitem [ref=e1406]:
+                - strong [ref=e1407]: No forced major version upgrades
+                - text: – Projects are not required to adopt a new Protocol major version until they seek renewal of their Crediting Period.
+              - listitem [ref=e1408]:
+                - strong [ref=e1409]: Legacy exemptions
+                - text: – Project Proponents may claim exemptions against new requirements introduced after the Protocol minor version used for initial Validation in the current Crediting Period. Where a Project Proponent seeks such an exemption against specific requirements, the Project Proponent must demonstrate that said requirements create non-trivial operational difficulty or cost. Where granted, such exemptions remain valid until the end of the current Crediting Period. Exemptions cannot be claimed against changes to quantification formulae or their integral dependencies.
+              - listitem [ref=e1410]:
+                - strong [ref=e1411]: Retained validation status
+                - text: – Projects do not require revalidation when adopting a new Protocol minor version.
+          - generic [ref=e1412]:
+            - generic [ref=e1414]:
+              - generic [ref=e1415]:
+                - generic [ref=e1416]: "2.5"
+                - generic [ref=e1417]:
+                  - button "Jump to table of contents" [ref=e1418] [cursor=pointer]:
+                    - img [ref=e1419]
+                  - button "Copy link to section" [ref=e1421] [cursor=pointer]:
+                    - img [ref=e1422]
+              - generic [ref=e1424]: Protocol Contents
+            - heading "Protocol Contents" [level=3] [ref=e1427]
+          - generic [ref=e1428]:
+            - generic [ref=e1430]:
+              - generic [ref=e1431]:
+                - generic [ref=e1432]: 2.5.1
+                - generic [ref=e1433]:
+                  - button "Jump to table of contents" [ref=e1434] [cursor=pointer]:
+                    - img [ref=e1435]
+                  - button "Copy link to section" [ref=e1437] [cursor=pointer]:
+                    - img [ref=e1438]
+              - generic [ref=e1440]: Boundaries
+            - heading "Boundaries" [level=4] [ref=e1443]
+            - paragraph [ref=e1444]:
+              - text: Protocols require
+              - link "Cradle-to-Grave" [ref=e1445] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-cradle-to-grave"
+              - text: GHG accounting of all emissions associated with a Project's Removal process.
+            - paragraph [ref=e1446]:
+              - text: The GHG emissions that result from the Project's activities within the defined boundary, combined with any
+              - link "Leakages" [ref=e1447] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-leakage"
+              - text: must together encompass the entire impact of a Project on GHG emissions. This must be presented as part of a GHG Statement and corresponding GHG Statement Report.
+            - paragraph [ref=e1448]:
+              - text: All Projects must have a defined temporal and geographic
+              - link "project boundary" [ref=e1449] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-boundary"
+              - text: .
+            - paragraph [ref=e1450]:
+              - text: The
+              - link "system boundary" [ref=e1451] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-system-boundary"
+              - text: for GHG accounting sets out the GHG
+              - link "Sources" [ref=e1452] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-source"
+              - text: ","
+              - link "Sinks" [ref=e1453] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-sink"
+              - text: ", and"
+              - link "Reservoirs" [ref=e1454] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-reservoir"
+              - text: "associated with the project boundary and to be considered in the GHG Statement. The system boundary is specified by the relevant Protocol and must include at a minimum all GHG SSRs from:"
+            - list [ref=e1455]:
+              - listitem [ref=e1456]: the construction or manufacturing of each physical site and associated equipment;
+            - list [ref=e1457]:
+              - listitem [ref=e1458]: the operation of each process; and
+            - list [ref=e1459]:
+              - listitem [ref=e1460]: the closure and disposal of each site and associated equipment.
+          - generic [ref=e1461]:
+            - generic [ref=e1463]:
+              - generic [ref=e1464]:
+                - generic [ref=e1465]: 2.5.2
+                - generic [ref=e1466]:
+                  - button "Jump to table of contents" [ref=e1467] [cursor=pointer]:
+                    - img [ref=e1468]
+                  - button "Copy link to section" [ref=e1470] [cursor=pointer]:
+                    - img [ref=e1471]
+              - generic [ref=e1473]: Baselines
+            - heading "Baselines" [level=4] [ref=e1476]
+            - paragraph [ref=e1477]:
+              - text: All Projects must be assessed against a
+              - link "Baseline" [ref=e1478] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-baseline"
+              - text: scenario of their activities not having taken place.
+            - paragraph [ref=e1479]: Establishment of the Baseline scenario will differ between Project types and will be specified in the relevant Protocol.
+            - paragraph [ref=e1480]:
+              - text: A project's
+              - link "Counterfactual" [ref=e1481] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-counterfactual"
+              - text: is a quantification of the CO
+              - subscript [ref=e1482]: "2"
+              - text: removal and storage that would have taken place without the project's activities, assuming the Baseline scenario. This must be calculated using conservative assumptions, as outlined in relevant Protocols, and must be assessed for every Removal.
+            - paragraph [ref=e1483]: Project Baselines must account for any existing government policies or legal requirements that lower GHG emissions.
+            - paragraph [ref=e1484]: Projects will only be Credited for Removals above and beyond what was likely to have occurred in the Baseline scenario.
+            - paragraph [ref=e1485]:
+              - text: Projects will not be Credited for emissions reductions or avoidance, and will only be Credited for the generation of storage in excess of the specified
+              - link "Project Durability Threshold" [ref=e1486] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-durability-threshold"
+              - text: ", as described in"
+              - link "Durability and Monitoring" [ref=e1487] [cursor=pointer]:
+                - /url: "#durability-and-monitoring"
+              - text: .
+            - paragraph [ref=e1488]:
+              - text: Where Projects cause additional storage below the
+              - link "Project Durability Threshold" [ref=e1489] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-durability-threshold"
+              - text: for the Project, this storage cannot count positively towards the end number of Credits, but can be used to offset losses in Counterfactual storage below the
+              - link "Project Durability Threshold" [ref=e1490] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-durability-threshold"
+              - text: ", as outlined in the relevant Certified Protocol."
+            - paragraph [ref=e1491]:
+              - text: Projects must reassess the Baseline scenario whenever a
+              - link "Crediting Period" [ref=e1492] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-crediting-period"
+              - text: renewal is requested and must be validated as part of Project Validation.
+          - generic [ref=e1493]:
+            - generic [ref=e1495]:
+              - generic [ref=e1496]:
+                - generic [ref=e1497]: 2.5.3
+                - generic [ref=e1498]:
+                  - button "Jump to table of contents" [ref=e1499] [cursor=pointer]:
+                    - img [ref=e1500]
+                  - button "Copy link to section" [ref=e1502] [cursor=pointer]:
+                    - img [ref=e1503]
+              - generic [ref=e1505]: Additionality
+            - heading "Additionality" [level=4] [ref=e1508]
+            - paragraph [ref=e1509]: The Project Proponent must be able to demonstrate four pillars of Additionality (Financial, Common Practice, Environmental and Regulatory), in order to show that the claimed environmental impact would not have otherwise occurred in the Baseline Scenario.
+            - paragraph [ref=e1510]: A Project can be considered Additional when all of the following criteria are met.
+            - list [ref=e1511]:
+              - listitem [ref=e1512]:
+                - text: "Financial:"
+                - list [ref=e1513]:
+                  - listitem [ref=e1514]: The Project can be considered to demonstrate Financial Additionality if Removals are the main purpose and only source of revenue of the Project.
+                  - listitem [ref=e1515]:
+                    - text: Otherwise, the Project must demonstrate that economic barriers would prevent Project implementation in the absence of Carbon Finance, as outlined in
+                    - link "Financial Additionality Considerations" [ref=e1516] [cursor=pointer]:
+                      - /url: "#financial-additionality-considerations"
+                    - text: below.
+            - list [ref=e1517]:
+              - listitem [ref=e1518]:
+                - text: "Common Practice:"
+                - list [ref=e1519]:
+                  - listitem [ref=e1520]:
+                    - text: The Project must demonstrate that activities similar to the activities of the proposed Project are not common practice, as outlined in
+                    - link "Common Practice Analysis" [ref=e1521] [cursor=pointer]:
+                      - /url: "#common-practice-analysis"
+                    - text: .
+            - list [ref=e1522]:
+              - listitem [ref=e1523]:
+                - text: "Environmental:"
+                - list [ref=e1524]:
+                  - listitem [ref=e1525]:
+                    - text: The Project can be considered to demonstrate Environmental Additionality if the climate impact of the Project is net negative after subtracting the Counterfactual CO
+                    - subscript [ref=e1526]: "2"
+                    - text: removal and all project GHG emissions, including leakage, from Project CO
+                    - subscript [ref=e1527]: "2"
+                    - text: removals, in accordance with the assessment framework defined in the relevant Protocol.
+            - list [ref=e1528]:
+              - listitem [ref=e1529]:
+                - text: "Regulatory:"
+                - list [ref=e1530]:
+                  - listitem [ref=e1531]: The Project can be considered to demonstrate Regulatory Additionality if the Project is not required by any regulatory, policy or other legal requirement.
+                  - listitem [ref=e1532]: Otherwise, the Project must be able to demonstrate that it exceeds the minimum regulatory requirements, as outlined in the Regulatory Additionality Considerations section below.
+          - generic [ref=e1533]:
+            - generic [ref=e1535]:
+              - generic [ref=e1536]:
+                - generic [ref=e1537]: 2.5.3.1
+                - generic [ref=e1538]:
+                  - button "Jump to table of contents" [ref=e1539] [cursor=pointer]:
+                    - img [ref=e1540]
+                  - button "Copy link to section" [ref=e1542] [cursor=pointer]:
+                    - img [ref=e1543]
+              - generic [ref=e1545]: Common Practice Analysis
+            - heading "Common Practice Analysis" [level=5] [ref=e1548]
+            - paragraph [ref=e1549]:
+              - text: As per the requirements in
+              - link "Additionality" [ref=e1550] [cursor=pointer]:
+                - /url: "#additionality"
+              - text: ", Projects must demonstrate that activities similar to the activities of the proposed Project are not Common Practice, by following the framework outlined here."
+            - paragraph [ref=e1551]: "Projects must successfully demonstrate Common Practice Additionality via one of the following approaches. The approach chosen must be described in the Project PDD:"
+            - list [ref=e1552]:
+              - listitem [ref=e1553]:
+                - text: Projects in pathways which are below Technology readiness level (TRL) 8 or 9, as shown in the table below, may be considered as demonstrating Common Practice Additionality without further analysis, due to the level of maturity of the relevant technology.
+                - list [ref=e1554]:
+                  - listitem [ref=e1555]: Project TRL must be determined in accordance with the table below; alternatively, a Project may submit its own assessment of TRL, provided that the assessed TRL is not lower than the corresponding provider TRL values set out in the table below. Where a Pathway TRL range spans values both above and below the threshold level of TRL 8, the Project must submit its own TRL assessment.
+            - list [ref=e1556]:
+              - listitem [ref=e1557]: Or, Projects may complete a full Common Practice Analysis, as described below.
+            - table [ref=e1559]:
+              - rowgroup [ref=e1560]:
+                - row "Pathway Technology readiness level (TRL)" [ref=e1561]:
+                  - columnheader "Pathway" [ref=e1562]:
+                    - generic [ref=e1563]: Pathway
+                  - columnheader "Technology readiness level (TRL)" [ref=e1564]:
+                    - generic [ref=e1565]: Technology readiness level (TRL)
+              - rowgroup [ref=e1566]:
+                - row "Direct Air Capture (DAC) 6" [ref=e1567]:
+                  - cell "Direct Air Capture (DAC)" [ref=e1568]:
+                    - generic [ref=e1569]: Direct Air Capture (DAC)
+                  - cell "6" [ref=e1570]:
+                    - generic [ref=e1571]: "6"
+                - row "Enhanced Rock Weathering (ERW) 3-4" [ref=e1572]:
+                  - cell "Enhanced Rock Weathering (ERW)" [ref=e1573]:
+                    - generic [ref=e1574]: Enhanced Rock Weathering (ERW)
+                  - cell "3-4" [ref=e1575]:
+                    - generic [ref=e1576]: 3-4
+                - row "Mineralization 6-7" [ref=e1577]:
+                  - cell "Mineralization" [ref=e1578]:
+                    - generic [ref=e1579]: Mineralization
+                  - cell "6-7" [ref=e1580]:
+                    - generic [ref=e1581]: 6-7
+                - row "BiCRS / Bio-CCS 5-6" [ref=e1582]:
+                  - cell "BiCRS / Bio-CCS" [ref=e1583]:
+                    - generic [ref=e1584]: BiCRS / Bio-CCS
+                  - cell "5-6" [ref=e1585]:
+                    - generic [ref=e1586]: 5-6
+                - row "Biochar* 6-9" [ref=e1587]:
+                  - cell "Biochar*" [ref=e1588]:
+                    - generic [ref=e1589]: Biochar*
+                  - cell "6-9" [ref=e1590]:
+                    - generic [ref=e1591]: 6-9
+                - row "Oceans and Rivers** 1-7" [ref=e1592]:
+                  - cell "Oceans and Rivers**" [ref=e1593]:
+                    - generic [ref=e1594]: Oceans and Rivers**
+                  - cell "1-7" [ref=e1595]:
+                    - generic [ref=e1596]: 1-7
+                - row "Reforestation 8-9" [ref=e1597]:
+                  - cell "Reforestation" [ref=e1598]:
+                    - generic [ref=e1599]: Reforestation
+                  - cell "8-9" [ref=e1600]:
+                    - generic [ref=e1601]: 8-9
+            - paragraph [ref=e1602]:
+              - emphasis [ref=e1603]:
+                - text: Technology Readiness Levels (TRLs) of Pathways as defined by IPCC
+                - superscript [ref=e1604]:
+                  - link "3" [ref=e1605] [cursor=pointer]:
+                    - /url: "#user-content-fn-ipcc"
+                - text: ", and otherwise as estimated by Isometric. *TRL of Biochar Projects may vary based on the maturity of the specific capture technology employed (e.g. biomass-boiler retrofits may indicate a higher TRL). **TRL of Oceans & Rivers taken as range estimated by IPCC"
+                - superscript [ref=e1606]:
+                  - link "3" [ref=e1607] [cursor=pointer]:
+                    - /url: "#user-content-fn-ipcc"
+                - text: (1-2) and RMI
+                - superscript [ref=e1608]:
+                  - link "4" [ref=e1609] [cursor=pointer]:
+                    - /url: "#user-content-fn-rmi"
+                - text: (4-7) to reflect the fact that Oceans & Rivers pathway has a wide range of TRLs depending on the individual technology in question.
+            - paragraph [ref=e1610]: Projects following Option (2) must provide an analysis justifying that activities similar to the activities of the proposed Project are not Common Practice, by following the below requirements.
+            - paragraph [ref=e1611]: Projects must describe the applicable geographic area under consideration for the analysis. The default area is the country of Project operation, however the Project may propose a more specific region with justification, as outlined below.
+            - paragraph [ref=e1612]: "If a Project proposes a more specific applicable geographic area, the Project must justify the essential distinctions between the applicable geographic area and the rest of the country of Project operation that give rise to different implementation conditions pertinent to the Project activity. Relevant factors may include:"
+            - list [ref=e1613]:
+              - listitem [ref=e1614]: Differences in laws, regulations or policies;
+              - listitem [ref=e1615]: Geological or climatic differences;
+              - listitem [ref=e1616]: Economic or socioeconomic conditions;
+              - listitem [ref=e1617]: Market conditions or access to resources;
+              - listitem [ref=e1618]: Availability and accessibility of infrastructure;
+              - listitem [ref=e1619]: Labor force and expertise.
+            - paragraph [ref=e1620]: "Project Proponents must select one of the following two methods for undertaking a Common Practice analysis, within the applicable geographic area:"
+            - list [ref=e1621]:
+              - listitem [ref=e1622]: (i) For Projects deploying distributed technologies, such as enhanced rock weathering, or reforestation, proceed to “Method for assessing Common Practice for distributed technologies”.
+              - listitem [ref=e1623]: (ii) For Projects operating discrete facilities, or plants, proceed to “Method for assessing Common Practice for discrete facilities”.
+          - generic [ref=e1624]:
+            - generic [ref=e1626]:
+              - generic [ref=e1627]:
+                - generic [ref=e1628]: 2.5.3.1.1
+                - generic [ref=e1629]:
+                  - button "Jump to table of contents" [ref=e1630] [cursor=pointer]:
+                    - img [ref=e1631]
+                  - button "Copy link to section" [ref=e1633] [cursor=pointer]:
+                    - img [ref=e1634]
+              - generic [ref=e1636]: (i) Method for assessing Common Practice for distributed technologies
+            - heading "(i) Method for assessing Common Practice for distributed technologies" [level=6] [ref=e1639]
+            - list [ref=e1640]:
+              - listitem [ref=e1641]: The Project must define market penetration, or Common Practice, in terms of recent uptake or existing stock/diffusion of technologies, services or practices in relation to a realistic market size.
+              - listitem [ref=e1642]: Identify the relevant population of subjects, such as a similar class of adopters or landowners, within the selected applicable geographic area.
+              - listitem [ref=e1643]:
+                - text: "Where similar activities to the proposed Project activity are identified, compare the Project activity to these other activities. Identify and explain any essential distinctions between the proposed Project and similar activities. Essential distinctions may be related to, for example:"
+                - list [ref=e1644]:
+                  - listitem [ref=e1645]: Differences in laws, regulations or policies;
+                  - listitem [ref=e1646]: Geological or climatic differences;
+                  - listitem [ref=e1647]: Economic or socioeconomic conditions;
+                  - listitem [ref=e1648]: Market conditions or access to resources;
+                  - listitem [ref=e1649]: Availability and accessibility of infrastructure;
+                  - listitem [ref=e1650]: Labor force and expertise;
+                  - listitem [ref=e1651]: Significant changes in circumstances, which affect the implementation of the Project activity, in comparison to similar activities.
+              - listitem [ref=e1652]: Calculate the cumulative market penetration rate (as a percentage) of the Project activity within the population who have not received carbon finance revenue (e.g., where activities are neither part of a registered Isometric Project, nor registered under other GHG programs), in the sample of adopters.
+              - listitem [ref=e1653]: If the market penetration rate is below 20%, the activity is considered to demonstrate Common Practice additionality.
+          - generic [ref=e1654]:
+            - generic [ref=e1656]:
+              - generic [ref=e1657]:
+                - generic [ref=e1658]: 2.5.3.1.2
+                - generic [ref=e1659]:
+                  - button "Jump to table of contents" [ref=e1660] [cursor=pointer]:
+                    - img [ref=e1661]
+                  - button "Copy link to section" [ref=e1663] [cursor=pointer]:
+                    - img [ref=e1664]
+              - generic [ref=e1666]: (ii) Method for assessing Common Practice for discrete facilities
+            - heading "(ii) Method for assessing Common Practice for discrete facilities" [level=6] [ref=e1669]
+            - list [ref=e1670]:
+              - listitem [ref=e1671]: Assess the extent to which similar activities to the proposed Project activity have been implemented previously or are currently underway in the applicable geographic area. Similar activities are those with comparable technologies or practices, scales, and regulatory environments.
+              - listitem [ref=e1672]:
+                - text: Exclude activities which are under validation or registered under the Isometric Standard; activities under other GHG programs may optionally be excluded. Record
+                - generic [ref=e1675]:
+                  - math [ref=e1677]:
+                    - generic [ref=e1680]:
+                      - generic [ref=e1681]: "N"
+                      - generic [ref=e1682]:
+                        - generic [ref=e1683]: a
+                        - generic [ref=e1684]: l
+                        - generic [ref=e1685]: l
+                  - generic [ref=e1688]:
+                    - text: "N"
+                    - generic [ref=e1694]: all
+                - text: as the total remaining number of similar projects or activities.
+              - listitem [ref=e1698]:
+                - text: "Where similar activities to the proposed Project activity are identified, compare the Project activity to these other activities. Identify and explain any essential distinctions between the proposed Project and similar activities. Essential distinctions may be related to, for example:"
+                - list [ref=e1699]:
+                  - listitem [ref=e1700]: Differences in laws, regulations or policies;
+                  - listitem [ref=e1701]: Geological or climatic differences;
+                  - listitem [ref=e1702]: Economic or socioeconomic conditions;
+                  - listitem [ref=e1703]: Market conditions or access to resources;
+                  - listitem [ref=e1704]: Availability and accessibility of infrastructure;
+                  - listitem [ref=e1705]: Labor force and expertise;
+                  - listitem [ref=e1706]: Significant changes in circumstances, which affect the implementation of the project activity, in comparison to similar activities.
+              - listitem [ref=e1707]:
+                - text: "Identify the following parameters, and assess Common Practice additionality, as follows:"
+                - list [ref=e1708]:
+                  - listitem [ref=e1709]:
+                    - generic [ref=e1712]:
+                      - math [ref=e1714]:
+                        - generic [ref=e1717]:
+                          - generic [ref=e1718]: "N"
+                          - generic [ref=e1719]:
+                            - generic [ref=e1720]: a
+                            - generic [ref=e1721]: l
+                            - generic [ref=e1722]: l
+                      - generic [ref=e1725]:
+                        - text: "N"
+                        - generic [ref=e1731]: all
+                    - text: ", defined as the total number of similar projects in the applicable geographic area."
+                  - listitem [ref=e1735]:
+                    - generic [ref=e1738]:
+                      - math [ref=e1740]:
+                        - generic [ref=e1743]:
+                          - generic [ref=e1744]: "N"
+                          - generic [ref=e1745]:
+                            - generic [ref=e1746]: d
+                            - generic [ref=e1747]: i
+                            - generic [ref=e1748]: f
+                            - generic [ref=e1749]: f
+                      - generic [ref=e1752]:
+                        - text: "N"
+                        - generic [ref=e1758]: diff
+                    - text: ", defined as those projects which have essential distinctions from the proposed Project."
+                  - listitem [ref=e1762]:
+                    - text: Calculate the “Common Practice factor”
+                    - generic [ref=e1765]:
+                      - math [ref=e1767]:
+                        - generic [ref=e1769]:
+                          - generic [ref=e1770]: F
+                          - generic [ref=e1771]: =
+                          - generic [ref=e1772]: "1"
+                          - generic [ref=e1773]: –
+                          - generic [ref=e1774]: (
+                          - generic [ref=e1775]:
+                            - generic [ref=e1776]: "N"
+                            - generic [ref=e1777]:
+                              - generic [ref=e1778]: d
+                              - generic [ref=e1779]: i
+                              - generic [ref=e1780]: f
+                              - generic [ref=e1781]: f
+                          - generic [ref=e1782]: /
+                          - generic [ref=e1783]:
+                            - generic [ref=e1784]: "N"
+                            - generic [ref=e1785]:
+                              - generic [ref=e1786]: a
+                              - generic [ref=e1787]: l
+                              - generic [ref=e1788]: l
+                          - generic [ref=e1789]: )
+                      - generic [ref=e1790]:
+                        - generic [ref=e1791]: F =
+                        - generic [ref=e1792]:
+                          - text: 1–(
+                          - generic [ref=e1793]:
+                            - text: "N"
+                            - generic [ref=e1799]: diff
+                          - text: /
+                          - generic [ref=e1803]:
+                            - text: "N"
+                            - generic [ref=e1809]: all
+                          - text: )
+                    - text: ", which represents the share of similar projects without essential distinction in the applicable geographic area."
+                  - listitem [ref=e1813]:
+                    - text: "The proposed Project activity is considered to demonstrate Common Practice additionality where:"
+                    - list [ref=e1814]:
+                      - listitem [ref=e1815]:
+                        - generic [ref=e1818]:
+                          - math [ref=e1820]:
+                            - generic [ref=e1823]:
+                              - generic [ref=e1824]: "N"
+                              - generic [ref=e1825]:
+                                - generic [ref=e1826]: a
+                                - generic [ref=e1827]: l
+                                - generic [ref=e1828]: l
+                          - generic [ref=e1831]:
+                            - text: "N"
+                            - generic [ref=e1837]: all
+                        - text: is less than or equal to 3;
+                      - listitem [ref=e1841]:
+                        - text: Or,
+                        - generic [ref=e1844]:
+                          - math [ref=e1846]:
+                            - generic [ref=e1849]: F
+                          - generic [ref=e1851]: F
+                        - text: is below or equal to 20%.
+          - generic [ref=e1852]:
+            - generic [ref=e1854]:
+              - generic [ref=e1855]:
+                - generic [ref=e1856]: 2.5.3.2
+                - generic [ref=e1857]:
+                  - button "Jump to table of contents" [ref=e1858] [cursor=pointer]:
+                    - img [ref=e1859]
+                  - button "Copy link to section" [ref=e1861] [cursor=pointer]:
+                    - img [ref=e1862]
+              - generic [ref=e1864]: Financial Additionality Considerations
+            - heading "Financial Additionality Considerations" [level=5] [ref=e1867]
+            - paragraph [ref=e1868]:
+              - text: As per the above requirements in
+              - link "Additionality" [ref=e1869] [cursor=pointer]:
+                - /url: "#additionality"
+              - text: ", the requirements of this section are only relevant where Removals are not the main purpose and the only source of revenue of a Project."
+            - paragraph [ref=e1870]: In such a case, evidence of Financial Additionality must be provided via full Project financials.
+            - paragraph [ref=e1871]: Proof of Financial Additionality requires, at minimum, the calculation of the return on investment via calculation of the Internal Rate of Return (IRR) for the Project.
+            - paragraph [ref=e1872]: The IRR determination must be completed in accordance with generally-accepted accounting practices. Furthermore, the assumptions, data and conclusions of the analysis must be consistent with information presented to the company’s decision-making management and investors/lenders. The analysis should be completed for a 10-year period, or if another length of time is chosen, justification must be given based on project circumstances. Non-depreciated residual values of any equipment or assets must be included as positive cash flows in the final year.
+            - paragraph [ref=e1873]: Existing government subsidies, public financing or tax incentives received must be taken into account as a revenue stream.
+            - paragraph [ref=e1874]: "The Project Proponent must determine the IRR for the Project without Carbon Finance revenues. For new Projects, the Project must ultimately demonstrate:"
+            - list [ref=e1875]:
+              - listitem [ref=e1876]: a zero or negative IRR; or
+              - listitem [ref=e1877]: an IRR of less than the cost of capital (required rate of return) or return on equity for the Project.
+            - paragraph [ref=e1878]: A Project may justify a higher IRR as additional if the Project Proponent can demonstrate that the Project requires such an IRR to enable financing for higher risk Projects, which may require higher interest rate loans, high interest rate venture or equity investment, or similar.
+            - paragraph [ref=e1879]: The Project must demonstrate that the economic performance of the mitigation activity increases decisively through carbon credit revenues, and that carbon credit revenues can raise the economic performance at or above the required financial benchmark (IRR).
+            - paragraph [ref=e1880]: "The IRR analysis must also include a scenario analysis that demonstrates the ability to meet the above Additionality criteria for cases where values in the analysis change. Scenario analyses must include:"
+            - list [ref=e1881]:
+              - listitem [ref=e1882]: variation of initial investment costs, if greater than 20% of total Project costs;
+              - listitem [ref=e1883]: variation of projected revenues to consider market changes for products or fees charged;
+              - listitem [ref=e1884]: evaluation of any assumption, value, or projection that accounts for greater than 20% of Project costs or Project revenues, or any value that impacts less than 20% of costs or revenues but which the Project Proponent determines can have significant impact (>10%) on IRR.
+            - paragraph [ref=e1885]: At a minimum, the IRR analysis must include variation of the factors above by ±20% or by a more appropriate value based on historical data or literature.
+            - paragraph [ref=e1886]: "For pre-existing Projects:"
+            - list [ref=e1887]:
+              - listitem [ref=e1888]: Projects must also provide an estimate of the quantity of Removals that would occur in the absence of Carbon Finance.
+              - listitem [ref=e1889]: Removals only in excess of this quantity may be considered Financially Additional.
+          - generic [ref=e1890]:
+            - generic [ref=e1892]:
+              - generic [ref=e1893]:
+                - generic [ref=e1894]: 2.5.3.3
+                - generic [ref=e1895]:
+                  - button "Jump to table of contents" [ref=e1896] [cursor=pointer]:
+                    - img [ref=e1897]
+                  - button "Copy link to section" [ref=e1899] [cursor=pointer]:
+                    - img [ref=e1900]
+              - generic [ref=e1902]: Regulatory and Policy Additionality Considerations
+            - heading "Regulatory and Policy Additionality Considerations" [level=5] [ref=e1905]
+            - paragraph [ref=e1906]: Project Proponents must demonstrate regulatory additionality, meaning that the Project is not required by existing laws, regulations, policies, or other binding obligations. If the activity is required by such legal requirements, the Project is not considered Additional.
+            - paragraph [ref=e1907]:
+              - text: For UNFCCC non-Annex I countries
+              - superscript [ref=e1908]:
+                - link "5" [ref=e1909] [cursor=pointer]:
+                  - /url: "#user-content-fn-unfccc-parties"
+              - text: ", Project Proponents must only demonstrate that the Project is not required by any systematically enforced laws, regulations, policies, or other binding obligations. In other words, the Project must not be required under “de facto” regulation, as opposed to “de jure” regulation. If relevant laws or regulations exist but are not systematically enforced, Project Proponents must provide evidence to demonstrate this lack of enforcement."
+            - paragraph [ref=e1910]: "Legal requirements that must be considered include, but are not limited to:"
+            - list [ref=e1911]:
+              - listitem [ref=e1912]: any national, state, municipality or other local law or regulation; and
+              - listitem [ref=e1913]: any policy, such as a procurement practice that requires the specific Project activity.
+            - paragraph [ref=e1914]: If the Project is legally required as described above, but the Project provides Removals that exceed the legal requirement, the Removals in excess of the legal requirement may be considered additional if the other Additionality requirements are also met.
+          - generic [ref=e1915]:
+            - generic [ref=e1917]:
+              - generic [ref=e1918]:
+                - generic [ref=e1919]: 2.5.4
+                - generic [ref=e1920]:
+                  - button "Jump to table of contents" [ref=e1921] [cursor=pointer]:
+                    - img [ref=e1922]
+                  - button "Copy link to section" [ref=e1924] [cursor=pointer]:
+                    - img [ref=e1925]
+              - generic [ref=e1927]: Leakage
+            - heading "Leakage" [level=4] [ref=e1930]
+            - paragraph [ref=e1931]: Projects must demonstrate a robust assessment of potential increases in GHG emissions outside the defined GHG system boundary that occurs as a result of the Project activity.
+            - paragraph [ref=e1932]: Leakage may be a result of activity shifting, market transformation or shifts in ecosystem processes and can relate to both upstream and downstream activities.
+            - paragraph [ref=e1933]:
+              - text: Where the potential for such Leakage is identified, it must be quantified and deducted from the CO
+              - subscript [ref=e1934]: "2"
+              - text: Removals in accordance with the relevant Protocol.
+          - generic [ref=e1935]:
+            - generic [ref=e1937]:
+              - generic [ref=e1938]:
+                - generic [ref=e1939]: 2.5.5
+                - generic [ref=e1940]:
+                  - button "Jump to table of contents" [ref=e1941] [cursor=pointer]:
+                    - img [ref=e1942]
+                  - button "Copy link to section" [ref=e1944] [cursor=pointer]:
+                    - img [ref=e1945]
+              - generic [ref=e1947]: Default Emission Factors, Proxies and Models
+            - heading "Default Emission Factors, Proxies and Models" [level=4] [ref=e1950]
+            - paragraph [ref=e1951]:
+              - text: Protocols can use
+              - link "Default Emission Factors" [ref=e1952] [cursor=pointer]:
+                - /url: "#default-emission-factors"
+              - text: ","
+              - link "Standards" [ref=e1953] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-standards-scientific"
+              - text: ","
+              - link "Proxies" [ref=e1954] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-proxy"
+              - text: and
+              - link "Models" [ref=e1955] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-model"
+              - text: to quantify Removals, demonstrate Additionality and/or establish Baselines. In metered systems, the preference is for direct measurement of required variables.
+            - paragraph [ref=e1956]: Proxies and Models will only be permitted for use under circumstances which are justifiable, such as for reasons of practicality, reliability, and for gap filling in variable un-metered systems.
+            - paragraph [ref=e1957]: This justification must be outlined in the Protocol. Proxy measurements are secondarily preferred, and models may be used when neither Proxy or direct measurements are viable.
+            - paragraph [ref=e1958]: When used, Models and Proxy measurements must apply Conservative Uncertainty factors and make Conservative assumptions.
+            - paragraph [ref=e1959]: Assumptions and estimations must be disclosed and justified.
+            - paragraph [ref=e1960]: When Models and Proxy measurements are used, Uncertainty must be assessed and clearly outlined in the Protocol.
+            - paragraph [ref=e1961]: Further requirements and guidance for the use of Default Emission Factors, Standards, Proxies and Models in Protocols are outlined below.
+          - generic [ref=e1962]:
+            - generic [ref=e1964]:
+              - generic [ref=e1965]:
+                - generic [ref=e1966]: 2.5.5.1
+                - generic [ref=e1967]:
+                  - button "Jump to table of contents" [ref=e1968] [cursor=pointer]:
+                    - img [ref=e1969]
+                  - button "Copy link to section" [ref=e1971] [cursor=pointer]:
+                    - img [ref=e1972]
+              - generic [ref=e1974]: Default Emission Factors
+            - heading "Default Emission Factors" [level=5] [ref=e1977]
+            - paragraph [ref=e1978]:
+              - text: The Protocol must appropriately cite and describe the source of any third-party Default Emission Factor, Standard, Model or Proxy. Third-party Default Emission Factors and Standards must be either internationally recognized or derived from a
+              - link "Reputable Source" [ref=e1979] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-reputable-source"
+              - text: .
+            - paragraph [ref=e1980]:
+              - text: Where a newly established Default Emission Factor is used in a Protocol, the reasoning behind this choice and documentation of Default Emission Factor calculations must be clearly outlined and will be subject to review in accordance with the
+              - link "Consultation Requirements" [ref=e1981] [cursor=pointer]:
+                - /url: "#consultation-requirements"
+              - text: .
+            - paragraph [ref=e1982]:
+              - text: Protocols must identify Default Emission Factors that are likely subject to future changes. Default Emission Factors can be subject to updates and revisions given the Isometric
+              - link "Updates to Protocols" [ref=e1983] [cursor=pointer]:
+                - /url: "#updates-to-protocols"
+              - text: policy.
+          - generic [ref=e1984]:
+            - generic [ref=e1986]:
+              - generic [ref=e1987]:
+                - generic [ref=e1988]: 2.5.5.2
+                - generic [ref=e1989]:
+                  - button "Jump to table of contents" [ref=e1990] [cursor=pointer]:
+                    - img [ref=e1991]
+                  - button "Copy link to section" [ref=e1993] [cursor=pointer]:
+                    - img [ref=e1994]
+              - generic [ref=e1996]: Proxies
+            - heading "Proxies" [level=5] [ref=e1999]
+            - paragraph [ref=e2000]: Proxies must be shown to be well-correlated with the variable of interest, preferably through established calibration studies from Reputable Sources.
+            - paragraph [ref=e2001]: The Proxy data, empirical fits, correlation data, and sources must be provided to Isometric.
+          - generic [ref=e2002]:
+            - generic [ref=e2004]:
+              - generic [ref=e2005]:
+                - generic [ref=e2006]: 2.5.5.3
+                - generic [ref=e2007]:
+                  - button "Jump to table of contents" [ref=e2008] [cursor=pointer]:
+                    - img [ref=e2009]
+                  - button "Copy link to section" [ref=e2011] [cursor=pointer]:
+                    - img [ref=e2012]
+              - generic [ref=e2014]: Models
+            - heading "Models" [level=5] [ref=e2017]
+            - paragraph [ref=e2018]:
+              - text: Models must be from a
+              - link "Reputable Source" [ref=e2019] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-reputable-source"
+              - text: and/or shown to be reliable via peer-review, testing or correlation with empirical data.
+            - paragraph [ref=e2020]: The source of models, any modifications, input parameters, data used and validation results must be clearly outlined to Isometric.
+          - generic [ref=e2021]:
+            - generic [ref=e2023]:
+              - generic [ref=e2024]:
+                - generic [ref=e2025]: 2.5.6
+                - generic [ref=e2026]:
+                  - button "Jump to table of contents" [ref=e2027] [cursor=pointer]:
+                    - img [ref=e2028]
+                  - button "Copy link to section" [ref=e2030] [cursor=pointer]:
+                    - img [ref=e2031]
+              - generic [ref=e2033]: Common Calculation Factors
+            - heading "Common Calculation Factors" [level=4] [ref=e2036]
+            - paragraph [ref=e2037]: "All calculations must use consistent, standardized factors, including the following:"
+            - paragraph [ref=e2038]:
+              - strong [ref=e2039]: Global Warming Potential (GWP)
+              - text: ": Unless otherwise stated in a Protocol or Module, calculations must use the 100-yr GWP for the GHG of interest, based on the most recent volume of the IPCC Assessment Report, currently the Sixth Assessment Report"
+              - superscript [ref=e2040]:
+                - link "6" [ref=e2041] [cursor=pointer]:
+                  - /url: "#user-content-fn-gwp"
+              - text: .
+          - generic [ref=e2042]:
+            - generic [ref=e2044]:
+              - generic [ref=e2045]:
+                - generic [ref=e2046]: 2.5.7
+                - generic [ref=e2047]:
+                  - button "Jump to table of contents" [ref=e2048] [cursor=pointer]:
+                    - img [ref=e2049]
+                  - button "Copy link to section" [ref=e2051] [cursor=pointer]:
+                    - img [ref=e2052]
+              - generic [ref=e2054]: Uncertainty in Removals
+            - heading "Uncertainty in Removals" [level=4] [ref=e2057]
+            - paragraph [ref=e2058]: Uncertainty is due to factors such as inability to precisely measure certain physical phenomena and/or assumptions in Models or GHG accounting. Protocols must set up frameworks that allow for the reduction of uncertainties with time as measurements, models, and scientific understanding improves.
+            - paragraph [ref=e2059]: Projects must report a list of all parameters that are used in the Removal calculations.
+            - paragraph [ref=e2060]:
+              - text: A sensitivity analysis that demonstrates the impact of each input parameter’s uncertainty on the final net CO
+              - subscript [ref=e2061]: "2"
+              - text: e uncertainty must be provided alongside a GHG Statement submitted for verification.
+            - paragraph [ref=e2062]:
+              - text: Uncertainty information will vary depending on the data, but may include the type of distribution and parameters needed to describe uncertainty and/or shape of the data when plotted.
+              - link "Appendix A" [ref=e2063] [cursor=pointer]:
+                - /url: "#appendix-a-types-of-uncertainties"
+              - text: provides additional guidelines for assessing different types of uncertainties.
+            - paragraph [ref=e2064]: Furthermore, the source for information relevant to Uncertainty calculation and/or justification is required for each input parameter.
+            - paragraph [ref=e2065]: Details of the sensitivity analysis method must be provided so that the results can be re-created.
+            - paragraph [ref=e2066]:
+              - text: The stepwise process for reducing and documenting uncertainty is set out in
+              - link "Appendix B" [ref=e2067] [cursor=pointer]:
+                - /url: "#appendix-b-stepwise-process-for-uncertainty-assessment"
+              - text: .
+            - paragraph [ref=e2068]: The Uncertainty information may be obtained from instrument calibrations, measurement variability, published literature, Proxies, expert judgment, and/or other Reputable Sources.
+          - generic [ref=e2069]:
+            - generic [ref=e2071]:
+              - generic [ref=e2072]:
+                - generic [ref=e2073]: 2.5.7.1
+                - generic [ref=e2074]:
+                  - button "Jump to table of contents" [ref=e2075] [cursor=pointer]:
+                    - img [ref=e2076]
+                  - button "Copy link to section" [ref=e2078] [cursor=pointer]:
+                    - img [ref=e2079]
+              - generic [ref=e2081]: Conservative Estimate of Removals
+            - heading "Conservative Estimate of Removals" [level=5] [ref=e2084]
+            - paragraph [ref=e2085]: Protocols must include a procedure for incorporating Uncertainties into a Conservative estimate of Removal. The following approaches are acceptable, and other methods may be considered after an internal Isometric review.
+            - paragraph [ref=e2086]: A. Conservative estimate of input parameters
+            - paragraph [ref=e2087]: B. Variance propagation
+            - paragraph [ref=e2088]:
+              - text: C.
+              - link "Monte Carlo Simulations" [ref=e2089] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-monte-carlo-simulations"
+            - paragraph [ref=e2090]: Option A is suitable for Projects where it is difficult to obtain detailed information on input parameter distributions. Using conservative estimates of input parameters will lead to a Conservative Removal estimate.
+            - paragraph [ref=e2091]: Option B can be used when parameters follow normal distributions and errors are linear (i.e., errors increase linearly as parameter values increase) and independent (i.e., changing one variable has no effect on another variable).
+            - paragraph [ref=e2092]: Option C provides a more comprehensive representation of Uncertainties and may result in more Credits Issued. This approach is suitable for Projects where sufficient information is available for all input variables so that Monte Carlo Simulations can be conducted.
+            - paragraph [ref=e2093]: As Removal quantifications become better-constrained and more data is gathered, Protocols may progress from using Option A to Option B to Option C.
+          - generic [ref=e2094]:
+            - generic [ref=e2096]:
+              - generic [ref=e2097]:
+                - generic [ref=e2098]: 2.5.7.2
+                - generic [ref=e2099]:
+                  - button "Jump to table of contents" [ref=e2100] [cursor=pointer]:
+                    - img [ref=e2101]
+                  - button "Copy link to section" [ref=e2103] [cursor=pointer]:
+                    - img [ref=e2104]
+              - generic [ref=e2106]: Guidance on Conservative Estimate of Input Parameters
+            - heading "Guidance on Conservative Estimate of Input Parameters" [level=5] [ref=e2109]
+            - paragraph [ref=e2110]:
+              - text: For Option A, a uniform distribution is assumed for all parameters, unless it can be demonstrated otherwise. Isometric recommends that the value used in the Removal calculation be either ≤16
+              - superscript [ref=e2111]: th
+              - text: or ≥84
+              - superscript [ref=e2112]: th
+              - text: percentile, depending on which one yields a more Conservative estimate of Removal. There may be instances where a parameter might only have a few reported values, and it does not make sense to assume a continuous distribution. In these cases, it would be more appropriate to use the minimum or maximum value as the Conservative estimate. See [Appendix A](#appendix-a-types of uncertainties) for some examples.
+          - generic [ref=e2113]:
+            - generic [ref=e2115]:
+              - generic [ref=e2116]:
+                - generic [ref=e2117]: 2.5.7.3
+                - generic [ref=e2118]:
+                  - button "Jump to table of contents" [ref=e2119] [cursor=pointer]:
+                    - img [ref=e2120]
+                  - button "Copy link to section" [ref=e2122] [cursor=pointer]:
+                    - img [ref=e2123]
+              - generic [ref=e2125]: Guidance on Variance Propagation
+            - heading "Guidance on Variance Propagation" [level=5] [ref=e2128]
+            - paragraph [ref=e2129]:
+              - text: For Option B, the variance must be defined for all input parameters. Variance propagation should be conducted following uncertainty propagation rules
+              - superscript [ref=e2130]:
+                - link "7" [ref=e2131] [cursor=pointer]:
+                  - /url: "#user-content-fn-uncertainty-propagation-rules"
+              - text: ", where the outcome is the variance in the Removal. Isometric recommends that the Conservative Removal estimate be at least 1 standard deviation (square-root of the variance) below the mean, equivalent to ≤16"
+              - superscript [ref=e2132]: th
+              - text: percentile.
+          - generic [ref=e2133]:
+            - generic [ref=e2135]:
+              - generic [ref=e2136]:
+                - generic [ref=e2137]: 2.5.7.4
+                - generic [ref=e2138]:
+                  - button "Jump to table of contents" [ref=e2139] [cursor=pointer]:
+                    - img [ref=e2140]
+                  - button "Copy link to section" [ref=e2142] [cursor=pointer]:
+                    - img [ref=e2143]
+              - generic [ref=e2145]: Guidance on Monte Carlo Simulations
+            - heading "Guidance on Monte Carlo Simulations" [level=5] [ref=e2148]
+            - paragraph [ref=e2149]:
+              - text: For Option C, the input distributions must be specified for all input parameters. The final distribution for the Removal is determined by randomly sampling from input distributions many times (e.g., n = 1,000).
+              - superscript [ref=e2150]:
+                - link "8" [ref=e2151] [cursor=pointer]:
+                  - /url: "#user-content-fn-monte-carlo"
+              - text: The Conservative estimate of Removal will be ≤16
+              - superscript [ref=e2152]: th
+              - text: percentile for consistency between Option B and C in the case of normal distributions.
+          - generic [ref=e2153]:
+            - generic [ref=e2155]:
+              - generic [ref=e2156]:
+                - generic [ref=e2157]: 2.5.7.5
+                - generic [ref=e2158]:
+                  - button "Jump to table of contents" [ref=e2159] [cursor=pointer]:
+                    - img [ref=e2160]
+                  - button "Copy link to section" [ref=e2162] [cursor=pointer]:
+                    - img [ref=e2163]
+              - generic [ref=e2165]: Expert Reviews and Updates
+            - heading "Expert Reviews and Updates" [level=5] [ref=e2168]
+            - paragraph [ref=e2169]: Parameter Uncertainties that are based on expert judgment and which contribute the most significantly to the final Removal calculation (based on a Sensitivity Analysis) will be subject to expert review by Isometric and/or selected Science Network experts.
+          - generic [ref=e2170]:
+            - generic [ref=e2172]:
+              - generic [ref=e2173]:
+                - generic [ref=e2174]: 2.5.8
+                - generic [ref=e2175]:
+                  - button "Jump to table of contents" [ref=e2176] [cursor=pointer]:
+                    - img [ref=e2177]
+                  - button "Copy link to section" [ref=e2179] [cursor=pointer]:
+                    - img [ref=e2180]
+              - generic [ref=e2182]: Durability and Monitoring
+            - heading "Durability and Monitoring" [level=4] [ref=e2185]
+            - paragraph [ref=e2186]:
+              - text: Protocols and Modules may specify one or more
+              - link "Durability Threshold" [ref=e2187] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-durability-threshold"
+              - text: (s). Where a Protocol or Module does not explicitly specify a
+              - link "Durability Threshold" [ref=e2188] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-durability-threshold"
+              - text: ", the default"
+              - link "Durability Threshold" [ref=e2189] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-durability-threshold"
+              - text: for the Protocol or Module is 1,000 years.
+            - paragraph [ref=e2190]:
+              - text: Projects following a Protocol or Module must select from the
+              - link "Durability Threshold" [ref=e2191] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-durability-threshold"
+              - text: (s) defined in the Protocol or Module to be the
+              - link "Project Durability Threshold" [ref=e2192] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-durability-threshold"
+              - text: ", by specifying this in the Project’s PDD."
+            - paragraph [ref=e2193]:
+              - text: Projects must demonstrate a Durability in excess of the designated
+              - link "Project Durability Threshold" [ref=e2194] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-durability-threshold"
+              - text: .
+            - paragraph [ref=e2195]:
+              - text: The Durability of all Credits issued from a Project will be equal to the
+              - link "Project Durability Threshold" [ref=e2196] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-durability-threshold"
+              - text: .
+          - generic [ref=e2197]:
+            - generic [ref=e2199]:
+              - generic [ref=e2200]:
+                - generic [ref=e2201]: 2.5.8.1
+                - generic [ref=e2202]:
+                  - button "Jump to table of contents" [ref=e2203] [cursor=pointer]:
+                    - img [ref=e2204]
+                  - button "Copy link to section" [ref=e2206] [cursor=pointer]:
+                    - img [ref=e2207]
+              - generic [ref=e2209]: Justification of Durability
+            - heading "Justification of Durability" [level=5] [ref=e2212]
+            - paragraph [ref=e2213]:
+              - text: Protocols and Modules will set requirements which Projects must meet in order to justify the claimed
+              - link "Project Durability Threshold" [ref=e2214] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-durability-threshold"
+              - text: .
+            - paragraph [ref=e2215]: "These requirements may include:"
+            - list [ref=e2216]:
+              - listitem [ref=e2217]:
+                - paragraph [ref=e2218]: Providing information and justification in the Project’s PDD and during validation;
+              - listitem [ref=e2219]:
+                - paragraph [ref=e2220]: Presenting scientifically falsifiable hypotheses in the Project’s PDD;
+              - listitem [ref=e2221]:
+                - paragraph [ref=e2222]:
+                  - text: Conducting ongoing Monitoring, as described in
+                  - link "Monitoring" [ref=e2223] [cursor=pointer]:
+                    - /url: "#monitoring"
+                  - text: .
+          - generic [ref=e2224]:
+            - generic [ref=e2226]:
+              - generic [ref=e2227]:
+                - generic [ref=e2228]: 2.5.8.2
+                - generic [ref=e2229]:
+                  - button "Jump to table of contents" [ref=e2230] [cursor=pointer]:
+                    - img [ref=e2231]
+                  - button "Copy link to section" [ref=e2233] [cursor=pointer]:
+                    - img [ref=e2234]
+              - generic [ref=e2236]: Monitoring
+            - heading "Monitoring" [level=5] [ref=e2239]
+            - paragraph [ref=e2240]:
+              - text: A full risk assessment must be undertaken to identify all possible mechanisms that will lead to
+              - link "Reversals" [ref=e2241] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-reversal"
+              - text: and subsequent decreases in Durability.
+            - paragraph [ref=e2242]: There must be a monitoring plan in place to quantify the amount of potential Reversal that may occur via each identified Reversal mechanism.
+            - paragraph [ref=e2243]: The duration of storage monitoring required is process and location specific and requirements will be specified in the relevant Protocol.
+            - paragraph [ref=e2244]: "Monitoring requirements must include:"
+            - list [ref=e2245]:
+              - listitem [ref=e2246]:
+                - paragraph [ref=e2247]: adherence to the monitoring program of the Protocol that the individual Project is following;
+              - listitem [ref=e2248]:
+                - paragraph [ref=e2249]: the frequency of measurement and reporting, as specified in the relevant Protocol;
+              - listitem [ref=e2250]:
+                - paragraph [ref=e2251]: consideration of Baselines and incorporating provisions for reevaluation at the end of a Project's Crediting Period or at set timescales as defined within the Protocol;
+              - listitem [ref=e2252]:
+                - paragraph [ref=e2253]: the methodology for detecting all potential Reversal mechanisms;
+              - listitem [ref=e2254]:
+                - paragraph [ref=e2255]: provisions for reporting Reversals to the VVB and Isometric, as adequate deductions to net Removals may be required;
+              - listitem [ref=e2256]:
+                - paragraph [ref=e2257]:
+                  - text: identification of (and actionable plan for remediation of) emissions of CO
+                  - subscript [ref=e2258]: "2"
+                  - text: e during a Project's operational and post-cessation lifespan;
+              - listitem [ref=e2259]:
+                - paragraph [ref=e2260]: monitoring reports that are made publicly available to the Registry; and
+              - listitem [ref=e2261]:
+                - paragraph [ref=e2262]: "reassessment of reversal risk using the risk reversal questionnaire at a minimum every 5 years, in addition to when any of the following milestones are met:"
+                - list [ref=e2263]:
+                  - listitem [ref=e2264]: the renewal of each crediting period;
+                  - listitem [ref=e2265]: when monitoring identifies a reversal-related risk;
+                  - listitem [ref=e2266]: when monitoring identifies an actual reversal event has taken place.
+          - generic [ref=e2267]:
+            - generic [ref=e2269]:
+              - generic [ref=e2270]:
+                - generic [ref=e2271]: 2.5.9
+                - generic [ref=e2272]:
+                  - button "Jump to table of contents" [ref=e2273] [cursor=pointer]:
+                    - img [ref=e2274]
+                  - button "Copy link to section" [ref=e2276] [cursor=pointer]:
+                    - img [ref=e2277]
+              - generic [ref=e2279]: Risk of Reversal
+            - heading "Risk of Reversal" [level=4] [ref=e2282]
+            - paragraph [ref=e2283]:
+              - text: Protocols must categorize the Risk of Reversal for determining the appropriate
+              - link "Buffer Pool Size" [ref=e2284] [cursor=pointer]:
+                - /url: "#buffer-pools-uncertainty-in-storage"
+              - text: .
+            - paragraph [ref=e2285]:
+              - text: For Projects whose Protocol or Module for Crediting does not have its own risk assessment, Isometric has provided a risk questionnaire (see
+              - link "Appendix C" [ref=e2286] [cursor=pointer]:
+                - /url: "#appendix-b-risk-reversal-questionnaire"
+              - text: ) that can serve as guidance on how Risk of Reversal is determined.
+            - paragraph [ref=e2287]: The answers to the Protocol or Module specific risk assessment, or the default risk questionnaire, are used to support the Risk of Reversal and Buffer Pool Size.
+            - paragraph [ref=e2288]:
+              - text: The Risk of Reversal and the corresponding Buffer Pool Size are meant to insure against Reversals that may be observed as a result of monitoring. The Buffer Pool is not meant to insure against risks in cases in which CO
+              - subscript [ref=e2289]: "2"
+              - text: is stored in an open system (e.g., the ocean) and direct observation would not be possible. In open systems, storage risks must be assessed as part of the Uncertainty assessment and accounted for in the Conservative estimate of Removal. Thus, the default Risk Assessment Questionnaire is designed so that CO
+              - subscript [ref=e2290]: "2"
+              - text: storage in open systems will have the lowest risk of reversal score, and the buffer pool corresponding to that lowest risk category is meant as an additional precaution against unknowns.
+          - generic [ref=e2291]:
+            - generic [ref=e2293]:
+              - generic [ref=e2294]:
+                - generic [ref=e2295]: 2.5.10
+                - generic [ref=e2296]:
+                  - button "Jump to table of contents" [ref=e2297] [cursor=pointer]:
+                    - img [ref=e2298]
+                  - button "Copy link to section" [ref=e2300] [cursor=pointer]:
+                    - img [ref=e2301]
+              - generic [ref=e2303]: GHG Statement Policies
+            - heading "GHG Statement Policies" [level=4] [ref=e2306]
+            - paragraph [ref=e2307]:
+              - text: Projects credited under the Isometric Standard must use project-level consequential analysis to determine net CO
+              - subscript [ref=e2308]: "2"
+              - text: e removals associated with project activities. Projects must be assessed against a baseline scenario of the Project not taking place. Attributional analysis is acceptable as a proxy for project emissions accounting.
+            - paragraph [ref=e2309]: When submitting Claimed Removals, the Project's emissions, removals and counterfactual must be presented together in net metric tonnes of CO2e as part of a GHG Statement.
+            - paragraph [ref=e2310]: All Projects must follow GHG accounting requirements as set out by the relevant Protocol and Modules.
+            - paragraph [ref=e2311]: This includes following GHG Statement boundaries and adhering to GHG accounting principles such as data quality and materiality.
+          - generic [ref=e2312]:
+            - generic [ref=e2314]:
+              - generic [ref=e2315]:
+                - generic [ref=e2316]: 2.5.11
+                - generic [ref=e2317]:
+                  - button "Jump to table of contents" [ref=e2318] [cursor=pointer]:
+                    - img [ref=e2319]
+                  - button "Copy link to section" [ref=e2321] [cursor=pointer]:
+                    - img [ref=e2322]
+              - generic [ref=e2324]: Applicability
+            - heading "Applicability" [level=4] [ref=e2327]
+            - paragraph [ref=e2328]: All Protocols must include an Applicability section.
+            - paragraph [ref=e2329]: The Applicability section must, at a minimum, outline the activities to which the Protocol applies. It may also explicitly set out activities to which the Protocol does not apply.
+            - paragraph [ref=e2330]: The Applicability section may also set out conditions that a project must meet in order to be eligible for crediting under the Protocol, including specific baseline requirements.
+          - generic [ref=e2331]:
+            - generic [ref=e2334]:
+              - generic [ref=e2335]:
+                - generic [ref=e2336]: "3.0"
+                - generic [ref=e2337]:
+                  - button "Jump to table of contents" [ref=e2338] [cursor=pointer]:
+                    - img [ref=e2339]
+                  - button "Copy link to section" [ref=e2341] [cursor=pointer]:
+                    - img [ref=e2342]
+              - generic [ref=e2344]: Project Requirements
+            - heading "Project Requirements" [level=2] [ref=e2347]
+            - paragraph [ref=e2348]: Removals are conducted and Verified as part of specific Projects. This section describes the requirements for Projects to be compliant with the Isometric Standard.
+          - generic [ref=e2349]:
+            - generic [ref=e2351]:
+              - generic [ref=e2352]:
+                - generic [ref=e2353]: "3.1"
+                - generic [ref=e2354]:
+                  - button "Jump to table of contents" [ref=e2355] [cursor=pointer]:
+                    - img [ref=e2356]
+                  - button "Copy link to section" [ref=e2358] [cursor=pointer]:
+                    - img [ref=e2359]
+              - generic [ref=e2361]: Ownership
+            - heading "Ownership" [level=3] [ref=e2364]
+            - paragraph [ref=e2365]: Projects must demonstrate that they have legal ownership over the rights to all Removals that will be claimed from the Project, including at minimum making a representation to Isometric to this effect.
+            - paragraph [ref=e2366]:
+              - text: When there are multiple parties involved in the Removal process, and to avoid
+              - link "Double Counting" [ref=e2367] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-double-counting"
+              - text: ", a single Project Proponent must be specified as the sole owner of the Removals."
+            - paragraph [ref=e2368]: Ownership must be defined in contracts between the Project Proponent and other Project participants, which may include, for example, suppliers of Feedstocks, transportation and logistics companies, and/or storage site owners and operators.
+            - paragraph [ref=e2369]: "Contracts must:"
+            - list [ref=e2370]:
+              - listitem [ref=e2371]: relinquish ownership of all Removals to the Project Proponent;
+            - list [ref=e2372]:
+              - listitem [ref=e2373]: clearly indicate that other companies or operators participating in the Project cannot claim Credits, Emissions Reductions as a result of participation in the Project;
+            - list [ref=e2374]:
+              - listitem [ref=e2375]: provide mechanisms for the Project Proponent to obtain required information to fully calculate the Removals from aspects of the Project relevant to the company; and
+            - list [ref=e2376]:
+              - listitem [ref=e2377]: stipulate that unless these third parties are the end owners of the generated Credits that they will not advertise that they are producing a “low emission product or practice,” in connection with or benefitting from the Removals carried out by the Project.
+          - generic [ref=e2378]:
+            - generic [ref=e2380]:
+              - generic [ref=e2381]:
+                - generic [ref=e2382]: "3.2"
+                - generic [ref=e2383]:
+                  - button "Jump to table of contents" [ref=e2384] [cursor=pointer]:
+                    - img [ref=e2385]
+                  - button "Copy link to section" [ref=e2387] [cursor=pointer]:
+                    - img [ref=e2388]
+              - generic [ref=e2390]: Documentation
+            - heading "Documentation" [level=3] [ref=e2393]
+            - paragraph [ref=e2394]:
+              - text: For a Project to be evaluated for the Isometric Registry, the Project Proponent must document Project characteristics in a
+              - link "Project Design Document" [ref=e2395] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-design-document"
+              - text: (PDD). The document will form the basis for
+              - link "Project Validation" [ref=e2396] [cursor=pointer]:
+                - /url: "#validation-and-verification-process"
+              - text: and evaluation in accordance with the relevant Certified Protocol. The PDD must be consistent with ISO 14064-2:2019^ISO-14064-2
+              - text: ", and must include:"
+            - list [ref=e2397]:
+              - listitem [ref=e2398]: Project title, purpose(s) and objective(s);
+            - list [ref=e2399]:
+              - listitem [ref=e2400]: type of Project, including descriptions of the technologies, products, services and infrastructure to be utilised and how the Project will achieve Removal, based on the calculation requirements laid out in the relevant Protocol;
+            - list [ref=e2401]:
+              - listitem [ref=e2402]: Project location, including organizational, geographic and physical location information, allowing for the unique identification and delineation of the specific extent of the Project;
+            - list [ref=e2403]:
+              - listitem [ref=e2404]:
+                - text: conditions prior to Project initiation to support identification of Counterfactual CO
+                - subscript [ref=e2405]: "2"
+                - text: removals;
+            - list [ref=e2406]:
+              - listitem [ref=e2407]:
+                - text: anticipated aggregated net Removals likely to occur from the Project, in tonnes of CO
+                - subscript [ref=e2408]: "2"
+                - text: e;
+            - list [ref=e2409]:
+              - listitem [ref=e2410]:
+                - paragraph [ref=e2411]: anticipated Uncertainty determination approach;
+              - listitem [ref=e2412]:
+                - paragraph [ref=e2413]: identification of risks that could substantially affect the Project's Removals and, if applicable, any measures to manage those risks;
+            - list [ref=e2414]:
+              - listitem [ref=e2415]: roles and responsibilities, including contact information of the Project Proponent and other Project participants;
+            - list [ref=e2416]:
+              - listitem [ref=e2417]:
+                - paragraph [ref=e2418]: a summary environmental impact assessment;
+              - listitem [ref=e2419]:
+                - paragraph [ref=e2420]: description of stakeholder, community, or other interested party Consultations and mechanisms for ongoing communication, and outcomes of any such discussions;
+            - list [ref=e2421]:
+              - listitem [ref=e2422]:
+                - paragraph [ref=e2423]: "a chronological plan or actual dates and justification for the following:"
+                - list [ref=e2424]:
+                  - listitem [ref=e2425]:
+                    - paragraph [ref=e2426]: Project Start Date;
+                  - listitem [ref=e2427]:
+                    - paragraph [ref=e2428]: Baseline time period;
+                  - listitem [ref=e2429]:
+                    - paragraph [ref=e2430]: Project Crediting Period; and
+            - list [ref=e2431]:
+              - listitem [ref=e2432]:
+                - paragraph [ref=e2433]: a monitoring plan detailling the elements to be monitored, frequency of monitoring and reporting, including relevant Project activities in each step of the Project cycle, measurement equipment, methods and procedures, details on accuracy and calibration, the clear assignment of responsibilities of parties involved in monitoring and reporting to Isometric, and appropriate measures for quality assurance and quality control; and
+              - listitem [ref=e2434]:
+                - paragraph [ref=e2435]: Project Risk of Reversal.
+                - list [ref=e2436]:
+                  - listitem [ref=e2437]: Note that project Risk of Reversal must be greater than or equal to the Risk of Reversal outlined in the relevant Protocol. The Risk of Reversal can be increased to account for site-specific considerations that may make a Reversal more likely (e.g., increased risk of a natural disaster). Any increase in Risk of Reversal must be documented, along with its justification, in the PDD;
+              - listitem [ref=e2438]:
+                - paragraph [ref=e2439]: an assessment of the compatibility of the Project’s Removal activities with transition to net zero, by reference to the net zero objectives of the host country.
+            - list [ref=e2440]:
+              - listitem [ref=e2441]: a description of the data collection and storage approach taken
+            - list [ref=e2442]:
+              - listitem [ref=e2443]: the Project’s system boundary and an outline of all GHGs considered across all sources, sinks and reservoirs (SSRs). Robust justification and appropriate evidence must be provided for any GHG SSRs that have been excluded from the project boundary.
+            - paragraph [ref=e2444]: "Isometric will not publicly disclose sensitive business information inherent to data included in the PDD or otherwise provided by the Project Proponent. Information will be labeled as sensitive by the Project Proponent, and Isometric will communicate to the Project Proponent whether any information deemed sensitive is necessary to be shared in order to accurately reflect Removal GHG calculations. Sensitive business information may include, but is not limited to:"
+            - list [ref=e2445]:
+              - listitem [ref=e2446]: locations,
+              - listitem [ref=e2447]: names,
+              - listitem [ref=e2448]: proprietary processes,
+              - listitem [ref=e2449]: non-public acquisitions/partnership plans, etc.
+            - paragraph [ref=e2450]: This cannot prevent the disclosure of baselines and other underlying assumptions critical for robust quantification of carbon removal.
+          - generic [ref=e2451]:
+            - generic [ref=e2453]:
+              - generic [ref=e2454]:
+                - generic [ref=e2455]: "3.3"
+                - generic [ref=e2456]:
+                  - button "Jump to table of contents" [ref=e2457] [cursor=pointer]:
+                    - img [ref=e2458]
+                  - button "Copy link to section" [ref=e2460] [cursor=pointer]:
+                    - img [ref=e2461]
+              - generic [ref=e2463]: Eligibility
+            - heading "Eligibility" [level=3] [ref=e2466]
+            - paragraph [ref=e2467]: Projects are only eligible to claim Credits for activities that are exclusively registered with the Isometric Registry. Projects are only eligible to receive Credits on the Isometric Registry using an Isometric Certified Protocol.
+            - paragraph [ref=e2468]: Prior to Project registration on the Isometric Registry, projects must undergo a 30 day public comment period. Isometric will review all comments received during that period, and share these with the Project Proponent and the Project’s appointed VVB. In response to comments received, Isometric or the appointed VVB may issue clarification requests or corrective action requests to the Project Proponent during the validation process. Any such corrective action requests must be addressed by the Project Proponent during the validation process. Isometric will publish a summary of comments received once Project validation is complete.
+            - paragraph [ref=e2469]: At time of Project application and Validation, Projects must use the latest available version of a Certified Protocol, unless a grace period has been explicitly specified by Isometric, whereby a former version of a Protocol may continue to be used for a defined time period.
+            - paragraph [ref=e2470]: Projects must conform to all relevant laws and regulations in the jurisdiction in which they operate.
+            - paragraph [ref=e2471]:
+              - text: Projects must be Additional, according to the guidance described in the Isometric Standard
+              - link "Additionality" [ref=e2472] [cursor=pointer]:
+                - /url: "#additionality"
+              - text: approach.
+            - paragraph [ref=e2473]: Projects must use appropriate Emission Factors as set out in relevant Protocols. Protocols and modules set guidelines for the types of emissions factors and sources of emission factors that are acceptable.
+            - paragraph [ref=e2474]: The Project Proponent is responsible for notifying Isometric of any changes to operations that could change the eligibility of their process.
+          - generic [ref=e2475]:
+            - generic [ref=e2477]:
+              - generic [ref=e2478]:
+                - generic [ref=e2479]: "3.4"
+                - generic [ref=e2480]:
+                  - button "Jump to table of contents" [ref=e2481] [cursor=pointer]:
+                    - img [ref=e2482]
+                  - button "Copy link to section" [ref=e2484] [cursor=pointer]:
+                    - img [ref=e2485]
+              - generic [ref=e2487]: Project Crediting
+            - heading "Project Crediting" [level=3] [ref=e2490]
+            - paragraph [ref=e2491]:
+              - text: Projects are eligible to begin submitting Claimed Removals to Isometric following
+              - link "Project Validation" [ref=e2492] [cursor=pointer]:
+                - /url: "#validation-and-verification-process"
+              - text: . Once Removals are Verified, they may be used to issue Credits. See
+              - link "Section 6" [ref=e2493] [cursor=pointer]:
+                - /url: "#crediting"
+              - text: for more information on Crediting.
+            - paragraph [ref=e2494]: The initial Crediting Period Start Date for a Project designates the beginning of operational carbon removal activity for the Project. The requested Crediting Period Start Date must be no earlier than 5 years before the initial submission of the Project to the Registry. Claimed Removals may be submitted for activity which took place on or following the Crediting Period Start Date.
+            - paragraph [ref=e2495]: Projects are eligible to Issue Credits for the duration of the Crediting Period specified in the Project's PDD. If a Project Proponent wishes to renew the Crediting Period of a Project, an updated PDD must be provided and the Project must be re-Validated. There is no limit on the number of times a project can be renewed providing it is still in compliance with the relevant Certified Protocol. In general, the maximum Crediting Period is 5 years, unless otherwise specified by the relevant Certified Protocol. The only Certified Protocols which currently allow for a longer period are Biosphere Protocols.
+            - paragraph [ref=e2496]: Unless otherwise specified in the applicable Protocol or Module, if a validated Project has not undergone a verification for more than 12 months since the previous verification, an updated PDD must be provided and the Project must be re-Validated.
+            - paragraph [ref=e2497]:
+              - text: Isometric does not Issue
+              - link "Ex-ante Credits" [ref=e2498] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-ex-ante-credits"
+              - text: .
+          - generic [ref=e2499]:
+            - generic [ref=e2501]:
+              - generic [ref=e2502]:
+                - generic [ref=e2503]: "3.5"
+                - generic [ref=e2504]:
+                  - button "Jump to table of contents" [ref=e2505] [cursor=pointer]:
+                    - img [ref=e2506]
+                  - button "Copy link to section" [ref=e2508] [cursor=pointer]:
+                    - img [ref=e2509]
+              - generic [ref=e2511]: Stakeholder Input Process
+            - heading "Stakeholder Input Process" [level=3] [ref=e2514]
+            - paragraph [ref=e2515]: Relevant stakeholders must be informed of the Project's proposed and current activities by the Project Proponent.
+            - paragraph [ref=e2516]: All stakeholders must be equitably represented, involved and able to contribute freely. This includes but is not limited to Indigenous Peoples and Local Communities (IPLCs), stakeholders with land-tenure rights, local policymakers. Additional stakeholders may include regional or national government officials, local NGOs, or other groups likely to be affected by the project.
+            - paragraph [ref=e2517]: Consultation with stakeholders and rights-holders must be conducted and evidence of these meetings must be submitted to Isometric.
+            - paragraph [ref=e2518]: Consultations must meet the requirements below.
+            - list [ref=e2519]:
+              - listitem [ref=e2520]:
+                - paragraph [ref=e2521]: "Iterative:"
+                - list [ref=e2522]:
+                  - listitem [ref=e2523]: The first consultation meeting must occur prior to Project development, such that any input and concerns can be incorporated into the Project's design, and meeting and correspondence must be operational throughout the Project's lifespan.
+              - listitem [ref=e2524]:
+                - paragraph [ref=e2525]: "Accessible:"
+                - list [ref=e2526]:
+                  - listitem [ref=e2527]:
+                    - paragraph [ref=e2528]:
+                      - link "Stakeholders" [ref=e2529] [cursor=pointer]:
+                        - /url: "#definitions-and-acronyms-stakeholder"
+                      - text: and rights-holders must be invited to consultation meetings with a minimum notice of 14 days.
+                  - listitem [ref=e2530]:
+                    - paragraph [ref=e2531]:
+                      - link "Stakeholders" [ref=e2532] [cursor=pointer]:
+                        - /url: "#definitions-and-acronyms-stakeholder"
+                      - text: and rights-holders must be invited to consultation meetings via appropriate methods, which may include, but are not limited to, the post, email, or notices in newspapers and public places.
+                  - listitem [ref=e2533]:
+                    - paragraph [ref=e2534]: Consultation meetings must be scheduled to maximize attendance, taking note of cultural or religious holidays and heritage.
+                  - listitem [ref=e2535]:
+                    - paragraph [ref=e2536]: Meetings, documentation and correspondence must be in the local language(s), or have a translator where necessary to facilitate communication.
+                  - listitem [ref=e2537]:
+                    - paragraph [ref=e2538]: Meetings, documentation and correspondence should be respectful of local knowledge; and accessible to a non-technical audience.
+              - listitem [ref=e2539]:
+                - paragraph [ref=e2540]: "Transparent:"
+                - list [ref=e2541]:
+                  - listitem [ref=e2542]:
+                    - paragraph [ref=e2543]: The intention of each consultation meeting must be communicated to all stakeholders prior to the meeting.
+                  - listitem [ref=e2544]:
+                    - paragraph [ref=e2545]: All stakeholder or Project Proponent conflicts of interests must be declared.
+              - listitem [ref=e2546]:
+                - paragraph [ref=e2547]: Free from external manipulation.
+            - list [ref=e2548]:
+              - listitem [ref=e2549]: "Include a system for stakeholders to voice, process, and resolve grievances:"
+            - list [ref=e2550]:
+              - listitem [ref=e2551]: Project Proponent contact information must be made available to all stakeholders.
+            - list [ref=e2552]:
+              - listitem [ref=e2553]: Grievances must be acknowledged no later than 14 days after receipt by the Project Proponent.
+            - list [ref=e2554]:
+              - listitem [ref=e2555]: Grievances must be resolved or escalated no later than 60 days after receipt.
+            - list [ref=e2556]:
+              - listitem [ref=e2557]: Systematically documented and made public or accessible upon reasonable request.
+            - paragraph [ref=e2558]: Project Proponents must inform Isometric about any new grievances that are raised no later than 14 days after receipt by the Project Proponent.
+          - generic [ref=e2559]:
+            - generic [ref=e2561]:
+              - generic [ref=e2562]:
+                - generic [ref=e2563]: "3.6"
+                - generic [ref=e2564]:
+                  - button "Jump to table of contents" [ref=e2565] [cursor=pointer]:
+                    - img [ref=e2566]
+                  - button "Copy link to section" [ref=e2568] [cursor=pointer]:
+                    - img [ref=e2569]
+              - generic [ref=e2571]: Regulatory Compliance
+            - heading "Regulatory Compliance" [level=3] [ref=e2574]
+            - paragraph [ref=e2575]: Projects must identify and demonstrate within the PDD the method(s) for compliance with regulations for all jurisdictions to which the Project is beholden.
+          - generic [ref=e2576]:
+            - generic [ref=e2578]:
+              - generic [ref=e2579]:
+                - generic [ref=e2580]: "3.7"
+                - generic [ref=e2581]:
+                  - button "Jump to table of contents" [ref=e2582] [cursor=pointer]:
+                    - img [ref=e2583]
+                  - button "Copy link to section" [ref=e2585] [cursor=pointer]:
+                    - img [ref=e2586]
+              - generic [ref=e2588]: Environmental and Social Impacts
+            - heading "Environmental and Social Impacts" [level=3] [ref=e2591]
+            - paragraph [ref=e2592]: Projects must comply with national and local laws and regulations and, where relevant, international conventions and standards.
+            - paragraph [ref=e2593]: Projects must consider the material environmental and social impacts that could potentially arise as a result of their activities, both within and beyond its boundary, and at minimum must do no net environmental or social harm.
+            - paragraph [ref=e2594]: Remediation of any unintentional harm, caused directly or indirectly by a project, must be carried out by a Project Proponent. Failure to adequately remediate any harm caused may result in cessation of credit issuance. The consideration of these impacts must be ongoing throughout a Project's lifespan and assessments updated when necessary, and must include provisions for Project closure and post-closure.
+            - paragraph [ref=e2595]: For each aspect of the environmental and social impacts assessment, the Project must demonstrate how these risks have been assessed and, if applicable, what mitigation plan is in place to prevent them.
+            - paragraph [ref=e2596]: If risks are not applicable to the project this finding must be reported to Isometric, and environmental regulators where applicable, and justified within the PDD.
+            - paragraph [ref=e2597]: A full Environmental and/or Social Impact Assessment (EIA and/or SIA) conducted by a third party is suggested for all Projects but is only required if impacts are considered significant and/or if required by the host jurisdiction.
+            - paragraph [ref=e2598]: It is the responsibility of the Project to ensure that any EIA or SIA undertaken meets all local, regional and national and international regulations and laws.
+          - generic [ref=e2599]:
+            - generic [ref=e2601]:
+              - generic [ref=e2602]:
+                - generic [ref=e2603]: 3.7.1
+                - generic [ref=e2604]:
+                  - button "Jump to table of contents" [ref=e2605] [cursor=pointer]:
+                    - img [ref=e2606]
+                  - button "Copy link to section" [ref=e2608] [cursor=pointer]:
+                    - img [ref=e2609]
+              - generic [ref=e2611]: Environmental Impacts
+            - heading "Environmental Impacts" [level=4] [ref=e2614]
+            - paragraph [ref=e2615]: Assessments undertaken to evaluate the potential for environmental harm by a Project may be undertaken with varying formats, names and costs, depending on the location of a Project. These assessments are commonly named environmental impact assessments (EIA) and are often required under specific environmental laws or regulations. Within some countries, such as the U.S., multiple levels or types of EIA may exist. Within the U.S. EIAs exist as Environmental Impact Statements (EIS) and Environmental Assessments (EA), with requirements for each type of assessment varying on a federal and state by state basis. It is the responsibility of the Project Proponent to identify specific requirements for EIAs within the location and type of a Project. Within this Standard all such assessments are referred to as Environmental Impact Assessments (EIA).
+            - paragraph [ref=e2616]: A Project must demonstrate that it creates no net environmental harm.
+            - paragraph [ref=e2617]:
+              - text: These assessments and mitigation strategies must consider the potential negative environmental risks from a Project’s implementation. This must include, but is not limited to, the following, as outlined in the ICVCM Core Carbon Principles
+              - superscript [ref=e2618]:
+                - link "9" [ref=e2619] [cursor=pointer]:
+                  - /url: "#user-content-fn-icvcm-core-carbon-principles"
+              - text: ":"
+            - list [ref=e2620]:
+              - listitem [ref=e2621]:
+                - text: "Resource efficiency and pollution prevention, including:"
+                - list [ref=e2622]:
+                  - listitem [ref=e2623]: Pollutant emissions to air.
+                  - listitem [ref=e2624]: Pollutant discharges to water, noise and vibration.
+                  - listitem [ref=e2625]: Generation of waste and release of hazardous materials, chemical pesticides and fertilizers.
+            - list [ref=e2626]:
+              - listitem [ref=e2627]:
+                - text: "Biodiversity conservation and sustainable management of living natural resources:"
+                - list [ref=e2628]:
+                  - listitem [ref=e2629]: Avoid, or where this is not feasible, minimize negative impacts on terrestrial and marine biodiversity and ecosystems.
+                  - listitem [ref=e2630]: Protect the habitats of rare, threatened, and endangered species, including areas needed for habitat connectivity.
+                  - listitem [ref=e2631]: Do not convert natural forests, grasslands, wetlands, or high conservation value habitats.
+                  - listitem [ref=e2632]: Minimize soil degradation and soil erosion.
+                  - listitem [ref=e2633]: Minimize water consumption and water stress in any necessary mitigation activities.
+          - generic [ref=e2634]:
+            - generic [ref=e2636]:
+              - generic [ref=e2637]:
+                - generic [ref=e2638]: 3.7.2
+                - generic [ref=e2639]:
+                  - button "Jump to table of contents" [ref=e2640] [cursor=pointer]:
+                    - img [ref=e2641]
+                  - button "Copy link to section" [ref=e2643] [cursor=pointer]:
+                    - img [ref=e2644]
+              - generic [ref=e2646]: Social Impacts
+            - heading "Social Impacts" [level=4] [ref=e2649]
+            - paragraph [ref=e2650]: A Project must demonstrate that it creates no net social harm.
+            - paragraph [ref=e2651]:
+              - text: These assessments and mitigation strategies must consider the potential negative social risks from a Project’s implementation. This must include, but is not limited to, the following, as outlined in the ICVCM Core Carbon Principles
+              - superscript [ref=e2652]:
+                - link "9" [ref=e2653] [cursor=pointer]:
+                  - /url: "#user-content-fn-icvcm-core-carbon-principles"
+              - text: ":"
+            - list [ref=e2654]:
+              - listitem [ref=e2655]:
+                - text: "Labor rights and working conditions including:"
+                - list [ref=e2656]:
+                  - listitem [ref=e2657]: Providing safe and healthy working conditions for employees. Health and Safety risk assessments and mitigation strategies in accordance with local, national and international laws and guidelines are required by every Project for each stage of their operations and must ensure the nature of the work being undertaken is captured.
+                  - listitem [ref=e2658]: Providing fair treatment and equal opportunities to all employees, including provision of equal pay for equal work, regardless of age, gender, race, ethnicity, religion, disability, sexual orientation, sexual identity, education, national origin, or any other distinguishing characteristic or trait.
+                  - listitem [ref=e2659]: Prohibiting the use of forced labor, child labor or labor by trafficked persons.
+                  - listitem [ref=e2660]: Protecting third party contracted personnel.
+            - list [ref=e2661]:
+              - listitem [ref=e2662]:
+                - text: "Land acquisition and involuntary resettlement, including:"
+                - list [ref=e2663]:
+                  - listitem [ref=e2664]: Actively avoiding physical or economic displacement.
+                  - listitem [ref=e2665]: Where not possible, minimizing the amount and the impact.
+            - list [ref=e2666]:
+              - listitem [ref=e2667]:
+                - text: "Impacts on Indigenous People (IP), Local Communities (LC) and cultural heritage; The project must:"
+                - list [ref=e2668]:
+                  - listitem [ref=e2669]: Identify any direct or indirect impacts on IPLCs, including customary rights.
+                  - listitem [ref=e2670]:
+                    - text: Recognise, respect and promote the protection of the IPLCs rights in line with applicable international human rights laws and UN Declarations, including International Labour Organisation Convention 169 on Indigenous and Tribal Peoples
+                    - superscript [ref=e2671]:
+                      - link "10" [ref=e2672] [cursor=pointer]:
+                        - /url: "#user-content-fn-ilo-169"
+                    - text: and the United Nations Declaration on the Rights of Indigenous Peoples
+                    - superscript [ref=e2673]:
+                      - link "11" [ref=e2674] [cursor=pointer]:
+                        - /url: "#user-content-fn-unip"
+                    - text: .
+                  - listitem [ref=e2675]: Preserve and protect cultural heritage and ancestral knowledge aligned with IPLCs and any UNESCO Cultural Heritage Conventions.
+                  - listitem [ref=e2676]: Not force eviction or physical or economic displacement.
+                  - listitem [ref=e2677]:
+                    - text: If there are any potential negative impacts
+                    - superscript [ref=e2678]:
+                      - link "12" [ref=e2679] [cursor=pointer]:
+                        - /url: "#user-content-fn-negative-impacts"
+                    - text: or displacement is required, the Project must not proceed without the free and prior and informed consent (FPIC)
+                    - superscript [ref=e2680]:
+                      - link "13" [ref=e2681] [cursor=pointer]:
+                        - /url: "#user-content-fn-14"
+                    - text: of the relevant IPLCs
+                    - superscript [ref=e2682]:
+                      - link "14" [ref=e2683] [cursor=pointer]:
+                        - /url: "#user-content-fn-relevant-iplcs"
+                    - text: .
+            - list [ref=e2684]:
+              - listitem [ref=e2685]:
+                - text: "Respect for human rights and stakeholder engagement, including:"
+                - list [ref=e2686]:
+                  - listitem [ref=e2687]:
+                    - text: A Stakeholder Input Process is in place and aligns with the guidance outlined in
+                    - link "Section 3.5" [ref=e2688] [cursor=pointer]:
+                      - /url: "#stakeholder-input-process"
+                    - text: of the Isometric Standard.
+                  - listitem [ref=e2689]:
+                    - text: Identifying, avoiding, mitigating and remediating any human rights impacts (as defined by international treaties, organizations, and conventions including the United Nations International Bill of Human Rights
+                    - superscript [ref=e2690]:
+                      - link "15" [ref=e2691] [cursor=pointer]:
+                        - /url: "#user-content-fn-ibhr"
+                    - text: ).
+                  - listitem [ref=e2692]: Protecting against gender-based violence against women and girls, including sexual harassment, human trafficking, slavery, imprisonment, physical and mental drudgery, and punishment or coercion.
+          - generic [ref=e2693]:
+            - generic [ref=e2695]:
+              - generic [ref=e2696]:
+                - generic [ref=e2697]: 3.7.3
+                - generic [ref=e2698]:
+                  - button "Jump to table of contents" [ref=e2699] [cursor=pointer]:
+                    - img [ref=e2700]
+                  - button "Copy link to section" [ref=e2702] [cursor=pointer]:
+                    - img [ref=e2703]
+              - generic [ref=e2705]: Sustainable Development Impacts
+            - heading "Sustainable Development Impacts" [level=4] [ref=e2708]
+            - paragraph [ref=e2709]: Projects must demonstrate, where relevant and feasible, how their carbon removal activities are consistent with relevant Sustainable Development Goals (SDG) objectives of all jurisdictions in which they operate.
+            - paragraph [ref=e2710]: The SDGs are a set of 17 global and interconnected goals established by the United Nations in 2015 to address a wide range of social, economic and environmental issues.
+            - paragraph [ref=e2711]:
+              - text: Such an explanation must be included in the
+              - link "Project Design Document" [ref=e2712] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-design-document"
+              - text: . If applicable, a qualitative assessment must be included for any positive impacts identified in relation to SDGs other than SDG13. Project Proponents must provide information on any standardized assessment tools and methods used as part of this explanation.
+          - generic [ref=e2713]:
+            - generic [ref=e2715]:
+              - generic [ref=e2716]:
+                - generic [ref=e2717]: "3.8"
+                - generic [ref=e2718]:
+                  - button "Jump to table of contents" [ref=e2719] [cursor=pointer]:
+                    - img [ref=e2720]
+                  - button "Copy link to section" [ref=e2722] [cursor=pointer]:
+                    - img [ref=e2723]
+              - generic [ref=e2725]: Data sharing
+            - heading "Data sharing" [level=3] [ref=e2728]
+            - paragraph [ref=e2729]: "All evidence and data related to the underlying quantification of Removals will be available to the public through Isometric's platform for any Verified Credit. This includes:"
+            - list [ref=e2730]:
+              - listitem [ref=e2731]:
+                - link "Project Design Document" [ref=e2732] [cursor=pointer]:
+                  - /url: "#definitions-and-acronyms-project-design-document"
+              - listitem [ref=e2733]: Measurements taken
+              - listitem [ref=e2734]: Emission factors used
+              - listitem [ref=e2735]: Scientific literature used
+            - paragraph [ref=e2736]: The Project Proponent may request for confidential information to be restricted, whereby it will only be available to authorized Buyers, Isometric and designated VVBs (during Validation or Verification). This includes emissions factors from licensed databases. However, all other numerical data produced or used as part of the quantification of CO₂e removed may not be restricted in this way.
+          - generic [ref=e2737]:
+            - generic [ref=e2740]:
+              - generic [ref=e2741]:
+                - generic [ref=e2742]: "4.0"
+                - generic [ref=e2743]:
+                  - button "Jump to table of contents" [ref=e2744] [cursor=pointer]:
+                    - img [ref=e2745]
+                  - button "Copy link to section" [ref=e2747] [cursor=pointer]:
+                    - img [ref=e2748]
+              - generic [ref=e2750]: Validation and Verification Requirements
+            - heading "Validation and Verification Requirements" [level=2] [ref=e2753]
+            - paragraph [ref=e2754]: This section defines the requirements for Validation and Verification of Projects on the Isometric Registry. Accredited VVBs Validate Projects and Verify Removals in line with this Isometric Standard and a Certified Protocol.
+          - generic [ref=e2755]:
+            - generic [ref=e2757]:
+              - generic [ref=e2758]:
+                - generic [ref=e2759]: "4.1"
+                - generic [ref=e2760]:
+                  - button "Jump to table of contents" [ref=e2761] [cursor=pointer]:
+                    - img [ref=e2762]
+                  - button "Copy link to section" [ref=e2764] [cursor=pointer]:
+                    - img [ref=e2765]
+              - generic [ref=e2767]: Validation and Verification Body Qualification Requirements
+            - heading "Validation and Verification Body Qualification Requirements" [level=3] [ref=e2770]
+            - paragraph [ref=e2771]:
+              - text: All VVBs are approved by Isometric independently and impartially based on alignment with
+              - link "Conflict of Interest" [ref=e2772] [cursor=pointer]:
+                - /url: "#conflicts-of-interest"
+              - text: policies,
+              - link "rotation of VVB" [ref=e2773] [cursor=pointer]:
+                - /url: "#rotation-of-validation-and-verification-bodies"
+              - text: policies,
+              - link "oversight" [ref=e2774] [cursor=pointer]:
+                - /url: "#validation-and-verification-body-oversight"
+              - text: "on quality, and the following requirements:"
+            - list [ref=e2775]:
+              - listitem [ref=e2776]:
+                - paragraph [ref=e2777]: "VVBs must be able to demonstrate accreditation from:"
+                - list [ref=e2778]:
+                  - listitem [ref=e2779]:
+                    - paragraph [ref=e2780]:
+                      - text: an International Accreditation Forum
+                      - superscript [ref=e2781]:
+                        - link "16" [ref=e2782] [cursor=pointer]:
+                          - /url: "#user-content-fn-international-accreditation-forum"
+                      - text: member against
+                      - link "ISO" [ref=e2783] [cursor=pointer]:
+                        - /url: "#definitions-and-acronyms-iso"
+                      - text: 14065 or other relevant ISO standard, including but not limited to ISO 14034, ISO 17020, ISO 17029; or
+                  - listitem [ref=e2784]:
+                    - paragraph [ref=e2785]: a relevant governmental or intergovernmental regulatory body.
+              - listitem [ref=e2786]:
+                - paragraph [ref=e2787]: Alternatively, on a case-by-case basis, if VVBs are able to demonstrate to Isometric that they satisfy all required Verification needs and competencies required for the relevant Protocol and follow the guidelines of ISO 19011 or other relevant standards, they may be approved.
+          - generic [ref=e2788]:
+            - generic [ref=e2790]:
+              - generic [ref=e2791]:
+                - generic [ref=e2792]: "4.2"
+                - generic [ref=e2793]:
+                  - button "Jump to table of contents" [ref=e2794] [cursor=pointer]:
+                    - img [ref=e2795]
+                  - button "Copy link to section" [ref=e2797] [cursor=pointer]:
+                    - img [ref=e2798]
+              - generic [ref=e2800]: Validation and Verification Process
+            - heading "Validation and Verification Process" [level=3] [ref=e2803]
+            - paragraph [ref=e2804]: All Projects must undergo an initial Project Validation, carried out by an independent VVB, to assess conformity with the Isometric Standard, and with the applied Certified Protocol. Once a Project has been Validated, the Project is subsequently able to submit Claimed Removals to Isometric. Isometric requires Verification of any Claimed Removal in order to Issue Credits. Validation and Verification will be carried out in line with ISO 14064-3 and ISO 14065. Additional requirements are listed below.
+            - list [ref=e2805]:
+              - listitem [ref=e2806]:
+                - paragraph [ref=e2807]: Unless otherwise specified in the applicable Protocol or Module, removals may be Verified annually, or more frequently, according to the requirements of the relevant Certified Protocol, or at the Project Proponent's request.
+              - listitem [ref=e2808]:
+                - paragraph [ref=e2809]: Project Validation may occur at the same time as the first Verification, or before the first Verification.
+              - listitem [ref=e2810]:
+                - paragraph [ref=e2811]:
+                  - text: If a Project Proponent wishes to
+                  - link "renew the Crediting Period" [ref=e2812] [cursor=pointer]:
+                    - /url: "#project-crediting"
+                  - text: of a Project, an updated PDD must be provided and the Project must be re-Validated.
+              - listitem [ref=e2813]:
+                - paragraph [ref=e2814]: Unless otherwise specified in the relevant Certified Protocol, a site visit is required during the first Validation or Verification of a Project. For subsequent Verifications, the VVB must identify whether a site visit is needed, based on an independent risk assessment.
+              - listitem [ref=e2815]:
+                - paragraph [ref=e2816]: The level of assurance for Verifications must be reasonable.
+            - paragraph [ref=e2817]: "Prior to Validation/Verification, the VVB must prepare a Validation/Verification plan that details the activities and schedules. The plan may be revised as necessary during the process. The plan must be communicated with the Project Proponent and must include, at minimum:"
+            - list [ref=e2818]:
+              - listitem [ref=e2819]:
+                - paragraph [ref=e2820]: the scope and objectives;
+              - listitem [ref=e2821]:
+                - paragraph [ref=e2822]: identification of the Validation/Verification team and their roles;
+              - listitem [ref=e2823]:
+                - paragraph [ref=e2824]: client/responsible party contact;
+              - listitem [ref=e2825]:
+                - paragraph [ref=e2826]: schedule of activities;
+              - listitem [ref=e2827]:
+                - paragraph [ref=e2828]: level of assurance;
+              - listitem [ref=e2829]:
+                - paragraph [ref=e2830]: Verification criteria;
+              - listitem [ref=e2831]:
+                - paragraph [ref=e2832]: Materiality; and
+              - listitem [ref=e2833]:
+                - paragraph [ref=e2834]: schedule for site visits.
+            - paragraph [ref=e2835]:
+              - text: The Verifier must produce a report that documents the activities, results, findings, and conclusion of the Verification. The Verification report must contain, at a minimum
+              - superscript [ref=e2836]:
+                - link "17" [ref=e2837] [cursor=pointer]:
+                  - /url: "#user-content-fn-iso-14064-3:2019-6.3.3"
+              - text: ":"
+            - list [ref=e2838]:
+              - listitem [ref=e2839]:
+                - paragraph [ref=e2840]: a statement that the Project Proponent is responsible for the fair presentation of the PDD in accordance with the criteria;
+              - listitem [ref=e2841]:
+                - paragraph [ref=e2842]: a statement that the Verifier is responsible for expressing an opinion on the PDD based on the Verification;
+              - listitem [ref=e2843]:
+                - paragraph [ref=e2844]: a description of the Verification evidence-gathering procedures used to assess the PDD;
+              - listitem [ref=e2845]:
+                - paragraph [ref=e2846]: the Verification opinion, which will will state the net Removal during the covered period to a reasonable Level of Assurance;
+              - listitem [ref=e2847]:
+                - paragraph [ref=e2848]: the date of the report;
+              - listitem [ref=e2849]:
+                - paragraph [ref=e2850]: the Verifier’s location;
+              - listitem [ref=e2851]:
+                - paragraph [ref=e2852]: the Verifier’s signature;
+              - listitem [ref=e2853]:
+                - paragraph [ref=e2854]: a summary of the Claimed Removals, as presented in the GHG Statement;
+              - listitem [ref=e2855]:
+                - paragraph [ref=e2856]: reference to the Verification criteria; and
+              - listitem [ref=e2857]:
+                - paragraph [ref=e2858]: Verification scope.
+            - paragraph [ref=e2859]:
+              - text: Following this process, Isometric will review the Project documents used for Validation and Verification, and either accept them, request corrections or clarifications for the Project Proponent or VVB to address, or reject them. Once Isometric has reviewed and approved the initial Validation Report for a Project, the Project will be listed as Validated on the Registry, with the date of Isometric’s approval listed as the “
+              - link "Approval Date" [ref=e2860] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-approval-date"
+              - text: ” (also known as a “registration date”) of the Project. For Verifications, once Isometric has accepted a Verification Report, the corresponding Removals will be deemed Verified, and eligible for issuance of Credits.
+            - paragraph [ref=e2861]: For both Validations and Verifications, the results of the Validation/Verification process, including the Validation/Verification Report and Opinion, will be made available for each Project.
+          - generic [ref=e2862]:
+            - generic [ref=e2864]:
+              - generic [ref=e2865]:
+                - generic [ref=e2866]: "4.3"
+                - generic [ref=e2867]:
+                  - button "Jump to table of contents" [ref=e2868] [cursor=pointer]:
+                    - img [ref=e2869]
+                  - button "Copy link to section" [ref=e2871] [cursor=pointer]:
+                    - img [ref=e2872]
+              - generic [ref=e2874]: Materiality Threshold
+            - heading "Materiality Threshold" [level=3] [ref=e2877]
+            - paragraph [ref=e2878]:
+              - text: The threshold for
+              - link "Materiality" [ref=e2879] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-materiality"
+              - text: ", considering the totality of all omissions, errors and mis-statements, is 5% for all Projects. To accept a Verification Opinion, Isometric requires that discrepancies between the Removal Claimed by the Project Proponent and that estimated by the VVB for a given statement be less than the Materiality threshold."
+            - paragraph [ref=e2880]:
+              - text: Qualitative materiality issues may also be identified and documented, such as
+              - superscript [ref=e2881]:
+                - link "18" [ref=e2882] [cursor=pointer]:
+                  - /url: "#user-content-fn-1"
+              - text: ":"
+            - list [ref=e2883]:
+              - listitem [ref=e2884]: control issues that erode the verifier’s confidence in the reported data;
+              - listitem [ref=e2885]: poorly managed documented information;
+              - listitem [ref=e2886]: difficulty in locating requested information;
+              - listitem [ref=e2887]: noncompliance with regulations indirectly related to GHG emissions, removals or storage.
+          - generic [ref=e2888]:
+            - generic [ref=e2890]:
+              - generic [ref=e2891]:
+                - generic [ref=e2892]: "4.4"
+                - generic [ref=e2893]:
+                  - button "Jump to table of contents" [ref=e2894] [cursor=pointer]:
+                    - img [ref=e2895]
+                  - button "Copy link to section" [ref=e2897] [cursor=pointer]:
+                    - img [ref=e2898]
+              - generic [ref=e2900]: Conflicts of Interest
+            - heading "Conflicts of Interest" [level=3] [ref=e2903]
+            - paragraph [ref=e2904]: Any organization which has been involved in the development of a particular Project may not act as a VVB for Validation and/or Verification purposes for that Project.
+            - paragraph [ref=e2905]: To minimize the risk of conflicts of interest occurring between the Project Proponent and the VVB, Isometric will select and engage VVBs for Project Validation and Verification, and VVBs must complete a conflict of interest disclosure.
+          - generic [ref=e2906]:
+            - generic [ref=e2908]:
+              - generic [ref=e2909]:
+                - generic [ref=e2910]: "4.5"
+                - generic [ref=e2911]:
+                  - button "Jump to table of contents" [ref=e2912] [cursor=pointer]:
+                    - img [ref=e2913]
+                  - button "Copy link to section" [ref=e2915] [cursor=pointer]:
+                    - img [ref=e2916]
+              - generic [ref=e2918]: Rotation of Validation and Verification Bodies
+            - heading "Rotation of Validation and Verification Bodies" [level=3] [ref=e2921]
+            - paragraph [ref=e2922]: Isometric requires that Projects must work with a single VVB for no longer than five consecutive years. A given VVB may conduct Verification for a Project during no more than five out of seven consecutive years.
+          - generic [ref=e2923]:
+            - generic [ref=e2925]:
+              - generic [ref=e2926]:
+                - generic [ref=e2927]: "4.6"
+                - generic [ref=e2928]:
+                  - button "Jump to table of contents" [ref=e2929] [cursor=pointer]:
+                    - img [ref=e2930]
+                  - button "Copy link to section" [ref=e2932] [cursor=pointer]:
+                    - img [ref=e2933]
+              - generic [ref=e2935]: Validation and Verification Body Oversight
+            - heading "Validation and Verification Body Oversight" [level=3] [ref=e2938]
+            - paragraph [ref=e2939]:
+              - text: In addition to the
+              - link "qualification requirements" [ref=e2940] [cursor=pointer]:
+                - /url: "#validation-and-verification-body-qualification-requirements"
+              - text: ", Isometric may oversee VVB activity during the Validation and/or Verification process, and may suspend approval of a previously approved VVB. Oversight can include review of VVB documentation, including Verification and sampling plans, reports, opinions and conflict of interest disclosures, as well as review of Project Proponent documentation."
+            - paragraph [ref=e2941]: Isometric will report significant and/or repeated VVB performance concerns to the relevant accreditation body.
+          - generic [ref=e2942]:
+            - generic [ref=e2945]:
+              - generic [ref=e2946]:
+                - generic [ref=e2947]: "5.0"
+                - generic [ref=e2948]:
+                  - button "Jump to table of contents" [ref=e2949] [cursor=pointer]:
+                    - img [ref=e2950]
+                  - button "Copy link to section" [ref=e2952] [cursor=pointer]:
+                    - img [ref=e2953]
+              - generic [ref=e2955]: Crediting
+            - heading "Crediting" [level=2] [ref=e2958]
+            - paragraph [ref=e2959]:
+              - text: Isometric
+              - link "Credits" [ref=e2960] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-credit"
+              - text: represent one net metric tonne of verified CO
+              - subscript [ref=e2961]: "2"
+              - text: e removal, and may be Issued, Transferred and
+              - link "Retired" [ref=e2962] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-retirement"
+              - text: on the Isometric Registry according to the rules and requirements set out in this section.
+            - paragraph [ref=e2963]: Isometric is the sole Credit issuing body on the Isometric Registry.
+          - generic [ref=e2964]:
+            - generic [ref=e2966]:
+              - generic [ref=e2967]:
+                - generic [ref=e2968]: "5.1"
+                - generic [ref=e2969]:
+                  - button "Jump to table of contents" [ref=e2970] [cursor=pointer]:
+                    - img [ref=e2971]
+                  - button "Copy link to section" [ref=e2973] [cursor=pointer]:
+                    - img [ref=e2974]
+              - generic [ref=e2976]: Credit Attributes
+            - heading "Credit Attributes" [level=3] [ref=e2979]
+            - paragraph [ref=e2980]:
+              - text: Credits have only one owner at any time. A full ownership history is tracked and is publicly visible for each Credit. Each Credit is Issued
+              - link "Ex-post" [ref=e2981] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-ex-post-credits"
+              - text: against a net Verified Removal, thereby ensuring every net tonne of CO
+              - subscript [ref=e2982]: "2"
+              - text: e removed is Credited and accounted for only
+              - link "once" [ref=e2983] [cursor=pointer]:
+                - /url: "#no-double-counting"
+              - text: ", and that any Credit can be traced back to an individual Removal."
+            - paragraph [ref=e2984]: Each Credit has a publicly available history of ownership that indicates when the Credit was first Issued, who it was first Issued to, if and when it was subsequently Delivered or Transfered, if and when it was Retired and by whom, on behalf of whom.
+            - paragraph [ref=e2985]:
+              - text: When first Issued, a Credit's status is Active. Upon Retirement of a Credit, its status becomes Retired. Similarly, upon
+              - link "Cancellation of a Credit" [ref=e2986] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-cancellation"
+              - text: (for example, in compensation for erroneous overissuance, or in compensation for a Reversal as outlined in
+              - link "Reversals and Buffer Pools" [ref=e2987] [cursor=pointer]:
+                - /url: "#reversals-and-buffer-pools"
+              - text: ), its status becomes
+              - link "Canceled" [ref=e2988] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-cancellation"
+              - text: .
+            - paragraph [ref=e2989]: "Credit metadata include:"
+            - list [ref=e2990]:
+              - listitem [ref=e2991]:
+                - paragraph [ref=e2992]: Unique Serial Number;
+              - listitem [ref=e2993]:
+                - paragraph [ref=e2994]: Durability;
+              - listitem [ref=e2995]:
+                - paragraph [ref=e2996]: Issuance Date;
+              - listitem [ref=e2997]:
+                - paragraph [ref=e2998]: Issuing Project;
+              - listitem [ref=e2999]:
+                - paragraph [ref=e3000]: Issuing Project Proponent;
+              - listitem [ref=e3001]:
+                - paragraph [ref=e3002]: Country of Removal;
+              - listitem [ref=e3003]:
+                - paragraph [ref=e3004]: Ownership history, including the current Owner (the Owner who is retiring the Credit) and all previous Owners and Transfer Dates;
+              - listitem [ref=e3005]:
+                - paragraph [ref=e3006]: Retirement Date;
+              - listitem [ref=e3007]:
+                - paragraph [ref=e3008]: Retirement Beneficiary;
+              - listitem [ref=e3009]:
+                - paragraph [ref=e3010]: Credit Status; and
+              - listitem [ref=e3011]:
+                - paragraph [ref=e3012]: Vintage.
+          - generic [ref=e3013]:
+            - generic [ref=e3015]:
+              - generic [ref=e3016]:
+                - generic [ref=e3017]: "5.2"
+                - generic [ref=e3018]:
+                  - button "Jump to table of contents" [ref=e3019] [cursor=pointer]:
+                    - img [ref=e3020]
+                  - button "Copy link to section" [ref=e3022] [cursor=pointer]:
+                    - img [ref=e3023]
+              - generic [ref=e3025]: Issuance Process
+            - heading "Issuance Process" [level=3] [ref=e3028]
+            - paragraph [ref=e3029]:
+              - text: Credits are Issued against a specific Removal. This process is undertaken once a Removal has been Verified. Credits are always Issued to the Project Proponent of the Removal. The Project Proponent is then able to
+              - link "Deliver" [ref=e3030] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-delivery"
+              - text: Credits to Buyer
+              - link "Credit Accounts" [ref=e3031] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-credit-accounts"
+              - text: on the Registry, and can do so at a time and in an order of their own discretion.
+          - generic [ref=e3032]:
+            - generic [ref=e3034]:
+              - generic [ref=e3035]:
+                - generic [ref=e3036]: "5.3"
+                - generic [ref=e3037]:
+                  - button "Jump to table of contents" [ref=e3038] [cursor=pointer]:
+                    - img [ref=e3039]
+                  - button "Copy link to section" [ref=e3041] [cursor=pointer]:
+                    - img [ref=e3042]
+              - generic [ref=e3044]: Transfer and Delivery Rules and Ownership History
+            - heading "Transfer and Delivery Rules and Ownership History" [level=3] [ref=e3047]
+            - paragraph [ref=e3048]: Deliveries can be made by Project Proponents to Buyer Credit Accounts, resulting in transfer of ownership of one or more newly Issued Credits. Further Transfers can be made by Credit Account holders to other Credit Accounts, resulting in transfer of ownership of one or more Credits. For each Credit, the initial Delivery and all Transfers are logged on the Credit and made publicly available in the Credit's history.
+            - paragraph [ref=e3049]: "Project Proponent Deliveries are subject to the following rules:"
+            - list [ref=e3050]:
+              - listitem [ref=e3051]:
+                - paragraph [ref=e3052]: Project Proponents can only Deliver Credits that have been Issued;
+              - listitem [ref=e3053]:
+                - paragraph [ref=e3054]: Project Proponents can only Deliver Credits that they own; and
+              - listitem [ref=e3055]:
+                - paragraph [ref=e3056]: Project Proponents can only Deliver Credits to Buyers who have an active Isometric Registry Credit Account.
+            - paragraph [ref=e3057]: "Buyer Transfers are subject to the following rules:"
+            - list [ref=e3058]:
+              - listitem [ref=e3059]:
+                - paragraph [ref=e3060]: Buyers can only transfer Credits that they own; and
+              - listitem [ref=e3061]:
+                - paragraph [ref=e3062]: Buyers can only transfer Credits to another organization that has a Credit Account on the Isometric Registry.
+          - generic [ref=e3063]:
+            - generic [ref=e3065]:
+              - generic [ref=e3066]:
+                - generic [ref=e3067]: "5.4"
+                - generic [ref=e3068]:
+                  - button "Jump to table of contents" [ref=e3069] [cursor=pointer]:
+                    - img [ref=e3070]
+                  - button "Copy link to section" [ref=e3072] [cursor=pointer]:
+                    - img [ref=e3073]
+              - generic [ref=e3075]: Retirement Rules
+            - heading "Retirement Rules" [level=3] [ref=e3078]
+            - paragraph [ref=e3079]:
+              - text: Retirement is the mechanism by which a Credit's ownership state is finalized. This ensures that once the net tonne of CO
+              - subscript [ref=e3080]: "2"
+              - text: e represented by the retired Credit is used towards an accounting activity, it can never be used again by the owner, the Beneficiary of the retirement, or any other actor.
+            - paragraph [ref=e3081]: The Beneficiary of a Retirement is the organization on behalf of whom the Credit was retired, and must be publicly identified. Beneficiaries can be the current holder of a Credit at the time of retirement, or an organization that is specified by the Credit Account holder during the Retirement procedure. The Credit Account holder can retire Credits by following the Retirement process through their Credit Account on the Registry.
+            - paragraph [ref=e3082]: The owner of an unretired Credit may publicly market its ownership of said Credit, as well as the potential for the Credit to be retired by any current or future owners, but only the Beneficiary of a Retired Credit may claim the environmental benefits associated with that Credit.
+            - paragraph [ref=e3083]: "Retirement is subject to the following rules:"
+            - list [ref=e3084]:
+              - listitem [ref=e3085]:
+                - paragraph [ref=e3086]: a Credit Account holder can only retire Credits they own, which are in their Credit Account;
+              - listitem [ref=e3087]:
+                - paragraph [ref=e3088]: a Credit can only be Retired once; and
+              - listitem [ref=e3089]:
+                - paragraph [ref=e3090]: any number of Credits can be retired at any given time, provided that number of Credits does not exceed the number of Credits held by the Credit Account.
+          - generic [ref=e3091]:
+            - generic [ref=e3093]:
+              - generic [ref=e3094]:
+                - generic [ref=e3095]: "5.5"
+                - generic [ref=e3096]:
+                  - button "Jump to table of contents" [ref=e3097] [cursor=pointer]:
+                    - img [ref=e3098]
+                  - button "Copy link to section" [ref=e3100] [cursor=pointer]:
+                    - img [ref=e3101]
+              - generic [ref=e3103]: Retirement Certificates
+            - heading "Retirement Certificates" [level=3] [ref=e3106]
+            - paragraph [ref=e3107]: Retirement Certificates serve as proof of the Retirement of one or more Credits, and are produced only on completion of a Retirement. Every Retirement Certificate relates to one or more Retired Credits. If more than one Credit is Retired at a time, the Certificate will list all Retired Credits. Retirement Certificates show the relationship between retired Credits and the Removals they derive from.
+          - generic [ref=e3108]:
+            - generic [ref=e3110]:
+              - generic [ref=e3111]:
+                - generic [ref=e3112]: "5.6"
+                - generic [ref=e3113]:
+                  - button "Jump to table of contents" [ref=e3114] [cursor=pointer]:
+                    - img [ref=e3115]
+                  - button "Copy link to section" [ref=e3117] [cursor=pointer]:
+                    - img [ref=e3118]
+              - generic [ref=e3120]: Reversals and Buffer Pools
+            - heading "Reversals and Buffer Pools" [level=3] [ref=e3123]
+            - paragraph [ref=e3124]: This section outlines how Reversals are handled on the Isometric Registry, through the use of Buffer Pools.
+            - paragraph [ref=e3125]: All Reversals will be reviewed by the Isometric Science Team.
+            - paragraph [ref=e3126]: Note that changes to calculations as a result of updates to Protocols are not considered Reversals, and will generally not affect previously issued Credits. However, Isometric will monitor for significant impacts due to Protocol updates to ensure overall quality and to address system level impacts (e.g. considerable evolution of scientific consensus).
+          - generic [ref=e3127]:
+            - generic [ref=e3129]:
+              - generic [ref=e3130]:
+                - generic [ref=e3131]: 5.6.1
+                - generic [ref=e3132]:
+                  - button "Jump to table of contents" [ref=e3133] [cursor=pointer]:
+                    - img [ref=e3134]
+                  - button "Copy link to section" [ref=e3136] [cursor=pointer]:
+                    - img [ref=e3137]
+              - generic [ref=e3139]: Reversals
+            - heading "Reversals" [level=4] [ref=e3142]
+            - paragraph [ref=e3143]:
+              - text: Project Proponents must monitor for Reversals as prescribed by a Project's
+              - link "Monitoring Plan" [ref=e3144] [cursor=pointer]:
+                - /url: "#durability-and-monitoring"
+              - text: ", and promptly report Reversals to Isometric if identified. Isometric’s expectation is for such a report to be made within one business day of having been identified, but must be made within a maximum of three business days. At the verification following a Reversal, the Project Proponent must report relevant monitoring data for any Reversal which has occurred, to be assessed by the verifier as part of that verification. Reversal data from Projects will be made public."
+            - paragraph [ref=e3145]: When a Reversal is identified, Credits will be Canceled from the Project Proponent's Buffer Pool to compensate for the Reversal. The number of Credits to be Canceled must equal the size of the Reversal.
+            - paragraph [ref=e3146]: In the event that a Project Proponent is temporarily unable to comply with monitoring, closing or Embodied Emission allocation requirements as outlined in the relevant Protocol, the treatment of possible Reversals will be assessed on a case by case basis by Isometric, in consultation with the Project VVB.
+            - paragraph [ref=e3147]: "Furthermore, Reversals are classed as either Avoidable or Unavoidable, according to the following requirements:"
+            - list [ref=e3148]:
+              - listitem [ref=e3149]: Where a Project Proponent ceases ongoing monitoring, this will be deemed an Avoidable Reversal.
+              - listitem [ref=e3150]: Where a Reversal occurs over which the Project Proponent has influence or control, including for example in relation to poor project management or operational negligence, this will be deemed an Avoidable Reversal.
+              - listitem [ref=e3151]: Where a Reversal occurs over which the Project Proponent has no control, including natural disasters, encroachment by outside actors, or occurrence of other demonstrably unforeseeable factors reasonably considered to be outside of the Project Proponent’s control, this will be deemed an Unavoidable Reversal.
+            - paragraph [ref=e3152]:
+              - text: The classification of a Reversal as either Avoidable or Unavoidable will be made by Isometric, in consultation with the Project VVB, according to the above requirements. This classification has implications in relation to the Project Proponent’s Buffer Pool, as outlined in
+              - link "Buffer Pools" [ref=e3153] [cursor=pointer]:
+                - /url: "#buffer-pools-uncertainty-in-storage"
+              - text: .
+          - generic [ref=e3154]:
+            - generic [ref=e3156]:
+              - generic [ref=e3157]:
+                - generic [ref=e3158]: 5.6.2
+                - generic [ref=e3159]:
+                  - button "Jump to table of contents" [ref=e3160] [cursor=pointer]:
+                    - img [ref=e3161]
+                  - button "Copy link to section" [ref=e3163] [cursor=pointer]:
+                    - img [ref=e3164]
+              - generic [ref=e3166]: Buffer Pools (Uncertainty in Storage)
+            - heading "Buffer Pools (Uncertainty in Storage)" [level=4] [ref=e3169]
+            - paragraph [ref=e3170]: Buffer Pools are the current solution to Uncertainty in storage and are subject to re-evaluation given advancements in understanding of their effectiveness and of the risk of Reversal of Removal Projects. Isometric reserves the right to amend its Buffer Pool approach given notice and consultation with Project Propenents in line with this Standard's Updates to Protocols policy.
+            - paragraph [ref=e3171]: Isometric will maintain a Buffer Pool of Credits in accounts specific to each Project Proponent from which Credits will be Canceled in the case of a Reversal. In the case of Biosphere Protocols, a Buffer Pool of Credits specific to each Protocol will be maintained, and further requirements applicable to such Buffer Pools are set out in the applicable Protocols.
+            - paragraph [ref=e3172]: Whenever Credits are Issued following a Verified Removal, a percentage of these Credits will be Issued to the Project Proponent's Buffer Pool account, according to the Buffer Pool Size below.
+            - paragraph [ref=e3173]: Credits in a Buffer Pool cannot be Transferred, or used to make Deliveries during the Crediting Period or after the Crediting Period has ended, as they are held to accomodate for as long as there is a risk of Reversal from a Project. Exceptions may occur when Uncertainty decreases and thus Buffer Pool size is amended for a Project Proponent, in which case extra Buffer Pool Credits may be used to make Deliveries.
+            - paragraph [ref=e3174]: In the case that there are insufficient Credits in a Project Proponent's Buffer Pool to compensate for any triggered Reversals, all further Credits Issued from Removals conducted by the Project Proponent (whether from the same Project, or other Projects run by the same Project Proponent) will be assigned to their Buffer Pool and Canceled, until all such Reversals have been fully compensated. Cases where Project Proponents cease operations will be addressed on an individual basis.
+            - paragraph [ref=e3175]:
+              - text: The Buffer Pool Size is determined by the Risk of Reversal of a given approach, as outlined below. The
+              - link "Risk of Reversal" [ref=e3176] [cursor=pointer]:
+                - /url: "#risk-of-reversal"
+              - text: is defined in the relevant Certified Protocol. Projects with a higher Risk of Reversal have a correspondingly larger Buffer Pool. Note that the Buffer Pool is applied in addition to the Conservative approach taken in the quantification of net CO
+              - subscript [ref=e3177]: "2"
+              - text: e Removal, whereby uncertainty is factored into the Credited Removal. The following Buffer Pool sizes may be subject to change in future Standard versions based on empirical data.
+            - table [ref=e3179]:
+              - rowgroup [ref=e3180]:
+                - row "Risk of Reversal Buffer Pool Size" [ref=e3181]:
+                  - columnheader "Risk of Reversal" [ref=e3182]:
+                    - generic [ref=e3183]: Risk of Reversal
+                  - columnheader "Buffer Pool Size" [ref=e3184]:
+                    - generic [ref=e3185]: Buffer Pool Size
+              - rowgroup [ref=e3186]:
+                - row "Very low 2%" [ref=e3187]:
+                  - cell "Very low" [ref=e3188]:
+                    - generic [ref=e3189]: Very low
+                  - cell "2%" [ref=e3190]:
+                    - generic [ref=e3191]: 2%
+                - row "Low 5%" [ref=e3192]:
+                  - cell "Low" [ref=e3193]:
+                    - generic [ref=e3194]: Low
+                  - cell "5%" [ref=e3195]:
+                    - generic [ref=e3196]: 5%
+                - row "Medium 7%" [ref=e3197]:
+                  - cell "Medium" [ref=e3198]:
+                    - generic [ref=e3199]: Medium
+                  - cell "7%" [ref=e3200]:
+                    - generic [ref=e3201]: 7%
+                - row "High 10-20%" [ref=e3202]:
+                  - cell "High" [ref=e3203]:
+                    - generic [ref=e3204]: High
+                  - cell "10-20%" [ref=e3205]:
+                    - generic [ref=e3206]: 10-20%
+            - paragraph [ref=e3207]: Where an Avoidable Reversal has occurred, a Project Proponent must reimburse their Buffer Pool account by transferring a number of Credits equal to the size of the Reversal to the Buffer Account. While there are any outstanding Avoidable Reversals to be remedied in this way, all further Credits Issued from Removals conducted by the Project Proponent (whether from the same Project, or other Projects run by the same Project Proponent) will be assigned to their Buffer Pool, until all such Reversals have been fully remedied.
+            - paragraph [ref=e3208]: Where an Unavoidable Reversal has occurred, the Project Proponent is not required to reimburse their Buffer Pool account.
+          - generic [ref=e3209]:
+            - generic [ref=e3211]:
+              - generic [ref=e3212]:
+                - generic [ref=e3213]: "5.7"
+                - generic [ref=e3214]:
+                  - button "Jump to table of contents" [ref=e3215] [cursor=pointer]:
+                    - img [ref=e3216]
+                  - button "Copy link to section" [ref=e3218] [cursor=pointer]:
+                    - img [ref=e3219]
+              - generic [ref=e3221]: No Double Counting
+            - heading "No Double Counting" [level=3] [ref=e3224]
+            - paragraph [ref=e3225]: Isometric has rules and procedures in place to mitigate the risk of occurrence of Double Counting, which can occur in different ways, including double issuance, double use and double claiming.
+            - paragraph [ref=e3226]: Double issuance (occurring when more than one unique unit is Issued for the same Removal activity) is not permissible, and Isometric has checks in place to mitigate the possibility of double issuance. Any Removal activity listed on the Isometric registry must not be listed on another program, and may not be used to make a separate Removal claim elsewhere. If the Project is associated with production of a commodity which is claiming an environmental attribute, the Removals may not be counted towards this environmental attribute.
+            - paragraph [ref=e3227]: In addition, it is not permissible to issue Credits for Removals resulting from Removal activities where credits related to the same climate impacts of the activity are traded in any other carbon crediting program.
+            - paragraph [ref=e3228]: "Furthermore, it is not permitted to register Removal activities or Projects with overlapping GHG accounting boundaries, except in the following circumstance:"
+            - list [ref=e3229]:
+              - listitem [ref=e3230]: Projects whose physical Removal activities incorporate carbon sequestration which would individually be eligible under separate Isometric Protocols, and which may be registered as individual Projects under this Standard using separate Protocols;
+              - listitem [ref=e3231]: And, where the GHG accounting boundary of the Project does not overlap with Removal activities registered with any other carbon crediting program;
+              - listitem [ref=e3232]: And, where the GHG accounting boundary is clearly described between such Projects to ensure that all Carbon Fluxes are fully accounted for precisely once, thereby avoiding the possibility of double issuance.
+            - paragraph [ref=e3233]: For the avoidance of doubt, it is in no case permissible to issue credits to a Project for Removal activities that occur within the GHG accounting boundaries of another Removal activity or Project under this Standard.
+            - paragraph [ref=e3234]:
+              - text: Double use (occurring when an Issued credit is further transferred, used or retired after already having been retired) is mitigated through a transparent, public record of all Credits and Retirements, ensuring all Retirements used as claims towards mitigation targets can be uniquely identified, and can be traced back to the specific Removal activity the Credit was Issued against. Once a Credit has been Retired, it cannot be used further, and a unique, public
+              - link "Retirement Certificate" [ref=e3235] [cursor=pointer]:
+                - /url: "#retirement-certificates"
+              - text: is produced.
+            - paragraph [ref=e3236]: Double claiming (occurring when an Issued credit is claimed twice towards achieving mitigation targets or goals) is not permitted on the Isometric Registry. For any Credit, no separate Removal claims may be made for the underlying Removal from which the Credit was Issued. Isometric will monitor for instances of Double claiming, and Credit Account users engaging in double claiming may have their Credit Account suspended.
+          - generic [ref=e3237]:
+            - generic [ref=e3239]:
+              - generic [ref=e3240]:
+                - generic [ref=e3241]: 5.7.1
+                - generic [ref=e3242]:
+                  - button "Jump to table of contents" [ref=e3243] [cursor=pointer]:
+                    - img [ref=e3244]
+                  - button "Copy link to section" [ref=e3246] [cursor=pointer]:
+                    - img [ref=e3247]
+              - generic [ref=e3249]: Prevention of Scheme Hopping
+            - heading "Prevention of Scheme Hopping" [level=4] [ref=e3252]
+            - paragraph [ref=e3253]: "To mitigate the risk of Double Counting and to prevent Projects seeking to avoid undertaking verification, monitoring, or corrective requirements through registration under alternative standards or programmes, Projects undergoing Validation must disclose:"
+            - list [ref=e3254]:
+              - listitem [ref=e3255]: Whether the Project Proponent (or its legal predecessor) is currently participating in, or has participated in, another carbon certification scheme, carbon registry or standard within the last 5 years.
+              - listitem [ref=e3256]: Audit reports from the last two Validation and Verification processes under any previous scheme. This must include a detailed list of findings and any history of suspension or withdrawal in the last 5 years.
+              - listitem [ref=e3257]: Whether the Project Proponent withdrew from a previous scheme prior to the completion of a first Verification.
+          - generic [ref=e3258]:
+            - generic [ref=e3260]:
+              - generic [ref=e3261]:
+                - generic [ref=e3262]: "5.8"
+                - generic [ref=e3263]:
+                  - button "Jump to table of contents" [ref=e3264] [cursor=pointer]:
+                    - img [ref=e3265]
+                  - button "Copy link to section" [ref=e3267] [cursor=pointer]:
+                    - img [ref=e3268]
+              - generic [ref=e3270]: CORSIA
+            - heading "CORSIA" [level=3] [ref=e3273]
+            - paragraph [ref=e3274]:
+              - text: Project Proponents wishing to issue credits that would be eligible as emissions units for the Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA) must comply with
+              - link "Isometric’s CORSIA Eligibility Policy" [ref=e3275] [cursor=pointer]:
+                - /url: https://drive.google.com/file/d/18nnuCUaVn1DQDOeoSBCNDaS1XJ3jSFjw/view
+              - text: .
+            - paragraph [ref=e3276]: To mitigate the risk of double claiming of any CORSIA-eligible emissions units, Project Proponents must agree with Isometric suitable mechanisms to compensate for double claims of their CORSIA-eligible emissions units by airline operators for CORSIA and Host Countries working towards fulfillment of Nationally Determined Contributions (NDCs).
+            - paragraph [ref=e3277]:
+              - text: Project Proponents of CORSIA-eligible emissions must also comply with the information and reporting requirements in
+              - link "Isometric’s CORSIA Eligibility Policy" [ref=e3278] [cursor=pointer]:
+                - /url: https://drive.google.com/file/d/18nnuCUaVn1DQDOeoSBCNDaS1XJ3jSFjw/view
+              - text: ", including monitoring relevant Host Country reporting and submitting accurate, timely information on corresponding adjustments to Isometric."
+            - paragraph [ref=e3279]:
+              - text: Isometric commits to being the final guarantor of CORSIA-eligible emissions units, if other safeguards to reimburse CORSIA-eligible emissions units, such as a project's buffer pool contributions, other mechanisms outlined in
+              - link "Buffer Pools" [ref=e3280] [cursor=pointer]:
+                - /url: "#buffer-pools-uncertainty-in-storage"
+              - text: or insurance policies, are insufficient to fully compensate for any reversal of issued CORSIA-eligible emission units. Further detail is provided in the
+              - link "CORSIA Eligibility Policy" [ref=e3281] [cursor=pointer]:
+                - /url: https://drive.google.com/file/d/18nnuCUaVn1DQDOeoSBCNDaS1XJ3jSFjw/view
+              - text: .
+          - generic [ref=e3282]:
+            - generic [ref=e3284]:
+              - generic [ref=e3285]:
+                - generic [ref=e3286]: "5.9"
+                - generic [ref=e3287]:
+                  - button "Jump to table of contents" [ref=e3288] [cursor=pointer]:
+                    - img [ref=e3289]
+                  - button "Copy link to section" [ref=e3291] [cursor=pointer]:
+                    - img [ref=e3292]
+              - generic [ref=e3294]: Non-Conformities and Sanctions
+            - heading "Non-Conformities and Sanctions" [level=3] [ref=e3297]
+          - generic [ref=e3298]:
+            - generic [ref=e3300]:
+              - generic [ref=e3301]:
+                - generic [ref=e3302]: 5.9.1
+                - generic [ref=e3303]:
+                  - button "Jump to table of contents" [ref=e3304] [cursor=pointer]:
+                    - img [ref=e3305]
+                  - button "Copy link to section" [ref=e3307] [cursor=pointer]:
+                    - img [ref=e3308]
+              - generic [ref=e3310]: Non-Conformities
+            - heading "Non-Conformities" [level=4] [ref=e3313]
+            - paragraph [ref=e3314]: "During a Validation or Verification conducted by a VVB, if any non-conformities with Protocol or Standard requirements are identified, the VVB will classify these non-conformities according to three categories: Minor Non-Conformity, Major Non-Conformity, and Critical Non-Conformity."
+            - paragraph [ref=e3315]: The categorization of the non-conformity will determine the severity of the associated sanction Isometric will apply to the Project Proponent.
+            - list [ref=e3316]:
+              - listitem [ref=e3317]: "Minor Non-Conformity: a violation of the Isometric Standard or Protocol that has a limited impact, constitutes an isolated or temporary lapse, and would not result in a fundamental systemic failure if not corrected."
+              - listitem [ref=e3318]:
+                - text: "Major Non-Conformity: a violation of the Isometric rules or procedures that has been repeated by the Project Proponent, revealing systematic problems either in combination with further non-conformities or on its own merit. This includes, but is not limited to:"
+                - list [ref=e3319]:
+                  - listitem [ref=e3320]: systematic problems with GHG data reported, such as incorrect documentation identified in more than 10% of the claims included in the representative sample;
+                  - listitem [ref=e3321]: failure to provide relevant information to the VVB, such as the information needed for the purposes of an audit;
+                  - listitem [ref=e3322]: omission of a Project Proponent declaring its participation in other carbon removal certification schemes during the certification process;
+              - listitem [ref=e3323]: "Critical Non-Conformity: violations that jeopardize the integrity of the Isometric Standard, including fraud, irreversible non-conformity, falsification of GHG data, or deliberate misstatement of activity. For instance, fabrication of data or submission of fraudulent GHG statements."
+            - paragraph [ref=e3324]:
+              - text: For the purposes of the issuance of a CRCF certificate of compliance, a failure to meet the requirements of relevant Modules and Protocols approved under the CRCF, as well as the quality criteria set out in Articles 4 to 7 of Regulation (EU) 2024/3012
+              - superscript [ref=e3325]:
+                - link "19" [ref=e3326] [cursor=pointer]:
+                  - /url: "#user-content-fn-eu-regulation-2024-3012"
+              - text: ", will also be categorized as a Critical Non-Conformity."
+          - generic [ref=e3327]:
+            - generic [ref=e3329]:
+              - generic [ref=e3330]:
+                - generic [ref=e3331]: 5.9.2
+                - generic [ref=e3332]:
+                  - button "Jump to table of contents" [ref=e3333] [cursor=pointer]:
+                    - img [ref=e3334]
+                  - button "Copy link to section" [ref=e3336] [cursor=pointer]:
+                    - img [ref=e3337]
+              - generic [ref=e3339]: Sanctions
+            - heading "Sanctions" [level=4] [ref=e3342]
+            - paragraph [ref=e3343]:
+              - text: Based on the classification of the non-conformities in
+              - link "Non-Conformities" [ref=e3344] [cursor=pointer]:
+                - /url: "#non-conformities"
+              - text: ", Isometric will apply the following sanctions, which are in accordance with the CRCF implementing regulation. The applicable sanction applied will depend on whether the Credits or CRCF Certificate of Compliance have been issued."
+            - paragraph [ref=e3345]: In the case of a Minor Non-Conformity, the Project Proponent must remediate the issue during the current Validation or Verification, unless the VVB determines that it may be recorded as a Forward Action Request. Any such Forward Action Request must be addressed at the next verification, or by a date specified by the Verifier, and in any event within 12 months at the latest.
+            - paragraph [ref=e3346]: In the case of a Major Non-Conformity, if a Project has not been validated or a CRCF Certificate of Compliance has not been issued, the project will not be validated and no CRCF Certificate of Compliance will be issued until the non-conformity has been resolved. Where a CRCF Certificate of Compliance has already been issued or the Project has been validated, its Certificate of Compliance and further credit issuance to the Project will be suspended. The Project Proponent must implement remedial measures within 90 days of the major non-conformity being identified. If this remedial action does not occur within 90 days, the Project’s CRCF Certificate of Compliance will be cancelled and the Project will be delisted from the registry.
+            - paragraph [ref=e3347]:
+              - text: In the case of Critical Non-Conformity identified during a Verification or monitoring audit, or through Isometric's internal monitoring or complaints process, no further credits will be issued. Any Credits previously issued that are attributable to the Non-Conformity will be deemed as having undergone a Reversal, and the procedure in
+              - link "Reversals" [ref=e3348] [cursor=pointer]:
+                - /url: "#reversals"
+              - text: will apply. Any CRCF certified units will be subject to immediate cancellation and the remediation procedures described in
+              - link "Remediation for Fraud" [ref=e3349] [cursor=pointer]:
+                - /url: "#remediation-for-fraud"
+              - text: will apply.
+            - paragraph [ref=e3350]: In the case of a CRCF certificate of compliance, the certificate will be cancelled and there will be no further issuance of CRCF certified units.
+            - paragraph [ref=e3351]: Any further credit issuance to the Project will be suspended. In the case of Projects which are not seeking eligibility under CRCF, the Project Proponent may re-apply to issue credits if they demonstrate that the issues which lead to the Critical Non-Conformity have been thoroughly addressed.
+          - generic [ref=e3352]:
+            - generic [ref=e3355]:
+              - generic [ref=e3356]:
+                - generic [ref=e3357]: "6.0"
+                - generic [ref=e3358]:
+                  - button "Jump to table of contents" [ref=e3359] [cursor=pointer]:
+                    - img [ref=e3360]
+                  - button "Copy link to section" [ref=e3362] [cursor=pointer]:
+                    - img [ref=e3363]
+              - generic [ref=e3365]: CRCF
+            - heading "CRCF" [level=2] [ref=e3368]
+            - paragraph [ref=e3369]: Project Proponents wishing to issue credits under the EU’s Carbon Removal and Carbon Farming certification scheme are subject to additional procedures and requirements to ensure they comply with the applicable legislation.
+            - paragraph [ref=e3370]: Projects seeking Validation under the Isometric Standard must indicate whether they wish to be approved to issue CRCF certified units. If so, Projects must use an appropriate Isometric Protocol and must comply with the procedures and requirements described in this Section.
+          - generic [ref=e3371]:
+            - generic [ref=e3373]:
+              - generic [ref=e3374]:
+                - generic [ref=e3375]: "6.1"
+                - generic [ref=e3376]:
+                  - button "Jump to table of contents" [ref=e3377] [cursor=pointer]:
+                    - img [ref=e3378]
+                  - button "Copy link to section" [ref=e3380] [cursor=pointer]:
+                    - img [ref=e3381]
+              - generic [ref=e3383]: Appointment of Certification Bodies
+            - heading "Appointment of Certification Bodies" [level=3] [ref=e3386]
+            - paragraph [ref=e3387]:
+              - text: In addition to the Validation and Verification Body Qualification Requirements set out in
+              - link "Validation and Verification Body Qualification Requirements" [ref=e3388] [cursor=pointer]:
+                - /url: "#validation-and-verification-body-qualification-requirements"
+              - text: ", Isometric will apply the following additional requirements when appointing a VVB as a Certification Body under the CRCF:"
+            - paragraph [ref=e3389]: "The VVB must have the relevant legal status to perform certification activities through one of the following qualifying criteria:"
+            - list [ref=e3390]:
+              - listitem [ref=e3391]: accreditation by a National Accreditation Body in accordance with Regulation (EC) No 765/2008; or
+              - listitem [ref=e3392]: compliance with EN ISO/IEC 17065 and EN ISO/IEC 17029 or EN ISO 14065.
+            - paragraph [ref=e3393]: If the VVB is not accredited by a National Accreditation Body in accordance with Regulation (EC) No 765/2008, it must select and appoint the audit team in accordance with EN ISO/IEC 17021-1 in conjunction with EN ISO/IEC 19011, taking into account the competence needed to achieve the objectives of the audit.
+            - paragraph [ref=e3394]: "The VVB must also meet the following requirements:"
+            - list [ref=e3395]:
+              - listitem [ref=e3396]: have the knowledge, experience, skills and capacity necessary for effectively conducting the audit, including a minimum of 2 years' experience in Life-Cycle Assessment, or proven relevant level of capacity;
+              - listitem [ref=e3397]: have specific experience in auditing GHG emission calculations in accordance with the relevant Protocols and Modules;
+              - listitem [ref=e3398]: depending on the specific types of activity audited, have additional experience as relevant in the fields of agriculture, agronomy, ecology, forestry, natural science, silviculture, engineering, building materials and embodied carbon, energy management or a related field;
+            - paragraph [ref=e3399]: Verification reports issued must include all information listed in Annex III of the Commission Implementing Regulation.
+            - paragraph [ref=e3400]: Isometric will run training courses for VVBs. This will include an exam which tests an auditor's (verifier's) overall technical expertise in the area. Auditors must participate in the training courses before performing audits for Isometric. Isometric will also provide guidance to VVBs on other relevant aspects of CRCF certification, including updates on the regulatory framework or findings from Isometric's internal monitoring process.
+          - generic [ref=e3401]:
+            - generic [ref=e3403]:
+              - generic [ref=e3404]:
+                - generic [ref=e3405]: "6.2"
+                - generic [ref=e3406]:
+                  - button "Jump to table of contents" [ref=e3407] [cursor=pointer]:
+                    - img [ref=e3408]
+                  - button "Copy link to section" [ref=e3410] [cursor=pointer]:
+                    - img [ref=e3411]
+              - generic [ref=e3413]: Exclusion Criteria
+            - heading "Exclusion Criteria" [level=3] [ref=e3416]
+            - paragraph [ref=e3417]: "For Projects seeking eligibility under CRCF, Isometric will exclude a Project from this Standard in the following circumstances:"
+            - list [ref=e3418]:
+              - listitem [ref=e3419]:
+                - text: The Project Proponent (or its legal predecessor) failed to disclose the relevant information required under
+                - link "Prevention of Scheme Hopping" [ref=e3420] [cursor=pointer]:
+                  - /url: "#prevention-of-scheme-hopping"
+                - text: .
+              - listitem [ref=e3421]: The Project Proponent (or its legal predecessor) failed a Verification under another scheme, unless said audit occurred more than 3 years prior to the current application or the previous certification scheme has ceased operations.
+              - listitem [ref=e3422]: The Project Proponent (or its legal predecessor) withdrew from another scheme prior to the first Verification, unless the Project Proponent can demonstrate the withdrawal was unavoidable and not caused by a Critical or Major Non-Conformity.
+          - generic [ref=e3423]:
+            - generic [ref=e3425]:
+              - generic [ref=e3426]:
+                - generic [ref=e3427]: "6.3"
+                - generic [ref=e3428]:
+                  - button "Jump to table of contents" [ref=e3429] [cursor=pointer]:
+                    - img [ref=e3430]
+                  - button "Copy link to section" [ref=e3432] [cursor=pointer]:
+                    - img [ref=e3433]
+              - generic [ref=e3435]: Grievances
+            - heading "Grievances" [level=3] [ref=e3438]
+            - paragraph [ref=e3439]: Isometric has a CRCF compliance policy in place. This compliance policy allows for complaints and whistleblowing to Isometric with respect to VVBs and Project Proponents.
+            - paragraph [ref=e3440]: Isometric ensures the protection of natural or legal persons who report infringements or lodge complaints in good faith in accordance with the Whistleblower Protection Directive (EU) 2019/1937 of the European Parliament and of the Council.
+            - paragraph [ref=e3441]: Isometric will maintain a register of all complaints made which relate to Projects issued under the CRCF. Upon request from a Member State or the Commission, Isometric will share all documents related to the complaint and its handling.
+            - paragraph [ref=e3442]:
+              - text: As standard, Isometric will pursue the approach to remediation described in Isometric’s CRCF compliance policy. Where necessary, Isometric will apply the relevant remediation measures and sanctions for non-conformity by Project Proponents as set out in
+              - link "Non-Conformities and Sanctions" [ref=e3443] [cursor=pointer]:
+                - /url: "#non-conformities-and-sanctions"
+              - text: of this Standard. Where necessary, Isometric will take corrective measures on its governance structure or on its internal monitoring process.
+          - generic [ref=e3444]:
+            - generic [ref=e3446]:
+              - generic [ref=e3447]:
+                - generic [ref=e3448]: "6.4"
+                - generic [ref=e3449]:
+                  - button "Jump to table of contents" [ref=e3450] [cursor=pointer]:
+                    - img [ref=e3451]
+                  - button "Copy link to section" [ref=e3453] [cursor=pointer]:
+                    - img [ref=e3454]
+              - generic [ref=e3456]: Remediation for Fraud
+            - heading "Remediation for Fraud" [level=3] [ref=e3459]
+            - paragraph [ref=e3460]: In cases where CRCF certificates have been issued on the basis of fraudulent information, the associated Credit Account of the Project Proponent will be suspended and any necessary compensation will be provided through cancellation of certified units.
+            - paragraph [ref=e3461]: The Project Proponent must procure an equivalent number of CRCF units and immediately cancel them within 90 days of notification. If the Project Proponent fails to do this, as a last resort Isometric will procure a corresponding number of CRCF certificates and cancel them.
+          - generic [ref=e3462]:
+            - generic [ref=e3464]:
+              - generic [ref=e3465]:
+                - generic [ref=e3466]: "6.5"
+                - generic [ref=e3467]:
+                  - button "Jump to table of contents" [ref=e3468] [cursor=pointer]:
+                    - img [ref=e3469]
+                  - button "Copy link to section" [ref=e3471] [cursor=pointer]:
+                    - img [ref=e3472]
+              - generic [ref=e3474]: Internal Monitoring
+            - heading "Internal Monitoring" [level=3] [ref=e3477]
+            - paragraph [ref=e3478]: Isometric will implement a system of internal monitoring to verify compliance of Project Proponents with the rules and procedures applied by this Standard and to ensure the quality of the work carried out by the auditors of the Certification Bodies.
+            - paragraph [ref=e3479]: Internal monitoring will be carried out at least once a year or at least at the same frequency of the audits to reflect the certification scope, as well as the level of risk of the activities carried out by the Project Proponents.
+            - paragraph [ref=e3480]: As part of the internal monitoring, Isometric will require Certification Bodies to provide all reports of the Validation (certification audit), Verification (re-certification audit), or monitoring audit. The internal monitoring will cover a random and risk-based sample of those audit reports by each Certification Body.
+          - generic [ref=e3481]:
+            - generic [ref=e3483]:
+              - generic [ref=e3484]:
+                - generic [ref=e3485]: "6.6"
+                - generic [ref=e3486]:
+                  - button "Jump to table of contents" [ref=e3487] [cursor=pointer]:
+                    - img [ref=e3488]
+                  - button "Copy link to section" [ref=e3490] [cursor=pointer]:
+                    - img [ref=e3491]
+              - generic [ref=e3493]: Planning and Reporting
+            - heading "Planning and Reporting" [level=3] [ref=e3496]
+            - paragraph [ref=e3497]: This section details requirements from Annex I of Regulation (EU) 2024/3012.
+          - generic [ref=e3498]:
+            - generic [ref=e3500]:
+              - generic [ref=e3501]:
+                - generic [ref=e3502]: 6.6.1
+                - generic [ref=e3503]:
+                  - button "Jump to table of contents" [ref=e3504] [cursor=pointer]:
+                    - img [ref=e3505]
+                  - button "Copy link to section" [ref=e3507] [cursor=pointer]:
+                    - img [ref=e3508]
+              - generic [ref=e3510]: Activity Plans
+            - heading "Activity Plans" [level=4] [ref=e3513]
+            - paragraph [ref=e3514]:
+              - text: A
+              - link "CRCF activity plan" [ref=e3515] [cursor=pointer]:
+                - /url: "#def"
+              - text: is equivalent to an Isometric
+              - link "Project Design Document (PDD)" [ref=e3516] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-pdd"
+              - text: . PDD requirements are detailed in the
+              - link "Documentation" [ref=e3517] [cursor=pointer]:
+                - /url: "#docmentation"
+              - text: "section of the Isometric Standard. The following additional requirements apply to all Isometric CRCF PDDs:"
+            - list [ref=e3518]:
+              - listitem [ref=e3519]: All entities in the carbon removal value chain involved in delivery of the activity must be identified as Project participants.
+              - listitem [ref=e3520]:
+                - text: PDD must demonstrate that estimates of
+                - generic [ref=e3523]:
+                  - math [ref=e3525]:
+                    - generic [ref=e3527]:
+                      - generic [ref=e3528]: C
+                      - generic [ref=e3529]:
+                        - generic [ref=e3530]: R
+                        - generic [ref=e3531]:
+                          - generic [ref=e3532]: b
+                          - generic [ref=e3533]: a
+                          - generic [ref=e3534]: s
+                          - generic [ref=e3535]: e
+                          - generic [ref=e3536]: l
+                          - generic [ref=e3537]: i
+                          - generic [ref=e3538]: "n"
+                          - generic [ref=e3539]: e
+                      - generic [ref=e3540]: −
+                      - generic [ref=e3541]: C
+                      - generic [ref=e3542]:
+                        - generic [ref=e3543]: R
+                        - generic [ref=e3544]:
+                          - generic [ref=e3545]: t
+                          - generic [ref=e3546]: o
+                          - generic [ref=e3547]: t
+                          - generic [ref=e3548]: a
+                          - generic [ref=e3549]: l
+                      - generic [ref=e3550]: −
+                      - generic [ref=e3551]: G
+                      - generic [ref=e3552]: H
+                      - generic [ref=e3553]:
+                        - generic [ref=e3554]: G
+                        - generic [ref=e3555]:
+                          - generic [ref=e3556]: a
+                          - generic [ref=e3557]: s
+                          - generic [ref=e3558]: s
+                          - generic [ref=e3559]: o
+                          - generic [ref=e3560]: c
+                          - generic [ref=e3561]: i
+                          - generic [ref=e3562]: a
+                          - generic [ref=e3563]: t
+                          - generic [ref=e3564]: e
+                          - generic [ref=e3565]: d
+                      - generic [ref=e3566]: ">"
+                      - generic [ref=e3567]: "0"
+                  - generic [ref=e3568]:
+                    - generic [ref=e3569]:
+                      - text: C
+                      - generic [ref=e3570]:
+                        - text: R
+                        - generic [ref=e3576]: baseline
+                      - text: −
+                    - generic [ref=e3580]:
+                      - text: C
+                      - generic [ref=e3581]:
+                        - text: R
+                        - generic [ref=e3587]: total
+                      - text: −
+                    - generic [ref=e3591]:
+                      - text: GH
+                      - generic [ref=e3592]:
+                        - text: G
+                        - generic [ref=e3598]: associated
+                      - text: ">"
+                    - generic [ref=e3602]: "0"
+                - text: ", where:"
+                - list [ref=e3603]:
+                  - listitem [ref=e3604]:
+                    - generic [ref=e3607]:
+                      - math [ref=e3609]:
+                        - generic [ref=e3611]:
+                          - generic [ref=e3612]: C
+                          - generic [ref=e3613]:
+                            - generic [ref=e3614]: R
+                            - generic [ref=e3615]:
+                              - generic [ref=e3616]: b
+                              - generic [ref=e3617]: a
+                              - generic [ref=e3618]: s
+                              - generic [ref=e3619]: e
+                              - generic [ref=e3620]: l
+                              - generic [ref=e3621]: i
+                              - generic [ref=e3622]: "n"
+                              - generic [ref=e3623]: e
+                      - generic [ref=e3625]:
+                        - text: C
+                        - generic [ref=e3626]:
+                          - text: R
+                          - generic [ref=e3632]: baseline
+                    - text: is the amount of carbon removals under the baseline;
+                  - listitem [ref=e3636]:
+                    - generic [ref=e3639]:
+                      - math [ref=e3641]:
+                        - generic [ref=e3643]:
+                          - generic [ref=e3644]: C
+                          - generic [ref=e3645]:
+                            - generic [ref=e3646]: R
+                            - generic [ref=e3647]:
+                              - generic [ref=e3648]: t
+                              - generic [ref=e3649]: o
+                              - generic [ref=e3650]: t
+                              - generic [ref=e3651]: a
+                              - generic [ref=e3652]: l
+                      - generic [ref=e3654]:
+                        - text: C
+                        - generic [ref=e3655]:
+                          - text: R
+                          - generic [ref=e3661]: total
+                    - text: is the total amount of carbon removals of the activity;
+                  - listitem [ref=e3665]:
+                    - generic [ref=e3668]:
+                      - math [ref=e3670]:
+                        - generic [ref=e3672]:
+                          - generic [ref=e3673]: G
+                          - generic [ref=e3674]: H
+                          - generic [ref=e3675]:
+                            - generic [ref=e3676]: G
+                            - generic [ref=e3677]:
+                              - generic [ref=e3678]: a
+                              - generic [ref=e3679]: s
+                              - generic [ref=e3680]: s
+                              - generic [ref=e3681]: o
+                              - generic [ref=e3682]: c
+                              - generic [ref=e3683]: i
+                              - generic [ref=e3684]: a
+                              - generic [ref=e3685]: t
+                              - generic [ref=e3686]: e
+                              - generic [ref=e3687]: d
+                      - generic [ref=e3689]:
+                        - text: GH
+                        - generic [ref=e3690]:
+                          - text: G
+                          - generic [ref=e3696]: associated
+                    - text: is the increase in direct and indirect greenhouse gas emissions over the entire lifecycle of the activity which are attributable to its implementation, including indirect land use change, calculated, where applicable, in accordance with the protocols set forth in the 2006 IPCC Guidelines for National Greenhouse Gas Inventories and any further refinement to these 2006 IPCC Guidelines.
+              - listitem [ref=e3700]:
+                - text: PDD must include a description of the materiality tests applied by the PP in accordance with the Materiality section of the
+                - link "Isometric GHG Accounting Module" [ref=e3701] [cursor=pointer]:
+                  - /url: /module/ghg-accounting/#materiality
+                - text: or the relevant Isometric CRCF Protocol.
+          - generic [ref=e3702]:
+            - generic [ref=e3704]:
+              - generic [ref=e3705]:
+                - generic [ref=e3706]: 6.6.2
+                - generic [ref=e3707]:
+                  - button "Jump to table of contents" [ref=e3708] [cursor=pointer]:
+                    - img [ref=e3709]
+                  - button "Copy link to section" [ref=e3711] [cursor=pointer]:
+                    - img [ref=e3712]
+              - generic [ref=e3714]: Monitoring Plans
+            - heading "Monitoring Plans" [level=4] [ref=e3717]
+            - paragraph [ref=e3718]:
+              - text: A
+              - link "CRCF monitoring plan" [ref=e3719] [cursor=pointer]:
+                - /url: "#def"
+              - text: is equivalent to the Monitoring Plan section of each Isometric
+              - link "Project Design Document (PDD)" [ref=e3720] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-pdd"
+              - text: ", in conjunction with the Project’s preliminary GHG Statement submitted during Validation."
+            - paragraph [ref=e3721]: "All Isometric CRCF PDDs and GHG Statements must include:"
+            - list [ref=e3722]:
+              - listitem [ref=e3723]: a description of the procedure for managing the competences of personnel responsible for monitoring and reporting where applicable, the default values used for calculation factors indicating the source of the factor, or the relevant source, from which the default factor will be retrieved periodically;
+              - listitem [ref=e3724]: where applicable, a list of laboratories engaged in carrying out relevant analytical procedures; where measurements are taken, a description of the measurement method including descriptions of all written procedures relevant for the measurement;
+              - listitem [ref=e3725]:
+                - text: application of the Quality Assurance requirements in
+                - link "Quality Assurance" [ref=e3726] [cursor=pointer]:
+                  - /url: "#quality-assurance"
+                - text: .
+            - paragraph [ref=e3727]: Project Proponents must keep records of all relevant data and information for at least 10 years.
+          - generic [ref=e3728]:
+            - generic [ref=e3730]:
+              - generic [ref=e3731]:
+                - generic [ref=e3732]: 6.6.3
+                - generic [ref=e3733]:
+                  - button "Jump to table of contents" [ref=e3734] [cursor=pointer]:
+                    - img [ref=e3735]
+                  - button "Copy link to section" [ref=e3737] [cursor=pointer]:
+                    - img [ref=e3738]
+              - generic [ref=e3740]: Monitoring Reports
+            - heading "Monitoring Reports" [level=4] [ref=e3743]
+            - paragraph [ref=e3744]:
+              - text: A
+              - link "CRCF monitoring report" [ref=e3745] [cursor=pointer]:
+                - /url: "#def"
+              - text: is equivalent to the GHG Statement submitted during Verification of Credits.
+            - paragraph [ref=e3746]: A GHG Statement contains all parameters measured and calculated for the quantification of removals and emissions of GHGs associated with the Project. The contents of a GHG Statement are defined by the relevant Isometric CRCF Protocol.
+          - generic [ref=e3747]:
+            - generic [ref=e3749]:
+              - generic [ref=e3750]:
+                - generic [ref=e3751]: "6.7"
+                - generic [ref=e3752]:
+                  - button "Jump to table of contents" [ref=e3753] [cursor=pointer]:
+                    - img [ref=e3754]
+                  - button "Copy link to section" [ref=e3756] [cursor=pointer]:
+                    - img [ref=e3757]
+              - generic [ref=e3759]: Other Delegated Act Requirements
+            - heading "Other Delegated Act Requirements" [level=3] [ref=e3762]
+          - generic [ref=e3763]:
+            - generic [ref=e3765]:
+              - generic [ref=e3766]:
+                - generic [ref=e3767]: 6.7.1
+                - generic [ref=e3768]:
+                  - button "Jump to table of contents" [ref=e3769] [cursor=pointer]:
+                    - img [ref=e3770]
+                  - button "Copy link to section" [ref=e3772] [cursor=pointer]:
+                    - img [ref=e3773]
+              - generic [ref=e3775]: Global Warming Potential of non-CO2 GHGs
+            - heading "Global Warming Potential of non-CO2 GHGs" [level=4] [ref=e3778]
+            - paragraph [ref=e3779]: All Isometric CRCF Projects must convert emissions of non-CO2 GHGs to CO2e using the 100-year Global Warming Potentials set out in Annex I to the Delegated Regulation (EU) 2020/1044.
+          - generic [ref=e3780]:
+            - generic [ref=e3782]:
+              - generic [ref=e3783]:
+                - generic [ref=e3784]: 6.7.2
+                - generic [ref=e3785]:
+                  - button "Jump to table of contents" [ref=e3786] [cursor=pointer]:
+                    - img [ref=e3787]
+                  - button "Copy link to section" [ref=e3789] [cursor=pointer]:
+                    - img [ref=e3790]
+              - generic [ref=e3792]: Quality Assurance
+            - heading "Quality Assurance" [level=4] [ref=e3795]
+            - paragraph [ref=e3796]: "Project Proponents must:"
+            - list [ref=e3797]:
+              - listitem [ref=e3798]: ensure that all relevant measuring equipment is calibrated, adjusted and checked at regular intervals, including prior to use, and checked against measurement standards traceable to international measurement standards where available, and proportionate to the risks identified.
+              - listitem [ref=e3799]: where components of the measuring systems cannot be calibrated, identify these in the Monitoring Plan and propose alternative control activities.
+              - listitem [ref=e3800]: when the equipment is found not to comply with required performance, the Project Proponent must promptly take necessary corrective action.
+            - paragraph [ref=e3801]: "All measurements shall be conducted with calibrated measurement equipment according to industry standards including, where applicable:"
+            - list [ref=e3802]:
+              - listitem [ref=e3803]: EN 14181 Stationary source emissions — Quality assurance of automated measuring systems;
+              - listitem [ref=e3804]: EN 15259 Air quality — Measurement of stationary source emissions — Requirements for measurement sections and sites and for the measurement objective, plan and report;
+              - listitem [ref=e3805]: ISO 16911-2 Stationary source emissions — Manual and automatic determination of velocity and volume flow rate in ducts.
+            - paragraph [ref=e3806]: "Laboratories conducting analysis on behalf of the Project must be ISO 17025 accredited unless the Project Proponent can demonstrate this is not technically feasible or would incur unreasonable costs. The Project Proponent must demonstrate any non-accredited laboratory meets the requirements of ISO 17025 through ISO 9001 accreditation, other certified Quality Management System, or otherwise submit a PDD Appendix containing the following evidence for the laboratory:"
+            - list [ref=e3807]:
+              - listitem [ref=e3808]: management of the personnel's competence for the specific tasks assigned;
+              - listitem [ref=e3809]: suitability of accommodation and environmental conditions;
+              - listitem [ref=e3810]: selection of analytical methods and relevant standards;
+              - listitem [ref=e3811]: where applicable, management of sampling and sample preparation, including control of sample integrity; where applicable, development and validation of new analytical methods or application of methods not covered by international or national standards;
+              - listitem [ref=e3812]: uncertainty estimation;
+              - listitem [ref=e3813]: management of equipment, including procedures for calibration, adjustment, maintenance and repair of equipment, and record keeping thereof;
+              - listitem [ref=e3814]: management and control of data, documents and software;
+              - listitem [ref=e3815]: management of calibration items and reference materials; quality assurance for calibration and test results, including regular participation in proficiency testing schemes, applying analytical methods to certified reference materials, or inter-comparison with an accredited laboratory;
+              - listitem [ref=e3816]: management of outsourced processes;
+              - listitem [ref=e3817]: management of assignments, customer complaints, and ensuring timely corrective action.
+          - generic [ref=e3818]:
+            - generic [ref=e3820]:
+              - generic [ref=e3821]:
+                - generic [ref=e3822]: 6.7.3
+                - generic [ref=e3823]:
+                  - button "Jump to table of contents" [ref=e3824] [cursor=pointer]:
+                    - img [ref=e3825]
+                  - button "Copy link to section" [ref=e3827] [cursor=pointer]:
+                    - img [ref=e3828]
+              - generic [ref=e3830]: Climate Change Adaptation
+            - heading "Climate Change Adaptation" [level=4] [ref=e3833]
+            - paragraph [ref=e3834]: "Project Proponents must include in their PDD a robust climate risk and vulnerability assessment with the following steps:"
+            - list [ref=e3835]:
+              - listitem [ref=e3836]:
+                - text: screening of the Project to identify which physical climate risks from the list in
+                - link "Section II of Appendix A of Regulation 2021/2139" [ref=e3837] [cursor=pointer]:
+                  - /url: https://eur-lex.europa.eu/eli/reg_del/2021/2139/oj#ntc1-L_2021442EN.01014001-E0001
+                - text: may affect the performance of the Project during its expected lifetime;
+              - listitem [ref=e3838]: where the Project is assessed to be at risk from one or more of the physical climate risks listed in the same Appendix, a climate risk and vulnerability assessment to assess the materiality of the physical climate risks on the Project;
+              - listitem [ref=e3839]: an assessment of adaptation solutions that can reduce the identified physical climate risk.
+            - paragraph [ref=e3840]: "The climate risk and vulnerability assessment is proportionate to the scale of the Project and its expected lifespan, such that:"
+            - list [ref=e3841]:
+              - listitem [ref=e3842]: for Projects with an expected lifespan of less than 10 years, the assessment is performed, at least by using climate projections at the smallest appropriate scale;
+              - listitem [ref=e3843]: for all other Projects, the assessment is performed using the highest available resolution, state-of-the-art climate projections across the existing range of future scenarios consistent with the expected lifetime of the activity, including, at least, 10 to 30 year climate projections scenarios for major investments;
+              - listitem [ref=e3844]:
+                - text: the range of future scenarios are the IPCC representative concentration pathways
+                - link "RCP2.6, RCP4.5, RCP6.0 and RCP8.5" [ref=e3845] [cursor=pointer]:
+                  - /url: "#httpslinkspringercomarticle101007s10584-011-0148-z"
+                - text: .
+            - paragraph [ref=e3846]: The climate projections and assessment of impacts are based on best practice and available guidance and take into account the state-of-the-art science for vulnerability and risk analysis and related methodologies in line with the most recent IPCC reports, scientific peer-reviewed publications, and open source or paid models.
+            - paragraph [ref=e3847]: For existing Projects and new Projects using existing physical assets, the Project Proponent must prepare and execute a plan for adaptation solutions, over a period of time of up to five years, that reduce the most important identified physical climate risks that are material to that Project.
+            - paragraph [ref=e3848]: For new Projects and existing Projects using newly-built physical assets, the Project Proponent must integrate the adaptation solutions that reduce the most important identified physical climate risks that are material to that activity at the time of design and construction before the start of operations.
+            - paragraph [ref=e3849]:
+              - text: The adaptation solutions implemented must not adversely affect the adaptation efforts or the level of resilience to physical climate risks of other people, of nature, of cultural heritage, of assets and of other economic activities; and be consistent with local, sectoral, regional or national adaptation strategies and plans; and consider the use of
+              - link "nature-based solutions" [ref=e3850] [cursor=pointer]:
+                - /url: https://ec.europa.eu/research/environment/index.cfm?pg=nbs
+              - text: or rely on
+              - link "blue or green infrastructure" [ref=e3851] [cursor=pointer]:
+                - /url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:52013DC0249
+              - text: to the extent possible.
+          - generic [ref=e3852]:
+            - generic [ref=e3854]:
+              - generic [ref=e3855]:
+                - generic [ref=e3856]: "6.8"
+                - generic [ref=e3857]:
+                  - button "Jump to table of contents" [ref=e3858] [cursor=pointer]:
+                    - img [ref=e3859]
+                  - button "Copy link to section" [ref=e3861] [cursor=pointer]:
+                    - img [ref=e3862]
+              - generic [ref=e3864]: CRCF Glossary
+            - heading "CRCF Glossary" [level=3] [ref=e3867]
+            - paragraph [ref=e3868]: CRCF - stands for Carbon Removals and Carbon Farming and is an EU-wide voluntary framework for certifying carbon removals, carbon farming and carbon storage in products.
+            - paragraph [ref=e3869]: CRCF Certificate of Compliance - A conformity statement issued by a certification body certifying that a project complies with Regulation (EU) 2024/3012; equivalent to an Isometric Verification Report in conjunction with the Project Validation Report.
+            - paragraph [ref=e3870]: CRCF Certified Unit - a Credit issued in accordance with Regulation (EU) 2024/3012
+            - paragraph [ref=e3871]: CRCF Activity - equivalent to an Isometric Project
+            - paragraph [ref=e3872]: CRCF Operator - equivalent to an Isometric Project Proponent
+            - paragraph [ref=e3873]: CRCF Certification Body - equivalent to a VVB
+            - paragraph [ref=e3874]: CRCF Certification Audit - equivalent to an Isometric Validation
+            - paragraph [ref=e3875]: CRCF Re-certification Audit - equivalent to an Isometric Verification
+            - paragraph [ref=e3876]: CRCF Activity Period - equivalent to an Isometric Crediting Period
+            - paragraph [ref=e3877]: CRCF Certification Period - equivalent to an Isometric Reporting Period
+            - paragraph [ref=e3878]:
+              - text: CRCF Activity Plan - equivalent to an Isometric
+              - link "Project Design Document (PDD)" [ref=e3879] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-pdd"
+            - paragraph [ref=e3880]:
+              - text: CRCF Monitoring Plan - equivalent to the Monitoring Plan section of each Isometric
+              - link "Project Design Document (PDD)" [ref=e3881] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-pdd"
+            - paragraph [ref=e3882]: CRCF Monitoring Report - equivalent to the GHG Statement submitted during Verification of Credits
+          - generic [ref=e3883]:
+            - generic [ref=e3886]:
+              - generic [ref=e3887]:
+                - generic [ref=e3888]: "7.0"
+                - generic [ref=e3889]:
+                  - button "Jump to table of contents" [ref=e3890] [cursor=pointer]:
+                    - img [ref=e3891]
+                  - button "Copy link to section" [ref=e3893] [cursor=pointer]:
+                    - img [ref=e3894]
+              - generic [ref=e3896]: Definitions and Acronyms
+            - heading "Definitions and Acronyms" [level=2] [ref=e3899]
+            - list [ref=e3901]:
+              - listitem [ref=e3902]:
+                - generic [ref=e3903]: Approval Date
+                - generic [ref=e3904]: The date on which Isometric approves the initial Validation Report for a Project, following which the Project will be listed as Validated on the Registry. (Also known as “Registration Date”).
+              - listitem [ref=e3905]:
+                - generic [ref=e3906]: Baseline
+                - generic [ref=e3907]: A set of data describing pre-intervention or control conditions to be used as a reference scenario for comparison.
+              - listitem [ref=e3908]:
+                - generic [ref=e3909]: Beneficiary
+                - generic [ref=e3910]: The organization benefiting from the Removal or Reduction claim afforded by a Credit. This may be the current holder of the Credit at the time of Retirement, or an organization specified by the Credit account holder during the Retirement procedure.
+              - listitem [ref=e3911]:
+                - generic [ref=e3912]: Cancellation (of a Credit)
+                - generic [ref=e3913]: The permanent annulling of a Credit to compensate for erroneous over-issuance or a Reversal. Once Canceled, the credit will no longer be available for Delivery or Retirement.
+              - listitem [ref=e3914]:
+                - generic [ref=e3915]: Carbon Flux
+                - generic [ref=e3916]: The amount of carbon exchanged between two or more Reservoirs over a period of time.
+              - listitem [ref=e3917]:
+                - generic [ref=e3918]: Certification (of a Protocol)
+                - generic [ref=e3919]: The Isometric process which involves expert review and Public Consultation in order to arrive at an approved version of a Protocol, against which Projects will be Validated and Removals or Reductions will be Verified.
+              - listitem [ref=e3920]:
+                - generic [ref=e3921]: Conservative
+                - generic [ref=e3922]: Purposefully erring on the side of caution under conditions of Uncertainty by choosing input parameter values that will result in a lower net CO₂ Removal or GHG Reduction than if using the median input values. This is done to increase the likelihood that a given Removal or Reduction calculation is an underestimation rather than an overestimation.
+              - listitem [ref=e3923]:
+                - generic [ref=e3924]: Counterfactual
+                - generic [ref=e3925]: An assessment of what would have happened in the absence of a particular intervention – i.e., assuming the Baseline scenario.
+              - listitem [ref=e3926]:
+                - generic [ref=e3927]: Cradle-to-Grave
+                - generic [ref=e3928]: Considering impacts at each stage of a product's life cycle, from the time natural resources are extracted from the ground and processed through each subsequent stage of manufacturing, transportation, product use, and ultimately, disposal.
+              - listitem [ref=e3929]:
+                - generic [ref=e3930]: Credit
+                - generic [ref=e3931]: A publicly visible uniquely identifiable Credit Certificate Issued by a Registry that gives the owner of the Credit the right to account for one net metric tonne of Verified CO₂e Removal or Reduction. In the case of this Standard, the net tonne of CO₂e Removal or Reduction comes from a Project Validated against a Certified Protocol.
+              - listitem [ref=e3932]:
+                - generic [ref=e3933]: Credit Accounts
+                - generic [ref=e3934]: A function of the Isometric Registry that allows either Buyers or Project Proponents to receive Issued Credits, either by way of direct Credit Issuance in the case of Project Proponents, or by way of a Credit Transfer in the case of a Buyer.
+              - listitem [ref=e3935]:
+                - generic [ref=e3936]: Crediting Period
+                - generic [ref=e3937]: The period of time over which a Project Design Document is valid, and over which Removals or Reductions may be Verified, resulting in Issued Credits.
+              - listitem [ref=e3938]:
+                - generic [ref=e3939]: Delivery
+                - generic [ref=e3940]: The outcome of a Project Proponent providing Credits to fulfill Buyers' purchases.
+              - listitem [ref=e3941]:
+                - generic [ref=e3942]: Double Counting
+                - generic [ref=e3943]: Improperly allocating the same Removal or Reduction from a Project Proponent more than once to multiple Buyers.
+              - listitem [ref=e3944]:
+                - generic [ref=e3945]: Durability
+                - generic [ref=e3946]: The amount of time carbon removed from the atmosphere by an intervention – for example, a CDR project – is expected to reside in a given Reservoir, taking into account both physical risks and socioeconomic constructs (such as contracts) to protect the Reservoir in question.
+              - listitem [ref=e3947]:
+                - generic [ref=e3948]: Durability Threshold
+                - generic [ref=e3949]: A period of time, specified by a Protocol or Module, which Projects may select to use as a Project Durability Threshold. Where a Protocol or Module does not explicitly specify a Durability Threshold, the default Durability Threshold for the Protocol or Module is 1,000 years.
+              - listitem [ref=e3950]:
+                - generic [ref=e3951]: Environmental Additionality
+                - generic [ref=e3952]: An evaluation of the likelihood that an intervention causes a climate benefit above and beyond what would have happened in a no-intervention Baseline scenario.
+              - listitem [ref=e3953]:
+                - generic [ref=e3954]: Ex-ante Credits
+                - generic [ref=e3955]: Issuance of Credits prior to the carbon removal or GHG reduction taking place. Isometric does not Deliver Credits in this manner.
+              - listitem [ref=e3956]:
+                - generic [ref=e3957]: Ex-post Credits
+                - generic [ref=e3958]: Issuance of Credits after removal or reduction took place. This is the manner in which Isometric Delivers Credits.
+              - listitem [ref=e3959]:
+                - generic [ref=e3960]: International Standards Organization (ISO)
+                - generic [ref=e3961]: A worldwide federation (NGO) of national standards bodies from more than 160 countries, one from each member country.
+              - listitem [ref=e3962]:
+                - generic [ref=e3963]: Isometric Crediting Program
+                - generic [ref=e3964]: The scope of Isometric which involves all of the processes relevant to the entire life cycle of a Credit.
+              - listitem [ref=e3965]:
+                - generic [ref=e3966]: Isometric Science Network
+                - generic [ref=e3967]: The Isometric group aimed at bringing together scientists working in industry, academia, NGOs and more to promote more efficient collaboration across the CDR ecosystem.
+              - listitem [ref=e3968]:
+                - generic [ref=e3969]: Isometric Systems
+                - generic [ref=e3970]: Isometric's proprietary code and processes that create/contain intellectual property (IP) and enable the Registry to function smoothly.
+              - listitem [ref=e3971]:
+                - generic [ref=e3972]: Issuance (of a Credit)
+                - generic [ref=e3973]: Credits are issued to the Credit Account of a Project Proponent with whom Isometric has a Validated Protocol after an Order for Verification and Credit Issuance services from a Buyer and once a Verified Removal or Reduction has taken place.
+              - listitem [ref=e3974]:
+                - generic [ref=e3975]: Leakage
+                - generic [ref=e3976]: The increase in GHG emissions outside the geographic or temporal boundary of a project that results from that project's activities.
+              - listitem [ref=e3977]:
+                - generic [ref=e3978]: Materiality
+                - generic [ref=e3979]: An acceptable difference between reported Removals/emissions or Reductions/emissions and what an auditor determines is the actual Removal/emissions or Reduction/emissions.
+              - listitem [ref=e3980]:
+                - generic [ref=e3981]: Model
+                - generic [ref=e3982]: A calculation, series of calculations or simulations that use input variables in order to generate values for variables of interest that are not directly measured.
+              - listitem [ref=e3983]:
+                - generic [ref=e3984]: Module
+                - generic [ref=e3985]: Independent components of Isometric Certified Protocols which are transferable between and applicable to different Protocols.
+              - listitem [ref=e3986]:
+                - generic [ref=e3987]: Monte Carlo Simulations
+                - generic [ref=e3988]: A mathematical approach for estimating the possible outcomes of an uncertain event through repeated random sampling. It can also be referred to as a "multiple probability simulation".
+              - listitem [ref=e3989]:
+                - generic [ref=e3990]: Non-Governmental Organization (NGO)
+                - generic [ref=e3991]: A nonprofit, usually with a societal, scientific, or political purpose; by definition an NGO is not associated with a governmental entity.
+              - listitem [ref=e3992]:
+                - generic [ref=e3993]: Offtake
+                - generic [ref=e3994]: A contract in which a Buyer agrees to purchase a set Removal and/or Reduction at a set price.
+              - listitem [ref=e3995]:
+                - generic [ref=e3996]: Project
+                - generic [ref=e3997]: An activity or process or group of activities or processes that alter the condition of a Baseline and leads to Removals or Reductions.
+              - listitem [ref=e3998]:
+                - generic [ref=e3999]: Project Design Document
+                - generic [ref=e4000]: The document, written by a Project Proponent, which records key characteristics of a Project and which forms the basis for Project Validation and evaluation in accordance with the relevant Certified Protocol. (Also known as “PDD”).
+              - listitem [ref=e4001]:
+                - generic [ref=e4002]: Project Design Document (PDD)
+                - generic [ref=e4003]: The document that clearly outlines how a Project will generate rigorously quantifiable Additional high-quality Removals or Reductions.
+              - listitem [ref=e4004]:
+                - generic [ref=e4005]: Project Durability Threshold
+                - generic [ref=e4006]: The period of time specified by a Project in its Project Design Document, which the Project must demonstrate Durability in excess of, and which the Durability of all Credits issued from a Project is equal to.
+              - listitem [ref=e4007]:
+                - generic [ref=e4008]: Project Proponent
+                - generic [ref=e4009]: The organization that develops and/or has overall legal ownership or control of a Removal or Reduction Project.
+              - listitem [ref=e4010]:
+                - generic [ref=e4011]: Project boundary
+                - generic [ref=e4012]: The defined temporal and geographical boundary of a Project.
+              - listitem [ref=e4013]:
+                - generic [ref=e4014]: Protocol
+                - generic [ref=e4015]: A document that describes how to quantitatively assess the net amount of CO₂ removed by a process. To Isometric, a Protocol is specific to a Project Proponent's process and comprised of Modules representing the Carbon Fluxes involved in the CDR process. A Protocol measures the full carbon impact of a process against the Baseline of it not occurring.
+              - listitem [ref=e4016]:
+                - generic [ref=e4017]: Proxy
+                - generic [ref=e4018]: A measurement which correlates with but is not a direct measurement of the variable of interest.
+              - listitem [ref=e4019]:
+                - generic [ref=e4020]: Public Consultation
+                - generic [ref=e4021]: The process by which a Protocol or Module is made available to the public for comment on the Isometric Registry.
+              - listitem [ref=e4022]:
+                - generic [ref=e4023]: Registry
+                - generic [ref=e4024]: A database that holds information on Verified Removals and Reductions based on Protocols. Registries Issue Credits, and track their ownership and Retirement.
+              - listitem [ref=e4025]:
+                - generic [ref=e4026]: Removal
+                - generic [ref=e4027]: The term used to represent the CO₂ taken out of the atmosphere as a result of a CDR process.
+              - listitem [ref=e4028]:
+                - generic [ref=e4029]: Reputable Source
+                - generic [ref=e4030]: A source that would be widely considered trustworthy based on the process undertaken (e.g., peer review) or origin of the information (e.g., government body).
+              - listitem [ref=e4031]:
+                - generic [ref=e4032]: Reservoir
+                - generic [ref=e4033]: A location where carbon is stored. This can be via physical barriers (such as geological formations) or through partitioning based on chemical or biological processes (such as mineralization or photosynthesis).
+              - listitem [ref=e4034]:
+                - generic [ref=e4035]: Retirement (of a Credit)
+                - generic [ref=e4036]: The act of confirming the final ownership of a given Credit and permanent withdrawal from circulation. The Counterfactual of this act is the ultimate owner of the tonne of Removal or Reduction and the sole claimant as to its attributes for the purpose of carbon accounting.
+              - listitem [ref=e4037]:
+                - generic [ref=e4038]: Reversal
+                - generic [ref=e4039]: The escape of CO₂ to the atmosphere after it has been stored, and after a Credit has been Issued. A Reversal is classified as avoidable if a Project Proponent has influence or control over it and it likely could have been averted through application of reasonable risk mitigation measures. Any other Reversals will be classified as unavoidable.
+              - listitem [ref=e4040]:
+                - generic [ref=e4041]: Sensitivity Analysis
+                - generic [ref=e4042]: An analysis of how much different components in a Model contribute to the overall Uncertainty.
+              - listitem [ref=e4043]:
+                - generic [ref=e4044]: Sink
+                - generic [ref=e4045]: Any process, activity, or mechanism that removes a greenhouse gas, a precursor to a greenhouse gas, or an aerosol from the atmosphere.
+              - listitem [ref=e4046]:
+                - generic [ref=e4047]: Source
+                - generic [ref=e4048]: Any process or activity that releases a greenhouse gas, an aerosol, or a precursor of a greenhouse gas into the atmosphere.
+              - listitem [ref=e4049]:
+                - generic [ref=e4050]: Stakeholder
+                - generic [ref=e4051]: Any person or entity who can potentially affect or be affected by Isometric or an individual Project activity.
+              - listitem [ref=e4052]:
+                - generic [ref=e4053]: Standards (scientific)
+                - generic [ref=e4054]: Standard physical constants as well as standard values set forth by bodies such as the National Institute of Standards and Technology (NIST) or others.
+              - listitem [ref=e4055]:
+                - generic [ref=e4056]: System Boundary
+                - generic [ref=e4057]: GHG sources, sinks and reservoirs (SSRs) associated with the project boundary and included in the GHG Statement.
+              - listitem [ref=e4058]:
+                - generic [ref=e4059]: Uncertainty
+                - generic [ref=e4060]: A lack of knowledge of the exact amount of CO₂ removed by a particular process, Uncertainty may be quantified using probability distributions, confidence intervals, or variance estimates.
+              - listitem [ref=e4061]:
+                - generic [ref=e4062]: Validation
+                - generic [ref=e4063]: A systematic and independent process for evaluating the reasonableness of the assumptions, limitations and methods that support a Project and assessing whether the Project conforms to the criteria set forth in the Isometric Standard and the Protocol by which the Project is governed. Validation must be completed by an Isometric approved third-party (VVB).
+              - listitem [ref=e4064]:
+                - generic [ref=e4065]: Validation and Verification Bodies (VVBs)
+                - generic [ref=e4066]: Third-party auditing organizations that are experts in their sector and used to determine if a project conforms to the rules, regulations, and standards set out by a governing body. A VVB must be approved by Isometric prior to conducting validation and verification.
+              - listitem [ref=e4067]:
+                - generic [ref=e4068]: Verification
+                - generic [ref=e4069]: A process for evaluating and confirming the net Removals and Reductions for a Project, using data and information collected from the Project and assessing conformity with the criteria set forth in the Isometric Standard and the Protocol by which it is governed. Verification must be completed by an Isometric approved third-party (VVB).
+          - generic [ref=e4070]:
+            - generic [ref=e4073]:
+              - generic [ref=e4074]:
+                - generic [ref=e4075]: "8.0"
+                - generic [ref=e4076]:
+                  - button "Jump to table of contents" [ref=e4077] [cursor=pointer]:
+                    - img [ref=e4078]
+                  - button "Copy link to section" [ref=e4080] [cursor=pointer]:
+                    - img [ref=e4081]
+              - generic [ref=e4083]: Appendix A. Types of uncertainties
+            - heading "Appendix A. Types of uncertainties" [level=2] [ref=e4086]
+            - paragraph [ref=e4087]:
+              - text: Calculation of Uncertainty should follow documented best practices, such as the requirements of the
+              - emphasis [ref=e4088]: Joint Committee for Guides in Metrology (JCGM) JCGM100:2008 - Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM).
+              - superscript [ref=e4089]:
+                - link "18" [ref=e4090] [cursor=pointer]:
+                  - /url: "#user-content-fn-1"
+              - text: Uncertainty can be assessed using two different methods
+              - superscript [ref=e4091]:
+                - link "20" [ref=e4092] [cursor=pointer]:
+                  - /url: "#user-content-fn-2"
+              - text: ":"
+            - list [ref=e4093]:
+              - listitem [ref=e4094]:
+                - strong [ref=e4095]: Type A
+                - text: Uncertainty, where Uncertainty is assessed by making repeated observations of the parameter of interest
+              - listitem [ref=e4096]:
+                - strong [ref=e4097]: Type B
+                - text: Uncertainty, where Uncertainty is founded on
+                - emphasis [ref=e4098]: a priori
+                - text: distributions, evaluated by scientific judgment based on all of the available information on the possible variability of the parameter of interest
+            - paragraph [ref=e4099]: Type B Uncertainties may frequently be encountered, since it is not always practical to make repeated measurements for every input parameter, and many input parameters are published values or estimated through other means.
+          - generic [ref=e4100]:
+            - generic [ref=e4102]:
+              - generic [ref=e4103]:
+                - generic [ref=e4104]: "8.1"
+                - generic [ref=e4105]:
+                  - button "Jump to table of contents" [ref=e4106] [cursor=pointer]:
+                    - img [ref=e4107]
+                  - button "Copy link to section" [ref=e4109] [cursor=pointer]:
+                    - img [ref=e4110]
+              - generic [ref=e4112]: Emission factor uncertainty
+            - heading "Emission factor uncertainty" [level=3] [ref=e4115]
+            - paragraph [ref=e4116]:
+              - text: Emission factors utilized should provide an Uncertainty value associated with the specific factor. Some databases from which emission factors are derived include and report the Uncertainty within the database
+              - superscript [ref=e4117]:
+                - link "21" [ref=e4118] [cursor=pointer]:
+                  - /url: "#user-content-fn-3"
+              - text: . The factor used, its source, and the value of the Uncertainty reported and used, should be documented. For emission factors for which no Uncertainty information is provided, clearly document this and refer to [11.10.5 Unknown Uncertainties].
+          - generic [ref=e4119]:
+            - generic [ref=e4121]:
+              - generic [ref=e4122]:
+                - generic [ref=e4123]: "8.2"
+                - generic [ref=e4124]:
+                  - button "Jump to table of contents" [ref=e4125] [cursor=pointer]:
+                    - img [ref=e4126]
+                  - button "Copy link to section" [ref=e4128] [cursor=pointer]:
+                    - img [ref=e4129]
+              - generic [ref=e4131]: Measured parameter uncertainty
+            - heading "Measured parameter uncertainty" [level=3] [ref=e4134]
+            - paragraph [ref=e4135]:
+              - text: See the
+              - emphasis [ref=e4136]: GUM
+              - text: for details on calculation of parameter or measurement Uncertainty. For instance, measurement parameter Uncertainty estimates could be derived from manufacturers specifications or calibration records. If repeated measurements are taken, the type A uncertainty should be reported as the standard deviation. Uncertainties should be documented and reported for each measured parameter.
+          - generic [ref=e4137]:
+            - generic [ref=e4139]:
+              - generic [ref=e4140]:
+                - generic [ref=e4141]: "8.3"
+                - generic [ref=e4142]:
+                  - button "Jump to table of contents" [ref=e4143] [cursor=pointer]:
+                    - img [ref=e4144]
+                  - button "Copy link to section" [ref=e4146] [cursor=pointer]:
+                    - img [ref=e4147]
+              - generic [ref=e4149]: Laboratory analysis uncertainty
+            - heading "Laboratory analysis uncertainty" [level=3] [ref=e4152]
+            - paragraph [ref=e4153]: For laboratory analyses, Uncertainty may be reported based on laboratory quality assurance documentation, including laboratory calibration results and records which use a reference calibration standard that is traceable to a national standard.
+            - paragraph [ref=e4154]: For a reported value based on multiple laboratory analyses, for which the value is reported as a mean, the type A uncertainty is calculated based on the standard deviation of the value around the mean.
+          - generic [ref=e4155]:
+            - generic [ref=e4157]:
+              - generic [ref=e4158]:
+                - generic [ref=e4159]: "8.4"
+                - generic [ref=e4160]:
+                  - button "Jump to table of contents" [ref=e4161] [cursor=pointer]:
+                    - img [ref=e4162]
+                  - button "Copy link to section" [ref=e4164] [cursor=pointer]:
+                    - img [ref=e4165]
+              - generic [ref=e4167]: Unknown uncertainties
+            - heading "Unknown uncertainties" [level=3] [ref=e4170]
+            - paragraph [ref=e4171]:
+              - text: When published Uncertainty information is not available and calculation via direct measurement is not feasible, estimation of Uncertainty should follow documented best practices, such as guidance from the
+              - emphasis [ref=e4172]: GUM
+              - text: for evaluating type B Uncertainty. The specific approaches taken should be clearly documented.
+            - paragraph [ref=e4173]: Specifically regarding emission factors, the default values for basic Uncertainty from Section 10.1 of Ecoinvent’s Overview and Methodology document may be used. Ecoinvent’s protocol assumes a lognormal distribution for a value and then uses a Pedigree Matrix to assign uncertainties based on data quality.
+          - generic [ref=e4174]:
+            - generic [ref=e4176]:
+              - generic [ref=e4177]:
+                - generic [ref=e4178]: "8.5"
+                - generic [ref=e4179]:
+                  - button "Jump to table of contents" [ref=e4180] [cursor=pointer]:
+                    - img [ref=e4181]
+                  - button "Copy link to section" [ref=e4183] [cursor=pointer]:
+                    - img [ref=e4184]
+              - generic [ref=e4186]: Conservative estimate examples
+            - heading "Conservative estimate examples" [level=3] [ref=e4189]
+            - paragraph [ref=e4190]: "Here are a couple of examples on how Option A (conservative estimate of input parameters) can be applied. These examples are for illustration purposes only:"
+            - paragraph [ref=e4191]:
+              - strong [ref=e4192]: "Example 1: Uncertainty in Truck transportation carbon intensity"
+            - paragraph [ref=e4193]:
+              - text: There are only a few carbon intensity factors published in a reputable emissions factor database for truck transportation. The factors range from 0.2 kg/km/t to 1.2 kg/km/t depending on different vehicle types, and the Project Proponent doesn’t know exactly what type of vehicle is used. In this case, a higher carbon intensity leads to less net CO
+              - subscript [ref=e4194]: "2"
+              - text: e Removal, and there are only a few relevant emissions factors to choose from so a distribution is not assumed. The project must take the conservative estimate to be the maximum value of 1.2 kg/km/t.
+            - paragraph [ref=e4195]:
+              - strong [ref=e4196]: "Example 2: Uncertainty in ocean DIC retention"
+            - paragraph [ref=e4197]:
+              - text: For enhanced weathering in agriculture, a downstream loss term in the Removal calculation that cannot be directly measured is the percentage of bicarbonate ions from weathering that is retained as dissolved inorganic carbon (DIC) upon reaching the ocean. A Project Proponent uses a regional ocean model to determine that the DIC retention fraction follows a normal distribution, with a mean of 0.90 and a standard deviation of 0.02. A lower DIC retention fraction results in less net CO
+              - subscript [ref=e4198]: "2"
+              - text: e Removal, so the conservative estimate is taken to be 1 standard deviation below the mean (corresponding to the 16th percentile). The conservative estimate of the DIC retention index is thus 0.88.
+          - generic [ref=e4199]:
+            - generic [ref=e4202]:
+              - generic [ref=e4203]:
+                - generic [ref=e4204]: "9.0"
+                - generic [ref=e4205]:
+                  - button "Jump to table of contents" [ref=e4206] [cursor=pointer]:
+                    - img [ref=e4207]
+                  - button "Copy link to section" [ref=e4209] [cursor=pointer]:
+                    - img [ref=e4210]
+              - generic [ref=e4212]: "Appendix B: Stepwise process for uncertainty assessment"
+            - 'heading "Appendix B: Stepwise process for uncertainty assessment" [level=2] [ref=e4215]'
+            - paragraph [ref=e4216]: This appendix provides the detailed stepwise process for reducing and documenting uncertainty. The stepwise process must be completed alongside GHG Statements submitted for verification. Projects must demonstrate how they plan to reduce and document uncertainty as part of validation.
+            - paragraph [ref=e4217]:
+              - strong [ref=e4218]: Step 1 - Input parameters information
+            - paragraph [ref=e4219]: Protocols must report a list of all parameters that are used in the Removal calculations. Where uncertainty data is available from external sources, such as for emission factors or relating to equipment calibration, or where uncertainty information is determined from project measurements, this must be reported.
+            - paragraph [ref=e4220]:
+              - strong [ref=e4221]: Step 2 - Contribution analysis
+            - paragraph [ref=e4222]: Separately, a Contribution Analysis should be undertaken that demonstrates the impact of each GHG SSR on the final net Removal. This analysis should calculate the contribution of each GHG SSR by expressing the emissions associated with that SSR during the Reporting Period as a percentage of the total net removals for the same period.
+            - paragraph [ref=e4223]:
+              - text: Input parameters may be omitted from step 3 if the contribution analysis can demonstrate that the individual GHG SSR contributes to < 1% of net CO2e Removal and that all omitted GHG SSRs collectively contribute to < 1% of net CO2e Removal. For all other GHG SSRs, a
+              - link "Sensitivity Analysis" [ref=e4224] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-sensitivity-analysis"
+              - text: is required.
+            - paragraph [ref=e4225]:
+              - strong [ref=e4226]: Step 3 - Sensitivity analysis
+            - paragraph [ref=e4227]: A sensitivity analysis must be conducted to evaluate the impact of uncertainty in each input parameter on the final net CO₂e removal. The method used must be clearly documented so results can be independently reproduced.
+            - paragraph [ref=e4228]: Where one input parameter contributes to multiple GHG SSRs, this must be treated as one input parameter.
+            - paragraph [ref=e4229]: The purpose of the sensitivity analysis is to determine how uncertainty in an individual input parameter affects the net CO₂e removal estimate. This is done by adjusting the parameter using an appropriate uncertainty factor and recalculating the net CO₂e removal while keeping all other parameters constant.
+            - paragraph [ref=e4230]: "If the resulting change in net CO₂e removal is less than 1%, no further action is required. If the change is equal to, or exceeds 1%, the adjusted value must be used in the GHG Statement. An exception to this rule is allowable for input parameters where data has been adopted to calculate GHG emissions and, the Project Proponent can demonstrate that:"
+            - list [ref=e4231]:
+              - listitem [ref=e4232]: The input parameter is based on accurate, verifiable primary data, or
+              - listitem [ref=e4233]: The value used is conservative.
+            - paragraph [ref=e4234]: Any such justification must be clearly documented and supported by evidence.
+            - paragraph [ref=e4235]: "When dealing with uncertainty, Project Proponents must follow the hierarchy outlined below to determine uncertainty factors:"
+            - list [ref=e4236]:
+              - listitem [ref=e4237]: Some Protocols contain specific guidance on assessing uncertainty in parameters. Project Proponents must first consult the relevant protocol for any explicit rules on uncertainty estimation.
+              - listitem [ref=e4238]: If no specific rules are included on uncertainty estimation in the relevant Protocol, then Project Proponents must follow the general guidance outlined below to assess uncertainty.
+              - listitem [ref=e4239]:
+                - text: "For input parameters based on primary data from direct measurements, the uncertainty factor must be derived using appropriate statistical methods to directly calculate the standard deviation of the parameter. These methods provide a systematic approach to quantifying uncertainty in the final net CO₂e removal estimate. For parameters not based on primary data, the uncertainty factor may be informed by:"
+                - list [ref=e4240]:
+                  - listitem [ref=e4241]: Third-party data, such as meter accuracy from manufacturers or uncertainty ranges published with emission factors (e.g., in databases like Ecoinvent);
+                  - listitem [ref=e4242]: Context-specific considerations, such as variability in logistics, seasonal effects, or operational practices;
+                  - listitem [ref=e4243]: A default value of ±20%, only when no better information is available and with justification for its use.
+            - paragraph [ref=e4244]: All uncertainty factors must be clearly referenced, and the basis for their selection must be documented. Acceptable sources include instrument calibration data, published literature, expert judgment, proxies, and other reputable references. Additional guidance on assessing different types of uncertainties is provided in [Appendix A](#appendix-a-types of uncertainties)).
+            - paragraph [ref=e4245]: "The Sensitivity analysis must be repeated when any of the following conditions are met:"
+            - list [ref=e4246]:
+              - listitem [ref=e4247]: The previous assessment was conducted one year or more prior to the current verification;
+              - listitem [ref=e4248]: There has been a significant change in the Net Removal estimate;
+              - listitem [ref=e4249]: There has been a change in activities associated with any of the relevant SSRs.
+          - generic [ref=e4250]:
+            - generic [ref=e4253]:
+              - generic [ref=e4254]:
+                - generic [ref=e4255]: "10.0"
+                - generic [ref=e4256]:
+                  - button "Jump to table of contents" [ref=e4257] [cursor=pointer]:
+                    - img [ref=e4258]
+                  - button "Copy link to section" [ref=e4260] [cursor=pointer]:
+                    - img [ref=e4261]
+              - generic [ref=e4263]: "Appendix C: Risk Reversal Questionnaire"
+            - 'heading "Appendix C: Risk Reversal Questionnaire" [level=2] [ref=e4266]'
+            - paragraph [ref=e4267]: This questionnaire provides guidance on assessing Risk of Reversal, to be used by Protocols and Projects which need to make this assessment for use on the Isometric Registry.
+            - paragraph [ref=e4268]:
+              - text: This risk assessment identifies relevant material risk factors at the level of the Isometric Standard. The relevant risk factors from this Standard-level risk assessment are also specified at the Protocol level. Each relevant risk factor identified as part of a risk assessment must be included in the monitoring plan for a Project, and published as part of the
+              - link "Project Design Document" [ref=e4269] [cursor=pointer]:
+                - /url: "#definitions-and-acronyms-project-design-document"
+              - text: .
+            - paragraph [ref=e4270]: The duration of required monitoring is determined in the relevant Protocol or Module. As above, the risk assessment informs the design of the monitoring plan requirements and consequently the extent, frequency and duration of monitoring.
+            - paragraph [ref=e4271]: Projects must re-assess their reversal risk using this questionnaire at the renewal of each crediting period, or if monitoring identifies a reversal-related risk, or if an actual reversal event takes place. In any event, projects should reassess their reversal risk at a minimum every 5 years.
+            - paragraph [ref=e4272]:
+              - text: Please see the
+              - link "Reversals and Buffer Pools" [ref=e4273] [cursor=pointer]:
+                - /url: "#reversals-and-buffer-pools"
+              - text: for more details on how Risk of Reversal is used.
+            - table [ref=e4275]:
+              - rowgroup [ref=e4276]:
+                - row "# Question If answered “Yes” If answered “No”" [ref=e4277]:
+                  - columnheader "#" [ref=e4278]:
+                    - generic [ref=e4279]: "#"
+                  - columnheader "Question" [ref=e4280]:
+                    - generic [ref=e4281]: Question
+                  - columnheader "If answered “Yes”" [ref=e4282]:
+                    - generic [ref=e4283]: If answered “Yes”
+                  - columnheader "If answered “No”" [ref=e4284]:
+                    - generic [ref=e4285]: If answered “No”
+              - rowgroup [ref=e4286]:
+                - row "1 Is a reversal directly observable with a physical or chemical measurement as opposed to a modeled result? Proceed to questions 2-9 Proceed to questions 8-9" [ref=e4287]:
+                  - cell "1" [ref=e4288]:
+                    - generic [ref=e4289]: "1"
+                  - cell "Is a reversal directly observable with a physical or chemical measurement as opposed to a modeled result?" [ref=e4290]:
+                    - paragraph [ref=e4292]: Is a reversal directly observable with a physical or chemical measurement as opposed to a modeled result?
+                  - cell "Proceed to questions 2-9" [ref=e4293]:
+                    - generic [ref=e4294]: Proceed to questions 2-9
+                  - cell "Proceed to questions 8-9" [ref=e4295]:
+                    - generic [ref=e4296]: Proceed to questions 8-9
+                - row "2 Is the carbon being stored in an impermeable geologic system? (e.g., salt cavern) Proceed to questions 8-9 Add 1 to Risk Score and proceed to questions 3-9" [ref=e4297]:
+                  - cell "2" [ref=e4298]:
+                    - generic [ref=e4299]: "2"
+                  - cell "Is the carbon being stored in an impermeable geologic system? (e.g., salt cavern)" [ref=e4300]:
+                    - paragraph [ref=e4302]: Is the carbon being stored in an impermeable geologic system? (e.g., salt cavern)
+                  - cell "Proceed to questions 8-9" [ref=e4303]:
+                    - generic [ref=e4304]: Proceed to questions 8-9
+                  - cell "Add 1 to Risk Score and proceed to questions 3-9" [ref=e4305]:
+                    - generic [ref=e4306]: Add 1 to Risk Score and proceed to questions 3-9
+                - row "3 Is the carbon being stored organic? Add 1 to Risk Score" [ref=e4307]:
+                  - cell "3" [ref=e4308]:
+                    - generic [ref=e4309]: "3"
+                  - cell "Is the carbon being stored organic?" [ref=e4310]:
+                    - generic [ref=e4311]: Is the carbon being stored organic?
+                  - cell "Add 1 to Risk Score" [ref=e4312]:
+                    - generic [ref=e4313]: Add 1 to Risk Score
+                  - cell [ref=e4314]
+                - row "4 Are conditions for methane production present (anaerobic conditions, lignin content)? Add 1 to Risk Score" [ref=e4315]:
+                  - cell "4" [ref=e4316]:
+                    - generic [ref=e4317]: "4"
+                  - cell "Are conditions for methane production present (anaerobic conditions, lignin content)?" [ref=e4318]:
+                    - paragraph [ref=e4320]: Are conditions for methane production present (anaerobic conditions, lignin content)?
+                  - cell "Add 1 to Risk Score" [ref=e4321]:
+                    - generic [ref=e4322]: Add 1 to Risk Score
+                  - cell [ref=e4323]
+                - row "5 Does this approach have a material risk of reversal due to natural disasters including, but not limited to, floods, storms, earthquakes, fires, etc.? Add 1 to Risk Score" [ref=e4324]:
+                  - cell "5" [ref=e4325]:
+                    - generic [ref=e4326]: "5"
+                  - cell "Does this approach have a material risk of reversal due to natural disasters including, but not limited to, floods, storms, earthquakes, fires, etc.?" [ref=e4327]:
+                    - paragraph [ref=e4329]: Does this approach have a material risk of reversal due to natural disasters including, but not limited to, floods, storms, earthquakes, fires, etc.?
+                  - cell "Add 1 to Risk Score" [ref=e4330]:
+                    - generic [ref=e4331]: Add 1 to Risk Score
+                  - cell [ref=e4332]
+                - row "6 Does this approach have a material risk of reversal due to human-induced events from outside actors, such as change in farming practices, change in ownership and management of project sites, or similar? Add up to 2 to Risk Score" [ref=e4333]:
+                  - cell "6" [ref=e4334]:
+                    - generic [ref=e4335]: "6"
+                  - cell "Does this approach have a material risk of reversal due to human-induced events from outside actors, such as change in farming practices, change in ownership and management of project sites, or similar?" [ref=e4336]:
+                    - paragraph [ref=e4338]: Does this approach have a material risk of reversal due to human-induced events from outside actors, such as change in farming practices, change in ownership and management of project sites, or similar?
+                  - cell "Add up to 2 to Risk Score" [ref=e4339]:
+                    - generic [ref=e4340]: Add up to 2 to Risk Score
+                  - cell [ref=e4341]
+                - 'row "7 Applicable only for subsurface storage: Is the carbon being stored with trapping mechanisms preventing reversals? (e.g., multiple confining layers, CO₂ dissolves or solidifies) Minus 1 to Risk Score (unless 0)" [ref=e4342]':
+                  - cell "7" [ref=e4343]:
+                    - generic [ref=e4344]: "7"
+                  - 'cell "Applicable only for subsurface storage: Is the carbon being stored with trapping mechanisms preventing reversals? (e.g., multiple confining layers, CO₂ dissolves or solidifies)" [ref=e4345]':
+                    - paragraph [ref=e4347]:
+                      - strong [ref=e4348]: Applicable only for subsurface storage
+                      - text: ": Is the carbon being stored with trapping mechanisms preventing reversals? (e.g., multiple confining layers, CO₂ dissolves or solidifies)"
+                  - cell "Minus 1 to Risk Score (unless 0)" [ref=e4349]:
+                    - generic [ref=e4350]: Minus 1 to Risk Score (unless 0)
+                  - cell [ref=e4351]
+                - row "8 Is there 10+ years of monitoring and/or lab data demonstrating low project risk? Minus up to 2 to Risk Score" [ref=e4352]:
+                  - cell "8" [ref=e4353]:
+                    - generic [ref=e4354]: "8"
+                  - cell "Is there 10+ years of monitoring and/or lab data demonstrating low project risk?" [ref=e4355]:
+                    - paragraph [ref=e4357]: Is there 10+ years of monitoring and/or lab data demonstrating low project risk?
+                  - cell "Minus up to 2 to Risk Score" [ref=e4358]:
+                    - generic [ref=e4359]: Minus up to 2 to Risk Score
+                  - cell [ref=e4360]
+                - row "9 Does this pathway have a documented history of reversals? Add 2 to Risk Score" [ref=e4361]:
+                  - cell "9" [ref=e4362]:
+                    - generic [ref=e4363]: "9"
+                  - cell "Does this pathway have a documented history of reversals?" [ref=e4364]:
+                    - generic [ref=e4365]: Does this pathway have a documented history of reversals?
+                  - cell "Add 2 to Risk Score" [ref=e4366]:
+                    - generic [ref=e4367]: Add 2 to Risk Score
+                  - cell [ref=e4368]
+                - row "10 Is there one or more project-specific factors that merit a high risk level? Add up to 2 to Risk Score" [ref=e4369]:
+                  - cell "10" [ref=e4370]:
+                    - generic [ref=e4371]: "10"
+                  - cell "Is there one or more project-specific factors that merit a high risk level?" [ref=e4372]:
+                    - paragraph [ref=e4374]: Is there one or more project-specific factors that merit a high risk level?
+                  - cell "Add up to 2 to Risk Score" [ref=e4375]:
+                    - generic [ref=e4376]: Add up to 2 to Risk Score
+                  - cell [ref=e4377]
+            - paragraph [ref=e4378]: Risk Score Categories
+            - list [ref=e4379]:
+              - listitem [ref=e4380]:
+                - paragraph [ref=e4381]: "0: Very Low Risk Level (2% buffer)"
+              - listitem [ref=e4382]:
+                - paragraph [ref=e4383]: "1-2: Low Risk Level (5% buffer)"
+              - listitem [ref=e4384]:
+                - paragraph [ref=e4385]: "3-4: Medium Risk Level (7% buffer)"
+              - listitem [ref=e4386]:
+                - paragraph [ref=e4387]: "5+: High Risk Level (10-20% buffer)"
+          - generic [ref=e4388]:
+            - generic [ref=e4390]:
+              - generic [ref=e4391]:
+                - generic [ref=e4392]: "10.1"
+                - generic [ref=e4393]:
+                  - button "Jump to table of contents" [ref=e4394] [cursor=pointer]:
+                    - img [ref=e4395]
+                  - button "Copy link to section" [ref=e4397] [cursor=pointer]:
+                    - img [ref=e4398]
+              - generic [ref=e4400]: Worked examples
+            - heading "Worked examples" [level=3] [ref=e4403]
+            - paragraph [ref=e4404]:
+              - text: Isometric's Uncertainty and Buffer Pool policies represent two mostly non-overlapping approaches for how Isometric plans to be conservative in how credits are quantified and to potentially insure against future events that may result in a Reversal. Specifically, in removal pathways that utilize large, open-system reservoirs (e.g., the ocean) where direct observation of a reversal is not feasible, Isometric's Uncertainty policy will generally result in a larger uncertainty discount
+              - superscript [ref=e4405]:
+                - link "22" [ref=e4406] [cursor=pointer]:
+                  - /url: "#user-content-fn-uncertainty-discount"
+              - text: ", and Isometric's Buffer Pool policy will generally result in a smaller Buffer Pool Size. Conversely, in removal pathways that utilize closed-system reservoirs that are more straightforward to monitor, Isometric's Uncertainty policy will generally result in a smaller uncertainty discount, but the activity will be subject to a larger Buffer Pool Size. Below are two example scenarios that illustrate how and when these two policies are invoked."
+            - paragraph [ref=e4407]:
+              - strong [ref=e4408]: "Example 1: Ocean Alkalinity Enhancement"
+            - paragraph [ref=e4409]:
+              - text: An OAE Project Proponent releases a known amount of alkalinity into the ocean. In accordance with the Protocol and PDD, the Project Proponent uses a model to estimate that the median CO
+              - subscript [ref=e4410]: "2"
+              - text: uptake after a certain amount of time is 100 tonnes. In accordance with Isometric's Uncertainty policy, the Project Proponent reports that the 16th percentile of CO
+              - subscript [ref=e4411]: "2"
+              - text: uptake outcomes is 15 tonnes below the median (resulting in a 15t uncertainty discount that is subtracted from the gross CO
+              - subscript [ref=e4412]: "2"
+              - text: removed). The Project Proponent follows Isometric's guidance in answering the risk questionnaire and determines they have a Risk of Reversal that corresponds to Risk Level A (resulting in a 2% Buffer Pool Size).
+            - list [ref=e4413]:
+              - listitem [ref=e4414]:
+                - paragraph [ref=e4415]:
+                  - text: Net CO
+                  - subscript [ref=e4416]: "2"
+                  - text: e removed = 100t - 20t - 15t = 65t
+                - list [ref=e4417]:
+                  - listitem [ref=e4418]:
+                    - paragraph [ref=e4419]:
+                      - text: Gross CO
+                      - subscript [ref=e4420]: "2"
+                      - text: "removed: 100t"
+                  - listitem [ref=e4421]:
+                    - paragraph [ref=e4422]:
+                      - text: Counterfactual CO
+                      - subscript [ref=e4423]: "2"
+                      - text: removal and GHG emissions CO
+                      - subscript [ref=e4424]: "2"
+                      - text: "e: -20t"
+                  - listitem [ref=e4425]:
+                    - paragraph [ref=e4426]:
+                      - text: Uncertainty discount CO
+                      - subscript [ref=e4427]: "2"
+                      - text: "e: -15t"
+              - listitem [ref=e4428]:
+                - paragraph [ref=e4429]: "Credits issued to Project Proponent: 63.7 credits (65 - 1.3)"
+                - list [ref=e4430]:
+                  - listitem [ref=e4431]:
+                    - paragraph [ref=e4432]: "Total Credits issued: 65 credits"
+                  - listitem [ref=e4433]:
+                    - paragraph [ref=e4434]: "Credits deposited to Buffer Pool account: 65 credits * 2% = 1.3 credits"
+            - paragraph [ref=e4435]:
+              - strong [ref=e4436]: "Example 2: Bio-oil Production and Injection"
+            - paragraph [ref=e4437]:
+              - text: A bio-oil production and injection Project Proponent produces 100 tonnes of bio-oil with a well-constrained GHG Assessment and counterfactuals (there is no uncertainty discount for the amount of CO
+              - subscript [ref=e4438]: "2"
+              - text: e removed because conservative parameters were used in the calculation). This bio-oil is then injected into an underground reservoir that is equipped with a suite of chemical sensors that can measure CO
+              - subscript [ref=e4439]: "2"
+              - text: and methane. The corresponding PDD has provisions to continue monitoring for fugitive gases for 40 years after injection has concluded. The Project Proponent follows Isometric's guidance in answering the risk questionnaire and determines they have a Risk of Reversal that corresponds to Risk Level B (resulting in a 5% Buffer Pool Size).
+            - list [ref=e4440]:
+              - listitem [ref=e4441]:
+                - paragraph [ref=e4442]:
+                  - text: Net CO
+                  - subscript [ref=e4443]: "2"
+                  - text: e removed = 100t - 20t - 0t = 80t
+                - list [ref=e4444]:
+                  - listitem [ref=e4445]:
+                    - paragraph [ref=e4446]:
+                      - text: Gross CO
+                      - subscript [ref=e4447]: "2"
+                      - text: "removed: 100t"
+                  - listitem [ref=e4448]:
+                    - paragraph [ref=e4449]:
+                      - text: Counterfactual CO
+                      - subscript [ref=e4450]: "2"
+                      - text: removal and GHG emissions CO
+                      - subscript [ref=e4451]: "2"
+                      - text: "e: -20t"
+              - listitem [ref=e4452]:
+                - paragraph [ref=e4453]: "Credits issued to Project Proponent: 76 credits (80 - 4)"
+                - list [ref=e4454]:
+                  - listitem [ref=e4455]:
+                    - paragraph [ref=e4456]: "Total Credits Issued: 80 credits"
+                  - listitem [ref=e4457]:
+                    - paragraph [ref=e4458]: "Credits deposited to Buffer Pool account: 80 credits * 5% = 4 credits"
+          - generic [ref=e4459]:
+            - heading "Footnotes" [level=2] [ref=e4462]
+            - list [ref=e4463]:
+              - listitem [ref=e4464]:
+                - paragraph [ref=e4465]:
+                  - link "https://www.epa.gov/ghgemissions/overview-greenhouse-gases" [ref=e4466] [cursor=pointer]:
+                    - /url: https://www.epa.gov/ghgemissions/overview-greenhouse-gases
+                  - link "Back to reference 1" [ref=e4467] [cursor=pointer]:
+                    - /url: "#user-content-fnref-ghg"
+                    - text: ↩
+              - listitem [ref=e4468]:
+                - paragraph [ref=e4469]:
+                  - link "https://redd.unfccc.int/" [ref=e4470] [cursor=pointer]:
+                    - /url: https://redd.unfccc.int/
+                  - link "Back to reference 2" [ref=e4471] [cursor=pointer]:
+                    - /url: "#user-content-fnref-redd"
+                    - text: ↩
+              - listitem [ref=e4472]:
+                - paragraph [ref=e4473]:
+                  - link "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Chapter12.pdf" [ref=e4474] [cursor=pointer]:
+                    - /url: https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Chapter12.pdf
+                  - link "Back to reference 3" [ref=e4475] [cursor=pointer]:
+                    - /url: "#user-content-fnref-ipcc"
+                    - text: ↩
+                  - link "Back to reference 3-2" [ref=e4476] [cursor=pointer]:
+                    - /url: "#user-content-fnref-ipcc-2"
+                    - text: ↩
+                    - superscript [ref=e4477]: "2"
+              - listitem [ref=e4478]:
+                - paragraph [ref=e4479]:
+                  - link "https://rmi.org/insight/scaling-technological-greenhouse-gas-removal-a-global-roadmap-to-2050/" [ref=e4480] [cursor=pointer]:
+                    - /url: https://rmi.org/insight/scaling-technological-greenhouse-gas-removal-a-global-roadmap-to-2050/
+                  - link "Back to reference 4" [ref=e4481] [cursor=pointer]:
+                    - /url: "#user-content-fnref-rmi"
+                    - text: ↩
+              - listitem [ref=e4482]:
+                - paragraph [ref=e4483]:
+                  - text: "["
+                  - link "https://unfccc.int/process/parties-non-party-stakeholders/parties-convention-and-observer-states" [ref=e4484] [cursor=pointer]:
+                    - /url: https://unfccc.int/process/parties-non-party-stakeholders/parties-convention-and-observer-states
+                  - text: "]"
+                  - link "Back to reference 5" [ref=e4485] [cursor=pointer]:
+                    - /url: "#user-content-fnref-unfccc-parties"
+                    - text: ↩
+              - listitem [ref=e4486]:
+                - paragraph [ref=e4487]:
+                  - link "https://www.ipcc.ch/assessment-report/ar6/" [ref=e4488] [cursor=pointer]:
+                    - /url: https://www.ipcc.ch/assessment-report/ar6/
+                  - link "Back to reference 6" [ref=e4489] [cursor=pointer]:
+                    - /url: "#user-content-fnref-gwp"
+                    - text: ↩
+              - listitem [ref=e4490]:
+                - paragraph [ref=e4491]:
+                  - link "http://www.geol.lsu.edu/jlorenzo/geophysics/uncertainties/Uncertaintiespart2.html#muldiv" [ref=e4492] [cursor=pointer]:
+                    - /url: http://www.geol.lsu.edu/jlorenzo/geophysics/uncertainties/Uncertaintiespart2.html#muldiv
+                  - link "Back to reference 7" [ref=e4493] [cursor=pointer]:
+                    - /url: "#user-content-fnref-uncertainty-propagation-rules"
+                    - text: ↩
+              - listitem [ref=e4494]:
+                - paragraph [ref=e4495]:
+                  - text: Johansen, A.M., Evers, L. and Whiteley, N., 2010. Monte Carlo methods. International Encyclopedia of Education, pp.296-303.
+                  - link "Back to reference 8" [ref=e4496] [cursor=pointer]:
+                    - /url: "#user-content-fnref-monte-carlo"
+                    - text: ↩
+              - listitem [ref=e4497]:
+                - paragraph [ref=e4498]:
+                  - text: "Section 4: Assessment Framework - Core Carbon Principles 2023, The Integrity Council for the Voluntary Carbon Market"
+                  - link "Back to reference 9" [ref=e4499] [cursor=pointer]:
+                    - /url: "#user-content-fnref-icvcm-core-carbon-principles"
+                    - text: ↩
+                  - link "Back to reference 9-2" [ref=e4500] [cursor=pointer]:
+                    - /url: "#user-content-fnref-icvcm-core-carbon-principles-2"
+                    - text: ↩
+                    - superscript [ref=e4501]: "2"
+              - listitem [ref=e4502]:
+                - paragraph [ref=e4503]:
+                  - link "International Labour Organisation Convention 169 on Indigenous and Tribal Peoples" [ref=e4504] [cursor=pointer]:
+                    - /url: https://normlex.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:C169
+                  - link "Back to reference 10" [ref=e4505] [cursor=pointer]:
+                    - /url: "#user-content-fnref-ilo-169"
+                    - text: ↩
+              - listitem [ref=e4506]:
+                - paragraph [ref=e4507]:
+                  - link "United Nations Declaration on the Rights of Indigenous Peoples, 13 September 2007" [ref=e4508] [cursor=pointer]:
+                    - /url: https://www.un.org/development/desa/indigenouspeoples/wp-content/uploads/sites/19/2018/11/UNDRIP_E_web.pdf
+                  - link "Back to reference 11" [ref=e4509] [cursor=pointer]:
+                    - /url: "#user-content-fnref-unip"
+                    - text: ↩
+              - listitem [ref=e4510]:
+                - paragraph [ref=e4511]:
+                  - text: A negative impact is any adverse effect from a particular action that leaves an individual or community worse off, (i.e. where given a choice between the status quo and their position after that action, the individual would strictly prefer the status quo).
+                  - link "Back to reference 12" [ref=e4512] [cursor=pointer]:
+                    - /url: "#user-content-fnref-negative-impacts"
+                    - text: ↩
+              - listitem [ref=e4513]:
+                - paragraph [ref=e4514]:
+                  - text: UN Guiding Principles on Business and Human Rights Reporting Framework with implementation guidance (2015); International Business Leaders Forum (IBLF) and International Finance Corporation (IFC) Guide to Human Rights Impact Assessment and Management (HRIAM), September 2011
+                  - link "Back to reference 13" [ref=e4515] [cursor=pointer]:
+                    - /url: "#user-content-fnref-14"
+                    - text: ↩
+              - listitem [ref=e4516]:
+                - paragraph [ref=e4517]:
+                  - text: FPIC must be obtained by following a suitable process. That process must identify the indigenous peoples concerned, document geographic and demographic mapping, involve a participatory communication approach which discloses project information transparently, reach consent, document any specific needs of indigenous peoples that must be included in the project, and include a feedback and complaints mechanism.
+                  - link "Back to reference 14" [ref=e4518] [cursor=pointer]:
+                    - /url: "#user-content-fnref-relevant-iplcs"
+                    - text: ↩
+              - listitem [ref=e4519]:
+                - paragraph [ref=e4520]:
+                  - link "International Bill of Human Rights, United Nations" [ref=e4521] [cursor=pointer]:
+                    - /url: https://www.ohchr.org/en/what-are-human-rights/international-bill-human-rights
+                  - link "Back to reference 15" [ref=e4522] [cursor=pointer]:
+                    - /url: "#user-content-fnref-ibhr"
+                    - text: ↩
+              - listitem [ref=e4523]:
+                - paragraph [ref=e4524]:
+                  - link "https://iaf.nu/en/accreditation-bodies/" [ref=e4525] [cursor=pointer]:
+                    - /url: https://iaf.nu/en/accreditation-bodies/
+                  - link "Back to reference 16" [ref=e4526] [cursor=pointer]:
+                    - /url: "#user-content-fnref-international-accreditation-forum"
+                    - text: ↩
+              - listitem [ref=e4527]:
+                - paragraph [ref=e4528]:
+                  - text: ISO 14064-3:2019, 6.3.3
+                  - link "Back to reference 17" [ref=e4529] [cursor=pointer]:
+                    - /url: "#user-content-fnref-iso-14064-3:2019-6.3.3"
+                    - text: ↩
+              - listitem [ref=e4530]:
+                - paragraph [ref=e4531]:
+                  - link "https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461" [ref=e4532] [cursor=pointer]:
+                    - /url: https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461
+                  - link "Back to reference 18" [ref=e4533] [cursor=pointer]:
+                    - /url: "#user-content-fnref-1"
+                    - text: ↩
+                  - link "Back to reference 18-2" [ref=e4534] [cursor=pointer]:
+                    - /url: "#user-content-fnref-1-2"
+                    - text: ↩
+                    - superscript [ref=e4535]: "2"
+              - listitem [ref=e4536]:
+                - paragraph [ref=e4537]:
+                  - link "Regulation (EU) 2024/3012" [ref=e4538] [cursor=pointer]:
+                    - /url: https://eur-lex.europa.eu/eli/reg/2024/3012/oj/eng
+                  - link "Back to reference 19" [ref=e4539] [cursor=pointer]:
+                    - /url: "#user-content-fnref-eu-regulation-2024-3012"
+                    - text: ↩
+              - listitem [ref=e4540]:
+                - paragraph [ref=e4541]:
+                  - text: Ibid.
+                  - link "Back to reference 20" [ref=e4542] [cursor=pointer]:
+                    - /url: "#user-content-fnref-2"
+                    - text: ↩
+              - listitem [ref=e4543]:
+                - paragraph [ref=e4544]:
+                  - text: "Databases such as Ecoinvent provide uncertainty factors, often based on a lognormal probability distribution, with a 95% confidence interval. The reported uncertainty accounts for systematic error, random error, and may also use a pedigree matrix to assign additional qualitative data quality impacts as an uncertainty value. These uncertainties are reported as a combined standard uncertainty. See details and examples for ecoinvent:"
+                  - link "https://ecoinvent.org/wp-content/uploads/2020/10/dataqualityguidelineecoinvent_3_20130506.pdf" [ref=e4545] [cursor=pointer]:
+                    - /url: https://ecoinvent.org/wp-content/uploads/2020/10/dataqualityguideline_ecoinvent_3_20130506_.pdf
+                    - text: https://ecoinvent.org/wp-content/uploads/2020/10/dataqualityguideline
+                    - emphasis [ref=e4546]: ecoinvent_3_20130506
+                    - text: .pdf
+                  - link "Back to reference 21" [ref=e4547] [cursor=pointer]:
+                    - /url: "#user-content-fnref-3"
+                    - text: ↩
+              - listitem [ref=e4548]:
+                - paragraph [ref=e4549]:
+                  - text: "\"Uncertainty discount\" is defined as the difference between the Conservative estimate of Removal, and the estimate of Removal in the absence of accounting for uncertainty"
+                  - link "Back to reference 22" [ref=e4550] [cursor=pointer]:
+                    - /url: "#user-content-fnref-uncertainty-discount"
+                    - text: ↩
+          - heading "Changelog" [level=2] [ref=e4555]
+          - generic [ref=e4556]:
+            - group [ref=e4557]:
+              - generic "v2.1 Certified Shortened project public comment period to 10 days" [ref=e4558]:
+                - generic [ref=e4559]:
+                  - img [ref=e4560]
+                  - heading "v2.1" [level=4] [ref=e4562]
+                - generic [ref=e4563]:
+                  - generic [ref=e4568]: Certified
+                  - list [ref=e4570]:
+                    - listitem [ref=e4571]: Shortened project public comment period to 10 days
+            - group [ref=e4572]:
+              - 'generic "v2.0 Certified Expanded scope to cover emissions reduction activities, including superpollutant projects (such as destruction of landfill methane emissions and HFCs). Introduced longer crediting periods; default crediting periods have been extended to 10 years, and to 15 years for DAC and Bio-CCS. Buffer pool requirements have been removed where these are not relevant for managing reversal risk: specifically for open systems (Biochar, Enhanced Rock Weathering, Ocean Alkalinity Enhancement), as well as any European projects where reversal liabilities are directly managed under the CCS Directive. Contributions have been reduced from 2% to 1% for \"Very Low Risk\" projects." [ref=e4573]':
+                - generic [ref=e4574]:
+                  - img [ref=e4575]
+                  - heading "v2.0" [level=4] [ref=e4577]
+                - generic [ref=e4578]:
+                  - generic [ref=e4583]: Certified
+                  - list [ref=e4585]:
+                    - listitem [ref=e4586]: Expanded scope to cover emissions reduction activities, including superpollutant projects (such as destruction of landfill methane emissions and HFCs).
+                    - listitem [ref=e4587]: Introduced longer crediting periods; default crediting periods have been extended to 10 years, and to 15 years for DAC and Bio-CCS.
+                    - listitem [ref=e4588]: "Buffer pool requirements have been removed where these are not relevant for managing reversal risk: specifically for open systems (Biochar, Enhanced Rock Weathering, Ocean Alkalinity Enhancement), as well as any European projects where reversal liabilities are directly managed under the CCS Directive."
+                    - listitem [ref=e4589]: Contributions have been reduced from 2% to 1% for "Very Low Risk" projects.
+            - group [ref=e4590]:
+              - generic "v1.9 Certified Added CRCF section for alignment with the EU’s Carbon Removal and Carbon Farming certification scheme. Introduced Non conformities and sanctions section. Introduced Prevention of scheme hopping section. Added definition of Vintage. Clarified shared Buffer Pools are defined in Biosphere Protocols." [ref=e4591]:
+                - generic [ref=e4592]:
+                  - img [ref=e4593]
+                  - heading "v1.9" [level=4] [ref=e4595]
+                - generic [ref=e4596]:
+                  - generic [ref=e4601]: Certified
+                  - list [ref=e4603]:
+                    - listitem [ref=e4604]: Added CRCF section for alignment with the EU’s Carbon Removal and Carbon Farming certification scheme.
+                    - listitem [ref=e4605]: Introduced Non conformities and sanctions section.
+                    - listitem [ref=e4606]: Introduced Prevention of scheme hopping section.
+                    - listitem [ref=e4607]: Added definition of Vintage.
+                    - listitem [ref=e4608]: Clarified shared Buffer Pools are defined in Biosphere Protocols.
+            - group [ref=e4609]:
+              - 'generic "v1.8 Certified Clarify ''de facto'' versus ''de jure'' for regulatory additionality for UNFCCC Non-Annex I parties. Clarify life-cycle analysis calculation requirements. Introduce Appendix B: Stepwise process for uncertainty assessment. Update definitions of standard and protocol version numbers. Clarify protocol consultation requirements. Clarify protocol adoption requirements. Introduce protocol backward compatibility mechanisms. Introduce requirement for data collection and storage. Clarify No Double Counting also applies to claimed environmental attributes." [ref=e4610]':
+                - generic [ref=e4611]:
+                  - img [ref=e4612]
+                  - heading "v1.8" [level=4] [ref=e4614]
+                - generic [ref=e4615]:
+                  - generic [ref=e4620]: Certified
+                  - list [ref=e4622]:
+                    - listitem [ref=e4623]: Clarify 'de facto' versus 'de jure' for regulatory additionality for UNFCCC Non-Annex I parties.
+                    - listitem [ref=e4624]: Clarify life-cycle analysis calculation requirements.
+                    - listitem [ref=e4625]: "Introduce Appendix B: Stepwise process for uncertainty assessment."
+                    - listitem [ref=e4626]: Update definitions of standard and protocol version numbers.
+                    - listitem [ref=e4627]: Clarify protocol consultation requirements. Clarify protocol adoption requirements.
+                    - listitem [ref=e4628]: Introduce protocol backward compatibility mechanisms.
+                    - listitem [ref=e4629]: Introduce requirement for data collection and storage.
+                    - listitem [ref=e4630]: Clarify No Double Counting also applies to claimed environmental attributes.
+            - group [ref=e4631]:
+              - generic "v1.7 Certified Introduce Common Practice Analysis requirement. Clarifications to Financial Additionality requirements, Avoidable/Unavoidable Reversal requirements, PDD Documentation requirements and No Double Counting section." [ref=e4632]:
+                - generic [ref=e4633]:
+                  - img [ref=e4634]
+                  - heading "v1.7" [level=4] [ref=e4636]
+                - generic [ref=e4637]:
+                  - generic [ref=e4642]: Certified
+                  - list [ref=e4644]:
+                    - listitem [ref=e4645]: Introduce Common Practice Analysis requirement.
+                    - listitem [ref=e4646]: Clarifications to Financial Additionality requirements, Avoidable/Unavoidable Reversal requirements, PDD Documentation requirements and No Double Counting section.
+            - group [ref=e4647]:
+              - generic "v1.6 Certified Introduce language guide and corresponding wording clarifications Update CORSIA section regarding CORSIA-eligible emissions units Change handling of Durability, introducing definition of Protocol Durability Threshold(s) and Project Durability Threshold" [ref=e4648]:
+                - generic [ref=e4649]:
+                  - img [ref=e4650]
+                  - heading "v1.6" [level=4] [ref=e4652]
+                - generic [ref=e4653]:
+                  - generic [ref=e4658]: Certified
+                  - list [ref=e4660]:
+                    - listitem [ref=e4661]: Introduce language guide and corresponding wording clarifications
+                    - listitem [ref=e4662]: Update CORSIA section regarding CORSIA-eligible emissions units
+                    - listitem [ref=e4663]: Change handling of Durability, introducing definition of Protocol Durability Threshold(s) and Project Durability Threshold
+            - group [ref=e4664]:
+              - generic "v1.5 Certified Introduce a project public comment period. Clarify use of 'should' and 'must'. Add clarifying footnotes." [ref=e4665]:
+                - generic [ref=e4666]:
+                  - img [ref=e4667]
+                  - heading "v1.5" [level=4] [ref=e4669]
+                - generic [ref=e4670]:
+                  - generic [ref=e4675]: Certified
+                  - list [ref=e4677]:
+                    - listitem [ref=e4678]: Introduce a project public comment period.
+                    - listitem [ref=e4679]: Clarify use of 'should' and 'must'.
+                    - listitem [ref=e4680]: Add clarifying footnotes.
+            - group [ref=e4681]:
+              - generic "v1.4 Certified Update to the Buffer Pool Questionnaire. Size of Buffer Pool for Medium Risk Level is now 7% (previous 10%)." [ref=e4682]:
+                - generic [ref=e4683]:
+                  - img [ref=e4684]
+                  - heading "v1.4" [level=4] [ref=e4686]
+                - generic [ref=e4687]:
+                  - generic [ref=e4692]: Certified
+                  - list [ref=e4694]:
+                    - listitem [ref=e4695]: Update to the Buffer Pool Questionnaire.
+                    - listitem [ref=e4696]: Size of Buffer Pool for Medium Risk Level is now 7% (previous 10%).
+            - group [ref=e4697]:
+              - generic "v1.3 Certified Update to maximum timing between verification events. Clarify expected reporting timeline for Projects to report Reversals. Remove all use of External (non-Isometric) Protocols. Include definition of Project \"Approval Date\" and clarify requirements regarding \"Crediting Period Start Date\". Include requirement for protecting against gender-based violence. Clarify requirement regarding provision of equal pay. Include reference to ILO-169 regarding IPLC rights. Update to Protocol versioning policy. Minor grammar and formatting updates." [ref=e4698]:
+                - generic [ref=e4699]:
+                  - img [ref=e4700]
+                  - heading "v1.3" [level=4] [ref=e4702]
+                - generic [ref=e4703]:
+                  - generic [ref=e4708]: Certified
+                  - list [ref=e4710]:
+                    - listitem [ref=e4711]: Update to maximum timing between verification events.
+                    - listitem [ref=e4712]: Clarify expected reporting timeline for Projects to report Reversals.
+                    - listitem [ref=e4713]: Remove all use of External (non-Isometric) Protocols.
+                    - listitem [ref=e4714]: Include definition of Project "Approval Date" and clarify requirements regarding "Crediting Period Start Date".
+                    - listitem [ref=e4715]: Include requirement for protecting against gender-based violence.
+                    - listitem [ref=e4716]: Clarify requirement regarding provision of equal pay.
+                    - listitem [ref=e4717]: Include reference to ILO-169 regarding IPLC rights.
+                    - listitem [ref=e4718]: Update to Protocol versioning policy.
+                    - listitem [ref=e4719]: Minor grammar and formatting updates.
+            - group [ref=e4720]:
+              - generic "v1.2 Certified Initial release of v1.2" [ref=e4721]:
+                - generic [ref=e4722]:
+                  - img [ref=e4723]
+                  - heading "v1.2" [level=4] [ref=e4725]
+                - generic [ref=e4726]:
+                  - generic [ref=e4731]: Certified
+                  - paragraph [ref=e4733]: Initial release of v1.2
+            - group [ref=e4734]:
+              - generic "v1.1 Certified Initial release of v1.1" [ref=e4735]:
+                - generic [ref=e4736]:
+                  - img [ref=e4737]
+                  - heading "v1.1" [level=4] [ref=e4739]
+                - generic [ref=e4740]:
+                  - generic [ref=e4745]: Certified
+                  - paragraph [ref=e4747]: Initial release of v1.1
+            - group [ref=e4748]:
+              - generic "v1.0 Certified Initial release of v1.0" [ref=e4749]:
+                - generic [ref=e4750]:
+                  - img [ref=e4751]
+                  - heading "v1.0" [level=4] [ref=e4753]
+                - generic [ref=e4754]:
+                  - generic [ref=e4759]: Certified
+                  - paragraph [ref=e4761]: Initial release of v1.0
+          - generic [ref=e4763]:
+            - text: Isometric Standard © 2026 Isometric HQ Ltd is licensed under
+            - link "CC BY-NC-ND 4.0" [ref=e4764] [cursor=pointer]:
+              - /url: http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1
+  - contentinfo [ref=e44]:
+    - generic [ref=e46]:
+      - link "Isometric Registry" [ref=e47] [cursor=pointer]:
+        - /url: /
+        - img [ref=e49]
+      - generic [ref=e61]:
+        - paragraph [ref=e63]: Isometric is the world's leading carbon removal registry. Our mission is to build the trust needed to scale the carbon removal market responsibly and fast. Founded in 2022, Isometric is based in London and New York.
+        - generic [ref=e64]:
+          - link "Go to isometric.com" [ref=e65] [cursor=pointer]:
+            - /url: https://isometric.com
+            - text: Go to isometric.com
+            - img [ref=e66]
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - link "Changelog" [ref=e70] [cursor=pointer]:
+                - /url: https://isometric.com/changelog
+                - generic [ref=e71]: Changelog
+              - link "Writing" [ref=e72] [cursor=pointer]:
+                - /url: https://isometric.com/writing
+                - generic [ref=e73]: Writing
+              - link "Careers" [ref=e74] [cursor=pointer]:
+                - /url: https://isometric.com/careers
+                - generic [ref=e75]: Careers
+            - generic [ref=e76]:
+              - link "Documentation" [ref=e77] [cursor=pointer]:
+                - /url: https://docs.isometric.com
+                - generic [ref=e78]: Documentation
+              - link "Privacy" [ref=e79] [cursor=pointer]:
+                - /url: https://isometric.com/privacy-policy
+                - generic [ref=e80]: Privacy
+              - link "Terms" [ref=e81] [cursor=pointer]:
+                - /url: https://isometric.com/terms
+                - generic [ref=e82]: Terms
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: Get in touch
+            - link "contact@isometric.com" [ref=e88] [cursor=pointer]:
+              - /url: mailto:contact@isometric.com
+          - generic [ref=e89]:
+            - generic [ref=e90]: Press enquiries
+            - link "press@isometric.com" [ref=e92] [cursor=pointer]:
+              - /url: mailto:press@isometric.com
+        - generic [ref=e93]: © 2026 Isometric HQ Ltd. All rights reserved.
+  - alert [ref=e4765]
+  - region "0 notifications."

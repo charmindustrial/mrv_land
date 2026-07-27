@@ -1,0 +1,29 @@
+{
+  "_comment": "Single source of truth for changeable facts. The skill and build_report.py read this and FAIL LOUD if it is missing or malformed. Do not duplicate any of these values in prose or code.",
+
+  "slack_announcement_channel_id": "C095G0XRHFA",
+  "slack_announcement_channel_name": "#ext-proj-charm-350-isometric",
+
+  "certify_project_id": "prj_1HZSSWBQM1S08H83",
+  "certify_ghg_statements_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements",
+  "certify_removal_url_prefix": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/",
+
+  "recipients": [
+    {"name": "Max Lavine",     "user_id": "UL2SL4H5H"},
+    {"name": "Garrett Lutz",   "user_id": "U08JW9HQG5B"},
+    {"name": "Harris Cohn",    "user_id": "U03ANT8CP8W"},
+    {"name": "John Zalewski",  "user_id": "U08CTCV61U0"}
+  ],
+
+  "delivery_mode": "individual_dms",
+  "dedicated_channel_id": null,
+
+  "drive_output_folder": "/Users/maxlavine/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/Charm Bio-oil Credit Reports",
+
+  "charm_oil_keywords": ["QOWV", "WODO", "Aqueous"],
+  "aecn_keywords": ["AECN"],
+
+  "announcement_trigger_phrases": ["submitted", "GHG Statement is in", "reporting period has been submitted", "statement is in for"],
+
+  "ledger_path": "/Users/maxlavine/.charm-350-credit-report/processed_statements.json"
+}

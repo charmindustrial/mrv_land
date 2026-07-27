@@ -1,6 +1,6 @@
 # Charm Industrial Isometric Verification Knowledge Base
 
-**Last Updated:** April 6, 2026
+**Last Updated:** June 29, 2026
 **Owner:** Max Lavine, Carbon Protocol and Verification Lead
 **Email:** max@charmindustrial.com
 **Organization:** Charm Industrial
@@ -167,7 +167,7 @@ The complete biocarbon removal pathway:
 2. **Conversion:** Fast pyrolysis at ~500°C
 3. **Product:** Bio-oil (primary), syngas (combusted for process heat), biochar (soil amendment)
 4. **Transportation:** Bio-oil transported to injection sites
-5. **Storage:** Injected via Class II/III UIC wells into deep geological formations
+5. **Storage:** Injected via Class V (Basco 6, experimental) or Class III (Vaulted, former) UIC wells into deep geological formations
 6. **Permanence:** Underground storage
 
 **Net Removal Rate:** ~1.5–2.5 tCO₂e per tonne dry biomass
@@ -190,7 +190,7 @@ The complete biocarbon removal pathway:
 
 ### Basco 6 (Louisiana)
 - **Formation Type:** Permeable reservoir storage
-- **Well Class:** Class II UIC
+- **Well Class:** Class V UIC (experimental; Louisiana Office of Conservation Order No. IMD 2025-05 EW)
 - **Operational Period:** August 2025 – Present
 - **Protocol:** Bio-oil Storage in Permeable Reservoirs Module v1.1
 - **Risk Level:** Low Risk
@@ -705,7 +705,7 @@ For detailed per-category evidence requirements, calc logic, Certify component n
 - **Risk Classification:** Low Risk
 - **Buffer:** 5%
 - **Site:** Basco 6, Louisiana
-- **Well Type:** Class II UIC
+- **Well Type:** Class V UIC (experimental)
 - **Key Features:** Permeability analysis, pressure management, containment verification
 
 ### Bio-oil Storage in Salt Caverns v1.1 (Vaulted Deep)
@@ -1047,7 +1047,7 @@ After completing a batch QA checklist:
 
 ### Regulatory Compliance
 - Vaulted Deep: KDHE Class III UIC monitoring per Kansas regulations
-- Basco 6: Class II UIC well operation per Louisiana oversight
+- Basco 6: Class V UIC (experimental) well operation per Louisiana Office of Conservation (Order No. IMD 2025-05 EW)
 - Monthly/quarterly reporting maintained for Vaulted per permit
 
 ### Feedstock Quality

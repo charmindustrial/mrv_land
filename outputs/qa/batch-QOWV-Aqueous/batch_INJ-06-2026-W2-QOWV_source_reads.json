@@ -1,0 +1,114 @@
+{
+  "batch_id": "INJ-06-2026-W2 (QOWV / Aqueous portion)",
+  "oil_type": "Aqueous (QOWV = Quench Oil / Wood Vinegar)",
+  "injection_site": "Basco 6, LA",
+  "injection_week_ops_notes": "2026-06-06 to 2026-06-13",
+  "certify_removal_id": "rmv_1KWD37FMY1S035RD",
+  "certify_removal_period_label": "20 Jun 2026 to 27 Jun 2026",
+  "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KWD37FMY1S035RD/edit",
+  "drive_folder": "https://drive.google.com/drive/folders/1_OtwOVW78uESRcyb-eNY1NvBIepQgYhq",
+  "production_periods": ["PP#7 (CI 0.1373671128)", "PP#8 (CI 0.1575553395)", "October 2025 (CI 0.1110176229)"],
+  "n_totes": 36,
+  "lcs_use_kg": null,
+
+  "batch_folder_inventory": [
+    {"name": "INJ-06-2026-W2 Ops Notes", "type": "Google Sheet", "present": true, "owner": "garrett.lutz", "modified": "2026-06-29"},
+    {"name": "Testing/6-2026-W2-AECN-QOWV.pdf", "type": "PDF (SGS CoA SR26-03726)", "present": true},
+    {"name": "Scale Tickets/ (GPRX5106, TILX200228, GPRX5139, GPRX5240)", "type": "folders (AECN rail only; QOWV is tote-weighed, no scale tickets)", "present": true},
+    {"name": "Completed QA Checklists/", "type": "folder", "present": true}
+  ],
+
+  "ops_notes_qowv": {
+    "tab_gid": 723508849,
+    "header_rows": "1-10; data rows 11-46 (36 totes); TOTAL row 53",
+    "col_map": "A=Tag, B=Gross Mass(Transport), C=Tote Mass(57.60 nominal), D=Net Oil Produced(Pyrolysis mass), E=Empty Tote Weight(measured), F=Net Oil Injected(MOBI), G=Production Period, H=Carbon Intensity, I=Production Emissions, J=Scale Uncertainty",
+    "total_mass_transported_gross_kg": 37833.00,
+    "total_oil_produced_kg": 35759.40,
+    "total_empty_tote_weight_kg": 6396.00,
+    "mobi_net_injected_kg": 31437.00,
+    "blended_CI_col_H_total": 0.124740,
+    "sum_production_emissions_col_I_kg": 4460.62,
+    "total_scale_uncertainty_col_J_kg": 40.82328,
+    "sparging_loss_kg": 0.00,
+    "filtration_loss_kg": 0.00,
+    "lcs_use": "none reported",
+    "formulas_verified": {
+      "B53_total_gross": "=SUM(B11:B46)",
+      "F11_per_tote_net_injected": "=IF(E11=\"\",\"\",B11-E11)  (Gross - measured Empty Tote Weight; NO Standard Loss, NO sparging => Aqueous measured-loss method, FC-C1 clean)"
+    },
+    "mobi_independent_sum_check": "summed all 36 Net Oil Injected values by hand = 31,437.00 (exact match)",
+    "production_emissions_per_tote": "= Net Oil Produced (col D) x CI (col H); verified 919.40 x 0.1373671128 = 126.29 ~= 126.30"
+  },
+
+  "ops_notes_qowv_allocation_tab": {
+    "tab_gid": 1046191823,
+    "truck_table_rows": "header row 11; Shipment 12-09 row 12; Shipment 12-10 row 13; TOTAL row 14",
+    "shipment_12_09": {"total_totes": 36, "batch_relevant": 18, "batch_share": "50.00%", "mileage_one_way": 1201, "allocated_miles": 600.50},
+    "shipment_12_10": {"total_totes": 35, "batch_relevant": 18, "batch_share": "51.43%", "mileage_one_way": 1201, "allocated_miles": 617.66},
+    "batch_mileage_allocation_total_one_way": 1218.16,
+    "formulas_verified": {
+      "E12_batch_share": "=D12/C12  (18/36 = 50.00%)",
+      "G12_allocated_miles": "=E12*F12  (50.00% x 1201 = 600.50)",
+      "G14_total": "=SUM(G12:G13)  (= 1,218.16)"
+    },
+    "shipment_tracker_cells_are_formulas": true
+  },
+
+  "lab_coa": {
+    "file": "Testing/6-2026-W2-AECN-QOWV.pdf",
+    "qowv_sample": {"certificate": "SR26-03726.003", "client_id": "6-2026-W2-QOWV", "description": "Oil Liquid Portion after 24 hours", "sampled": "18-Jun-2026", "analysed": "25-Jun-2026", "carbon_pct": 9.2, "hydrogen_pct": 9.6, "nitrogen_pct": "<0.75", "method": "ASTM D5291 (Method C)"},
+    "note": "Same PDF also contains AECN sample SR26-03726.001 (C 40.8%, density 1.211, etc.) - not the QOWV fraction."
+  },
+
+  "certify": {
+    "removal_net_tco2e": 5.671,
+    "removal_period_label": "20 Jun 2026 to 27 Jun 2026",
+    "components_count": 5,
+    "calculation_view": "Net 5.671 = Sequestrations 10.351 + Adjustments(BCU) 5.023 - Activities 9.688 - Uncertainty Discount 0.016",
+    "components": {
+      "injection_sequestration": {"tco2e": 10.351, "carbon_content_pct": 9.2, "carbon_content_uncertainty": "NONE shown (missing)", "mass_of_injectant_kg": 30683, "mass_uncertainty_kg": 40.82, "datapoint_sources": "NONE"},
+      "transport_process_qowv": {"name": "CO to LA Tanker Truck Transport Process Emissions - QOWV", "tco2e": 5.023, "ef_kgco2e_per_t_mi": 0.1143, "ef_label": "Tanker Truck Fuel Use (Well to Wheel)", "distance_mi": 1201, "mass_of_load_kg": 36590, "mass_datapoint_name": "QOWV (Aqueous Oil) - Mass (Net) (CO to KS)", "mass_uncertainty_kg": 40.82, "mass_source": "NONE", "ef_source": "Screenshot 2026-04-10 at 3.19.33 PM.png", "distance_source": "CO to Basco Routing Map.png"},
+      "transport_embodied_qowv": {"name": "CO to LA Tanker Truck Transport Embodied Emissions - QOWV", "tco2e": 0.571, "ef_kgco2e_per_mi": 0.23756, "ef_label": "Vehicle Embodied Emissions - Tanker Truck", "distance_mi": 2402, "distance_note": "= 2 x 1201 (full one-way doubled, NOT allocated)", "ef_source": "Standard Emission Factors + Calculations (8).xlsx", "distance_source": "CO to Basco Routing Map.png"},
+      "qowv_pyrolysis_emissions": {"tco2e": 4.094, "ci_kgco2e_per_kg": 0.118615, "mass_kg": 34516, "mass_uncertainty_kg": 40.82, "ci_source": "NONE", "mass_source": "NONE"},
+      "bcu_transport_process": {"name": "BCU - Transport Process", "tco2e": 5.023, "type": "Constant CO2 reduction (Adjustments/Reductions)", "source": "Charm-RetirementCertificate-RD-EACs-20251218 (1).pdf"}
+    },
+    "certify_sources_tab_total": 4,
+    "certify_sources_list": [
+      "Charm-RetirementCertificate-RD-EACs-20251218 (1).pdf -> Constant CO2 reduction (BCU)",
+      "Standard Emission Factors + Calculations (8).xlsx -> Embodied EF (Tanker)",
+      "Screenshot 2026-04-10 at 3.19.33 PM.png -> Process EF (Tanker)",
+      "CO to Basco Routing Map.png -> Aggregate Distance + Process Distance"
+    ],
+    "no_ops_notes_attached": true,
+    "no_lab_coa_attached": true,
+    "no_pp_summary_attached": true,
+    "no_charm_contents_attached": true
+  },
+
+  "standard_efs_2026_tab": {
+    "source": "Standard Emission Factors + Calculations (live), 2026 tab, GLEC V3.2 2025",
+    "truck_process_tanker_kgco2e_per_t_mi": 0.1143,
+    "truck_process_flatbed_kgco2e_per_t_mi": 0.1384,
+    "embodied_tanker_kgco2e_per_mi": 0.23756,
+    "embodied_non_tanker_kgco2e_per_mi": 0.19279,
+    "note": "Charm IBC-tote (flatbed) transport => Flatbed process + Non-Tanker embodied per skill items 5.1/6.1 and KB Section 3 (flatbed truck in totes). Certify used Tanker for both."
+  },
+
+  "cross_check_summary": {
+    "mass_of_injectant_seq": {"certify": 30683, "ops_notes_mobi": 31437.00, "delta_kg": -754.00, "verdict": "MISMATCH"},
+    "transport_mass_of_load": {"certify": 36590, "ops_notes_total_mass_transported": 37833.00, "delta_kg": -1243.00, "verdict": "MISMATCH"},
+    "pyrolysis_mass": {"certify": 34516, "ops_notes_net_oil_produced": 35759.40, "delta_kg": -1243.40, "verdict": "MISMATCH"},
+    "pyrolysis_ci": {"certify": 0.118615, "ops_notes_blended_ci": 0.124740, "verdict": "MISMATCH"},
+    "carbon_content": {"certify": 9.20, "lab_and_ops": 9.20, "verdict": "MATCH"},
+    "process_ef": {"certify_tanker": 0.1143, "correct_flatbed_2026": 0.1384, "verdict": "WRONG TYPE"},
+    "embodied_ef": {"certify_tanker": 0.23756, "correct_non_tanker_2026": 0.19279, "verdict": "WRONG TYPE"},
+    "embodied_distance": {"certify": 2402, "ops_notes_batch_mileage_allocation_one_way": 1218.16, "round_trip_of_allocation": 2436.32, "verdict": "MISMATCH (Certify used 2x full one-way, no tote-share allocation)"},
+    "bcu_vs_process": {"bcu": 5.023, "process_activity": 5.023, "verdict": "EQUAL as-entered (PASS); but process value itself understated -> BCU must rise when process corrected"},
+    "uncertainty_per_component": {"certify": 40.82, "ops_notes": "36 x 1.13398 = 40.82328", "verdict": "MATCH (Charm per-tote 1.134, FC-C8 clean)"},
+    "carbon_content_uncertainty": {"certify": "missing", "ops_notes_computed": "0.0368% (0.4% x 9.2%)", "verdict": "MISSING in Certify"}
+  },
+
+  "pattern_observation": "All Certify masses (30,683 / 34,516 / 36,590) and blended CI (0.118615) are uniformly LOWER than the current Ops Notes (31,437.00 / 35,759.40 / 37,833.00 / 0.124740). Ops Notes modified 2026-06-29. Strongly suggests Certify was populated from an earlier Ops Notes version and not reconciled to the final sheet.",
+
+  "t0": "2026-06-30T21:17:17Z"
+}

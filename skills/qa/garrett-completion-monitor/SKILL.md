@@ -16,9 +16,9 @@ After the QA agent sends findings to Garrett, there's a gap — Garrett works in
 
 1. Read `Charm_Isometric_Knowledge_Base.md` from the MRV Expert workspace folder — you need it for protocol references, BCU rules, and verification logic during re-review.
 2. Read **all active-batch registries** in the MRV Expert workspace:
-   - `skills/qa/batch-qa/qa_active_batches.json` — AECN batches
+   - `skills/qa/batch-qa-aecn/qa_active_batches.json` — AECN batches
    - `skills/qa/batch-qa-kerry/qa_active_kerry_batches.json` — Kerry batches
-   - (Future: WODO and Aqueous registries when those skills are built)
+   - `skills/qa/batch-qa-charm/qa_active_charm_batches.json` — Charm WODO/Aqueous batches
 
    Each registry has the same `active_batches` array shape. Sweep them in sequence; treat the union as your full registry of in-flight batches awaiting Garrett's response. When updating or removing an entry, update the originating registry file (the AECN entry comes out of the AECN registry, the Kerry entry out of the Kerry registry).
 
@@ -162,8 +162,9 @@ After closing a batch (all resolved), trigger the `qa-performance-monitor` skill
 
 When the QA workflow reaches Step 4 of Section 13B (Slack Garrett with findings after Max approves), the calling agent should add an entry to **the registry file matching the oil type**:
 
-- AECN batches → `skills/qa/batch-qa/qa_active_batches.json`
+- AECN batches → `skills/qa/batch-qa-aecn/qa_active_batches.json`
 - Kerry batches → `skills/qa/batch-qa-kerry/qa_active_kerry_batches.json`
+- Charm (WODO/Aqueous) batches → `skills/qa/batch-qa-charm/qa_active_charm_batches.json`
 
 The entry needs:
 

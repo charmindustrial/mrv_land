@@ -1,0 +1,14 @@
+WODO Certify entry rmv_1KTYCVNBK1S06J71 — components read LIVE 2026-06-25 (re-review):
+Stored (1):    Injection sequestration                              21.131 tCO2e
+Emitted (3):   Flatbed Truck Transport Embodied - WODO               0.136 tCO2e
+               Flatbed Truck Transport Process - WODO (DIESEL)       1.954 tCO2e   (24.06% of net)
+               Pyrolysis - Charm WODO PP Emissions                  10.831 tCO2e   (133.39% of net; ~83.8% of emissions)
+Reductions:    NONE — no BCU component present (Reductions group empty)
+Net:           8.12 tCO2e
+
+FINDINGS:
+- 8.1: diesel transport-process emission (1.954 t) has NO BCU offset. Charm methodology (Max-stated, authoritative)
+  requires ALL diesel transport-process emissions to be offset with BCUs. Required reduction missing -> FAIL.
+- 7.5: Pyrolysis PP emission (10.831 t = 133% of net) is the dominant input; its mass carries no uncertainty.
+  Bio-oil Geological Storage v1.2 §6.5.1 requires reporting uncertainty for measured input variables; the §6.5
+  <1% omission carve-out does NOT apply to a dominant input like pyrolysis mass -> uncertainty required, missing -> FLAG.

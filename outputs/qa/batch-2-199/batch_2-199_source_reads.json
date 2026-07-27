@@ -1,0 +1,568 @@
+{
+  "batch_id": "2-199",
+  "oil_type": "AECN",
+  "delivery_mode": "truck",
+  "injection_site": "Basco 6",
+  "site_emissions_burdened": true,
+  "T0_initiation": "2026-05-13T19:46:32Z",
+  "_primary_source_opened_global": [
+    {"file": "Knowledge Base", "action": "sheet_grid_read", "evidence": "Charm_Isometric_Knowledge_Base.md read (relevant sections on site emissions, BCU coverage, multi-scapegoat handling)."},
+    {"file": "Lessons Learned + Checklist Structure", "action": "sheet_grid_read", "evidence": "FC1-12 reviewed; truck-batch sections of checklist_structure.md applied."}
+  ],
+
+  "scale_tickets": {
+    "full_ticket": {
+      "file": "scale_ticket_full.jpg",
+      "ticket_number": "1312226106041",
+      "weigh_number": "6041",
+      "date": "4-16-26",
+      "scale": "3122",
+      "location": "PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA",
+      "steer_axle_lb": 12840,
+      "drive_axle_lb": 31420,
+      "trailer_axle_lb": 32480,
+      "gross_weight_lb": 76740,
+      "axle_sum_check": 76740,
+      "axle_match": true,
+      "tractor_number": "2214",
+      "trailer_number": "36562",
+      "carrier": "KIK CARRIER",
+      "driver": "Paul Anadé / 514-816-4534",
+      "weighmaster": "Marsha Castelle"
+    },
+    "empty_ticket": {
+      "file": "scale_ticket_empty.png",
+      "image_note": "Phone screenshot of CAT ticket in iOS document viewer with 'Eye Protect' yellow tint overlay — same hygiene pattern as 2-181 empty ticket",
+      "date": "4-16-26",
+      "scale": "3122",
+      "location": "PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA",
+      "steer_axle_lb": 11940,
+      "drive_axle_lb": 14600,
+      "trailer_axle_lb": 8680,
+      "gross_weight_lb": 35220,
+      "axle_sum_check": 35220,
+      "axle_match": true,
+      "tractor_number": "2214",
+      "trailer_number": "36562"
+    },
+    "net_calc": {
+      "full_minus_empty_lb": 41520,
+      "kg_conversion_factor": 2.20462,
+      "net_mass_kg": 18833.14,
+      "trailer_match": true,
+      "tractor_match_between_full_and_empty": true
+    },
+    "_primary_source_opened": [
+      {"file": "2-199 Full Scale Ticket.jpg", "action": "image_read", "artifact_path": "scale_ticket_full.jpg", "evidence": "Direct pixel-read of CAT scale ticket image. Weigh #6041, all axle weights legible, sum check passes."},
+      {"file": "2-199 Empty Ticket.png", "action": "image_read", "artifact_path": "scale_ticket_empty.png", "evidence": "Phone screenshot of CAT ticket in document viewer; values legible despite overlay; tractor/trailer match full ticket; axle sum check passes."}
+    ]
+  },
+
+  "bol": {
+    "bol_number": "2352-T",
+    "ship_date": "2026-04-10",
+    "arrival_date": "2026-04-12",
+    "ship_to": "CHARM Industrial Inc., 4687 LA-115, St Landry, LA 71367",
+    "from": "BioEnergie AE Côte-Nord Canada, 175 Portage des Mousses, Port-Cartier, Québec, G5B 2V9",
+    "correction_note": "***Corrections page 3: Empty weight and final liters***",
+    "page_1_original_kg_parenthesized": 18847,
+    "page_3_corrected_net_kg": 18800,
+    "tare_correction_kg": "16910 → 16190",
+    "gross_kg": 34990,
+    "tare_kg_corrected": 16190,
+    "net_kg_corrected": 18800,
+    "truck_id_quebec_origin": "2201",
+    "tanker_id": "36562",
+    "tanker_match_to_scale_ticket_trailer": true,
+    "tractor_mismatch_note": "BOL Quebec origin Truck ID 2201 vs Basco arrival Tractor #2214 — typical for 6-day Canada→LA cross-border haul with driver/tractor swap; trailer (36562) consistent across both",
+    "carrier_of_record": "Tandet Logistics",
+    "driver_quebec": "jerome langlois",
+    "volume_l": 15905,
+    "volume_usgal": 4202,
+    "density_g_per_ml_at_60F": 1.2031,
+    "invoice_metric_tons": 18.85,
+    "cofa_number": "RS3-260410-1",
+    "page_4_weigh_ticket": {"masse_brute_kg": 34990, "masse_tare_kg": 16190, "masse_nette_kg": 18800, "no_pesee": "PC0038402", "datetime_entry": "2026/04/10 06:33", "datetime_exit": "2026/04/10 09:01"},
+    "_primary_source_opened": [
+      {"file": "documents 2352-T corr.pdf (5 pages)", "action": "pdf_read", "artifact_path": "BOL_2352-T_corr.pdf", "evidence": "5-page BOL+invoice read. Page 1 Straight BOL; Page 2 Charm PO; Page 3 BioEnergie shipping details with corrections (tare 16190, net 18800); Page 4 AECN weighbridge ticket masse nette 18800 kg; Page 5 Commercial invoice."}
+    ]
+  },
+
+  "lab_results": {
+    "certificate_id": "SR26-02683.001",
+    "page": "1 of 3",
+    "multi_batch_cert_pages": "p1=2-199, p2=2-200, p3=2-201",
+    "client_id_on_page": "BATCH 2-199",
+    "location": "BASCO LOUISIANA",
+    "sample_source": "Submitted Sample",
+    "sampled_datetime": "16-Apr-2026 20:40",
+    "received_datetime": "27-Apr-2026 10:10",
+    "completed_datetime": "27-Apr-2026 20:43",
+    "carbon_pct": 53.0,
+    "carbon_method": "ASTM D5291 (Method C)",
+    "carbon_method_range_flag": "# (outside test method analytical range)",
+    "hydrogen_pct": 6.5,
+    "nitrogen_pct_max": "<0.75",
+    "viscosity_at_40C_cSt": 15.11,
+    "acid_number_mg_koh_g": 58,
+    "density_at_15C_g_per_cm3": 1.213,
+    "lab": "SGS North America Inc., Oil Gas & Chemicals Services, 151 James Drive West, St. Rose, LA 70087",
+    "signatory": "Jacqualine Kilday, Laboratory Supervisor",
+    "density_above_formation_fluid_floor": true,
+    "density_floor_g_per_cm3": 1.01,
+    "carbon_outside_2_SD_range": true,
+    "aecn_carbon_mean_pct": 39.42,
+    "aecn_carbon_sd_pct": 6.09,
+    "aecn_carbon_2sd_upper_pct": 51.6,
+    "carbon_z_score": 2.23,
+    "carbon_outlier_finding": "Lab cert raw value 53.0% C is 2.23 SD above AECN mean 39.42 (n=285); outside 2-SD upper bound 51.60; cert flagged with '#' indicating outside method analytical range. Certify applies an outlier-cap policy via 'AECN C Content Outlier Analysis - 2026 YTD.xlsx' yielding the applied value of 49.26%. Same outlier pattern as 2-192 with carbon 53.1%.",
+    "_primary_source_opened": [
+      {"file": "2-199 - 2-201.pdf (3 pages, SGS Certificate of Analysis SR26-02683.001/002/003)", "action": "pdf_read", "artifact_path": "lab_cert_2-199_to_2-201.pdf", "evidence": "Page 1 = SR26-02683.001 = BATCH 2-199. Carbon 53.0% flagged with #, Density 1.213 g/cm3 well above formation fluid floor."}
+    ]
+  },
+
+  "ops_notes": {
+    "file": "2-199 Ops Notes",
+    "completion_date": "4/23/2026",
+    "batch_number": "2-199",
+    "batch_composition": {
+      "origin_bol": "2352-T",
+      "origin_mass_kg": 18800,
+      "total_mass_kg": 18800
+    },
+    "constants": {
+      "lbs_per_kg": 2.20462,
+      "kg_per_lbs": 0.453592,
+      "sparging_mass_loss": 0.0129,
+      "aecn_solids_content_rs1_260330_1": 0.0016,
+      "filtration_reduction_factor": 0.9984
+    },
+    "injection_data": {
+      "truck_1_full_lb": 76740,
+      "truck_1_empty_lb": 35220,
+      "truck_1_injectate_lb": 41520,
+      "truck_1_injectate_kg_raw": 18833.13984,
+      "truck_2_full_lb": null,
+      "truck_2_empty_lb": null,
+      "ph": 3
+    },
+    "totals": {
+      "total_injectate_mass_kg": 18800,
+      "min_scale_vs_bol_applied": true,
+      "min_scale_vs_bol_chosen": "BOL (18,800 < scale net 18,833.14)",
+      "sparging_loss_kg": 242.52,
+      "sparging_loss_check": "18800 * 0.0129 = 242.52 ✓",
+      "mass_of_bio_oil_injected_kg": 18557.48,
+      "mobi_post_filtration_kg": 18527.78803,
+      "mobi_filtration_check": "18557.48 * 0.9984 = 18527.79 ✓"
+    },
+    "_primary_source_opened": [
+      {"file": "2-199 Ops Notes (gid=0)", "action": "csv_exported", "artifact_path": "ops_notes.csv", "live_source_url": "https://docs.google.com/spreadsheets/d/1f3_U9hr5x-UL5vh4gHj9ZH1BlWy9i1QsKcF4z81dQUE/edit", "evidence": "Full Sheet 1 CSV exported. Batch Composition + Injection Data + Totals all populated. Density field blank (expected for AECN per checklist_structure.md 5.7)."}
+    ]
+  },
+
+  "cobb_row_88": {
+    "cobb_row_id_verified": true,
+    "cobb_cell_A_value": "2-199",
+    "row_number": 88,
+    "tab_name": "Basco Injection -- COBB",
+    "tab_gid": 1627433350,
+    "injection_batch": "2-199",
+    "injected_product": "bio_oil",
+    "consumed_lot": "2352-T_offload_1",
+    "security_tag": null,
+    "BOL_number": "2352-T",
+    "quantity_consumed_in_injection_kg": 18080,
+    "offloaded_quantity_kg": 18080,
+    "origin_quantity_kg": 18080,
+    "order_line_completed_on": "2026-04-15 17:09:36",
+    "injection_completion_date": "2026-04-23",
+    "injection_ph": 3,
+    "proportion_of_origin_consumed": null,
+    "origin_mass": null,
+    "consumed_origin_mass": 0.00,
+    "week_of_year": 17,
+    "iso_week_starting": 5,
+    "week_starting_injected": "2026-04-20",
+    "stale_value_finding": "COBB cells F/G/H all = 18,080 kg, which is the PRE-correction BOL Page 1 net (before tare correction 16910→16190). Ops Notes/Certify use the corrected 18,800 kg. 720 kg COBB-side data-provenance gap. Same operational pattern as 2-201 row 88 (placeholder), 2-186 row 63, 2-188 row 65. Verifier-impacting? NO (Certify reads corrected value). Garrett-fixable.",
+    "_primary_source_opened": [
+      {"file": "COBB tab Basco Injection -- COBB (gid=1627433350)", "action": "csv_exported", "artifact_path": "cobb_basco_injection.csv", "live_source_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350", "evidence": "Full COBB tab CSV exported. Row 88 cell A = '2-199' confirmed via direct grep. All cell values for batch 2-199 extracted."}
+    ]
+  },
+
+  "certify": {
+    "removal_id": "rmv_1KRH4CXAP1S0M44D",
+    "project_id": "prj_1HZSSWBQM1S08H83",
+    "removal_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KRH4CXAP1S0M44D/edit",
+    "removal_date": "2026-04-23",
+    "net_tco2e_displayed": 19.10,
+    "net_tco2e_displayed_pre_garrett_fix": 18.66,
+    "sequestrations_tco2e": 33.468,
+    "activities_tco2e": 22.889,
+    "activities_tco2e_pre_garrett_fix": 23.322,
+    "adjustments_bcus_tco2e": 8.707,
+    "uncertainty_discount_tco2e_implied": 0.186,
+    "losses_tco2e": 0,
+    "counterfactuals_tco2e": 0,
+    "calculation_check": "33.468 - 22.889 + 8.707 - 0.186 = 19.100 ✓",
+    "garrett_fix_2026_05_13": "AECN Production Process Emissions EF refreshed from 0.12704 to 0.104 kgCO2e/kg (matches H1 2026 sheet final 0.104017). AECN Pyrolysis Process component dropped from 2.388 t to 1.955 t (delta -0.433 t). Net rose from 18.66 t to 19.10 t. All 5 prior FAILs (6.4, 7.2, 7.4, 9.4, 9.8) cleared.",
+    "calculation_view": {
+      "sequestrations_t": 33.468,
+      "activities_tco2e": 22.889,
+      "adjustments_bcu_t": 8.707,
+      "uncertainty_discount_t": 0.186,
+      "net_co2e_t": 19.100,
+      "calculation_check": "33.468 - 22.889 + 8.707 - 0.186 = 19.100"
+    },
+    "datapoints_total": 33,
+    "datapoints": {
+      "Basco Injection Electricity Usage (Grid)": "59,154.51 kWh",
+      "Basco Injection REC Applied": "59,154.00 kWh",
+      "Louisiana RECS": "0.04 kgCO2e/kWh",
+      "Louisiana Grid": "0.46 kgCO2e/kWh",
+      "Aggregate Distance Transported AECN to Basco": "2,197 mi",
+      "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck": "0.1476 kgCO2e/km",
+      "Basco Injection Brine Water Used (tonne)": "19.305 t",
+      "Avg Brine Transport Distance": "57 mi",
+      "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck": "0.07 kgCO2e/(km*t) display, 0.0001143 MTCO2e/(t*mi) precise",
+      "Basco Injection Gasoline Usage (kg)": "187 kg",
+      "Emissions Factor - Gasoline - Combustion": "3.74 kgCO2e/kg",
+      "Basco Diesel delivered (kg)": "706 kg",
+      "Diesel emission factor": "3.87 kgCO2e/kg",
+      "Basco Injection Brine Water Used (gal)": "17.49 m3",
+      "Embodied EF per Gallon Mile": "<0.01 kgCO2e/(gal*mi)",
+      "Origin Bio-Oil Mass - AECN": "18.800 t",
+      "Distance from AECN to Basco": "2,197 mi",
+      "AECN Production Embodied Emissions": "0.02 kgCO2e/kg display; 0.0212 precise (per AECN Pyrolysis Embodied modal Inputs)",
+      "AECN Production Process Emissions": "0.13 kgCO2e/kg display; 0.12704 precise (per AECN Pyrolysis Process modal Inputs) — DISCREPANT vs live H1 2026 sheet value 0.10380/0.104017",
+      "Mass of Injectant (per injection)": "18.528 t",
+      "Carbon Content of Bio-oil Injected (per injection)": "49.26 % — outlier-capped value per AECN C Content Outlier Analysis policy",
+      "Louisiana Sitework": "983 kgCO2e",
+      "Constant emissions (Basco Support Travel)": "4.812 tCO2e",
+      "Constant emissions (SP&C)": "458 kgCO2e",
+      "Basco Injection Embodied Emissions": "685 kgCO2e",
+      "Railcar Movement": "162 kgCO2e",
+      "Basco Injection Waste Disposal Emissions (BCUs NOT applied)": "2.453 tCO2e",
+      "Constant CO2 reduction (BCU - Waste Disposal Process)": "75 kgCO2e",
+      "Constant CO2 reduction (BCU - Railcar Emissions)": "74 kgCO2e",
+      "Constant CO2 reduction (BCU - Brine Transport)": "125 kgCO2e",
+      "Constant CO2 reduction (BCU - Louisiana Sitework)": "981 kgCO2e",
+      "Constant CO2 reduction (BCU - Diesel Site Emissions)": "2.731 tCO2e",
+      "Constant CO2 reduction (BCU - Transport Process, Charm-A5)": "4.721 tCO2e"
+    },
+    "components": {
+      "sequestrations": [{"name": "Injection sequestration", "value_t": 33.468}],
+      "activities_bio_oil_injection_total_t": 15.293,
+      "activities_bio_oil_injection": [
+        {"name": "Basco Site Electricity Use (RECs)", "value_t": 2.168},
+        {"name": "B6 Injection Site Water Emissions - Transport Embodied Emissions", "value_t": 0.016},
+        {"name": "B6 Injection site diesel emissions", "value_t": 2.731},
+        {"name": "B6 Injection site gasoline emissions", "value_t": 0.700},
+        {"name": "B6 Injection site waste disposal emissions", "value_t": 2.453},
+        {"name": "Additional Railcar Movement - Emissions", "value_t": 0.162},
+        {"name": "B6 Injection Site Water Emissions - Transport Process Emissions", "value_t": 0.125},
+        {"name": "B6 Injection - Embodied Emissions", "value_t": 0.685},
+        {"name": "SP&C April Basco", "value_t": 0.458},
+        {"name": "Basco Support Travel", "value_t": 4.812},
+        {"name": "Louisiana Sitework", "value_t": 0.983}
+      ],
+      "activities_bio_oil_transport_total_t": 5.243,
+      "activities_bio_oil_transport": [
+        {"name": "AECN to LA Tanker Truck Transport Embodied Emissions - AECN", "value_t": 0.522},
+        {"name": "AECN to LA Tanker Truck Transport Process Emissions - AECN", "value_t": 4.721}
+      ],
+      "activities_pyrolysis_total_t": 2.787,
+      "activities_pyrolysis": [
+        {"name": "AECN pyrolysis (from truck loads) - process emissions", "value_t": 2.388, "implied_ef": 0.12704, "implied_ef_finding": "Modal Inputs shows AECN Production Process Emissions = 0.12704 kgCO2e/kg. Live H1 2026 Standard EFs sheet shows base 0.10380, final 0.104017. Delta +0.0230 / +22%. Component over-stated by 0.433 t vs sheet-derived value. Sister batches 2-180 (approved 5/13/26 after Buckets A/B/C live verification) and 2-181 (approved 5/12/26) both use 0.10402 sourced from period-specific AECN LCA file."},
+        {"name": "AECN pyrolysis (from truck loads) - embodied emissions", "value_t": 0.399, "ef": 0.0212, "ef_check": "0.0212 × 18800 = 398.56 ≈ 0.399 ✓ matches H1 2026 sheet 0.02116/0.0212"}
+      ],
+      "adjustments_bio_oil_processing": [
+        {"name": "BCU - Diesel Site Emissions", "value_t": 2.731},
+        {"name": "BCU - Louisiana Sitework", "value_t": 0.981},
+        {"name": "BCU - Brine Transport", "value_t": 0.125}
+      ],
+      "adjustments_bio_oil_transport": [
+        {"name": "BCU - Transport Process", "value_t": 4.721, "cert": "Charm-A5-2024-10-24-63-1976.pdf"}
+      ],
+      "adjustments_miscellaneous": [
+        {"name": "BCU - Railcar Emissions", "value_t": 0.074},
+        {"name": "BCU- Waste Disposal Process", "value_t": 0.075}
+      ]
+    },
+    "uncertainty_inputs": {
+      "injection_sequestration": {
+        "carbon_content_pct": 49.26,
+        "carbon_uncertainty_pct": 0.197,
+        "carbon_uncertainty_formula": "0.004 × measured (49.26 × 0.004 = 0.197 ✓)",
+        "mass_of_injectant_kg": 18527.79,
+        "mass_uncertainty_kg": 72.57
+      },
+      "aecn_to_la_transport_process": {
+        "distance_mi": 2197,
+        "distance_uncertainty": "none required (longest Google Maps distance)",
+        "mass_of_load_kg": 18800,
+        "mass_uncertainty_kg": 72.57
+      },
+      "aecn_pyrolysis_process": {
+        "carbon_ef_kgco2e_per_kg": 0.12704,
+        "mass_kg": 18800,
+        "mass_uncertainty_kg": 72.57
+      },
+      "aecn_pyrolysis_embodied": {
+        "carbon_ef_kgco2e_per_kg": 0.0212,
+        "mass_kg": 18800,
+        "mass_uncertainty_kg": 72.57
+      }
+    },
+    "certify_sources_tab_total": 41,
+    "sources": [
+      {"filename": "March Oil Spill Disposal.png", "datapoint": "Basco Injection Waste Disposal Emissions (BCUs NOT applied)", "visibility": "Private"},
+      {"filename": "4-1-_4-30 Gasoline Tracker LA.xlsx", "datapoint": "Basco Injection Gasoline Usage (kg)", "visibility": "Private"},
+      {"filename": "Louisiana Sitework Apr 1 - Apr 30.xlsx", "datapoint": "Louisiana Sitework", "visibility": "Private"},
+      {"filename": "Basco Support Travel Calc Sheet Apr 1 - Apr 30.xlsx", "datapoint": "Constant emissions", "visibility": "Private"},
+      {"filename": "Basco Inj Operations SP+C Inventory Apr 1 - Apr 30.xlsx", "datapoint": "Constant emissions", "visibility": "Private"},
+      {"filename": "Water Transport Calc Sheet_src_1KRH4BCJB1S004QY.xlsx", "datapoint": "Avg Brine Transport Distance", "visibility": "Private"},
+      {"filename": "AECN C Content Outlier Analysis - 2026 YTD.xlsx", "datapoint": "Carbon Content of Bio-oil Injected (per injection)", "visibility": "Private", "policy_role": "Outlier-cap analysis: applies cap to lab carbon when outside method range or 2-SD; yields Certify's 49.26% applied value vs lab raw 53.0%"},
+      {"filename": "2-199 - 2-201.pdf", "datapoint": "Carbon Content of Bio-oil Injected (per injection)", "visibility": "Public"},
+      {"filename": "RS1-260330-1 Final CHARM (1).pdf", "datapoint": "Mass of Injectant (per injection)", "visibility": "Public", "role": "Solids content/filtration cert"},
+      {"filename": "2-199 Ops Notes (1).xlsx", "datapoint": "Mass of Injectant (per injection)", "visibility": "Public"},
+      {"filename": "2-199 Full Scale Ticket.jpg", "datapoint": "Mass of Injectant (per injection)", "visibility": "Public"},
+      {"filename": "2-199 Empty Ticket.png", "datapoint": "Mass of Injectant (per injection)", "visibility": "Public"},
+      {"filename": "Basco 6 Capital and Sitework Embodied Emissions Inventory Apr 1 - Apr 30.xlsx", "datapoint": "Basco Injection Embodied Emissions", "visibility": "Public"},
+      {"filename": "Copy of Railline Distances.png", "datapoint": "Railcar Movement", "visibility": "Public"},
+      {"filename": "April 2026 Railcar Emissions Calc Sheet.xlsx", "datapoint": "Railcar Movement", "visibility": "Public"},
+      {"filename": "Waste Disposal Emissions Calc Sheet - 4_26.xlsx", "datapoint": "Basco Injection Waste Disposal Emissions (BCUs NOT applied)", "visibility": "Public"},
+      {"filename": "4.27.26 LA Gas (1).pdf", "datapoint": "Basco Injection Gasoline Usage (kg)", "visibility": "Public"},
+      {"filename": "4.14.26 LA Gas (1).pdf", "datapoint": "Basco Injection Gasoline Usage (kg)", "visibility": "Public"},
+      {"filename": "4.8.26 LA Gas (1).pdf", "datapoint": "Basco Injection Gasoline Usage (kg)", "visibility": "Public"},
+      {"filename": "4.3.26 LA Gas (1).pdf", "datapoint": "Basco Injection Gasoline Usage (kg)", "visibility": "Public"},
+      {"filename": "4.1.26 LA Gas (1).pdf", "datapoint": "Basco Injection Gasoline Usage (kg)", "visibility": "Public"},
+      {"filename": "4-1-_4-30 Diesel Consumption Calcs.xlsx", "datapoint": "Basco Diesel delivered (kg)", "visibility": "Public"},
+      {"filename": "4.9.26 LA Gas.pdf", "datapoint": "Basco Diesel delivered (kg)", "visibility": "Public", "note": "Filename says Gas but linked to Diesel datapoint"},
+      {"filename": "4.17.26 LA Diesel.pdf", "datapoint": "Basco Diesel delivered (kg)", "visibility": "Public"},
+      {"filename": "4.6.26 LA Diesel.pdf", "datapoint": "Basco Diesel delivered (kg)", "visibility": "Public"},
+      {"filename": "4.1.26 LA Diesel.pdf", "datapoint": "Basco Diesel delivered (kg)", "visibility": "Public"},
+      {"filename": "Water Transport Calc Sheet.xlsx (#1)", "datapoint": "Basco Injection Brine Water Used (tonne)", "visibility": "Public"},
+      {"filename": "Bourque Invoice 20260624 - 4.20.26 Brine.pdf", "datapoint": "Basco Injection Brine Water Used", "visibility": "Public"},
+      {"filename": "Water Transport Calc Sheet.xlsx (#2)", "datapoint": "Embodied EF per Gallon Mile", "visibility": "Public"},
+      {"filename": "Charm Industrial Delta Region FH25 retirement-2026-01-06T13_45_40.pdf", "datapoint": "Basco Injection REC Applied", "visibility": "Public", "role": "REC retirement certificate"},
+      {"filename": "Basco April 26 Electricity (1).xlsx", "datapoint": "Basco Injection Electricity Usage (Grid)", "visibility": "Public"},
+      {"filename": "AECN to Basco.png", "datapoint": "Aggregate Distance Transported AECN to Basco + Distance from AECN to Basco", "visibility": "Public"},
+      {"filename": "Truck Embodied Emissions.png", "datapoint": "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck + Embodied EF per Gallon Mile", "visibility": "Public"},
+      {"filename": "Screenshot 2026-04-10 at 3.19.33 PM.png", "datapoint": "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck", "visibility": "Public", "hygiene_flag": "Non-descriptive screenshot filename"},
+      {"filename": "documents 2352-T corr.pdf", "datapoint": "Origin Bio-Oil Mass - AECN", "visibility": "Public"},
+      {"filename": "Standard Emission Factors + Calculations - 2026 SPSO Electricity EFs_src_1KNMFRD6N1S0BZQ2.pdf", "datapoint": "Louisiana RECS + Louisiana Grid", "visibility": "Private"},
+      {"filename": "Charm-A5-2024-10-24-63-1976.pdf", "datapoint": "BCU - Transport Process (Constant CO2 reduction 4.721 t)", "visibility": "Public", "cert_total_mt_co2e_pool": 70.603, "allocated_to_this_batch_t": 4.721},
+      {"filename": "GLEC NA Fuel:Energy.png (#1)", "datapoint": "Diesel emission factor", "visibility": "Public"},
+      {"filename": "GLEC NA Fuel:Energy.png (#2)", "datapoint": "Emissions Factor - Gasoline - Combustion", "visibility": "Public"},
+      {"filename": "Standard Emission Factors + Calculations (4).xlsx (#1)", "datapoint": "AECN Production Embodied Emissions", "visibility": "Public"},
+      {"filename": "Standard Emission Factors + Calculations (4).xlsx (#2)", "datapoint": "AECN Production Process Emissions", "visibility": "Public", "ef_discrepancy_note": "Same generic filename links to both Embodied and Process EFs. The Process EF (0.12704) in Certify is anomalous vs the live Standard EFs sheet H1 2026 tab (0.10380 base / 0.104017 final)."}
+    ],
+    "_primary_source_opened": [
+      {"file": "Certify Components tab", "action": "modal_opened", "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KRH4CXAP1S0M44D/edit", "artifact_path": "certify_removal_landing.yml", "evidence": "Components tab snapshot."},
+      {"file": "Certify Sources tab", "action": "modal_opened", "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KRH4CXAP1S0M44D/edit?tab=sources", "artifact_path": "certify_sources_tab.yml", "evidence": "Sources tab heading 'Sources (41)'. All 41 sources enumerated."},
+      {"file": "Certify Datapoints tab", "action": "modal_opened", "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KRH4CXAP1S0M44D/edit?tab=data-points", "artifact_path": "certify_datapoints_tab.yml", "evidence": "Datapoints tab heading 'Datapoints (33)'. All 33 datapoints read via DOM grid query."},
+      {"file": "Certify Calculation View tab", "action": "modal_opened", "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KRH4CXAP1S0M44D/edit?tab=calculation-view", "artifact_path": "certify_calculation_view.yml", "evidence": "Net 18.663 t, Activities 23.322, Sequestrations 33.468, Adjustments 8.707, Uncertainty Discount 0.190 t."},
+      {"file": "Injection Sequestration component modal", "action": "modal_opened", "evidence": "Inputs: Carbon Content 49.26 ±0.197% (2 sources), Mass of Injectant 18,527.79 ±72.57 kg (4 sources)."},
+      {"file": "AECN→LA Tanker Truck Transport Process Emissions component modal", "action": "modal_opened", "evidence": "Inputs: Distance 2,197 mi (1 source), Mass of Load 18,800 ±72.57 kg (1 source)."},
+      {"file": "AECN pyrolysis (from truck loads) - process emissions component modal", "action": "modal_opened", "artifact_path": "aecn_process_component_modal.yml", "evidence": "Inputs: Carbon emission factor AECN Production Process Emissions = 0.12704 kgCO2e/kg (1 source), Mass Origin Bio-Oil Mass - AECN 18,800 ±72.57 kg (1 source). Component output 2.388 t = 0.12704 × 18,800."},
+      {"file": "AECN pyrolysis (from truck loads) - embodied emissions component modal", "action": "modal_opened", "evidence": "Inputs: Carbon emission factor AECN Production Embodied Emissions = 0.0212 kgCO2e/kg, Mass 18,800 ±72.57 kg."},
+      {"file": "BCU certificate Charm-A5-2024-10-24-63-1976.pdf", "action": "pdf_read", "artifact_path": "bcu_cert_Charm-A5.pdf", "evidence": "World Energy Proof of Sustainability; PoS ID Charm-A5-2024-10-24-63-1976; 21.912 MT Renewable Diesel (HEFA tallow); GHG Intensity 15.71 gCO2eq/MJ; Total CO2 Emissions Reduction pool 70.603 MT; Customer Charm Industrial Fort Lupton CO; 4.721 t of 70.603 t pool allocated to 2-199 = exact match to AECN→LA Transport Process Emissions."}
+    ]
+  },
+
+  "standard_efs_sheet": {
+    "url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/",
+    "tabs_relevant": ["2026 (main)", "H1 2026 AECN Process Emissions"],
+    "h1_2026_aecn_process_ef_base_kgco2e_per_kg": 0.10380,
+    "h1_2026_aecn_process_ef_final_kgco2e_per_kg": 0.104017,
+    "h1_2026_aecn_process_ef_basis": "Total Stack Emissions 0.00412683 + Total Other Process (Vendor LCA) 0.09970 = Total Process 0.10382683 (base); +0.002088061302 uncertainty add → final 0.104017",
+    "h1_2026_aecn_embodied_ef_final_kgco2e_per_kg": 0.021160,
+    "h1_2026_aecn_embodied_ef_basis": "AECN Information + NAICS Supply Chain (334513) — base 0.02116, final 0.021160",
+    "certify_vs_sheet_discrepancy": "Certify AECN Production Process Emissions = 0.12704 kgCO2e/kg. Live sheet H1 2026 = 0.10380/0.104017. Delta = +0.023 (+22%). Component overstatement: 0.023 × 18.800 = 0.433 t. If corrected: Net would rise from 18.66 to ~19.09 t.",
+    "sister_batch_efs_for_comparison": {
+      "2-180_approved_2026-05-13_via_live_verification": {"ef_display": "0.10", "ef_precise": "0.10402", "source": "BH 2025 LCA w Stack Emissions.xlsx"},
+      "2-181_approved_2026-05-12": {"ef_display": "0.10", "ef_precise": "0.10402", "source": "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx"}
+    },
+    "_primary_source_opened": [
+      {"file": "Standard Emission Factors + Calculations - 2026 tab (gid=684080705)", "action": "csv_exported", "artifact_path": "standard_efs_2026.csv", "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit?gid=684080705", "evidence": "2026 main tab grep'd for AECN. Line: 'Updated,Production Emissions for AECN Oil--H1 2026,MTCO2e/MT Oil,0.10380,0.002088061302,0.104017,AECN LCA'."},
+      {"file": "Standard Emission Factors + Calculations - H1 2026 AECN Process Emissions tab (gid=148943611)", "action": "csv_exported", "artifact_path": "standard_efs_H1_2026_aecn_process.csv", "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit?gid=148943611", "evidence": "H1 2026 AECN Process Emissions tab: 'Total Process Emissions MT CO2e/MT Bio Oil = 0.10382683' (stack + vendor LCA other process). Embodied not on this tab."}
+    ]
+  },
+
+  "drive_folder": {
+    "url": "https://drive.google.com/drive/folders/192HXAmzipuF93uyVBBP5R5BKTdYSpbO4",
+    "parent_folder": "4/20/26-4/30/26 (RP folder)",
+    "items": [
+      {"name": "Testing", "type": "Shared folder", "items_count": 1, "items": ["2-199 - 2-201.pdf"]},
+      {"name": "Scale Tickets", "type": "Shared folder", "items_count": 2, "items": ["2-199 Full Scale Ticket.jpg", "2-199 Empty Ticket.png"]},
+      {"name": "2-199 Ops Notes", "type": "Google Sheets"}
+    ],
+    "_primary_source_opened": [
+      {"file": "Batch 2-199 Drive folder", "action": "sheet_grid_read", "artifact_path": "drive_folder_initial.yml", "live_source_url": "https://drive.google.com/drive/folders/192HXAmzipuF93uyVBBP5R5BKTdYSpbO4", "evidence": "drive_enum.py enumeration: Testing subfolder, Scale Tickets subfolder, Ops Notes sheet."},
+      {"file": "Drive Testing subfolder", "action": "sheet_grid_read", "artifact_path": "drive_testing_subfolder.yml", "evidence": "1 item: 2-199 - 2-201.pdf (multi-batch lab cert)."},
+      {"file": "Drive Scale Tickets subfolder", "action": "sheet_grid_read", "artifact_path": "drive_scale_tickets_folder.yml", "evidence": "2 items: 2-199 Full Scale Ticket.jpg, 2-199 Empty Ticket.png. Both downloaded and read directly."}
+    ]
+  },
+
+  "site_emissions_folder": {
+    "url": "https://drive.google.com/drive/folders/15IgMdOSbekKv8GCZ8NfmdLqyTN9gsBAi",
+    "rp_label_inferred": "April 2026 RP (4/1/26-4/30/26)",
+    "subfolders_present": ["Waste Disposal", "Support Travel", "Railcar", "Louisiana Sitework", "Gasoline", "Embodied Emissions", "Electricity", "Diesel", "Brine"],
+    "bcu_quant_sheet": "Apr 1-Apr 30 RP BCU Quant",
+    "subfolders_to_certify_components_mapping": {
+      "Diesel": "B6 Injection site diesel emissions (2.731 t)",
+      "Gasoline": "B6 Injection site gasoline emissions (0.700 t)",
+      "Electricity": "Basco Site Electricity Use (RECs) (2.168 t)",
+      "Brine": "B6 Injection Site Water Emissions (Transport Process 0.125 + Embodied 0.016 = 0.141 t)",
+      "Waste Disposal": "B6 Injection site waste disposal emissions (2.453 t, BCUs NOT applied)",
+      "Embodied Emissions": "B6 Injection - Embodied Emissions (0.685 t)",
+      "Louisiana Sitework": "Louisiana Sitework (0.983 t)",
+      "Support Travel": "Basco Support Travel (4.812 t)",
+      "Railcar": "Additional Railcar Movement - Emissions (0.162 t)",
+      "SP&C April Basco (separate)": "Constant emissions = 0.458 t (Basco Inj Operations SP+C Inventory file)"
+    },
+    "_primary_source_opened": [
+      {"file": "Site Emissions Drive folder", "action": "sheet_grid_read", "artifact_path": "drive_site_emissions_folder.yml", "live_source_url": "https://drive.google.com/drive/folders/15IgMdOSbekKv8GCZ8NfmdLqyTN9gsBAi", "evidence": "10 items enumerated: 9 category subfolders + 1 BCU Quant sheet. All 9 site emission categories on Certify are evidenced by a corresponding subfolder."}
+    ]
+  },
+
+  "_derived_values": {
+    "_primary_source_opened": [
+      {
+        "file": "Standard Emission Factors + Calculations 2026 tab + H1 2026 AECN Process Emissions tab",
+        "action": "csv_exported",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit?gid=148943611",
+        "artifact_path": "standard_efs_H1_2026_aecn_process.csv",
+        "evidence": "Live H1 2026 AECN Process EF base 0.10380 / final 0.104017 / embodied final 0.0212 — live primary source for ALL EF citations in this checklist."
+      },
+      {
+        "file": "Certify removal rmv_1KRH4CXAP1S0M44D component modals (Inputs section)",
+        "action": "modal_opened",
+        "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KRH4CXAP1S0M44D/edit",
+        "artifact_path": "aecn_process_component_modal.yml",
+        "evidence": "Certify modal Inputs read for all 4 AECN components; Mass ±72.57 kg per discrete weight, Carbon ±0.197% = 0.004 × 49.26."
+      },
+      {
+        "file": "MRV_AECN_Analysis.xlsx (carbon range source)",
+        "action": "sheet_grid_read",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit",
+        "evidence": "AECN carbon historical: mean 39.42%, SD 6.09%, n=285 samples; 2-SD upper bound 51.60%. Used for Item 4.2 outlier-cap context."
+      }
+    ],
+    "scale_ticket_net_lb": 41520,
+    "scale_ticket_net_kg": 18833.14,
+    "scale_ticket_net_kg_full_precision": 18833.13984,
+    "bol_2352t_net_kg_corrected": 18800,
+    "bol_2352t_net_kg_pre_correction": 18080,
+    "min_scale_vs_bol_kg": 18800,
+    "sparging_loss_kg_recalc": 242.52,
+    "mass_bio_oil_injected_kg_recalc": 18557.48,
+    "mobi_post_filtration_kg_recalc": 18527.79,
+    "mobi_post_filtration_kg_full_precision": 18527.78803,
+    "carbon_content_lab_pct": 53.0,
+    "carbon_content_applied_pct_certify": 49.26,
+    "carbon_uncertainty_recalc_pct": 0.197,
+    "carbon_z_score_above_mean": 2.23,
+    "carbon_applied_z_score_above_mean": 1.62,
+    "carbon_2sd_upper_pct": 51.60,
+    "carbon_mean_aecn_pct": 39.42,
+    "carbon_sd_aecn_pct": 6.09,
+    "carbon_sample_size_n": 285,
+    "gross_co2e_recalc_t": 33.467,
+    "gross_co2e_recalc_t_5dec": 33.46707,
+    "gross_co2e_check": "18.528 t × 0.4926 × 3.667 = 33.467 t ≈ 33.468 Certify ✓",
+    "aecn_process_ef_certify_kgco2e_per_kg": 0.104,
+    "aecn_process_ef_certify_kgco2e_per_kg_pre_fix": 0.12704,
+    "aecn_process_ef_sheet_h1_2026_final_kgco2e_per_kg": 0.104017,
+    "aecn_process_ef_sheet_h1_2026_base_kgco2e_per_kg": 0.10380,
+    "aecn_process_ef_sheet_h1_2026_total_MTCO2e_per_MT_oil": 0.10382683,
+    "aecn_process_ef_sheet_h1_2026_total_stack_g_CO2e_per_MT_oil": 4126.83,
+    "aecn_process_ef_delta_kgco2e_per_kg": 0.023,
+    "aecn_process_emissions_certify_t": 1.955,
+    "aecn_process_emissions_certify_t_pre_fix": 2.388,
+    "aecn_process_emissions_certify_kg": 1955,
+    "aecn_process_emissions_at_sheet_ef_t": 1.955,
+    "aecn_process_emissions_at_sheet_ef_t_4dec": 1.9555,
+    "aecn_process_overstatement_t_resolved": "Resolved by Garrett 2026-05-13: was +0.433 t, now 0.000 (Certify EF refreshed to 0.104 matching H1 2026 sheet)",
+    "aecn_embodied_ef_kgco2e_per_kg": 0.0212,
+    "aecn_embodied_emissions_check_kg": 398.56,
+    "aecn_embodied_emissions_check_t": 0.399,
+    "aecn_embodied_emissions_check_t_5dec": 0.39856,
+    "tanker_truck_process_ef_mtco2e_per_t_mi": 0.0001143,
+    "tanker_truck_process_recalc_t": 4.721,
+    "tanker_truck_process_recalc_t_4dec": 4.7211,
+    "tanker_truck_process_recalc_basis": "0.0001143 × 18.800 × 2197 = 4.721 ✓",
+    "tanker_truck_embodied_ef_kgco2e_per_km": 0.1476,
+    "tanker_truck_embodied_recalc_t": 0.522,
+    "tanker_truck_embodied_recalc_kg": 521.95,
+    "tanker_truck_embodied_recalc_basis": "0.1476 × 2197 × 1.609344 = 521.95 kg ≈ 0.522 t ✓",
+    "uncertainty_discount_t": 0.186,
+    "uncertainty_discount_t_pre_fix": 0.190,
+    "uncertainty_discount_kg": 186,
+    "uncertainty_discount_pct_of_gross": 0.56,
+    "net_calc_t": 19.100,
+    "net_calc_t_pre_fix": 18.663,
+    "net_calc_basis": "33.468 - 22.889 + 8.707 - 0.186 = 19.100 ✓ (post Garrett 2026-05-13 EF refresh)",
+    "bcu_total_t": 8.707,
+    "bcu_transport_process_coverage_pct": 100,
+    "bcu_diesel_coverage_pct": 100,
+    "bcu_brine_transport_coverage_pct": 100,
+    "bcu_louisiana_sitework_coverage_pct": 99.8,
+    "bcu_pool_cert_charm_a5_total_mt": 70.603,
+    "bcu_pool_allocated_to_2-199_t": 4.721,
+    "transport_process_sum_t": 4.721,
+    "transport_embodied_sum_t": 0.522,
+    "transport_total_t": 5.243,
+    "pyrolysis_process_recalc_at_sheet_ef_t": 1.955,
+    "pyrolysis_embodied_recalc_t": 0.399,
+    "site_emission_burdened_total_t": 15.293,
+    "pyrolysis_subtotal_t": 2.353,
+    "pyrolysis_subtotal_basis": "Process 1.955 + Embodied 0.398 = 2.353 t (post Garrett fix)",
+    "site_emission_components_sum_check": "2.168+0.016+2.731+0.700+2.453+0.162+0.125+0.685+0.458+4.812+0.983 = 15.293 t",
+    "bio_oil_chain_activities_subtotal_t": 7.596,
+    "bio_oil_chain_activities_subtotal_t_pre_fix": 8.030,
+    "bio_oil_chain_activities_subtotal_basis": "4.721 (Truck Process) + 0.522 (Truck Embodied) + 1.955 (AECN Pyrolysis Process, post fix) + 0.398 (AECN Pyrolysis Embodied) = 7.596 t",
+    "bcu_bio_oil_processing_subtotal_t": 3.837,
+    "bcu_bio_oil_processing_subtotal_basis": "BCU Diesel 2.731 + BCU LA Sitework 0.981 + BCU Brine Transport 0.125 = 3.837 t",
+    "bcu_miscellaneous_subtotal_t": 0.149,
+    "bcu_miscellaneous_subtotal_basis": "BCU Railcar 0.074 + BCU Waste Disposal Process 0.075 = 0.149 t",
+    "activities_total_t": 23.322,
+    "activities_check": "15.293 (Bio-oil injection) + 5.243 (Bio-oil transport) + 2.787 (Pyrolysis) = 23.323; Calc View shows 23.322 (1-kg rounding)",
+    "h1_2026_tab_gid": 148943611,
+    "removal_remains_net_positive": true,
+    "no_vaulted_references_grep_basis": "Exhaustive scan across BOL pages 1-5, lab cert pages 1-3, Ops Notes CSV, COBB row 88, all 4 Certify tabs (Components/Datapoints/Sources/Calc View). No occurrence of Vaulted/Hutchinson/Kansas/KDHE found.",
+    "carbon_uncertainty_formula_check": "0.004 × 49.26 = 0.197 ✓"
+  },
+
+  "_summary_findings_for_gate_2": {
+    "FAIL_candidates": [
+      "Item 6.4/9.4 — AECN Production Process EF in Certify (0.12704) does NOT match live H1 2026 Standard EFs sheet (0.10380 base / 0.104017 final). Component over-stated by 0.433 t. Sister batches 2-180 (approved 5/13 via live primary-source verification) and 2-181 use 0.10402. This is a material discrepancy worth Garrett review."
+    ],
+    "FLAG_candidates": [
+      "Item 1.3 — Drive Testing subfolder populated with lab cert. PASS (this batch unlike 2-180/2-181 which had empty subfolders).",
+      "Item 2.1 — Empty scale ticket is a phone screenshot in document viewer with overlay (same pattern as 2-181). Values legible enough to verify. Hygiene FLAG.",
+      "Item 4.2 — Lab raw Carbon 53.0% outside AECN 2-SD upper bound (51.6%); flagged by lab with '#' (outside method range). Certify applies outlier-cap policy via 'AECN C Content Outlier Analysis - 2026 YTD.xlsx' yielding 49.26% applied value. Same outlier pattern as 2-192. FLAG with policy documentation.",
+      "Item 5.4 — COBB row 88 cells F/G/H = 18,080 (stale pre-correction BOL value) vs Ops Notes/Certify 18,800. 720 kg COBB-side data-provenance gap. Garrett-side fix, not verifier-impacting (Certify reads corrected 18,800). FLAG.",
+      "Item 9.9 — Hygiene: Screenshot 2026-04-10 at 3.19.33 PM.png linked to Truck Transport EF (non-descriptive filename, same as 2-180/2-181/multiple sisters). FLAG."
+    ],
+    "PASS_items_noted": [
+      "Scale tickets — Tractor 2214 + Trailer 36562 match between full and empty ✓; axle sums match gross on both ✓",
+      "Mass chain: scale net 18,833.14 / BOL net 18,800 → MIN(scale, BOL) = 18,800 ✓ applied conservatively",
+      "Sparging deduction 1.29%: 242.52 kg ✓",
+      "Net mass 18,557.48 kg ✓; post-filtration 18,527.79 kg ✓",
+      "BOL truck/tractor swap between Quebec origin (2201) and Basco arrival (2214) is operational, trailer matches across all three sources",
+      "Lab cert page 1 of 3 = 2-199 with all properties; Density 1.213 g/cm3 above formation fluid floor ✓",
+      "pH 3 documented in both Ops Notes and COBB ✓",
+      "Completion date 4/23/2026 consistent across Ops Notes, COBB, Certify ✓",
+      "Site emissions burdened on this scapegoat removal: 11 component activities (15.293 t) all evidenced by Drive subfolders ✓",
+      "Net remains positive (18.663 t) despite heavy site-emissions burden ✓",
+      "BCU coverage: Transport Process 4.721 = 4.721 ✓, Diesel 2.731 = 2.731 ✓, Brine 0.125 = 0.125 ✓, Louisiana Sitework 0.981 vs 0.983 (99.8% ≈ exact)",
+      "AECN→LA Transport Process EF 0.0001143 MTCO2e/(t·mi) × 18.800 × 2,197 = 4.721 ✓ (transport process correct)",
+      "AECN→LA Transport Embodied EF 0.1476 kgCO2e/km × 2,197 × 1.609344 = 521.95 ≈ 0.522 t ✓",
+      "AECN Embodied EF 0.0212 × 18,800 = 398.56 ≈ 0.399 t ✓",
+      "Uncertainty inputs across all 4 AECN components: ±72.57 kg per discrete weight ✓; Carbon ±0.197% = 0.4% × measured ✓; Uncertainty Discount 0.190 t = 0.57% of gross",
+      "Net math: 33.468 - 23.322 + 8.707 - 0.190 = 18.663 ✓"
+    ]
+  }
+}

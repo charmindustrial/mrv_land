@@ -1,0 +1,125 @@
+{
+  "_meta": {
+    "removal_id": "rmv_1KX17NWGZ1S0ZP14",
+    "scope": "site emissions (June 1-30 2026 RP) on W2 AECN scapegoat removal",
+    "site": "Basco 6 LA",
+    "phase": "Full",
+    "bcu_quant": "June 1 - June 30 RP BCU Quant (modified 2026-07-10 19:34 during QA)",
+    "site_emission_total_t": 41.319,
+    "note": "Whole site-emission side actively edited during QA (BCU Quant + embodied modified today; removal totals shifted 385.17->385.71). Moving target \u2014 re-confirm at delivery."
+  },
+  "bcu_quant_reconciliation": {
+    "total_kg": 41319.07,
+    "total_t": 41.319,
+    "matches_certify_bio_oil_injection_subtotal": "41.319 t exact",
+    "categories": {
+      "site_diesel": 9511.01,
+      "gasoline": 457.03,
+      "brine_embodied": 16,
+      "brine_process": 125,
+      "embodied_capital": 1106,
+      "spc": 482.68,
+      "sitework": 366.05,
+      "support_travel": 8257.1,
+      "additional_transport_oneoff": 3355.2,
+      "electricity_recs": 15097,
+      "methanol": 0,
+      "diesel_delivery": 96,
+      "argon_gross": 2450
+    }
+  },
+  "calc_sheet_verification": {
+    "diesel": {
+      "result_kg": 9511,
+      "detail": "10 invoices \u03a3763.238 gal x 3.22 kg/gal (Chevron) x 3.87 (GLEC V3.2 2025) = 9,511 = BCU Quant 9,511.01. Density conversion present (NOT gal\u00d7EF bug). EF correct.",
+      "status": "Pass"
+    },
+    "gasoline": {
+      "result_kg": 457.03,
+      "detail": "3 invoices \u03a344.222 gal x 2.76335 kg/gal x 3.74 = 457.03 \u2713",
+      "status": "Pass"
+    },
+    "electricity": {
+      "result_kg": 15097,
+      "certify_component": "Basco Site Electricity Use, blueprint=grid_electricity_use, input Louisiana (SPSO) Grid EF 0.4671667218 kgCO2e/kWh x 32,315.47 kWh = 15.097 t",
+      "detail": "Carried at FULL GRID rate. NO REC/EAC input on component, NO REC reduction in removal. Calc sheet is kWh usage only.",
+      "status": "Flag",
+      "flag": "SITE ELECTRICITY RECs PENDING (CORRECTION 2026-07-10): earlier claimed 'REC-covered' from BCU Quant label '(RECs)' WITHOUT verifying. Certify actually uses grid EF 0.4671667218 (SPSO), no REC applied. Conservative OVERSTATEMENT: if LA REC EF (~0.0366) applied, electricity drops 15.097 -> ~1.18 t, net CDR +~13.9 t. Same pending status as argon.",
+      "prior_error": "I incorrectly Pass'd this as REC-covered; corrected to Flag (RECs pending)."
+    },
+    "brine": {
+      "result_kg": 141,
+      "detail": "19.305 t (17.49 m3 x 1.104) x 56.85 mi x 0.0001143 = 125.8 process + 16 embodied \u2713. Tanker EFs correct. Distances Borque Termo 50 + Lottie 63.7. NOTE: two calc tabs (2026 Version / Sheet1) with different methods.",
+      "status": "Flag",
+      "flag": "two brine calc-method tabs present \u2014 confirm which is authoritative (hygiene)"
+    },
+    "sitework": {
+      "result_kg": 366.05,
+      "detail": "60 welding-hrs x 0.49 gal/hr x 3.21725 kg/gal x 3.87 = 366.05 \u2713 (Crane + Scale-ticket tabs zero this RP). Diesel density 3.21725 here vs 3.22 in diesel calc \u2014 inconsistency.",
+      "status": "Flag",
+      "flag": "diesel density 3.21725 (sitework) vs 3.22 (diesel calc) \u2014 hygiene inconsistency, immaterial"
+    },
+    "additional_transport": {
+      "result_kg": 3355.2,
+      "detail": "11 unloaded railcar moves (18,414 car-mi; rail process 2.591e-05, embodied 3.11307e-05 /car-mi) = 1,050.35 + 4 empty-tote LA<->CO returns (1201 mi; flatbed 0.0001384, non-tanker embodied 0.0001927908256) = 2,304.85. Total 3,355.20 \u2713. Carrier-sourced distances.",
+      "status": "Pass"
+    },
+    "spc": {
+      "result_kg": 482.68,
+      "detail": "~53 consumables at NAICS supply-chain EFs (0.348/0.159/0.256/0.207/0.213 etc.) matching Standard EF sheet; RP penalty 482.68 \u2713",
+      "status": "Pass"
+    },
+    "embodied_capital": {
+      "result_kg": 1106,
+      "detail": "amortized capital pool (LA+KS equipment LCA docs) over projected gross removals; June amortization uses W2 AECN 305,917.64 x 0.408; RP penalty 1,106 \u2713. Modified today 19:16 (moving target).",
+      "status": "Pass"
+    },
+    "support_travel": {
+      "result_kg": 8257.1,
+      "detail": "12 employee trips DEN/SFO->BTR Alexandria; air + ground legs; total 8,257.10 \u2713 (non-diesel, not BCU-eligible)",
+      "status": "Pass"
+    },
+    "argon": {
+      "result_kg": 2450,
+      "detail": "2 Daigle deliveries 3000CF=151.57kg each (303.14 kg). Production GROSS 2,409.93 (17.17 kWh/kg x grid 0.4630). Calc NET of RECs=190.71. Transport process 1.766->Certify 2, embodied 16.23->16. BCU 1.766 offsets transport process.",
+      "status": "Flag",
+      "flag": "ARGON RECs PENDING: calc computes production net-of-RECs 190.71 kg (RECs 5,204.87 kWh) but Certify carries GROSS 2,432 kg (BCU Quant labels 'GROSS - RECs pending'). ~2.24 t conservative OVERSTATEMENT of emissions (understates net CDR). Also argon calc grid EF 0.4630140342 vs Certify SPSO 0.4672. When RECs applied argon electricity drops 2,432->~191, net CDR +~2.24 t."
+    },
+    "diesel_delivery": {
+      "result_kg": 96,
+      "detail": "process 34 + embodied 62 = 96 \u2713 (non-tanker truck, 1.127 t load x 2,546 mi). BCU offsets 34 process.",
+      "status": "Pass"
+    }
+  },
+  "bcu_rec_reconciliation": {
+    "bcu_diesel_total_kg": 11893.86,
+    "bcu_total_t": 11.894,
+    "per_category_offset": "site diesel 9.511, sitework 0.366, brine process 0.125, diesel delivery 0.034, one-off/additional transport 1.856, argon transport 0.002 = 11.894 exact; each diesel emission offset 1:1",
+    "main_electricity_recs": "PENDING \u2014 carried gross grid (SPSO 0.4671667218), NO REC applied in Certify. NOT covered. (Corrected from earlier erroneous 'REC-covered'.)",
+    "argon_recs": "5,204.87 kWh PENDING (see argon flag)",
+    "embodied_not_bcu_eligible": "confirmed \u2014 only diesel/process offset, embodied+gasoline+electricity-nondiesel+support-travel not offset (correct)",
+    "combined_rec_pending_impact": "Site electricity ~13.9 t + argon ~2.24 t = ~16.1 t conservative overstatement pending REC application; net CDR would rise ~16 t (385.7 -> ~402) when RECs applied."
+  },
+  "allocation_check": {
+    "w2_is_sole_june_scapegoat": "W2 AECN removal carries FULL June (1-30) site emissions 41.319 t (monthly BCU Quant on weekly removal \u2014 scapegoat model)",
+    "net_emissive_check": "NOT net-emissive: seq 457.694 - emitted ~104.5 + BCU 35.07 = net ~385.7 t positive",
+    "VERIFY_FOR_MAX": "confirm June site emissions appear ONLY on this W2 removal (not double-counted on W1/W4 June removals)"
+  },
+  "rec_two_source_determination": {
+    "rule": "Max 2026-07-10: applied REC = derated EF in Certify AND qty drawn from REC inventory; mismatch=FAIL, both-absent=FLAG",
+    "electricity_and_argon_RECs": {
+      "CORRECTION": "Earlier 'no REC inventory exists' was WRONG. REC Inventory Tracker DOES exist (id 1VCIb1g...; tabs CO-Miniforge / KS-AJsVaulted / LA-Basco). Plus REC purchase/retirement docs (100 MWh Purchase & Sale Agmt, WFS confirmations, Delta/Mountain REC bids).",
+      "certify_side": "NOT applied \u2014 grid EF 0.4671667218, blueprint grid_electricity_use; argon gross.",
+      "inventory_side": "REC Inventory Tracker LA-Basco tab has NO Available Inventory section and NO draw-down \u2014 only a forward estimate (130.97 kWh/MT x 1,773 MT = 232.2 MWh tranche). No Basco LA RECs procured/retired; no June deduction. (CO/KS tabs have tranches but those are other sites; CO eligible tranche 1,250 MWh expired 7/1/25.)",
+      "matrix_cell": "Certify NOT applied + inventory NOT deducted (none for Basco LA) -> FLAG. Both sides absent/consistent.",
+      "status": "Flag CONFIRMED via actual REC Inventory Tracker (both-absent). Unusual (no RECs applied) but not disqualifying if intentional. Charm appears mid-procurement (recent Delta/Mountain REC bids) \u2014 confirm whether Basco LA electricity RECs are intended for June or intentionally forgone."
+    },
+    "diesel_bcu_drawdown_timing": {
+      "certify_side": "Applied \u2014 11.894 t diesel BCUs + 23.179 t transport BCU reductions on the removal.",
+      "inventory_side": "Charm BCU Verification Inventory tracker 'BCU Usage' log is keyed to GHG STATEMENT periods (explicit GHG Statement Start/End Date + dMRV ggs link column). Entries run Jan/Feb/Mar/Apr/May 2026; NO June entry \u2014 because the June GHG statement is not finalized (this removal is a live draft).",
+      "matrix_cell": "Applied in Certify + not-yet-in-inventory, BUT draw-down is recorded at GHG-statement issuance (statement-level, not draft-removal-level). At draft stage the absent June entry is expected timing -> FLAG (pending statement finalization). Flips to FAIL if the June statement is issued with the draw-down still missing.",
+      "status": "Flag (reconcile-before-submission reminder; NOT a batch-level FAIL)",
+      "CORRECTION_per_max": "Applied-in-Certify-not-in-inventory is disqualifying (FAIL) at the REPORTING-PACKAGE / GHG-STATEMENT level, NOT at the batch/removal level \u2014 BCUs are drawn down per GHG statement, not per batch. At batch QA this is a SEPARATE FLAG telling the reader to ensure this AND all other BCUs are counted against inventory before submitting the reporting package. Not a batch-level FAIL."
+    }
+  }
+}

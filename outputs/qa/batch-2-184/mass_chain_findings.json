@@ -1,0 +1,102 @@
+{
+  "batch_id": "2-184",
+  "computed_at": "2026-05-15T14:28:41",
+  "source_reads_path": "outputs/qa/batch-2-184/batch_2-184_source_reads_normalized.json",
+  "checks": [
+    {
+      "check_id": "scale_ticket_subtraction",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "full_lb": 77900,
+        "empty_lb": 29740,
+        "net_lb": 48160,
+        "net_kg": 21844.99
+      },
+      "log_values": {
+        "computed_net_lb": 48160,
+        "computed_net_kg": 21844.99
+      },
+      "note": "Computed: 77900 \u2212 29740 = 48160 lb (21844.99 kg). Log: 48160 lb (21844.99 kg). Match."
+    },
+    {
+      "check_id": "scale_ticket_vs_ops_notes_offload",
+      "materiality": "material",
+      "check_type": "policy",
+      "status": "PASS",
+      "computed": {
+        "scale_ticket_kg": 21844.99,
+        "ops_notes_cargo_kg": 21844.99,
+        "delta_kg": 0.0,
+        "delta_pct": 0.0
+      },
+      "log_values": {
+        "matched_offload_row_id": "Rail_GPRX 5188_2.27.26_offload_3"
+      },
+      "note": "Scale ticket = 21844.99 kg; Ops Notes cargo = 21844.99 kg; delta = 0.0 kg (0.0%). Match."
+    },
+    {
+      "check_id": "bol_list_sum_vs_stated_total",
+      "materiality": "hygiene",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "bol_sum_MT": 78.02,
+        "bol_count": 3
+      },
+      "log_values": {
+        "total_railcar_loaded_MT": 78.02,
+        "individual_BOL_mass_MT": [
+          26.01,
+          26.0,
+          26.01
+        ]
+      },
+      "note": "\u03a3(BOLs) = 78.02 MT; stated total = 78.02 MT. Match."
+    },
+    {
+      "check_id": "railcar_inbound_outbound_balance",
+      "materiality": "mixed",
+      "check_type": "policy",
+      "status": "FLAG",
+      "computed": {},
+      "log_values": {
+        "offload_rows_filled": 3,
+        "offload_rows_total": 4,
+        "expected_offloads": 4
+      },
+      "note": "Offload table partially filled (3/4 rows have cargo_kg). Cannot verify mass conservation (sum offloads \u2264 sum BOLs). Scale ticket arithmetic confirmed separately. Route to LLM: is the incomplete table explained by cross-RP deferral, out-of-order injection, or sister-batch backfill lag? If so, document. If not, investigate."
+    },
+    {
+      "check_id": "last_offload_derivation",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "SKIP",
+      "computed": {
+        "this_offload": "offload_3",
+        "last_offload": "offload_4"
+      },
+      "log_values": {},
+      "note": "This batch is offload_3, not the last offload (last = offload_4). Derivation rule does not apply."
+    },
+    {
+      "check_id": "cobb_offload_consistency",
+      "materiality": "hygiene",
+      "check_type": "policy",
+      "status": "FLAG",
+      "computed": {
+        "cobb_offloaded_kg": 21457.0776,
+        "ops_notes_cargo_kg": 21844.99,
+        "delta_kg": -387.91,
+        "delta_pct": 1.7757
+      },
+      "log_values": {
+        "cobb_row_id_at_qa": "cobb_row_61",
+        "cobb_batch_id_col_a": "2-184",
+        "matched_offload_row_id": "Rail_GPRX 5188_2.27.26_offload_3"
+      },
+      "note": "COBB offloaded = 21457.0776 kg; Ops Notes cargo = 21844.99 kg; delta = -387.91 kg (1.7757%). Tolerance \u22640.5%. Discrepancy detected \u2014 route to LLM for operational context (known correction lag vs. real error)."
+    }
+  ]
+}

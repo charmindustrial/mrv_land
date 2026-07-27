@@ -1,0 +1,886 @@
+ISCC PLUS GHG Add-on
+           Document
+                Version 1.0
+                                                                                                         I
+
+
+
+
+                                                                                              ISCC PLUS GHG ADD-ON DOCUMENT
+
+
+
+
+ Copyright notice
+ © 2026 ISCC System GmbH
+
+ This ISCC document is protected by copyright. It is freely available from the ISCC website
+ or upon request.
+ No part of this copyrighted document may be changed or amended. The document may not
+ be duplicated or copied in any form or by any means for commercial purposes without the
+ permission of ISCC.
+
+Document Title: ISCC PLUS GHG ADD-ON DOCUMENT
+Version 1.0
+Published: 13.02.2026. Currently under public consultation. Not valid yet.
+
+
+© ISCC System GmbH
+                                                                                                                                   II
+
+
+
+
+                                                                                                                             ISCC PLUS GHG ADD-ON DOCUMENT
+Content
+
+Table of Abbreviations ......................................................................................... III
+1.     Introduction .................................................................................................... 1
+2.     GHG Add-on following the ISCC EU 205 – Greenhouse Gas Emissions ........... 3
+     2.1     Speciﬁc Requirements for Elements of the Supply Chain .............................. 4
+       2.1.1       Farms or Plantations/Forest Sourcing Areas .......................................... 4
+       2.1.2       First Gathering Point ............................................................................. 5
+       2.1.3       Point of Origin for Waste and Residues .................................................. 5
+       2.1.4       Processing Unit .................................................................................... 5
+       2.1.5       Paper Trader and Trader with Storage ..................................................... 7
+     2.2     Deviations with respect to Emission Factors ................................................. 7
+     2.3     Calculation of Regional GHG Values for Cultivation (eec) ................................ 7
+     2.4     Calculation of Individual GHG Values for Cultivation (eec) .............................. 8
+     2.5     Aggregation of DiXerent GHG Values ............................................................ 8
+     2.6     Allocation of GHG Emissions ....................................................................... 8
+     2.7     Life Cycle Coverage ..................................................................................... 8
+     2.8     Waste and Residues .................................................................................... 8
+     2.9     Emission Factors for Electricity .................................................................... 9
+3. GHG Add-on following the ISCC EU 205-1 – Renewable Fuels of Non-Biological
+Origin (RFNBO) Greenhouse Gas Emissions ....................................................... 10
+     3.1     Emissions from elastic inputs (ei elastic) .................................................... 11
+       3.1.1       Emission Factors for Electricity ........................................................... 11
+     3.2     Emissions from rigid inputs (ei rigid) ........................................................... 12
+     3.3     Emissions from existing use or fate (eex-use) .................................................. 13
+     3.4     Emissions from Processing (ep) .................................................................. 13
+     3.5     Emissions from Transport and Distribution (etd) ........................................... 13
+     3.6     Emissions from Fuel in Use (eu) .................................................................. 13
+     3.7     Emissions saving from carbon capture and geological storage (eccs) ............. 14
+     3.8     Life Cycle Coverage ................................................................................... 14
+
+
+
+
+© ISCC System GmbH
+                                                                                   III
+
+
+
+
+                                                                             ISCC PLUS GHG ADD-ON DOCUMENT
+       Table of Abbreviations
+
+ Abbreviation        Name
+
+ CB                  Certification Body
+
+ DDV                 Disaggregated Default Values
+
+ EAC                 Energy Attribute Certificate
+
+ EF                  Emission Factor
+
+ GHG                 Greenhouse Gas
+
+ GoO                 Guarantees of Origin
+
+ iLUC                Indirect Land Use Change
+
+ ISAE                International Standard on Assurance
+
+ ISCC                International Sustainability and Carbon Certification
+
+ ISO                 International Standardization Organization
+
+ LCA                 Life Cycle Assessment
+
+ LUC                 Land Use Change
+
+ LULUCF              Land Use, Land Use Change, and Forestry
+
+ RED                 Renewable Energy Directive
+
+ RFNBO               Renewable Fuels of Non-Biological Origin
+
+ SD                  Sustainability Declaration
+
+ TDV                 Total Default Values
+
+ UCO                 Used Cooking Oil
+
+
+
+
+© ISCC System GmbH
+                                                                                    1
+
+
+
+
+                                                                                ISCC PLUS GHG ADD-ON DOCUMENT
+1.      Introduction
+
+The purpose of the document “ISCC PLUS GHG Add-on Document” is to
+explain the use of the voluntary GHG add-on under ISCC PLUS for stating
+greenhouse gas (GHG) emissions values along the supply chain and to
+provide the methodology, rules and guidelines for calculating and verifying
+GHG emissions and emissions reduction. Within ISCC PLUS, the verification
+of GHG emissions can be added by applying the 205-01 “GHG Emissions”
+add-on.
+
+The ISCC requirements regarding GHG emissions apply to all relevant supply
+chain elements from raw material production to the distribution of the final
+product, including cultivation or extraction, all processing steps, and the
+transport and distribution of intermediate and final products.
+
+The system users can follow two different methodologies under ISCC PLUS
+GHG add-on. The two different methodologies that can be applied are:
+
+     1. Methodology introduced in the System Document ISCC EU 205 –
+        Greenhouse Gas Emissions
+
+     2. Methodology introduced in the System Document ISCC EU 205-1 –
+        Renewable Fuels of Non-Biological Origin (RFNBO) and Recycled
+        Carbon Fuels (RCF) Greenhouse Gas Emissions
+
+If the add-on is applied, the System Documents (ISCC EU 205 or ISCC EU
+205-1) apply equally for ISCC EU and ISCC PLUS, with some differing
+requirements under ISCC PLUS which are described in the following sub-
+chapters.
+
+Under ISCC PLUS, it is possible to verify the calculated GHG emissions based
+on the methodologies described in this document, ISCC EU 205 and ISCC EU
+205-1 documents. Any claims regarding GHG Emission reductions based on
+the calculations on the above-mentioned methodologies are beyond the scope
+of ISCC PLUS GHG Add-on.
+
+In any case the GHG add-on must be implemented in the entire supply chain
+up to the entity claiming a value on the outgoing product.
+
+It should be noted that GHG Add-on cannot be applied for Mass Balancing
+options Free Attribution Approach and Fuel Use Excluded Attribution
+Approach under Credit Method. As an exception for Free attribution approach,
+GHG Add-on can only be applied when complete reflection of input
+characteristics is reflected. When compensation of input characteristics is
+applied (either by system user or on received certified input materials), GHG
+add-on cannot be applied. For more information on reflection of input
+characteristics, please refer to System Document 203-2 Chain of Custody.
+
+
+
+
+© ISCC System GmbH
+                                                                                                      2
+
+
+
+
+                                                                                                ISCC PLUS GHG ADD-ON DOCUMENT
+In case system users have conducted a LCA based on ISO 14040/44 or ISO
+14067 for product carbon footprint (PCF) calculation which differs from the
+ISCC methodology described in the System Documents ISCC EU 205 –
+Greenhouse Gas Emissions, ISCC EU 205-1 – Renewable Fuels of Non-
+Biological Origin (RFNBO) and Recycled Carbon Fuels (RCF) Greenhouse
+Gas Emissions, and in this document, the calculated value needs to be
+communicated separately and cannot be used to replace a GHG calculation
+under the 205-01 “GHG Emissions” add-on.
+
+Next to the application of the here described 205-01 “GHG Emissions” add-
+on, ISCC offers the possibility to certify PCFs of ISCC PLUS certified products
+under the ISCC Carbon Footprint Certification (CFC) scheme1. ISCC PLUS
+strongly recommends the 205-01 “GHG Emissions” add-on to be applied for
+fuel products. For any other products with limited applicability of the 205-01
+“GHG Emissions” add-on, please refer to ISCC CFC.
+
+
+
+
+1
+ The current version of ISCC CFC V1.4. allows the certification of PCFs under CFC for ISCC
+PLUS certified products from the PLUS raw material category “bio”. The combination for all
+other raw material categories is under development and can only be conducted in form of pilot
+projects under involvement of ISCC.
+
+© ISCC System GmbH
+                                                                                      3
+
+
+
+
+                                                                                ISCC PLUS GHG ADD-ON DOCUMENT
+2.      GHG Add-on following the ISCC EU 205 –
+        Greenhouse Gas Emissions
+
+
+ISCC PLUS system users can freely choose to apply the voluntary GHG add-
+on. When choosing to disclose the GHG emissions information from the
+relevant supply chain and production of product, the total GHG emissions
+value must be made available. Please refer to System Document ISCC EU –
+205 Greenhouse Gas Emissions for further information regarding
+requirements for an individual GHG emissions calculation and provision of
+GHG information. The total GHG emissions value should be displayed in terms
+of either kg CO2eq/dry-ton (for raw materials and intermediate products) or g
+CO2eq/MJ (for final fuels).
+
+System users have three different options for providing GHG emissions values
+under the ISCC PLUS GHG add-on as listed below:
+
+     1. Total Default Values (TDV)
+
+     2. Actual Values (individually calculated values)
+
+     3. Disaggregated Default Values (DDV) which allows a combination of
+        default values and actual values.
+
+The total GHG emissions value should be calculated following the formula
+below:
+
+                𝐸 = 𝑒!" + 𝑒# + 𝑒$ + 𝑒%& + 𝑒' − 𝑒(") − 𝑒""( − 𝑒""*
+
+        E = total GHG emissions value
+
+        eec = emissions from extraction or cultivation of raw materials
+
+        el = annualized emissions from carbon stock changes caused by land-
+        use change
+
+        ep = emissions from processing
+
+        etd = emissions from transport and distribution
+
+        eu = emissions from the fuel in use
+
+        esca = emissions savings from soil carbon accumulation via improved
+        agricultural management
+
+        eccs = emissions savings from CO2 capture and geological storage
+
+        eccr = emissions savings from CO2 capture and replacement
+
+
+
+© ISCC System GmbH
+                                                                                                    4
+
+
+
+
+                                                                                              ISCC PLUS GHG ADD-ON DOCUMENT
+Apart from abovementioned elements for the calculation of total GHG
+emissions value, RED III also provides the option for a GHG bonus (eb) if the
+degraded land (including land that was formerly in agricultural use) is restored
+and if the biomass is obtained from the restored degraded land. When the land
+is either significantly salinated or presented significantly low organic matter
+content and has been severely eroded, is considered severely degraded. The
+bonus is thus applicable in case of conversion of the land to agricultural use
+that increases carbon stocks. The bonus can only be applied and attributed if
+the evidence is provided (refer to the System Document ISCC EU 205 –
+Greenhouse Gas Emissions).
+
+TDVs and DDVs are provided in RED III in Annex V and Annex VI. DDVs are
+available for cultivation (eec), processing (ep), and transport & distribution (etd). Using
+these values allows combining DDVs with actual data from individual GHG
+calculations.
+
+In case TDVs in accordance with RED III have been used for demonstrating the
+GHG impact of a product, no actual figures for the GHG values can be reported.
+However, it must be indicated on the Sustainability Declaration (SD): “Total default
+values according to RED III applied” .
+
+Similarly, when using DDVs for one or more elements of the calculation
+formula, this information must be indicated on the outgoing SD as well:
+“Disaggregated default values according to RED III applied”. Please refer
+to the System Document ISCC EU 205 – Greenhouse Gas Emissions for
+detailed restrictions on the use of default values.
+
+Actual values are calculated based on RED III methodology and must always
+be conducted at the point in the supply chain where they originate. It is not
+possible to calculate actual values retrospectively for elements of the
+upstream supply chain. An individual GHG calculation for raw materials and
+intermediate products must always be indicated in terms of kg CO2eq/dry-ton.
+Mode of transport and transport distance (in km) should also be provided by
+system users in case default values are not considered for the GHG emissions
+calculation. Values from the specific “NUTS2 region” report can be used as an
+alternative to DDVs or actual values. In case NUTS2 values are used, system
+users should provide this information in the SD Annex, in the “product(s)
+related information” field.
+
+2.1     Specific Requirements for Elements of the Supply Chain
+If the system user chooses to apply the voluntary ISCC PLUS GHG add-on,
+there are specific requirements depending on the scope of certificate. In this
+subchapter, the responsibilities for each element of the supply chain are
+described.
+
+2.1.1     Farms or Plantations/Forest Sourcing Areas
+When applicable, farms or plantations are responsible to provide emissions
+values for extraction and cultivation (eec). In case el, esca and eb are applied,
+
+© ISCC System GmbH
+                                                                                                           5
+
+
+
+
+                                                                                                     ISCC PLUS GHG ADD-ON DOCUMENT
+individual calculations are required. The central office is responsible for the
+calculation of the GHG emissions of a farmers group, if they are certified under
+a group approach.
+
+2.1.2      First Gathering Point
+
+The first gathering point is responsible for determining and documenting GHG
+emissions for the extraction and cultivation (eec) of the incoming biomass and
+for verifying whether specific options to state greenhouse gas emissions (for
+example, disaggregated default value for cultivation or NUTS2 values) can be
+applied.
+
+2.1.3      Point of Origin for Waste and Residues
+
+At the point of origin, GHG emissions of waste and residues are considered to
+be zero for the waste generation. Further emissions associated to waste
+transportation and treatment must be considered.
+
+2.1.4      Processing Unit
+If the processing unit produces final biofuels, bioliquids or biomass fuels, the
+following information should be added to the Sustainability Declaration2:
+
+    > Information on when the fuel producer started operation3
+
+    > Country of fuel production
+
+    > Energy content of the fuel (in MJ)4
+
+    > In case of biofuel, bioliquid or biomass production, GHG emissions of
+         the biofuel, bioliquid or biomass fuel in g CO2eq/MJ using the correct
+         Feedstock Factor and Allocation Factor.
+
+    > ep: GHG emissions from processing (applicable for intermediate and
+         final processing units).
+
+    > In case of biomass fuels, further emissions from diffuse methane, gas
+         losses occurring from transport, emissions during the storage of the
+         digestate and DDV for compression at filling station (4.6 gCO2/MJ
+         biomethane) must be added according to RED III, Annex VI.
+
+    > For biomass fuels used in the production of electricity or used for
+         heating and cooling, GHG emissions from final energy commodity (ECh
+         or ECel) should be calculated.
+
+
+2
+  The mandatory information for the sustainability characteristics are describes in the System
+Document ISCC PLUS 203-1 Traceability
+3
+  The installation shall be considered to be in operation once the physical production of fuel has
+started (i.e. once the production of fuels, including biofuels, biogas or bioliquids has started).
+4
+  For the calculation of the energy content the conversion factors of Annex III RED II must be
+used.
+
+© ISCC System GmbH
+                                                                                                           6
+
+
+
+
+                                                                                                     ISCC PLUS GHG ADD-ON DOCUMENT
+    > In case of biogas/biomethane, the Sn factor formula (Part B of the
+         Annex VI, RED II) should be used to calculate total GHG emissions5.
+         Also, etd,prod needs to be provided in addition to etd,feestock for
+         biogas/biomethane.
+
+    > For Liquefaction of Biomethane (Bio-LNG), liquefaction emissions and
+         losses must be accounted for.
+
+    > eccs: GHG emissions savings from carbon capture and geological
+         storage. Only applicable for CO2 directly related to the extraction,
+         transport, processing & distribution of fuel. Also, eccs can only be
+         considered if it has not been accounted for in ep
+
+    > eccr: GHG emissions savings from carbon capture and replacement. It
+         is limited to the emissions avoided through capture of CO2 originating
+         from biomass. Also, only applicable for CO2 used to replace fossil-
+         derived CO2
+
+    > eu (Emissions from the fuel in use): Emissions of non-CO2 greenhouse
+         gases (CH4 and N2O) need to be included for bioliquids and biomass
+         fuels. DDV can also be used for eu
+
+    > etd: Emissions from transport and distribution. This value should also
+         include transport to depot and filling station as well as emissions at
+         filling stations. Final processing unit should include etd for both
+         upstream and downstream transport
+
+    > el (annualised emissions from carbon stock changes caused by land-
+         use change): Emissions from land-use change between five land
+         categories to cropland or perennial cropland taking place shall be
+         considered here. A change of management activities, cropland
+         structure, tillage practice or manure input practices cannot be
+         considered as land-use change. If the bonus (eB= 29 g CO2eq/MJ) for
+         severely degraded land restored was applied, it can be utilised in the
+         calculation of el (refer to the System Document ISCC EU 205 –
+         Greenhouse Gas Emissions).
+
+    > esca (Emissions savings from soil carbon accumulation via improved
+         agricultural management): Emissions savings can be utilised due to
+         carbon accumulation in soil driven by the adoption of improved
+         agricultural management (which do not risk to negatively affect
+         biodiversity).If esca is calculated, the methodology must be made
+         available. The annual caps of the claim shall follow the requirements
+
+
+5
+  Sn is share of feedstock n representing the proportion of each specific raw material entering
+the digester over a given year. This value is used for calculating overall lifecycle emissions (E)
+by summing weighted emissions from each feedstock. It serves as a variable within the overall
+formula, connecting emissions from individual feedstocks—such as cultivation, transport, and
+land-use change—to the carbon intensity of the final biogas product.
+
+© ISCC System GmbH
+                                                                                        7
+
+
+
+
+                                                                                  ISCC PLUS GHG ADD-ON DOCUMENT
+         laid out in System Document ISCC EU 205 – Greenhouse Gas
+         Emissions. A bonus of 45 g CO2eq/MJ shall be attributed for improved
+         agricultural and manure management in the case animal manure is
+         used as a substrate to produce biogas and biomethane (refer to the
+         System Document ISCC EU 205 – Greenhouse Gas Emissions).
+
+2.1.5     Paper Trader and Trader with Storage
+
+Paper traders do not calculate emissions from transport but only forward
+information on outgoing sustainability declarations as received. Trader with
+storage do not calculate emissions, however, only provide information for
+transport distance(s) and transport type(s) towards their storage site on the
+outgoing sustainability declaration. The next element in the supply chain (e.g.
+processing unit) after the trader with storage bears the responsibility for
+emissions calculation from upstream transport activities.
+
+2.2     Deviations with respect to Emission Factors
+
+Within ISCC PLUS, emission factors (EF) of input materials can be individually
+calculated or come from official sources like the Annex IX of the IR 2022/996,
+Renewable Energy Directive (RED) or Annex I of the System Document ISCC
+EU – 205 Greenhouse Gas Emissions. Furthermore, values based on LCA
+databases such as ECOINVENT or official statistical databases from
+government bodies or scientifically peer-reviewed literature can be used, if
+applicable. All data gathered from databases or literature shall be based on
+the most recent available versions and shall also be updated over time.
+Recognized emissions factor sources are:
+
+      > RED III
+
+      > IR 2022/996
+
+      > ISO 14040/44 or ISO 14067.
+
+The methodology used for individual calculations by the supplier must always
+be verified according to the ISO standard or alternatively the supplier must be
+ISCC/ISO certified so that relevant requirements can be verified during an
+ISCC audit.
+
+2.3     Calculation of Regional GHG Values for Cultivation (eec)
+If NUTS2 values are not available in non-EU country reports or if DDVs for
+cultivation emissions are missing in the RED, ISCC PLUS permits third parties
+(e.g. companies, plantation owners, associations) to calculate averages based
+on local farming practices, for example, average emissions calculated for
+geographical areas at national level or data from a group of farms. The
+methodology shall follow ISCC’s requirements and ISCC should be informed
+whenever such values are calculated. However, a submission of the GHG
+emissions values to the European Commission is not required.
+
+
+© ISCC System GmbH
+                                                                                        8
+
+
+
+
+                                                                                  ISCC PLUS GHG ADD-ON DOCUMENT
+2.4   Calculation of Individual GHG Values for Cultivation (eec)
+In case of an individual GHG emissions calculation for a group of farms or
+plantations, the averaging of input values and GHG emissions values is
+accepted under ISCC PLUS.
+
+2.5   Aggregation of Different GHG Values
+It is also possible to use the highest GHG values of the least performing batch
+for the same kind of certified input material (material with identical
+sustainability characteristic), alternatively to using single values for each
+certified input material.
+
+2.6   Allocation of GHG Emissions
+
+Under ISCC PLUS, the allocation of emissions to main and co-products can
+be based on the energy content of both products (refer to the System
+Document ISCC EU – 205 Greenhouse Gas Emissions), but other types of
+allocation (e.g. based on mass) are also possible. The most suitable allocation
+method should always be used, e.g. if the main product is used energetically,
+an energetic allocation should be applied.
+
+2.7   Life Cycle Coverage
+Under ISCC PLUS, the GHG emissions calculation can either cover the whole
+life cycle of the product (cradle-to-grave), or only the emissions up to the
+factory gate (cradle-to-gate).
+
+It must always be clearly highlighted on the Sustainability Declaration of the
+product if the cradle-to-grave or cradle-to-gate approach is used. If required,
+further information on the additional emissions to be included for the product
+must be provided to the recipient of the material.
+
+2.8   Waste and Residues
+Waste and residues shall be considered to have zero GHG emissions up to
+the point of their collection, where the waste or residue initially occurs/is
+generated (point of origin scope under ISCC PLUS). This is regardless of
+whether the materials are further processed into intermediate products before
+being processed into the final product.
+
+For example, in the case of UCO, the point of origin would be the restaurants
+or plants producing fried products. In the case of rendered animal fats, the
+point of origin would be the rendering plant producing animal fat from animal
+by-products. If UCO or other wastes originate from households, the point of
+origin could be a private company or a municipality responsible for waste
+collection.
+
+
+
+
+© ISCC System GmbH
+                                                                                              9
+
+
+
+
+                                                                                        ISCC PLUS GHG ADD-ON DOCUMENT
+2.9      Emission Factors for Electricity
+In case electricity is supplied by the grid, the emission factors of the
+national/country electricity mix shall be used6. The only exceptions to use an
+updated emission factor for electricity is:
+
+Option 1 – System user receives renewable electricity via contracts
+
+If the system user has Power Purchase Agreement (PPA) combined with
+Energy Attribute Certificates (e.g., Guarantees of Origin (GoO) in the EU or
+RECs in the U.S., I-RECs) or comparable proof of no multiple counting, the
+system user can choose to apply the supplier specific EF. The following
+information shall be a part of the documentation for using supplier specific EF:
+
+       > The energy source from which the energy carrier was produced and
+           the start and end dates of production.
+
+       > The type of energy or energy carrier (e.g., electricity, gas–including H2,
+           heat, or cooling).
+
+       > The identity, location, type and capacity of the installation where the
+           energy or energy carrier was produced.
+
+       > The date on which the installation became operational (i.e., starting
+           point of first electricity supply into grid).
+
+       > The date and country of issue and a unique identification number of
+           the EAC. (In other words, a proof of no double counting is required).
+
+       > The proof of renewability must ensure that double counting of the
+           renewable electricity is avoided. A respective proof of the unit using the
+           renewable energy must be provided during the audit.
+
+If those requirements are not fulfilled, or, in case the supplier specific EF is not
+available, or contracts are sold to a third party, the emission factors of the
+national/country electricity mix shall be used.
+
+Option 2 – System user has a direct connection with the respective unit
+producing renewable electricity
+
+In the case that an electricity production plant is connected to the grid, using
+the average emission value for electricity from that individual electricity
+production plant in the production process is permitted. It must be guaranteed
+that there is a direct connection between the production facility and the
+individual electricity production plant and it must be possible to validate the
+amount of electricity used with a suitable meter.
+
+
+
+6
+    The primary source for official national and regional grid emission factors.
+
+© ISCC System GmbH
+                                                                                          10
+
+
+
+
+                                                                                    ISCC PLUS GHG ADD-ON DOCUMENT
+In case the renewable electricity produced at the respective unit is directly
+consumed (i.e. not supplied from the grid), an adapted EF for the type of
+renewable electricity may be used.
+
+
+
+
+3.     GHG Add-on following the ISCC EU 205-1 –
+       Renewable Fuels of Non-Biological Origin
+       (RFNBO) Greenhouse Gas Emissions
+ISCC PLUS system users can freely choose to apply the voluntary GHG add-
+on. However, only the system user that handles renewable-energy-derived
+raw materials and/or intermediate/final products, can follow the methodology
+introduced in the System Document ISCC EU 205-1 – Renewable Fuels of
+Non-Biological Origin (RFNBO) and Recycled Carbon Fuels (RCF)
+Greenhouse Gas Emissions.
+
+Under ISCC PLUS, RFNBOs as defined under the RED would fall under the
+raw material category of “renewable-energy-derived”. This should also be
+indicated/selected in the sustainability declaration.
+
+GHG emissions intensity of RFNBOs shall be calculated as follows:
+
+                          𝐸 = 𝑒+ + 𝑒$ + 𝑒%& + 𝑒' − 𝑒""(
+
+E = total emissions from the use of the fuel
+
+𝑒+ = 𝑒+ !#)(%+" + 𝑒+ *+-+& − 𝑒+ !./'(! (𝑒𝑚𝑖𝑠𝑠𝑖𝑜𝑛𝑠 𝑓𝑟𝑜𝑚 𝑠𝑢𝑝𝑝𝑙𝑦 𝑜𝑓 𝑖𝑛𝑝𝑢𝑡𝑠)
+
+       ei elastic = emissions from elastic inputs
+
+       ei rigid = emissions from rigid inputs
+
+       eex-use = emissions from inputs’ existing use or fate
+
+ep = emissions from processing
+
+etd = emissions from transport and distribution
+
+eu = emissions from fuel in use
+
+eccs = emissions savings from CO2 capture and geological storage
+
+The GHG emissions of RFNBOs shall be expressed in terms of gCO2eq/MJ
+fuel. In case a fuel is a mix of RFNBO and other fuel types, all fuel types shall
+be considered to have the same emissions intensity. In case of co-processed
+fuels where RFNBOs is partially replacing a conventional input, a
+differentiation in the GHG calculation shall be made based on the energetic
+value of the inputs. In this case, the GHG values may be calculated as an
+
+
+© ISCC System GmbH
+                                                                                         11
+
+
+
+
+                                                                                   ISCC PLUS GHG ADD-ON DOCUMENT
+average for the entire production of fuels occurring during a period of at most
+one calendar month.
+
+Within ISCC PLUS, it is not mandatory to meet the 70% GHG savings
+threshold as under ISCC EU. However, if a system user wishes to provide the
+emissions savings, it should be calculated as below:
+
+                                                      (𝐸0 − 𝐸)
+                                 𝐸𝑚𝑖𝑠𝑠𝑖𝑜𝑛 𝑠𝑎𝑣𝑖𝑛𝑔𝑠 =
+                                                         𝐸0
+
+where
+
+E = total emissions from the use of RFNBO
+
+EF = total emissions from fossil fuel comparator (94 CO2eq/MJ)
+
+3.1     Emissions from elastic inputs (ei elastic)
+Elastic inputs are those, where the supply can be increased to meet the extra
+demand. H2, CO2, natural gas and electricity can be considered as elastic
+inputs. Emissions from elastic inputs that are obtained in an incorporated
+process shall be calculated based on data of their actual production.
+Emissions arising from the input production over the whole supply chain
+including extraction of primary energy required to make the input, processing
+and transport emissions are counted.
+
+For post-industrial and atmospheric CO2, the supplier of CO2 (issuer of the
+sustainability declaration) only provides the effort for the capture and (if
+applicable) liquefaction of CO2. The supplier of CO2 does not calculate GHG
+emissions. However, the recipient of the CO2 bears the responsibility to
+calculate GHG emissions based on the information provided for capture,
+liquefaction and transport.
+
+When elastic inputs are not obtained from an incorporated process, emission
+factors can be used from them database such as ECOINVENT, IPCC, IEA,
+governmental bodies or peer-reviewed publications can be used.
+
+3.1.1     Emission Factors for Electricity
+
+In case the renewable electricity is produced at a respective renewable energy
+unit and directly consumed by the installation that is producing the certified
+product, the system user can attribute zero greenhouse gas emissions from
+the use of renewable electricity. The following requirements shall be fulfilled
+for this approach:
+
+      > The renewable electricity production unit is not connected to the grid
+         or is connected to the grid, but evidence can be provided that the
+         electricity concerned has been supplied without taking electricity from
+         the grid
+
+
+
+© ISCC System GmbH
+                                                                                                                        12
+
+
+
+
+                                                                                                                  ISCC PLUS GHG ADD-ON DOCUMENT
+      > The renewable electricity production unit comes into operation after, or
+         at the same time as, the installation producing the certified product.
+
+In case electricity is supplied by the grid, the emission factors of the
+national/country electricity mix shall be used7. The only exception to use an
+updated emission factor for electricity is, if the system user has Power
+Purchase Agreement (PPA) combined with Energy Attribute Certificates (e.g.,
+Guarantees of Origin (GoO) in the EU or RECs in the U.S., I-RECs) or
+comparable proof of no multiple counting, the system user can choose to apply
+the supplier specific EF. The following information shall be a part of the
+documentation for using supplier specific EF:
+
+      > The energy source from which the energy carrier was produced and
+         the start and end dates of production.
+
+      > The type of energy or energy carrier (e.g., electricity, gas–including H2,
+         heat, or cooling).
+
+      > The identity, location, type and capacity of the installation where the
+         energy or energy carrier was produced.
+
+      > The date on which the installation became operational (i.e., starting
+         point of first electricity supply into grid).
+
+      > The date and country of issue and a unique identification number of
+         the EAC. (In other words, a proof of no double counting is required).
+
+      > The proof of renewability must ensure that double counting of the
+         renewable electricity is avoided. A respective proof of the unit using the
+         renewable energy must be provided during the audit.
+
+If those requirements are not fulfilled, or, in case the supplier specific EF is not
+available, or contracts are sold to a third party, the emission factors of the
+national/country electricity mix shall be used.
+
+3.2     Emissions from rigid inputs (ei rigid)
+Rigid inputs are classified as those supply that cannot be expanded to meet
+the demands. Rigid inputs include liquid or solid waste streams of non-
+renewable origin which are not suitable for material recovery or waste
+processing gas and exhaust gas of non-renewable origin. According to EU
+2023/1185, all inputs qualifying as a carbon source for the production of
+recycled carbon fuels are rigid, as well as outputs produced in fixed ratio by
+an incorporated process8 and which represent less than 10 % of the economic
+
+
+7
+  The primary source for official national and regional grid emission factors.
+8
+  Incorporated processes include processes that take place in the same industrial complex, or that supply the
+input via a dedicated supply infrastructure, or that supply more than half of the energy of all inputs to the
+production of the renewable liquid and gaseous transport fuel of non-biological origin or recycled carbon fuel.
+
+© ISCC System GmbH
+                                                                                           13
+
+
+
+
+                                                                                     ISCC PLUS GHG ADD-ON DOCUMENT
+value of the output. If it represents 10 % or more of the economic value, it shall
+be treated as elastic.
+
+The calculation emissions from rigid inputs shall include the emissions from
+the diversion of those inputs from a previous or alternative use. Loss of
+production of electricity, heat or products that were previously generated using
+the input, and any additional emissions originating to the additional treatment
+of the input and transport shall be included in calculation.
+
+Emissions from the supply of rigid inputs shall be determined by multiplying
+the lost production of electricity, heat of other material with the relevant
+emission factor.
+
+3.3   Emissions from existing use or fate (eex-use)
+These inputs include avoided emissions such as CO2 equivalent emissions
+that would have been emitted if the carbon incorporated in the chemical
+composition of the fuel would not have been used for fuel production. Inputs
+such as electricity, heat and consumable materials used in the process of
+capturing, transporting and storing CO2 should be accounted in the calculation.
+
+In case CO is used as an input, it should be considered any other input that
+has an energy content.
+
+3.4   Emissions from Processing (ep)
+
+It should include all direct atmospheric emissions originating from the
+processing including combustion, waste treatment and leakages. Hydrogen
+leakage is considered as an energy loss, with proportional increase of the
+emissions intensity. The use of processing inputs resulting in direct
+atmospheric emissions should be accounted for under emissions from
+processing.
+
+3.5   Emissions from Transport and Distribution (etd)
+This includes the emissions from storage and transport of the final fuels.
+Storage and transport related emissions of inputs shall be included in the
+emissions attributed to the inputs (ei).
+
+3.6   Emissions from Fuel in Use (eu)
+Emissions from the fuel in use refers to the total combustion emissions of the
+fuel in use. The greenhouse gases to be considered are CO2, N2O and CH4.
+
+If this approach is followed, this must be made clear for the downstream supply
+chain with an additional statement in the ISCC PLUS sustainability declaration,
+in the field “product(s) related information” in annex:
+
+“This GHG value, calculated based on the ISCC EU 205-1 methodology, does
+not account for the combustion emissions (eu) as the material is not designated
+to be used as fuel. If this product is to be used by the recipient for energetic
+
+© ISCC System GmbH
+                                                                                          14
+
+
+
+
+                                                                                    ISCC PLUS GHG ADD-ON DOCUMENT
+purposes (e.g. as fuel for transport, heating and cooling), it is mandatory to
+add the combustion emissions.”
+
+
+
+3.7   Emissions saving from carbon capture and geological storage
+      (eccs)
+
+If carbon emissions from the RFNBOs fuel production are permanently stored,
+these emissions can be considered as eccs. The requirements for the
+geological storage of CO2 should be in accordance with or equivalent to the
+Directive 2009/31/EC. However, emissions from storage and transport of CO2
+must be considered under ep.
+
+3.8   Life Cycle Coverage
+Under ISCC PLUS, the GHG emissions calculation can either cover the whole
+life cycle of the product (cradle-to-grave), or only the emissions up to the
+factory gate (cradle-to-gate).
+
+It must always be clearly highlighted on the Sustainability Declaration of the
+product if cradle-to-grave or cradle-to-gate approach is used. If required,
+further information on the additional emissions to be included for the product
+must be provided to the recipient of the material.
+
+If cradle-to-gate approach is applied for the product, emissions from fuel in use
+(eu) need not be considered for the emissions calculation. However, it should
+be noted that emissions for existing use or fate (eex-use) cannot be applied when
+omitting eu from calculation. Hence, eex-use can only be utilised when applying
+eu.
+
+
+
+
+© ISCC System GmbH
+

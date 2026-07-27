@@ -1,0 +1,251 @@
+- generic [ref=e2]:
+  - alert [ref=e1]
+  - region "0 notifications."
+  - generic [ref=e3]:
+    - navigation [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - link "Isometric Registry" [ref=e12] [cursor=pointer]:
+            - /url: /
+            - img [ref=e14]
+          - generic [ref=e27]:
+            - link "Registry" [ref=e28] [cursor=pointer]:
+              - /url: /
+            - link "Suppliers" [ref=e29] [cursor=pointer]:
+              - /url: /suppliers
+            - link "Protocols" [ref=e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - link "Account" [ref=e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=e36]: "|"
+          - button "Current user menu" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]: Menu
+            - img [ref=e39]
+    - main [ref=e41]:
+      - generic [ref=e43]:
+        - button "Collapse sidebar" [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+        - navigation "Breadcrumbs" [ref=e49]:
+          - list [ref=e51]:
+            - listitem [ref=e52]:
+              - link "All projects" [ref=e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=e54]: /
+            - listitem [ref=e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [ref=e57]: /
+            - listitem [ref=e58]:
+              - link "Removals" [ref=e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/removals
+              - generic [ref=e60]: /
+            - listitem [ref=e61]: rmv_1KQ0QGNBV1S0B315
+      - generic [ref=e62]:
+        - navigation [ref=e66]:
+          - generic [ref=e68]:
+            - link "Overview" [ref=e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=e70] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+          - generic [ref=e71]:
+            - generic [ref=e72]: Project setup
+            - generic [ref=e73]:
+              - link "General" [ref=e74] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=e76] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=e77] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=e78]:
+            - generic [ref=e79]: Carbon accounting
+            - generic [ref=e80]:
+              - link "LCA" [ref=e81] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=e83] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "Removal data" [ref=e84] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/removals
+          - link "Templates" [ref=e87] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=e89]:
+          - generic [ref=e91]:
+            - generic [ref=e92]:
+              - heading "Removal" [level=1] [ref=e93]
+              - button "Toggle timeline sidebar" [ref=e95] [cursor=pointer]:
+                - img [ref=e96]
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e100]: 9.38 tCO₂e
+                - generic [ref=e101]: "|"
+                - generic [ref=e102]: 21 Apr 2026
+                - generic [ref=e103]: "|"
+                - generic [ref=e104]: rmv_1KQ0QGNBV1S0B315
+              - button "Action menu" [ref=e106] [cursor=pointer]:
+                - img [ref=e107]
+          - generic [ref=e109]:
+            - tablist [ref=e112]:
+              - tab "Components" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]: Components
+              - tab "Calculation view" [active] [selected] [ref=e115] [cursor=pointer]:
+                - generic [ref=e116]: Calculation view
+              - tab "Datapoints" [ref=e117] [cursor=pointer]:
+                - generic [ref=e118]: Datapoints
+              - tab "Sources" [ref=e119] [cursor=pointer]:
+                - generic [ref=e120]: Sources
+            - tabpanel "Calculation view" [ref=e607]:
+              - generic [ref=e608]:
+                - generic [ref=e612]:
+                  - generic [ref=e613]:
+                    - generic [ref=e616]:
+                      - button "Net CO₂e Removed 9.378 t" [ref=e618]:
+                        - generic [ref=e619]:
+                          - generic [ref=e620]: Net CO₂e Removed
+                          - generic [ref=e621]: 9.378 t
+                        - img [ref=e623]
+                      - generic [ref=e628]:
+                        - button "Sequestrations 9.488 t" [ref=e631]:
+                          - generic [ref=e632]:
+                            - generic [ref=e633]: Sequestrations
+                            - generic [ref=e634]: 9.488 t
+                          - img [ref=e636]
+                        - generic [ref=e642]: +
+                        - button "Adjustments 747 kgCO₂e" [ref=e645]:
+                          - generic [ref=e646]:
+                            - generic [ref=e647]: Adjustments
+                            - generic [ref=e648]: 747 kgCO₂e
+                          - img [ref=e650]
+                        - generic [ref=e656]: "-"
+                        - button "Activities 818 kgCO₂e" [ref=e659]:
+                          - generic [ref=e660]:
+                            - generic [ref=e661]: Activities
+                            - generic [ref=e662]: 818 kgCO₂e
+                          - img [ref=e664]
+                        - generic [ref=e670]: "-"
+                        - generic [ref=e672]:
+                          - generic [ref=e673]: Uncertainty Discount
+                          - generic [ref=e674]: 39 kg
+                    - generic [ref=e676]:
+                      - button [ref=e678] [cursor=pointer]:
+                        - img [ref=e680]
+                      - button [ref=e683] [cursor=pointer]:
+                        - img [ref=e685]
+                  - button "View full screen" [ref=e688] [cursor=pointer]:
+                    - img [ref=e689]
+                    - text: View full screen
+                - generic [ref=e691]:
+                  - heading "Datapoints (6)" [level=2] [ref=e692]
+                  - grid "Data points" [ref=e695]:
+                    - rowgroup [ref=e696]:
+                      - row "Name Value Evidence Collection method Reference ID Sources" [ref=e697]:
+                        - columnheader "Name" [ref=e698]:
+                          - generic [ref=e699]: Name
+                        - columnheader "Value" [ref=e700]:
+                          - generic [ref=e701]: Value
+                        - columnheader "Evidence" [ref=e702]:
+                          - generic [ref=e703]: Evidence
+                        - columnheader "Collection method" [ref=e704]:
+                          - generic [ref=e705]: Collection method
+                        - columnheader "Reference ID" [ref=e706]:
+                          - generic [ref=e707]: Reference ID
+                        - columnheader "Sources" [ref=e708]:
+                          - generic [ref=e709]: Sources
+                    - rowgroup [ref=e710]:
+                      - row "Mass of Injectant (per injection)" [ref=e711]:
+                        - rowheader "Mass of Injectant (per injection)" [ref=e712]:
+                          - generic [ref=e713]: Mass of Injectant (per injection)
+                        - gridcell "4.619 t" [ref=e714]
+                        - gridcell "—" [ref=e715]
+                        - gridcell "Reported" [ref=e716]:
+                          - generic [ref=e720]: Reported
+                        - gridcell "mr_Io6sLMbHqJ399owa-out_pzjP8uBZAmYzHDZa-0" [ref=e721]:
+                          - generic [ref=e722]: mr_Io6sLMbHqJ399owa-out_pzjP8uBZAmYzHDZa-0
+                        - gridcell "K-002.xlsx" [ref=e723]:
+                          - link "K-002.xlsx" [ref=e725] [cursor=pointer]:
+                            - /url: "?tab=calculation-view&reference=ref_1KQ0PWNCM1S07NFW"
+                            - generic [ref=e726]:
+                              - img [ref=e727]
+                              - generic [ref=e729]: K-002.xlsx
+                      - row "Carbon Content of Bio-oil Injected (per injection)" [ref=e730]:
+                        - rowheader "Carbon Content of Bio-oil Injected (per injection)" [ref=e731]:
+                          - generic [ref=e732]: Carbon Content of Bio-oil Injected (per injection)
+                        - gridcell "56.01 %" [ref=e733]
+                        - gridcell "—" [ref=e734]
+                        - gridcell "Reported" [ref=e735]:
+                          - generic [ref=e739]: Reported
+                        - gridcell "mr_Io6sLMbHqJ399owa-out_JNKDs848ivTyzZqB-0" [ref=e740]:
+                          - generic [ref=e741]: mr_Io6sLMbHqJ399owa-out_JNKDs848ivTyzZqB-0
+                        - gridcell "2-192-2-198+Kc0005-Kc-0008.pdf + 1 more" [ref=e742]:
+                          - generic [ref=e743]:
+                            - link "2-192-2-198+Kc0005-Kc-0008.pdf" [ref=e744] [cursor=pointer]:
+                              - /url: "?tab=calculation-view&reference=ref_1KQ0PWKY41S0D7NC"
+                              - generic [ref=e745]:
+                                - img [ref=e746]
+                                - generic [ref=e748]: 2-192-2-198+Kc0005-Kc-0008.pdf
+                            - button "+ 1 more" [ref=e749] [cursor=pointer]
+                      - row "Allocated Kerry Oil Gross Mass" [ref=e750]:
+                        - rowheader "Allocated Kerry Oil Gross Mass" [ref=e751]:
+                          - generic [ref=e752]: Allocated Kerry Oil Gross Mass
+                        - gridcell "4.953 t" [ref=e753]
+                        - gridcell "—" [ref=e754]
+                        - gridcell "Reported" [ref=e755]:
+                          - generic [ref=e759]: Reported
+                        - gridcell "mr_KNDD2PdO2zZIlHYG-out_N7oknuIjLAOO5uF7-0" [ref=e760]:
+                          - generic [ref=e761]: mr_KNDD2PdO2zZIlHYG-out_N7oknuIjLAOO5uF7-0
+                        - gridcell "K-002.xlsx" [ref=e762]:
+                          - link "K-002.xlsx" [ref=e764] [cursor=pointer]:
+                            - /url: "?tab=calculation-view&reference=ref_1KQ0NBWVG1S0877K"
+                            - generic [ref=e765]:
+                              - img [ref=e766]
+                              - generic [ref=e768]: K-002.xlsx
+                      - row "Route Distance Kerry to Basco" [ref=e769]:
+                        - rowheader "Route Distance Kerry to Basco" [ref=e770]:
+                          - generic [ref=e771]: Route Distance Kerry to Basco
+                        - gridcell "1,090 mi" [ref=e772]
+                        - gridcell "—" [ref=e773]
+                        - gridcell "Reported" [ref=e774]:
+                          - generic [ref=e778]: Reported
+                        - gridcell "mr_KNDD2PdO2zZIlHYG-out_w1Wo3EP8oeSGUdQ4-0" [ref=e779]:
+                          - generic [ref=e780]: mr_KNDD2PdO2zZIlHYG-out_w1Wo3EP8oeSGUdQ4-0
+                        - gridcell "Kerry to Basco Distance.png" [ref=e781]:
+                          - link "Kerry to Basco Distance.png" [ref=e783] [cursor=pointer]:
+                            - /url: "?tab=calculation-view&reference=ref_1KQ0JTXR11S0TKYG"
+                            - generic [ref=e784]:
+                              - img [ref=e785]
+                              - generic [ref=e787]: Kerry to Basco Distance.png
+                      - row "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck" [ref=e788]:
+                        - rowheader "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck" [ref=e789]:
+                          - generic [ref=e790]: Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck
+                        - gridcell "0.09 kgCO₂e/(km⋅t)" [ref=e791]
+                        - gridcell "—" [ref=e792]
+                        - gridcell "Derived" [ref=e793]:
+                          - generic [ref=e797]: Derived
+                        - gridcell "mr_DvOOzW5AzJS60T3E-out_tq0M8FK8xnPbLf9r-0" [ref=e798]:
+                          - generic [ref=e799]: mr_DvOOzW5AzJS60T3E-out_tq0M8FK8xnPbLf9r-0
+                        - gridcell "GLEC NA Road Transport.png" [ref=e800]:
+                          - link "GLEC NA Road Transport.png" [ref=e802] [cursor=pointer]:
+                            - /url: "?tab=calculation-view&reference=ref_1KNHXHHCS1S04246"
+                            - generic [ref=e803]:
+                              - img [ref=e804]
+                              - generic [ref=e806]: GLEC NA Road Transport.png
+                      - row "Distance emission factor" [ref=e807]:
+                        - rowheader "Distance emission factor" [ref=e808]:
+                          - generic [ref=e809]: Distance emission factor
+                        - gridcell "0.0401 kgCO₂e/km" [ref=e810]
+                        - gridcell "—" [ref=e811]
+                        - gridcell "Reported" [ref=e812]:
+                          - generic [ref=e816]: Reported
+                        - gridcell "—" [ref=e817]
+                        - gridcell "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf" [ref=e818]:
+                          - link "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf" [ref=e820] [cursor=pointer]:
+                            - /url: "?tab=calculation-view&reference=ref_1KQ0QEDMG1S0J7G2"
+                            - generic [ref=e821]:
+                              - img [ref=e822]
+                              - generic [ref=e824]: Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf

@@ -1,0 +1,319 @@
+- generic [active] [ref=e1]:
+  - iframe [ref=e2]:
+    
+  - region
+  - generic [ref=e4]:
+    - navigation [ref=e5]:
+      - button "Skip to main content" [ref=e7] [cursor=pointer]:
+        - generic [ref=e9]: Skip to main content
+      - button "Keyboard shortcuts" [ref=e11] [cursor=pointer]:
+        - generic [ref=e13]: Keyboard shortcuts
+      - button "Accessibility feedback" [ref=e15] [cursor=pointer]:
+        - generic [ref=e17]: Accessibility feedback
+    - banner [ref=e19]:
+      - generic [ref=e20]:
+        - link "Drive" [ref=e24] [cursor=pointer]:
+          - /url: https://drive.google.com/?tab=oo&authuser=0
+          - img [ref=e25]
+          - generic [ref=e26]: Drive
+        - generic [ref=e27]:
+          - search [ref=e29]:
+            - table [ref=e31]:
+              - rowgroup [ref=e32]:
+                - row [ref=e33]:
+                  - cell [ref=e34]:
+                    - textbox "Get answers from Drive" [ref=e35]
+            - generic [ref=e584]:
+              - button "AI Overview search" [ref=e585] [cursor=pointer]:
+                - img [ref=e588]
+              - tooltip [ref=e591]: AI Overview search
+            - button "Advanced search" [ref=e37] [cursor=pointer]:
+              - img [ref=e38]
+            - button "Search Google Drive" [ref=e40] [cursor=pointer]:
+              - img [ref=e41]
+          - generic [ref=e43]:
+            - button "Support" [ref=e46] [cursor=pointer]:
+              - img [ref=e47]
+            - button "Settings" [ref=e51] [cursor=pointer]:
+              - img [ref=e53]
+            - generic [ref=e56]:
+              - button "Studio" [ref=e592] [cursor=pointer]:
+                - img [ref=e593]
+              - generic [ref=e59]:
+                - generic:
+                  - button "Ask Gemini" [ref=e62] [cursor=pointer]:
+                    - img [ref=e65]
+                  - tooltip [ref=e68]: Ask Gemini
+        - generic [ref=e70]:
+          - button "Google apps" [ref=e74] [cursor=pointer]:
+            - img [ref=e75]
+          - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=e78] [cursor=pointer]':
+            - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=e83]':
+              - img [ref=e85]
+    - button "New" [ref=e88] [cursor=pointer]:
+      - img [ref=e91]
+      - generic [ref=e93]: New
+    - navigation [ref=e99]:
+      - heading "Folders and views" [level=2] [ref=e100]
+      - tree "Folders and views" [ref=e101]:
+        - treeitem "Home" [ref=e102]:
+          - link "Home" [ref=e103] [cursor=pointer]:
+            - generic [ref=e106]:
+              - generic [ref=e108]:
+                - img [ref=e111]
+                - img [ref=e116]
+              - generic "Home" [ref=e121]
+          - group
+        - treeitem "Activity" [ref=e122]:
+          - link "Activity" [ref=e123] [cursor=pointer]:
+            - generic [ref=e126]:
+              - generic [ref=e128]:
+                - img [ref=e131]
+                - img [ref=e136]
+              - generic "Activity" [ref=e139]
+          - group
+        - treeitem "Projects" [ref=e140]:
+          - link "Projects" [ref=e141] [cursor=pointer]:
+            - generic [ref=e144]:
+              - generic [ref=e146]:
+                - img [ref=e148]
+                - img [ref=e151]
+              - generic "Projects" [ref=e153]
+          - group
+        - treeitem "Workspaces" [ref=e154]:
+          - link "Workspaces" [ref=e155] [cursor=pointer]:
+            - generic [ref=e158]:
+              - generic [ref=e160]:
+                - img [ref=e163]
+                - img [ref=e168]
+              - generic "Workspaces" [ref=e171]
+          - group
+        - treeitem "My Drive Collapsed" [ref=e172]:
+          - link "My Drive Collapsed" [ref=e173] [cursor=pointer]:
+            - img [ref=e176]
+            - generic [ref=e179]:
+              - generic [ref=e181]:
+                - img [ref=e184]
+                - img [ref=e189]
+              - generic "My Drive" [ref=e191]
+            - text: Collapsed
+        - treeitem "Shared drives Collapsed" [ref=e192]:
+          - link "Shared drives Collapsed" [ref=e193] [cursor=pointer]:
+            - img [ref=e196]
+            - generic [ref=e199]:
+              - generic [ref=e201]:
+                - img [ref=e204]
+                - img [ref=e208]
+              - generic "Shared drives" [ref=e215]
+            - text: Collapsed
+        - treeitem "Computers Collapsed" [ref=e216]:
+          - link "Computers Collapsed" [ref=e217] [cursor=pointer]:
+            - img [ref=e220]
+            - generic [ref=e223]:
+              - generic [ref=e225]:
+                - img [ref=e228]
+                - img [ref=e233]
+              - generic "Computers" [ref=e236]
+            - text: Collapsed
+        - treeitem "Items shared with me" [ref=e237]:
+          - link "Items shared with me" [ref=e238] [cursor=pointer]:
+            - generic [ref=e241]:
+              - generic [ref=e243]:
+                - img [ref=e246]
+                - img [ref=e251]
+              - generic "Items shared with me" [ref=e257]: Shared with me
+          - group
+        - treeitem "Recent items" [ref=e258]:
+          - link "Recent items" [ref=e259] [cursor=pointer]:
+            - generic [ref=e262]:
+              - generic [ref=e264]:
+                - img [ref=e267]
+                - img [ref=e273]
+              - generic "Recent items" [ref=e278]: Recent
+          - group
+        - treeitem "Starred items" [ref=e279]:
+          - link "Starred items" [ref=e280] [cursor=pointer]:
+            - generic [ref=e283]:
+              - generic [ref=e285]:
+                - img [ref=e287]
+                - img [ref=e290]
+              - generic "Starred items" [ref=e294]: Starred
+          - group
+        - treeitem "Spam" [ref=e295]:
+          - link "Spam" [ref=e296] [cursor=pointer]:
+            - generic [ref=e299]:
+              - generic [ref=e301]:
+                - img [ref=e304]
+                - img [ref=e308]
+              - generic "Spam" [ref=e313]
+          - group
+        - treeitem "Trashed items" [ref=e314]:
+          - link "Trashed items" [ref=e315] [cursor=pointer]:
+            - generic [ref=e318]:
+              - generic [ref=e320]:
+                - img [ref=e323]
+                - img [ref=e328]
+              - generic "Trashed items" [ref=e333]: Trash
+          - group
+        - treeitem "Storage" [ref=e334]:
+          - link "Storage" [ref=e335] [cursor=pointer]:
+            - generic [ref=e338]:
+              - generic [ref=e340]:
+                - img [ref=e718]
+                - img [ref=e721]
+              - generic "Storage" [ref=e351]
+          - group
+      - progressbar "26.61 GB used" [ref=e354]:
+        - generic [ref=e355]: 26.61 GB used
+    - generic [ref=e358]:
+      - generic [ref=e725]:
+        - generic [ref=e728]:
+          - generic [ref=e730]:
+            - navigation [ref=e732]:
+              - heading "Folder Path" [ref=e733]
+              - list "Folder Path" [ref=e734]:
+                - listitem [ref=e735]:
+                  - button "Show Path" [ref=e736] [cursor=pointer]:
+                    - img [ref=e738]
+                  - img [ref=e741]
+                - listitem [ref=e743]:
+                  - link "2-199" [ref=e744] [cursor=pointer]
+                  - img [ref=e745]
+                - listitem [ref=e747]:
+                  - button "Scale Tickets" [ref=e748] [cursor=pointer]:
+                    - generic [ref=e749]: Scale Tickets
+                    - img [ref=e751]
+            - button "Shared" [ref=e754] [cursor=pointer]:
+              - img [ref=e756]
+          - toolbar [ref=e758]:
+            - generic [ref=e759]:
+              - radiogroup "List or Grid layout (⌥V then L)" [ref=e763]:
+                - generic [ref=e764]:
+                  - radio "List" [checked] [ref=e765] [cursor=pointer]:
+                    - generic [ref=e766]:
+                      - img [ref=e767]
+                      - img [ref=e771]
+                  - radio "Grid" [ref=e774] [cursor=pointer]:
+                    - generic [ref=e775]:
+                      - img [ref=e776]
+                      - img [ref=e780]
+              - button "View details (⌥V then D)" [ref=e783] [cursor=pointer]:
+                - img [ref=e785]
+        - generic [ref=e789]:
+          - generic [ref=e794]:
+            - button "Ask Gemini" [ref=e797]:
+              - img [ref=e798]
+              - text: Ask Gemini
+            - generic [ref=e800]: Summarize, analyze, and get up to speed with files in this folder.
+          - generic [ref=e802]:
+            - toolbar [ref=e804]:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - button "Suggest file moves" [disabled]:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - img
+                        - generic: Suggest file moves
+                      - tooltip: Available only for private folders
+            - generic [ref=e806]: No filters applied
+            - toolbar "Filters" [ref=e808]:
+              - generic [ref=e810]:
+                - button "Type" [ref=e811] [cursor=pointer]:
+                  - generic [ref=e812]:
+                    - generic [ref=e813]: Type
+                    - img [ref=e815]
+                - button "People" [ref=e817] [cursor=pointer]:
+                  - generic [ref=e818]:
+                    - generic [ref=e819]: People
+                    - img [ref=e821]
+                - button "Modified" [ref=e823] [cursor=pointer]:
+                  - generic [ref=e824]:
+                    - generic [ref=e825]: Modified
+                    - img [ref=e827]
+                - button "Source" [ref=e829] [cursor=pointer]:
+                  - generic [ref=e830]:
+                    - generic [ref=e831]: Source
+                    - img [ref=e833]
+      - main [ref=e835]:
+        - region [ref=e841]:
+          - grid "Item List" [ref=e845]:
+            - rowgroup [ref=e846]:
+              - generic [ref=e847] [cursor=pointer]: Name
+              - img [ref=e849] [cursor=pointer]
+              - text: Owner
+              - generic [ref=e851] [cursor=pointer]: Date modified
+              - text: File size
+              - generic [ref=e857]:
+                - button "Sort" [ref=e858] [cursor=pointer]:
+                  - img [ref=e860]
+                - tooltip [ref=e863]: View sort options
+            - rowgroup [ref=e864]:
+              - 'row "2-199 Full Scale Ticket.jpg Image Shared Owned by Garrett Lutz Modified Apr 30 Garrett Lutz Size: 499 KB Storage used: 499 KB More actions (Alt+A)" [ref=e865]':
+                - gridcell "2-199 Full Scale Ticket.jpg Image Shared" [ref=e866]:
+                  - generic [ref=e868]:
+                    - img [ref=e874]
+                    - generic "2-199 Full Scale Ticket.jpg Image Shared" [ref=e877]:
+                      - strong [ref=e880]: 2-199 Full Scale Ticket.jpg
+                      - img "Shared" [ref=e882]:
+                        - img [ref=e883]
+                        - generic [ref=e886]: Shared
+                - gridcell "Owned by Garrett Lutz" [ref=e887]:
+                  - button "Owned by Garrett Lutz" [ref=e890]:
+                    - generic "Owned by Garrett Lutz" [ref=e891]:
+                      - img [ref=e893]
+                      - generic [ref=e894]: Garrett Lutz
+                - gridcell "Modified Apr 30 Garrett Lutz" [ref=e895]:
+                  - generic "Modified Apr 30 Garrett Lutz" [ref=e899]:
+                    - generic [ref=e900]: Apr 30
+                - 'gridcell "Size: 499 KB Storage used: 499 KB" [ref=e901]':
+                  - 'generic "Size: 499 KB Storage used: 499 KB" [ref=e905]':
+                    - generic [ref=e906]: 499 KB
+                - gridcell "More actions (Alt+A)" [ref=e907]:
+                  - generic [ref=e911]:
+                    - button "More actions (Alt+A)" [ref=e912] [cursor=pointer]:
+                      - img [ref=e915]
+                    - tooltip [ref=e918]: More actions (Alt+A)
+              - 'row "2-199 Empty Ticket.png Image Shared Owned by Garrett Lutz Modified Apr 30 Garrett Lutz Size: 493 KB Storage used: 493 KB More actions (Alt+A)" [ref=e919]':
+                - gridcell "2-199 Empty Ticket.png Image Shared" [ref=e920]:
+                  - generic [ref=e922]:
+                    - img [ref=e928]
+                    - generic "2-199 Empty Ticket.png Image Shared" [ref=e931]:
+                      - strong [ref=e934]: 2-199 Empty Ticket.png
+                      - img "Shared" [ref=e936]:
+                        - img [ref=e937]
+                        - generic [ref=e940]: Shared
+                - gridcell "Owned by Garrett Lutz" [ref=e941]:
+                  - button "Owned by Garrett Lutz" [ref=e944]:
+                    - generic "Owned by Garrett Lutz" [ref=e945]:
+                      - img [ref=e947]
+                      - generic [ref=e948]: Garrett Lutz
+                - gridcell "Modified Apr 30 Garrett Lutz" [ref=e949]:
+                  - generic "Modified Apr 30 Garrett Lutz" [ref=e953]:
+                    - generic [ref=e954]: Apr 30
+                - 'gridcell "Size: 493 KB Storage used: 493 KB" [ref=e955]':
+                  - 'generic "Size: 493 KB Storage used: 493 KB" [ref=e959]':
+                    - generic [ref=e960]: 493 KB
+                - gridcell "More actions (Alt+A)" [ref=e961]:
+                  - generic [ref=e965]:
+                    - button "More actions (Alt+A)" [ref=e966] [cursor=pointer]:
+                      - img [ref=e969]
+                    - tooltip [ref=e972]: More actions (Alt+A)
+      - generic:
+        - navigation
+    - generic [ref=e566]:
+      - generic:
+        - button "Show side panel":
+          - img [ref=e568] [cursor=pointer]
+  - generic [ref=e973]:
+    - generic [ref=e974]:
+      - generic [ref=e975]: Get notifications on your desktop for shared files and important events
+      - button "Turn on" [ref=e976] [cursor=pointer]
+    - button "Dismiss" [ref=e977] [cursor=pointer]:
+      - img [ref=e978]
+  - region
+  - img [ref=e580]
+  - tooltip "2-199 Empty Ticket.png Image":
+    - generic: 2-199 Empty Ticket.png Image

@@ -74,7 +74,19 @@ Don't start at paragraph 1. Build the outline first and confirm with Max if the 
 | Conference reportback | Header → Purpose → Key Takeaways (numbered, substantive) → Action Items for Charm → Open Questions |
 | Onboarding doc | Header → Purpose → Required Documents Checklist → Sample Documents / Templates → Process Steps → Contacts |
 
-## Step 3: Compose
+## Step 3: Build a Quote Inventory (Required Before Drafting)
+
+Before writing a single sentence of substantive content:
+
+1. **Read every source document fully.** For files longer than 2,000 lines, use the Read tool's `offset` and `limit` parameters to page through the entire document. Do not rely on the default truncation — claims about content you never read are indistinguishable from fabrication.
+
+2. **Extract verbatim passages into a staging file.** For each section planned in the outline, pull every relevant passage word-for-word from the source. Record the source file name and section or page reference alongside each extract. A plain text file at `/tmp/quote_inventory_<briefname>.txt` works.
+
+3. **Draft exclusively from the inventory.** Every factual claim about what a document says, requires, permits, or establishes must trace to a specific entry in the inventory. If a claim isn't backed by an extracted passage, return to the source and extract it — do not draft from memory or inference. "I believe the protocol says X" is not a basis for writing "the protocol says X."
+
+This step makes paraphrase-as-citation structurally impossible within scope. The citation hooks enforce that quotes trace to opened sources; this step ensures every claim is built from quotes in the first place, not reconstructed afterward.
+
+## Step 4: Compose
 
 Write each section using the knowledge base for grounding. Specific guidance:
 
@@ -98,7 +110,7 @@ Write each section using the knowledge base for grounding. Specific guidance:
 - Match the deadline and the audience's tolerance. A QBR for an executive-level audience is 3-5 pages. A protocol change proposal needs more — 5-10 pages with technical detail. A guidance request can be 2-4 pages.
 - If Max said "1-pager," respect it. If he said "comprehensive," err long but stay focused.
 
-## Step 4: Use the docx Skill
+## Step 5: Use the docx Skill
 
 Don't write `.docx` files with raw `python-docx` from scratch. Invoke the docx skill (it knows the formatting conventions, header styles, page numbers, table formatting, etc.). Read its SKILL.md before producing the final document.
 
@@ -110,7 +122,7 @@ For most briefs, the document needs:
 - Quoted blocks when citing protocol language verbatim
 - Proper paragraph spacing (avoid the python-docx default which is too tight)
 
-## Step 5: Save to the Right Folder
+## Step 6: Save to the Right Folder
 
 Save the finished `.docx` based on audience:
 
@@ -130,7 +142,7 @@ Save the finished `.docx` based on audience:
 
 **If `outputs/deliverables/<audience>/` doesn't exist for the chosen audience, create it.** Then update FOLDER_INDEX.md and README.txt to reflect the new audience subfolder.
 
-## Step 6: Deliver and Summarize
+## Step 7: Deliver and Summarize
 
 Provide Max with:
 
@@ -141,11 +153,84 @@ Provide Max with:
 
 Don't write a long postamble. Max can read the document himself.
 
+## Compliance Language Discipline
+
+These briefs go to verifiers, regulators, and standard-setters. Treat them as compliance documents, not essays. Two rules govern composition.
+
+**Intensity by genre.** The rules apply hardest to *compliance-adjacent* genres — formal responses, position papers, guidance requests, protocol change proposals. Briefly less so to QBRs and internal docs, which are partnership/relational and accommodate softer framing. When in doubt, default to stricter. Re-read before sending and cut anything that fails the audit pass below.
+
+**1. Answer the question. Do not volunteer.** Address the specific issue, completely and accurately. Do not add adjacent context, comparative framing, operational color, editorial reach, or relationship throat-clearing. Each unrequested fact is a future stick verifiers can use to question scope, consistency, or coverage.
+
+Concrete patterns to watch for, with examples drawn from prior Charm briefs:
+
+- **Editorial pivots flagged by their own opener.** "It is also worth noting that one month is an unusually short tenure for a CI…" (Decoupling response §3). The phrase "It is also worth noting" announces "I am about to volunteer." Cut the phrase; cut the sentence if it does not directly advance the position.
+- **Relationship throat-clearing in compliance docs.** "We value our relationship with Isometric and want to continue crediting with this program. But we also have an obligation to our stakeholders to flag requirements that create material commercial disadvantage…" (Biochar Position Brief). Frames the speaker, not the issue. Cut.
+- **Meta-framing.** "We raise these issues not as abstract protocol feedback but as a concrete assessment of commercial viability." (Biochar Position Brief). Tells the reader what kind of document they are reading. The reader already knows. Cut.
+- **Restating the section just made.** "In sum, Colorado's policy environment manifestly supports private-land fuels reduction through statutory programs, state agency oversight, statewide planning, and both direct and indirect technical assistance and guidance." (Forest Biomass §3 closer, after a bulleted list that already said this). Cut.
+- **Paired arguments where one suffices.** Reaching the same conclusion through a second route ("In addition to the protocol adoption timing rules in Section 1, Charm's position is that…", Biochar v1.2 Review §2.2) doubles the audit surface without strengthening the position. Pick the stronger argument and stand on it.
+- **Comparative framing nobody asked for.** "The simpler alternative — single-weighing at origin — would be operationally easier but methodologically weaker." Charm was not asked what Charm could have done. State what Charm does.
+- **Editorial reach.** "This is state management of the treatment activity, not merely state encouragement" / "we believe the protocol benefits from this choice." Adjective-driven assertion without added evidence. Cut or replace with a citation.
+- **Closing concessions that contradict the body.** "We're open to adding flagged-case tracking in each MR…" Each accreted offer makes the program unworkable. See `feedback_no_preemptive_concessions.md` in memory.
+- **Closing throat-clearing.** "Looking forward to your response." / "Happy to jump on a call if that's faster than email. Looking forward to your response." (BSSE Pre-Confirm closing). Pick one closing line, not two. Often pick zero.
+
+**2. Omit needless words.** Strunk & White. Human readers' attention is finite and inelastic; verifiers and regulators read carefully but read fast. The more prolix the prose, the more likely the meaning is lost or misread. Specifically:
+
+- **Cut intensifiers and meta-language**: "It should be noted that," "It is worth observing," "Importantly," "Notably," "More fundamentally," "In sum," "manifestly," "fundamentally," "genuinely."
+- **Cut paired explanations.** "This is not a minor operational inconvenience; it fundamentally breaks the supply chain for this end use." (Biochar Position Brief). Pick one; the second clause is a softer restatement of the first.
+- **Replace abstract-noun stacks with verbs.** "makes a determination" → "determines"; "creates the illusion of missed deliverables" → "produces apparent missed deliverables."
+- **Compress executive summaries.** "This brief outlines key topics for discussion at the upcoming Quarterly Business Review between Charm Industrial and Isometric. It covers areas of strong performance to build upon and areas where operational friction has created challenges we believe can be addressed through adjusted processes. This brief is intended to frame a productive, solutions-oriented conversation." (QBR Q2 2026, three sentences) → "This brief covers Q2 partnership wins and friction points for discussion at the upcoming QBR." (one).
+- **One claim per sentence; one argument per paragraph.** A "more fundamentally" pivot signals the paragraph wants to be two.
+
+**Audit pass before saving.** Read each paragraph and ask: (a) was this asked for, and (b) what breaks if I cut it. If nothing breaks, cut. Re-read the closing paragraph against the body — if it concedes something the body argued against, or repeats what the body already said, fix or cut.
+
+## Internal / Collegial Voice (Slack DMs and Internal Briefs)
+
+The compliance rules above govern documents going to verifiers, regulators, and standard-setters. **Internal communication is a different register and the rules invert in several important ways.** When ghostwriting Slack DMs to Charm peers (Sebastian, Brian, Aaron, Harris, Garrett, Tom Thomson, Joe Polin, etc.) or drafting internal Charm briefs that will *not* be forwarded externally, calibrate to Max's peer-to-peer voice. Confusing these registers is a worse error than getting either one slightly wrong.
+
+**The deciding question is the document's destination, not its first reader.** A Tom-pre-screen of a 350Solutions position paper is a compliance doc — the body lives or dies under verifier scrutiny. A Slack DM to Sebastian about commercial framing for AZ is a collegial doc — even though the topic is technical.
+
+**Voice signatures (from Max's real Slack history):**
+
+- **Spoken-register language.** Contractions, "tbh," "IDK," "ya/ya'll," "honestly," "gonna," "kinda." Light slang lands naturally in Max's voice; absence of it reads stilted.
+- **Visible hedging on his own knowledge.** "I think," "to my knowledge, no one's measured X," "likely need a partition study," "honestly hasn't come up high enough on the priority ladder for me to fix." Hedging is *more*, not less, than in compliance docs — peers are smart and Max defers to their domain expertise.
+- **Acknowledgment before delivery of bad news.** "Ugh, that's a bummer" → then "Unfortunately the policy is pretty clear" → then the substance. Soften before naming the constraint; don't pretend the constraint isn't real.
+- **Short, fragmented sends.** Slack-native: 2–4 short messages instead of one paragraph. "So production process = AECN / You've defined a robust dataset for that / These are clear outliers by that definition / So the rest follows from there." Don't pack a thesis into one message — break it.
+- **Genuine warmth, light humor, pop-culture references.** "Ya'll are the best." "Sickness. I'll prio QA today." "Look who's back!" Humor is organic, never labored. If a joke doesn't surface naturally, skip it.
+- **Returning agency to the recipient.** "Loom-able, or synchronous meet?" (offering a choice) beats "Want to chat?" "Happy to chat before then as well if helpful" beats "We should sync." The peer owns their work; Max is offering, not requisitioning.
+- **No throat-clearing, no formal section structure.** Slack messages don't open with "I wanted to circle back…" or close with "Looking forward to your response." They start with the substance and stop when the substance is delivered.
+
+**The five tonal moves for peer DMs** (canonical, from `feedback_peer_slack_tone.md` in memory):
+
+1. Add epistemic hedges ("This isn't exhaustive, just what I've come up with on some reflection").
+2. Cut implied accusations — phrases that quietly suggest the recipient was being incautious or sleepwalking. Strip them.
+3. Reference shared prior work ("following up on our DM," "concerns we discussed") to frame the message as continuation, not unilateral correction.
+4. Return agency ("before you meet with AZ on Friday," "happy to chat if helpful").
+5. Convert closed observations to research questions where possible ("it'd be good to have a better idea of how/where/when we can reliably apply").
+
+**Canonical example: Sebastian biodigester DM (May 5, 2026).** Max needed to flag three scientific/operational unknowns blocking a CDR claim on AD-routed char. The compliance-register version would have read as MRV erecting guardrails. The collegial-register version that Max actually sent opened with "Following up on our DM from a couple weeks back," hedged liberally ("This isn't exhaustive, but just the things I've been able to come up with on some reflection"; "To my knowledge, no one's measured…"; "Likely need a partition study"), converted concerns into research questions ("it'd be good to have a better idea of how/where/when we can reliably apply and how to qualify it w Iso"), referenced shared work ("concerns we discussed before you meet with AZ on Friday"), and closed by returning agency ("Happy to chat before then as well if helpful"). Same substance; entirely different relational read.
+
+**What does NOT belong in collegial-register writing:**
+
+- Numbered "Position" or "Charm's Position" headers. Internal docs argue with the reader, not at them.
+- Citations to protocol section numbers and equation IDs. Use them when relevant, but don't structure the document around them.
+- Formal closings ("Max Lavine, Carbon Protocol and Verification Lead").
+- Restating the obvious to a peer who already has the context. Trust the reader.
+
+**What does NOT belong in compliance-register writing (and so does NOT carry over from this section):**
+
+- "tbh," "ya'll," "honestly," contractions in formal docs.
+- Visible "I think" / "I'm not sure" hedges on Charm's stated position. Compliance docs assert; collegial docs explore.
+- Acknowledgment-then-delivery sequencing for bad news ("Ugh, that's a bummer"). Compliance docs name the issue directly.
+- Light humor or pop-culture references.
+
+**Audit pass for internal docs.** Read it back and ask: would Max actually send this in Slack? If the answer is "the substance yes, but the voice is too formal," cut formality (drop "I would like to," contract verbs, add an epistemic hedge or two). If the answer is "this reads as a peer working through a problem together," it's calibrated.
+
 ## Quality Bar
 
 - **Specificity over hedging.** "30+ verified batches across six reporting periods since August 2025" beats "many successful batches over the past year."
 - **Citations land.** Every protocol claim should reference a specific section. Every Charm operational claim should be traceable to source data.
 - **No throat-clearing.** Cut phrases like "It is important to note that," "It should be observed that," "We would like to highlight." Get to the point.
+- **Economy over completeness.** A two-page brief that holds the line beats a four-page brief that volunteers context. Length is not credibility.
 - **Format consistency.** Headings follow a clear hierarchy. Paragraph spacing is consistent. Tables are aligned. Numbered lists don't break style.
 - **No fabrication.** If the knowledge base doesn't support a claim, don't make it. Tell Max what's missing instead.
 

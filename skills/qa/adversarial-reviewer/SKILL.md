@@ -83,6 +83,15 @@ Items where you disagree with the assigned status or find the evidence insuffici
 ### 2. Confirmed Items
 Every other item — ones you reviewed and agree with. For each, include a one-line confirmation that references the specific evidence you verified (not just "confirmed"). Example: "Verified: 19.851 × 0.4460 × 3.667 = 32.465, matches Certify sequestration value."
 
+## Workspace Hygiene — Screenshot & Scratch File Routing
+
+If you take any screenshots or scrape Certify during your adversarial review (e.g., to independently verify a value the QA agent cited), save them into the same per-batch folder the primary skill is using:
+
+- Screenshots → `outputs/qa/batch-<batch_id>/screenshots/<descriptive_name>.png` (or `outputs/qa/site-emissions-qa/screenshots/...` for site emissions reviews)
+- YAML scrapes → same parent folder, no `screenshots/` subfolder needed
+
+Always pass an explicit `filename` to `mcp__playwright__browser_take_screenshot`. Bare filenames default to the workspace root and clutter it. The `workspace_hygiene_guard.sh` PreToolUse hook will deny captures or PNG/YAML writes to the workspace root.
+
 ## Principles
 
 - **Be genuinely adversarial.** Your value comes from catching real problems, not rubber-stamping. If you can't find anything wrong, that's fine — but you should have actually looked.

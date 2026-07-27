@@ -1,0 +1,130 @@
+{
+  "active_batches": [
+    {
+      "batch_id": "INJ-06-2026-W1",
+      "oil_type": "WODO",
+      "production_periods": [
+        "November 2025 PP",
+        "December 2025 PP",
+        "January 2026 PP"
+      ],
+      "reporting_period": "2026-05-30 to 2026-06-06",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KTYCVNBK1S06J71/edit",
+      "certify_removal_id": "rmv_1KTYCVNBK1S06J71",
+      "checklist_path": "outputs/qa/batch-INJ-06-2026-W1-WODO/Charm_WODO_QA_Checklist_INJ-06-2026-W1.xlsx",
+      "lcs_use_kg": null,
+      "slack_channel": "D08KEFVRJDP",
+      "thread_ts": "1782425991.371049",
+      "status": "re_reviewed_clean_closed",
+      "fail_items": [],
+      "flag_items": [],
+      "status_counts": {
+        "pass": 31,
+        "flag": 0,
+        "fail": 0,
+        "na": 1
+      },
+      "T_re_review_complete": "2026-06-25T21:20:00Z",
+      "re_review_2026_06_25": "Garrett uploaded the batch Ops Notes to the WODO Certify entry and linked it to Mass of Injectant, Carbon Content (alongside lab CoA), Transport Process Mass of Load, WODO Tote Carbon Intensity, WODO Tote Mass (pyrolysis), and Aggregate Distance; the weak 'Charm Inv Bulk Upload March.csv' was removed. Verified LIVE: sources 5 -> 10. All 5 evidence FAILs (4.2/5.4/6.3/7.3/7.6) cleared. Net unchanged 8.12 t. WODO required-evidence matrix defined + registered in audit_attachments.MATRICES; attachment gate + full audit return 0. Standing flags unchanged: 7.1 (3 PPs in one PE component), 7.5 (no PE-mass uncertainty), 8.1 (transport-process diesel 1.954 t with NO BCU offset \u2014 verified live, none added; unlike the AECN W1 entry).",
+      "dropped_findings_2026_06_25": "7.1 (3 PPs in one PE component) DROPPED to Pass: no primary source requires one Certify component per production period. Aggregated component uses a production-mass-weighted blended CI (0.96874) that reconciles exactly to the per-PP sum (10831.49 kg); all 3 PPs captured. The 'one component per PP' rule existed only in the skill's own (unvalidated) scaffolding. | 7.5 and 8.1 also reclassified after reading Bio-oil Geological Storage v1.2: \u00a76.5 permits omitting uncertainty for inputs <1% of net (PE-mass unc = 0.135% of net) -> 7.5 Pass; protocol \u00a78 net-CDR has no reductions/BCU term and no BCU is applied -> 8.1 N/A. Clean batch: 30 Pass / 0 Flag / 2 N/A. All statuses traced to primary sources.",
+      "correction_2026_06_25_max": "Max corrected my over-drop: (1) 7.1 1:1 PP:component rule was MADE UP (correctly dropped, skill fixed). (2) 8.1 BCU rule is REAL and Max-stated (all diesel transport-process must be BCU-offset) \u2014 restored to FAIL, was wrongly N/A. (3) 7.5 - pyrolysis is 133% of net, NOT a <1% input; \u00a76.5 carve-out does not apply; restored to FLAG (uncertainty required+missing). Skill docs + lessons_learned (FC-C11, FC-C12) updated for KB accuracy.",
+      "garrett_user_id": "U08JW9HQG5B",
+      "max_approved_garrett_delivery": true,
+      "T_garrett_notified": "2026-06-25T21:39:51Z",
+      "net_co2e_t_final": 10.08,
+      "T_garrett_complete": "2026-06-26T07:16:34 PDT",
+      "garrett_fix_verified_2026_06_26": "BCU - Transport Process 1.954 t added (8.1 cleared; net 8.12 -> 10.08 t); pyrolysis PE mass uncertainty +/-11.34 kg added (7.5 cleared). Both verified live. Batch clean."
+    },
+    {
+      "batch_id": "INJ-06-2026-W2",
+      "oil_type": "WODO",
+      "production_periods": [
+        "April 2026 (12 totes, CI 0.9611)",
+        "March 2026 (2 totes 301058/301066, CI 0.7900)"
+      ],
+      "reporting_period": "2026-06-06 to 2026-06-13",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KWA81DXY1S0C98P/edit",
+      "certify_removal_id": "rmv_1KWA81DXY1S0C98P",
+      "checklist_path": "outputs/qa/batch-INJ-06-2026-W2-WODO/Charm_WODO_QA_Checklist_INJ-06-2026-W2.xlsx",
+      "lcs_use_kg": null,
+      "slack_channel": "D08KEFVRJDP",
+      "status": "awaiting_garrett",
+      "status_counts": {
+        "pass": 18,
+        "flag": 3,
+        "fail": 10,
+        "na": 1
+      },
+      "fail_items": [
+        "1.1 no WODO CoA",
+        "4.1 C% unevidenced (45% placeholder)",
+        "4.2 C% no source",
+        "4.4 C% no uncertainty",
+        "5.4 mass-of-load no source",
+        "6.2 embodied uses 1201 mi not 989.06",
+        "6.3 distance evidence incomplete",
+        "7.3 CI no source",
+        "7.5 pyrolysis mass no uncertainty",
+        "7.6 mass evidenced by weak Charm Inv Bulk csv"
+      ],
+      "flag_items": [
+        "3.2/3.5 roster PP placeholder (301058/301066 April vs March)",
+        "5.3 transport mass-of-load datapoint mislabeled QOWV/Net/CO-to-KS"
+      ],
+      "net_co2e_t": 10.664,
+      "T0": "2026-06-30T21:14:53 PDT",
+      "T_qa_complete": "2026-06-30T21:43:48Z",
+      "garrett_user_id": "U08JW9HQG5B",
+      "note": "WODO removal in pre-evidence-linking state (5 sources, no Ops Notes/CoA/Charm Contents linked) \u2014 same pattern as W1 pre-fix. PLUS no WODO CHN this week (45% C placeholder) and embodied distance not allocated. BCU present (8.1 PASS, unlike W1 initial).",
+      "thread_ts": "1782856907.043059",
+      "max_approved_garrett_delivery": true,
+      "T_max_approved": "2026-06-30T22:01:19Z",
+      "T_garrett_notified": "2026-06-30T22:01:47Z"
+    },
+    {
+      "batch_id": "INJ-06-2026-W2-QOWV",
+      "oil_type": "Aqueous (QOWV)",
+      "production_periods": [
+        "PP#7",
+        "PP#8",
+        "October 2025"
+      ],
+      "reporting_period": "injection week 2026-06-06 to 2026-06-13 (Certify removal labeled 20-27 Jun 2026)",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KWD37FMY1S035RD/edit",
+      "certify_removal_id": "rmv_1KWD37FMY1S035RD",
+      "checklist_path": "outputs/qa/batch-QOWV-Aqueous/Charm_QOWV_QA_Checklist_INJ-06-2026-W2.xlsx",
+      "lcs_use_kg": null,
+      "slack_channel": "D08KEFVRJDP",
+      "status": "awaiting_garrett",
+      "status_counts": {
+        "pass": 19,
+        "flag": 0,
+        "fail": 13,
+        "na": 1
+      },
+      "fail_items": [
+        "4.2 C-content not evidenced",
+        "4.4 C-content 0.4% uncertainty missing",
+        "4.5 seq mass 30,683 vs MOBI 31,437",
+        "5.1 tanker vs flatbed process EF",
+        "5.3 transport mass 36,590 vs 37,833",
+        "5.4 mass of load not evidenced",
+        "6.1 tanker vs non-tanker embodied EF",
+        "6.2 embodied distance 2,402 vs allocation 1,218.16",
+        "6.3 distance not evidenced (only route map)",
+        "7.2 CI 0.118615 vs 0.124740",
+        "7.3 CI not evidenced",
+        "7.4 pyrolysis mass 34,516 vs 35,759.40",
+        "7.6 mass not evidenced"
+      ],
+      "flag_items": [],
+      "garrett_user_id": "U08JW9HQG5B",
+      "max_approved_garrett_delivery": true,
+      "T0": "2026-06-30T21:17:17Z",
+      "T_max_approved": "2026-06-30T22:00:56Z",
+      "thread_ts": "1782856902.408099",
+      "T_garrett_notified": "2026-06-30T22:01:42Z"
+    }
+  ],
+  "_schema_note": "Each active Charm WODO/Aqueous batch entry follows the same shape as qa_active_batches.json (AECN) and qa_active_kerry_batches.json (Kerry). Charm-specific fields: oil_type ('WODO' or 'Aqueous'), production_periods (array of PP identifiers), lcs_use_kg (Aqueous only; null if not used). Standard fields: batch_id, checklist_path, certify_url, reporting_period, slack_channel, thread_ts, status ('awaiting_garrett' or 'closed'), fail_items, flag_items."
+}

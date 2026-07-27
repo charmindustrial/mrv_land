@@ -1,0 +1,236 @@
+- generic [ref=e2]:
+  - alert [ref=e1]
+  - region "0 notifications."
+  - generic [ref=e3]:
+    - navigation [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - link "Isometric Registry" [ref=e12] [cursor=pointer]:
+            - /url: /
+            - img [ref=e14]
+          - generic [ref=e27]:
+            - link "Registry" [ref=e28] [cursor=pointer]:
+              - /url: /
+            - link "Suppliers" [ref=e29] [cursor=pointer]:
+              - /url: /suppliers
+            - link "Protocols" [ref=e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - link "Account" [ref=e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=e36]: "|"
+          - button "Current user menu" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]: Menu
+            - img [ref=e39]
+    - main [ref=e41]:
+      - generic [ref=e43]:
+        - button "Collapse sidebar" [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+        - navigation "Breadcrumbs" [ref=e49]:
+          - list [ref=e51]:
+            - listitem [ref=e52]:
+              - link "All projects" [ref=e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=e54]: /
+            - listitem [ref=e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [ref=e57]: /
+            - listitem [ref=e58]:
+              - link "Removals" [ref=e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/removals
+              - generic [ref=e60]: /
+            - listitem [ref=e61]: rmv_1KQ0QGNBV1S0B315
+      - generic [ref=e62]:
+        - navigation [ref=e66]:
+          - generic [ref=e68]:
+            - link "Overview" [ref=e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=e70] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+          - generic [ref=e71]:
+            - generic [ref=e72]: Project setup
+            - generic [ref=e73]:
+              - link "General" [ref=e74] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=e76] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=e77] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=e78]:
+            - generic [ref=e79]: Carbon accounting
+            - generic [ref=e80]:
+              - link "LCA" [ref=e81] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=e83] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "Removal data" [ref=e84] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/removals
+          - link "Templates" [ref=e87] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=e89]:
+          - generic [ref=e91]:
+            - generic [ref=e92]:
+              - heading "Removal" [level=1] [ref=e93]
+              - button "Toggle timeline sidebar" [ref=e95] [cursor=pointer]:
+                - img [ref=e96]
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e100]: 9.38 tCO₂e
+                - generic [ref=e101]: "|"
+                - generic [ref=e102]: 21 Apr 2026
+                - generic [ref=e103]: "|"
+                - generic [ref=e104]: rmv_1KQ0QGNBV1S0B315
+              - button "Action menu" [ref=e106] [cursor=pointer]:
+                - img [ref=e107]
+          - generic [ref=e109]:
+            - tablist [ref=e112]:
+              - tab "Components" [active] [selected] [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]: Components
+              - tab "Calculation view" [ref=e115] [cursor=pointer]:
+                - generic [ref=e116]: Calculation view
+              - tab "Datapoints" [ref=e117] [cursor=pointer]:
+                - generic [ref=e118]: Datapoints
+              - tab "Sources" [ref=e119] [cursor=pointer]:
+                - generic [ref=e120]: Sources
+            - tabpanel "Components" [ref=e825]:
+              - generic [ref=e827]:
+                - generic [ref=e828]:
+                  - generic [ref=e829]:
+                    - generic [ref=e830]:
+                      - heading "Project operations" [level=2] [ref=e831]
+                      - button "Convert into a new template" [ref=e832] [cursor=pointer]:
+                        - img [ref=e833]
+                        - text: Convert into a new template
+                        - img [ref=e835]
+                    - generic [ref=e837]: CO₂e fluxes associated with operational processes
+                  - generic [ref=e838]:
+                    - generic [ref=e839]:
+                      - generic [ref=e840]:
+                        - generic [ref=e841]: Sequestrations
+                        - generic [ref=e842]: Calculations of CO₂e sequestered through storage or natural processes.
+                      - generic [ref=e843]:
+                        - generic [ref=e844]:
+                          - generic [ref=e845]: Total sequestrations amount
+                          - generic [ref=e846]: 9.488 tCO₂e
+                        - generic [ref=e847]:
+                          - generic [ref=e848]:
+                            - heading "CO₂ stored" [level=4] [ref=e849]
+                            - generic [ref=e851]: 9.488 tCO₂e
+                          - button "Injection sequestration 9.488 tCO₂e" [ref=e852] [cursor=pointer]:
+                            - generic [ref=e854]: Injection sequestration
+                            - generic [ref=e857]: 9.488 tCO₂e
+                          - button "Add removal component" [ref=e858] [cursor=pointer]:
+                            - img [ref=e859]
+                            - text: Add
+                        - generic [ref=e865]:
+                          - heading "Unused groups (13)" [level=3] [ref=e866]:
+                            - generic [ref=e867]: Unused groups (13)
+                          - button "Toggle disclosure expansion" [ref=e868] [cursor=pointer]:
+                            - img [ref=e869]
+                    - generic [ref=e871]:
+                      - generic [ref=e872]:
+                        - generic [ref=e873]: Removal activities
+                        - generic [ref=e874]: Fuel and energy usage, manufacturing processes and consumables.
+                      - generic [ref=e875]:
+                        - generic [ref=e876]:
+                          - generic [ref=e877]: Total removal activities amount
+                          - generic [ref=e878]: 0.817 tCO₂e
+                        - generic [ref=e879]:
+                          - generic [ref=e880]:
+                            - heading "Bio-oil transport" [level=4] [ref=e881]
+                            - generic [ref=e883]: 0.817 tCO₂e
+                          - button "Kerry to Basco Flatbed Truck Transport Process Emissions 7.96% 0.747 tCO₂e" [ref=e884] [cursor=pointer]:
+                            - generic [ref=e886]: Kerry to Basco Flatbed Truck Transport Process Emissions
+                            - generic [ref=e888]:
+                              - generic [ref=e889]: 7.96%
+                              - generic [ref=e890]: 0.747 tCO₂e
+                          - button "Kerry to Basco Flatbed Truck Transport Embodied Emissions 0.75% 0.070 tCO₂e" [ref=e891] [cursor=pointer]:
+                            - generic [ref=e893]: Kerry to Basco Flatbed Truck Transport Embodied Emissions
+                            - generic [ref=e895]:
+                              - generic [ref=e896]: 0.75%
+                              - generic [ref=e897]: 0.070 tCO₂e
+                          - button "Add removal component" [ref=e898] [cursor=pointer]:
+                            - img [ref=e899]
+                            - text: Add
+                        - generic [ref=e905]:
+                          - heading "Unused groups (13)" [level=3] [ref=e906]:
+                            - generic [ref=e907]: Unused groups (13)
+                          - button "Toggle disclosure expansion" [ref=e908] [cursor=pointer]:
+                            - img [ref=e909]
+                    - generic [ref=e911]:
+                      - generic [ref=e912]:
+                        - generic [ref=e913]: Adjustments
+                        - generic [ref=e914]: Activity emissions that have been reduced by other claims, such as Book and Claim Units.
+                      - generic [ref=e915]:
+                        - generic [ref=e916]:
+                          - generic [ref=e917]: Total adjustments amount
+                          - generic [ref=e918]: 0.747 tCO₂e
+                        - generic [ref=e919]:
+                          - generic [ref=e920]:
+                            - heading "Bio-oil transport" [level=4] [ref=e921]
+                            - generic [ref=e923]: 0.747 tCO₂e
+                          - button "BCUs - Applied to Bio-Oil Transport Process Emissions 7.96% 0.747 tCO₂e" [ref=e924] [cursor=pointer]:
+                            - generic [ref=e926]: BCUs - Applied to Bio-Oil Transport Process Emissions
+                            - generic [ref=e928]:
+                              - generic [ref=e929]: 7.96%
+                              - generic [ref=e930]: 0.747 tCO₂e
+                          - button "Add removal component" [ref=e931] [cursor=pointer]:
+                            - img [ref=e932]
+                            - text: Add
+                        - generic [ref=e938]:
+                          - heading "Unused groups (13)" [level=3] [ref=e939]:
+                            - generic [ref=e940]: Unused groups (13)
+                          - button "Toggle disclosure expansion" [ref=e941] [cursor=pointer]:
+                            - img [ref=e942]
+                    - generic [ref=e944]:
+                      - generic [ref=e945]:
+                        - generic [ref=e946]: Losses
+                        - generic [ref=e947]: CO₂e losses and leakage before reaching permanent storage.
+                      - generic [ref=e948]:
+                        - generic [ref=e949]:
+                          - generic [ref=e950]: Total losses amount
+                          - generic [ref=e951]: 0 tCO₂e
+                        - generic [ref=e956]:
+                          - heading "Unused groups (14)" [level=3] [ref=e957]:
+                            - generic [ref=e958]: Unused groups (14)
+                          - button "Toggle disclosure expansion" [ref=e959] [cursor=pointer]:
+                            - img [ref=e960]
+                    - generic [ref=e962]:
+                      - generic [ref=e963]:
+                        - generic [ref=e964]: Removal counterfactuals
+                        - generic [ref=e965]: Baseline calculations to compare actual sequestration against alternative scenarios.
+                      - generic [ref=e966]:
+                        - generic [ref=e967]:
+                          - generic [ref=e968]: Total removal counterfactuals amount
+                          - generic [ref=e969]: 0 tCO₂e
+                        - generic [ref=e974]:
+                          - heading "Unused groups (14)" [level=3] [ref=e975]:
+                            - generic [ref=e976]: Unused groups (14)
+                          - button "Toggle disclosure expansion" [ref=e977] [cursor=pointer]:
+                            - img [ref=e978]
+                - generic [ref=e980]:
+                  - heading "Project establishment and end of life" [level=2] [ref=e982]
+                  - generic [ref=e984]:
+                    - generic [ref=e985]:
+                      - generic [ref=e986]: Project emissions
+                      - generic [ref=e987]: Emissions from project establishment and end-of-life, to be managed according to amortization rules. Project emissions which are set to an automated amortization strategy will show here once this removal is added to a GHG statement.
+                      - link "Go to Project emissions" [ref=e989] [cursor=pointer]:
+                        - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+                    - generic [ref=e990]:
+                      - generic [ref=e992]: Total project emissions amount
+                      - button "Allocate" [ref=e993] [cursor=pointer]:
+                        - img [ref=e994]
+                        - text: Allocate
+                - generic [ref=e1001]:
+                  - generic [ref=e1002]:
+                    - generic [ref=e1003]: Total
+                    - button "View breakdown" [ref=e1005] [cursor=pointer]
+                  - generic [ref=e1007]: 9.38 tCO₂e

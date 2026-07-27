@@ -1,0 +1,213 @@
+- generic [ref=e2]:
+  - alert [ref=e1]
+  - region "0 notifications."
+  - generic [ref=e3]:
+    - navigation [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - link "Isometric Registry" [ref=e12] [cursor=pointer]:
+            - /url: /
+            - img [ref=e14]
+          - generic [ref=e27]:
+            - link "Registry" [ref=e28] [cursor=pointer]:
+              - /url: /
+            - link "Suppliers" [ref=e29] [cursor=pointer]:
+              - /url: /suppliers
+            - link "Protocols" [ref=e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - link "Account" [ref=e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=e36]: "|"
+          - button "Current user menu" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]: Menu
+            - img [ref=e39]
+    - main [ref=e41]:
+      - generic [ref=e43]:
+        - button "Collapse sidebar" [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+        - navigation "Breadcrumbs" [ref=e49]:
+          - list [ref=e51]:
+            - listitem [ref=e52]:
+              - link "All projects" [ref=e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=e54]: /
+            - listitem [ref=e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [ref=e57]: /
+            - listitem [ref=e58]:
+              - link "Removals" [ref=e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/removals
+              - generic [ref=e60]: /
+            - listitem [ref=e61]: rmv_1KQ0QGNBV1S0B315
+      - generic [ref=e62]:
+        - navigation [ref=e66]:
+          - generic [ref=e68]:
+            - link "Overview" [ref=e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=e70] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+          - generic [ref=e71]:
+            - generic [ref=e72]: Project setup
+            - generic [ref=e73]:
+              - link "General" [ref=e74] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=e76] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=e77] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=e78]:
+            - generic [ref=e79]: Carbon accounting
+            - generic [ref=e80]:
+              - link "LCA" [ref=e81] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=e83] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "Removal data" [ref=e84] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/removals
+          - link "Templates" [ref=e87] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=e89]:
+          - generic [ref=e91]:
+            - generic [ref=e92]:
+              - heading "Removal" [level=1] [ref=e93]
+              - button "Toggle timeline sidebar" [ref=e95] [cursor=pointer]:
+                - img [ref=e96]
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e100]: 9.38 tCO₂e
+                - generic [ref=e101]: "|"
+                - generic [ref=e102]: 21 Apr 2026
+                - generic [ref=e103]: "|"
+                - generic [ref=e104]: rmv_1KQ0QGNBV1S0B315
+              - button "Action menu" [ref=e106] [cursor=pointer]:
+                - img [ref=e107]
+          - generic [ref=e109]:
+            - tablist [ref=e112]:
+              - tab "Components" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]: Components
+              - tab "Calculation view" [ref=e115] [cursor=pointer]:
+                - generic [ref=e116]: Calculation view
+              - tab "Datapoints" [ref=e117] [cursor=pointer]:
+                - generic [ref=e118]: Datapoints
+              - tab "Sources" [active] [selected] [ref=e119] [cursor=pointer]:
+                - generic [ref=e120]: Sources
+            - tabpanel "Sources" [ref=e308]:
+              - generic [ref=e309]:
+                - heading "Sources (8)" [level=2] [ref=e310]
+                - grid "Sources" [ref=e313]:
+                  - rowgroup [ref=e314]:
+                    - row "Name Data points Type Public visibility" [ref=e315]:
+                      - columnheader "Name" [ref=e316]:
+                        - generic [ref=e317]: Name
+                      - columnheader "Data points" [ref=e318]:
+                        - generic [ref=e319]: Data points
+                      - columnheader "Type" [ref=e320]:
+                        - generic [ref=e321]: Type
+                      - columnheader "Public visibility" [ref=e322]:
+                        - generic [ref=e323]: Public visibility
+                  - rowgroup [ref=e324]:
+                    - row "K-002 (1).xlsx" [ref=e325]:
+                      - rowheader "K-002 (1).xlsx" [ref=e326]:
+                        - link "K-002 (1).xlsx" [ref=e327] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQSYYEBM1S0EJ9B"
+                          - generic [ref=e328]:
+                            - img [ref=e329]
+                            - generic [ref=e331]: K-002 (1).xlsx
+                      - gridcell "Carbon Content of Bio-oil Injected (per injection)" [ref=e332]:
+                        - generic [ref=e334]: Carbon Content of Bio-oil Injected (per injection)
+                      - gridcell "Document" [ref=e335]
+                      - gridcell "Private" [ref=e336]:
+                        - generic [ref=e340]: Private
+                    - row "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf" [ref=e341]:
+                      - rowheader "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf" [ref=e342]:
+                        - link "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf" [ref=e343] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQ0QEDMG1S0J7G2"
+                          - generic [ref=e344]:
+                            - img [ref=e345]
+                            - generic [ref=e347]: Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf
+                      - gridcell "Distance emission factor" [ref=e348]:
+                        - generic [ref=e350]: Distance emission factor
+                      - gridcell "Document" [ref=e351]
+                      - gridcell "Private" [ref=e352]:
+                        - generic [ref=e356]: Private
+                    - row "2-192-2-198+Kc0005-Kc-0008.pdf" [ref=e357]:
+                      - rowheader "2-192-2-198+Kc0005-Kc-0008.pdf" [ref=e358]:
+                        - link "2-192-2-198+Kc0005-Kc-0008.pdf" [ref=e359] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQ0PWKY41S0D7NC"
+                          - generic [ref=e360]:
+                            - img [ref=e361]
+                            - generic [ref=e363]: 2-192-2-198+Kc0005-Kc-0008.pdf
+                      - gridcell "Carbon Content of Bio-oil Injected (per injection)" [ref=e364]:
+                        - generic [ref=e366]: Carbon Content of Bio-oil Injected (per injection)
+                      - gridcell "Document" [ref=e367]
+                      - gridcell "Public" [ref=e368]:
+                        - generic [ref=e372]: Public
+                    - row "K-002.xlsx" [ref=e373]:
+                      - rowheader "K-002.xlsx" [ref=e374]:
+                        - link "K-002.xlsx" [ref=e375] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQ0NBWVG1S0877K"
+                          - generic [ref=e376]:
+                            - img [ref=e377]
+                            - generic [ref=e379]: K-002.xlsx
+                      - gridcell "Allocated Kerry Oil Gross Mass" [ref=e380]:
+                        - generic [ref=e382]: Allocated Kerry Oil Gross Mass
+                      - gridcell "Document" [ref=e383]
+                      - gridcell "Public" [ref=e384]:
+                        - generic [ref=e388]: Public
+                    - row "K-002.xlsx" [ref=e389]:
+                      - rowheader "K-002.xlsx" [ref=e390]:
+                        - link "K-002.xlsx" [ref=e391] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQ0PWNCM1S07NFW"
+                          - generic [ref=e392]:
+                            - img [ref=e393]
+                            - generic [ref=e395]: K-002.xlsx
+                      - gridcell "Mass of Injectant (per injection)" [ref=e396]:
+                        - generic [ref=e398]: Mass of Injectant (per injection)
+                      - gridcell "Document" [ref=e399]
+                      - gridcell "Public" [ref=e400]:
+                        - generic [ref=e404]: Public
+                    - row "Kerry to Basco Distance.png" [ref=e405]:
+                      - rowheader "Kerry to Basco Distance.png" [ref=e406]:
+                        - link "Kerry to Basco Distance.png" [ref=e407] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQ0JTXR11S0TKYG"
+                          - generic [ref=e408]:
+                            - img [ref=e409]
+                            - generic [ref=e411]: Kerry to Basco Distance.png
+                      - gridcell "Route Distance Kerry to Basco" [ref=e412]:
+                        - generic [ref=e414]: Route Distance Kerry to Basco
+                      - gridcell "Document" [ref=e415]
+                      - gridcell "Public" [ref=e416]:
+                        - generic [ref=e420]: Public
+                    - row "Charm-A3-2024-10-24-64-1976.pdf" [ref=e421]:
+                      - rowheader "Charm-A3-2024-10-24-64-1976.pdf" [ref=e422]:
+                        - link "Charm-A3-2024-10-24-64-1976.pdf" [ref=e423] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KQ0JV0JW1S0YKTK"
+                          - generic [ref=e424]:
+                            - img [ref=e425]
+                            - generic [ref=e427]: Charm-A3-2024-10-24-64-1976.pdf
+                      - gridcell "BCUs - Applied to Bio-Oil Transport Process Emissions" [ref=e428]:
+                        - generic [ref=e430]: BCUs - Applied to Bio-Oil Transport Process Emissions
+                      - gridcell "Document" [ref=e431]
+                      - gridcell "Public" [ref=e432]:
+                        - generic [ref=e436]: Public
+                    - row "GLEC NA Road Transport.png" [ref=e437]:
+                      - rowheader "GLEC NA Road Transport.png" [ref=e438]:
+                        - link "GLEC NA Road Transport.png" [ref=e439] [cursor=pointer]:
+                          - /url: "?tab=sources&reference=ref_1KNHXHHCS1S04246"
+                          - generic [ref=e440]:
+                            - img [ref=e441]
+                            - generic [ref=e443]: GLEC NA Road Transport.png
+                      - gridcell "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck" [ref=e444]:
+                        - generic [ref=e446]: Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck
+                      - gridcell "Document" [ref=e447]
+                      - gridcell "Public" [ref=e448]:
+                        - generic [ref=e452]: Public

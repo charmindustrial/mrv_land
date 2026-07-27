@@ -1,0 +1,490 @@
+- generic [ref=e1]:
+  - iframe [ref=e2]:
+    
+  - region
+  - generic [ref=e4]:
+    - navigation [ref=e5]:
+      - button "Skip to main content" [ref=e7] [cursor=pointer]:
+        - generic [ref=e9]: Skip to main content
+      - button "Keyboard shortcuts" [ref=e11] [cursor=pointer]:
+        - generic [ref=e13]: Keyboard shortcuts
+      - button "Accessibility feedback" [ref=e15] [cursor=pointer]:
+        - generic [ref=e17]: Accessibility feedback
+    - banner [ref=e19]:
+      - generic [ref=e20]:
+        - link "Drive" [ref=e24] [cursor=pointer]:
+          - /url: https://drive.google.com/?tab=oo&authuser=0
+          - img [ref=e25]
+          - generic [ref=e26]: Drive
+        - generic [ref=e27]:
+          - search [ref=e29]:
+            - table [ref=e31]:
+              - rowgroup [ref=e32]:
+                - row [ref=e33]:
+                  - cell [ref=e34]:
+                    - textbox "Get answers from Drive" [ref=e35]
+            - generic [ref=e40]:
+              - button "AI Overview search" [ref=e41] [cursor=pointer]:
+                - img [ref=e44]
+              - tooltip [ref=e47]: AI Overview search
+            - button "Advanced search" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+            - button "Search Google Drive" [ref=e51] [cursor=pointer]:
+              - img [ref=e52]
+          - generic [ref=e54]:
+            - button "Support" [ref=e57] [cursor=pointer]:
+              - img [ref=e58]
+            - button "Settings" [ref=e62] [cursor=pointer]:
+              - img [ref=e64]
+            - generic [ref=e67]:
+              - button "Studio" [ref=e69] [cursor=pointer]:
+                - img [ref=e70]
+              - generic [ref=e74]:
+                - generic:
+                  - button "Ask Gemini" [ref=e77] [cursor=pointer]:
+                    - img [ref=e80]
+                  - tooltip [ref=e83]: Ask Gemini
+        - generic [ref=e85]:
+          - button "Google apps" [ref=e89] [cursor=pointer]:
+            - img [ref=e90]
+          - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=e93] [cursor=pointer]':
+            - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=e98]':
+              - img [ref=e100]
+    - button "New" [ref=e103] [cursor=pointer]:
+      - img [ref=e106]
+      - generic [ref=e108]: New
+    - navigation [ref=e114]:
+      - heading "Folders and views" [level=2] [ref=e115]
+      - tree "Folders and views" [ref=e116]:
+        - treeitem "Home" [ref=e117]:
+          - link "Home" [ref=e118] [cursor=pointer]:
+            - generic [ref=e121]:
+              - generic [ref=e123]:
+                - img [ref=e126]
+                - img [ref=e131]
+              - generic "Home" [ref=e136]
+          - group
+        - treeitem "Activity" [ref=e137]:
+          - link "Activity" [ref=e138] [cursor=pointer]:
+            - generic [ref=e141]:
+              - generic [ref=e143]:
+                - img [ref=e146]
+                - img [ref=e151]
+              - generic "Activity" [ref=e154]
+          - group
+        - treeitem "Projects" [ref=e155]:
+          - link "Projects" [ref=e156] [cursor=pointer]:
+            - generic [ref=e159]:
+              - generic [ref=e161]:
+                - img [ref=e163]
+                - img [ref=e166]
+              - generic "Projects" [ref=e168]
+          - group
+        - treeitem "Workspaces" [ref=e169]:
+          - link "Workspaces" [ref=e170] [cursor=pointer]:
+            - generic [ref=e173]:
+              - generic [ref=e175]:
+                - img [ref=e178]
+                - img [ref=e183]
+              - generic "Workspaces" [ref=e186]
+          - group
+        - treeitem "My Drive Collapsed" [ref=e187]:
+          - link "My Drive Collapsed" [ref=e188] [cursor=pointer]:
+            - img [ref=e191]
+            - generic [ref=e194]:
+              - generic [ref=e196]:
+                - img [ref=e199]
+                - img [ref=e204]
+              - generic "My Drive" [ref=e206]
+            - text: Collapsed
+        - treeitem "Shared drives Collapsed" [ref=e207]:
+          - link "Shared drives Collapsed" [ref=e208] [cursor=pointer]:
+            - img [ref=e211]
+            - generic [ref=e214]:
+              - generic [ref=e216]:
+                - img [ref=e219]
+                - img [ref=e223]
+              - generic "Shared drives" [ref=e230]
+            - text: Collapsed
+        - treeitem "Computers Collapsed" [ref=e231]:
+          - link "Computers Collapsed" [ref=e232] [cursor=pointer]:
+            - img [ref=e235]
+            - generic [ref=e238]:
+              - generic [ref=e240]:
+                - img [ref=e243]
+                - img [ref=e248]
+              - generic "Computers" [ref=e251]
+            - text: Collapsed
+        - treeitem "Items shared with me" [ref=e252]:
+          - link "Items shared with me" [ref=e253] [cursor=pointer]:
+            - generic [ref=e256]:
+              - generic [ref=e258]:
+                - img [ref=e261]
+                - img [ref=e266]
+              - generic "Items shared with me" [ref=e272]: Shared with me
+          - group
+        - treeitem "Recent items" [ref=e273]:
+          - link "Recent items" [ref=e274] [cursor=pointer]:
+            - generic [ref=e277]:
+              - generic [ref=e279]:
+                - img [ref=e282]
+                - img [ref=e288]
+              - generic "Recent items" [ref=e293]: Recent
+          - group
+        - treeitem "Starred items" [ref=e294]:
+          - link "Starred items" [ref=e295] [cursor=pointer]:
+            - generic [ref=e298]:
+              - generic [ref=e300]:
+                - img [ref=e302]
+                - img [ref=e305]
+              - generic "Starred items" [ref=e309]: Starred
+          - group
+        - treeitem "Spam" [ref=e310]:
+          - link "Spam" [ref=e311] [cursor=pointer]:
+            - generic [ref=e314]:
+              - generic [ref=e316]:
+                - img [ref=e319]
+                - img [ref=e323]
+              - generic "Spam" [ref=e328]
+          - group
+        - treeitem "Trashed items" [ref=e329]:
+          - link "Trashed items" [ref=e330] [cursor=pointer]:
+            - generic [ref=e333]:
+              - generic [ref=e335]:
+                - img [ref=e338]
+                - img [ref=e343]
+              - generic "Trashed items" [ref=e348]: Trash
+          - group
+        - treeitem "Storage" [ref=e349]:
+          - link "Storage" [ref=e350] [cursor=pointer]:
+            - generic [ref=e353]:
+              - generic [ref=e355]:
+                - img [ref=e902]
+                - img [ref=e905]
+              - generic "Storage" [ref=e366]
+          - group
+      - progressbar "26.61 GB used" [ref=e369]:
+        - generic [ref=e370]: 26.61 GB used
+    - generic [ref=e373]:
+      - generic [ref=e379]:
+        - generic [ref=e382]:
+          - generic [ref=e384]:
+            - navigation [ref=e909]:
+              - heading "Folder Path" [ref=e385]
+              - list "Folder Path" [ref=e910]:
+                - listitem [ref=e911]:
+                  - button "Show Path" [ref=e912] [cursor=pointer]:
+                    - img [ref=e914]
+                  - img [ref=e917]
+                - listitem [ref=e919]:
+                  - link "April 1 - April 30 RP" [ref=e920] [cursor=pointer]
+                  - img [ref=e921]
+                - listitem [ref=e923]:
+                  - button "Site Emissions" [ref=e924] [cursor=pointer]:
+                    - generic [ref=e925]: Site Emissions
+                    - img [ref=e927]
+            - button "Shared" [ref=e387] [cursor=pointer]:
+              - img [ref=e389]
+          - toolbar [ref=e391]:
+            - generic [ref=e392]:
+              - radiogroup "List or Grid layout (⌥V then L)" [ref=e396]:
+                - generic [ref=e397]:
+                  - radio "List" [checked] [ref=e398] [cursor=pointer]:
+                    - generic [ref=e399]:
+                      - img [ref=e400]
+                      - img [ref=e404]
+                  - radio "Grid" [ref=e407] [cursor=pointer]:
+                    - generic [ref=e408]:
+                      - img [ref=e409]
+                      - img [ref=e413]
+              - button "View details (⌥V then D)" [ref=e416] [cursor=pointer]:
+                - img [ref=e418]
+        - generic [ref=e422]:
+          - generic [ref=e933]:
+            - button "Ask Gemini" [ref=e936]:
+              - img [ref=e937]
+              - text: Ask Gemini
+            - generic [ref=e939]: Summarize, analyze, and get up to speed with files in this folder.
+          - generic [ref=e941]:
+            - toolbar [ref=e943]:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - button "Suggest file moves" [disabled]:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - img
+                        - generic: Suggest file moves
+                      - tooltip: Available only for private folders
+            - generic [ref=e945]: No filters applied
+            - toolbar "Filters" [ref=e947]:
+              - generic [ref=e949]:
+                - button "Type" [ref=e950] [cursor=pointer]:
+                  - generic [ref=e951]:
+                    - generic [ref=e952]: Type
+                    - img [ref=e954]
+                - button "People" [ref=e956] [cursor=pointer]:
+                  - generic [ref=e957]:
+                    - generic [ref=e958]: People
+                    - img [ref=e960]
+                - button "Modified" [ref=e962] [cursor=pointer]:
+                  - generic [ref=e963]:
+                    - generic [ref=e964]: Modified
+                    - img [ref=e966]
+                - button "Source" [ref=e968] [cursor=pointer]:
+                  - generic [ref=e969]:
+                    - generic [ref=e970]: Source
+                    - img [ref=e972]
+      - main [ref=e424]:
+        - region [active] [ref=e430]:
+          - grid "Item List" [ref=e434]:
+            - rowgroup [ref=e435]:
+              - generic [ref=e436] [cursor=pointer]: Name
+              - img [ref=e438] [cursor=pointer]
+              - text: Owner
+              - generic [ref=e440] [cursor=pointer]: Date modified
+              - text: File size
+              - generic [ref=e446]:
+                - button "Sort" [ref=e447] [cursor=pointer]:
+                  - img [ref=e449]
+                - tooltip [ref=e452]: View sort options
+            - rowgroup [ref=e453]:
+              - row "Waste Disposal Shared folder Owned by Garrett Lutz Modified Apr 28 Garrett Lutz Size not available More actions (Alt+A)" [ref=e974]:
+                - gridcell "Waste Disposal Shared folder" [ref=e455]:
+                  - generic [ref=e457]:
+                    - img [ref=e463]
+                    - generic "Waste Disposal Shared folder" [ref=e469]:
+                      - strong [ref=e472]: Waste Disposal
+                - gridcell "Owned by Garrett Lutz" [ref=e975]:
+                  - button "Owned by Garrett Lutz" [ref=e978]:
+                    - generic "Owned by Garrett Lutz" [ref=e979]:
+                      - img [ref=e981]
+                      - generic [ref=e982]: Garrett Lutz
+                - gridcell "Modified Apr 28 Garrett Lutz" [ref=e983]:
+                  - generic "Modified Apr 28 Garrett Lutz" [ref=e985]:
+                    - generic [ref=e986]: Apr 28
+                - gridcell "Size not available" [ref=e479]:
+                  - generic "Size not available" [ref=e483]:
+                    - generic [ref=e484]: —
+                - gridcell "More actions (Alt+A)" [ref=e987]:
+                  - generic [ref=e489]:
+                    - button "More actions (Alt+A)" [ref=e988] [cursor=pointer]:
+                      - img [ref=e493]
+                    - tooltip [ref=e496]: More actions (Alt+A)
+              - row "Support Travel Shared folder Owned by Garrett Lutz Modified Apr 28 Garrett Lutz Size not available More actions (Alt+A)" [ref=e989]:
+                - gridcell "Support Travel Shared folder" [ref=e498]:
+                  - generic [ref=e500]:
+                    - img [ref=e506]
+                    - generic "Support Travel Shared folder" [ref=e512]:
+                      - strong [ref=e515]: Support Travel
+                - gridcell "Owned by Garrett Lutz" [ref=e990]:
+                  - button "Owned by Garrett Lutz" [ref=e993]:
+                    - generic "Owned by Garrett Lutz" [ref=e994]:
+                      - img [ref=e996]
+                      - generic [ref=e997]: Garrett Lutz
+                - gridcell "Modified Apr 28 Garrett Lutz" [ref=e998]:
+                  - generic "Modified Apr 28 Garrett Lutz" [ref=e1000]:
+                    - generic [ref=e1001]: Apr 28
+                - gridcell "Size not available" [ref=e522]:
+                  - generic "Size not available" [ref=e526]:
+                    - generic [ref=e527]: —
+                - gridcell "More actions (Alt+A)" [ref=e1002]:
+                  - generic [ref=e532]:
+                    - button "More actions (Alt+A)" [ref=e1003] [cursor=pointer]:
+                      - img [ref=e536]
+                    - tooltip [ref=e539]: More actions (Alt+A)
+              - row "Railcar Shared folder Owned by Garrett Lutz Modified Apr 28 Garrett Lutz Size not available More actions (Alt+A)" [ref=e1004]:
+                - gridcell "Railcar Shared folder" [ref=e541]:
+                  - generic [ref=e543]:
+                    - img [ref=e549]
+                    - generic "Railcar Shared folder" [ref=e555]:
+                      - strong [ref=e558]: Railcar
+                - gridcell "Owned by Garrett Lutz" [ref=e1005]:
+                  - button "Owned by Garrett Lutz" [ref=e1008]:
+                    - generic "Owned by Garrett Lutz" [ref=e1009]:
+                      - img [ref=e1011]
+                      - generic [ref=e1012]: Garrett Lutz
+                - gridcell "Modified Apr 28 Garrett Lutz" [ref=e1013]:
+                  - generic "Modified Apr 28 Garrett Lutz" [ref=e1015]:
+                    - generic [ref=e1016]: Apr 28
+                - gridcell "Size not available" [ref=e565]:
+                  - generic "Size not available" [ref=e569]:
+                    - generic [ref=e570]: —
+                - gridcell "More actions (Alt+A)" [ref=e1017]:
+                  - generic [ref=e575]:
+                    - button "More actions (Alt+A)" [ref=e1018] [cursor=pointer]:
+                      - img [ref=e579]
+                    - tooltip [ref=e582]: More actions (Alt+A)
+              - row "Louisiana Sitework Shared folder Owned by Garrett Lutz Modified Apr 28 Garrett Lutz Size not available More actions (Alt+A)" [ref=e1019]:
+                - gridcell "Louisiana Sitework Shared folder" [ref=e584]:
+                  - generic [ref=e586]:
+                    - img [ref=e592]
+                    - generic "Louisiana Sitework Shared folder" [ref=e598]:
+                      - strong [ref=e601]: Louisiana Sitework
+                - gridcell "Owned by Garrett Lutz" [ref=e1020]:
+                  - button "Owned by Garrett Lutz" [ref=e1023]:
+                    - generic "Owned by Garrett Lutz" [ref=e1024]:
+                      - img [ref=e1026]
+                      - generic [ref=e1027]: Garrett Lutz
+                - gridcell "Modified Apr 28 Garrett Lutz" [ref=e1028]:
+                  - generic "Modified Apr 28 Garrett Lutz" [ref=e1030]:
+                    - generic [ref=e1031]: Apr 28
+                - gridcell "Size not available" [ref=e608]:
+                  - generic "Size not available" [ref=e612]:
+                    - generic [ref=e613]: —
+                - gridcell "More actions (Alt+A)" [ref=e1032]:
+                  - generic [ref=e618]:
+                    - button "More actions (Alt+A)" [ref=e1033] [cursor=pointer]:
+                      - img [ref=e622]
+                    - tooltip [ref=e625]: More actions (Alt+A)
+              - row "Gasoline Shared folder Owned by Garrett Lutz Modified Apr 28 Garrett Lutz Size not available More actions (Alt+A)" [ref=e1034]:
+                - gridcell "Gasoline Shared folder" [ref=e627]:
+                  - generic [ref=e629]:
+                    - img [ref=e635]
+                    - generic "Gasoline Shared folder" [ref=e641]:
+                      - strong [ref=e644]: Gasoline
+                - gridcell "Owned by Garrett Lutz" [ref=e1035]:
+                  - button "Owned by Garrett Lutz" [ref=e1038]:
+                    - generic "Owned by Garrett Lutz" [ref=e1039]:
+                      - img [ref=e1041]
+                      - generic [ref=e1042]: Garrett Lutz
+                - gridcell "Modified Apr 28 Garrett Lutz" [ref=e1043]:
+                  - generic "Modified Apr 28 Garrett Lutz" [ref=e1045]:
+                    - generic [ref=e1046]: Apr 28
+                - gridcell "Size not available" [ref=e651]:
+                  - generic "Size not available" [ref=e655]:
+                    - generic [ref=e656]: —
+                - gridcell "More actions (Alt+A)" [ref=e1047]:
+                  - generic [ref=e661]:
+                    - button "More actions (Alt+A)" [ref=e1048] [cursor=pointer]:
+                      - img [ref=e665]
+                    - tooltip [ref=e668]: More actions (Alt+A)
+              - row "Embodied Emissions Shared folder Owned by Garrett Lutz Modified Apr 6 Garrett Lutz Size not available More actions (Alt+A)" [ref=e1049]:
+                - gridcell "Embodied Emissions Shared folder" [ref=e670]:
+                  - generic [ref=e672]:
+                    - img [ref=e678]
+                    - generic "Embodied Emissions Shared folder" [ref=e684]:
+                      - strong [ref=e687]: Embodied Emissions
+                - gridcell "Owned by Garrett Lutz" [ref=e1050]:
+                  - button "Owned by Garrett Lutz" [ref=e1053]:
+                    - generic "Owned by Garrett Lutz" [ref=e1054]:
+                      - img [ref=e1056]
+                      - generic [ref=e1057]: Garrett Lutz
+                - gridcell "Modified Apr 6 Garrett Lutz" [ref=e1058]:
+                  - generic "Modified Apr 6 Garrett Lutz" [ref=e1060]:
+                    - generic [ref=e1061]: Apr 6
+                - gridcell "Size not available" [ref=e694]:
+                  - generic "Size not available" [ref=e698]:
+                    - generic [ref=e699]: —
+                - gridcell "More actions (Alt+A)" [ref=e1062]:
+                  - generic [ref=e704]:
+                    - button "More actions (Alt+A)" [ref=e1063] [cursor=pointer]:
+                      - img [ref=e708]
+                    - tooltip [ref=e711]: More actions (Alt+A)
+              - row "Electricity Shared folder Owned by Garrett Lutz Modified Apr 28 Garrett Lutz Size not available More actions (Alt+A)" [ref=e1064]:
+                - gridcell "Electricity Shared folder" [ref=e713]:
+                  - generic [ref=e715]:
+                    - img [ref=e721]
+                    - generic "Electricity Shared folder" [ref=e727]:
+                      - strong [ref=e730]: Electricity
+                - gridcell "Owned by Garrett Lutz" [ref=e1065]:
+                  - button "Owned by Garrett Lutz" [ref=e1068]:
+                    - generic "Owned by Garrett Lutz" [ref=e1069]:
+                      - img [ref=e1071]
+                      - generic [ref=e1072]: Garrett Lutz
+                - gridcell "Modified Apr 28 Garrett Lutz" [ref=e1073]:
+                  - generic "Modified Apr 28 Garrett Lutz" [ref=e1075]:
+                    - generic [ref=e1076]: Apr 28
+                - gridcell "Size not available" [ref=e737]:
+                  - generic "Size not available" [ref=e741]:
+                    - generic [ref=e742]: —
+                - gridcell "More actions (Alt+A)" [ref=e1077]:
+                  - generic [ref=e747]:
+                    - button "More actions (Alt+A)" [ref=e1078] [cursor=pointer]:
+                      - img [ref=e751]
+                    - tooltip [ref=e754]: More actions (Alt+A)
+              - row "Diesel Shared folder Owned by Garrett Lutz Modified Apr 28 Garrett Lutz Size not available More actions (Alt+A)" [ref=e1079]:
+                - gridcell "Diesel Shared folder" [ref=e756]:
+                  - generic [ref=e758]:
+                    - img [ref=e764]
+                    - generic "Diesel Shared folder" [ref=e770]:
+                      - strong [ref=e773]: Diesel
+                - gridcell "Owned by Garrett Lutz" [ref=e1080]:
+                  - button "Owned by Garrett Lutz" [ref=e1083]:
+                    - generic "Owned by Garrett Lutz" [ref=e1084]:
+                      - img [ref=e1086]
+                      - generic [ref=e1087]: Garrett Lutz
+                - gridcell "Modified Apr 28 Garrett Lutz" [ref=e1088]:
+                  - generic "Modified Apr 28 Garrett Lutz" [ref=e1090]:
+                    - generic [ref=e1091]: Apr 28
+                - gridcell "Size not available" [ref=e780]:
+                  - generic "Size not available" [ref=e784]:
+                    - generic [ref=e785]: —
+                - gridcell "More actions (Alt+A)" [ref=e1092]:
+                  - generic [ref=e790]:
+                    - button "More actions (Alt+A)" [ref=e1093] [cursor=pointer]:
+                      - img [ref=e794]
+                    - tooltip [ref=e797]: More actions (Alt+A)
+              - row "Brine Shared folder Owned by Garrett Lutz Modified Apr 28 Garrett Lutz Size not available More actions (Alt+A)" [ref=e1094]:
+                - gridcell "Brine Shared folder" [ref=e799]:
+                  - generic [ref=e801]:
+                    - img [ref=e807]
+                    - generic "Brine Shared folder" [ref=e813]:
+                      - strong [ref=e816]: Brine
+                - gridcell "Owned by Garrett Lutz" [ref=e1095]:
+                  - button "Owned by Garrett Lutz" [ref=e1098]:
+                    - generic "Owned by Garrett Lutz" [ref=e1099]:
+                      - img [ref=e1101]
+                      - generic [ref=e1102]: Garrett Lutz
+                - gridcell "Modified Apr 28 Garrett Lutz" [ref=e1103]:
+                  - generic "Modified Apr 28 Garrett Lutz" [ref=e1105]:
+                    - generic [ref=e1106]: Apr 28
+                - gridcell "Size not available" [ref=e823]:
+                  - generic "Size not available" [ref=e827]:
+                    - generic [ref=e828]: —
+                - gridcell "More actions (Alt+A)" [ref=e1107]:
+                  - generic [ref=e833]:
+                    - button "More actions (Alt+A)" [ref=e1108] [cursor=pointer]:
+                      - img [ref=e837]
+                    - tooltip [ref=e840]: More actions (Alt+A)
+              - 'row "Apr 1-Apr 30 RP BCU Quant Google Sheets Shared Owned by Garrett Lutz Modified 11:58 AM Garrett Lutz Size: 3 KB Storage used: 3 KB More actions (Alt+A)" [ref=e1109]':
+                - gridcell "Apr 1-Apr 30 RP BCU Quant Google Sheets Shared" [ref=e842]:
+                  - generic [ref=e844]:
+                    - img [ref=e850]
+                    - generic "Apr 1-Apr 30 RP BCU Quant Google Sheets Shared" [ref=e853]:
+                      - strong [ref=e856]: Apr 1-Apr 30 RP BCU Quant
+                      - img "Shared" [ref=e858]:
+                        - img [ref=e859]
+                        - generic [ref=e862]: Shared
+                - gridcell "Owned by Garrett Lutz" [ref=e1110]:
+                  - button "Owned by Garrett Lutz" [ref=e1113]:
+                    - generic "Owned by Garrett Lutz" [ref=e1114]:
+                      - img [ref=e1116]
+                      - generic [ref=e1117]: Garrett Lutz
+                - gridcell "Modified 11:58 AM Garrett Lutz" [ref=e1118]:
+                  - generic "Modified 11:58 AM Garrett Lutz" [ref=e1120]:
+                    - generic [ref=e1121]: 11:58 AM
+                - 'gridcell "Size: 3 KB Storage used: 3 KB" [ref=e869]':
+                  - 'generic "Size: 3 KB Storage used: 3 KB" [ref=e873]':
+                    - generic [ref=e874]: 3 KB
+                - gridcell "More actions (Alt+A)" [ref=e1122]:
+                  - generic [ref=e879]:
+                    - button "More actions (Alt+A)" [ref=e1123] [cursor=pointer]:
+                      - img [ref=e883]
+                    - tooltip [ref=e886]: More actions (Alt+A)
+      - generic:
+        - navigation
+    - generic [ref=e887]:
+      - generic:
+        - button "Show side panel":
+          - img [ref=e889] [cursor=pointer]
+  - generic [ref=e893]:
+    - generic [ref=e894]:
+      - generic [ref=e895]: Get notifications on your desktop for shared files and important events
+      - button "Turn on" [ref=e896] [cursor=pointer]
+    - button "Dismiss" [ref=e897] [cursor=pointer]:
+      - img [ref=e898]
+  - region
+  - img [ref=e901]

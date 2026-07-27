@@ -1,0 +1,103 @@
+{
+  "batch_id": "2-187",
+  "computed_at": "2026-05-15T14:28:41",
+  "source_reads_path": "outputs/qa/batch-2-187/batch_2-187_source_reads_normalized.json",
+  "checks": [
+    {
+      "check_id": "scale_ticket_subtraction",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "full_lb": 77900,
+        "empty_lb": 29980,
+        "net_lb": 47920,
+        "net_kg": 21736.13
+      },
+      "log_values": {
+        "computed_net_lb": 47920,
+        "computed_net_kg": 21736.12864
+      },
+      "note": "Computed: 77900 \u2212 29980 = 47920 lb (21736.13 kg). Log: 47920 lb (21736.12864 kg). Match."
+    },
+    {
+      "check_id": "scale_ticket_vs_ops_notes_offload",
+      "materiality": "material",
+      "check_type": "policy",
+      "status": "PASS",
+      "computed": {
+        "scale_ticket_kg": 21736.12864,
+        "ops_notes_cargo_kg": 21736.12864,
+        "delta_kg": 0.0,
+        "delta_pct": 0.0
+      },
+      "log_values": {
+        "matched_offload_row_id": "Rail_TIMX201060_2.27.26_redo_offload_2"
+      },
+      "note": "Scale ticket = 21736.12864 kg; Ops Notes cargo = 21736.12864 kg; delta = 0.0 kg (0.0%). Match."
+    },
+    {
+      "check_id": "bol_list_sum_vs_stated_total",
+      "materiality": "hygiene",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "bol_sum_MT": 80.61,
+        "bol_count": 3
+      },
+      "log_values": {
+        "total_railcar_loaded_MT": 80.61,
+        "individual_BOL_mass_MT": [
+          26.05,
+          29.06,
+          25.5
+        ]
+      },
+      "note": "\u03a3(BOLs) = 80.61 MT; stated total = 80.61 MT. Match."
+    },
+    {
+      "check_id": "railcar_inbound_outbound_balance",
+      "materiality": "mixed",
+      "check_type": "policy",
+      "status": "FLAG",
+      "computed": {},
+      "log_values": {
+        "offload_rows_filled": 2,
+        "offload_rows_total": 4,
+        "expected_offloads": 4
+      },
+      "note": "Offload table partially filled (2/4 rows have cargo_kg). Cannot verify mass conservation (sum offloads \u2264 sum BOLs). Scale ticket arithmetic confirmed separately. Route to LLM: is the incomplete table explained by cross-RP deferral, out-of-order injection, or sister-batch backfill lag? If so, document. If not, investigate."
+    },
+    {
+      "check_id": "last_offload_derivation",
+      "materiality": "material",
+      "check_type": "policy",
+      "status": "FLAG",
+      "computed": {},
+      "log_values": {
+        "this_offload": "offload_2",
+        "prior_offloads_missing_cargo": 2,
+        "prior_offloads_total": 3
+      },
+      "note": "Last offload identified (offload_2) but 2 of 3 prior offload row(s) lack cargo_kg \u2014 cannot compute expected mass. Scale ticket arithmetic confirmed separately. Route to LLM: are the missing prior offloads explained by cross-RP deferral or out-of-order injection? If so, document. Also verify: when all offloads are reported, sum(offloads) must not exceed sum(BOLs)."
+    },
+    {
+      "check_id": "cobb_offload_consistency",
+      "materiality": "hygiene",
+      "check_type": "policy",
+      "status": "PASS",
+      "computed": {
+        "cobb_offloaded_kg": 21736.12864,
+        "ops_notes_cargo_kg": 21736.12864,
+        "delta_kg": 0.0,
+        "delta_pct": 0.0
+      },
+      "log_values": {
+        "cobb_row_id_at_qa": "64",
+        "cobb_batch_id_col_a": "2-187",
+        "matched_offload_row_id": "Rail_TIMX201060_2.27.26_redo_offload_2"
+      },
+      "note": "COBB offloaded = 21736.12864 kg; Ops Notes cargo = 21736.12864 kg; delta = 0.0 kg (0.0%). Tolerance \u22640.5%. Match."
+    }
+  ]
+}

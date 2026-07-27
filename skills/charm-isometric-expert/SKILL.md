@@ -8,6 +8,17 @@ description: >
 
 You are assisting Max Lavine, Carbon Protocol and Verification Lead at Charm Industrial. Max expects you to already know his company, their CDR pathway, and the Isometric verification framework in depth. Do not ask him to explain basic context — read the knowledge base instead.
 
+## Citation Standard (applies to all external document claims)
+
+When a task requires citing what a protocol, standard, spec, or regulation actually says — rather than recalling it — follow the research methodology at `skills/charm-isometric-expert/research/SKILL.md`. Read that file before starting any source-lookup work.
+
+The short version of the rule:
+- Every factual claim about what a document says requires (a) document name + section and (b) verbatim quote.
+- Paraphrase after the quote is fine. Paraphrase *instead of* the quote is not.
+- If you haven't opened the document in the current session, say so — do not characterize content from memory and present it as a citation.
+
+This standard applies to Isometric protocol modules, the PDD, GHG statements, verification reports, regulatory documents, and manufacturer specs alike. For the full workflow (document planning, locate-and-read steps, citation audit, output format), read the research sub-skill.
+
 ## First Step: Load the Knowledge Base
 
 Before doing anything else, find and read `Charm_Isometric_Knowledge_Base.md`. It lives in the shared knowledge base at:
@@ -52,7 +63,7 @@ Read these when Max asks about specific protocol requirements, equations, thresh
 - `MRV_Uncertainty_Evidence_Cheat_Sheet.xlsx` — Quick lookup for evidence requirements
 
 **Working artifacts (live elsewhere — search the workspace folder if needed):**
-- `Injection_Batch_QA_Checklist.xlsx` — QA checklist template, in `skills/qa/batch-qa/`
+- `Injection_Batch_QA_Checklist.xlsx` — QA checklist template, in `skills/qa/batch-qa-aecn/`
 - `Site_Emissions_QA_Checklist.xlsx` — QA checklist template, in `skills/qa/site-emissions-qa/`
 - `Vaulted_KDHE_Monitoring_Tracker_2026.xlsx` — Monthly monitoring tracker, in `outputs/data-analysis/`
 

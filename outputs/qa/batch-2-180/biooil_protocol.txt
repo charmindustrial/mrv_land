@@ -1,0 +1,2673 @@
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+
+      Bio-oil Geological Storage
+      This protocol outlines the MRV and best practices for high-quality carbon removal via
+      the conversion of biomass to bio-oil and injection into natural or engineered subsurface
+      features and geologic formations.
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    1/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+
+            Contents
+            1 Introduction
+            2 Sources and Reference Standards & Methodologies
+            3 Future Versions
+            4 Applicability
+            5 Environmental and Social Safeguarding
+            6 Relation to the Isometric Standard
+              6.1 Project Design Document
+              6.2 Validation and Verification
+                6.2.1 Verification Materiality
+                6.2.2 Site Visits
+                6.2.3 Verifier Qualifications & Requirements
+              6.3 Ownership
+              6.4 Additionality
+              6.5 Uncertainty
+                6.5.1 Reporting of uncertainty
+              6.6 Data sharing
+            7 Quantification of net CO2e removal
+              7.1 System Boundary & GHG Emissions Scope
+              7.2 Baseline
+              7.3 Net CDR Calculation
+                7.3.1 Calculation Approach
+              7.4 Calculation of CO2eRemoval, n
+                7.4.1 Calculation of CO2eStored, n
+                  7.4.1.1 Measurements - CO2eStored, n
+                    7.4.1.1.1 Bio-oil Carbon Content Measurement
+                    7.4.1.1.2 Measurement of Mass of Bio-oil Injected
+                  7.4.1.2 Required Records & Documentation - CO2eStored, n
+                  7.4.1.3 Other Considerations - CO2eStored, n
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    2/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+               7.4.2 Calculation of CO2eCounterfactual, n
+               7.4.3 Calculation of CO2eEmissions, n
+                  7.4.3.1 Emissions allocation
+                  7.4.3.2 Calculation of CO2eEnergy, n
+                  7.4.3.3 Calculation of CO2eTransportation, n
+                  7.4.3.4 Calculation of CO2eEmbodied, n
+                  7.4.3.5 Calculation of CO2eMisc., n
+                  7.4.3.6 Calculation of CO2eLeakage, n
+            8 Bio-oil Storage
+            9 Acknowledgements
+            10 Definitions and Acronyms
+            11 Appendix 1: Monitoring Plan Requirements
+              11.1 Modular requirements
+              11.2 Net CDR Calculation Requirements
+            12 Appendix 2: Risk of Reversal Questionnaire
+            13 Relevant Works
+             Footnotes
+             Contributors
+             Changelog
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    3/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        1.0 Introduction
+        This Protocol provides the requirements and procedures for the calculation of net CO2e
+        removal from the atmosphere via the conversion of biomass to bio-oil (and co-products)
+        and injection of bio-oil into natural or engineered subsurface features or geologic
+        formations which may include, but are not limited to, reservoirs, saline aquifers, caverns or
+        mines, for long term sequestration of atmospheric CO2. Bio-oil Carbon Capture &
+        Sequestration is considered a subsector of Biomass Carbon Removal and Storage
+        (BiCRS). This Protocol applies to bio-oil sequestration technologies or projects, which
+        typically consist of activities associated with three sub-processes - biomass growth,
+        biomass conversion, and bio-oil injection and storage.
+        Bio-oil is a mixture of water, organic acids, aldehydes, ketones, sugars, phenols, and other
+        organic compounds derived from the thermal breakdown of biomass1. Thermal breakdown
+        of biomass is achieved via thermochemical processes, such as pyrolysis, liquefaction, or
+        gasification, which heat biomass in low- or no- oxygen environments to high temperature
+        (approximately 350°-650°C). Bio-oil is often also referred to as pyrolysis oil or bio-crude.
+        Bio-oil can have co-products like biochar mixed into it ahead of injection underground.
+        Within this Protocol, we use the words ‘bio-oil’, ‘bio-oil with biochar’ and ‘injectant’
+        interchangeably.
+        The Protocol accounts for quantification of the gross amount of CO2 removed via injection
+        of bio-oil into geologic formations, as well as the accounting for all greenhouse gas (GHG)
+        emissions associated with the growth and collection of biomass feedstock, biomass
+        conversion, biomass injection process, all transportation and embodied emissions
+        associated with the process, and emissions associated with leakage. The GHG Statement
+        is considered a cradle-to-grave analysis.
+        This Protocol is developed to adhere to the requirements of ISO 14064-2: 2019 –
+        Greenhouse Gases – Part 2: Specification with guidance at the project level for
+        quantification, monitoring, and reporting of greenhouse gas emission reductions or
+        removal enhancements. The Protocol ensures:
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    4/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                consistent, accurate procedures are used to measure and monitor all aspects of the
+                process required to enable accurate accounting of net CO2e removals
+                consistent system boundaries and calculations are utilized to quantify net CO2e
+                removal for bio-oil injection projects
+                requirements are met to ensure the CO2 removals are additional
+                evidence is provided and verified by independent third parties to support all net CO2e
+                removal claims
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    5/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        2.0 Sources and Reference Standards &
+        Methodologies
+        Specific Standards and protocols which are utilized as the foundation of this Protocol
+        and for which this Protocol is intended to be fully compliant with are the following:
+
+                Isometric Standard
+                ISO 14064-2: 2019 – Greenhouse Gases – Part 2: Specification with guidance at the
+                project level for quantification, monitoring, and reporting of greenhouse gas emission
+                reductions or removal enhancements
+
+        Additional reference standards that inform the requirements and overall practices
+        incorporated in this Protocol include:
+
+                ISO 14064-3: 2019 – Greenhouse Gases – Part 3: Specification with Guidance for the
+                verification and validation of greenhouse gas statements
+                ISO 14040: 2006 - Environmental Management - life cycle Assessment - Principles &
+                Framework
+                ISO 14044: 2006 - Environmental Management - life cycle Assessment -
+                Requirements & Guidelines
+
+        Additional standards, methodologies, and protocols that were reviewed, referenced, or for
+        which attempts to align with or leverage in development of this Protocol include:
+
+                Bio-oil Sequestration Prototype Protocol for Measurement, Reporting, & Verification.
+                Carbon Direct / EcoEngineers, 2022
+                Carbon Capture & Sequestration Protocol under the Low Carbon Fuel Standard.
+                California Air Resources Board (CARB). August, 2018
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    6/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        3.0 Future Versions
+        This Protocol was developed based on the current state of the art and current publicly
+        available science regarding biomass conversion and bio-oil injection. Because bio-oil
+        injection and storage in geologic formations is a novel carbon dioxide removal (CDR)
+        approach, with limited published literature, the Protocol incorporates requirements that
+        may be more stringent than some current relevant regulations for underground injection,
+        or other protocols related to biomass utilization for CDR.
+        This approach, notably when specifying requirements for demonstrating bio-oil storage
+        durability or permanence, will likely be altered in future versions of the Protocol as the
+        stability of bio-oil in geologic formations becomes well demonstrated and documented,
+        reversal risks are proven to be limited or non-existent, and the overall body of knowledge
+        and data regarding all processes, from feedstock supply, to conversion, and to permanent
+        storage is significantly increased.
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    7/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        4.0 Applicability
+        This Protocol applies to projects or processes which:
+
+                utilize agricultural or forestry residues as eligible feedstocks in accordance with the
+                framework set out in the Biomass Feedstock Accounting Module v1.2
+                convert the biomass to bio-oil via pyrolysis or similar processes or utilize bio-oil
+                produced by a third-party supplier
+                inject the bio-oil into natural or engineered geologic formations for long duration
+                storage purposes via an underground injection well
+
+        This Protocol applies to projects and associated operations that meet all of the following
+        project conditions:
+
+                the project provides a net-negative CO2e impact (net CO2e removal) as calculated in
+                the GHG Statement, in compliance with Section 7
+                the biomass feedstock utilized is sustainably sourced2
+                the project does no net harm to the environment and society
+                the project is considered additional, in accordance with the requirements of Section
+                6.4
+                the project provides long duration storage (>1000 yr estimated) of carbon in geologic
+                formations
+                the geologic storage site is located in the US
+                the geologic storage site is properly permitted and has a current relevant UIC well
+                permit 3. The site must be operated in compliance with current permits including those
+                issued by the US EPA or U.S. States for underground injection control wells and
+                specifically identify bio-oil or an equivalent type of injectant, as acceptable
+                injectants under the permit 4.
+
+        Projects that are explicitly NOT eligible include the following:
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    8/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                Projects that utilize bio-oil as part of enhanced hydrocarbon recovery (EHR or EHR+)
+                Projects that utilize biomass that doesn't meet the eligibility criteria detailed in
+                Biomass Feedstock Accounting Module v1.2.
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    9/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        5.0 Environmental and Social Safeguarding
+        The project must consider other environmental and social impacts and the Project
+        Proponent must provide evidence that the project will do no net environmental or
+        socioeconomic harm, complying with Section 3.7 of the Isometric Standard.
+        In addition to that outlined with the Isometric Standard, it must consider all aspects of the
+        project from feedstock growth through injection and storage. At a minimum the Project
+        Proponent must:
+
+          1. document activities conducted under the project which would require it to obtain
+             environmental permits and provide a listing of all permits or construction approvals
+             received or applied for and their current status and compliance history. This may
+             include, but is not limited to, activities under the Resource Conservation & Recovery
+             Act (RCRA), the U.S. EPA Underground Injection Control (UIC) program, the National
+             Pollutant Discharge Elimination System (NPDES) program under the Clean Water Act
+             (CWA), the Prevention of Significant Deterioration (PSD) program under the Clean Air
+             Act (CAA), and other relevant environmental permits such as federal, state, county, or
+             city permits for air, water or waste discharges;
+          2. document activities that would require the Project Proponent to obtain any drilling
+             permits, access agreements, or any encroachment permits under county or city
+             guidelines, or any federal, state, or local air, water, or restricted land use operating
+             permits;
+          3. when agricultural residues are used, provide documentation of characterization of
+             biomass in accordance with the Biomass Feedstock Accounting Module v1.2 to
+             demonstrate impact on carbon and nutrient (nitrogen, phosphorus, potassium)
+             removal;
+          4. provide documentation demonstrating whether the bio-oil is non-hazardous or
+             hazardous, based on U.S. EPA RCRA requirements and testing completed by an
+             accredited laboratory in accordance with U.S. EPA methods recommended in the Test
+             Methods for Evaluating Solid Waste: Physical/Chemical Methods Compendium (SW-
+             846)5 or equivalent, unless exempted by permit rule or standard. If the bio-oil is
+             classified as hazardous:
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    10/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+                 evidence must be provided that all protocols for hazardous substance handling
+                 and management are being followed.
+                 injection well permits must allow for hazardous waste injection and evidence that
+                 the permit conditions are being followed, must be provided.
+                 containment within the targeted storage reservoir must be ensured and
+                 monitored, and all evidence provided;
+          5. demonstrate a risk assessment and mitigation plan for safeguarding working
+             conditions, especially when it comes to safe handling and transportation of biomass
+             feedstocks as well as workers operating the storage facility.
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    11/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        6.0 Relation to the Isometric Standard
+        The following topics are covered briefly in this Protocol due to their inclusion in the
+        Isometric Standard, which governs all Isometric Protocols. See in-text references to the
+        Isometric Standard for further guidance.
+        6.1 Project Design Document
+        For each specific project to be evaluated under this Protocol, the Project Proponent must
+        document project characteristics in a Project Design Document (PDD) as outlined in
+        Section 3.2 of the Isometric Standard. The PDD will form the basis for project verification
+        and evaluation in accordance with this Protocol, and must include consideration of
+        processes unique to bio-oil such as:
+
+                location information for biomass production, biomass conversion, bio-oil injection,
+                and geologic storage formation
+                conditions of biomass use prior to project initiation
+                details on technologies, products, and services relevant to biomass conversion
+                processes, including production rates and volumes
+
+        6.2 Validation and Verification
+        Projects must be validated and project net CO2e removals verified by an independent
+        third party consistent with the requirements described in this Protocol as well as in
+        Section 4 of the Isometric Standard.
+        The Validation and Verification Body (VVB) must consider following requisite
+        components:
+
+          1. Validate that feedstock adheres to the requirements listed in the Biomass Feedstock
+             Accounting Module v1.2.
+          2. Verify that storage sites adhere to the requirements listed in the relevant storage
+             module.
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    12/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+          3. Verify that the quantification approach and monitoring plan adheres to requirements
+             of Section 7, including demonstration of required records.
+          4. Verify that the Environmental & Social Safeguards outlined in Section 5 are met.
+          5. Verify that the project is compliant with requirements outlined in the Isometric
+             Standard.
+
+        6.2.1 Verification Materiality
+        The threshold for Materiality, considering the totality of all omissions, errors and mis-
+        statements, is 5%, in accordance with Section 4.3 of the Isometric Standard.
+        Verifiers should also verify the documentation of uncertainty of the GHG Statement as
+        required by Section 2.5.7 of the Isometric Standard. Qualitative Materiality issues may
+        also be identified and documented, such as5:
+
+                control issues that erode the verifier’s confidence in the reported data;
+                poorly managed documented information;
+                difficulty in locating requested information;
+                noncompliance with regulations indirectly related to GHG emissions, removals or
+                storage
+
+        6.2.2 Site Visits
+        Project validation and verification must incorporate site visits to project facilities in
+        accordance with the requirements of ISO 14064-3, 6.1.4.2, including, at a minimum, site
+        visits during validation and initial verification to the biomass conversion site and the bio-
+        oil injection site. Validators should, whenever possible, observe operation of the
+        conversion and injection processes to ensure full documentation of process inputs and
+        outputs through visual observation.
+        A site visit must occur at least once every 2 years at each location.
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    13/71
+        6.2.3 Verifier Qualifications & Requirements
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+
+        Verifiers and validators must comply with the requirements defined in Section 4 of the
+        Isometric Standard. In addition, teams shall maintain and demonstrate expertise
+        associated with the specific technologies of interest, including biomass growth, biomass
+        conversion, bio-oil production and geologic storage.
+        Competency must be demonstrated through the relevant sectoral scope accreditations
+        listed below, based on IAF MD 14 and in accordance with Isometric's VVB policy:
+
+                Storage - Carbon Capture and Storage of CO₂ in Geological Formations
+
+        6.3 Ownership
+        CDR via bio-oil production and injection is often a result of a multi-step process (such as
+        biomass growth, harvesting, transport, conversion, injection, and storage), with activities
+        in each step managed and operated by a different operator, company, or owner. When
+        there are multiple parties involved in the process (e.g., forestry owner or injection site
+        operator), and to avoid double counting of net CO2e removals, a single Project Proponent
+        must be specified as the sole owner of the Credits. Contracts must comply with all
+        requirements defined in Section 3.1 of the Isometric Standard.
+        6.4 Additionality
+        The Project Proponent shall be able to demonstrate additionality through compliance
+        with Section 2.5.3 of the Isometric Standard. The baseline scenario and counterfactual
+        utilized to assess additionality must be project-specific, and are described Section 7.2 of
+        this Protocol.
+        Additionality determinations should be reviewed and completed every two years, at a
+        minimum, or whenever project operating conditions change significantly, such as the
+        following:
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    14/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                regulatory requirements or other legal obligations for project implementation change
+                or new requirements are implemented
+                project financials indicate carbon finance is no longer required, potentially due to, for
+                example
+                    increased tipping fees for waste feedstocks
+                    sale of co-products that make the business viable without carbon finance
+                    reduced rates for capital access
+
+        Any review and change in the determination of additionality shall not affect the
+        availability of carbon finance and carbon credits for the current or past Crediting Periods,
+        but, if the review indicates the project has become non-additional, this shall make the
+        project ineligible for future credits6.
+        6.5 Uncertainty
+        The uncertainty in the overall estimate of the net CO2e removal as a result of the project
+        must be accounted for. The total net CO2e removed (CO2 eRemoval ) for a specific batch (n           ​              ​
+
+
+
+
+        ) must be conservatively determined based on the relevant requirements outlined in
+        Section 2.5.7 of the Isometric Standard.
+        6.5.1 Reporting of uncertainty
+        Projects must report a list of all input variables used in the net CO2e removal calculation
+        and their uncertainties, including:
+
+                emission factors utilized, as published in public and other databases used
+                values of measured parameters from process instrumentation, such as truck weights
+                from weigh scales, flow rates from flow meters, electricity usage from utility power
+                meters, and other similar equipment
+                laboratory analyses, including analysis of carbon content of injected bio-oil
+
+        The uncertainty information should at least include the minimum and maximum values of
+        each variable that goes into the net CO2e removal calculation. More detailed uncertainty
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                        15/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        information should be provided if available, as outlined in Section 2.5.7 of the Isometric
+        Standard.
+        In addition, a sensitivity analysis that demonstrates the impact of each input parameter’s
+        uncertainty on the final net CO2e uncertainty must be provided. Details of the sensitivity
+        analysis method must be provided such that a third party can reproduce the results. Input
+        variables may be omitted from an uncertainty analysis if they contribute to a < 1% change
+        in the net CO2e removal. For all other parameters, information about uncertainty must be
+        specified.
+        6.6 Data sharing
+        In accordance with the Isometric Standard, all evidence and data related to the
+        underlying quantification of net CO₂e removal will be available to the public through
+        Isometric's platform. That includes:
+
+                Project Design Document
+                GHG Statement
+                Measurements taken and supporting documentation, such as calibration certificates
+                Emission factors used
+                Scientific literature used
+
+        The Project Proponent can request certain information to be restricted (only available to
+        authorized Buyers, the Registry and VVB) where it is subject to confidentiality. This
+        includes emissions factors from licensed databases. However, all other numerical data
+        produced or used as part of the quantification of net CO2e removal will be made
+        available.
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    16/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        7.0 Quantification of net CO2e removal
+        7.1 System Boundary & GHG Emissions Scope
+        The scope of this Protocol includes GHG sources, sinks, and reservoirs (SSRs) associated
+        with a bio-oil injection CDR project. A cradle-to-grave GHG Statement must be prepared
+        encompassing the GHG emissions relating to SSRs controlled by and related to the
+        project, including the following activities:
+
+                Biomass production (growth and harvesting)
+                Biomass transport
+                Biomass conversion (bio-oil production)
+                Bio-oil transport to processing sites and injection site
+                Bio-oil injection
+                Monitoring (including carbon content monitoring, reversals monitoring, lab processing
+                and surveys)
+
+        It should be noted that the physical and system boundaries for the bio-oil injection and
+        storage site should include the following subprocess:
+
+                Injection facility (including any surface processing or preparation of bio-oil and
+                injectants, injection system, and balance of plant or auxiliary systems)
+                Monitoring wells and any above ground monitoring systems or devices
+                The limits of the geologic storage reservoir (vertical and lateral)
+                Embodied emissions associated with each activity and process, such as for
+                manufacture and shipping of process equipment and for consumables used
+
+        Emissions for processes within the system boundary shall include all GHG SSRs from the
+        construction or manufacturing of each physical site and associated equipment, closure
+        and disposal of each site and associated equipment, and operation of each process
+        (biomass production, biomass conversion, bio-oil injection), to include embodied
+        emissions of equipment and consumables in the process. Any emissions required to
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    17/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        source the feedstock must be accounted for. These include feedstock collection/harvest,
+        preparation, and transportation. The Project Proponent is responsible for identifying all
+        GHG SSRs directly or indirectly related to project activities.
+        Any emissions from sub-processes or process changes that would not have taken place
+        without the involvement of the CDR process, such as subsequent transportation and
+        refining, must be fully considered in the system boundary. This allows for accurate
+        consideration of additional, incremental emissions induced by the CDR process.
+        Ancillary activities (such as supplementary research and development activities and
+        corporate administrative activities) that are associated with a project but are not directly
+        or indirectly related to the issuance of Credits can be excluded from the system boundary.
+        In addition, biomass conversion pyrolysis processes will typically produce co-products of
+        biochar and ash, and potentially other products. All emissions associated with the entire
+        system where bio-oil and co-products are produced must be allocated to the CDR
+        process. When biochar is mixed into bio-oil ahead of injection, emissions associated with
+        all activities related to biochar production must be accounted for in totality.
+        The system boundary for GHG accounting must include all SSRs controlled by and related
+        to the project, including but not limited to the SSRs in Table 1.
+        Table 1. Scope of activities and GHG SSRs to be included by the removal project
+                                               GHG SOURCE, SINK OR
+          EMISSION CATEGORY                    RESERVOIR                                  GHG INCLUDED? JUSTIFICATION
+          Biomass feedstock                                                                                        Primary emission from fuel
+                                                                                          CO2 Yes
+                                                                                                                   combustion
+                                               Fuel Use (harvesting
+                                               and/or collection)                         CH4 Yes                  Potential release during fuel
+                                                                                                                   combustion; included for
+                                                                                          N2O Yes                  completeness
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                            18/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                               GHG SOURCE, SINK OR
+          EMISSION CATEGORY                    RESERVOIR                                  GHG INCLUDED? JUSTIFICATION
+
+                                                                                          CO2 Yes                  Primary emission from
+                                               Electricity Use                                                     electricity generation
+                                               (harvesting and/or                         CH4 Yes
+                                               collection)                                                         Potential release during
+                                                                                                                   electricity generation; included
+                                                                                          N2O Yes                  for completeness
+                                                                                                                   Primary emission from
+                                                                                          CO2 Yes                  manufacture of equipment due
+                                                                                                                   to energy consumption
+                                               Embodied emissions –                                                CH4 release possible
+                                               equipment            CH4 Yes                                        depending on manufacturing
+                                               manufacture,                                                        process and energy
+                                               construction,                                                       consumption
+                                               demolition
+                                                                                                                   Included for completeness.
+                                                                                          N2O Yes                  May be demonstrated as
+                                                                                                                   negligible and excluded
+                                                                                          CO2 Yes
+                                                                                                                   Accounting framework
+                                               Land Use Change                            CH4 Yes                  outlined in the Biomass
+                                                                                                                   Feedstock Accounting Module
+                                                                                                                   v1.2
+                                                                                          N2O Yes
+          Biomass Processing                                                                                       Primary emission from
+                                                                                          CO2 Yes
+                                                                                                                   electricity generation
+                                               Electricity Use                            CH4 Yes                  Potential release during
+                                                                                                                   electricity generation; included
+                                                                                          N2O Yes                  for completeness
+                                               Process Emissions                          CO2 Yes                  Release possible depending
+                                                                                                                   on processing method, e.g. tail
+                                                                                                                   gases released during
+                                                                                          CH4 Yes                  pyroylsis
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                               19/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                               GHG SOURCE, SINK OR
+          EMISSION CATEGORY                    RESERVOIR                                  GHG INCLUDED? JUSTIFICATION
+
+                                                                                                                   Release possible depending
+                                                                                          N2O Yes                  on processing method. May be
+                                                                                                                   demonstrated as negligible
+                                                                                                                   and excluded
+                                                                                                                   Primary emission from
+                                                                                          CO2 Yes                  manufacture of equipment due
+                                                                                                                   to energy consumption
+                                               Embodied emissions –                                                CH4 release possible
+                                               equipment                                                           depending on manufacturing
+                                               manufacture,         CH4 Yes                                        process and energy
+                                               construction,                                                       consumption
+                                               demolition
+                                                                                                                   Included for completeness.
+                                                                                          N2O Yes                  May be demonstrated as
+                                                                                                                   negligible and excluded
+                                                                                                                   Primary emission from
+                                                                                          CO2 Yes                  manufacture of consumables
+                                                                                                                   due to energy consumption
+                                               Embodied emissions - CH                                             CH4 release possible
+                                                                       4 Yes
+                                                                                                                   depending on manufacturing
+                                               other consumables                                                   process and energy
+                                                                                                                   consumption
+                                                                                                                   Included for completeness.
+                                                                                          N2O Yes                  May be demonstrated as
+                                                                                                                   negligible and excluded
+          Bio-oil Injection                                                                                        Primary emission from
+                                                                                          CO2 Yes
+                                                                                                                   electricity generation
+                                               Electricity Use                            CH4 Yes                  Potential release during
+                                                                                                                   electricity generation; included
+                                                                                          N2O Yes                  for completeness
+                                                                                          CO2 Yes                  Emissions from the process
+                                                                                                                   (aside from energy use) are not
+                                               Process Emissions                          CH4 Yes                  anticipated, since bio-oil will
+                                                                                                                   be injected directly. Venting of
+                                                                                          N2O Yes                  the storage might be required
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                               20/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                               GHG SOURCE, SINK OR
+          EMISSION CATEGORY                    RESERVOIR                                  GHG INCLUDED? JUSTIFICATION
+                                                                                                                   Primary emission from
+                                                                                          CO2 Yes                  manufacture of equipment due
+                                                                                                                   to energy consumption
+                                               Embodied emissions –                                                CH4 release possible
+                                               equipment                                                           depending on manufacturing
+                                               manufacture,         CH4 Yes                                        process and energy
+                                               construction,                                                       consumption
+                                               demolition
+                                                                                                                   Included for completeness.
+                                                                                          N2O Yes                  May be demonstrated as
+                                                                                                                   negligible and excluded
+                                                                                                                   Primary emission from
+                                                                                          CO2 Yes                  manufacture of consumables
+                                                                                                                   due to energy consumption
+                                               Embodied emissions - CH                                             CH4 release possible
+                                                                       4 Yes
+                                                                                                                   depending on manufacturing
+                                               other consumables                                                   process and energy
+                                                                                                                   consumption
+                                                                                                                   Included for completeness.
+                                                                                          N2O Yes                  May be demonstrated as
+                                                                                                                   negligible and excluded
+                                               Carbon in injected Bio- CO
+                                                                          2 Yes                                    CO2 stored
+                                               oil
+          Transportation                                                                                           Primary emission from biomass
+          between Biomass                                                                 CO2 Yes
+          Production,                                                                                              and bio-oil transport
+          Conversion, &
+          Injection                                                                                                Included for completeness.
+                                               Fuel Use                                   CH4 Yes                  May be demonstrated as
+                                                                                                                   negligible and excluded
+                                                                                                                   Included for completeness.
+                                                                                          N2O Yes                  May be demonstrated as
+                                                                                                                   negligible and excluded
+                                               Embodied emissions –                                                Primary emission from
+                                               transportation       CO2 Yes                                        manufacture of equipment due
+                                               equipment                                                           to energy consumption
+                                               manufacture,
+                                               construction,                                                       CH4 release possible
+                                               demolition           CH4 Yes                                        depending on manufacturing
+                                                                                                                   process and energy
+                                                                                                                   consumption
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                            21/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                               GHG SOURCE, SINK OR
+          EMISSION CATEGORY                    RESERVOIR                                  GHG INCLUDED? JUSTIFICATION
+                                                                                                                   Included for completeness.
+                                                                                          N2O Yes                  May be demonstrated as
+                                                                                                                   negligible and excluded
+                                                                                                                   Should not occur if properly
+                                                                                          CO2 Yes                  designed and maintained.
+                                                                                                                   Included for completeness
+                                                                                                                   Should not occur if properly
+                                               GHG emissions from                                                  designed and maintained. CH4
+          Bio-oil storage                                                                 CH4 Yes                  may be generated by bio-oil
+                                               storage formation                                                   decay. Included for
+                                                                                                                   completeness
+
+                                                                                          N2O No                   Not likely to occur in
+                                                                                                                   subsurface environment
+
+        All GHGs must be quantified and converted to CO2e in the GHG Statement using the 100-
+        yr Global Warming Potential (GWP) for the GHG of interest, based on the most recent
+        volume of the IPCC Assessment Report (currently the Sixth Assessment Report).
+        7.2 Baseline
+        The baseline scenario for bio-oil projects assumes the activities associated with the bio-
+        oil project do not take place and any infrastructure is not built.
+        The counterfactual is the CO2 stored in the biomass feedstock that would have remained
+        durably stored in the biomass in the absence of the project. This is known as ineligible
+        biomass, given that the CO2 stored would have remained stored in the biomass in the
+        absence of the CDR project and is therefore not eligible to count towards Crediting. The
+        Biomass Feedstock Accounting Module v1.2 sets out requirements for establishing
+        ineligible biomass as part of the Counterfactual Storage Eligibility criteria. The Biomass
+        Feedstock Accounting Module v1.2 includes details for quantification of
+        CO2 eCounterf actual .
+                 ​                        ​
+
+
+
+
+                         Biomass Feedstock Accounting v1.2
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                           22/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+             See Section 3 of the Biomass Feedstock Accounting Module for requirements.
+
+
+        7.3 Net CDR Calculation
+        7.3.1 Calculation Approach
+        The biomass pyrolysis process can be modeled as operating on a batch basis, consisting
+        of a ‘Production Batch’, p, which typically consists of utilizing a single type of biomass
+        feedstock, often of a single source of origin, converting the biomass to bio-oil via
+        pyrolysis, and storing and transporting that bio-oil to an injection site. The unique
+        characteristics of the biomass used, the bio-oil conversion process, the produced bio-oil
+        characteristics, transportation distances, and storage site characteristics will be
+        consistent for each Production Batch.
+        An ‘Injection Batch’, n, is a single injection activity where a quantity of bio-oil is injected
+        into an approved underground storage site. The Injection Batch may consist of a portion
+        of a Production Batch, a full single Production Batch, or a blend of multiple Production
+        Batches, which is injected for durable storage.
+        The approach for emissions calculations here is based on Injection Batches and the
+        specific calculation of net CO2e removal for each Injection Batch. The following sections
+        outline the process for calculating the net CO2e removed for each specific Injection Batch
+        of biomass processed and associated bio-oil injection, defined as a Removal.
+        The Reporting Period for a bio-oil project represents an interval of time over which
+        removals are calculated and reported for verification. When total net CO2e removals must
+        be calculated for a Reporting Period, for example during submission of Claimed Removals
+        in a GHG statement, it is calculated as the sum of removals during the Reporting Period:
+
+                                                                                          n
+                                                              CO2 eRemoval, RP = ∑ CO2 eRemoval, n
+                                                                    ​               ​         ​    ​            ​
+
+
+
+
+                                                                                          1
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    23/71
+4/24/26, 12:47 PM                                                                    Bio-oil Geological Storage — Isometric
+
+        (Equation 1)
+        Where
+
+                CO2 eRemoval, RP = the total net CO2e removal for reporting period RP , in tonnes of
+                         ​                      ​
+
+
+
+
+                CO2e
+                CO2 eRemoval, n = the total net CO2e removal for Injection Batch n, occurring in
+                         ​                  ​
+
+
+
+
+                reporting period RP , in tonnes of CO2e, see Section 7.4, Equation 2
+
+        Note: Reversals occur after Credits have been issued so are not included in this equation.
+        See Section 5.6 of the Isometric Standard for further information.
+        7.4 Calculation of CO2eRemoval, n
+        Net CO2e removal for bio-oil project can be calculated as follows. Note that the
+        calculation is completed for a discrete batch, n, of bio-oil that is injected (‘Injection
+        Batch’). The final net CO2e quantification must be conservatively determined, giving high
+        confidence that at least the estimated amount of CO2e was removed.
+
+
+                                                    CO2 eRemoval, n = CO2 eStored, n – CO2 eCounterf actual, n −
+                                                          ​           ​          ​            ​          ​                ​
+
+
+
+
+                                                                       CO2 eEmissions, n
+                                                                                      ​              ​
+
+
+
+
+        (Equation 2)
+        Where
+
+                CO2 eStored, n = the total CO2 removed from the atmosphere and durably stored as
+                biogenic carbon for batch n, in tonnes of CO2e, see Section 7.4.1
+                         ​              ​
+
+
+
+
+                CO2 eCounterf actual, n = the total counterfactual CO2 removed from the atmosphere
+                and durably stored as biogenic carbon in the absence of the project, for batch n, in
+                         ​                            ​
+
+
+
+
+                tonnes of CO2e, see Section 7.4.2
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                       24/71
+4/24/26, 12:47 PM                                                                     Bio-oil Geological Storage — Isometric
+
+                CO2 eEmissions, n = the total GHG emissions for batch n, in tonnes of CO2e, see
+                         ​                    ​
+
+
+
+
+                Section 7.4.3
+
+        7.4.1 Calculation of CO2eStored, n
+        CO2 eStored represents the amount of CO2 (stored as organic carbon, C) that is injected
+                 ​           ​
+
+
+
+
+        and stored in the geologic or engineered storage formation. This is the gross amount
+        stored for each batch injection and does not account for spillage nor reversals of storage
+        from the storage formation.
+        The total amount of CO2 contained in the injectant can be calculated as follows.
+        Where all bio-oil production batches are blended prior to injection:
+
+
+                                                                                              CBio−oil, n ⋅ mInj, n
+                                                                CO2 eStored, n =
+                                                                                                         ​                   ​
+
+
+
+
+                                                                       ​          ​                                              ​
+
+
+
+
+                                                                                                    CCO2     ​
+                                                                                                                 ​
+
+
+
+
+        (Equation 3)
+        Where bio-oil production batches are not blended prior to injection:
+
+
+                                                                                      k
+                                                                                                CBio−oil, p ⋅ mInj, p
+                                                           CO2 eStored, n = ∑ (                                       )
+                                                                                                                 ​                   ​
+
+
+
+
+                                                                  ​          ​            ​                                              ​
+
+
+
+
+                                                                                                      CCO2               ​
+
+
+
+
+                                                                                  p=1
+                                                                                                                     ​
+
+
+
+
+        (Equation 4)
+        Where:
+
+                n = Injection batch
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                      25/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+                p = Production batch
+                k = number of Production batches, p, blended in the Injection batch, n
+                CO2 eStored, n = the total CO2 removed for batch n, in tonnes of CO2e
+                         ​                           ​
+
+
+
+
+                CBio−oil, n(p) = the concentration as weight percent (%wt) of C in the bio-oil injectant
+                                                 ​
+
+
+
+
+                injected for Injection Batch n OR for each production batch p included in Injection
+                Batch n
+                mInj, n(p) = the total mass of injectant emplaced via injection (tonne) for Injection
+                                             ​
+
+
+
+
+                Batch n OR for each production batch p included in Injection Batch n
+                CCO2 = the content of C in CO2 (as a mass percent)
+                                 ​
+                                     ​
+
+
+
+
+        7.4.1.1 Measurements - CO2eStored, n
+        Calculation of CO2 eStored requires two primary measurements:
+                                                         ​   ​
+
+
+
+
+                CBio−oil - %wt of C in the bio-oil injectant
+                                         ​
+
+
+
+
+                mInj - total mass of injectant
+                             ​
+
+
+
+
+        7.4.1.1.1 Bio-oil Carbon Content Measurement
+        In order to determine CBio−oil , the %wt of C in the bio-oil injectant for either a blended
+                                                                 ​
+
+
+
+
+        bio-oil in Injection Batch n, or for individual Production Batches p, is determined via the
+        analysis of samples of bio-oil injectant for total C content.
+        The following test method should be used where possible, and must be used for bio-oils or
+        blends with vapor pressures higher than 3 psi7:
+
+                NREL Laboratory Analysis Procedure for Determination of Carbon, Hydrogen, and
+                Nitrogen in Bio-oils8 should be used where possible, and must be used for bio-oils or
+                blends with vapor pressures higher than 3 psi7
+
+        Where this is not possible, other acceptable test methods include:
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    26/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                ASTM D5291: Standard Test Methods for Instrumental Determination of Carbon,
+                Hydrogen, and Nitrogen in Petroleum Products and Lubricants
+                ASTM D5373: Standard Test Methods for Determination of Carbon, Hydrogen and
+                Nitrogen in Analysis Samples of Coal and Carbon in Analysis Samples of Coal and
+                Coke
+                Alternative methods or analytical equipment which determine total carbon content
+                may be utilized if justified and documented to be equivalent to ASTM D5291.
+
+        A minimum of one sample per Injection Batch (for blended injections) or one per
+        Production Batch (for non-blended injections) of bio-oil must be collected and analyzed.
+        Samples shall be from a well mixed and representative aliquot of the bio-oil as injected,
+        insuring that solids are blended in the sample and representative of the amount in the
+        injectant.
+        Analysis must be completed by a qualified laboratory, as evidenced by accreditation to
+        ISO 17025 or equivalent standards for laboratory quality management for the specific test
+        method (ASTM D5291).
+        Laboratories shall complete standard quality assurance procedures on a schedule in
+        accordance with their quality management plans and accreditation requirements to
+        include:
+
+                analysis of blanks
+                analysis of duplicates
+                instrumentation calibrations and analysis of calibration standards
+
+        This Protocol provides two alternative methods for how often C content must be
+        measured and quantified. The first method (A) involves measuring every batch, the second
+        method (B) involves only sampling some batches, and conservatively estimating the C
+        content of unsampled batches.
+        Method A: Measure every Batch
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    27/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        The C content of every Injection Batch must be ascertained through direct measurement,
+        either by:
+
+          1. Sampling the Injection Batch (which may be blended, or non-blended)
+          2. Sampling all constituent Production Batches which comprise the Injection Batch, and
+             calculating the C content of the Injection Batch through a linear weighted
+             combination of the C contents of these Production Batches, as given in Equation 3.
+                 Note that in the case of an unblended Injection Batch, the Injection Batch
+                 originates from only a single Production Batch, by definition, and no calculation
+                 is required
+
+        For the acceptable minimum number of samples to take per sampled Batch, see Minimum
+        number of samples per Batch below. If multiple samples are taken per Batch, the average
+        C content of these samples must be used.
+        Method B: Sampling a Production Process
+        For a given Production Process of a feedstock, samples must be taken directly for at least
+        30 Production Batches, to ensure there is enough data to estimate C content for future
+        Production Batches with appropriate statistical significance. Until this threshold is
+        reached, Method A must be used.
+        Subsequently, samples must be taken at least every 10 Production Batches.
+        For the acceptable minimum number of samples to take per Batch, see Minimum number
+        of samples per Batch below.
+        For batches which are not sampled, C content must be conservatively estimated, as
+        follows:
+
+
+                                                                         CBio−oil = μCC − σCC
+                                                                                    ​       ​         ​
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    28/71
+4/24/26, 12:47 PM                                                                     Bio-oil Geological Storage — Isometric
+
+        (Equation 5)
+
+                                                                                             σCC
+                                                                            σCC =
+                                                                                                   ​
+
+
+
+
+                                                                                  ​                      ​
+
+
+
+
+                                                                                            nsamples   ​ ​
+
+
+
+
+        (Equation 6)
+        where:
+
+                σCC is the standard error of the mean of C content, across all eligible samples for this
+                        ​
+
+
+
+
+                Production Process
+                σCC is the standard deviation of C content, across all eligible samples for this
+                        ​
+
+
+
+
+                Production Process
+                nsamples is the number of eligible samples for this Production Process
+                                ​
+
+
+
+
+                μCC is the mean C content of all eligible samples for this Production Process
+                            ​
+
+
+
+
+        Eligible samples are those taken in the previous 6 months before a specific Production
+        Batch was produced. Older samples may not be used.
+        Additionally, batches must be subject to random sampling, to alleviate the risk of any
+        given batch containing a substance with a substantially different C content.
+        A random sampling approach must be agreed and documented in the Project Design
+        Document, whereby Isometric will contact the Project Proponent on randomly selected
+        days, at an agreed cadence, which must be no less frequent than once per month, on
+        average. Once contacted, the Project Proponent must sample the C content of the
+        subsequent batches processed.
+        If the Project Proponent is unable to carry this random sampling out on 3 occasions within
+        a 6 month period, or within a 6 month period more than 3 measurements are below 3 SD
+        from the mean, this will trigger a Project review by Isometric.
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                        29/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        If there is a significant change to a Production Process for a feedstock, which is likely to
+        alter the average C content of the feedstock, or if significant deviations in carbon content
+        are detected, the feedstock should be considered as a new Production Process. This
+        means that sampling must be restarted, with all prior samples no longer able to be used
+        for estimating C content.
+        Minimum number of samples per Batch
+        For all measurements taken, samples must be from a well mixed and representative
+        aliquot of the injectant. To account for the possibility of variation within a single
+        Production Batch (for example within a large container of the injectant), either of the
+        following approaches must be adopted:
+
+          1. A minimum of 3 samples must be taken for each measured Production Batch.
+          2. Justification and evidence must be provided to demonstrate that the “within batch”
+             variation is likely to be minimal. For example, this could be justified due to the physical
+             details of the Production Process used, or alternatively by providing data examining
+             the “within batch” C content variation.
+
+        Process for handling C content measurement outliers
+        For a given Production Process, an Outlier is defined as any individual sample which lies
+        more than 3 standard deviations, σCC , above or below the mean. To minimize the potential
+                                                                            ​
+
+
+
+
+        overall impact of outlier measurements, all C content measurement outliers must be
+        handled via the applying the technique of "winsorization”, as follows.
+        For a given measurement, m, the winsorized measurement mw is defined as follows:                           ​
+
+
+
+
+                For a measurement m where m > μ + 3σCC , mw = μ + 3σCC                        ​       ​                    ​
+
+
+
+
+                For a measurement m where m < μ − 3σCC , mw = μ − 3σCC                        ​       ​                    ​
+
+
+
+
+        The winsorized measurement, mw , must be used for the determination of carbon content.
+                                                                    ​
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                        30/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        This winsorization process must only be applied once a minimum number of 30
+        measurements have been taken, to ensure statistical significance.
+        The Project Proponent must monitor occurrences of outliers, and investigate if
+        significantly more than the statistically expected number occurs, as it may be indicative of
+        a systematic issue. This may be checked at verification, at the discretion of the verifying
+        VVB.
+        7.4.1.1.2 Measurement of Mass of Bio-oil Injected
+        The mass of injectant, mInj , is measured via determination of weight of delivered bio-oil
+                                                         ​
+
+
+
+
+        to the injection site using a calibrated scale. The total mass injected may be determined
+        by the difference in bio-oil delivery truck weight measured upon arrival at the injection
+        facility and at departure, after offloading of bio-oil, either into storage or directly to
+        injection.
+        Any truck scale used must have a current certification in accordance with applicable
+        local, state, or federal regulations for legal-for-trade weights and measures. Testing and
+        calibration of scales must utilize certified weights in accordance with local, state, or other
+        regulations, calibration weights must meet NIST Handbook 44 specifications9, and scale
+        testing and calibration must be performed by a state certified entity.
+        The total mass injected may also be determined by other methods, such as use of a
+        calibrated flow meter and density measurement, or use of calibrated on site weigh scales
+        for smaller containers, where such methods are viable and justified. Note that, due to
+        typical viscosity of bio-oil, the use of flow meters is not often viable and can result in poor
+        data quality.
+        7.4.1.2 Required Records & Documentation - CO2eStored, n
+        The Project Proponent must maintain the following records as evidence of CO2 removal in
+        injected bio-oil:
+
+                weigh scale tickets for each delivery of bio-oil (arrival and departure weights) or other
+                equivalent records
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    31/71
+4/24/26, 12:47 PM                                                                  Bio-oil Geological Storage — Isometric
+
+                analytical results for each ASTM D5291 analysis for C content of bio-oil from each
+                batch as required
+                Documentation of any spills during injection operations and estimates of quantity
+                released
+
+        Records of all C analyses and injection masses (e.g. weigh scale tickets) must be
+        maintained by the injection facility and provided for verification purposes for a period of
+        five years.
+        7.4.1.3 Other Considerations - CO2eStored, n
+        Although limited and of small quantity, injection processes should be monitored to ensure
+        that any process upsets or equipment failures and resulting spills of bio-oil are monitored,
+        documented, quantified, and accounted for in the GHG Statement of the project batch.
+        For each batch, where a process upset results in loss of bio-oil, that amount must be
+        deducted from the delivered amount of bio-oil based on delivery weigh tickets. Such
+        amounts must be allocated directly to the specific injection batch of bio-oil.
+        7.4.2 Calculation of CO2eCounterfactual, n
+        The calculation of CO2 eCounterf actual, n , is determined by the requirements of the Biomass
+                                                  ​                            ​
+
+
+
+
+        Feedstock Accounting Module v1.2.
+
+                         Biomass Feedstock Accounting v1.2
+             See Section 3 of the Biomass Feedstock Accounting Module
+
+
+        7.4.3 Calculation of CO2eEmissions, n
+        CO2 eEmissions, n is the total quantity of GHG emissions from operations and allocated
+                 ​                     ​
+
+
+
+
+        embodied emissions for a batch n. This can be calculated as:
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                     32/71
+4/24/26, 12:47 PM                                                                         Bio-oil Geological Storage — Isometric
+
+
+
+
+                                                           CO2 eEmissions, n = CO2 eEnergy, n + CO2 eT ransportation, n
+                                                                    ​         ​           ​           ​           ​                    ​
+
+
+
+
+                                                                        +CO2 eEmbodied, n + CO2 eM isc., n
+                                                                                  ​               ​           ​           ​
+
+
+
+
+                                                                               +CO2 eLeakage,n​           ​
+
+
+
+
+        (Equation 7)
+        Where
+
+                CO2 eEmissions, n = the total GHG emissions for a batch n, in tonnes of CO2e
+                         ​                             ​
+
+
+
+
+                CO2 eEnergy, n = the total GHG emissions associated with energy consumption for a
+                         ​                 ​
+
+
+
+
+                batch n, in tonnes of CO2e, see Section 7.4.3.2
+                CO2 eT ransportation, n = the total GHG emissions associated with transportation of
+                         ​                                      ​
+
+
+
+
+                products for a batch n, in tonnes of CO2e, see Section 7.4.3.3
+                CO2 eEmbodied, n = the total embodied GHG emissions allocated to a batch n, in
+                         ​                         ​
+
+
+
+
+                tonnes of CO2e, see Section 7.4.3.4
+                CO2 eM isc., n = the total miscellaneous GHG emissions for a batch n, that cannot be
+                         ​             ​
+
+
+
+
+                categorized by CO2 eEnergy, n , CO2 eT ransportation, n , or CO2 eEmbodied, n , in tonnes of
+                                                            ​             ​           ​                               ​            ​       ​
+
+
+
+
+                CO2e, see Section 7.4.3.5
+                CO2 eLeakage, n = the total GHG emissions associated with the project’s impact on
+                         ​                     ​
+
+
+
+
+                activities that fall outside of the system boundary of a project, allocated to batch n,
+                in tonnes of CO2e, see Section 7.4.3.6
+
+        Note: Reversals occur after Credits have been issued so are not included in this equation.
+        See Section 5.6 of the Isometric Standard for further information. Risk of reversal
+        information is given in Appendix 1: Risk of Reversal Questionnaire, with further information
+        provided within the relevant storage module storage module.
+        7.4.3.1 Emissions allocation
+        Emissions that occur relating to a batch, n, must be included in the reporting of emissions
+        associated with that batch and may not be allocated across multiple batches. Allocation
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                        33/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        across multiple batches must be agreed with Isometric on a case by case basis.
+        Embodied emissions which relate to multiple batches may be allocated in line with the
+        allocation rules set out in the Embodied Emissions Accounting Module v1.0.
+        When the Project Proponent is planning to cease operations within a given storage site,
+        the monitoring emissions required for post-closure monitoring must be calculated and
+        allocated to the remaining removals taking place at the storage site. If that is not
+        possible, the Project Proponent should allocate those emissions to other projects and/or
+        storage sites they conduct removal operations at, in agreement with Isometric. If for any
+        reason emissions are not appropriately allocated, the Reversal process will be triggered
+        in accordance with Isometric Standard, to account for any remaining monitoring
+        emissions.
+        In instances where monitoring activities are shared between entities, for example if
+        multiple companies inject bio-oil into the same storage infrastructure, the emissions
+        associated with these activities must be allocated proportionally between the entities.
+        7.4.3.2 Calculation of CO2eEnergy, n
+        GHG emissions associated with CO2 eEnergy,n should include all emissions associated
+                                                                          ​               ​
+
+
+
+
+        with electricity usage or fuel combustion.
+        Examples of electricity usage may include, but are not limited to:
+
+                processing equipment, motors, drives and instrumentation
+                facility operations
+                pyrolysis system start up
+                injection operations
+                monitoring equipment operation, including analyzers, instrumentation, on-site
+                laboratories specifically for monitoring activities
+                sampling pumps, sampling systems, or other similar monitoring activities
+                off site analytical laboratory operation and sample analysis
+                electricity for building operation & management for monitoring facility buildings
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    34/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        Examples of fuel consumption may include, but are not limited to:
+
+                pyrolysis system start up
+                pyrolysis reactor heating
+                emission control (e.g. propane for flare co-firing or pilot)
+                handling equipment, such as fork trucks or loaders
+                sampling system operation, such as any pumps or heating systems
+                monitoring system installation, operation or closure
+
+        The Energy Use Accounting Module v1.2 provides requirements on how energy-related
+        emissions must be calculated so that they can be subtracted in the net CO2e removal
+        calculation. It sets out the calculation approach to be followed for intensive facilities and
+        non-intensive facilities and acceptable emissions factors.
+
+                         Energy Use Accounting v1.2
+             Refer to Energy Use Accounting Module for the calculation guidelines.
+
+
+        7.4.3.3 Calculation of CO2eTransportation, n
+        GHG emissions associated with CO2 eT ransportation,n should include all emissions
+                                                                          ​                         ​
+
+
+
+
+        associated with transportation of products as part of a batch n’s process, including the
+        following:
+
+                transportation of biomass feedstock to processing site
+                transportation of bio-oil from processing site to injection site
+                transportation of samples for lab analysis
+
+        The Transportation Emissions Accounting Module v1.1 provides requirements on how
+        transportation-related emissions must be calculated so that they can be subtracted in the
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    35/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        net CO2e removal calculation. It sets out the calculation scope, approach to be followed,
+        and acceptable emissions factors.
+
+                         Transportation Emissions Accounting v1.1
+             Refer to Transportation Emissions Accounting Module for the calculation guidelines.
+
+
+        7.4.3.4 Calculation of CO2eEmbodied, n
+        The Project Proponent must identify all equipment and consumables used in the biomass
+        conversion and storage process, identify appropriate cradle to grave emission factors,
+        and allocate the emissions to removals appropriately in line with the Embodied Emissions
+        Accounting Module v1.0.
+        GHG emissions associated with CO2 eEmbodied,n should include all emissions associated
+                                                                          ​                 ​
+
+
+
+
+        with the procurement and use of materials, consumables and equipment, including but
+        not limited to:
+
+                non-feedstock conversion process inputs or consumables:
+                    catalysts
+                    water
+                    thermal oils used for heat transfer
+                    coolants used for bio-oil quench
+                    gasses such as nitrogen used for process or instrumentation purges
+                    injection additives (i.e. biocide, salt, etc.)
+                    gases, reagents or other materials used for operation of monitoring equipment
+                    and on-site analyzers
+                equipment:
+                    pyrolyzer reactor
+                    feedstock conveyors, augers, feed bins, and related equipment
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    36/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+                       bio-oil quench or condenser units, including any heat transfer equipment, such as
+                       glycol chillers and pumps
+                       ash and char collection systems and quench or cooling systems
+                       tailgas emissions control systems, such as flares or oxidizers
+                       preparation or mixing equipment
+                       pumps, piping, and related equipment
+                       storage tanks
+                       injection well materials
+                       all support structures, facilities, and infrastructure, including steel platforms,
+                       framing, supports, concrete footings and building structures
+                       monitoring wells and all associated materials (steel casing, concrete, etc.)
+                       on-line analyzers, measurement equipment, or other such devices
+                       buildings and associated equipment utilized for monitoring purposes (e.g. on-site
+                       laboratories)
+
+                         Embodied Emissions Accounting v1.0
+             Refer to Embodied Emissions Accounting Module for the calculation guidelines.
+
+
+        7.4.3.5 Calculation of CO2eMisc., n
+        GHG emissions associated with CO2 eM isc.,n should include all emissions associated with
+                                                                          ​               ​
+
+
+
+
+        the project that cannot be categorized by CO2 eEnergy, n , CO2 eT ransport, n , or    ​            ​         ​     ​
+
+
+
+
+        CO2 eEmbodied n . The Project Proponent is responsible for identifying all sources of
+                 ​                  ​
+
+
+
+
+        emissions directly or indirectly related to project activities and must report any outside of
+        the SSR categories identified as miscellaneous emissions.
+        Examples include, but are not limited to:
+
+                waste processing associated with all aspects of the project's processes
+                staff travel associated with the project
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                        37/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+                Direct emissions of tailgas as part of a pyrolysis process, CO2 eT ailgas, n . Further                     ​   ​
+
+
+
+
+                detail is provided in the section below.
+
+        Calculation of CO2eTailgas, n
+        Direct emissions from a pyrolysis process may occur when pyrolysis gasses are emitted to
+        the atmosphere, are combusted within the process or pyrolyzer to provide thermal energy
+        for the process, or are combusted or oxidized in an emissions control process such as a
+        flare or thermal oxidizer.
+        Emissions are calculated as follows:
+
+
+                                                                              CO2 eT ailgas, p =
+                                                                                   ​               ​
+
+
+
+
+                                                                  mT ailgas ⋅ CT ailgas, CH4 ⋅ GW PCH4 ⋅ tp
+                                                                          ​
+                                                                                           ​
+                                                                                               ​
+                                                                                                          ​
+                                                                                                              ​   ​
+
+
+
+
+        (Equation 8)
+        Where:
+
+                mT ailgas = the mass flow rate of tail gas (kg/hr)
+                               ​
+
+
+
+
+                CT ailgas, CH4 = the concentration of CH4 in the tail gas (wt%)
+                                           ​
+                                               ​
+
+
+
+
+                GW PCH4 = global warming potential of methane, GWP100 using IPCC Sixth
+                                       ​
+
+
+
+
+                Assessment Report (or most recently released IPCC report, whichever is latest)
+                                   ​
+
+
+
+
+                tp = duration of the conversion process operation (hr) for Production Batch p
+                    ​
+
+
+
+
+        Measurement - CO2eTailgas, n
+        Quantification of CO2 eT ailgas requires two primary measurements, the measurement of
+                                                       ​      ​
+
+
+
+
+        tail gas flow and the analysis of gas for CH4 content. CO2 content is not included as part
+        of the CO2 eT ailgas emissions as the Biomass Accounting Module v1.2 requires that only
+                                                   ​
+
+
+
+
+        biomass which would have decayed within 15 years is used. Therefore the immediate
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                            38/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        emissions of CO2 due to pyrolysis are not discounted against the net CO2e removal due to
+        the similarity of time horizons between these emissions and the counterfactual storage.
+        Tail gas flow rate, mT ailgas can be determined by various acceptable methods, including:
+                                                       ​
+
+
+
+
+                use of calibrated flow meters to provide continuous volumetric or mass flow
+                measurement. Any flow meter must be calibrated for the composition and density of
+                tail gas10, or use appropriate conversion factors;
+                use of flow data and curves from tail gas emissions testing and pressure drop
+                measurement (i.e. pitot tubes) in the tail gas stream. Such testing data should be
+                produced by a qualified emissions testing company, accredited to the Stack Testing
+                Accreditation Council for ASTM D7036, ISO 17025, or approved by state regulatory
+                authority to perform compliance emissions testing. Testing should be completed for
+                each type of biomass feedstock utilized unless analytical testing (ASTM D5291
+                ultimate analysis or proximate analysis for moisture, volatiles, fixed carbon and ash)
+                can demonstrate that the feedstocks are similar (within 10% for each component)
+                calculation of tailgas amount by a carbon material balance. Material balance
+                calculation will require measurement of biomass weight fed to pyrolyzer and biomass
+                C content, bio-oil product mass and bio-oil carbon content, and ash/char mass with
+                ash/char C content for a given pyrolysis batch using calibrated weigh scales or other
+                calibrated measurement equipment. C content analyses should be performed using
+                ASTM D5291 or equivalent ultimate analysis procedure.
+
+        The concentration of CH4 in the tail gas must be measured directly via one of the following
+        methods:
+
+                on-line analyzer measurement of CH4 concentration, such as on-line gas
+                chromatography, non-dispersive infrared (NDIR) detector, or similar. Analyzers must
+                be calibrated regularly using NIST-traceable certified gas standards with
+                concentrations of CH4 within +/- 30% of expected average tailgas concentration;
+                use of concentration data from tail gas emissions testing. Such testing data should
+                be produced by a qualified emissions testing company, accredited to the Stack
+                Testing Accreditation Council for ASTM D7036, ISO 17025, or approved by state
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    39/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+                regulatory authority to perform compliance emissions testing. Emissions data should
+                only be used when pyrolysis operating conditions are similar to the conditions under
+                which testing was completed, and for which the biomass feedstock processed during
+                testing is sufficiently similar (within 10% for each component, as outlined earlier).
+
+        Required Records & Documentation - CO2eTailgas, n
+        The Project Proponent must maintain the following records as evidence supporting
+        calculation of emissions from the biomass conversion process:
+
+                Results of any emissions tests used to determine emission rates of CH4 in tail gas or
+                flow measurements of gas flow from pyrolysis process or associated emission control
+                devices, including signed report from accredited emissions testing entity
+                flow rate data from flow meters (including pitot tubes) for each period of interest
+                (batch), including flow meter data recorded in data acquisition systems, manual
+                operation logs, or other records indicating date, time, and flow rate, as well as meter
+                identification number or ID
+
+        7.4.3.6 Calculation of CO2eLeakage, n
+        CO2 eLeakage, n includes emissions associated with a project's impact on activities
+                 ​                 ​
+
+
+
+
+        outside the system boundary of the project. This includes instances where the Project
+        causes an increase in GHG emissions by diverting material from other uses or incentivizing
+        increased production activity.
+        It is the Project Proponent's responsibility to identify potential sources of leakage
+        emissions. For a bio-oil project, replacement emissions must be considered as a minimum.
+        calculations required for replacement emissions associated with market leakage are set
+        out in the Biomass Feedstock Accounting Module v1.2.
+        In line with the Eligibility Criteria set out in the Biomass Feedstock Accounting Module
+        v1.2, projects which would lead to ecological leakage associated with land use change
+        are not eligible under this Protocol.
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    40/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+                         Biomass Feedstock Accounting v1.2
+             See Section 3 of the Biomass Feedstock Accounting Module
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    41/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        8.0 Bio-oil Storage
+        This Protocol provides two options for durable storage of bio-oil. The Project Proponent
+        can choose from available options when submitting their Project for verification.
+
+                         Bio-oil Storage in Permeable Reservoirs v1.1
+             Durability and monitoring requirements for storage in permeable reservoirs.
+
+
+
+                         Biomass or Bio-oil Storage in Salt Caverns v1.1
+             Durability and monitoring requirements for storage in salt caverns.
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    42/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        9.0 Acknowledgements
+        Isometric would like to thank following contributors to this Protocol and relevant Modules:
+
+                Tim Hansen (350 Solutions); Bio-oil Geological Storage Protocol and Energy Use
+                Accounting, Transportation Emissions Accounting and Embodied Emissions
+                Accounting Modules.
+                Kevin Fingerman, Ph.D. (Cal Poly Humboldt); Biomass Feedstock Accounting Module.
+                Chris Holdsworth, Ph.D. (University of Edinburgh); Bio-oil Storage in Permeable
+                Reservoirs Module.
+                Catherine Spurin, Ph.D. (Stanford University); Bio-oil Storage in Permeable Reservoirs
+                Module.
+                Wilson Ricks (Princeton University); Energy Use Accounting Module.
+                Grant Faber (Carbon Based Consulting); Transportation Emissions Accounting
+                Module.
+
+        Isometric would like to thank following reviewers of this Protocol and relevant modules:
+
+                Sarah Saltzer, Ph.D. (Stanford University); Bio-oil Storage in Permeable Reservoirs
+                Module.
+                Grant Faber (Carbon Based Consulting); Energy Use Accounting & Embodied
+                Emissions Accounting Modules.
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    43/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        10.0 Definitions and Acronyms
+        Activity
+        An activity or process or group of activities or processes that alter the condition of a
+        Baseline and leads to Removals or Reductions.
+        Additionality
+        An evaluation of the likelihood that an intervention—for example, a CDR Project—
+        causes a climate benefit above and beyond what would have happened in a no-
+        intervention Baseline scenario.
+        Baseline
+        A set of data describing pre-intervention or control conditions to be used as a
+        reference scenario for comparison.
+        Bio-oil
+        A mixture of water, organic acids, aldehydes, ketones, sugars, phenols, and other
+        organic compounds derived from the thermal breakdown of biomass. Thermal
+        breakdown of biomass is achieved via thermochemical processes, such as pyrolysis,
+        which heat biomass in low- or no-oxygen environments to high temperatures (~e.g.
+        350-650°C). Bio-oil is often also referred to as pyrolysis oil or bio-crude.
+        Biomass Carbon Removal and Storage (BiCRS)
+        A range of processes that use biogenic material to remove carbon dioxide (CO₂) from
+        the atmosphere and store that CO₂ underground or in long-lived products (LLNL
+        BiCRS Roadmap, 2020).
+        Buyer
+        An entity that purchases Removals or Reductions, often with the purpose of Retiring
+        Credits to make a Removal or Reduction claim.
+        Carbon Dioxide Equivalent Emissions (CO₂e)
+        The amount of CO₂ emissions that would cause the same integrated radiative forcing
+        or temperature change, over a given time horizon, as an emitted amount of GHG or a
+        mixture of GHGs. One common metric of CO₂e is the 100-year Global Warming
+        Potential.
+        Carbon Dioxide Removal (CDR)
+        Activities that remove carbon dioxide (CO₂) from the atmosphere and store it in
+        products or geological, terrestrial, and oceanic Reservoirs. CDR includes the
+        enhancement of biological or geochemical sinks and direct air capture (DAC) and
+        storage, but excludes natural CO₂ uptake not directly caused by human intervention.
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    44/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        Carbon Finance
+        Resources provided to projects that are generating, or are expected to generate,
+        greenhouse gas (GHG) Emission Reductions or Removals.
+        Certification (of a Protocol)
+        The Isometric process which involves expert review and Public Consultation in order
+        to arrive at an approved version of a Protocol, against which Projects will be Validated
+        and Removals or Reductions will be Verified.
+        Conservative
+        Purposefully erring on the side of caution under conditions of Uncertainty by
+        choosing input parameter values that will result in a lower net CO₂ Removal or GHG
+        Reduction than if using the median input values. This is done to increase the
+        likelihood that a given Removal or Reduction calculation is an underestimation rather
+        than an overestimation.
+        Counterfactual
+        An assessment of what would have happened in the absence of a particular
+        intervention – i.e., assuming the Baseline scenario.
+        Cradle-to-Grave
+        ​Considering impacts at each stage of a product's life cycle, from the time natural
+         resources are extracted from the ground and processed through each subsequent
+         stage of manufacturing, transportation, product use, and ultimately, disposal.
+         Credit
+         A publicly visible uniquely identifiable Credit Certificate Issued by a Registry that
+         gives the owner of the Credit the right to account for one net metric tonne of Verified
+         CO₂e Removal or Reduction. In the case of this Standard, the net tonne of CO₂e
+         Removal or Reduction comes from a Project Validated against a Certified Protocol.
+         Crediting Period
+         The period of time over which a Project Design Document is valid, and over which
+         Removals or Reductions may be Verified, resulting in Issued Credits.
+         Direct Emissions
+         Emissions that are produced by a specific CDR process and are directly controllable.
+         Double Counting
+         Improperly allocating the same Removal or Reduction from a Project Proponent more
+         than once to multiple Buyers.
+         Durability
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    45/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        The amount of time carbon removed from the atmosphere by an intervention – for
+        example, a CDR project – is expected to reside in a given Reservoir, taking into
+        account both physical risks and socioeconomic constructs (such as contracts) to
+        protect the Reservoir in question.
+        Embodied Emissions
+        Life cycle GHG emissions associated with production of materials, transportation, and
+        construction or other processes for goods or buildings.
+        Emission Factor
+        An estimate of the emissions intensity per unit of an activity.
+        Emission Reductions
+        Lowering future GHG releases from a specific entity.
+        Enhanced Hydrocarbon Recovery (EHR)
+        Enhanced hydrocarbon recovery (EHR) is a tertiary hydrocarbon production
+        technique or process where the physicochemical (physical and chemical) properties
+        of the rock and/or the fluids are changed to enhance the recovery of hydrocarbon,
+        typically by altering the chemical, biochemical, density, miscibility, interfacial tension
+        (IFT)/surface tension (ST), viscosity and thermal properties to enable additional
+        hydrocarbon production (SPE, 2023). EHR+ is the specific use of CO₂ injection for
+        EHR where the CO₂ remains stored in the geologic formation permanently (IEA, 2015).
+        Feedstock
+        Raw material which is used for CO₂ Removal or GHG Reduction.
+        GHG Statement
+        A document submitted alongside Claimed Removals and/or Reductions that details
+        the calculations associated with a Removal or Reduction, including the Project's
+        emissions, Removals, Reductions and Leakages, presented together in net metric
+        tonnes of CO₂e per Removal or Reduction.
+        Global Warming Potential
+        A measure of how much energy the emissions of 1 tonne of a GHG will absorb over a
+        given period of time, relative to the emissions of 1 ton of CO₂.
+        Greenhouse Gas (GHG)
+        Those gaseous constituents of the atmosphere, both natural and anthropogenic
+        (human-caused), that absorb and emit radiation at specific wavelengths within the
+        spectrum of terrestrial radiation emitted by the Earth’s surface, by the atmosphere
+        itself, and by clouds. This property causes the greenhouse effect, whereby heat is
+        trapped in Earth’s atmosphere (CDR Primer, 2022).
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    46/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        International Standards Organization (ISO)
+        A worldwide federation (NGO) of national standards bodies from more than 160
+        countries, one from each member country.
+        Isometric Science Platform
+        A community resource where Project Proponents publish and visualize their early
+        processes, Removal and Reduction data and Protocols – enabling the scientific
+        community to share feedback and advice.
+        Leakage
+        The increase in GHG emissions outside the geographic or temporal boundary of a
+        project that results from that project's activities.
+        Materiality
+        An acceptable difference between reported Removals/emissions or
+        Reductions/emissions and what an auditor determines is the actual
+        Removal/emissions or Reduction/emissions.
+        Project
+        An activity or process or group of activities or processes that alter the condition of a
+        Baseline and leads to Removals or Reductions.
+        Project Design Document (PDD)
+        The document that clearly outlines how a Project will generate rigorously quantifiable
+        Additional high-quality Removals or Reductions.
+        Project Proponent
+        The organization that develops and/or has overall legal ownership or control of a
+        Removal or Reduction Project.
+        Protocol
+        A document that describes how to quantitatively assess the net amount of CO₂
+        removed by a process. To Isometric, a Protocol is specific to a Project Proponent's
+        process and comprised of Modules representing the Carbon Fluxes involved in the
+        CDR process. A Protocol measures the full carbon impact of a process against the
+        Baseline of it not occurring.
+        Registry
+        A database that holds information on Verified Removals and Reductions based on
+        Protocols. Registries Issue Credits, and track their ownership and Retirement.
+        Removal
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    47/71
+        The term used to represent the CO₂ taken out of the atmosphere as a result of a CDR
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        process.
+        Replacement Emissions
+        Any emissions that occur to compensate for biomass that was previously serving
+        another purpose and is now being used for carbon removal or GHG reduction. For
+        example, if agricultural waste was previously left on a field to decompose - fertilizer
+        production to replace those nutrients need to be accounted for.
+        Reservoir
+        A location where carbon is stored. This can be via physical barriers (such as
+        geological formations) or through partitioning based on chemical or biological
+        processes (such as mineralization or photosynthesis).
+        Reversal
+        The escape of CO₂ to the atmosphere after it has been stored, and after a Credit has
+        been Issued. A Reversal is classified as avoidable if a Project Proponent has influence
+        or control over it and it likely could have been averted through application of
+        reasonable risk mitigation measures. Any other Reversals will be classified as
+        unavoidable.
+        Sensitivity Analysis
+        An analysis of how much different components in a Model contribute to the overall
+        Uncertainty.
+        Sink
+        Any process, activity, or mechanism that removes a greenhouse gas, a precursor to a
+        greenhouse gas, or an aerosol from the atmosphere.
+        Standards (scientific)
+        Standard physical constants as well as standard values set forth by bodies such as
+        the National Institute of Standards and Technology (NIST) or others.
+        Storage
+        Describes the addition of carbon dioxide removed from the atmosphere to a reservoir,
+        which serves as its ultimate destination. This is also referred to as “sequestration”.
+        Uncertainty
+        A lack of knowledge of the exact amount of CO₂ removed by a particular process,
+        Uncertainty may be quantified using probability distributions, confidence intervals, or
+        variance estimates.
+        Validation
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    48/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        A systematic and independent process for evaluating the reasonableness of the
+        assumptions, limitations and methods that support a Project and assessing whether
+        the Project conforms to the criteria set forth in the Isometric Standard and the
+        Protocol by which the Project is governed. Validation must be completed by an
+        Isometric approved third-party (VVB).
+        Validation and Verification Bodies (VVBs)
+        Third-party auditing organizations that are experts in their sector and used to
+        determine if a project conforms to the rules, regulations, and standards set out by a
+        governing body. A VVB must be approved by Isometric prior to conducting validation
+        and verification.
+        Verification
+        A process for evaluating and confirming the net Removals and Reductions for a
+        Project, using data and information collected from the Project and assessing
+        conformity with the criteria set forth in the Isometric Standard and the Protocol by
+        which it is governed. Verification must be completed by an Isometric approved third-
+        party (VVB).
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    49/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        11.0 Appendix 1: Monitoring Plan Requirements
+        This appendix details how the Project Proponent must monitor, document and report all
+        metrics identified within this Protocol. Following this guidance will ensure the Project
+        Proponent measures and confirms carbon dioxide removal and long-term storage
+        compliance, and will enable quantification of the emissions removal resulting from the
+        Project activity during the Project Crediting Period, prior to each Verification.
+        This methodology utilizes a comprehensive monitoring and documentation framework that
+        captures the GHG impact in each stage of a Project. Monitoring and detailed accounting
+        practices must be conducted throughout to ensure the continuous integrity of the carbon
+        removals and crediting.
+        The Project Proponent must develop and apply a monitoring plan according to ISO
+        14064-2 principles of transparency and accuracy that allows the quantification and proof
+        of GHG emissions removals.
+        11.1 Modular requirements
+        The Modules associated with this Protocol have their own set of required parameters that
+        need to be monitored. Please refer to the following Sections of the Modules to see a
+        complete list of all requirements:
+
+                Biomass Feedstock Accounting Module v1.2
+                Biomass or Bio-oil Storage in Salt Caverns Module v1.1
+                Bio-oil Storage in Permeable Reservoirs Module v1.1
+
+        11.2 Net CDR Calculation Requirements
+        These parameters must be monitored for the purpose of Carbon Emissions Calculation
+        and Embodied Carbon Emissions Calculation.
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    50/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                              PARAMETER                                                                               PARAMETER
+          PARAMETER                           DESCRIPTION                REQUIRED                                    EQUATION         TYPE
+
+
+
+
+                                               %wt of C in                                                           Eq. 4 (Bio-oil
+          CBio−oil, n            ​             the bio-oil               Always                                      Geological       Measured
+                                               injectant                                                             Storage)
+
+
+
+
+                                               Total mass of                                                         Eq. 4 (Bio-oil
+          mInj, n        ​                     bio-oil       Always                                                  Geological       Measured
+                                               injectant                                                             Storage)
+                                                                         Under certain conditions:
+                                               %wt of C in                   if bio-oil production                   Eq. 4 (Bio-oil
+          CBio−oil, p                          the bio-oil                   batches are not                         Geological       Measured
+                                                                             blended prior to
+                             ​
+
+
+
+
+                                               injectant                     injection                               Storage)
+                                                                         Under certain conditions:
+                                               Total mass of                 if bio-oil production                   Eq. 4 (Bio-oil
+          mInj, p                              bio-oil                       batches are not                         Geological       Measured
+                                                                             blended prior to
+                     ​
+
+
+
+
+                                               injectant                     injection                               Storage)
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                           51/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                              PARAMETER                                                                               PARAMETER
+          PARAMETER                           DESCRIPTION                REQUIRED                                    EQUATION         TYPE
+
+
+
+
+                                               Mass flow
+                                                                                                                     Eq. 8 (Bio-oil   Measured
+                                               rate of tail gas
+          mT ailgas                                             Always                                               Geological       or
+                                               from biomass
+                        ​
+
+
+
+
+                                                                                                                     Storage)         calculated
+                                               pyrolysis
+
+
+
+
+          CT ailgas, CO2      ​
+                                  ​            Concentration Always                                                  Eq. 8 (Bio-oil   Measured
+                                               of CO2 in                                                             Geological
+                                               tailgas                                                               Storage)
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                            52/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                              PARAMETER                                                                               PARAMETER
+          PARAMETER                           DESCRIPTION                REQUIRED                                    EQUATION         TYPE
+
+
+
+
+                                               Concentration                                                         Eq. 8 (Bio-oil
+          CT ailgas, CH4      ​
+                                  ​            of CH4 in     Always                                                  Geological       Measured
+                                               tailgas                                                               Storage)
+
+
+
+
+                                               Biomass
+                                               conversion                                                            Eq. 8 (Bio-oil
+          tp   ​                               batch                     Always                                      Geological       Measured
+                                               operation                                                             Storage)
+                                               time
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                           53/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                                 PARAMETER                                                                           PARAMETER
+          PARAMETER                              DESCRIPTION             REQUIRED                                    EQUATION        TYPE
+
+                                                 Mass of fuel                                                        Eq. 6 (Energy
+                                                 used in                                                             Use
+          mf uel, conversion                                             Always                                                      Measured
+                                                 biomass                                                             Accounting
+                                     ​
+
+
+
+
+                                                 conversion                                                          Module v1.2)
+
+
+                                                 Fuel emission                                                       Eq. 6 (Energy
+                                                 factor for                                                          Use
+          EFF uel,Conversion                                   Always                                                                Estimated
+                                                 biomass                                                             Accounting
+                                         ​
+
+
+
+
+                                                 conversion                                                          Module v1.2)
+
+
+
+                                                 Electricity                                                         Eq. 2 (Energy
+                                                 usage for                                                           Use
+          kwhConversion                                                  Always                                                      Measured
+                                                 biomass                                                             Accounting
+                                 ​
+
+
+
+
+                                                 conversion                                                          Module v1.2)
+
+
+
+                                                                                                                     Eq. 2 (Energy
+                                                 Electricity
+                                                                                                                     Use
+          EFElect,Conversion                     emission                Always                                                      Estimated
+                                                                                                                     Accounting
+                                             ​
+
+
+
+
+                                                 factor
+                                                                                                                     Module)
+
+
+          FConversion       ​                    Quantity of             Under certain conditions                    Eq. 2           Measured
+                                                 fuel used in                                                        (Transportation or
+                                                 transport of                                                        Emissions       estimated
+                                                 biomass to
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                          54/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                               PARAMETER                                                                            PARAMETER
+          PARAMETER                            DESCRIPTION               REQUIRED                                    EQUATION       TYPE
+                                               conversion                                                            Accounting
+                                               site                                                                  Module v1.1)
+
+
+                                               Quantity of                                                           Eq. 2
+                                               fuel used in                                                          (Transportation Measured
+          FInjection     ​
+                                               transport of              Under certain conditions                    Emissions       or
+                                               bio-oil to                                                            Accounting      estimated
+                                               injection site                                                        Module v1.1)
+
+
+                                                                                                                     Eq. 2
+                                  Fuel emission                                                                      (Transportation
+          EFF uel,T ransportation factor for
+                                           ​
+                                                 Under certain conditions                                            Emissions       Estimated
+                                  transportation                                                                     Accounting
+                                                                                                                     Module v1.1)
+
+                                               Biomass
+                                               transportation
+                                                                                                                     Eq. 2
+                                               distance
+                                                                                                                     (Transportation Measured
+                                               traveled -
+          DConversion                                         Under certain conditions                               Emissions       or
+                                               feedstock
+                             ​
+
+
+
+
+                                                                                                                     Accounting      estimated
+                                               supplier to
+                                                                                                                     Module v1.1)
+                                               conversion
+                                               site
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                          55/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                              PARAMETER                                                                             PARAMETER
+          PARAMETER                           DESCRIPTION                REQUIRED                                    EQUATION       TYPE
+
+
+                                               Mass of
+                                                                                                                     Eq. 3
+                                               biomass
+                                                                                                                     (Transportation
+                                               transported
+          WConversion                                        Under certain conditions                                Emissions       Measured
+                                               from supplier
+                                  ​
+
+
+
+
+                                                                                                                     Accounting
+                                               to conversion
+                                                                                                                     Module v1.1)
+                                               site
+
+
+                                               Bio-oil
+                                               transportation                                                        Eq. 3
+                                               distance                                                              (Transportation Measured
+          DInjection      ​                    traveled -     Under certain conditions                               Emissions       or
+                                               conversion                                                            Accounting      estimated
+                                               site to                                                               Module v1.1)
+                                               injection site
+
+                                               Mass of bio-
+                                               oil                                                                   Eq. 3
+                                               transported                                                           (Transportation
+          WInjection          ​                from                      Under certain conditions                    Emissions       Measured
+                                               conversion                                                            Accounting
+                                               site to                                                               Module v1.1)
+                                               injection site
+
+          EFT ransportation,j         ​        The weight- Under certain conditions                                  Eq. 3           Estimated
+                                               and distance-                                                         (Transportation
+                                               based                                                                 Emissions
+                                               emission                                                              Accounting
+                                               factor for                                                            Module v1.1)
+                                               transportation
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                          56/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                              PARAMETER                                                                               PARAMETER
+          PARAMETER                           DESCRIPTION                REQUIRED                                    EQUATION         TYPE
+
+
+
+
+                                                                                                                     Eq. 6 (Energy
+                                               Mass of fuel
+                                                                                                                     Use
+          mf uel, Injection                    used in bio-oil Always                                                                 Measured
+                                                                                                                     Accounting
+                                  ​
+
+
+
+
+                                               injection
+                                                                                                                     Module v1.2)
+
+
+
+                                                                                                                     Eq. 6. (Energy
+                                               Fuel emission
+                                                                                                                     Use
+          EFF uel,Injection                    factor for bio- Always                                                                 Estimated
+                                                                                                                     Accounting
+                                      ​
+
+
+
+
+                                               oil injection
+                                                                                                                     Module v1.2)
+
+
+
+                                                                                                                     Eq. 2 (Energy
+                                               Electricity
+                                                                                                                     Use
+          kwhInjection                         usage for bio- Always                                                                  Measured
+                                                                                                                     Accounting
+                              ​
+
+
+
+
+                                               oil injection
+                                                                                                                     Module v1.2)
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                           57/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                              PARAMETER                                                                              PARAMETER
+          PARAMETER                           DESCRIPTION                REQUIRED                                    EQUATION        TYPE
+
+
+
+                                                                                                                     Eq. 2 (Energy
+                                               Electricity
+                                                                                                                     Use
+          EFElect,Injection                    emission                  Always                                                      Estimated
+                                                                                                                     Accounting
+                                    ​
+
+
+
+
+                                               factor
+                                                                                                                     Module v1.2)
+
+
+
+
+                                               Includes raw
+                                               material
+          Product Stage                        sourcing,
+                                                             Always                                                                  Measured
+          Emissions                            transport to
+                                               facility and
+                                               manufacturing
+
+
+
+
+          Construction Stage Includes        Always                                                                                  Measured
+          Emissions          transport to
+                             site and
+                             installation at
+                             site
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                          58/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                                              PARAMETER                                                                         PARAMETER
+          PARAMETER                           DESCRIPTION                REQUIRED                                    EQUATION   TYPE
+
+
+
+
+                                               Includes
+                                               demolition of
+                                               building,
+                                               transport to
+                                               end of life,
+          End of Life Stage                    waste
+                                                             Always                                                             Measured
+          Emissions                            processing
+                                               and final
+                                               disposal or
+                                               scenarios for
+                                               these life
+                                               cycle stages
+
+                                               The total
+                                               quantity of
+                                               GHG
+                                               emissions
+          Storage and
+                                               associated
+          Monitoring                                          Always                                                            Measured
+                                               with storage
+          Emissions
+                                               monitoring
+                                               operations
+                                               allocated to a
+                                               removal
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                     59/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        12.0 Appendix 2: Risk of Reversal Questionnaire
+        This risk assessment identifies the pathway specific risk factors relevant to a carbon
+        removal project. The relevant risk factors identified as part of a risk assessment are
+        included in the monitoring plan requirements for the project, with details included in the
+        Project Design Document. Project specific risk factors inform the required duration of
+        monitoring along with the monitoring requirements set out in the Protocol and the
+        requirements set out in the Monitoring Section of the Isometric Standard.
+        The risk score, as determined by the Risk of Reversal Questionnaire, will determine a
+        project’s buffer pool contribution. Projects must re-assess their reversal risk at the renewal
+        of each crediting period, or if monitoring identifies a reversal-related risk, or if an actual
+        reversal event takes place. In any event, projects should reassess their reversal risk at a
+        minimum every 5 years.
+        The Risk of Reversal Questionnaire questions that pertain to this protocol, drawn from the
+        programme-level Risk of Reversal Questionnaire defined in Appendix B: Risk Reversal
+        Questionnaire of the Isometric Standard, include the following:
+
+          # IN ISOMETRIC
+          STANDARD                                                                                               IF ANSWERED     IF ANSWERED
+          QUESTIONNAIRE                    QUESTION                                                              “YES”           “NO”
+
+                                           Is a reversal directly observable with a                              Proceed to
+                                           physical or chemical measurement as                                                Proceed to
+          1                                                                                                      questions 2-
+                                           opposed to a modeled result?                                                       questions 8-9
+                                                                                                                 9
+                                                                                                                              Add 1 to Risk
+                                           Is the carbon being stored in an                                      Proceed to
+                                           impermeable geologic system? (e.g., salt                                           Score and
+          2                                                                                                      questions 8-
+                                           cavern)                                                                            proceed to
+                                                                                                                 9
+                                                                                                                              questions 3-9
+                                                                                                                 Add 1 to Risk
+          3                                Is the carbon being stored organic?
+                                                                                                                 Score
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                        60/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+          # IN ISOMETRIC
+          STANDARD                                                                                               IF ANSWERED     IF ANSWERED
+          QUESTIONNAIRE                    QUESTION                                                              “YES”           “NO”
+                                           Are conditions for methane production                                 Add 1 to Risk
+          4                                present (anaerobic conditions, lignin
+                                           content)?                                                             Score
+                                           Does this approach have a material risk of                            Add 1 to Risk
+          5                                reversal due to natural disasters including,
+                                           but not limited to, floods, storms,                                   Score
+                                           earthquakes, fires, etc.?
+                                           Does this approach have a material risk of
+                                           reversal due to human-induced events from                             Add up to 2
+          6                                outside actors, such as change in farming
+                                           practices, change in ownership and                                    to Risk Score
+                                           management of project sites, or similar?
+                                           Applicable only for subsurface storage: Is                            Minus 1 to
+                                           the carbon being stored with trapping
+          7                                mechanisms preventing reversals? (e.g.,                               Risk Score
+                                           multiple confining layers, CO₂ dissolves or                           (unless 0)
+                                           solidifies)
+                                                                                                                 Minus up to
+          8                                Is there 10+ years of monitoring and/or lab                           2 to Risk
+                                           data demonstrating low project risk?
+                                                                                                                 Score
+                                           Does this pathway have a documented                                   Add 2 to Risk
+          9
+                                           history of reversals?                                                 Score
+
+          10                               Is there one or more project-specific factors Add up to 2
+                                           that merit a high risk level?                 to Risk Score
+
+        Risk Score Categories
+
+                0: Very Low Risk Level (2% buffer)
+                1-2: Low Risk Level (5% buffer)
+                3-4: Medium Risk Level (7% buffer)
+                5+: High Risk Level (10-20% buffer)
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                                        61/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        Project specific risk factors will depend on the form of carbon being stored (i.e., organic
+        vs. inorganic), the method of storage (e.g., mineralization, encapsulation), the location of
+        carbon storage (e.g., subsurface, ocean), and the proximity of that carbon to potential
+        agents of reversal.
+        For projects with carbon storage as organic carbon, the presence the following risk
+        factors must be reflected in the risk score corresponding to question 10:
+
+                High-potential oxidants
+                Temperatures in excess of thermal stability
+                Fires
+                Microbial degradation
+
+        For projects with any form of subsurface carbon storage, the presence of the following risk
+        factors must be reflected in the risk score corresponding to question 10:
+
+                Seismicity
+                Subsurface migration
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    62/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        13.0 Relevant Works
+        ASTM D5291-21 Standard Test Methods for Instrumental Determination of Carbon,
+        Hydrogen, and Nitrogen in Petroleum Products and Lubricants. (2021, November).
+        https://www.astm.org/standards/d5291
+        ASTM International. (2018). ASTM D7036: Standard Practice for Competence of Air
+        Emission Testing Bodies. https://www.astm.org/d7036-16.html
+        California Air Resources Board. (2018, August 13). Carbon Capture and Sequestration
+        Protocol under the Low Carbon Fuel Standard.
+        https://ww2.arb.ca.gov/sites/default/files/2020-03/CCS_Protocol_Under_LCFS_8-13-
+        18_ada.pdf
+        Carbon Direct & EcoEngineers. (2022). Bio-oil Sequestration Prototype Protocol for
+        Measurement, Reporting, & Verification. https://insights.carbon-direct.com/hubfs/Bio-oil-
+        proto-protocol.pdf
+        Charm Industrial. (2023). FAQ | Fastest growing carbon removal technology. Charm
+        Industrial. Retrieved June 14, 2023, from https://charmindustrial.com/faq
+        International Energy Agency. (n.d.). Insights Series 2015 - Storing CO2 through Enhanced
+        Oil Recovery – Analysis. IEA. Retrieved June 14, 2023, from
+        https://www.iea.org/reports/storing-co2-through-enhanced-oil-recovery
+        International Organization for Standardization. (2006). ISO 14040:2006 Environmental
+        management — Life cycle assessment — Principles and framework.
+        https://www.iso.org/standard/37456.html
+        International Organization for Standardization. (2006). ISO 14044:2006 Environmental
+        management — Life cycle assessment — Requirements and guidelines.
+        https://www.iso.org/standard/38498.html
+        International Organization for Standardization. (2008). Evaluation of measurement data
+        — Guide to the expression of uncertainty in measurement (ISO JGCM GUM).
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    63/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?
+        csnumber=50461
+        International Organization for Standardization. (2011). ISO 14066:2011 Greenhouse gases
+        — Competence requirements for greenhouse gas validation teams and verification teams.
+        https://www.iso.org/standard/43277.html
+        International Organization for Standardization. (2017). ISO/IEC 17025:2017 General
+        requirements for the competence of testing and calibration laboratories.
+        https://www.iso.org/standard/66912.html
+        International Organization for Standardization. (2019). ISO 14064-2:2019. Greenhouse
+        Gases - Part 2: Specification With Guidance At The Project Level For Quantification,
+        Monitoring And Reporting Of Greenhouse Gas Emission s Or Removal Enhancements. ISO.
+        https://www.iso.org/standard/66454.html
+        International Organization for Standardization. (2019). ISO 14064-3:2019. Greenhouse
+        gases — Part 3: Specification with guidance for the verification and validation of
+        greenhouse gas statements. ISO. https://www.iso.org/standard/66455.html
+        International Organization for Standardization. (2022). ISO 9300:2022 Measurement of
+        gas flow by means of critical flow nozzles. https://www.iso.org/standard/77401.html
+        Isometric. (n.d.). Isometric — Glossary: Defining the terms that appear regularly in our
+        work. Isometric. https://isometric.com/glossary
+        Matthews, J.B.R. (Ed.). (2018). IPCC, 2018: Annex I: Glossary [Matthews, J.B.R. (ed.)]. In:
+        Global Warming of 1.5°C. An IPCC Special Report on the impacts of global warming of
+        1.5°C above pre-industrial levels and related global greenhouse gas emission pathways,
+        in the context of... Cambridge University Press. https://doi.org/10.1017/9781009157940.008
+        Methodology for assessing the quality of carbon credits, Version 3.0. (2022, May).
+        https://carboncreditquality.org/methodology.html
+        National Renewable Energy Laboratory. (2016). Quantification of Semi-Volatile
+        Oxygenated Components of Pyrolysis Bio-Oil by Gas Chromatography/Mass
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    64/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        Spectrometry (GC/MS) Laboratory Analytical Procedure (LAP).
+        https://www.nrel.gov/docs/fy16osti/65889.pdf
+        National Renewable Energy Laboratory. (2021, October 7). Determination of Carbon,
+        Hydrogen, Nitrogen, and Oxygen in Bio-Oils Laboratory Analytical Procedure (LAP).
+        https://www.nrel.gov/docs/fy22osti/80967.pdf
+        National Renewable Energy Laboratory. (2022). Corrosivity Screening of Pyrolysis BioOils
+        by Short-Term Alloy Exposures Laboratory Analytical Procedure (LAP).
+        https://www.nrel.gov/docs/fy22osti/82631.pdf
+        National Renewable Energy Laboratory. (2022). Elemental Analysis of Bio-Oils by
+        Inductively Coupled Plasma Optical Emission Spectroscopy (ICP-OES) Laboratory
+        Analytical Procedure (LAP). https://www.nrel.gov/docs/fy22osti/82586.pdf
+        NIST. (2023). Specifications, Tolerances, and Other Technical Requirements for Weighing
+        and Measuring Devices - 2023 Edition. NIST.
+        https://www.nist.gov/pml/owm/publications/nist-handbooks/handbook-44-current-
+        edition
+        Sandalow, D., Aines, R., Friedman, J., McCormick, C., & Sanchez, D. (2020, October 2).
+        Biomass Carbon Removal and Storage (BiRCS) Roadmap.
+        https://www.osti.gov/servlets/purl/1763937
+        Schmidt, H., Anca-Couce, A., Hagemann, N., Werner, C., Gerten, D., Lucht, W., & Kammann,
+        C. (20118, August 17). Pyrogenic carbon capture and storage. GCB Bioenergy, 11(4), 573-
+        591. https://onlinelibrary.wiley.com/doi/full/10.1111/gcbb.12553
+        Society of Petroleum Engineers. (2020, April 13). Enhanced oil recovery (EOR) - PetroWiki.
+        PetroWiki. Retrieved June 14, 2023, from
+        https://petrowiki.spe.org/Enhanced_oil_recovery_(EOR)
+        Stas, M., Auersvald, M., Kejla, L., Vrtiska, D., Kroufek, J., & Kubicka, D. (2020, May).
+        Quantitative analysis of pyrolysis bio-oils: A review. TrAC Trends in Analytical Chemistry,
+        126. https://www.sciencedirect.com/science/article/abs/pii/S0165993620300868
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    65/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+        U.S. Environmental Protection Agency. (2014). Test Methods for Evaluating Solid Waste:
+        Physical/Chemical Methods Compendium (SW-846). https://www.epa.gov/hw-sw846/sw-
+        846-compendium
+        U.S. Environmental Protection Agency. (2023, April 18). Understanding Global Warming
+        Potentials | US EPA. Environmental Protection Agency. Retrieved June 14, 2023, from
+        https://www.epa.gov/ghgemissions/understanding-global-warming-potentials
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    66/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+
+         1. https://charmindustrial.com/faq ↩
+         2. Sustainable sourcing may be demonstrated via certification or demonstrated
+            compliance with programs such as the Forest Stewardship Council
+            (https://fsc.org/en), High Conservation Value Network (https://​www​.hcvnetwork​.org​/),
+            Sustainable Biomass Program (https://​sbp​-cert​.org​/), Roundtable for Sustainable
+            Biomass (https://​rsb​.org​/the​-rsb​-standard​/about​-the​-rsb​-standard​/), European
+            Union Renewable Energy Directive (RED II), Sustainable Forestry Initiative, or other
+            similar biomass sustainability protocols, standards, and compliance methods. ↩
+         3. Note that other well classes may be utilized, such as Class II wells, if site specific UIC
+            well permits identify bio-oil as an acceptable injectant. However, Class II wells may
+            not be utilized if the wells are also used for enhanced hydrocarbon recovery (EHR or
+            EHR+) activities. ↩
+         4. For Class V wells, the well must be permitted and not ‘authorized by rule’, and must
+            consider the specific emplacement and durable storage of bio-oil in the geologic
+            reservoir. As of writing, the utilization of Class V wells should be limited to wells
+            operating under the Other / Experimental category of Class V wells or other
+            appropriate well type as approved by the UIC permitting authority. ↩
+         5. ISO 14064-3: 2019, Section 5.1.7 ↩ ↩ 2
+         6. https://​carboncreditquality​.org​/methodology​.html ↩
+         7. https://​www​.nrel​.gov​/docs​/fy22osti​/80967​.pdf ↩ ↩ 2
+         8. https://​www​.nrel​.gov​/docs​/fy22osti​/80967​.pdf ↩
+         9. https://​www​.nist​.gov​/pml​/owm​/publications​/nist​-handbooks​/handbook​-44​-current​-
+            edition ↩
+        10. Flow meters must be calibrated to national traceable standards by an ISO 17025
+            accredited metrology laboratory. Flow meters may include critical nozzle flow meters
+            (i.e. ISO 9300:2022 compliant meters), coriolis mass flow meters, and other
+            applicable meters for mixed gas flows, as long as properly calibrated and
+            maintained. ↩
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    67/71
+        Contributors
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+
+                    Isometric
+                    Sophie Gill, Ph.D.
+                    Neil Hacker
+                    Christie Patel
+                    Chris Podgorney
+                    Ola Sitarska
+                    Rebecca Tyne, Ph.D.
+                    Emma Marsland
+                    Matt Gammans, Ph.D.
+
+
+
+
+        Changelog
+                 v1.2
+                    PENDING CERTIFICATION
+                 Key requirement changes to GHG Accounting, including the centralisation of requirements into
+                 the GHG Accounting Module v1.0.
+                v1.1
+                    CERTIFIED
+                 New version release in accordance with that of the Biomass or Bio-oil Storage in Salt Caverns
+                 Module (v1.1) and the Bio-oil Storage in Permeable Reservoirs Module (v1.1).
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    68/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+                  1.1.2
+                  07 Aug 2025
+                    Addition of appendix to clarify risk of reversal and buffer pool size
+                  1.1.1
+                  04 Feb 2025
+                    The Energy Use Accounting Module was updated to version 1.2 and the Transportation
+                    Emissions Accounting Module was updated to version 1.1
+                  1.1.0
+                  13 Sep 2024
+                v1.0
+                    CERTIFIED
+                 Initial Release.
+                  1.0.7
+                  27 Jun 2024
+                    Fix reference to correct version of the Energy Use Accounting Module (v1.1)
+                    Text formatting updates
+                  1.0.6
+                  22 May 2024
+                    Text formatting updates
+                  1.0.5
+                  15 May 2024
+                    Text formatting updates
+                  1.0.4
+                  01 May 2024
+                    Text formatting updates
+                  1.0.3
+                  26 Apr 2024
+                    GHG terminology updated
+                    Guidance added to the Applicability Section, see Section 4 for further details
+                    Guidance added to the Calculation Approach Section, see Section 7.3.1 for further details
+                    Guidance added to Calculation of CO2eEmissions, n Section, see Section 7.3.5 for further
+                    details
+                    Guidance added through creation of the Emissions Allocation Section, see Section 7.3.5.1 for
+                    further details
+                    Structural changes to content, Section 7.3.5.1 created
+                  1.0.2
+                  11 Apr 2024
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    69/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+                     Guidance added to the Data Sharing Section, see Section 6.6 for further details
+                     Guidance added to the System Boundaries & GHG Emissions Scope Section, see Section 7.1
+                     for further details
+                     Guidance added to the Baseline Section, see Section 7.2 for further details
+                     Guidance added to the Calculation of CO2eRemoval, n Section, see Section 7.4 for further
+                     details
+                     GHG terminology updated
+                     Parameters renamed in Table 1
+                     Parameter renamed in Equation 2
+                     Structural changes to content, Section 7.2.1 merged with Section 7.2 and Sections 7.4.1.1.2,
+                     7.4.3.4, and 7.4.3.6 created
+                     Non-material changes to calculation structure, in Equation 7 the parameter was
+                     “CO2eLeakage, n” added
+                     Text formatting updates
+                  1.0.1
+                  05 Mar 2024
+                    GHG terminology updated
+                    Text formatting updates
+                  1.0.0
+                  17 Jan 2024
+                  Changes as a result of Public Consultation:
+                     Requirement added to the Environmental and Social Safeguarding Section, Project
+                     Proponents must demonstrate a risk assessment and mitigation plan for safeguarding working
+                     conditions, see Section 5 for further details
+                     Requirement added to the Data Sharing Section, GHG statements will be publicly shown on
+                     the Isometric Registry, see Section 6.6 for further details
+                     Requirement changed in the System Boundary & GHG Emissions Scope Section and
+                     Calculation of CO2eRemoval, n Section, scope expanded to allow for injection of bio-oil mixed
+                     with biochar, see Sections 7.1 and 7.4.1.1 for further details
+                     Guidance added to the Uncertainty Section, see Section 6.5 for further details
+                     Guidance added to the System Boundary & GHG Emissions Scope Section, see Section 7.1 for
+                     further details
+                     Guidance added to the Calculation of CO2eRemoval, n Section, see Section 7.4 for further
+                     details
+                     Guidance added through creation of Appendix 1: Monitoring Plan Requirements, see Section 11
+                     for further details
+                     Text formatting updates
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    70/71
+4/24/26, 12:47 PM                                                                 Bio-oil Geological Storage — Isometric
+
+
+
+        Bio-oil Geological Storage © 2025 Isometric HQ Ltd is licensed under CC BY-NC-ND 4.0
+
+
+
+
+https://registry.isometric.com/protocol/bio-oil-geological-storage#calculation-of-coe-6                                    71/71
+

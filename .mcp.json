@@ -1,0 +1,53 @@
+{
+  "mcpServers": {
+    "playwright-mrv": {
+      "type": "stdio",
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--user-data-dir=/Users/maxlavine/.claude/playwright-profile-mrv"
+      ],
+      "env": {}
+    },
+    "playwright-mrv-2": {
+      "type": "stdio",
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--user-data-dir=/Users/maxlavine/.claude/playwright-profile-mrv-2"
+      ],
+      "env": {}
+    },
+    "playwright-mrv-3": {
+      "type": "stdio",
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--user-data-dir=/Users/maxlavine/.claude/playwright-profile-mrv-3"
+      ],
+      "env": {}
+    },
+    "playwright-mrv-4": {
+      "type": "stdio",
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--user-data-dir=/Users/maxlavine/.claude/playwright-profile-mrv-4"
+      ],
+      "env": {}
+    },
+    "gmail-mrv": {
+      "type": "stdio",
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@gongrzhe/server-gmail-autoauth-mcp"
+      ],
+      "env": {}
+    }
+  }
+}

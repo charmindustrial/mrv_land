@@ -1,0 +1,90 @@
+- generic [active] [ref=f66e1]:
+  - iframe [ref=f66e2]:
+    
+  - region
+  - generic [ref=f66e4]:
+    - navigation [ref=f66e5]:
+      - button "Skip to main content" [ref=f66e7] [cursor=pointer]
+      - button "Keyboard shortcuts" [ref=f66e11] [cursor=pointer]
+      - button "Accessibility feedback" [ref=f66e15] [cursor=pointer]
+    - banner [ref=f66e19]:
+      - generic [ref=f66e20]:
+        - link "Drive" [ref=f66e24] [cursor=pointer]:
+          - /url: https://drive.google.com/?tab=oo
+        - generic [ref=f66e28]:
+          - button "Google apps" [ref=f66e32] [cursor=pointer]
+          - link "Sign in" [ref=f66e36] [cursor=pointer]:
+            - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://drive.google.com/drive/folders/1z9nzSrTSuW5BzIJVPGVOlb42LTQFF24y&service=writely&ec=GAZAMQ
+    - generic [ref=f66e37]:
+      - generic [ref=f66e46]:
+        - generic [ref=f66e48]:
+          - generic:
+            - navigation:
+              - heading "Folder Path" [ref=f66e49]
+              - list "Folder Path"
+        - toolbar [ref=f66e50]:
+          - radiogroup "List or Grid layout (⌥V then L)" [ref=f66e55]:
+            - generic [ref=f66e56]:
+              - radio "List" [checked] [ref=f66e57] [cursor=pointer]
+              - radio "Grid" [ref=f66e66] [cursor=pointer]
+      - main [ref=f66e76]:
+        - region [ref=f66e82]:
+          - generic [ref=f66e83]:
+            - grid "Item List" [ref=f66e86]:
+              - rowgroup [ref=f66e87]:
+                - generic [ref=f66e88] [cursor=pointer]: Name
+                - generic [ref=f66e92] [cursor=pointer]: Date modified
+                - text: File size
+                - generic [ref=f66e98]:
+                  - button "Sort" [ref=f66e100] [cursor=pointer]
+                  - tooltip [ref=f66e107]: View sort options
+              - rowgroup [ref=f66e108]:
+                - row "Completed QA Checklists Shared folder Modified Jul 15 Size not available" [ref=f66e109]:
+                  - gridcell [ref=f66e110]:
+                    - generic "Completed QA Checklists Shared folder" [ref=f66e124]:
+                      - strong [ref=f66e127]: Completed QA Checklists
+                  - gridcell [ref=f66e128]:
+                    - generic "Modified Jul 15" [ref=f66e132]: Jul 15
+                  - gridcell [ref=f66e134]:
+                    - generic "Size not available" [ref=f66e138]: —
+                  - gridcell [ref=f66e140]
+                - row "Scale Tickets Shared folder Modified Jul 15 Size not available" [ref=f66e144]:
+                  - gridcell [ref=f66e145]:
+                    - generic "Scale Tickets Shared folder" [ref=f66e159]:
+                      - strong [ref=f66e162]: Scale Tickets
+                  - gridcell [ref=f66e163]:
+                    - generic "Modified Jul 15" [ref=f66e167]: Jul 15
+                  - gridcell [ref=f66e169]:
+                    - generic "Size not available" [ref=f66e173]: —
+                  - gridcell [ref=f66e175]
+                - row "Testing Shared folder Modified Jul 15 Size not available" [ref=f66e179]:
+                  - gridcell [ref=f66e180]:
+                    - generic "Testing Shared folder" [ref=f66e194]:
+                      - strong [ref=f66e197]: Testing
+                  - gridcell [ref=f66e198]:
+                    - generic "Modified Jul 15" [ref=f66e202]: Jul 15
+                  - gridcell [ref=f66e204]:
+                    - generic "Size not available" [ref=f66e208]: —
+                  - gridcell [ref=f66e210]
+                - 'row "INJ-07-2026-W1 Ops Notes Google Sheets Shared Modified Aug 4 Size: 20 KB Storage used: 20 KB" [ref=f66e214]':
+                  - gridcell [ref=f66e215]:
+                    - generic "INJ-07-2026-W1 Ops Notes Google Sheets Shared" [ref=f66e226]:
+                      - strong [ref=f66e229]: INJ-07-2026-W1 Ops Notes
+                      - img "Shared" [ref=f66e231]
+                  - gridcell [ref=f66e236]:
+                    - generic "Modified Aug 4" [ref=f66e240]: Aug 4
+                  - gridcell [ref=f66e242]:
+                    - 'generic "Size: 20 KB Storage used: 20 KB" [ref=f66e246]': 20 KB
+                  - gridcell [ref=f66e248]
+                - 'row "WODO Tote Standard Loss — 2026 Dataset Google Sheets Shared Modified Jul 20 Size: 4 KB Storage used: 4 KB" [ref=f66e252]':
+                  - gridcell [ref=f66e253]:
+                    - generic "WODO Tote Standard Loss — 2026 Dataset Google Sheets Shared" [ref=f66e264]:
+                      - strong [ref=f66e267]: WODO Tote Standard Loss — 2026 Dataset
+                      - img "Shared" [ref=f66e269]
+                  - gridcell [ref=f66e274]:
+                    - generic "Modified Jul 20" [ref=f66e278]: Jul 20
+                  - gridcell [ref=f66e280]:
+                    - 'generic "Size: 4 KB Storage used: 4 KB" [ref=f66e284]': 4 KB
+                  - gridcell [ref=f66e286]
+            - progressbar [ref=f66e292]
+  - region

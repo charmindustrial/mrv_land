@@ -1,8 +1,22 @@
 MRV EXPERT WORKSPACE — README
 ==============================
 
-Last updated: 2026-07-27 (added automation/charm-350-credit-report skill —
-              daily bio-oil credit-submission report, launchd 15:00 local)
+Last updated: 2026-09-03 (added automation/resume-echo-review — twice-daily
+              applicant screen for the open MRV Analyst Lever posting. Fired
+              9am/5pm by launchd; also runs ad-hoc. STRICTLY READ-ONLY on
+              Lever and LinkedIn. Persistent state in
+              skills/automation/resume-echo-review/candidate_registry.json;
+              audit trail in outputs/automation/resume-echo-review/. Alerts
+              via a macOS desktop notification, never Slack — see the
+              skill's SKILL.md for why)
+
+Previously: 2026-09-02 (retired automation/mrv-mailbox — email-based RP-
+              close ancillary data request, paused since 2026-06-30 and never
+              resumed — moved to archive/mrv-mailbox-superseded/; replaced by
+              automation/ancillary-data-request, a Slack-based version that
+              posts the monthly asks in #mrv-ops-la and alerts finished
+              products to #team-mrv-alerts. Not yet live: AUTO_POST_APPROVED
+              is false pending Max's go-ahead on the first post)
 
 This is Max Lavine's MRV (Measurement, Reporting, Verification) workspace
 for Charm Industrial. It contains skills, outputs, shared knowledge, and
@@ -91,10 +105,32 @@ SKILLS/  --  WHAT EACH SKILL DOES
         batch-qa-charm/            Primary: Charm-produced bio-oil injection batch QA
                                    (WODO and Aqueous oil types; tote-based delivery)
         batch-qa-biochar/          Primary: biochar removal QA (Range and Plains Biochar;
-                                   soil storage; Protocol v1.2 + Soil Environments Module v1.3).
-                                   Holds Biochar_Removal_QA_Checklist_Template.xlsx (v1.0; every
-                                   protocol/module/PDD citation carries its verbatim source quote)
-                                   and build_checklist.py.
+                                   agricultural-soil storage). GOVERNING VERSIONS, read from
+                                   Certify's project General page 2026-07-29: Biochar Production
+                                   and Storage Protocol v1.0 (both baseline and current) +
+                                   Biochar Storage in Agricultural Soils Module v1.0, on
+                                   Isometric Standard v1.7. The registry's latest (Protocol v1.3,
+                                   Standard v2.1) is NOT adopted here.
+                                   Biochar_Removal_QA_Schema_v2.0.xlsx is the current schema.
+                                   Eight tabs: How to use (governing versions + gates + legend),
+                                   Mass Basis Ladder, Recorded Reference Values, Per-Removal Checks
+                                   (61 checks in 8 sections), Batch-Level Checks (19 cross-removal),
+                                   Datapoint Evidence Map (16 Certify datapoints), Findings Log
+                                   (CAR/CL register), Sources.
+                                   Recorded Reference Values holds what was actually read out of
+                                   Certify and the delivery-notes workbook on 2026-07-29, WITH
+                                   VALUES, so the checks are comparisons against recorded facts
+                                   rather than instructions to go read a source. Re-read and refresh
+                                   that tab at the start of each round; never carry stale values.
+                                   Every citation carries its verbatim source text: all 55 quotes
+                                   machine-verified against session-read sources, and all 23
+                                   arithmetic claims recomputed.
+                                   Biochar_Removal_QA_Checklist_Template.xlsx (v1.0) is SUPERSEDED
+                                   and kept only for history: it cites Protocol v1.2 / Soil
+                                   Environments Module v1.3 section numbers that do not match the
+                                   version this project is registered on, and it asserts a 0% buffer
+                                   pool where the governing module sets 2%. build_checklist.py
+                                   builds the superseded v1.0 template, not v2.0.
         site-emissions-qa/         Primary: site-level (non-batch) QA
         adversarial-reviewer/      Sub-agent: independent challenge of QA findings
         garrett-completion-monitor/ Sub-agent: monitors Garrett's Slack responses;
@@ -131,21 +167,63 @@ SKILLS/  --  WHAT EACH SKILL DOES
                                    NEVER sends autonomously.
 
     skills/automation/                           --- Automation cluster ---
-        mrv-mailbox/               MRV mailbox (g_mrv@charmindustrial.com)
-                                   reconcile cycle. One full pass per run:
-                                   send the monthly request if owed, send
-                                   3/5-business-day reminders, scan + identify
-                                   + route new reporting (file Community; hand
-                                   Wellhead/Oxidizer to their processing skills),
-                                   update the reporting-period ledger, post a
-                                   completion report to #team-mrv-alerts. Every
-                                   run checks the ledger first, so a missed run
-                                   is fully recovered by the next one. Uses the
-                                   gmail-mrv connection (authorized as g_mrv@).
-                                   Fired by macOS launchd (catches missed runs
-                                   on wake); also runs ad-hoc. Operating spec +
-                                   ledger template + email copy live in
-                                   outputs/mrv-operational-documents/mrv-mailbox-automation/.
+        resume-echo-review/        Twice-daily applicant screen for the open
+                                   "MRV Analyst" Lever posting, building on the
+                                   one-time manual "Resume Echo Audit"
+                                   (2026-09-03). Reads every candidate in
+                                   Lever's "New applicant" stage; new ones go
+                                   through Gate 1 (resume copies posting/
+                                   materials language, or the candidate's own
+                                   LinkedIn contradicts the resume -- either
+                                   disqualifies, no exceptions) then, if clean,
+                                   Gate 2 (any MRV/carbon-accounting/ESG/LCA/
+                                   related sustainability experience or degree
+                                   -- not disqualifying, just sets review
+                                   priority). Updates the persistent artifact
+                                   and candidate_registry.json, drops any
+                                   candidate whose Lever stage has moved off
+                                   "New applicant" since the last pass, and
+                                   alerts Max via a macOS desktop notification
+                                   -- deliberately NOT Slack (see SKILL.md's
+                                   "Why desktop notification, not Slack"). Read-
+                                   only on Lever and LinkedIn --
+                                   ~/.claude/hooks/certify_readonly_guard.sh
+                                   hard-blocks writes to hire.lever.co the same
+                                   way it does registry.isometric.com. Fired by
+                                   macOS launchd daily at 9:00 and 17:00 local;
+                                   also runs ad-hoc. Registry + config live in
+                                   the skill folder (git-tracked, like the QA
+                                   batch registries); run.sh/logs/temp files in
+                                   ~/.resume-echo-review/.
+        ancillary-data-request/    RP-close reconcile cycle for the three
+                                   cross-functional ancillary data streams
+                                   (Community/Alison, Wellhead/Casey,
+                                   Oxidizer/Evan). On the 1st of the month,
+                                   posts three separate asks (as their own
+                                   top-level messages) in #mrv-ops-la, each
+                                   tagging the reporter and asking for a
+                                   threaded reply with a link to the prior
+                                   month's data. Every run (fired every 3
+                                   hours) scans each thread for a qualifying
+                                   reply (from the tagged reporter, containing
+                                   a link), routes Wellhead to
+                                   wellhead-data-transform and Oxidizer to
+                                   tox-sparging-analysis (Community files as
+                                   submitted, no processing), uploads the
+                                   finished product to the Processed Ancillary
+                                   Data Drafts Drive folder, and alerts
+                                   Garrett + Max in #team-mrv-alerts per item
+                                   -- noting when the last item for the period
+                                   lands. Stops there; human review and the
+                                   final drop into the reporting package
+                                   folder are Max's/Garrett's step, not this
+                                   skill's. AUTO_POST_APPROVED gate in
+                                   references/config.json controls whether the
+                                   monthly asks actually send. Replaces the
+                                   retired mrv-mailbox automation (email-based;
+                                   see archive/mrv-mailbox-superseded/) as of
+                                   2026-09-02. Config + message templates live
+                                   in skills/automation/ancillary-data-request/references/.
         kdhe-kora-request/         KDHE KORA request builder for Vaulted
                                    (Advantek) monitoring. Reads the monitoring
                                    tracker (the single source of truth), requests
@@ -174,6 +252,70 @@ SKILLS/  --  WHAT EACH SKILL DOES
                                    daily at 15:00 local; also runs ad-hoc. NOT a
                                    QA process. Autonomous send authorized for this
                                    report + fixed recipients only.
+        eac-inventory-monitor/     Daily BCU + REC headroom check on the "Charm
+                                   EAC Verification Inventory tracker" Google
+                                   Sheet. STRICTLY READ-ONLY on the sheet --
+                                   never writes back. Reads BCU Inventory tab
+                                   ("Total Attributes Remaining", alert below
+                                   200) and RECs Inventory tab ("Volume
+                                   Remaining", alert below 50). Ignores every
+                                   row the sheet has HIDDEN (hidden = expired or
+                                   fully drawn down) plus any still-visible REC
+                                   row whose Expiry Date has passed. If an
+                                   active certificate is below threshold, posts
+                                   ONE alert to #team-mrv-alerts tagging Max
+                                   with the cert ID and the value; otherwise
+                                   silent (no "all clear" posts). Reads the
+                                   sheet via the Sheets API using the shared
+                                   max@ token at ~/.basco-intake/token.json, so
+                                   row visibility is read directly rather than
+                                   guessed. All thresholds/IDs live in the
+                                   skill's config.json. Fired by macOS launchd
+                                   daily at 08:00 local; also runs ad-hoc.
+        pace-report-generate/      Weekly MRV Pace Report generator. Copies
+                                   the Drive template, names it for the
+                                   following day (Thursday), carries each
+                                   person's "Top 3 I'll Focus On Next Week"
+                                   items from the current live report into
+                                   "Last Week's Focus - Did It Land" on the
+                                   matching tab of the new one -- Max stays
+                                   with Max, Garrett stays with Garrett --
+                                   then posts the link to #team-mrv. Config.
+                                   json holds channel/folder IDs. Fired by
+                                   macOS launchd Wednesdays at 15:00 local.
+                                   Hands off to pace-report-finalize.
+        pace-report-finalize/      Completion watcher for MRV Pace Report
+                                   threads. Sweeps every pending cycle left
+                                   by pace-report-generate; for each, checks
+                                   #team-mrv for a reply signaling the team
+                                   is done (flexible phrase matching, any
+                                   team member). On completion, moves the
+                                   superseded report into the Deprecated
+                                   subfolder and posts the new report as a
+                                   hyperlinked "MRV Pace" message to
+                                   #team-strategery. Self-healing via
+                                   state.json -- no per-cycle scheduled task
+                                   needed. Fired by macOS launchd weekdays
+                                   ~9:00/12:00/15:00/18:00 local.
+        aecn-lca-processor/        Processes a new half-yearly AECN carbon-
+                                   intensity LCA submission (from J-C Amado,
+                                   j-c@viridiglobal.com) into Drive: archives
+                                   the old period folder, builds the new
+                                   "LCA -- [BH/FH] [year] Data" folder, pulls
+                                   the two attached workbooks from the email,
+                                   MANDATORY reconciliation of the raw
+                                   Supporting Data against the LCA calc's own
+                                   stated totals before anything downstream
+                                   uses the number, fills the Stack Emissions
+                                   Template (CI value = the no-allocation Total,
+                                   i.e. net of the coproduct-displacement
+                                   credit Charm's policy doesn't count), and
+                                   pushes the result into the live "Standard
+                                   Emission Factors + Calculations" sheet that
+                                   batch-qa-aecn reads from. Manually triggered
+                                   -- nothing watches Max's inbox for this.
+                                   Validated end-to-end against the real H1
+                                   2026 submission 2026-08-26.
 
 
 OUTPUTS/  --  WHERE EACH SKILL'S WORK GOES
@@ -196,15 +338,31 @@ OUTPUTS/  --  WHERE EACH SKILL'S WORK GOES
     outputs/data-analysis/wellhead-data-transform/   Cleaned SCADA, compliance charts
     outputs/digests/mrv-standup/           run-log.jsonl audit trail
                                            (the digest itself lives in Slack DM)
-    outputs/automation/mrv-mailbox/        run-log.jsonl audit trail (mailbox
-                                           cycle; ledgers live in Drive period
-                                           folders, not here)
+    outputs/automation/ancillary-data-request/  run-log.jsonl audit trail
+                                           (reconcile cycle; the per-period
+                                           ledger lives at
+                                           ~/.ancillary-data-request/ledgers/,
+                                           not here -- runtime state, like the
+                                           other launchd-fired automations)
+    outputs/automation/resume-echo-review/  run-log.jsonl audit trail (new/
+                                           removed candidates, run summaries).
+                                           The actual candidate verdicts live
+                                           in skills/automation/resume-echo-
+                                           review/candidate_registry.json --
+                                           git-tracked business data, not
+                                           throwaway runtime state, same
+                                           treatment as the QA batch
+                                           registries under skills/qa/.
     outputs/deliverables/                  FINALIZED EXTERNAL DOCUMENTS
         outputs/deliverables/isometric/        Briefs/responses/QBR for Isometric
         outputs/deliverables/feedstock-suppliers/  Onboarding checklists (symlinks
                                                    to operational-documents — see below)
         outputs/deliverables/mangrove/         Escalations/QBR memos for Mangrove
                                                    Systems (accounting-platform vendor)
+        outputs/deliverables/saf-diligence/    External diligence on Charm's SAF
+                                                   methodology — no single named party;
+                                                   covers prospective buyers, 123 Carbon,
+                                                   and prospective methodology developers
     outputs/mrv-operational-documents/     FINALIZED INTERNAL CHARM DOCUMENTS
                                            Feedstock onboarding, conference reportbacks,
                                            internal SOPs and checklists.
@@ -215,14 +373,6 @@ OUTPUTS/  --  WHERE EACH SKILL'S WORK GOES
                                            tracker at My Drive/MRV/PDDs+Supplemental
                                            Docs/PDD Change Log/. Baseline + tracker
                                            live on the Drive mount, not in git.
-    outputs/mrv-operational-documents/mrv-mailbox-automation/
-                                           MRV mailbox (g_mrv@charmindustrial.com)
-                                           automation: intake/routing spec, the
-                                           reporting-period ledger template, and the
-                                           monthly request email template. The design
-                                           for auto-handling ancillary reporting
-                                           (Community / Wellhead / Oxidizer; scale
-                                           tickets later).
 
 
 PER-BATCH QA LAYOUT
@@ -273,9 +423,17 @@ ROUTING RULES
     verifier-briefing           outputs/comms/verifier-briefing/run-log.jsonl
                                 (drafts live in Gmail; never sent autonomously)
                                   (digest itself posts to Slack self-DM)
-    mrv-mailbox                 outputs/automation/mrv-mailbox/run-log.jsonl
-                                (ledgers live in Drive period folders;
-                                 uses gmail-mrv connection as g_mrv@)
+    ancillary-data-request      outputs/automation/ancillary-data-request/run-log.jsonl
+                                (ledger in ~/.ancillary-data-request/ledgers/;
+                                 asks post in #mrv-ops-la, alerts post in
+                                 #team-mrv-alerts, finished products upload to
+                                 the Processed Ancillary Data Drafts Drive folder)
+    resume-echo-review          outputs/automation/resume-echo-review/run-log.jsonl
+                                (candidate verdicts in skills/automation/
+                                 resume-echo-review/candidate_registry.json;
+                                 report is the published "Resume Echo Audit"
+                                 artifact; alerts via macOS desktop
+                                 notification only, never Slack)
     kdhe-kora-request           Drive: .../Vaulted/KDHE Requests/
                                 (request .docx + per-request received-doc
                                  subfolders + the monitoring tracker; no
@@ -285,6 +443,32 @@ ROUTING RULES
                                  in ~/.charm-350-credit-report/ (ledger,
                                  run.sh, logs). Report sends as Slack DMs.
                                  Fired by launchd daily 15:00 local.
+    eac-inventory-monitor       no file outputs (read-only check). Runtime
+                                 state in ~/.eac-inventory-monitor/
+                                 (config.json, check_eac_inventory.py,
+                                 run.sh, logs). Only output is a Slack
+                                 alert to #team-mrv-alerts when an
+                                 inventory is low. Fired by launchd daily
+                                 08:00 local.
+    pace-report-generate        Drive: .../MRV/Team/OKRs + Pace Reports/2026/
+                                 Pace Reports/ (new weekly .xlsx). Runtime
+                                 state in ~/.pace-report/ (state.json
+                                 pending-cycles list, generate-run.sh,
+                                 logs). Posts to #team-mrv. Fired by
+                                 launchd Wednesdays 15:00 local.
+    pace-report-finalize        No file outputs of its own -- moves the
+                                 prior week's .xlsx into that folder's
+                                 Deprecated/Past subfolder and posts to
+                                 #team-strategery. Shares
+                                 ~/.pace-report/state.json with
+                                 pace-report-generate. Fired by launchd
+                                 weekdays ~9/12/15/18:00 local.
+    aecn-lca-processor          Drive: .../AECN/LCAs/ (new period folder
+                                 + Deprecated/ archive of the old one);
+                                 also edits the live "Standard Emission
+                                 Factors + Calculations" Sheet (a separate
+                                 file, found by search, not a fixed path).
+                                 No local outputs/ dir. Manual trigger only.
     brief-writer                outputs/deliverables/<audience>/
                                   OR outputs/mrv-operational-documents/
                                   *** MUST ask user which audience first ***
@@ -377,6 +561,9 @@ outputs/deliverables/  is for finalized EXTERNAL documents only:
     - feedstock-suppliers/   Bound for feedstock suppliers (onboarding materials)
     - mangrove/              Bound for Mangrove Systems (accounting-platform vendor:
                              escalations, QBR memos)
+    - saf-diligence/         External diligence on Charm's SAF methodology — no
+                             single named party; prospective buyers, 123 Carbon,
+                             prospective methodology developers
     - (add new audiences as needed: regulators, conferences, other verifiers)
 
 outputs/mrv-operational-documents/  is for finalized INTERNAL Charm documents:
@@ -422,6 +609,13 @@ Every skill reads from here. Files at the root, plus historical PDFs.
         with root-cause grouping (EF versioning, BCU quant mismatch, component
         evidence, deadhead %, etc.). QA skills consult this to know what
         verifiers are flagging and what failure modes to watch for.
+    biochar_storage_ag_soils_v1.0.txt
+        Full text of the Biochar Storage in Agricultural Soils Module v1.0,
+        scraped from the registry 2026-07-29. This is the storage module the
+        biochar project is actually registered against (Protocol v1.0 s8.1
+        names it by version), so it — not soil_module_v1.3.txt — is the
+        citation source for biochar QA. Companion protocol text lives at
+        outputs/research/biochar_protocol_v1.0_registry.txt.
     biochar_protocol_v1.2.txt, soil_module_v1.3.txt,
     book_and_claim_module_v1.txt, ghg_accounting_v1.1_allocation_text.txt,
     ghg_accounting_v1.1_allocation_text_p2.txt, lowox_clean.txt,

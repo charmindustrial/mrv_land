@@ -29,13 +29,31 @@ from pathlib import Path
 
 # Filename patterns per source category (shared across oil types; extend as needed).
 CATEGORY_PATTERNS = {
-    "scale_ticket": r"Ticket_Rail|Ticket Rail|Scale Ticket|Weigh",
-    "bol":          r"[Cc]amion|documents?[ _]?\d{4}-R|Bill of Lading|BOL",
+    # Added 2026-08-31 from INJ-08-2026-W4: individually-uploaded rail scale
+    # tickets are also filed as "<RAILCAR>_LD<N>_FULL/EMPTY_<ticket#>.pdf"
+    # (e.g. "SHPX215076_LD1_FULL_1124426227412.pdf") on batches where scale
+    # tickets are uploaded to Certify Sources directly rather than only
+    # Ops-Notes-hyperlinked.
+    "scale_ticket": r"Ticket_Rail|Ticket Rail|Scale Ticket|Weigh|_LD\d+_(FULL|EMPTY)_",
+    # AECN inbound BOLs are filed either as "documents 2386-R.pdf" or bare
+    # "2386-R.pdf" (the bare form is what INJ-07-2026-W1 uses), so match the
+    # 4-digit + "-R" invoice number with or without a leading word.
+    "bol":          r"[Cc]amion|\b\d{4}-R\b|Bill of Lading|BOL",
     "ops_notes":    r"Ops Notes|INJ-\d{2}-\d{4}-W",
-    "lab":          r"W1 AECN\.pdf|CoA|Certificate of Analysis|SR\d{2}-\d|SGS|CHARM INDUSTRIAL|WODO\.pdf|Aqueous\.pdf",
+    "lab":          r"W1 AECN\.pdf|CoA|Certificate of Analysis|SR\d{2}-\d|SGS|CHARM INDUSTRIAL|WODO\.pdf|Aqueous\.pdf|QOWV\.pdf",
     "ef_sheet":     r"Standard Emission Factors|GLEC",
-    "lca":          r"LCA|Supporting GHG|Bioenergy AE|Cote-Nord",
-    "map_or_watco": r"to SOPOR|Railyard to Basco|AECN to Basco|to B6|image \(44\)|Watco|Google Maps|Maps|Routing Map",
+    # BCU / REC reductions are evidenced by the EAC retirement certificate.
+    # Added 2026-08-06 from the first Aqueous batch, whose BCU component is the
+    # only place a retirement certificate carries a datapoint.
+    "eac_cert":     r"RetirementCertificate|Retirement Certificate|RD-EACs|EACs|BCU",
+    # The AECN pyrolysis EMBODIED carbon intensity is evidenced by its own
+    # derivation sheet ("AECN Embodied Emissions Calc Sheet"), not by the
+    # process-side LCA workbooks — both are valid CI derivations.
+    "lca":          r"LCA|Supporting GHG|Bioenergy AE|Cote-Nord|Embodied Emissions Calc Sheet",
+    # "Distance" added 2026-08-06 from the first Kerry tanker batch, whose route
+    # evidence is filed as "Kerry to Basco Distance.png" — a Google Maps capture
+    # that none of the AECN-era route filename patterns matched.
+    "map_or_watco": r"to SOPOR|Railyard to Basco|AECN to Basco|to B6|image \(44\)|Watco|Google Maps|Maps|Routing Map|Distance",
     "production_ci":r"Production Period|CI|Production Emissions|PP\d",   # Charm WODO/Aqueous
 }
 
@@ -68,6 +86,57 @@ MATRICES = {
         "Aggregate Distance":                ["ops_notes", "map_or_watco"],
         "Distance from":                     ["map_or_watco"],
         "Emissions Factor":                  ["ef_sheet"],
+        # Added 2026-08-06 from INJ-07-2026-W2, the first WODO batch to carry a
+        # BCU reduction at first delivery. Evidenced by the EAC retirement
+        # certificate, same as the Aqueous matrix.
+        "Constant CO":                       ["eac_cert"],
+    },
+    # Aqueous (QOWV) matrix validated on INJ-07-2026-W1-QOWV (2026-08-06) — the
+    # deferred June-W2 Aqueous batch. Same weekly time-block, tote-based shape as
+    # WODO: no scale tickets / BOLs, mass and distance-allocation basis is the Ops
+    # Notes (which embeds the QOWV Shipments & EE Allocation tab), production CI
+    # folded into one mass-weighted pyrolysis component evidenced by the Ops Notes,
+    # lab CoA + Ops Notes copy on Carbon Content. Differs from WODO only in the
+    # datapoint names (QOWV-prefixed) and in carrying a BCU reduction datapoint,
+    # which is evidenced by the EAC retirement certificate.
+    "Aqueous": {
+        "Mass of Injectant":                           ["ops_notes"],
+        "Carbon Content of Bio-oil Injected":          ["lab", "ops_notes"],
+        "QOWV Transport Mass":                         ["ops_notes"],
+        "QOWV Pyrolysis Mass":                         ["ops_notes"],
+        "QOWV Pyrolysis Emissions - Carbon Intensity": ["ops_notes"],
+        "QOWV Embodied Distance":                      ["ops_notes", "map_or_watco"],
+        "Distance from":                               ["map_or_watco"],
+        "Emissions Factor":                            ["ef_sheet"],
+        "Constant CO":                                 ["eac_cert"],
+    },
+    # Kerry TANKER matrix, validated on INJ-07-2026-W4 (2026-08-06) — the first
+    # Kerry batch delivered by flatbed-haul tanker rather than in totes. Shape is
+    # closer to an AECN truck batch than to the earlier Kerry tote batches: one
+    # full + empty CAT Scale ticket pair is the mass evidence, one composite SGS
+    # sample carries carbon content, one Google Maps capture carries the route,
+    # and a BCU reduction is evidenced by the EAC retirement certificate.
+    #
+    # Note the asymmetry between the two mass datapoints, which is deliberate:
+    #   - "Allocated Kerry Oil Gross Mass" is the transported mass and IS fully
+    #     derivable from the ticket pair alone (full minus empty), so tickets
+    #     suffice.
+    #   - "Mass of Injectant" is that figure LESS the Kerry-specific filtration
+    #     loss (0.071% calciner solids). Neither the deduction nor the constant
+    #     behind it appears on any scale ticket — both live only in the Ops
+    #     Notes. Without the Ops Notes attached, a verifier reconciling the
+    #     tickets lands on the gross mass and cannot explain the reported
+    #     injectant mass. Hence ops_notes is required here.
+    # If Kerry ever reverts to totes, do NOT reuse this matrix — the tote batches
+    # have no scale tickets at all.
+    "KERRY": {
+        "Mass of Injectant":                  ["scale_ticket", "ops_notes"],
+        "Allocated Kerry Oil Gross Mass":     ["scale_ticket"],
+        "Carbon Content of Bio-oil Injected": ["lab"],
+        "Route Distance":                     ["map_or_watco"],
+        "Emissions Factor - Flatbed":         ["ef_sheet"],
+        "Distance emission factor":           ["ef_sheet"],
+        "Constant CO":                        ["eac_cert"],
     },
 }
 

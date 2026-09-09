@@ -19,8 +19,8 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 | Mass artifacts | Tote weighing log (per-tote serial, gross, tare, net) | Full + empty scale ticket pair (one weighing event) |
 | Authoritative mass source | Sum of per-tote nets | Scale ticket net (Full gross − Empty gross) |
 | Tote count | Multiple per truckload (varies) | N/A (one tanker = one weighing) |
-| Per-weighing uncertainty | 1.13 kg per tote | 1.13 kg per tanker |
-| Summed Mass-of-Product uncertainty | N totes × 1.13 kg | 1.13 kg |
+| Per-weighing uncertainty | 1.13 kg per tote (Charm tote scale) | 72.57 kg per tanker (commercial truck scale) |
+| Summed Mass-of-Product uncertainty | N totes × 1.13 kg | 72.57 kg |
 | Lab testing convention | Per-tote SGS CHN (current practice) | Tanker-level SGS CHN (going forward) |
 | BOL "Qty Shipped" basis | Gross transported (oil + tote tares + deck items) | Oil-only mass |
 | Transport-EF mass basis | BOL gross (NOT MOBI alone — see FC-K2) | BOL oil-only mass (= MOBI in tanker mode) |
@@ -174,11 +174,11 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 - Flatbed Truck Transport — Embodied (no Mass of Load — per-mile only)
 - Injection-site components (electricity, pumping — same as AECN convention)
 
-**Per-weighing precision:** **1.13 kg per discrete weight** (Kerry totes and Kerry tankers are weighed on the same scale as Charm WODO; this is the WODO precision spec, not the AECN 72.57 kg rail-truck spec). Confirmed by Max 2026-05-04.
+**Per-weighing precision follows the SCALE, not the oil type** (Max, 2026-08-10). Charm's tote scale is 2.5 lb ≈ **1.13 kg** per discrete weight; a commercial truck scale (e.g. CAT Scale) is **72.57 kg** per discrete weight. Kerry in totes gets 1.13 kg; Kerry by tanker gets 72.57 kg, the same as an AECN tanker. Read the scale name off the ticket before choosing.
 
 **Tote-mode summed uncertainty:** With N totes weighed, Mass-of-Product uncertainty = N × 1.13 kg (additive convention, consistent with Charm WODO and AECN per-truck rule). Same N × 1.13 kg uncertainty applies to the Mass of Load on the Flatbed Process component.
 
-**Tanker-mode uncertainty:** One discrete weighing event. Mass-of-Product = 1.13 kg. Mass of Load on Flatbed Process = 1.13 kg.
+**Tanker-mode uncertainty:** One discrete weighing event on a commercial truck scale. Mass-of-Product = **72.57 kg**. Mass of Load on Flatbed Process = **72.57 kg**. Settled on INJ-07-2026-W4, the first Kerry tanker batch.
 
 **Embodied components have no Mass of Load datapoint** — per-mile, mass-independent (same convention as AECN railcar embodied to avoid Failure Category 8 from the AECN lessons_learned).
 

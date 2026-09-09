@@ -44,7 +44,9 @@ The ToX destroys VOCs (primarily benzene) stripped from bio-oil during sparging.
 guarantee is a hardware interlock, not the temperature record**: per the CatOx Engineering Brief,
 *"The sparging blower cannot activate unless the oxidizer is on. This is a hard control with no
 operator override."* Site SOP also requires the catalyst inlet to be at 600°F before the gate
-valve is opened, and an E-stop stops the blower. The temperature data **corroborates** this
+valve is **closed** — the Brief's words are *"confirm the catalyst inlet is at 600°F before
+closing the gate valve and introducing air into the tank"* (earlier versions of this skill said
+"opened", which was wrong) — and an E-stop stops the blower. The temperature data **corroborates** this
 record; it does not carry the compliance burden.
 
 **Reading the temperature data (from the Brief — quote it, do not invent):** *"There is no single
@@ -56,11 +58,17 @@ the expected completion state of a sparging campaign — not evidence of uncontr
 So a below-setpoint outlet during a campaign means **no VOCs present to drive the exothermic
 reaction** — not a failure to destroy VOCs. Active destruction shows as an outlet of 850–1000°F.
 
-## Source data format (current — May 2026 onward)
+## Source data format (current — July 2026 onward: ONE FILE PER TRAIN)
 
-Max provides the period's export (a CSV) or points you to it in Drive. The current export is:
-`t_stamp, Train1 InletTemp, Train1 OutletTemp, Train2 InletTemp, Train2 OutletTemp` —
-5-minute readings, **`0` marks offline / no reading**, columns **correctly labeled (no swap)**.
+Max provides the period's export or points you to it in Drive (typically the reporting period's
+`Additional Documentation/Oxidizer Data` folder, which is reachable on the local Drive mount —
+faster and cheaper than the Drive connector for files this size).
+
+Since July 2026 the export is **two CSVs, one per train**, each `t_stamp, InletTemp, OutletTemp`
+with `YYYY-MM-DD HH:MM:SS.fff` timestamps. Pass **both** to `--input` in either order; the script
+merges them on the timestamp and identifies each train from its column headers. The older single
+combined 5-column file still loads unchanged. 5-minute readings, **`0` marks offline / no
+reading**, columns **correctly labeled (no swap)**.
 Read `references/column_mapping.md` and `references/thresholds.md` before processing.
 
 ## Workflow
@@ -68,16 +76,23 @@ Read `references/column_mapping.md` and `references/thresholds.md` before proces
 ### Step 1: Run the script
 ```bash
 python3 "skills/data-analysis/tox-sparging-analysis/scripts/generate_tox_charts.py" \
-  --input "<period export csv>" \
+  --input "<train 1 csv>" "<train 2 csv>" \
   --output "outputs/data-analysis/tox-analysis/" \
-  --month "June 2026"
+  --month "July 2026"
 ```
 It builds both workbooks, runs a **column-orientation self-check** (warns if a train's outlet
-reads colder than its inlet), and prints per-train summary stats for your chat report.
+reads colder than its inlet), runs a **stuck-reading check**, and prints per-train summary stats
+for your chat report.
 
-### Step 2: Confirm orientation
+### Step 2: Confirm orientation, then read the stuck-reading check
 Confirm the script reported orientation OK for both trains. If it warns, stop and verify before
 delivering — do not blindly apply any historical swap (see column_mapping.md).
+
+Then read the stuck-reading output. If it reports an **all-channel frozen block**, the historian
+held last-good values and those rows are not live readings — and if the held outlet sits above the
+setpoint it inflates the at-temperature share. Report the at-temperature figure **both ways** (as
+recorded, and excluding held readings) and say what the site was doing. This is a data-
+completeness note, not a compliance finding. See `references/thresholds.md`.
 
 ### Step 3: Optional — Slack context for your understanding
 For any long offline or below-setpoint stretch, you may check `#injection-ops-la` to understand

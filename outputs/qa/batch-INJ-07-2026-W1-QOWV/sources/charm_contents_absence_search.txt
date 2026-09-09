@@ -1,0 +1,32 @@
+CHARM CONTENTS SHEET — EXHAUSTIVE ABSENCE SEARCH
+Batch: INJ-07-2026-W1-QOWV (Ops Notes tab batch id INJ-06-2026-W2)
+Session: 2026-08-06
+
+Method 1 — Drive title search: `title contains 'Charm Contents'`
+  Returned 5 files, all pre-weekly per-batch numbering:
+    5-10 Charm Contents      (id 1xbJfEeKwEPtxk2NRm9Yr_vtrlgGSeTzf3ZtiHXtAvno)
+    3-55 Charm Contents      (id 11zxaKCpcmgEhobA-zsWi_eXREvrQ2gw5G3Wk7Y_Rs4g)
+    3-56 Charm Contents      (id 1CaB1O2dbeysGrME7tmM_VJWBNms_Sb7H6_eK36QaghE)
+    5-08 Charm Contents      (id 1c1ntosOOTDif2endO99CfiPq_Wb-OSpZ2puBYaxDJpI)
+    5-07 Charm Contents      (id 1IMzUZ5bspIJ2EV1FiIWsIKpSoiBV6AEkxNyB-xz-5IE)
+  None for INJ-06-2026-W2, INJ-07-2026-W1, or any 2026 weekly time-block batch.
+
+Method 2 — Drive title + recency: `title contains 'Contents' and modifiedTime > '2026-06-01T00:00:00Z'`
+  Returned only unrelated CAD/P&ID table-of-contents files
+  (DREAMCLOUD_P&ID_000_TABLE_OF_CONTENTS.*, BIOMASS_*_P&ID_TABLE_OF_CONTENTS.*).
+  No Charm Contents sheet.
+
+Method 3 — Batch folder enumeration: `parentId = '1z9nzSrTSuW5BzIJVPGVOlb42LTQFF24y'`
+  5 items: INJ-07-2026-W1 Ops Notes; WODO Tote Standard Loss - 2026 Dataset;
+  Scale Tickets/; Testing/; Completed QA Checklists/.  No Charm Contents.
+
+Method 4 — Certify Sources tab for rmv_1KZBTSNE81S0DJT1 (6 sources, fully enumerated)
+  07-26-W1-QOWV.pdf; INJ-07-2026-W1 Ops Notes.xlsx; Standard Emission Factors +
+  Calculations (8).xlsx (x2); Charm-RetirementCertificate-RD-EACs-20251218.pdf;
+  CO to Basco Routing Map.png.  No Charm Contents.
+
+CONCLUSION: the per-batch Charm Contents sheet is not produced under the weekly
+time-block batching format. Its content — the per-Production-Period mass
+breakdown for the batch — is carried by the Ops Notes QOWV IBC ledger
+(column G Production Period against column D Net Oil Produced), which IS
+attached in Certify to the QOWV Pyrolysis Mass datapoint.

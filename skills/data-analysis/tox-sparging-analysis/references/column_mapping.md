@@ -1,8 +1,34 @@
 # ToX Data Column Mapping
 
-## Current export format (May 2026 onward)
+## Current export format (July 2026 onward) — ONE FILE PER TRAIN
 
-A plain CSV, temperature-only, 5-minute readings:
+Since the July 2026 period, Garrett's export arrives as **two CSVs, one per train**, e.g.
+`Train 1 OX - JULY.csv` and `Train 2 OX - JULY.csv`. Each is three columns:
+
+| Index | Header (as exported) | Notes |
+|---|---|---|
+| 0 | t_stamp | Format: `YYYY-MM-DD HH:MM:SS.fff` — **not** the old `M/D/YY H:MM` |
+| 1 | `…/2100-Train1/OX-2100/Status/Sts_CatalystInletTemp` (or `2200-Train2`) | Inlet, °F |
+| 2 | `…/2100-Train1/OX-2100/Status/Sts_CatalystOutletTemp` (or `2200-Train2`) | Outlet, °F |
+
+Pass **both files** to `--input` in either order. The script merges them on the timestamp into
+the same 5-column table the old combined export produced, so everything downstream is unchanged.
+
+- **Train identity comes from the column headers** (`Train1`/`2100` vs `Train2`/`2200`), never
+  from the order the files are passed. Passing them backwards produces identical output.
+- The merge is an **inner join on the timestamp** — a reading is kept only when both trains
+  report the same instant. Any unpaired readings are counted and reported in the run output.
+  In July 2026 both files had 8,929 rows with identical timestamps, so nothing was dropped.
+- Values are never altered by the merge, only placed side by side, so the Raw workbook is still
+  the readings exactly as received.
+- Timestamp parsing tries both known shapes and then falls back to auto-detection, so old and
+  new exports both load without a code change.
+
+---
+
+## Previous export format (May–June 2026) — single combined file
+
+A plain CSV, temperature-only, 5-minute readings, still loaded without any change:
 
 | Index | Header (as exported) | Name in code | Notes |
 |---|---|---|---|

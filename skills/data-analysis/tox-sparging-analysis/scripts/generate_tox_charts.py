@@ -16,7 +16,10 @@ Combustion Signal / Raw Data / Notes tabs to the Processed workbook — those ar
 verifier (confirmed by Max, July 2026).
 
 Usage:
+    # combined single-file export (May/June 2026 style)
     python3 generate_tox_charts.py --input <csv> --output <dir> [--month "June 2026"]
+    # per-train split export (July 2026 onward): pass both files, either order
+    python3 generate_tox_charts.py --input <train1.csv> <train2.csv> --output <dir> --month "July 2026"
 
 Dependencies: pandas, numpy, matplotlib, openpyxl
 """
@@ -49,13 +52,74 @@ except (FileNotFoundError, KeyError, json.JSONDecodeError) as e:
 
 
 # ── Data loading ────────────────────────────────────────────────────────────
-def load_data(path):
+def _parse_time(s):
     """
-    Load the temperature export and return (df, raw_df, cols).
+    Parse the timestamp column. Exports have arrived in two shapes:
+      'M/D/YY H:MM'            (May/June 2026 combined export)
+      'YYYY-MM-DD HH:MM:SS.fff' (July 2026 onward per-train export)
+    Try each declared shape, then fall back to pandas' own detection. Unparseable
+    values become blank so the caller can drop those rows.
+    """
+    for fmt in ('%m/%d/%y %H:%M', '%Y-%m-%d %H:%M:%S.%f'):
+        out = pd.to_datetime(s, format=fmt, errors='coerce')
+        if out.notna().mean() > 0.9:
+            return out
+    return pd.to_datetime(s, errors='coerce')
 
-    Handles the current export format (May 2026 onward):
-      t_stamp, Train1 InletTemp, Train1 OutletTemp, Train2 InletTemp, Train2 OutletTemp
-      - 5-minute readings, 0 marks offline/no-reading, columns correctly labeled (NO swap).
+
+def _merge_per_train(paths):
+    """
+    Combine a per-train split export (July 2026 onward) into the same 5-column table the
+    combined export produces. Each file is timestamp + that train's inlet + outlet.
+
+    Files are assigned to trains by what their own column headers say ('Train1'/'2100' vs
+    'Train2'/'2200'), NOT by the order they were passed, and the merge is an inner join on
+    the timestamp so a reading is only kept when both trains report the same instant.
+    Values are never altered — only placed side by side.
+    """
+    frames = {}
+    for p in paths:
+        d = pd.read_csv(p)
+        if len(d.columns) != 3:
+            sys.exit(f"ERROR: {Path(p).name} has {len(d.columns)} columns; a per-train export "
+                     f"must be timestamp + inlet + outlet.")
+        blob = ' '.join(d.columns).lower()
+        t1 = ('train1' in blob.replace(' ', '') or '2100' in blob)
+        t2 = ('train2' in blob.replace(' ', '') or '2200' in blob)
+        if t1 == t2:
+            sys.exit(f"ERROR: cannot tell which train {Path(p).name} is from its headers: "
+                     f"{list(d.columns)}")
+        n = 1 if t1 else 2
+        if n in frames:
+            sys.exit(f"ERROR: two files both look like Train {n}. Pass one file per train.")
+        ic, oc = d.columns[1], d.columns[2]
+        if 'inlet' not in ic.lower() or 'outlet' not in oc.lower():
+            sys.exit(f"ERROR: {Path(p).name} columns are not inlet-then-outlet: {list(d.columns)}")
+        frames[n] = d.rename(columns={d.columns[0]: 't_stamp'})
+        print(f"  Train {n}: {Path(p).name} — {len(d)} rows")
+
+    if set(frames) != {1, 2}:
+        sys.exit(f"ERROR: need one Train 1 file and one Train 2 file; got trains {sorted(frames)}.")
+
+    merged = frames[1].merge(frames[2], on='t_stamp', how='inner')
+    dropped = max(len(frames[1]), len(frames[2])) - len(merged)
+    if dropped:
+        print(f"  NOTE: {dropped} reading(s) present for only one train were dropped "
+              f"(timestamps must match to pair the trains).")
+    return merged
+
+
+def load_data(paths):
+    """
+    Load the temperature export(s) and return (df, raw_df, cols).
+
+    Accepts either:
+      - ONE combined file (May/June 2026 style):
+        t_stamp, Train1 InletTemp, Train1 OutletTemp, Train2 InletTemp, Train2 OutletTemp
+      - TWO per-train files (July 2026 onward): each timestamp + inlet + outlet, merged here
+        on the timestamp into the same 5-column table. Train identity comes from the headers.
+
+    5-minute readings, 0 marks offline/no-reading, columns correctly labeled (NO swap).
 
     Also tolerates the legacy combined format (7 columns with sparge binaries, -238 sentinel,
     hourly, and the April-era Train 2 header swap) as a fallback.
@@ -63,7 +127,15 @@ def load_data(path):
     Orientation is ALWAYS verified empirically after loading, and the code warns loudly if
     Train 2 looks reversed rather than blindly trusting any historical swap rule.
     """
-    raw = pd.read_csv(path)
+    if isinstance(paths, (str, Path)):
+        paths = [paths]
+    if len(paths) == 2:
+        raw = _merge_per_train(paths)
+    elif len(paths) == 1:
+        raw = pd.read_csv(paths[0])
+    else:
+        sys.exit(f"ERROR: --input takes one combined file or two per-train files; got {len(paths)}.")
+
     cols = list(raw.columns)
     df = raw.copy()
 
@@ -71,17 +143,15 @@ def load_data(path):
         # Current format — positional map, no swap, 0 = offline
         df = df.rename(columns={cols[0]: 'time', cols[1]: 'T1_in', cols[2]: 'T1_out',
                                 cols[3]: 'T2_in', cols[4]: 'T2_out'})
-        fmt = '%m/%d/%y %H:%M'
     elif len(cols) == 7:
         # Legacy combined format — apply the April-era T2 header swap
         df = df.rename(columns={cols[0]: 'time', cols[1]: 'sparge1', cols[2]: 'T1_in',
                                 cols[3]: 'T1_out', cols[4]: 'sparge2',
                                 cols[5]: 'T2_out', cols[6]: 'T2_in'})  # note swap: idx5=out, idx6=in
-        fmt = None
     else:
         sys.exit(f"ERROR: unrecognized column layout ({len(cols)} cols): {cols}")
 
-    df['time'] = pd.to_datetime(df['time'], format=fmt, errors='coerce')
+    df['time'] = _parse_time(df['time'])
     df = df.dropna(subset=['time']).sort_values('time').reset_index(drop=True)
     for c in ['T1_in', 'T1_out', 'T2_in', 'T2_out']:
         df[c] = pd.to_numeric(df[c], errors='coerce').replace(OFFLINE_SENTINELS, np.nan)
@@ -99,6 +169,67 @@ def load_data(path):
                 print(f"  Train {n} orientation OK (outlet hotter than inlet on {frac*100:.0f}% of operating rows).")
 
     return df, raw, cols
+
+
+def report_stuck_readings(df, min_readings=12):
+    """
+    Flag stretches where a channel repeats one value exactly, reading after reading.
+
+    Short repeats are normal — the historian only logs a change once it exceeds a deadband.
+    What matters is a repeat spanning ALL FOUR channels on BOTH trains starting and ending at
+    the same instant: two independent oxidizer trains cannot physically hold four temperatures
+    constant to the degree, so that pattern is the logger holding last-good values, and those
+    rows are not live readings. It matters for the numbers because a value frozen ABOVE the
+    setpoint counts as at-temperature and inflates the at-temperature share.
+
+    Printed as a diagnostic for the chat report only. Nothing here goes in the workbook.
+    Returns the list of all-channel frozen blocks as (start, end, n_readings).
+    """
+    chans = ['T1_in', 'T1_out', 'T2_in', 'T2_out']
+    print("\n── Stuck-reading check (diagnostic — not in the workbook) ──")
+
+    for c in chans:
+        s = df[c]
+        run = (s != s.shift()).cumsum()
+        g = df.groupby(run).agg(val=(c, 'first'), n=(c, 'size'))
+        g = g[(g.n >= min_readings) & g.val.notna()]
+        if len(g):
+            print(f"  {c}: {len(g)} run(s) of >={min_readings*5/60:.0f}h holding one value "
+                  f"({g.n.sum()} readings, {g.n.sum()/len(df)*100:.1f}% of period); "
+                  f"longest {g.n.max()*5/60:.1f}h at {g.loc[g.n.idxmax(),'val']:.0f}°F")
+        else:
+            print(f"  {c}: no held-value run >= {min_readings*5/60:.0f}h")
+
+    # Blocks where every channel is simultaneously repeating its previous value.
+    allfrozen = pd.concat([df[c] == df[c].shift() for c in chans], axis=1).all(axis=1)
+    blocks = []
+    for _, d in df.groupby((allfrozen != allfrozen.shift()).cumsum()):
+        if allfrozen.loc[d.index[0]] and len(d) >= min_readings:
+            blocks.append((d['time'].iloc[0], d['time'].iloc[-1], len(d)))
+
+    if not blocks:
+        print("  No all-channel frozen block found. Readings track independently — good.")
+        return blocks
+
+    print(f"\n  *** {len(blocks)} ALL-CHANNEL FROZEN BLOCK(S) — treat as logger hold, not readings ***")
+    for st, en, n in blocks:
+        held = {c: df.loc[df['time'] == st, c].iloc[0] for c in chans}
+        above = [c for c in ('T1_out', 'T2_out') if held[c] >= THRESH_F]
+        print(f"    {n} readings ({n*5/60:.1f}h)  {st:%b %d %H:%M} -> {en:%b %d %H:%M}")
+        print(f"      held at: " + ", ".join(f"{c} {held[c]:.0f}°F" for c in chans))
+        if above:
+            print(f"      NOTE: {' and '.join(above)} frozen AT/ABOVE {THRESH_F}°F — these rows "
+                  f"inflate the at-temperature share. Report the stat both ways.")
+
+    keep = ~pd.concat([(df['time'] >= s) & (df['time'] <= e) for s, e, _ in blocks],
+                      axis=1).any(axis=1)
+    print(f"\n  Excluding frozen block(s) — {keep.sum()} of {len(df)} readings remain:")
+    for n, oc in [(1, 'T1_out'), (2, 'T2_out')]:
+        s = df.loc[keep, oc]
+        at = (s >= THRESH_F).sum(); bl = ((s < THRESH_F) & s.notna()).sum(); off = s.isna().sum()
+        print(f"    Train {n}: at/above {THRESH_F}°F {at/keep.sum()*100:.1f}% | "
+              f"below {bl/keep.sum()*100:.1f}% | offline {off/keep.sum()*100:.1f}%")
+    return blocks
 
 
 # ── Processed chart (matches the May precedent style) ─────────────────────────
@@ -181,14 +312,15 @@ def build_raw(raw, cols, month, out_dir):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--input', required=True)
+    ap.add_argument('--input', required=True, nargs='+',
+                    help='one combined export CSV, or two per-train export CSVs')
     ap.add_argument('--output', required=True)
     ap.add_argument('--month', help='e.g. "June 2026"; derived from data if omitted')
     a = ap.parse_args()
     out_dir = Path(a.output); out_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"\nSetpoint {THRESH_F}°F  (source: {_CFG['setpoint_source']})")
-    print(f"Loading: {a.input}")
+    print(f"Loading: {', '.join(a.input)}")
     df, raw, cols = load_data(a.input)
     month = a.month or df['time'].dt.strftime('%B %Y').iloc[0]
     print(f"  {len(df)} rows, {df['time'].iloc[0]:%b %d %Y %H:%M} – {df['time'].iloc[-1]:%b %d %Y %H:%M}  ({month})")
@@ -207,6 +339,8 @@ def main():
         peak = s.max()
         print(f"  Train {n}: at/above {THRESH_F}°F {at/total*100:.1f}% | below {below/total*100:.1f}% | "
               f"offline {off/total*100:.1f}% | peak {peak:.0f}°F")
+
+    report_stuck_readings(df)
     print(f"\n  open \"{proc}\"")
 
 

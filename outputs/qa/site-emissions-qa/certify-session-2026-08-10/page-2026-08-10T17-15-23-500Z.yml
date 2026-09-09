@@ -1,0 +1,200 @@
+- generic [ref=f4e2]:
+  - alert [ref=f4e1]
+  - region "0 notifications."
+  - generic [ref=f4e3]:
+    - navigation [ref=f4e5]:
+      - generic [ref=f4e9]:
+        - generic [ref=f4e10]:
+          - link "Isometric Registry" [ref=f4e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f4e27]:
+            - link "Registry" [ref=f4e28] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=f4e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f4e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f4e32]:
+          - generic [ref=f4e33]:
+            - link "Account" [ref=f4e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f4e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f4e36]: "|"
+          - button "Current user menu" [ref=f4e37] [cursor=pointer]:
+            - generic [ref=f4e38]: Menu
+    - main [ref=f4e41]:
+      - generic [ref=f4e43]:
+        - button "Collapse sidebar" [ref=f4e45] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=f4e49]:
+          - list [ref=f4e51]:
+            - listitem [ref=f4e52]:
+              - link "All projects" [ref=f4e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=f4e54]: /
+            - listitem [ref=f4e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=f4e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [ref=f4e57]: /
+            - listitem [ref=f4e58]:
+              - link "All GHG statements" [ref=f4e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - generic [ref=f4e60]: /
+            - listitem [ref=f4e61]: ggs_1KZBX6AX41S029JS
+      - generic [ref=f4e62]:
+        - navigation [ref=f4e66]:
+          - generic [ref=f4e68]:
+            - link "Overview" [ref=f4e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=f4e70] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+            - link "Evidence" [ref=f4e71] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/evidence
+          - generic [ref=f4e72]:
+            - generic [ref=f4e73]: Project setup
+            - generic [ref=f4e74]:
+              - link "General" [ref=f4e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=f4e76] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=f4e77] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=f4e78] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=f4e79]:
+            - generic [ref=f4e80]: Carbon accounting
+            - generic [ref=f4e81]:
+              - link "LCA" [ref=f4e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=f4e83] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=f4e84] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "GHG entry data" [ref=f4e85] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+          - link "Templates" [ref=f4e88] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=f4e91]:
+          - generic [ref=f4e95]:
+            - heading "GHG Statement" [level=1] [ref=f4e97]
+            - generic [ref=f4e98]:
+              - generic [ref=f4e99]:
+                - generic [ref=f4e100]: Draft
+                - generic [ref=f4e104]: 873.61 tCO₂e
+                - generic [ref=f4e106]:
+                  - generic [ref=f4e107]: •
+                  - generic [ref=f4e108]: 01 Jul 2026 to 31 Jul 2026
+              - generic [ref=f4e109]:
+                - button "More actions" [ref=f4e110] [cursor=pointer]
+                - button "Toggle timeline sidebar" [ref=f4e113] [cursor=pointer]
+                - link "Submit" [ref=f4e116] [cursor=pointer]:
+                  - /url: /account/submit-ghg-statement/ggs_1KZBX6AX41S029JS
+          - generic [ref=f4e117]:
+            - tablist [ref=f4e120]:
+              - tab "Details" [ref=f4e121] [cursor=pointer]
+              - tab "GHG Entries" [active] [selected] [ref=f4e123] [cursor=pointer]
+              - tab "Monitoring" [ref=f4e125] [cursor=pointer]
+              - tab "Reporting period emissions" [ref=f4e127] [cursor=pointer]
+              - tab "Sensitivity analysis" [ref=f4e129] [cursor=pointer]
+              - tab "Submissions" [ref=f4e131] [cursor=pointer]
+            - tabpanel "GHG Entries" [ref=f4e134]:
+              - generic [ref=f4e135]:
+                - generic [ref=f4e136]:
+                  - generic [ref=f4e137]: GHG Entries (9)
+                  - button "Add GHG entry" [ref=f4e139] [cursor=pointer]
+                - generic [ref=f4e142]:
+                  - grid "GHG entries" [ref=f4e144]:
+                    - rowgroup [ref=f4e145]:
+                      - row [ref=f4e146]:
+                        - columnheader "GHG entry ID" [ref=f4e147]
+                        - columnheader "Tonnes removed" [ref=f4e149]
+                        - columnheader "GHG Statement ID" [ref=f4e151]
+                        - columnheader "Sequestered date" [ref=f4e153]
+                        - columnheader "Credit type" [ref=f4e155]
+                    - rowgroup [ref=f4e157]:
+                      - row [ref=f4e158] [cursor=pointer]:
+                        - rowheader "rmv_1KZBJBN9C1S0M5R5" [ref=f4e159]
+                        - gridcell "159.97 tCO₂e" [ref=f4e160]
+                        - gridcell [ref=f4e161]:
+                          - link "View GHG statement" [ref=f4e162]:
+                            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+                            - generic [ref=f4e163]: ggs_1KZBX6AX41S029JS
+                        - gridcell "19 Jul 2026 to 25 Jul 2026" [ref=f4e164]
+                        - gridcell "Removal" [ref=f4e165]
+                      - row [ref=f4e170] [cursor=pointer]:
+                        - rowheader "rmv_1KYZ3JPB51S0VE5Q" [ref=f4e171]
+                        - gridcell "31.98 tCO₂e" [ref=f4e172]
+                        - gridcell [ref=f4e173]:
+                          - link "View GHG statement" [ref=f4e174]:
+                            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+                            - generic [ref=f4e175]: ggs_1KZBX6AX41S029JS
+                        - gridcell "19 Jul 2026 to 25 Jul 2026" [ref=f4e176]
+                        - gridcell "Removal" [ref=f4e177]
+                      - row [ref=f4e182] [cursor=pointer]:
+                        - rowheader "rmv_1KYV2NABZ1S0CZHJ" [ref=f4e183]
+                        - gridcell "103.08 tCO₂e" [ref=f4e184]
+                        - gridcell [ref=f4e185]:
+                          - link "View GHG statement" [ref=f4e186]:
+                            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+                            - generic [ref=f4e187]: ggs_1KZBX6AX41S029JS
+                        - gridcell "12 Jul 2026 to 18 Jul 2026" [ref=f4e188]
+                        - gridcell "Removal" [ref=f4e189]
+                      - row [ref=f4e194] [cursor=pointer]:
+                        - rowheader "rmv_1KYWWAQ3J1S09AWW" [ref=f4e195]
+                        - gridcell "2.68 tCO₂e" [ref=f4e196]
+                        - gridcell [ref=f4e197]:
+                          - link "View GHG statement" [ref=f4e198]:
+                            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+                            - generic [ref=f4e199]: ggs_1KZBX6AX41S029JS
+                        - gridcell "05 Jul 2026 to 11 Jul 2026" [ref=f4e200]
+                        - gridcell "Removal" [ref=f4e201]
+                      - row [ref=f4e206] [cursor=pointer]:
+                        - rowheader "rmv_1KYWP4BF01S0R568" [ref=f4e207]
+                        - gridcell "133.94 tCO₂e" [ref=f4e208]
+                        - gridcell [ref=f4e209]:
+                          - link "View GHG statement" [ref=f4e210]:
+                            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+                            - generic [ref=f4e211]: ggs_1KZBX6AX41S029JS
+                        - gridcell "05 Jul 2026 to 11 Jul 2026" [ref=f4e212]
+                        - gridcell "Removal" [ref=f4e213]
+                      - row [ref=f4e218] [cursor=pointer]:
+                        - rowheader "rmv_1KYWCXFBK1S0Y3NV" [ref=f4e219]
+                        - gridcell "3.48 tCO₂e" [ref=f4e220]
+                        - gridcell [ref=f4e221]:
+                          - link "View GHG statement" [ref=f4e222]:
+                            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+                            - generic [ref=f4e223]: ggs_1KZBX6AX41S029JS
+                        - gridcell "05 Jul 2026 to 11 Jul 2026" [ref=f4e224]
+                        - gridcell "Removal" [ref=f4e225]
+                      - row [ref=f4e230] [cursor=pointer]:
+                        - rowheader "rmv_1KZBTSNE81S0DJT1" [ref=f4e231]
+                        - gridcell "4.84 tCO₂e" [ref=f4e232]
+                        - gridcell [ref=f4e233]:
+                          - link "View GHG statement" [ref=f4e234]:
+                            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+                            - generic [ref=f4e235]: ggs_1KZBX6AX41S029JS
+                        - gridcell "01 Jul 2026 to 04 Jul 2026" [ref=f4e236]
+                        - gridcell "Removal" [ref=f4e237]
+                      - row [ref=f4e242] [cursor=pointer]:
+                        - rowheader "rmv_1KYWMYBJ51S0HH3N" [ref=f4e243]
+                        - gridcell "18.46 tCO₂e" [ref=f4e244]
+                        - gridcell [ref=f4e245]:
+                          - link "View GHG statement" [ref=f4e246]:
+                            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+                            - generic [ref=f4e247]: ggs_1KZBX6AX41S029JS
+                        - gridcell "01 Jul 2026 to 04 Jul 2026" [ref=f4e248]
+                        - gridcell "Removal" [ref=f4e249]
+                      - row [ref=f4e254] [cursor=pointer]:
+                        - rowheader "rmv_1KYT7WF6Q1S03R7Q" [ref=f4e255]
+                        - gridcell "415.18 tCO₂e" [ref=f4e256]
+                        - gridcell [ref=f4e257]:
+                          - link "View GHG statement" [ref=f4e258]:
+                            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+                            - generic [ref=f4e259]: ggs_1KZBX6AX41S029JS
+                        - gridcell "01 Jul 2026 to 04 Jul 2026" [ref=f4e260]
+                        - gridcell "Removal" [ref=f4e261]
+                  - navigation "Pagination" [ref=f4e266]:
+                    - generic [ref=f4e267]: Showing 9 of 9
+                    - generic [ref=f4e268]:
+                      - button "Previous page" [disabled]: Previous
+                      - button "Next page" [disabled]: Next

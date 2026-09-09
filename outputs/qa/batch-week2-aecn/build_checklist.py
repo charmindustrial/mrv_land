@@ -186,7 +186,7 @@ MATRIX = [
  ("AECN->SOPOR truck EMBODIED","Ops alloc 1,286.23 mi x 0.00023756 = 0.306 t (CORRECT)","1.222 t (uses 8,279.70 km = 5,144.8 mi = 4x Ops)","FAIL +0.917 t"),
  ("SOPOR->Opelousas rail EMBODIED","Ops alloc 8,770.26 mi x 0.0000311307 = 0.273 t","0.273 t (8,770 mi)","="),
  ("Opelousas->Basco truck EMBODIED","Ops alloc 1,372.8 mi x 0.00023756 = 0.326 t (CORRECT)","0.010 t (uses 43 mi)","FAIL -0.316 t"),
- ("Transport process sum / BCU","3.829 + 17.758 + 1.528 = 23.115 t","BCU 23.115 t","= exact coverage"),
+ ("Transport process sum / BCU","3.829 + 17.758 + 1.528 = 23.115 t","BCU 23.115 t","ties — exact coverage"),
  ("Activities total","pyro 39.009 + transport 24.620 = 63.629 t","63.629 t","="),
  ("Uncertainty discount","carbon 0.4% + mass 16x72.57 kg propagated","2.539 t","present"),
  ("Net CO2e removed","459.387 + 23.115 - 63.629 - 2.539 = 416.334 t","416.333 t","= (rounding)"),

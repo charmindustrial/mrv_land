@@ -183,7 +183,7 @@ MATRIX = [
  ("Allocated dist AECN->SOPOR","Ops Notes + Google Maps","Ops sum 683.44 mi (full 322.5 x mass/railcar)","683 mi","="),
  ("Allocated dist Rail","Ops Notes + Google Maps","Ops sum 4660.11 mi","4660 mi","="),
  ("Allocated dist Opel->Basco","Ops Notes + Google Maps","Ops sum 772.2 mi (85.8/offload x 9)","772 mi","="),
- ("Full dist AECN->SOPOR","Google Maps","Maps 172 km (~107.5 mi)","173.00 km","= (1km)"),
+ ("Full dist AECN->SOPOR","Google Maps","Maps 172 km (~107.5 mi)","173.00 km","ties (1km)"),
  ("Full dist Rail","Watco email (rail exception)","Watco 'total mileage 2199'","2199 mi","="),
  ("Full dist Opel->Basco","Google Maps","Maps I-49 S 42.9 mi","43 mi","="),
  ("Emission Factors (all)","Standard EF Sheet 2026","truck proc 0.0001143; rail proc 0.000025910374; truck emb 0.00023756059; railcar emb 0.0000311307; pyro proc 0.1040167; pyro emb 0.02116","Certify display matches","="),

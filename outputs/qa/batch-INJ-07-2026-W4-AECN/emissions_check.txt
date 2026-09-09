@@ -1,0 +1,51 @@
+=== 4. GROSS SEQUESTRATION ===
+  134084.34946 kg /1000 = 134.08435 t x 0.394 x 3.667 = 193.72480 tCO2e   Certify 193.725  delta -0.00020
+
+=== 5. PYROLYSIS (mass basis = Bio-Oil Mass, pre-sparging) ===
+  process : 136.37697 t x 0.104 (Certify CI) = 14.18320 t   Certify 14.183
+            with EF sheet Final Quantity 0.1040167408: 14.18549 t   -> understated by 2.283 kgCO2e
+  embodied: 136.37697 t x 0.02116 = 2.88574 t   Certify 2.886
+  mass basis check: Bio-Oil Mass 136376.97 = raw offload sum (pre-sparging, pre-filtration) NOT MOBI 134084.34946  -> correct per protocol
+
+=== 6. TRANSPORT - PROCESS (mass x full leg distance x EF) ===
+  AECN->SOPOR truck        136.37697 t x 107.49722 mi x 0.0001143 MTCO2e/(t*mi) = 1.67565 t   Certify 1.676   delta -0.00035
+  SOPOR->Opelousas rail    136.37697 t x 2199 mi x 2.5910374e-05 MTCO2e/(t*mi) = 7.77034 t   Certify 7.77   delta +0.00034
+  Opelousas->Basco truck   136.37697 t x 42.9 mi x 0.0001143 MTCO2e/(t*mi) = 0.66872 t   Certify 0.669   delta -0.00028
+  transport process sum = 10.11471 t   Certify sum = 10.115 t
+
+=== 7. TRANSPORT - EMBODIED (allocated distance x per-mile EF) ===
+  AECN->SOPOR truck        563.7711837 mi x 0.0002375605888 MTCO2e/mi = 0.13393 t   Certify 0.134   delta -0.00007
+  SOPOR->Opelousas rail    3844.132815 mi x 3.113066508e-05 MTCO2e/mi = 0.11967 t   Certify 0.12   delta -0.00033
+  Opelousas->Basco truck   600.6 mi x 0.0002375605888 MTCO2e/mi = 0.14268 t   Certify 0.143   delta -0.00032
+  transport embodied sum = 0.39628 t
+  BIO-OIL TRANSPORT TOTAL = 10.11471 (process) + 0.39628 (embodied) = 10.51099 t   Certify group subtotal 10.512 t
+
+=== 8. ALLOCATED DISTANCE RECONSTRUCTION ===
+  Rail_GPRX5102_6.23.2026_offload_2          frac 20329.99344/77690 = 0.2616810 | truck 3x107.5x0.26168=84.39211 (sheet 84.39211) | rail 2199x0.26168=575.43642 (sheet 575.43642) | opel 42.9x2=85.8
+  Rail_GPRX5102_6.23.2026_offload_3          frac 20692.86704/77690 = 0.2663517 | truck 3x107.5x0.26635=85.89844 (sheet 85.89844) | rail 2199x0.26635=585.70749 (sheet 585.70749) | opel 42.9x2=85.8
+  Rail_GPRX5102_6.23.2026_offload_4          frac 17172.99312/77690 = 0.2210451 | truck 3x107.5x0.22105=71.28704 (sheet 70.98064) | rail 2199x0.22105=486.07816 (sheet 483.98891) | opel 42.9x2=85.8
+  Rail_TILX200231_6.25.2026_offload_1        frac 20085.05376/77980 = 0.2575667 | truck 3x107.5x0.25757=83.06527 (sheet 83.06527) | rail 2199x0.25757=566.38924 (sheet 566.38924) | opel 42.9x2=85.8
+  Rail_TILX200231_6.25.2026_offload_2        frac 20955.95040/77980 = 0.2687349 | truck 3x107.5x0.26873=86.66702 (sheet 86.66702) | rail 2199x0.26873=590.94813 (sheet 590.94813) | opel 42.9x2=85.8
+  Rail_TILX200231_6.25.2026_offload_3        frac 20901.51936/77980 = 0.2680369 | truck 3x107.5x0.26804=86.44191 (sheet 86.44191) | rail 2199x0.26804=589.41320 (sheet 589.41320) | opel 42.9x2=85.8
+  Rail_TILX200231_6.25.2026_offload_4        frac 16238.59360/77980 = 0.2082405 | truck 3x107.5x0.20824=67.15756 (sheet 66.32580) | rail 2199x0.20824=457.92084 (sheet 452.24943) | opel 42.9x2=85.8
+  totals: truck 564.90934 (sheet 563.7711837, Certify 563.77) | rail 3851.89347 (sheet 3844.132815, Certify 3844.13278) | opel 600.6 (sheet 600.6, Certify 600.6)
+
+=== 9. BCU COVERAGE ===
+  BCU - Transport Process 10.115 t vs transport PROCESS sum 10.115 t -> COVERED
+  transport EMBODIED 0.396 t deliberately NOT offset (embodied is not BCU-eligible)
+
+=== 10. NET ===
+  193.725 + 20.197 - 52.898 - 1.072 = 159.952 t   Certify Net 159.953
+  AECN-scope activities = pyrolysis 17.069 + transport 10.512 = 27.581 t ; site-emission activities = 25.319 t ; total 52.900 t
+
+=== 11. UNCERTAINTY (Option B variance propagation, independent estimate) ===
+  mass rel 507.99/134084.34946 = 0.0037886 ; carbon rel 0.1576/39.4 = 0.0040000
+  sequestration term = 193.725 x sqrt(0.0037886^2 + 0.0040000^2) = 1.06731 t
+  pyrolysis process      14.183 x 0.0037249 = 0.052830 t
+  pyrolysis embodied     2.886 x 0.0037249 = 0.010750 t
+  AECN->SOPOR process    1.676 x 0.0037249 = 0.006243 t
+  rail process           7.77 x 0.0037249 = 0.028942 t
+  Opel->Basco process    0.669 x 0.0037249 = 0.002492 t
+  root-sum-square = 1.06908 t   Certify discount 1.072 t   delta -0.00292 t (-0.27%)
+  uncertainty count check: 507.99 / 72.57 = 7.0000 weighings ; offload count = 7
+  carbon uncertainty check: 0.004 x 39.4 = 0.1576

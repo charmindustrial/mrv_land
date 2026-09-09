@@ -1,0 +1,164 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - log:
+      - img "Export"
+      - img "Export"
+    - log
+  - alert [ref=e3]
+  - region "0 notifications."
+  - generic [ref=e4]:
+    - navigation [ref=e6]:
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - link "Isometric Registry" [ref=e13] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e28]:
+            - link "Registry" [ref=e29] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=e30] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=e31] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - link "Account" [ref=e35] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=e36] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=e37]: "|"
+          - button "Current user menu" [ref=e38] [cursor=pointer]:
+            - generic [ref=e39]: Menu
+    - main [ref=e42]:
+      - generic [ref=e44]:
+        - button "Collapse sidebar" [ref=e46] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=e50]:
+          - list [ref=e52]:
+            - listitem [ref=e53]:
+              - link "All projects" [ref=e54] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=e55]: /
+            - listitem [ref=e56]:
+              - link "Charm Range & Plains Biochar" [ref=e57] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7
+              - generic [ref=e58]: /
+            - listitem [ref=e59]: GHG Entries
+      - generic [ref=e60]:
+        - navigation [ref=e64]:
+          - generic [ref=e66]:
+            - link "Overview" [ref=e67] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/overview
+            - link "Log of issues" [ref=e68] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/log-of-issues
+            - link "Evidence" [ref=e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/evidence
+          - generic [ref=e70]:
+            - generic [ref=e71]: Project setup
+            - generic [ref=e72]:
+              - link "General" [ref=e73] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/general
+              - link "Project design" [ref=e74] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/project-design
+              - link "Feedstocks" [ref=e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/feedstocks
+              - link "Facilities" [ref=e76] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/facilities
+              - link "Storage sites" [ref=e77] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/storage-sites
+          - generic [ref=e78]:
+            - generic [ref=e79]: Carbon accounting
+            - generic [ref=e80]:
+              - link "LCA" [ref=e81] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/lca
+              - link "Project emissions" [ref=e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/project-emissions
+              - link "GHG statements" [ref=e83] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/ghg-statements
+              - link "GHG entry data" [ref=e84] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/ghg-entries
+          - link "Templates" [ref=e87] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1JN6XNWDQ1S0BSN7/templates
+        - generic [ref=e90]:
+          - generic [ref=e92]:
+            - heading "GHG Entries" [level=1] [ref=e93]
+            - link [ref=e95] [cursor=pointer]:
+              - /url: https://docs.isometric.com/user-guides/certify/ghg-entry
+          - generic [ref=e98]: Draft GHG entries are GHG entries that are part of a draft GHG statement or have not been added to any GHG statement.
+          - generic [ref=e99]:
+            - generic [ref=e101]:
+              - button "Export" [active] [ref=e102] [cursor=pointer]
+              - button "Add" [ref=e105] [cursor=pointer]
+            - generic [ref=e108]:
+              - grid "GHG entries" [ref=e110]:
+                - rowgroup [ref=e111]:
+                  - row [ref=e112]:
+                    - columnheader "GHG entry ID" [ref=e113]
+                    - columnheader "Tonnes removed" [ref=e115]
+                    - columnheader "GHG Statement ID" [ref=e117]
+                    - columnheader "Sequestered date" [ref=e119]
+                    - columnheader "Credit type" [ref=e121]
+                - rowgroup [ref=e123]:
+                  - row [ref=e124] [cursor=pointer]:
+                    - rowheader "rmv_1KXKP77Q21S08Q74" [ref=e125]
+                    - gridcell "0.52 tCO₂e" [ref=e126]
+                    - gridcell "-" [ref=e127]
+                    - gridcell "06 Jun 2026" [ref=e128]
+                    - gridcell "Removal" [ref=e129]
+                  - row [ref=e134] [cursor=pointer]:
+                    - rowheader "rmv_1KXKGXJB61S01MAJ" [ref=e135]
+                    - gridcell "3.40 tCO₂e" [ref=e136]
+                    - gridcell "-" [ref=e137]
+                    - gridcell "06 Jun 2026" [ref=e138]
+                    - gridcell "Removal" [ref=e139]
+                  - row [ref=e144] [cursor=pointer]:
+                    - rowheader "rmv_1KXGK5BMT1S0H4FK" [ref=e145]
+                    - gridcell "0.52 tCO₂e" [ref=e146]
+                    - gridcell "-" [ref=e147]
+                    - gridcell "06 Jun 2026" [ref=e148]
+                    - gridcell "Removal" [ref=e149]
+                  - row [ref=e154] [cursor=pointer]:
+                    - rowheader "rmv_1KXGK4R131S095PN" [ref=e155]
+                    - gridcell "1.39 tCO₂e" [ref=e156]
+                    - gridcell "-" [ref=e157]
+                    - gridcell "06 Jun 2026" [ref=e158]
+                    - gridcell "Removal" [ref=e159]
+                  - row [ref=e164] [cursor=pointer]:
+                    - rowheader "rmv_1KXGK45BZ1S0DJ22" [ref=e165]
+                    - gridcell "0.38 tCO₂e" [ref=e166]
+                    - gridcell "-" [ref=e167]
+                    - gridcell "06 Jun 2026" [ref=e168]
+                    - gridcell "Removal" [ref=e169]
+                  - row [ref=e174] [cursor=pointer]:
+                    - rowheader "rmv_1KXGK3HP81S0FP36" [ref=e175]
+                    - gridcell "0.47 tCO₂e" [ref=e176]
+                    - gridcell "-" [ref=e177]
+                    - gridcell "06 Jun 2026" [ref=e178]
+                    - gridcell "Removal" [ref=e179]
+                  - row [ref=e184] [cursor=pointer]:
+                    - rowheader "rmv_1KXGK2Y3V1S0HT4A" [ref=e185]
+                    - gridcell "3.66 tCO₂e" [ref=e186]
+                    - gridcell "-" [ref=e187]
+                    - gridcell "06 Jun 2026" [ref=e188]
+                    - gridcell "Removal" [ref=e189]
+                  - row [ref=e194] [cursor=pointer]:
+                    - rowheader "rmv_1KXERD7151S0RC36" [ref=e195]
+                    - gridcell "0.88 tCO₂e" [ref=e196]
+                    - gridcell "-" [ref=e197]
+                    - gridcell "06 Jun 2026" [ref=e198]
+                    - gridcell "Removal" [ref=e199]
+                  - row [ref=e204] [cursor=pointer]:
+                    - rowheader "rmv_1KXERCP431S0TG4A" [ref=e205]
+                    - gridcell "2.49 tCO₂e" [ref=e206]
+                    - gridcell "-" [ref=e207]
+                    - gridcell "06 Jun 2026" [ref=e208]
+                    - gridcell "Removal" [ref=e209]
+                  - row [ref=e214] [cursor=pointer]:
+                    - rowheader "rmv_1KXEJD28G1S07DZM" [ref=e215]
+                    - gridcell "3.23 tCO₂e" [ref=e216]
+                    - gridcell "-" [ref=e217]
+                    - gridcell "06 Jun 2026" [ref=e218]
+                    - gridcell "Removal" [ref=e219]
+              - navigation "Pagination" [ref=e224]:
+                - generic [ref=e225]: Showing 10 of 31
+                - generic [ref=e226]:
+                  - button "Previous page" [disabled]: Previous
+                  - button "Next page" [ref=e227] [cursor=pointer]: Next

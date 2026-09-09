@@ -1,0 +1,63 @@
+====================================================================================================
+1. SCALE TICKET -> OPS NOTES CARGO
+====================================================================================================
+Rail_GPRX5102_6.23.2026_offload_1: 72320 - 29180 = 43140 lb    19567.95888 kg vs Ops 19567.95888  OK
+Rail_SHPX215079_6.18.2026_offload_2: 72540 - 28600 = 43940 lb  19930.83248 kg vs Ops 19930.83248  OK
+Rail_SHPX215079_6.18.2026_offload_3: 72680 - 28820 = 43860 lb  19894.54512 kg vs Ops 19894.54512  OK
+Rail_SHPX215079_6.18.2026_offload_4: 70780 - 29060 = 41720 lb  18923.85824 kg vs Ops 18923.85824  OK
+SUM of 4 raw scale-ticket nets                                 78317.19472 kg
+Ops Notes rollup Deliveries raw (B52)                          78317.19472  OK
+
+====================================================================================================
+2. BOL AGGREGATES + RAILCAR BALANCE (FC11)
+====================================================================================================
+GPRX5102: BOL weighbridge nets 25600 + 26050 + 26040           77690 kg vs Ops Total Loaded 77690  OK
+  GPRX5102: total offloaded (all weeks)                        19567.95888 kg
+  GPRX5102: offloaded vs loaded                                -58122.04112 kg  OK
+SHPX215079: BOL weighbridge nets 25940 + 26200 + 26190         78330 kg vs Ops Total Loaded 78330  OK
+  SHPX215079: total offloaded (all weeks)                      78262.76368 kg
+  SHPX215079: offloaded vs loaded                              -67.23632 kg  OK
+  SHPX215079: prior-claimed + this-week                        19513.52784 + 58749.23584 = 78262.76368  OK
+  SHPX215079: documented loss                                  67.23632 kg (0.0858% of loaded)
+
+FC11 back-calc triggered?                                      NO - sum of raw scale-ticket nets does NOT exceed BOL aggregate on either railcar  OK
+  SHPX215079 raw offload sum vs BOL agg                        78262.76368 <= 78330 (short by 67.23632 kg, a documented loss)
+  All four Uncertainty Adjustment cells                        [0, 0, 0, 0]
+
+====================================================================================================
+3. SPARGING / FILTRATION / MOBI
+====================================================================================================
+Rail_GPRX5102_6.23.2026_offload_1: sparge 252.42667 / filt 37.66529 / MOBI 19277.86692 vs Ops 252.42667 / 37.66529 / 19277.86692  OK
+Rail_SHPX215079_6.18.2026_offload_2: sparge 257.10774 / filt 38.36376 / MOBI 19635.36098 vs Ops 257.10774 / 38.36376 / 19635.36098  OK
+Rail_SHPX215079_6.18.2026_offload_3: sparge 256.63963 / filt 38.29392 / MOBI 19599.61157 vs Ops 256.63963 / 38.29392 / 19599.61157  OK
+Rail_SHPX215079_6.18.2026_offload_4: sparge 244.11777 / filt 36.42549 / MOBI 18643.31497 vs Ops 244.11777 / 36.42549 / 18643.31497  OK
+TOTAL sparging loss                                            1010.291812 vs Ops 1010.291812  OK
+TOTAL filtration loss                                          150.748461 vs Ops 150.748461  OK
+TOTAL MOBI                                                     77156.15445 vs Ops 77156.15445  OK
+Certify Mass of Injectant                                      77156.15445 kg  OK
+Certify Bio-Oil Mass - AECN via Rail                           78317.19472 kg  OK
+
+====================================================================================================
+4. COBB CROSS-CHECK
+====================================================================================================
+COBB r387 Rail_GPRX5102_6.23.2026_offload_1                    19567.95888 vs Ops 19567.95888  OK
+COBB r388 Rail_SHPX215079_6.18.2026_offload_2                  19930.83248 vs Ops 19930.83248  OK
+COBB r389 Rail_SHPX215079_6.18.2026_offload_3                  19894.54512 vs Ops 19894.54512  OK
+COBB r390 Rail_SHPX215079_6.18.2026_offload_4                  18923.85824 vs Ops 18923.85824  OK
+COBB total for the 4 W3 rows                                   78317.19472  OK
+COBB origin_quantity_kg GPRX5102 / SHPX215079                  77690.0 / 78330.0 vs BOL 77690 / 78330  OK
+COBB injection_completion_date (all 4)                         2026-07-18 vs Ops Notes date column 2026-07-18  OK
+COBB injection_ph (all 4)                                      3.2 vs Ops Notes pH 3.2  OK
+
+====================================================================================================
+5. ALLOCATION FRACTIONS + DISTANCES
+====================================================================================================
+Rail_GPRX5102_6.23.2026_offload_1 frac 0.251872                AECN->SOPOR 81.22882 (Ops 81.22882) | rail 553.86718 (Ops 553.86718) | O->B 85.8 (Ops 85.8)  OK
+Rail_SHPX215079_6.18.2026_offload_2 frac 0.254447              AECN->SOPOR 82.05915 (Ops 82.05915) | rail 559.52892 (Ops 559.52892) | O->B 85.8 (Ops 85.8)  OK
+Rail_SHPX215079_6.18.2026_offload_3 frac 0.253984              AECN->SOPOR 81.90975 (Ops 81.90975) | rail 558.51021 (Ops 558.51021) | O->B 85.8 (Ops 85.8)  OK
+Rail_SHPX215079_6.18.2026_offload_4 frac 0.241591              AECN->SOPOR 77.91324 (Ops 77.91324) | rail 531.25960 (Ops 531.25960) | O->B 85.8 (Ops 85.8)  OK
+Aggregate AECN->SOPOR                                          323.110963 vs Ops 323.110963 vs Certify 323.11096  OK
+Allocated rail                                                 2203.165916 vs Ops 2203.165916 vs Certify 2203.16606  OK
+Allocated Opelousas->Basco                                     343.2 vs Ops 343.2 vs Certify 343.2  OK
+Sum of the 4 allocation fractions                              1.001894
+  AECN->SOPOR map: 173 km / 1.609344                           107.49722 mi vs Certify 107.49722  OK

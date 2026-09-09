@@ -1,0 +1,15 @@
+{
+  "posting_id": "b536ec2d-226d-4404-8062-30fb17f4079a",
+  "posting_name": "MRV Analyst",
+  "posting_url": "https://jobs.lever.co/charmindustrial/b536ec2d-226d-4404-8062-30fb17f4079a",
+  "lever_candidates_url": "https://hire.lever.co/candidates?postingIds%5B%5D=b536ec2d-226d-4404-8062-30fb17f4079a&pipeline=applicant",
+  "job_materials_drive_file_id": "1mh6GZWcaEO3w_E6G8hunAMtjzh2CIlyI",
+  "artifact_url": "https://claude.ai/code/artifact/79d84d23-e905-4a14-a4b2-392c9beffbab",
+  "artifact_title": "Resume Echo Audit",
+  "artifact_publish_routine_id": "trig_01EhVHSUcy77VEiGg6GYWa6y",
+  "artifact_relay_file": "/Users/maxlavine/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Team/Hiring/MRV Analyst/resume_echo_state.json",
+  "artifact_publish_note": "Publishing is split across two sessions as of 2026-09-04: this local run writes candidate_registry.json to artifact_relay_file; the cloud routine at artifact_publish_routine_id (cron 0 16,0 * * * UTC = 9:00am/5:00pm Pacific, same clock as the local run per Max) reads that file and publishes to artifact_url. The local run never calls Artifact directly -- confirmed unavailable in this session type.",
+  "new_applicant_stage_label": "New applicant",
+  "notify_via": "desktop_notification",
+  "notes": "notify_via is desktop_notification, not Slack -- see SKILL.md 'Why desktop notification, not Slack' for the reasoning (self-DM/self-mention on this Slack connector does not push a notification, and it keeps candidate PII out of chat transcripts)."
+}

@@ -1,0 +1,30 @@
+=== 1. TICKET -> OPS NOTES TRANSCRIPTION + NET MASS ===
+Rail_GPRX5102_6.23.2026_offload_2          full 73500 (ok)  empty 28680 (ok)  net 44820 lb x 0.453592 = 20329.99344 kg vs sheet 20329.99344 OK
+Rail_GPRX5102_6.23.2026_offload_3          full 74940 (ok)  empty 29320 (ok)  net 45620 lb x 0.453592 = 20692.86704 kg vs sheet 20692.86704 OK
+Rail_GPRX5102_6.23.2026_offload_4          full 66620 (ok)  empty 28760 (ok)  net 37860 lb x 0.453592 = 17172.99312 kg vs sheet 17172.99312 OK
+Rail_TILX200231_6.25.2026_offload_1        full 72920 (ok)  empty 28640 (ok)  net 44280 lb x 0.453592 = 20085.05376 kg vs sheet 20085.05376 OK
+Rail_TILX200231_6.25.2026_offload_2        full 75380 (ok)  empty 29180 (ok)  net 46200 lb x 0.453592 = 20955.95040 kg vs sheet 20955.95040 OK
+Rail_TILX200231_6.25.2026_offload_3        full 74720 (ok)  empty 28640 (ok)  net 46080 lb x 0.453592 = 20901.51936 kg vs sheet 20901.51936 OK
+Rail_TILX200231_6.25.2026_offload_4        full 64700 (ok)  empty 28900 (ok)  net 35800 lb x 0.453592 = 16238.59360 kg vs sheet 16238.59360 OK
+  sum net = 136376.9707 kg  vs rollup 136376.9707
+
+=== 2. RAILCAR BALANCE (FC11) ===
+GPRX5102: BOLs ['2395-R', '2396-R', '2397-R'] = 77690 kg | Ops Notes Total Loaded 77690 OK
+   raw offloads this wk 58195.85360 + prior 19567.95888 = 77763.81248  vs BOL 77690  over-draw 73.81248
+   Uncertainty Adjustment booked 73.81248  OK - equals the over-draw
+   post-adj railcar total = 77690.00000  vs BOL 77690  TIES
+TILX200231: BOLs ['2399-R', '2400-R', '2401-R'] = 77980 kg | Ops Notes Total Loaded 77980 OK
+   raw offloads this wk 78181.11712 + prior 0.00000 = 78181.11712  vs BOL 77980  over-draw 201.11712
+   Uncertainty Adjustment booked 201.11712  OK - equals the over-draw
+   post-adj railcar total = 77980.00000  vs BOL 77980  TIES
+
+=== 3. SPARGING (1.29%) + FILTRATION (0.195%) -> MOBI ===
+Rail_GPRX5102_6.23.2026_offload_2          post-adj  20329.99344 | sparge 20329.99344x0.0129=262.25692 (sheet 262.25692 OK) | filt (20329.9934-262.2569)x0.00195=39.13209 (sheet 39.13209 OK) | MOBI  20028.60444 (sheet  20028.60444 OK)
+Rail_GPRX5102_6.23.2026_offload_3          post-adj  20692.86704 | sparge 20692.86704x0.0129=266.93798 (sheet 266.93798 OK) | filt (20692.8670-266.9380)x0.00195=39.83056 (sheet 39.83056 OK) | MOBI  20386.09849 (sheet  20386.09849 OK)
+Rail_GPRX5102_6.23.2026_offload_4          post-adj  17099.18064 | sparge 17099.18064x0.0129=220.57943 (sheet 220.57943 OK) | filt (17099.1806-220.5794)x0.00195=32.91327 (sheet 32.91327 OK) | MOBI  16845.68794 (sheet  16845.68794 OK)
+Rail_TILX200231_6.25.2026_offload_1        post-adj  20085.05376 | sparge 20085.05376x0.0129=259.09719 (sheet 259.09719 OK) | filt (20085.0538-259.0972)x0.00195=38.66062 (sheet 38.66062 OK) | MOBI  19787.29595 (sheet  19787.29595 OK)
+Rail_TILX200231_6.25.2026_offload_2        post-adj  20955.95040 | sparge 20955.95040x0.0129=270.33176 (sheet 270.33176 OK) | filt (20955.9504-270.3318)x0.00195=40.33696 (sheet 40.33696 OK) | MOBI  20645.28168 (sheet  20645.28168 OK)
+Rail_TILX200231_6.25.2026_offload_3        post-adj  20901.51936 | sparge 20901.51936x0.0129=269.62960 (sheet 269.62960 OK) | filt (20901.5194-269.6296)x0.00195=40.23219 (sheet 40.23219 OK) | MOBI  20591.65758 (sheet  20591.65758 OK)
+Rail_TILX200231_6.25.2026_offload_4        post-adj  16037.47648 | sparge 16037.47648x0.0129=206.88345 (sheet 206.88345 OK) | filt (16037.4765-206.8834)x0.00195=30.86966 (sheet 30.86966 OK) | MOBI  15799.72338 (sheet  15799.72338 OK)
+  sums: sparge 1755.71633 vs 1755.71633 | filt 261.97533 vs 261.9753333 | MOBI 134084.34946 vs 134084.3495
+  Certify Mass of Injectant = 134084.34946

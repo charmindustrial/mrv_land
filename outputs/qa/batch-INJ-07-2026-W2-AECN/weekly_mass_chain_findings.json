@@ -1,0 +1,722 @@
+{
+  "batch_id": "INJ-07-2026-W2",
+  "checks": [
+    {
+      "check_id": "ticket_subtraction::Rail_SHPX215079_6.18.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "net_lb": 43020,
+        "net_kg": 19513.52784
+      },
+      "logged": {
+        "ops_notes_net_scaled_kg": 19513.52784
+      },
+      "note": "(72240 - 29220) x 0.453592"
+    },
+    {
+      "check_id": "rig_match::Rail_SHPX215079_6.18.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "full": "CH1/KL192"
+      },
+      "logged": {
+        "empty": "CH1/KL192"
+      },
+      "note": ""
+    },
+    {
+      "check_id": "ticket_subtraction::Rail_TIMX201060_6.22.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "net_lb": 43900,
+        "net_kg": 19912.6888
+      },
+      "logged": {
+        "ops_notes_net_scaled_kg": 19912.6888
+      },
+      "note": "(72920 - 29020) x 0.453592"
+    },
+    {
+      "check_id": "rig_match::Rail_TIMX201060_6.22.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "full": "CH1/KL192"
+      },
+      "logged": {
+        "empty": "CH1/KL192"
+      },
+      "note": ""
+    },
+    {
+      "check_id": "ticket_subtraction::Rail_TIMX201060_6.22.2026_offload_2",
+      "status": "PASS",
+      "computed": {
+        "net_lb": 43260,
+        "net_kg": 19622.38992
+      },
+      "logged": {
+        "ops_notes_net_scaled_kg": 19622.38992
+      },
+      "note": "(72200 - 28940) x 0.453592"
+    },
+    {
+      "check_id": "rig_match::Rail_TIMX201060_6.22.2026_offload_2",
+      "status": "PASS",
+      "computed": {
+        "full": "CH 2/KL188"
+      },
+      "logged": {
+        "empty": "CH 2/KL188"
+      },
+      "note": ""
+    },
+    {
+      "check_id": "ticket_subtraction::Rail_TIMX201060_6.22.2026_offload_3",
+      "status": "PASS",
+      "computed": {
+        "net_lb": 43720,
+        "net_kg": 19831.04224
+      },
+      "logged": {
+        "ops_notes_net_scaled_kg": 19831.04224
+      },
+      "note": "(73040 - 29320) x 0.453592"
+    },
+    {
+      "check_id": "rig_match::Rail_TIMX201060_6.22.2026_offload_3",
+      "status": "PASS",
+      "computed": {
+        "full": "CH1/KL192"
+      },
+      "logged": {
+        "empty": "CH1/KL192"
+      },
+      "note": ""
+    },
+    {
+      "check_id": "ticket_subtraction::Rail_TIMX201060_6.22.2026_offload_4",
+      "status": "PASS",
+      "computed": {
+        "net_lb": 42360,
+        "net_kg": 19214.15712
+      },
+      "logged": {
+        "ops_notes_net_scaled_kg": 19214.15712
+      },
+      "note": "(71100 - 28740) x 0.453592"
+    },
+    {
+      "check_id": "rig_match::Rail_TIMX201060_6.22.2026_offload_4",
+      "status": "PASS",
+      "computed": {
+        "full": "CH 2/KL188"
+      },
+      "logged": {
+        "empty": "CH 2/KL188"
+      },
+      "note": ""
+    },
+    {
+      "check_id": "bol_aggregate::SHPX215079",
+      "status": "PASS",
+      "computed": {
+        "sum_bol_kg": 78330
+      },
+      "logged": {
+        "ops_notes_total_loaded_kg": 78330
+      },
+      "note": "25940 + 26200 + 26190"
+    },
+    {
+      "check_id": "bol_aggregate::TIMX201060",
+      "status": "PASS",
+      "computed": {
+        "sum_bol_kg": 78500
+      },
+      "logged": {
+        "ops_notes_total_loaded_kg": 78500
+      },
+      "note": "26150 + 26190 + 26160"
+    },
+    {
+      "check_id": "total_offloaded::SHPX215079",
+      "status": "PASS",
+      "computed": {
+        "sum_raw_nets_kg": 19513.52784
+      },
+      "logged": {
+        "ops_notes_total_offloaded_kg": 19513.52784
+      },
+      "note": ""
+    },
+    {
+      "check_id": "partial_draw_no_adjustment::SHPX215079",
+      "status": "PASS",
+      "computed": {
+        "adjustment_kg": 0
+      },
+      "logged": {
+        "fully_drawn": false
+      },
+      "note": "railcar not fully drawn this week; FC11 back-calc applies at its closing offload"
+    },
+    {
+      "check_id": "total_offloaded::TIMX201060",
+      "status": "PASS",
+      "computed": {
+        "sum_raw_nets_kg": 78580.27808
+      },
+      "logged": {
+        "ops_notes_total_offloaded_kg": 78580.27808
+      },
+      "note": ""
+    },
+    {
+      "check_id": "fc11_backcalc::TIMX201060",
+      "status": "PASS",
+      "computed": {
+        "overdraw_kg": 80.27808
+      },
+      "logged": {
+        "applied_adjustment_kg": 80.27808
+      },
+      "note": "78580.27808 raw - 78500 BOL aggregate"
+    },
+    {
+      "check_id": "claimed_equals_bol::TIMX201060",
+      "status": "PASS",
+      "computed": {
+        "raw_minus_adj_kg": 78500.0
+      },
+      "logged": {
+        "claimed_this_week_kg": 78500
+      },
+      "note": ""
+    },
+    {
+      "check_id": "sparge_filter_mobi::Rail_SHPX215079_6.18.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "sparging_kg": 251.72451,
+        "filtration_kg": 37.56052,
+        "mobi_kg": 19224.24281
+      },
+      "logged": {
+        "ops_sparging": 251.7245091,
+        "ops_filtration": 37.5605165,
+        "ops_mobi": 19224.24281
+      },
+      "note": "base 19513.52784 x 0.0129 sparge, then x 0.00195 filtration"
+    },
+    {
+      "check_id": "sparge_filter_mobi::Rail_TIMX201060_6.22.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "sparging_kg": 256.87369,
+        "filtration_kg": 38.32884,
+        "mobi_kg": 19617.48628
+      },
+      "logged": {
+        "ops_sparging": 256.8736855,
+        "ops_filtration": 38.32883947,
+        "ops_mobi": 19617.48628
+      },
+      "note": "base 19912.6888 x 0.0129 sparge, then x 0.00195 filtration"
+    },
+    {
+      "check_id": "sparge_filter_mobi::Rail_TIMX201060_6.22.2026_offload_2",
+      "status": "PASS",
+      "computed": {
+        "sparging_kg": 253.12883,
+        "filtration_kg": 37.77006,
+        "mobi_kg": 19331.49103
+      },
+      "logged": {
+        "ops_sparging": 253.12883,
+        "ops_filtration": 37.77005913,
+        "ops_mobi": 19331.49103
+      },
+      "note": "base 19622.38992 x 0.0129 sparge, then x 0.00195 filtration"
+    },
+    {
+      "check_id": "sparge_filter_mobi::Rail_TIMX201060_6.22.2026_offload_3",
+      "status": "PASS",
+      "computed": {
+        "sparging_kg": 255.82044,
+        "filtration_kg": 38.17168,
+        "mobi_kg": 19537.05011
+      },
+      "logged": {
+        "ops_sparging": 255.8204449,
+        "ops_filtration": 38.1716825,
+        "ops_mobi": 19537.05011
+      },
+      "note": "base 19831.04224 x 0.0129 sparge, then x 0.00195 filtration"
+    },
+    {
+      "check_id": "sparge_filter_mobi::Rail_TIMX201060_6.22.2026_offload_4",
+      "status": "PASS",
+      "computed": {
+        "sparging_kg": 246.82704,
+        "filtration_kg": 36.82975,
+        "mobi_kg": 18850.22225
+      },
+      "logged": {
+        "ops_sparging": 246.8270396,
+        "ops_filtration": 36.8297514,
+        "ops_mobi": 18850.22225
+      },
+      "note": "base 19133.87904 x 0.0129 sparge, then x 0.00195 filtration"
+    },
+    {
+      "check_id": "rollup_downstream",
+      "status": "PASS",
+      "computed": {
+        "sum_kg": 98093.80592
+      },
+      "logged": {
+        "ops": 98093.80592
+      },
+      "note": ""
+    },
+    {
+      "check_id": "rollup_mass_used",
+      "status": "PASS",
+      "computed": {
+        "kg": 98013.52784
+      },
+      "logged": {
+        "ops": 98013.52784
+      },
+      "note": "98093.80592 - 80.27808"
+    },
+    {
+      "check_id": "rollup_mobi",
+      "status": "PASS",
+      "computed": {
+        "kg": 96560.49248
+      },
+      "logged": {
+        "ops": 96560.49248
+      },
+      "note": "98013.52784 - 1264.37451 - 188.66085"
+    },
+    {
+      "check_id": "alloc_distance::Rail_SHPX215079_6.18.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "truck_mi": 80.34103,
+        "rail_mi": 547.81371,
+        "opel_mi": 85.8
+      },
+      "logged": {
+        "ops_truck": 80.34102807,
+        "ops_rail": 547.8137076,
+        "ops_opel": 85.8
+      },
+      "note": "fraction 0.2491195 = 19513.52784 / 78330"
+    },
+    {
+      "check_id": "alloc_distance::Rail_TIMX201060_6.22.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "truck_mi": 81.80691,
+        "rail_mi": 557.80895,
+        "opel_mi": 85.8
+      },
+      "logged": {
+        "ops_truck": 81.80690622,
+        "ops_rail": 557.8089512,
+        "ops_opel": 85.8
+      },
+      "note": "fraction 0.2536648 = 19912.6888 / 78500"
+    },
+    {
+      "check_id": "alloc_distance::Rail_TIMX201060_6.22.2026_offload_2",
+      "status": "PASS",
+      "computed": {
+        "truck_mi": 80.61428,
+        "rail_mi": 549.67688,
+        "opel_mi": 85.8
+      },
+      "logged": {
+        "ops_truck": 80.61427706,
+        "ops_rail": 549.6768845,
+        "ops_opel": 85.8
+      },
+      "note": "fraction 0.2499668 = 19622.38992 / 78500"
+    },
+    {
+      "check_id": "alloc_distance::Rail_TIMX201060_6.22.2026_offload_3",
+      "status": "PASS",
+      "computed": {
+        "truck_mi": 81.47148,
+        "rail_mi": 555.52181,
+        "opel_mi": 85.8
+      },
+      "logged": {
+        "ops_truck": 81.47147927,
+        "ops_rail": 555.5218075,
+        "ops_opel": 85.8
+      },
+      "note": "fraction 0.2526247 = 19831.04224 / 78500"
+    },
+    {
+      "check_id": "alloc_distance::Rail_TIMX201060_6.22.2026_offload_4",
+      "status": "PASS",
+      "computed": {
+        "truck_mi": 78.60734,
+        "rail_mi": 535.99236,
+        "opel_mi": 85.8
+      },
+      "logged": {
+        "ops_truck": 78.60733746,
+        "ops_rail": 535.9923568,
+        "ops_opel": 85.8
+      },
+      "note": "fraction 0.2437437 = 19133.87904 / 78500"
+    },
+    {
+      "check_id": "ee_total_truck",
+      "status": "PASS",
+      "computed": {
+        "mi": 402.84103
+      },
+      "logged": {
+        "ops": 402.8410281
+      },
+      "note": ""
+    },
+    {
+      "check_id": "ee_total_rail",
+      "status": "PASS",
+      "computed": {
+        "mi": 2746.81371
+      },
+      "logged": {
+        "ops": 2746.813708
+      },
+      "note": ""
+    },
+    {
+      "check_id": "ee_total_opel",
+      "status": "PASS",
+      "computed": {
+        "mi": 429.0
+      },
+      "logged": {
+        "ops": 429
+      },
+      "note": ""
+    },
+    {
+      "check_id": "cobb_offload::Rail_SHPX215079_6.18.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "ops_post_adj_kg": 19513.52784
+      },
+      "logged": {
+        "cobb_offloaded_kg": 19513.52784
+      },
+      "note": ""
+    },
+    {
+      "check_id": "cobb_offload::Rail_TIMX201060_6.22.2026_offload_1",
+      "status": "PASS",
+      "computed": {
+        "ops_post_adj_kg": 19912.6888
+      },
+      "logged": {
+        "cobb_offloaded_kg": 19912.6888
+      },
+      "note": ""
+    },
+    {
+      "check_id": "cobb_offload::Rail_TIMX201060_6.22.2026_offload_2",
+      "status": "PASS",
+      "computed": {
+        "ops_post_adj_kg": 19622.38992
+      },
+      "logged": {
+        "cobb_offloaded_kg": 19622.38992
+      },
+      "note": ""
+    },
+    {
+      "check_id": "cobb_offload::Rail_TIMX201060_6.22.2026_offload_3",
+      "status": "PASS",
+      "computed": {
+        "ops_post_adj_kg": 19831.04224
+      },
+      "logged": {
+        "cobb_offloaded_kg": 19831.04224
+      },
+      "note": ""
+    },
+    {
+      "check_id": "cobb_offload::Rail_TIMX201060_6.22.2026_offload_4",
+      "status": "PASS",
+      "computed": {
+        "ops_post_adj_kg": 19133.87904
+      },
+      "logged": {
+        "cobb_offloaded_kg": 19133.87904
+      },
+      "note": ""
+    },
+    {
+      "check_id": "cobb_origin::SHPX215079",
+      "status": "PASS",
+      "computed": {
+        "ops_total_loaded_kg": 78330
+      },
+      "logged": {
+        "cobb_origin_quantity_kg": [
+          78330.0
+        ]
+      },
+      "note": ""
+    },
+    {
+      "check_id": "cobb_origin::TIMX201060",
+      "status": "PASS",
+      "computed": {
+        "ops_total_loaded_kg": 78500
+      },
+      "logged": {
+        "cobb_origin_quantity_kg": [
+          78500.0
+        ]
+      },
+      "note": ""
+    },
+    {
+      "check_id": "certify_sequestration",
+      "status": "PASS",
+      "computed": {
+        "t": 147.30033
+      },
+      "logged": {
+        "certify": 147.3
+      },
+      "note": "96.56049 t x 0.41600000000000004 x 3.667"
+    },
+    {
+      "check_id": "certify_pyrolysis_process",
+      "status": "PASS",
+      "computed": {
+        "t": 10.19341
+      },
+      "logged": {
+        "certify": 10.193
+      },
+      "note": "98.01353 t x 0.104 tCO2e/t (Certify stored CI)"
+    },
+    {
+      "check_id": "certify_pyrolysis_embodied",
+      "status": "PASS",
+      "computed": {
+        "t": 2.07397
+      },
+      "logged": {
+        "certify": 2.074
+      },
+      "note": "98.01353 t x 0.02116 tCO2e/t"
+    },
+    {
+      "check_id": "certify_truck_process",
+      "status": "PASS",
+      "computed": {
+        "t": 1.20429
+      },
+      "logged": {
+        "certify": 1.204
+      },
+      "note": "98.01353 t x 107.49722 mi x 0.0001143 MTCO2e/(t.mi)"
+    },
+    {
+      "check_id": "certify_rail_process",
+      "status": "PASS",
+      "computed": {
+        "t": 5.58451
+      },
+      "logged": {
+        "certify": 5.584
+      },
+      "note": "98.01353 t x 2199 mi x 2.5910374e-05 MTCO2e/(t.mi)"
+    },
+    {
+      "check_id": "certify_opel_process",
+      "status": "PASS",
+      "computed": {
+        "t": 0.481
+      },
+      "logged": {
+        "certify": 0.481
+      },
+      "note": "98.09381 t (downstream) x 42.9 mi x 0.0001143 MTCO2e/(t.mi)"
+    },
+    {
+      "check_id": "certify_truck_embodied",
+      "status": "PASS",
+      "computed": {
+        "t": 0.0957
+      },
+      "logged": {
+        "certify": 0.096
+      },
+      "note": "402.84103 mi x 0.0002375605888 MTCO2e/mi"
+    },
+    {
+      "check_id": "certify_rail_embodied",
+      "status": "PASS",
+      "computed": {
+        "t": 0.08551
+      },
+      "logged": {
+        "certify": 0.086
+      },
+      "note": "2746.81371 mi x 3.113066508e-05 MTCO2e/mi"
+    },
+    {
+      "check_id": "certify_opel_embodied",
+      "status": "PASS",
+      "computed": {
+        "t": 0.10191
+      },
+      "logged": {
+        "certify": 0.102
+      },
+      "note": "429.0 mi x 0.0002375605888 MTCO2e/mi"
+    },
+    {
+      "check_id": "bcu_equals_transport_process",
+      "status": "PASS",
+      "computed": {
+        "transport_process_sum_t": 7.269
+      },
+      "logged": {
+        "bcu_constant_t": 7.269
+      },
+      "note": "1.204 + 5.584 + 0.481"
+    },
+    {
+      "check_id": "certify_activities_total",
+      "status": "PASS",
+      "computed": {
+        "t": 19.82
+      },
+      "logged": {
+        "certify": 19.82
+      },
+      "note": ""
+    },
+    {
+      "check_id": "certify_net",
+      "status": "PASS",
+      "computed": {
+        "t": 133.938
+      },
+      "logged": {
+        "certify": 133.938
+      },
+      "note": "147.3 + 7.269 - 19.82 - 0.811"
+    },
+    {
+      "check_id": "uncertainty_reconstruction",
+      "status": "PASS",
+      "computed": {
+        "reconstructed_1sigma_kg": 809.6
+      },
+      "logged": {
+        "certify_discount_kg": 811
+      },
+      "note": "Option B variance propagation on carbon 0.4% + mass +/-362.85 kg (5 weighings x 72.57)"
+    }
+  ],
+  "derived": {
+    "net_lb_SHPX215079_6_18_2026_offload_1": 43020,
+    "net_kg_SHPX215079_6_18_2026_offload_1": 19513.52784,
+    "net_lb_TIMX201060_6_22_2026_offload_1": 43900,
+    "net_kg_TIMX201060_6_22_2026_offload_1": 19912.6888,
+    "net_lb_TIMX201060_6_22_2026_offload_2": 43260,
+    "net_kg_TIMX201060_6_22_2026_offload_2": 19622.38992,
+    "net_lb_TIMX201060_6_22_2026_offload_3": 43720,
+    "net_kg_TIMX201060_6_22_2026_offload_3": 19831.04224,
+    "net_lb_TIMX201060_6_22_2026_offload_4": 42360,
+    "net_kg_TIMX201060_6_22_2026_offload_4": 19214.15712,
+    "bol_aggregate_SHPX215079_kg": 78330,
+    "n_bols_SHPX215079": 3,
+    "n_offloads_this_week_SHPX215079": 1,
+    "bol_aggregate_TIMX201060_kg": 78500,
+    "n_bols_TIMX201060": 3,
+    "n_offloads_this_week_TIMX201060": 4,
+    "raw_offload_sum_SHPX215079_kg": 19513.52784,
+    "uncertainty_adjustment_SHPX215079_kg": 0,
+    "raw_offload_sum_TIMX201060_kg": 78580.27808,
+    "uncertainty_adjustment_TIMX201060_kg": 80.27808,
+    "overdraw_TIMX201060_kg": 80.27808,
+    "sparging_kg_SHPX215079_6_18_2026_offload_1": 251.72451,
+    "filtration_kg_SHPX215079_6_18_2026_offload_1": 37.56052,
+    "post_adj_kg_SHPX215079_6_18_2026_offload_1": 19513.52784,
+    "mobi_kg_SHPX215079_6_18_2026_offload_1": 19224.24281,
+    "sparging_kg_TIMX201060_6_22_2026_offload_1": 256.87369,
+    "filtration_kg_TIMX201060_6_22_2026_offload_1": 38.32884,
+    "post_adj_kg_TIMX201060_6_22_2026_offload_1": 19912.6888,
+    "mobi_kg_TIMX201060_6_22_2026_offload_1": 19617.48628,
+    "sparging_kg_TIMX201060_6_22_2026_offload_2": 253.12883,
+    "filtration_kg_TIMX201060_6_22_2026_offload_2": 37.77006,
+    "post_adj_kg_TIMX201060_6_22_2026_offload_2": 19622.38992,
+    "mobi_kg_TIMX201060_6_22_2026_offload_2": 19331.49103,
+    "sparging_kg_TIMX201060_6_22_2026_offload_3": 255.82044,
+    "filtration_kg_TIMX201060_6_22_2026_offload_3": 38.17168,
+    "post_adj_kg_TIMX201060_6_22_2026_offload_3": 19831.04224,
+    "mobi_kg_TIMX201060_6_22_2026_offload_3": 19537.05011,
+    "sparging_kg_TIMX201060_6_22_2026_offload_4": 246.82704,
+    "filtration_kg_TIMX201060_6_22_2026_offload_4": 36.82975,
+    "post_adj_kg_TIMX201060_6_22_2026_offload_4": 19133.87904,
+    "mobi_kg_TIMX201060_6_22_2026_offload_4": 18850.22225,
+    "downstream_scale_ticket_sum_kg": 98093.80592,
+    "uncertainty_adjustment_total_kg": 80.27808,
+    "mass_used_post_adj_kg": 98013.52784,
+    "sparging_loss_total_kg": 1264.37451,
+    "filtration_loss_total_kg": 188.66085,
+    "mobi_total_kg": 96560.49248,
+    "alloc_fraction_SHPX215079_6_18_2026_offload_1": 0.2491195,
+    "alloc_fraction_TIMX201060_6_22_2026_offload_1": 0.2536648,
+    "alloc_fraction_TIMX201060_6_22_2026_offload_2": 0.2499668,
+    "alloc_fraction_TIMX201060_6_22_2026_offload_3": 0.2526247,
+    "alloc_fraction_TIMX201060_6_22_2026_offload_4": 0.2437437,
+    "aecn_sopor_alloc_mi_total": 402.84103,
+    "rail_alloc_mi_total": 2746.81371,
+    "opel_basco_alloc_mi_total": 429.0,
+    "gross_co2e_recalc_t": 147.30033,
+    "pyrolysis_process_recalc_t": 10.19341,
+    "pyrolysis_process_at_sheet_final_ef_t": 10.19505,
+    "pyrolysis_process_ef_rounding_delta_t": 0.00164,
+    "pyrolysis_embodied_recalc_t": 2.07397,
+    "aecn_sopor_truck_process_recalc_t": 1.20429,
+    "rail_process_recalc_t": 5.58451,
+    "opel_basco_truck_process_recalc_t": 0.481,
+    "aecn_sopor_truck_embodied_recalc_t": 0.0957,
+    "rail_embodied_recalc_t": 0.08551,
+    "opel_basco_truck_embodied_recalc_t": 0.10191,
+    "transport_process_sum_t": 7.269,
+    "transport_embodied_sum_t": 0.284,
+    "transport_total_t": 7.553,
+    "bcu_constant_t": 7.269,
+    "bcu_surplus_over_transport_process_t": 0.0,
+    "pyrolysis_process_t_for_comparison": 10.193,
+    "activities_recalc_t": 19.82,
+    "net_calc_t": 133.938,
+    "net_if_bcu_capped_at_transport_process_t": 133.938,
+    "net_overstatement_from_bcu_t": 0.0,
+    "net_overstatement_from_bcu_pct": 0.0,
+    "uncertainty_1sigma_reconstructed_kg": 809.6,
+    "uncertainty_discount_reported_kg": 811,
+    "mass_uncertainty_kg": 362.85,
+    "carbon_uncertainty_abs": 0.1664,
+    "carbon_uncertainty_rate": 0.004,
+    "per_weighing_uncertainty_kg": 72.57
+  }
+}

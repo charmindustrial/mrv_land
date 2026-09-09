@@ -1,0 +1,245 @@
+- generic [ref=f169e2]:
+  - alert [ref=f169e1]
+  - region "0 notifications."
+  - generic [ref=f169e3]:
+    - navigation [ref=f169e5]:
+      - generic [ref=f169e9]:
+        - generic [ref=f169e10]:
+          - link "Isometric Registry" [ref=f169e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f169e27]:
+            - link "Registry" [ref=f169e28] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=f169e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f169e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f169e32]:
+          - generic [ref=f169e33]:
+            - link "Account" [ref=f169e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f169e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f169e36]: "|"
+          - button "Current user menu" [ref=f169e37] [cursor=pointer]:
+            - generic [ref=f169e38]: Menu
+    - main [ref=f169e41]:
+      - generic [ref=f169e43]:
+        - button "Collapse sidebar" [ref=f169e45] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=f169e49]:
+          - list [ref=f169e51]:
+            - listitem [ref=f169e52]:
+              - link "All projects" [ref=f169e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=f169e54]: /
+            - listitem [ref=f169e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=f169e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [ref=f169e57]: /
+            - listitem [ref=f169e58]:
+              - link "GHG Entries" [ref=f169e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+              - generic [ref=f169e60]: /
+            - listitem [ref=f169e61]: rmv_1M103GTGP1S0BB07
+      - generic [ref=f169e62]:
+        - navigation [ref=f169e66]:
+          - generic [ref=f169e68]:
+            - link "Overview" [ref=f169e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=f169e70] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+            - link "Evidence" [ref=f169e71] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/evidence
+          - generic [ref=f169e72]:
+            - generic [ref=f169e73]: Project setup
+            - generic [ref=f169e74]:
+              - link "General" [ref=f169e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=f169e76] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=f169e77] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=f169e78] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=f169e79]:
+            - generic [ref=f169e80]: Carbon accounting
+            - generic [ref=f169e81]:
+              - link "LCA" [ref=f169e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=f169e83] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=f169e84] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "GHG entry data" [ref=f169e85] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+          - link "Templates" [ref=f169e88] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=f169e90]:
+          - generic [ref=f169e93]:
+            - heading "GHG entry" [level=1] [ref=f169e95]
+            - generic [ref=f169e96]:
+              - generic [ref=f169e97]:
+                - generic [ref=f169e98]: Removal
+                - generic [ref=f169e102]: 101.64 tCO₂e
+                - generic [ref=f169e104]:
+                  - generic [ref=f169e105]: •
+                  - generic [ref=f169e106]: 16 Aug 2026 to 22 Aug 2026
+                - generic [ref=f169e107]:
+                  - generic [ref=f169e108]: •
+                  - generic [ref=f169e109]: rmv_1M103GTGP1S0BB07
+              - generic [ref=f169e110]:
+                - button "More actions" [ref=f169e111] [cursor=pointer]
+                - button "Projected credit allocation" [ref=f169e114] [cursor=pointer]
+                - button "Toggle timeline sidebar" [ref=f169e118] [cursor=pointer]
+          - generic [ref=f169e121]:
+            - tablist [ref=f169e124]:
+              - tab "Components" [ref=f169e125] [cursor=pointer]
+              - tab "Calculation view" [ref=f169e127] [cursor=pointer]
+              - tab "Datapoints" [ref=f169e129] [cursor=pointer]
+              - tab "Sources" [selected] [ref=f169e131] [cursor=pointer]
+            - tabpanel "Sources" [ref=f169e134]:
+              - generic [ref=f169e135]:
+                - heading "Sources (17)" [level=2] [ref=f169e136]
+                - grid "Sources" [ref=f169e139]:
+                  - rowgroup [ref=f169e140]:
+                    - row [ref=f169e141]:
+                      - columnheader "Name" [ref=f169e142]
+                      - columnheader "Data points" [ref=f169e144]
+                      - columnheader "Type" [ref=f169e146]
+                      - columnheader "Public visibility" [ref=f169e148]
+                  - rowgroup [ref=f169e150]:
+                    - row [ref=f169e151]:
+                      - rowheader [ref=f169e152]:
+                        - button "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jan2026 to 30Jun2026.xlsx" [ref=f169e153] [cursor=pointer]
+                      - gridcell "AECN Production Process Emissions" [ref=f169e158]
+                      - gridcell "Document" [ref=f169e161]
+                      - gridcell "Private" [ref=f169e162]
+                    - row [ref=f169e167]:
+                      - rowheader [ref=f169e168]:
+                        - button "Supporting GHG data 30Jun2026 S.xlsx" [ref=f169e169] [cursor=pointer]
+                      - gridcell "AECN Production Process Emissions" [ref=f169e174]
+                      - gridcell "Document" [ref=f169e177]
+                      - gridcell "Private" [ref=f169e178]
+                    - row [ref=f169e183]:
+                      - rowheader [ref=f169e184]:
+                        - button "FH 2026 LCA w Stack Emissions.xlsx" [ref=f169e185] [cursor=pointer]
+                      - gridcell "AECN Production Process Emissions" [ref=f169e190]
+                      - gridcell "Document" [ref=f169e193]
+                      - gridcell "Private" [ref=f169e194]
+                    - row [ref=f169e199]:
+                      - rowheader [ref=f169e200]:
+                        - button "INJ-08-2026-W4 Ops Notes.xlsx" [ref=f169e201] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco + 3 more" [ref=f169e206]:
+                        - generic [ref=f169e207]:
+                          - generic [ref=f169e208]: Aggregate Distance Transported AECN to Basco
+                          - button "+ 3 more" [ref=f169e209] [cursor=pointer]
+                      - gridcell "Document" [ref=f169e210]
+                      - gridcell "Private" [ref=f169e211]
+                    - row [ref=f169e216]:
+                      - rowheader [ref=f169e217]:
+                        - button "CHARM INDUSTRIAL - 08-2026-W4 AECN + QOWV (SR26-05110.001-002).pdf" [ref=f169e218] [cursor=pointer]
+                      - gridcell "Carbon Content of Bio-oil Injected (per injection)" [ref=f169e223]
+                      - gridcell "Document" [ref=f169e226]
+                      - gridcell "Private" [ref=f169e227]
+                    - row [ref=f169e232]:
+                      - rowheader [ref=f169e233]:
+                        - button "BOL_2477-T.pdf" [ref=f169e234] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco + 1 more" [ref=f169e239]:
+                        - generic [ref=f169e240]:
+                          - generic [ref=f169e241]: Aggregate Distance Transported AECN to Basco
+                          - button "+ 1 more" [ref=f169e242] [cursor=pointer]
+                      - gridcell "Document" [ref=f169e243]
+                      - gridcell "Public" [ref=f169e244]
+                    - row [ref=f169e249]:
+                      - rowheader [ref=f169e250]:
+                        - button "Aug-21-2026-distance-route_map.png" [ref=f169e251] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco" [ref=f169e256]
+                      - gridcell "Document" [ref=f169e259]
+                      - gridcell "Public" [ref=f169e260]
+                    - row [ref=f169e265]:
+                      - rowheader [ref=f169e266]:
+                        - button "BOL_2474-T.pdf" [ref=f169e267] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco + 1 more" [ref=f169e272]:
+                        - generic [ref=f169e273]:
+                          - generic [ref=f169e274]: Aggregate Distance Transported AECN to Basco
+                          - button "+ 1 more" [ref=f169e275] [cursor=pointer]
+                      - gridcell "Document" [ref=f169e276]
+                      - gridcell "Public" [ref=f169e277]
+                    - row [ref=f169e282]:
+                      - rowheader [ref=f169e283]:
+                        - button "Aug-22-2026-distance-route_map.png" [ref=f169e284] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco" [ref=f169e289]
+                      - gridcell "Document" [ref=f169e292]
+                      - gridcell "Public" [ref=f169e293]
+                    - row [ref=f169e298]:
+                      - rowheader [ref=f169e299]:
+                        - button "BOL_2472-T.pdf" [ref=f169e300] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco + 1 more" [ref=f169e305]:
+                        - generic [ref=f169e306]:
+                          - generic [ref=f169e307]: Aggregate Distance Transported AECN to Basco
+                          - button "+ 1 more" [ref=f169e308] [cursor=pointer]
+                      - gridcell "Document" [ref=f169e309]
+                      - gridcell "Public" [ref=f169e310]
+                    - row [ref=f169e315]:
+                      - rowheader [ref=f169e316]:
+                        - button "BOL_2471-T.pdf" [ref=f169e317] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco + 1 more" [ref=f169e322]:
+                        - generic [ref=f169e323]:
+                          - generic [ref=f169e324]: Aggregate Distance Transported AECN to Basco
+                          - button "+ 1 more" [ref=f169e325] [cursor=pointer]
+                      - gridcell "Document" [ref=f169e326]
+                      - gridcell "Public" [ref=f169e327]
+                    - row [ref=f169e332]:
+                      - rowheader [ref=f169e333]:
+                        - button "Aug-19-2026-distance-route_map.png" [ref=f169e334] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco" [ref=f169e339]
+                      - gridcell "Document" [ref=f169e342]
+                      - gridcell "Public" [ref=f169e343]
+                    - row [ref=f169e348]:
+                      - rowheader [ref=f169e349]:
+                        - button "Standard Emission Factors + Calculations (8).xlsx" [ref=f169e350] [cursor=pointer]
+                      - gridcell "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck" [ref=f169e355]
+                      - gridcell "Document" [ref=f169e358]
+                      - gridcell "Public" [ref=f169e359]
+                    - row [ref=f169e364]:
+                      - rowheader [ref=f169e365]:
+                        - button "Charm-RetirementCertificate-RD-EACs-20251218.pdf" [ref=f169e366] [cursor=pointer]
+                      - gridcell "Constant CO₂ reduction" [ref=f169e371]
+                      - gridcell "Document" [ref=f169e374]
+                      - gridcell "Private" [ref=f169e375]
+                    - row [ref=f169e380]:
+                      - rowheader [ref=f169e381]:
+                        - button "Standard Emission Factors + Calculations (8).xlsx" [ref=f169e382] [cursor=pointer]
+                      - gridcell "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck" [ref=f169e387]
+                      - gridcell "Document" [ref=f169e390]
+                      - gridcell "Public" [ref=f169e391]
+                    - row [ref=f169e396]:
+                      - rowheader [ref=f169e397]:
+                        - button "AECN to Basco.png" [ref=f169e398] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco + 1 more" [ref=f169e403]:
+                        - generic [ref=f169e404]:
+                          - generic [ref=f169e405]: Aggregate Distance Transported AECN to Basco
+                          - button "+ 1 more" [ref=f169e406] [cursor=pointer]
+                      - gridcell "Document" [ref=f169e407]
+                      - gridcell "Public" [ref=f169e408]
+                    - row [ref=f169e413]:
+                      - rowheader [ref=f169e414]:
+                        - button "Standard Emission Factors + Calculations (4).xlsx" [ref=f169e415] [cursor=pointer]
+                      - gridcell "AECN Production Embodied Emissions" [ref=f169e420]
+                      - gridcell "Document" [ref=f169e423]
+                      - gridcell "Public" [ref=f169e424]
+  - generic [ref=f169e433]:
+    - button "Dismiss" [ref=f169e435] [cursor=pointer]
+    - dialog "Data point reference" [active] [ref=f169e436]:
+      - generic [ref=f169e437]:
+        - heading "Charm-RetirementCertificate-RD-EACs-20251218.pdf" [level=2] [ref=f169e439]
+        - generic [ref=f169e440]:
+          - button "Download source" [ref=f169e441] [cursor=pointer]
+          - link [ref=f169e444] [cursor=pointer]:
+            - /url: /account/certify/source/src_1KVRCCD7J1S087E3
+          - button "Close" [ref=f169e447] [cursor=pointer]
+      - generic [ref=f169e451]:
+        - tablist [ref=f169e453]:
+          - tab "Preview" [selected] [ref=f169e454] [cursor=pointer]
+          - tab "Details" [ref=f169e456] [cursor=pointer]
+        - tabpanel "Preview" [ref=f169e458]

@@ -1,0 +1,678 @@
+{
+  "_schema_version": "1.0-truck",
+  "batch_id": "INJ-08-2026-W4-AECN-Truck",
+  "oil_type": "AECN",
+  "delivery_mode": "direct_truck",
+  "reporting_period": "16 Aug 2026 to 22 Aug 2026",
+  "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M103GTGP1S0BB07/edit",
+  "net_co2e_t_displayed": 101.64,
+  "vvb_guidance": {
+    "_primary_source_opened": [
+      {
+        "file": "VVB Guidance August 1 - August 31",
+        "action": "sheet_grid_read",
+        "live_source_url": "https://docs.google.com/document/d/1_dYfx8sZERQI5fMPAtIaOsYNE5aQupm7AYHoIFsEH7Y/edit",
+        "evidence": "Downloaded via /export?format=txt and read in full (73 lines). Confirmed no other undiscussed sections.",
+        "artifact_path": "VVB_Guidance_August_1-31.txt"
+      }
+    ],
+    "trailer_standard_tare_scope": "Section titled 'Trailer Standard Empty Weight (AECN Rail Offloads)' scoped explicitly to rail offloads only; no equivalent provision stated for direct-truck deliveries.",
+    "pyrolysis_process_ef_update": "New H2 2026 AECN pyrolysis process CI = 0.1371171 t CO2e per tonne of bio-oil (Stack emissions 0.0040651 + Other process 0.1330520), applies to every AECN removal in the period regardless of delivery mode. Embodied unchanged at 0.02116 t CO2e/tonne.",
+    "week4_direct_truck_table_row": "Removal 'Week 4 (direct truck)': Pyrolysis mass (kg) = 78,880; Additional process emissions (kg CO2e) = 795.",
+    "evidence_docs_note": "Three documents support the H2 2026 factor: stack-emissions calculation, vendor LCA CI calculation, vendor supporting GHG data as at 30 June 2026. Superseded assessment's documents have been detached."
+  },
+  "ops_notes": {
+    "_primary_source_opened": [
+      {
+        "file": "INJ-08-2026-W4 Ops Notes.xlsx",
+        "action": "sheet_grid_read",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/1qyzL6ka9FOM9QYiKfIWJ4JqmxyKE4Y-68afvoVO05gk/edit?gid=509637319",
+        "evidence": "Downloaded full workbook via /export?format=xlsx and read with openpyxl WITHOUT data_only=True (formulas + comments) and again WITH data_only=True (computed values) for the 'AECN Truck' and 'Summary' tabs.",
+        "artifact_path": "INJ-08-2026-W4_Ops_Notes.xlsx"
+      }
+    ],
+    "sheet_names": [
+      "Summary",
+      "AECN Rail",
+      "WODO",
+      "AECN Truck",
+      "Kerry",
+      "QOWV",
+      "QOWV Shipments & EE Allocation",
+      "WODO Shipments & EE Allocation"
+    ],
+    "batch_id_cell_B2": "INJ-08-2026-W4",
+    "week_start": "2026-08-15",
+    "week_end": "2026-08-22",
+    "deliveries_ledger": [
+      {
+        "row": 10,
+        "date_col_A": "2026-08-22",
+        "bol": "2471-T",
+        "bol_mass_MT": 19.56,
+        "bol_mass_kg": 19560,
+        "notes": "AECN delivery 8/19/2026",
+        "sparging_loss_kg": 252.324,
+        "filtration_loss_kg": 37.6499682,
+        "mobi_kg": 19270.02603
+      },
+      {
+        "row": 11,
+        "date_col_A": "2026-08-22",
+        "bol": "2472-T",
+        "bol_mass_MT": 19.87,
+        "bol_mass_kg": 19870,
+        "notes": "AECN delivery 8/19/2026",
+        "sparging_loss_kg": 256.323,
+        "filtration_loss_kg": 38.24667015,
+        "mobi_kg": 19575.43033
+      },
+      {
+        "row": 12,
+        "date_col_A": "2026-08-22",
+        "bol": "2474-T",
+        "bol_mass_MT": 19.4,
+        "bol_mass_kg": 19400,
+        "notes": "AECN delivery 8/22/2026",
+        "sparging_loss_kg": 250.26,
+        "filtration_loss_kg": 37.341993,
+        "mobi_kg": 19112.39801
+      },
+      {
+        "row": 13,
+        "date_col_A": "2026-08-22",
+        "bol": "2477-T",
+        "bol_mass_MT": 20.05,
+        "bol_mass_kg": 20050,
+        "notes": "AECN delivery 8/21/2026",
+        "sparging_loss_kg": 258.645,
+        "filtration_loss_kg": 38.59314225,
+        "mobi_kg": 19752.76186
+      }
+    ],
+    "row10_cell_comment": "Date column carries the COBB injection_completion_date (2026-08-22) for all four deliveries, matching the AECN Rail convention. Actual AECN delivery dates are in the Notes column (8/19, 8/19, 8/22, 8/21 per Loads tab col O). Trucks 2473-T / 2475-T / 2476-T also delivered in this window but are NOT in the INJ-08-2026-W4 COBB batch -- per Brad (Slack, 2026-08-24) two were still in the frac tank and roll to W5. COBB defines the offload set.",
+    "row10_C_cell_comment": "BOL masses for 2471-T / 2472-T / 2474-T / 2477-T taken from the Bio-Oil Injection Tracker 'Loads' tab col Q (Actual Loaded, metric tons) -- the authoritative source per the 2026-05-27 correction, and confirmed against the BOL page-3 'Product Shipment Summary' scale weight on all four. Never page 1 of the bundle: that header 'Quantity' row is a pre-load volumetric estimate (2471-T reads 19.64 MT there vs 19.56 actual). Mass Used = Sum BOL kg per the 2026-05-26 BOL-as-MOBI methodology; wellhead scale tickets are not required for direct trucks. The former Scale Full / Scale Empty / Cargo columns were removed from this tab on 2026-08-26.",
+    "section2_rollup_row28": {
+      "sum_BOL_kg": 78880,
+      "mass_used_kg": 78880,
+      "sparging_loss_kg": 1017.552,
+      "filtration_loss_kg": 151.8317736,
+      "uncertainty_adjustment_kg": 0.0,
+      "mobi_kg": 77710.61623,
+      "ph_avg": "blank (0/error)",
+      "c_content_mobi_wtd": "0 (blank per-delivery J column; composite carbon tracked on Summary tab instead)",
+      "origins_list": "2471-T, 2472-T, 2474-T, 2477-T"
+    },
+    "constants": {
+      "lbs_per_kg": 2.20462,
+      "kg_per_lb": 0.453592,
+      "sparging_mass_loss_pct": 0.0129,
+      "ph_range_target": "2.0 - 4.0",
+      "filtration_solids_content_pct": 0.00195
+    },
+    "summary_tab": {
+      "aecn_truck_row9": {
+        "sigma_deliveries_kg": 78880,
+        "sigma_uncertainty_adj_kg": 0,
+        "mass_used_kg": 78880,
+        "sparging_loss_kg": 1017.552,
+        "filtration_loss_kg": 151.8317736,
+        "mobi_kg": 77710.61623
+      },
+      "aecn_oiltype_row17": {
+        "transport_mass_upstream_kg": 156598.4533,
+        "transport_mass_downstream_opel_basco_kg": 77718.45328,
+        "pyrolysis_mass_kg": 156598.4533,
+        "mobi_sequestration_kg": 154276.9055,
+        "composite_sample_id": "08-2026-W4 AECN",
+        "carbon_pct": 0.404,
+        "lab_coa_link": "COA SR26-05110.001",
+        "carbon_content_uncertainty": 0.001616,
+        "testing_uncertainty": 0.004
+      },
+      "note": "AECN composite carbon sample (0.404) is shared/pooled across BOTH the AECN Rail and AECN Truck removals for this week (single composite CHN sample per oil type per week, not per-injection). Pyrolysis Mass row 17 (156,598.4533 kg) = Rail \u03a3(77,718.45328) + Truck \u03a3(78,880) pooled total, not specific to this truck-only removal; the truck-only pyrolysis mass basis used in THIS Certify removal is 78,880 kg (Bio-Oil Mass - AECN datapoint), matching the VVB Guidance's per-removal table exactly."
+    }
+  },
+  "lab_results": {
+    "_primary_source_opened": [
+      {
+        "file": "CHARM INDUSTRIAL - 08-2026-W4 AECN + QOWV (SR26-05110.001-002).pdf",
+        "action": "pdf_read",
+        "evidence": "Opened Drive preview, read both pages via accessibility text layer (native PDF text, not OCR/image)."
+      }
+    ],
+    "certificate_number": "SR26-05110.001",
+    "client_id": "08-2026-W4 AECN",
+    "sample_location": "BASCO LOUISIANA",
+    "sampled": "24-Aug-2026 17:00",
+    "received": "26-Aug-2026 10:20",
+    "completed": "26-Aug-2026 15:15",
+    "carbon_pct": 40.4,
+    "carbon_method": "ASTM D5291 (Method C)",
+    "carbon_sgs_method_flag": "# - Result is outside of test method limits and/or analytical range used in method precision study (generic SGS caveat, appears on Carbon and Hydrogen for both samples on this cert; not a Charm-specific outlier signal)",
+    "hydrogen_pct": 7.9,
+    "nitrogen_pct": "<0.75",
+    "viscosity_cSt_40C": 15.45,
+    "acid_number_mgKOH_g": 84,
+    "density_g_cm3_15C": 1.204,
+    "signatory": "Rachel Oxley, Laboratory Supervisor",
+    "second_sample_note": "Page 2 = SR26-05110.002, Client ID '08-2026-W4 QOWV' (aqueous, out of scope for this AECN truck batch)."
+  },
+  "mrv_aecn_analysis_carbon_range": {
+    "_primary_source_opened": [
+      {
+        "file": "MRV_AECN_Analysis.xlsx",
+        "action": "sheet_grid_read",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/1bDw821dD2Dq-qz7amEql5qBZBSGPlnEi/edit",
+        "artifact_path": "MRV_AECN_Analysis.xlsx",
+        "evidence": "Downloaded via /export?format=xlsx and read the Summary Statistics tab directly (Data filtered to Function=MRV, Offtake=AECN, 439 samples)."
+      }
+    ],
+    "mean_pct": 39.420350877193,
+    "sd_pct": 6.09332409018271,
+    "n": 285,
+    "two_sd_flag_range": "27.2% - 51.6% (mean +/- 2SD, computed from the values above)"
+  },
+  "bols": {
+    "_primary_source_opened": [
+      {
+        "file": "AECNTruck_LD1_BOL_2471-T.pdf",
+        "action": "image_read",
+        "evidence": "Opened Drive preview, page 1 (header) and page 3 (Product Shipment Summary rotated table) both read via screenshot."
+      },
+      {
+        "file": "AECNTruck_LD2_BOL_2472-T.pdf",
+        "action": "image_read",
+        "evidence": "Opened Drive preview, page 3 (Product Shipment Summary) read via screenshot. Page 1 (header) also opened and read."
+      },
+      {
+        "file": "AECNTruck_LD3_BOL_2474-T.pdf",
+        "action": "image_read",
+        "evidence": "Opened Drive preview, page 3 (Product Shipment Summary) read via screenshot. Page 1 (header) also opened and read."
+      },
+      {
+        "file": "AECNTruck_LD4_BOL_2477-T.pdf",
+        "action": "image_read",
+        "evidence": "Opened Drive preview, page 1 and page 3 (Product Shipment Summary) both read via screenshot."
+      }
+    ],
+    "2471-T": {
+      "date_of_loading": "2026-08-15",
+      "ship_to": "CHARM Industrial Inc., 4687 LA-115, St Landry, LA 71367",
+      "from": "BioEnergie AE Cote-Nord Canada, 175 Portage des Mousses, Port-Cartier, Quebec G5B 2V9",
+      "page1_header_qty_MT": 19.64,
+      "page3_qty_shipped_MT_60F": 19.56
+    },
+    "2472-T": {
+      "page3_qty_shipped_MT_60F": 19.87,
+      "date_of_loading": "2026-08-15",
+      "ship_to": "CHARM Industrial Inc., 4687 LA-115, St Landry, LA 71367",
+      "from": "BioEnergie AE Cote-Nord Canada, 175 Portage des Mousses, Port-Cartier, Quebec G5B 2V9",
+      "page1_header_qty_MT": 19.56,
+      "production_period": "#08-2026"
+    },
+    "2474-T": {
+      "page3_qty_shipped_MT_60F": 19.4,
+      "date_of_loading": "2026-08-17",
+      "ship_to": "CHARM Industrial Inc., 4687 LA-115, St Landry, LA 71367",
+      "from": "BioEnergie AE Cote-Nord Canada, 175 Portage des Mousses, Port-Cartier, Quebec G5B 2V9",
+      "page1_header_qty_MT": 19.35,
+      "production_period": "#08-2026",
+      "customer_po": "Q4-2025",
+      "tariff_code": "2707.99.9090"
+    },
+    "2477-T": {
+      "date_of_loading": "2026-08-17",
+      "ship_to": "CHARM Industrial Inc., 4687 LA-115, St Landry, LA 71367",
+      "from": "BioEnergie AE Cote-Nord Canada, 175 Portage des Mousses, Port-Cartier, Quebec G5B 2V9",
+      "page1_header_qty_MT": 19.77,
+      "page3_qty_shipped_MT_60F": 20.05,
+      "production_period": "#08-2026"
+    },
+    "sum_page3_qty_shipped_MT": 78.88,
+    "note": "All 4 BOLs' page-1 header 'Quantity' figures are pre-load volumetric estimates and differ slightly from the page-3 'Quantity sent in M.Tons at 60F' certified figures used in Ops Notes -- exactly the documented pattern in the Ops Notes cell comment (row10 comment cites 2471-T: 19.64 header vs 19.56 actual)."
+  },
+  "cobb": {
+    "_primary_source_opened": [
+      {
+        "file": "Bio-oil Injection Tracker - Basco Injection -- COBB tab",
+        "action": "csv_exported",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350",
+        "artifact_path": "outputs/qa/batch-INJ-08-2026-W4-AECN-Truck/COBB_Basco_Injection.csv",
+        "evidence": "Exported full COBB tab to CSV, grepped for 'INJ-08-2026-W4', found and read all 4 truck rows (605-608), each with cell A verified = batch ID before extracting values."
+      }
+    ],
+    "rows": [
+      {
+        "row": 605,
+        "batch_id_col_a": "INJ-08-2026-W4_bio_oil",
+        "consumed_lot": "2474-T_offload_1",
+        "BOL_number": "2474-T",
+        "quantity_consumed_in_injection_kg": 19400,
+        "offloaded_quantity_kg": 19400,
+        "origin_quantity_kg": 19400,
+        "order_line_completed_on": "2026-08-21 11:55:41",
+        "injection_completion_date": "2026-08-22"
+      },
+      {
+        "row": 606,
+        "batch_id_col_a": "INJ-08-2026-W4_bio_oil",
+        "consumed_lot": "2471-T_offload_1",
+        "BOL_number": "2471-T",
+        "quantity_consumed_in_injection_kg": 19560,
+        "offloaded_quantity_kg": 19560,
+        "origin_quantity_kg": 19560,
+        "order_line_completed_on": "2026-08-19 21:40:39",
+        "injection_completion_date": "2026-08-22"
+      },
+      {
+        "row": 607,
+        "batch_id_col_a": "INJ-08-2026-W4_bio_oil",
+        "consumed_lot": "2472-T_offload_1",
+        "BOL_number": "2472-T",
+        "quantity_consumed_in_injection_kg": 19604.24624,
+        "offloaded_quantity_kg": 19604.24624,
+        "origin_quantity_kg": 19870,
+        "order_line_completed_on": "2026-08-19 21:41:17",
+        "injection_completion_date": "2026-08-22"
+      },
+      {
+        "row": 608,
+        "batch_id_col_a": "INJ-08-2026-W4_bio_oil",
+        "consumed_lot": "2477-T_offload_1",
+        "BOL_number": "2477-T",
+        "quantity_consumed_in_injection_kg": 19667.74912,
+        "offloaded_quantity_kg": 19667.74912,
+        "origin_quantity_kg": 20050,
+        "order_line_completed_on": "2026-08-21 14:12:13",
+        "injection_completion_date": "2026-08-22"
+      }
+    ],
+    "origin_quantity_kg_vs_bol_check": "Rows 605/606: origin_quantity_kg (19,400 / 19,560) matches BOL exactly. Rows 607/608: origin_quantity_kg (19,870 / 20,050) matches BOL exactly, BUT quantity_consumed_in_injection/offloaded_quantity_kg on those two rows is smaller than origin_quantity_kg by 265.75 kg and 382.25 kg respectively -- does not cleanly match sparging-only (1.29%) or sparging+filtration combined math computed from Ops Notes per-delivery figures. Certify's authoritative datapoints (Bio-Oil Mass - AECN = 78.880t = BOL sum; Mass of Injectant = 77.711t = Ops Notes documented formula) independently reconcile to the BOLs and Ops Notes directly, not to this COBB field. Consistent with established precedent that COBB reflects system/operational entries which can diverge from the MRV-authoritative Ops Notes/Certify chain without being a verifier-impacting error (see AECN rail Failure Category 11/16)."
+  },
+  "certify_sources_tab_total": {
+    "count": 17,
+    "sources": [
+      {
+        "name": "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jan2026 to 30Jun2026.xlsx",
+        "linked_datapoint": "AECN Production Process Emissions",
+        "visibility": "Private"
+      },
+      {
+        "name": "Supporting GHG data 30Jun2026 S.xlsx",
+        "linked_datapoint": "AECN Production Process Emissions",
+        "visibility": "Private"
+      },
+      {
+        "name": "FH 2026 LCA w Stack Emissions.xlsx",
+        "linked_datapoint": "AECN Production Process Emissions",
+        "visibility": "Private"
+      },
+      {
+        "name": "INJ-08-2026-W4 Ops Notes.xlsx",
+        "linked_datapoint": "Aggregate Distance Transported AECN to Basco + 3 more",
+        "visibility": "Private"
+      },
+      {
+        "name": "CHARM INDUSTRIAL - 08-2026-W4 AECN + QOWV (SR26-05110.001-002).pdf",
+        "linked_datapoint": "Carbon Content of Bio-oil Injected (per injection)",
+        "visibility": "Private"
+      },
+      {
+        "name": "BOL_2477-T.pdf",
+        "linked_datapoint": "Aggregate Distance Transported AECN to Basco + 1 more",
+        "visibility": "Public"
+      },
+      {
+        "name": "Aug-21-2026-distance-route_map.png",
+        "linked_datapoint": "Aggregate Distance Transported AECN to Basco",
+        "visibility": "Public"
+      },
+      {
+        "name": "BOL_2474-T.pdf",
+        "linked_datapoint": "Aggregate Distance Transported AECN to Basco + 1 more",
+        "visibility": "Public"
+      },
+      {
+        "name": "Aug-22-2026-distance-route_map.png",
+        "linked_datapoint": "Aggregate Distance Transported AECN to Basco",
+        "visibility": "Public"
+      },
+      {
+        "name": "BOL_2472-T.pdf",
+        "linked_datapoint": "Aggregate Distance Transported AECN to Basco + 1 more",
+        "visibility": "Public"
+      },
+      {
+        "name": "BOL_2471-T.pdf",
+        "linked_datapoint": "Aggregate Distance Transported AECN to Basco + 1 more",
+        "visibility": "Public"
+      },
+      {
+        "name": "Aug-19-2026-distance-route_map.png",
+        "linked_datapoint": "Aggregate Distance Transported AECN to Basco",
+        "visibility": "Public"
+      },
+      {
+        "name": "Standard Emission Factors + Calculations (8).xlsx",
+        "linked_datapoint": "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck",
+        "visibility": "Public"
+      },
+      {
+        "name": "Charm-RetirementCertificate-RD-EACs-20251218.pdf",
+        "linked_datapoint": "Constant CO2 reduction",
+        "visibility": "Private"
+      },
+      {
+        "name": "Standard Emission Factors + Calculations (8).xlsx",
+        "linked_datapoint": "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck",
+        "visibility": "Public"
+      },
+      {
+        "name": "AECN to Basco.png",
+        "linked_datapoint": "Aggregate Distance Transported AECN to Basco + 1 more",
+        "visibility": "Public"
+      },
+      {
+        "name": "Standard Emission Factors + Calculations (4).xlsx",
+        "linked_datapoint": "AECN Production Embodied Emissions",
+        "visibility": "Public"
+      }
+    ]
+  },
+  "certify_datapoints": {
+    "_primary_source_opened": [
+      {
+        "file": "Certify Datapoints tab (rmv_1M103GTGP1S0BB07)",
+        "action": "sheet_grid_read",
+        "evidence": "Full snapshot of Datapoints (10) grid read."
+      }
+    ],
+    "count": 10,
+    "aggregate_distance_transported_aecn_to_basco_mi": 2197,
+    "distance_from_aecn_to_basco_mi": 2197,
+    "emissions_factor_vehicle_embodied_tanker_truck_display": "0.1476 kgCO2e/km",
+    "bio_oil_mass_aecn_t": 78.88,
+    "emissions_factor_truck_transport_fuel_use_display": "0.07 kgCO2e/(km*t)",
+    "aecn_production_embodied_emissions_display": "0.02 kgCO2e/kg",
+    "aecn_production_process_emissions_display": "0.14 kgCO2e/kg",
+    "aecn_production_process_emissions_reference_id": "AECN Production Process Emissions H2 2026",
+    "mass_of_injectant_per_injection_t": 77.711,
+    "carbon_content_pct": 40.4,
+    "constant_co2_reduction_t": 19.808
+  },
+  "certify_components": {
+    "_primary_source_opened": [
+      {
+        "file": "Certify Components tab (rmv_1M103GTGP1S0BB07)",
+        "action": "sheet_grid_read",
+        "evidence": "Full component tree read (6 components, Stored/Emitted rollups)."
+      },
+      {
+        "file": "Injection sequestration component modal",
+        "action": "modal_opened",
+        "evidence": "INPUTS section read: Carbon content 40.4 +/-0.1616%, Mass of product 77,710.61623 +/-4.53592 kg."
+      },
+      {
+        "file": "AECN to LA Tanker Truck Transport Process Emissions - AECN component modal",
+        "action": "modal_opened",
+        "evidence": "INPUTS: EF 0.1143 kgCO2e/(t.mi), Distance 2,197mi, Mass of load 78,880 +/-290.28 kg."
+      },
+      {
+        "file": "AECN to LA Tanker Truck Transport Embodied Emissions - AECN component modal",
+        "action": "modal_opened",
+        "evidence": "INPUTS: Distance EF 0.23756 kgCO2e/mi, Distance traveled (Aggregate) 2,197mi, no mass-of-load input."
+      },
+      {
+        "file": "AECN pyrolysis (from truck loads) - process emissions component modal",
+        "action": "modal_opened",
+        "evidence": "INPUTS: Mass Bio-Oil Mass - AECN 78,880 +/-290.28 kg (no separate EF uncertainty line)."
+      },
+      {
+        "file": "AECN pyrolysis (from truck loads) - embodied emissions component modal",
+        "action": "modal_opened",
+        "evidence": "INPUTS: Carbon emission factor 'AECN Production Embodied Emissions' 0.0212 kgCO2e/kg (full precision as shown in modal); Mass Bio-Oil Mass - AECN 78,880 +/-290.28 kg."
+      }
+    ],
+    "sequestration_t": 115.126,
+    "bcu_transport_process_t": 19.808,
+    "pyrolysis_embodied_t": 1.672,
+    "pyrolysis_process_t": 10.816,
+    "transport_embodied_t": 0.522,
+    "transport_process_t": 19.808,
+    "stored_total_t": 134.934,
+    "emitted_total_t": 32.818,
+    "injection_sequestration_uncertainty": {
+      "carbon_content_pct": 40.4,
+      "carbon_content_uncertainty_pct_points": 0.1616,
+      "mass_of_product_kg": 77710.61623,
+      "mass_of_product_uncertainty_kg": 4.53592
+    },
+    "transport_process_uncertainty": {
+      "mass_of_load_kg": 78880,
+      "mass_of_load_uncertainty_kg": 290.28,
+      "sources_count": 5
+    },
+    "pyrolysis_process_uncertainty": {
+      "mass_kg": 78880,
+      "mass_uncertainty_kg": 290.28
+    },
+    "pyrolysis_embodied_uncertainty": {
+      "mass_kg": 78880,
+      "mass_uncertainty_kg": 290.28,
+      "carbon_emission_factor_value_kgCO2e_kg": 0.0212
+    },
+    "transport_embodied_uncertainty": {
+      "distance_emission_factor_kgCO2e_mi": 0.23756,
+      "distance_traveled_mi": 2197,
+      "no_mass_input": true
+    },
+    "pyrolysis_subtotal_t": 12.488,
+    "transport_subtotal_t": 20.33
+  },
+  "certify_calculation_view": {
+    "_primary_source_opened": [
+      {
+        "file": "Certify Calculation view tab (rmv_1M103GTGP1S0BB07)",
+        "action": "sheet_grid_read",
+        "evidence": "Full waterfall + Datapoints (10) grid read."
+      }
+    ],
+    "net_co2e_removed_t": 101.64,
+    "sequestrations_t": 115.126,
+    "adjustments_bcu_t": 19.808,
+    "activities_t": 32.818,
+    "uncertainty_discount_kg": 476,
+    "recompute_check": "115.126 + 19.808 - 32.818 - 0.476 = 101.640 t, matches Certify displayed value exactly."
+  },
+  "standard_ef_sheet": {
+    "_primary_source_opened": [
+      {
+        "file": "Standard Emission Factors + Calculations (live 2026 tab)",
+        "action": "sheet_grid_read",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit",
+        "evidence": "Downloaded full workbook via /export?format=xlsx, read '2026' tab rows 1-14 and 'H2 2026 AECN Process Emissions' tab in full."
+      }
+    ],
+    "row3_h1_2026_process": {
+      "final_quantity": 0.1040167408,
+      "source": "AECN LCA"
+    },
+    "row4_h2_2026_process": {
+      "final_quantity": 0.1371171258,
+      "source": "FH 2026 LCA w Stack Emissions"
+    },
+    "row5_embodied_aecn": {
+      "final_quantity": 0.02116,
+      "source": "AECN Information, NAICS Supply Chain Emissions Factors"
+    },
+    "row6_truck_process_tanker": {
+      "final_quantity": 0.0001143,
+      "unit": "MT CO2e/t-mi",
+      "source": "GLEC V3.2 2025"
+    },
+    "row11_truck_embodied_tanker": {
+      "final_quantity": 0.0002375605888,
+      "unit": "MT CO2e/mi",
+      "source": "GLEC V3.2 2025"
+    },
+    "h2_2026_tab_i12": {
+      "total_process_ci": 0.1371171258,
+      "note_b24": "I12 is the AECN pyrolysis PROCESS carbon intensity pushed to Isometric Certify (tCO2e/MT == kgCO2e/kg). Embodied CI is unchanged at 0.02116 tCO2e/MT."
+    }
+  },
+  "certify_attached_ef_source_stale_check": {
+    "_primary_source_opened": [
+      {
+        "file": "Standard Emission Factors + Calculations (4).xlsx (Certify source src_1K31MPMV51S0F34N, attached to AECN Production Embodied Emissions datapoint)",
+        "action": "pdf_read",
+        "artifact_path": "outputs/qa/batch-INJ-08-2026-W4-AECN-Truck/Standard_EF_Certify_attachment_4.xlsx",
+        "evidence": "Downloaded the actual attached snapshot via Certify's 'Download source' button (not the live sheet). Sheet tabs present: 2024, 2025, Truck and Trailer EE 2025, 2025 KS/CO Electricity EFs, 2025 MRV Sample Shipping, 2025 Railcar Embodied Emissions, H1 2025 AECN Process Emissions, 2025 LCS Embodied Emissions, 2025 Rock Salt Emissions, Vaulted EE 825 Update. NO 2026 tab exists in this attachment."
+      }
+    ],
+    "attached_file_2025_tab_row4_embodied_aecn": {
+      "final_quantity": 0.02115941123,
+      "source": "AECN Information, NAICS Supply Chain Emissions Factors"
+    },
+    "finding": "The attached source file's OWN content (0.02115941123, i.e. 0.02116) matches the live current Standard EF sheet exactly. But the Certify datapoint/component modal shows the value actually APPLIED as 0.0212 kgCO2e/kg (confirmed at full precision inside the Pyrolysis Embodied component modal's INPUTS section) -- a mismatch between the entered datapoint value and the content of its own cited source document. 78.880 t x 0.0212 = 1.672256 t = Certify's displayed 1.672 t (exact reconciliation); 78.880 t x 0.02116 (the source's actual value) = 1.6691 t -- a 0.0029 t (~0.17%) discrepancy, immaterial to Net CDR (101.64 t) and conservative in direction (higher EF entered = more emissions = lower reported net, not an over-credit)."
+  },
+  "bcu_certificate": {
+    "_primary_source_opened": [
+      {
+        "file": "Charm-RetirementCertificate-RD-EACs-20251218.pdf",
+        "action": "pdf_read",
+        "artifact_path": "outputs/qa/batch-INJ-08-2026-W4-AECN-Truck/BCU_RD_EAC_Cert.pdf",
+        "evidence": "Downloaded via Certify's 'Download source' button and read in full (1 page)."
+      }
+    ],
+    "retiring_organization": "Amazon.com Services LLC",
+    "on_behalf_of": "Charm Industrial, Inc",
+    "date_of_retirement": "Dec 18, 2025",
+    "vintage_year": 2024,
+    "commodity_type": "Renewable Diesel TERCS",
+    "number_of_tercs_retired": 2795,
+    "verification_body": "Turner, Mason & Company",
+    "certificate_number": "TERC1012_2024_DF_RENEWABLE_DIESEL-13-47206-50000",
+    "note": "Pooled certificate (2,795 t total) reused across multiple Charm removals per established precedent (e.g. 2-181's Charm-A4 cert reused across 7 shipments). This removal draws 19.808 t against it, exactly matching the transport process activity sum (full coverage, no over-crediting). Total drawdown across all removals citing this cert was not verified this session (out of scope for a single-batch QA)."
+  },
+  "route_map_check": {
+    "_primary_source_opened": [
+      {
+        "file": "AECN to Basco.png",
+        "action": "image_read",
+        "evidence": "Opened Certify Sources preview and screenshotted. Google Maps route from '175 Portage des Mousses, Port-Cartier' (BioEnergie AE Cote-Nord) to '4687 LA-115, St Landry, LA 71367' (Charm Basco) -- origin/destination match the BOLs exactly. Route line and driving-time estimates (~35-36 hr) visible confirming a genuine long-haul truck route, consistent with the ~2,197mi applied distance."
+      }
+    ]
+  },
+  "_derived_values": {
+    "bol_sum_kg": 78880,
+    "bol_sum_note": "19560 (2471-T) + 19870 (2472-T) + 19400 (2474-T) + 20050 (2477-T) = 78,880 kg = Certify Bio-Oil Mass - AECN (78.880 t) exactly.",
+    "sparging_loss_recalc_kg": 1017.552,
+    "sparging_loss_recalc_note": "78,880 kg x 0.0129 = 1,017.552 kg = Ops Notes rollup Sparging Loss exactly.",
+    "filtration_loss_recalc_kg": 151.8317736,
+    "filtration_loss_recalc_note": "(78,880 - 1,017.552) x 0.00195 = 151.8317736 kg = Ops Notes rollup Filtration Loss exactly.",
+    "mobi_recalc_kg": 77710.61623,
+    "mobi_recalc_note": "78,880 - 1,017.552 - 151.8317736 - 0 = 77,710.61623 kg = Certify Mass of Injectant (per injection) 77.711 t exactly.",
+    "gross_co2e_recalc_t": 115.1258,
+    "gross_co2e_recalc_note": "77.71061623 t x 0.404 x 3.667 = 115.1258 t = Certify Injection Sequestration 115.126 t (matches within rounding).",
+    "pyrolysis_process_recalc_t": 10.8159,
+    "pyrolysis_process_recalc_note": "78.880 t x 0.1371171258 = 10.8159 t = Certify Pyrolysis Process 10.816 t exactly.",
+    "pyrolysis_embodied_recalc_using_live_sheet_ef_t": 1.6691,
+    "pyrolysis_embodied_recalc_using_live_sheet_ef_note": "78.880 t x 0.02116 (live/attached-source value) = 1.6691 t -- does NOT match Certify's displayed 1.672 t.",
+    "pyrolysis_embodied_recalc_using_applied_ef_t": 1.672256,
+    "pyrolysis_embodied_recalc_using_applied_ef_note": "78.880 t x 0.0212 (value actually shown in the component modal INPUTS) = 1.672256 t = Certify displayed 1.672 t exactly. Confirms 0.0212 is the value in use, not 0.02116.",
+    "transport_process_recalc_t": 19.8083,
+    "transport_process_recalc_note": "78.880 t x 2,197 mi x 0.0001143 MTCO2e/(t.mi) = 19.8083 t = Certify Transport Process 19.808 t exactly.",
+    "transport_embodied_recalc_t": 0.521919,
+    "transport_embodied_recalc_note": "2,197 mi x 0.23756 kgCO2e/mi = 521.919 kg = 0.521919 t = Certify Transport Embodied 0.522 t (matches within rounding).",
+    "bcu_vs_transport_process_check": "BCU (Constant CO2 reduction) 19.808 t = Transport Process activity 19.808 t exactly -- full coverage, no over-crediting.",
+    "net_recalc_t": 101.64,
+    "net_recalc_note": "115.126 + 19.808 - 32.818 - 0.476 = 101.640 t = Certify displayed Net CO2e Removed exactly.",
+    "mass_of_product_uncertainty_expected_kg": 290.28,
+    "mass_of_product_uncertainty_expected_note": "4 discrete BOL weighings x 72.57 kg = 290.28 kg -- matches the value correctly applied on Transport Process, Pyrolysis Process, and Pyrolysis Embodied (all citing Bio-Oil Mass - AECN, 78,880 +/-290.28 kg). Injection Sequestration's 'Mass of product' input instead shows Mass of Injectant (77,710.61623 kg) with only +/-4.53592 kg uncertainty -- a ~64x understatement relative to the expected 290.28 kg (or a proportionally-scaled ~286 kg if scaled by the post-loss fraction), on the single largest component in the removal (115.126 t of 101.64 t net). No documented methodology change was found (in the VVB Guidance or Ops Notes comments) that would justify this smaller figure for BOL-sourced direct-truck batches specifically.",
+    "mobi_total_loss_kg": 1169.3837736,
+    "mobi_total_loss_pct": 1.4826,
+    "mobi_total_loss_note": "1,017.552 (sparging) + 151.8317736 (filtration) = 1,169.3837736 kg = 1.4826% of 78,880 kg BOL sum."
+  },
+  "certify": {
+    "attachment_map": {
+      "Mass of Injectant (per injection)": [
+        "INJ-08-2026-W4 Ops Notes.xlsx"
+      ],
+      "Bio-Oil Mass - AECN": [
+        "BOL_2471-T.pdf",
+        "BOL_2472-T.pdf",
+        "BOL_2474-T.pdf",
+        "BOL_2477-T.pdf",
+        "INJ-08-2026-W4 Ops Notes.xlsx"
+      ],
+      "Carbon Content of Bio-oil Injected (per injection)": [
+        "CHARM INDUSTRIAL - 08-2026-W4 AECN + QOWV (SR26-05110.001-002).pdf",
+        "INJ-08-2026-W4 Ops Notes.xlsx"
+      ],
+      "AECN Production Process Emissions": [
+        "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jan2026 to 30Jun2026.xlsx",
+        "Supporting GHG data 30Jun2026 S.xlsx",
+        "FH 2026 LCA w Stack Emissions.xlsx"
+      ],
+      "AECN Production Embodied Emissions": [
+        "Standard Emission Factors + Calculations (4).xlsx"
+      ],
+      "Aggregate Distance Transported AECN to Basco": [
+        "Aug-19-2026-distance-route_map.png",
+        "Aug-21-2026-distance-route_map.png",
+        "Aug-22-2026-distance-route_map.png",
+        "BOL_2471-T.pdf",
+        "BOL_2472-T.pdf",
+        "BOL_2474-T.pdf",
+        "BOL_2477-T.pdf",
+        "AECN to Basco.png",
+        "INJ-08-2026-W4 Ops Notes.xlsx"
+      ],
+      "Distance from AECN to Basco": [
+        "AECN to Basco.png"
+      ],
+      "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck": [
+        "Standard Emission Factors + Calculations (8).xlsx"
+      ],
+      "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck": [
+        "Standard Emission Factors + Calculations (8).xlsx"
+      ],
+      "Constant CO2 reduction": [
+        "Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+      ]
+    },
+    "required_evidence": {
+      "Mass of Injectant": [
+        "ops_notes"
+      ],
+      "Bio-Oil Mass - AECN": [
+        "bol",
+        "ops_notes"
+      ],
+      "Carbon Content": [
+        "lab"
+      ],
+      "AECN Production Process Emissions": [
+        "lca"
+      ],
+      "AECN Production Embodied Emissions": [
+        "ef_sheet"
+      ],
+      "Aggregate Distance": [
+        "map_or_watco",
+        "ops_notes"
+      ],
+      "Distance from": [
+        "map_or_watco"
+      ],
+      "Emissions Factor": [
+        "ef_sheet"
+      ],
+      "Emission Factors": [
+        "ef_sheet"
+      ]
+    },
+    "required_evidence_note": "Override of the rail-validated AECN MATRICES entry: this is a direct-truck batch where wellhead scale tickets do not exist by documented policy (2026-05-26 methodology change) -- Mass of Injectant and Bio-Oil Mass - AECN require ops_notes/bol evidence, not scale_ticket."
+  }
+}

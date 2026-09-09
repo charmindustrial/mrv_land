@@ -397,7 +397,17 @@ def main(argv=None):
     # write failure). They look "empty" in the spreadsheet but the Item label
     # is still there, so they're not legitimate section headers either.
     empty_status_rows = []
-    section_header_re = re.compile(r"^(GATE \d|Categories N/A|Phase \d Summary|Cross-Agent|Universal Cross-Cutting|Substantive FAILs|FLAGs|Phase 2 deferrals)", re.IGNORECASE)
+    # The numbered all-caps form ("1. DIESEL", "13. BCU AND REC OFFSETS") is the
+    # section-header convention the delivered checklists actually use — see the
+    # Apr 2026 Basco checklist. Without it every section row trips Rule B as a
+    # dropped-content row. Added 2026-08-10; recognises the heading style only,
+    # and changes no citation rule.
+    section_header_re = re.compile(
+        r"^(GATE \d|Categories N/A|Phase \d Summary|Cross-Agent|Universal Cross-Cutting"
+        r"|Substantive FAILs|FLAGs|Phase 2 deferrals"
+        r"|\d{1,2}\.\s+[A-Z][A-Z0-9 &/—().,+-]*$)",
+        re.IGNORECASE,
+    )
     for r in range(1, ws.max_row + 1):
         item = ws.cell(row=r, column=1).value
         status = ws.cell(row=r, column=2).value

@@ -1,0 +1,648 @@
+{
+  "batch_id": "INJ-08-2026-W2 (WODO)",
+  "oil_type": "WODO",
+  "reporting_period": "August 1 - August 31 2026 RP; injection week 2026-08-01 to 2026-08-08 (Certify window 02-08 Aug 2026)",
+  "certify_removal_id": "rmv_1M0DA1NG01S0J6WC",
+  "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M0DA1NG01S0J6WC/edit",
+  "drive_folder_url": "https://drive.google.com/drive/folders/1rngFWvqZA76m6PR-_28z4VGTnfp9AS57",
+  "n_totes": 17,
+  "production_periods": [
+    {
+      "pp": "February 2026",
+      "ci": 0.84989612258998,
+      "n_totes": 3,
+      "net_produced_kg": 3310.2,
+      "tags": [
+        301011,
+        300051,
+        301031
+      ]
+    },
+    {
+      "pp": "June 2026",
+      "ci": 1.1105355635937064,
+      "n_totes": 9,
+      "net_produced_kg": 9706.6,
+      "tags": [
+        301199,
+        301203,
+        301205,
+        301206,
+        301226,
+        301248,
+        301256,
+        301266,
+        301293
+      ]
+    },
+    {
+      "pp": "July 2026 and later (Jan-Jun 2026 rolling 6-mo CI, H2 2026 = 0.795241)",
+      "ci": 0.795241,
+      "n_totes": 5,
+      "net_produced_kg": 5587.0,
+      "tags": [
+        301233,
+        301234,
+        301235,
+        301243,
+        301259
+      ]
+    }
+  ],
+  "vvb_guidance": {
+    "live_source_url": "https://docs.google.com/document/d/1_dYfx8sZERQI5fMPAtIaOsYNE5aQupm7AYHoIFsEH7Y/edit (VVB Guidance August 1 - August 31, owner garrett.lutz@charmindustrial.com)",
+    "read_in_full": true,
+    "sections_present": [
+      "Trailer Standard Empty Weight (AECN Rail Offloads) - AECN Week 1 only, not applicable to WODO",
+      "QOWV Tote Transport - Totes Routed via Kansas (Weeks 3 and 4) - QOWV/Aqueous only, not applicable to WODO Week 2",
+      "QOWV Tote Transport - Vehicle Class Emission Factors - QOWV only; confirms 'the factors the equivalent WODO tote transport has always used' are Flatbed Truck fuel EF 0.1384 kg CO2e/tonne-mile and Non-Tanker Truck embodied EF 0.19279 kg CO2e/mile - directly relevant, confirms WODO EF basis",
+      "AECN Pyrolysis Process Emissions - Updated H2 2026 Emission Factor - AECN only, not applicable to WODO"
+    ],
+    "wodo_week2_specific_items": "none - no guidance item in this period's doc specifically addresses INJ-08-2026-W2 WODO; the only WODO-relevant content is the confirmation (in the QOWV EF-correction section) that Flatbed/Non-Tanker factors are what WODO tote transport has always used, consistent with what this batch's Certify components show",
+    "_primary_source_opened": [
+      {
+        "file": "VVB Guidance August 1 - August 31",
+        "action": "pdf_read",
+        "live_source_url": "https://docs.google.com/document/d/1_dYfx8sZERQI5fMPAtIaOsYNE5aQupm7AYHoIFsEH7Y/edit",
+        "evidence": "Full document downloaded and read in full via Drive connector, decoded from base64, all four guidance sections read verbatim"
+      }
+    ]
+  },
+  "batch_folder_inventory": [
+    {
+      "name": "Completed QA Checklists",
+      "type": "folder"
+    },
+    {
+      "name": "Scale Tickets",
+      "type": "folder",
+      "note": "contains only AECN railcar offload scale tickets (SHPX215082, SHPX215070, TILX200228, SHPX215090) - no WODO records, consistent with WODO's IBC tote-tag-mass-is-authoritative convention"
+    },
+    {
+      "name": "Testing",
+      "type": "folder",
+      "contents": [
+        "08-2026-W2 AECN - 08-2026 W2 QOWV.pdf",
+        "8-2026-W2 WODO - SR26-04856.001.pdf"
+      ]
+    },
+    {
+      "name": "INJ-08-2026-W2 Ops Notes",
+      "type": "google_sheet",
+      "id": "19QNUHf2W4Lw3i0_3jM9EjqYApv6GZh0EPE887skrcdI",
+      "tabs": [
+        "Summary",
+        "AECN Rail",
+        "WODO",
+        "AECN Truck",
+        "QOWV",
+        "Kerry",
+        "QOWV Shipments & EE Allocation",
+        "WODO Shipments & EE Allocation"
+      ]
+    }
+  ],
+  "totes": [
+    {
+      "tag": 301011,
+      "gross_kg": 1229.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1171.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1163.56,
+      "production_period": "MFO Lot 4768 (LOT00004768), February 2026",
+      "ci": 0.84989612258998,
+      "production_emissions_kg": 995.568318,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 300051,
+      "gross_kg": 1103.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1045.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1037.56,
+      "production_period": "MFO Lot 4771 (LOT00004771), February 2026",
+      "ci": 0.84989612258998,
+      "production_emissions_kg": 888.4814066,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301031,
+      "gross_kg": 1151.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1093.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1085.56,
+      "production_period": "MFO Lot 4793 (LOT00004793), February 2026",
+      "ci": 0.84989612258998,
+      "production_emissions_kg": 929.2764204,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301199,
+      "gross_kg": 1180.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1122.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1114.56,
+      "production_period": "MFO Lot 301199 (LOT00301199), June 2026",
+      "ci": 1.1105355635937064,
+      "production_emissions_kg": 1246.465117,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301203,
+      "gross_kg": 1078.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1020.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1012.56,
+      "production_period": "MFO Lot 301203 (LOT00301203), June 2026",
+      "ci": 1.1105355635937064,
+      "production_emissions_kg": 1133.190489,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301205,
+      "gross_kg": 1194.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1136.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1128.56,
+      "production_period": "MFO Lot 301205 (LOT00301205), June 2026",
+      "ci": 1.1105355635937064,
+      "production_emissions_kg": 1262.012614,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301206,
+      "gross_kg": 1166.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1108.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1100.56,
+      "production_period": "MFO Lot 301206 (LOT00301206), June 2026",
+      "ci": 1.1105355635937064,
+      "production_emissions_kg": 1230.917619,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301226,
+      "gross_kg": 1116.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1058.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1050.56,
+      "production_period": "MFO Lot 301226 (LOT00301226), June 2026",
+      "ci": 1.1105355635937064,
+      "production_emissions_kg": 1175.390841,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301233,
+      "gross_kg": 1199.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1141.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1133.56,
+      "production_period": "MFO Lot 301233 (LOT00301233), July 2026",
+      "ci": 0.795241,
+      "production_emissions_kg": 907.6880774,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301234,
+      "gross_kg": 1221.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1163.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1155.56,
+      "production_period": "MFO Lot 301234 (LOT00301234), July 2026",
+      "ci": 0.795241,
+      "production_emissions_kg": 925.1833794,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301235,
+      "gross_kg": 1149.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1091.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1083.56,
+      "production_period": "MFO Lot 301235 (LOT00301235), July 2026",
+      "ci": 0.795241,
+      "production_emissions_kg": 867.9260274,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301243,
+      "gross_kg": 1182.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1124.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1116.56,
+      "production_period": "MFO Lot 301243 (LOT00301243), July 2026",
+      "ci": 0.795241,
+      "production_emissions_kg": 894.1689804,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301248,
+      "gross_kg": 975.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 917.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 909.56,
+      "production_period": "MFO Lot 301248 (LOT00301248), June 2026",
+      "ci": 1.1105355635937064,
+      "production_emissions_kg": 1018.805326,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301256,
+      "gross_kg": 1154.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1096.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1088.56,
+      "production_period": "MFO Lot 301256 (LOT00301256), June 2026",
+      "ci": 1.1105355635937064,
+      "production_emissions_kg": 1217.591192,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301259,
+      "gross_kg": 1124.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1066.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1058.56,
+      "production_period": "MFO Lot 301259 (LOT00301259), July 2026",
+      "ci": 0.795241,
+      "production_emissions_kg": 848.0450024,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301266,
+      "gross_kg": 1144.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1086.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1078.56,
+      "production_period": "MFO Lot 301266 (LOT00301266), June 2026",
+      "ci": 1.1105355635937064,
+      "production_emissions_kg": 1206.485836,
+      "uncertainty_kg": 1.13398
+    },
+    {
+      "tag": 301293,
+      "gross_kg": 1218.0,
+      "tare_kg": 57.6,
+      "net_produced_kg": 1160.4,
+      "standard_loss_kg": 7.84,
+      "net_injected_kg": 1152.56,
+      "production_period": "MFO Lot 301293 (LOT00301293), June 2026",
+      "ci": 1.1105355635937064,
+      "production_emissions_kg": 1288.665468,
+      "uncertainty_kg": 1.13398
+    }
+  ],
+  "ops_notes_totals": {
+    "source_file": "INJ-08-2026-W2 Ops Notes.xlsx (Drive id 19QNUHf2W4Lw3i0_3jM9EjqYApv6GZh0EPE887skrcdI), WODO tab",
+    "total_mass_transported_kg": 19583.0,
+    "total_mass_transported_formula": "B29 =SUM(B11:B27)",
+    "total_oil_produced_kg": 18603.8,
+    "total_oil_produced_formula": "D29 =SUM(D11:D27)",
+    "total_oil_in_batch_kg": 18470.52,
+    "total_oil_in_batch_formula": "F29 =SUM(F11:F27); per-tote F=D-E where E11:E27 =$L$8 (Standard Loss constant 7.84 kg/tote)",
+    "total_standard_loss_kg": 133.28,
+    "weighted_avg_ci": 0.9694719419,
+    "weighted_avg_ci_formula": "H29 =IFERROR(SUMPRODUCT(D11:D27,H11:H27)/SUMIF(H11:H27,\"<>\",D11:D27),\"\")",
+    "total_production_emissions_kg": 18035.86211,
+    "total_production_emissions_formula": "I29 =SUM(I11:I27); per-tote I=IF(H=\"\",\"\",H*D) i.e. CI x Net Oil Produced (net-in-tote, NOT net-in-batch)",
+    "total_uncertainty_kg": 19.27766,
+    "total_uncertainty_formula": "J29 =SUM(J11:J27); per-tote J=2.5*$L$4 = 2.5 lb x 0.453592 kg/lb = 1.13398 kg/tote x 17 totes",
+    "standard_loss_per_tote_kg": 7.84,
+    "standard_loss_source": "L8 'WODO Standard Loss (kg/tote), 2026 = Mean + 1 SD', hyperlinked to Tote Loss Dataset (https://docs.google.com/spreadsheets/d/15fnYOYMmu-7a-p8Alst6mAOsV7X854y6HBDYwQRUm5s/edit)",
+    "wodo_h2_2026_rolling_ci": 0.795241,
+    "wodo_h2_2026_rolling_ci_cell": "L7, comment: 'H2 2026 rolling 6-month Carbon Intensity (Garrett, 2026-08-18). Computed from Jan-Jun 2026 Production Period Summaries (V2_Charm_BioOil_Mass_Weighted_CI_Jan-Jun_2026.xlsx), held fixed for Jul-Dec 2026 reporting... Supersedes the per-PP Carbon Intensity lookup for this column -- every tote in this ledger uses this ONE value regardless of which PP it originated from.'",
+    "rolling_ci_applied_correctly": "Rolling 6-mo CI (0.795241) applied ONLY to the 5 totes whose production-period label is 'July 2026' (301233,301234,301235,301243,301259) - i.e. oil actually PRODUCED in Jul 2026, consistent with the corrected Charm H1/H2 2026 CI policy (workspace memory project_charm_h1_2026_ci_policy.md): blended/rolling CI applies to oil produced within the new window, not to older-production oil merely injected later. The 12 Feb/Jun-2026-produced totes correctly retain their per-month PP CI, not the rolling figure.",
+    "_primary_source_opened": [
+      {
+        "file": "INJ-08-2026-W2 Ops Notes.xlsx",
+        "action": "sheet_grid_read",
+        "evidence": "Downloaded full xlsx export via Drive connector, opened with openpyxl in BOTH data_only=False (formulas+comments) and data_only=True (values) modes, dumped every non-empty cell of the WODO tab (A1:O33) and the WODO Shipments & EE Allocation tab (A1:G34)"
+      }
+    ]
+  },
+  "shipment_tracker_location": "Embedded as a tab within the same Ops Notes workbook ('WODO Shipments & EE Allocation'), not a standalone file. This is the current weekly time-block schema (validated on prior WODO batches INJ-06-2026-W1 through INJ-07-2026-W2) - no separate 'Bio-Oil Shipment Tracker' or 'Charm Contents' file exists for this batch; both roles are folded into the Ops Notes workbook.",
+  "shipment_tracker_roster": {
+    "batch": "INJ-08-2026-W2",
+    "fraction": "WODO",
+    "inj_week": "2026-08-01 to 2026-08-08",
+    "n_totes_cell": "D6 =COUNTA(WODO!A11:A27) = 17 -- computed LIVE by counting rows in the WODO tab itself, so there is no independently-maintained roster that could drift out of sync with the source tab (eliminates the tote-roster-mismatch failure mode by construction)",
+    "shipping_orders": "1 shipping order: COLA28",
+    "origin_destination_distance_one_way_mi": 1201.0,
+    "distance_cell": "B8 = 1201 (Charm CO -> Basco LA distance, one-way)"
+  },
+  "shipment_tracker_truck": {
+    "truck_id": "COLA28",
+    "ship_date": "2026-07-27",
+    "total_totes_on_truck": 20,
+    "batch_relevant_totes": 17,
+    "batch_share_of_truck": 0.85,
+    "batch_share_formula": "E12 =IFERROR(D12/C12,\"\") = 17/20 = 0.85",
+    "mileage_one_way_mi": 1201,
+    "mileage_cell_formula": "F12 =$B$8",
+    "allocated_miles": 1020.85,
+    "allocated_miles_formula": "G12 =IFERROR(E12*F12,\"\") = 0.85*1201 = 1020.85",
+    "total_row_formula": "C14=SUM(C12)=20; D14=SUM(D12)=17; G14=SUM(G12)=1020.85"
+  },
+  "shipment_tracker_cells_are_formulas": {
+    "batch_share_of_truck": "=IFERROR(D12/C12,\"\")",
+    "allocated_miles": "=IFERROR(E12*F12,\"\")",
+    "totes_total_row": "=SUM(C12)",
+    "batch_totes_total_row": "=SUM(D12)",
+    "allocated_miles_total_row": "=SUM(G12)",
+    "distance_input_cell": "B8 = 1201 (a raw input value, evidenced by Google Maps routing map - not a computed output)"
+  },
+  "lab_results": {
+    "file": "8-2026-W2 WODO - SR26-04856.001.pdf",
+    "certificate_number": "SR26-04856.001",
+    "sgs_order_no": "5482329",
+    "client_id": "8-2026-W2 WODO",
+    "product_description": "Oil - WODO",
+    "location": "Fort Lupton, CO",
+    "sampled_by": "Client",
+    "received": "13-Aug-2026 10:00",
+    "analysed": "13-Aug-2026 12:59 - 13-Aug-2026 14:31",
+    "carbon_pct": 65.4,
+    "carbon_flag": "# (result outside test method limits/analytical range used in method precision study - lab-noted QA flag, not an MRV data-quality issue)",
+    "hydrogen_pct": 8.4,
+    "hydrogen_flag": "# (same note as carbon)",
+    "nitrogen_pct": "<0.75",
+    "kinematic_viscosity_cst": 1136,
+    "acid_number_mgKOHg": 57,
+    "density_15C_gcm3": 1.188,
+    "_primary_source_opened": [
+      {
+        "file": "8-2026-W2 WODO - SR26-04856.001.pdf",
+        "action": "pdf_read",
+        "evidence": "Read directly from Drive-mounted local file, full certificate text extracted"
+      }
+    ]
+  },
+  "standard_efs_2026": {
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit, tab '2026'",
+    "flatbed_truck_process_ef_MTCO2e_per_tmi": 0.0001384,
+    "flatbed_truck_process_ef_row": "row 7, 'Truck Transport Fuel Use (Well to Wheel) -- Flatbed Truck', Source: GLEC V3.2 2025, Updated",
+    "non_tanker_truck_embodied_ef_MTCO2e_per_mi": 0.0001927908256,
+    "non_tanker_truck_embodied_ef_row": "row 12, 'Vehicle Embodied Emissions --Non-Tanker Truck', Source: GLEC V3.2 2025, Updated",
+    "_primary_source_opened": [
+      {
+        "file": "Standard Emission Factors + Calculations (8).xlsx",
+        "action": "sheet_grid_read",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit",
+        "evidence": "Downloaded full xlsx export of the live Google Sheet via Drive connector, opened with openpyxl data_only=True, read 2026 tab rows 1-13 directly"
+      }
+    ]
+  },
+  "google_maps_options": [
+    {
+      "route": "via US-287 S and US-287 S",
+      "time": "17 hr 22 min",
+      "distance_mi": 1132,
+      "note": "fastest route now, avoids road closures"
+    },
+    {
+      "route": "via US-287 S, US-287 S and I-20 E",
+      "time": "17 hr 32 min",
+      "distance_mi": 1129,
+      "note": "avoids road closures"
+    },
+    {
+      "route": "via I-70 E",
+      "time": "17 hr 36 min",
+      "distance_mi": 1201,
+      "note": "has tolls; destination in a different time zone - LONGEST option, this is the one Certify uses"
+    }
+  ],
+  "google_maps_destination": "4675 LA-115, St Landry, LA 71367 (Basco)",
+  "certify_components": {
+    "injection_sequestration": {
+      "component_id": "cmp_1M0DA1NG01S0EC8P",
+      "value_tCO2e": 44.296,
+      "carbon_content_pct": 65.4,
+      "carbon_content_uncertainty_pct": 0.2616,
+      "carbon_content_sources": 2,
+      "carbon_content_source_files": [
+        "INJ-08-2026-W2 Ops Notes.xlsx",
+        "8-2026-W2 WODO - SR26-04856.001.pdf"
+      ],
+      "mass_of_product_kg": 18470.52,
+      "mass_of_product_uncertainty_kg": 19.28,
+      "mass_of_product_sources": 1,
+      "mass_of_product_source_files": [
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "recomputed_tCO2e": 44.296229488
+    },
+    "transport_process": {
+      "component_id": "cmp_1M0DA1NG01S0214B",
+      "name": "CO to LA Flatbed Truck Transport Process Emissions - WODO",
+      "value_tCO2e": 3.255,
+      "emission_factor_kgCO2e_per_tmi": 0.1384,
+      "ef_sources": 1,
+      "distance_mi": 1201,
+      "distance_datapoint_name": "Distance from Miniforge CO to Basco",
+      "distance_sources": 1,
+      "distance_source_files": [
+        "CO to Basco Routing Map.png"
+      ],
+      "mass_of_load_kg": 19583,
+      "mass_of_load_uncertainty_kg": 19.28,
+      "mass_of_load_datapoint_name": "QOWV Trip Count Source",
+      "mass_of_load_datapoint_name_issue": "Datapoint titled 'QOWV Trip Count Source' on a WODO removal - QOWV is Charm's AQUEOUS fraction, not WODO. Value and uncertainty are correct (19,583 kg = Ops Notes Total Mass Transported exactly; 19.28 kg = 17 x 1.134 kg). Mislabel only - naming hygiene defect, recurring pattern seen on multiple prior WODO batches (INJ-07-2026-W1 '5.3 WODO - Mass (Net) (CO to KS)', INJ-07-2026-W2 '5.3 QOWV (Aqueous Oil) - Mass (Net) (CO to KS)').",
+      "mass_of_load_sources": 1,
+      "mass_of_load_source_files": [
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "recomputed_tCO2e": 3.2550508912
+    },
+    "transport_embodied": {
+      "component_id": "cmp_1M0DA1NG01S0NP00",
+      "name": "CO to LA Flatbed Truck Transport Embodied Emissions - WODO",
+      "value_tCO2e": 0.197,
+      "distance_emission_factor_kgCO2e_per_mi": 0.19279,
+      "ef_sources": 1,
+      "distance_traveled_mi": 1020.9,
+      "distance_datapoint_name": "Aggregate Distance Transported CO to LA - WODO",
+      "distance_sources": 2,
+      "distance_source_files": [
+        "CO to Basco Routing Map.png",
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "recomputed_tCO2e": 0.1967896865
+    },
+    "pyrolysis_production_emissions": {
+      "component_id": "cmp_1M0DA1NG01S049EM",
+      "name": "Pyrolysis - Charm WODO PP Emissions",
+      "value_tCO2e": 18.036,
+      "carbon_emission_factor_tCO2e_per_t": 0.9695,
+      "ci_datapoint_name": "WODO Tote - Carbon Intensity",
+      "ci_sources": 1,
+      "ci_source_files": [
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "mass_kg": 18603.8,
+      "mass_uncertainty_kg": 19.28,
+      "mass_datapoint_name": "WODO Tote - Mass (Gross-Tote) for pyrolysis",
+      "mass_sources": 1,
+      "mass_source_files": [
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "recomputed_tCO2e_from_weighted_avg": 18.037582
+    },
+    "bcu_transport_process": {
+      "component_id": "cmp_1M0DC8EXN1S00NER",
+      "name": "BCU - Transport Process",
+      "value_tCO2e": 3.255,
+      "datapoint_name": "Constant CO2 reduction",
+      "value_kg": 3255,
+      "sources": 1,
+      "source_files": [
+        "Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+      ]
+    }
+  },
+  "certify_sources_tab_total": 6,
+  "certify_sources_tab_files": [
+    "8-2026-W2 WODO - SR26-04856.001.pdf",
+    "INJ-08-2026-W2 Ops Notes.xlsx",
+    "Standard Emission Factors + Calculations (8).xlsx (Non-Tanker Embodied EF)",
+    "Standard Emission Factors + Calculations (8).xlsx (Flatbed Process EF, same file two rows)",
+    "Charm-RetirementCertificate-RD-EACs-20251218.pdf",
+    "CO to Basco Routing Map.png"
+  ],
+  "certify_calc_view": {
+    "net_co2e_removed_t": 25.879,
+    "sequestrations_t": 44.296,
+    "adjustments_bcu_t": 3.255,
+    "activities_t": 21.488,
+    "uncertainty_discount_kg": 184,
+    "net_formula": "Net = Sequestrations(44.296) + Adjustments(3.255) - Activities(21.488) - Uncertainty Discount(0.184) = 25.879 t",
+    "datapoints_count": 10,
+    "activities_breakdown": {
+      "transport_process_t": 3.255,
+      "transport_embodied_t": 0.197,
+      "pyrolysis_t": 18.036,
+      "sum_t": 21.488
+    }
+  },
+  "lcs_use_kg": null,
+  "lcs_use_kg_detail": "N/A - WODO batch, LCS is Aqueous-only. Checked WODO tab (A1:O33) and WODO Shipments & EE Allocation tab (A1:G34) cell-by-cell dump - no LCS/Liquid Calcium Sulfate/buffer column or reference anywhere. All 5 Certify components enumerated - no LCS component.",
+  "_derived_values": {
+    "sum_gross_kg": 19583.0,
+    "sum_net_produced_kg": 18603.8,
+    "sum_net_injected_kg": 18470.52,
+    "sum_standard_loss_kg": 133.28,
+    "delta_gross_kg": 0.0,
+    "delta_net_produced_kg": 0.0,
+    "delta_net_injected_kg": 0.0,
+    "uncertainty_expected_kg": 19.27766,
+    "uncertainty_per_tote_kg": 1.13398,
+    "uncertainty_delta_kg": 0.0,
+    "c_uncertainty_expected_pct": 0.2616,
+    "weighted_ci_recomputed": 0.9694719419,
+    "production_emissions_recomputed_kg": 18035.86211,
+    "seq_recomputed_t": 44.296,
+    "process_recomputed_t": 3.255,
+    "embodied_recomputed_t": 0.197,
+    "pyrolysis_recomputed_t": 18.036,
+    "net_recomputed_t": 25.879,
+    "batch_share_of_truck": 0.85,
+    "batch_mileage_allocation_mi": 1020.85,
+    "bcu_kg": 3255,
+    "n_totes": 17,
+    "lb_per_weighing_event": 2.5
+  },
+  "_audit_log_path_hint": null,
+  "certify": {
+    "attachment_map": {
+      "Carbon Content of Bio-oil Injected (per injection)": [
+        "8-2026-W2 WODO - SR26-04856.001.pdf",
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "Mass of Injectant (per injection)": [
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck": [
+        "Standard Emission Factors + Calculations (8).xlsx"
+      ],
+      "Distance from Miniforge CO to Basco": [
+        "CO to Basco Routing Map.png"
+      ],
+      "QOWV Trip Count Source (mass of load, mislabeled)": [
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "Emissions Factor - Vehicle Embodied Emissions - Non-Tanker Truck": [
+        "Standard Emission Factors + Calculations (8).xlsx"
+      ],
+      "Aggregate Distance Transported CO to LA - WODO": [
+        "CO to Basco Routing Map.png",
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "WODO Tote - Carbon Intensity": [
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "WODO Tote - Mass (Gross-Tote) for pyrolysis": [
+        "INJ-08-2026-W2 Ops Notes.xlsx"
+      ],
+      "Constant CO2 reduction": [
+        "Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+      ]
+    },
+    "required_evidence": {
+      "note": "WODO matrix already validated in audit_attachments.MATRICES from prior batches (INJ-06-2026-W1, INJ-07-2026-W2). This batch's datapoint names match the validated matrix except the mass-of-load datapoint, which carries the defective name 'QOWV Trip Count Source' instead of the matrix's expected 'Transported CO to Basco' pattern - flagged as item 5.3, not a missing-evidence gap (the file attached, INJ-08-2026-W2 Ops Notes.xlsx, is correct and matches the ops_notes requirement).",
+      "Mass of Injectant": [
+        "ops_notes"
+      ],
+      "confirmed": true,
+      "Carbon Content of Bio-oil Injected": [
+        "lab",
+        "ops_notes"
+      ],
+      "confirmed_2": true,
+      "QOWV Trip Count Source (mass of load)": [
+        "ops_notes"
+      ],
+      "confirmed_3": "matches by content though not by matrix key name - see item 5.3 finding",
+      "WODO Tote - Carbon Intensity": [
+        "ops_notes"
+      ],
+      "confirmed_4": true,
+      "WODO Tote - Mass": [
+        "ops_notes"
+      ],
+      "confirmed_5": true,
+      "Aggregate Distance": [
+        "ops_notes",
+        "map_or_watco"
+      ],
+      "confirmed_6": true,
+      "Distance from": [
+        "map_or_watco"
+      ],
+      "confirmed_7": true,
+      "Emissions Factor": [
+        "ef_sheet"
+      ],
+      "confirmed_8": true,
+      "Constant CO": [
+        "eac_cert"
+      ],
+      "confirmed_9": true
+    }
+  }
+}

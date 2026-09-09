@@ -227,12 +227,14 @@ This document captures real failure patterns from batch QA sessions spanning bat
 
 **Fix applied (locked in via SKILL.md Gate 3 + lessons_learned.md, not promises):**
 
-1. Identify the root cause of the flagged finding before patching.
-2. Search every checklist evidence note for the specific number, source filename, datapoint name, or claim that drove the original finding. Don't rely on memory of which items reference what.
-3. Audit every hit. For each match, ask: does this item's status/reasoning still hold given the corrected understanding? If not, fix it in the same pass.
-4. Audit dropped findings too — when restructuring a checklist, real findings can fall through cracks alongside spurious ones. Re-check each prior version's findings list against the new structure before re-delivering.
-5. Re-run the audit script after edits.
-6. Only then re-deliver.
+Every step below is the QA agent's own work. None of it is ever handed to Max or Garrett — they receive the finished, internally consistent product.
+
+1. I identify the root cause of the flagged finding before patching anything.
+2. I go back through the checklist row by row and re-read every evidence note that cites the number, filename, datapoint name, or claim behind the original finding, re-opening the underlying documents myself rather than trusting my memory of which rows reference what.
+3. I audit every hit. For each match I ask: does this item's status/reasoning still hold given the corrected understanding? If not, I fix it in the same pass.
+4. I audit dropped findings too — when restructuring a checklist, real findings can fall through cracks alongside spurious ones. I re-check each prior version's findings list against the new structure before re-delivering.
+5. I re-run the audit script after edits.
+6. Only then do I re-deliver.
 
 This applies on first delivery, on Max-correction passes, AND on Garrett-correction passes. The standard isn't "fix what was named" — it's "deliver a product that's internally consistent." Half-fixes erode trust per-iteration faster than the original error.
 
@@ -279,3 +281,32 @@ This applies equally to AECN, Kerry, WODO, and Aqueous batch QA — newer skills
 13. **"Blocking" requires ≥3 enumerated tooling-path attempts.** Without enumeration, the label is invalid. The path you didn't try is the one yesterday-me used.
 14. **Rail-batch mass: run the railcar-balance check first.** Before flagging any rail offload's Ops Notes Cargo (kg) as wrong, verify whether `sum(all offloads in Ops Notes) == BOL_aggregate`. If yes, the per-offload divergence from raw scale ticket math is policy-driven (last-offload conservatism), not a reporting error. COBB by design carries raw scale-ticket entries and is expected to diverge from Ops Notes on the last-offload row.
 15. **Status reflects the finding, narrative doesn't replace status.** When the evidence note describes a divergence from comparable sister batches in the same RP — different file, different cert lot, different datapoint linkage — the row MUST be Flag at minimum. A Pass with a parenthetical "but sister batches use X instead" is the failure mode; that phrase IS the finding. Audit Mode 3 (`WITHIN_RP_INCONSISTENCY_RE`) enforces this structurally.
+16. **Read the period's VVB guidance doc before anything else, and read cell comments as well as cell values.** A number that matches no source document is at least as likely to be a documented substitution as an error, and Charm publishes its substitutions — in the reporting-period VVB guidance doc and in Ops Notes cell annotations. `data_only=True` hides the annotations. Establish what a number IS before writing a finding against it.
+
+---
+
+## Failure Category 14: Raising a finding against a documented method — not reading the period's VVB guidance, and reading cell values without cell comments
+
+### Batch INJ-07-2026-W1 — six Fails raised against a published standard tare
+
+**What happened:** The Ops Notes recorded an empty (tare) weight of 29,510 lb on three offloads (GRPX5188 offload_1, GRPX5188 offload_3, GPRX5107 offload_3). The agent read all 32 scale tickets, confirmed 29,510 lb appears on none of them, found that the filed empty ticket on those three offloads carries a different tractor or trailer than the paired full ticket, and concluded the Ops cells were transcription errors. It raised **six Fails** (2.3, 2.4, 2.5, 2.7, 5.2, 8.1), computed that two railcars' FC11 back-calc had therefore been "missed", and reported a 128.29 kg / 0.1877 tCO2e under-claim as a defect. It delivered all of this to Max.
+
+Every one of the six was wrong. Two documents said so:
+
+1. **"VVB Guidance July 1 - July 31"** (Drive, owner garrett.lutz@) has a section titled *Trailer Standard Empty Weight (AECN Rail Offloads)*: *"When an offload's empty scale ticket is missing, or its trailer/tractor does not match the Full ticket (a rig mismatch), the recorded empty weight cannot be used directly. In these cases a conservative per-trailer standard empty weight is substituted."* It publishes the table (KL192: n = 22, mean 29,321 lb, σ 189 lb, standard empty = 29,510 lb), states the conservatism (*"Because a heavier empty weight yields a lower net injected mass, mean + 1 sigma ensures the substitution is conservative (under-crediting)"*), and **names the exact three offloads** in a July 1–31 application list. It also explains the rig mismatch itself as *"an operational artifact of a drop-trailer delivery arrangement"* with the trailer, not the tractor, as the matching basis.
+2. **The Ops Notes workbook itself.** All three substituted cells carry a cell comment: *"Standard empty weight (KL192 = mean+1SD = 29,510 lb) substituted per Trailer Standard Empty Weight methodology (rig mismatch between full/empty ticket)."*
+
+**Root cause — two independent misses, either of which alone would have prevented this:**
+
+- The agent never looked for a reporting-period guidance doc. Gate 1 listed six source categories and none of them was "the doc where Charm writes down its methods."
+- The agent loaded the Ops Notes with `openpyxl.load_workbook(..., data_only=True)` and read cell *values*. Cell comments are not values. The explanation was in the workbook it had already downloaded.
+
+The 128.29 kg figure was arithmetically correct and its sign was correct; what was wrong was calling intended conservatism a defect. Being right about the arithmetic while wrong about the meaning still produces a false accusation.
+
+**The structural fixes (locked into SKILL.md, not promises):**
+
+1. **Gate 1 step 0** — read the reporting-period VVB guidance doc in full BEFORE any other source, record it under `vvb_guidance` with `live_source_url` and verbatim quotes. If none exists, record the search.
+2. **Gate 1 step 4** — Ops Notes reads must dump `cell.comment.text` for the offload table, which requires loading the workbook **without** `data_only=True`.
+3. **Gate 1 step 1** — a tractor/trailer mismatch is documented as the *trigger* for a standard-tare substitution, not automatically a finding. Check guidance + cell annotation before classifying it.
+
+**The principle:** before writing a finding against a number that doesn't tie, establish what the number *is*. A value that matches no source document is at least as likely to be a documented substitution as an error — and Charm publishes its substitutions. FC11 taught this for the railcar last-offload back-calc; this is the same lesson with a different method. When a value diverges from primary-source math, first ask "is there a published method that produces exactly this?" and go read it.

@@ -1,0 +1,47 @@
+Certify removal rmv_1KYWMYBJ51S0HH3N — read live 2026-08-06
+URL: https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYWMYBJ51S0HH3N/edit
+
+=== SOURCES TAB (6) : name -> linked datapoints ===
+7-2026-W1 WODO.pdf                              -> Carbon Content of Bio-oil Injected (per injection)                     [PRIVATE]
+INJ-07-2026-W1 Ops Notes.xlsx                   -> QOWV (Aqueous Oil) - Mass (Net) (CO to KS) + 4 more                    [PRIVATE]
+Standard Emission Factors + Calculations (8).xlsx -> Emissions Factor - Vehicle Embodied Emissions - Non-Tanker Truck      [PUBLIC]
+Standard Emission Factors + Calculations (8).xlsx -> Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck [PUBLIC]
+Charm-RetirementCertificate-RD-EACs-20251218.pdf -> Constant CO2 reduction                                                [PRIVATE]
+CO to Basco Routing Map.png                     -> Aggregate Distance Transported CO to LA - WODO + 1 more                [PUBLIC]
+
+=== DATAPOINTS TAB (10) : name | value | method | sources ===
+Aggregate Distance Transported CO to LA - WODO | 1,201 mi | REPORTED | CO to Basco Routing Map.png
+Emissions Factor - Vehicle Embodied Emissions - Non-Tanker Truck | 0.1198 kgCO2e/km | DERIVED | Standard Emission Factors + Calculations (8).xlsx
+QOWV (Aqueous Oil) - Mass (Net) (CO to KS) | 18.926 t | REPORTED | INJ-07-2026-W1 Ops Notes.xlsx
+Distance from Miniforge CO to Basco | 1,201 mi | DERIVED | CO to Basco Routing Map.png
+Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck | 0.09 kgCO2e/(km*t) | DERIVED | Standard Emission Factors + Calculations (8).xlsx
+WODO Tote - Mass (Gross-Tote) for pyrolysis | 17.947 t | REPORTED | INJ-07-2026-W1 Ops Notes.xlsx
+WODO Tote - Carbon Intensity | 0.81 tCO2e/t | REPORTED | INJ-07-2026-W1 Ops Notes.xlsx
+Mass of Injectant (per injection) | 17.885 t | REPORTED | INJ-07-2026-W1 Ops Notes.xlsx
+Carbon Content of Bio-oil Injected (per injection) | 51.60 % | REPORTED | INJ-07-2026-W1 Ops Notes.xlsx + 1 more
+Constant CO2 reduction | 3.146 tCO2e | REPORTED | Charm-RetirementCertificate-RD-EACs-20251218.pdf
+
+NOTE — the Aggregate Distance datapoint lists exactly ONE source (CO to Basco Routing Map.png).
+The Ops Notes appears against five OTHER datapoints and is NOT among the sources of Aggregate Distance.
+
+=== COMPONENT MODALS (INPUTS read individually) ===
+Injection sequestration  cmp_1KYWMYBJ51S0DPFZ  33.841 tCO2e
+  Carbon content of product | Carbon Content of Bio-oil Injected (per injection) | 51.6 | +/-0.2064 | % | 2 sources
+  Mass of product          | Mass of Injectant (per injection)                  | 17,885 | +/-19.28 | kg | 1 source
+CO to LA Flatbed Truck Transport Process Emissions - WODO  cmp_1KYWMYBJ51S01BBM  3.146 tCO2e (16.61%)
+  Emission factor of transport | Flatbed Truck | 0.1384 kgCO2e/(t*mi) | 1 source
+  Distance traveled            | Distance from Miniforge CO to Basco | 1,201 mi | 1 source
+  Mass of load                 | QOWV (Aqueous Oil) - Mass (Net) (CO to KS) | 18,926 | +/-19.28 | kg | 1 source
+CO to LA Flatbed Truck Transport Embodied Emissions - WODO  cmp_1KYWMYBJ51S0N079  0.232 tCO2e (1.22%)
+  Distance emission factor | Non-Tanker Truck | 0.19279 kgCO2e/mi | 1 source
+  Distance traveled        | Aggregate Distance Transported CO to LA - WODO | 1,201 mi | 1 source
+Pyrolysis - Charm WODO PP Emissions  cmp_1KYWMYBJ51S03KNX  14.532 tCO2e (76.73%)
+  Carbon emission factor | WODO Tote - Carbon Intensity | 0.809711 tCO2e/t | 1 source
+  Mass                   | WODO Tote - Mass (Gross-Tote) for pyrolysis | 17,946.8 | +/-19.277659999999997 | kg | 1 source
+BCU - Transport Process  cmp_1KYX8P6WE1S05PP2  3.146 tCO2e (16.61%)
+  Constant CO2 reduction | 3,146 kgCO2e | 1 source
+
+=== CALCULATION VIEW ===
+Net CO2e Removed 18.937 t = Sequestrations 33.841 t + Adjustments 3.146 tCO2e - Activities 17.909 tCO2e - Uncertainty Discount 141 kg
+No counterfactual category present (zero per protocol).
+5 components total. No LCS component. No component other than the five above.

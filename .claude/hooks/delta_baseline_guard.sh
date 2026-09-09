@@ -47,6 +47,15 @@ case "$cwd" in "$WORKSPACE"|"$WORKSPACE"/*) : ;; *) exit 0 ;; esac
 transcript="$(printf '%s' "$input" | jq -r '.transcript_path // empty' 2>/dev/null || echo "")"
 [ -f "$transcript" ] || exit 0
 
+# Circuit breaker: shared across every hook, see ~/.claude/hooks/lib/circuit_breaker.sh
+SESSION_DIR="$(dirname "$transcript")"
+source ~/.claude/hooks/lib/circuit_breaker.sh
+cb_init "$SESSION_DIR/delta_baseline_block_count" 3
+if cb_tripped "DELTA-BASELINE GUARD"; then
+  echo "Manually confirm the PDD and KB were actually read before this deliverable ships." >&2
+  exit 0
+fi
+
 DELIV_DIRS=("$WORKSPACE/outputs/deliverables" "$WORKSPACE/outputs/mrv-operational-documents")
 
 # Did this turn touch a compliance/planning deliverable? (modified in last 3 min)
@@ -80,12 +89,29 @@ if [ "$pdd_ok" != "true" ] || [ "$kb_ok" != "true" ]; then
   missing=""
   [ "$pdd_ok" != "true" ] && missing="$missing the PDD (Charm_PDD_v1.12*)"
   [ "$kb_ok" != "true" ] && missing="$missing the knowledge base (Charm_Isometric_Knowledge_Base.md)"
-  echo "BLOCKED by delta_baseline_guard: a Charm deliverable was written this turn, but the session never opened:${missing}. Read the operator's CURRENT-STATE docs first, then rebuild the deliverable as a DELTA — what does Charm already do (KB + PDD) vs. what actually changes. Do not enumerate protocol requirements wholesale as if this were a greenfield project. Open the missing doc(s), diff, and re-deliver." >&2
-  exit 2
+  cb_block "BLOCKED by delta_baseline_guard: a Charm deliverable was written this turn, but the session never opened:${missing}. Read the operator's CURRENT-STATE docs first, then rebuild the deliverable as a DELTA — what does Charm already do (KB + PDD) vs. what actually changes. Do not enumerate protocol requirements wholesale as if this were a greenfield project. Open the missing doc(s), diff, and re-deliver."
 fi
 
-# Deferral scan: last assistant text + deliverable text.
-last_asst="$(jq -rs '[.[]? | select(.type=="assistant") | (.message.content[]? // empty) | select(.type=="text") | .text] | last // ""' "$transcript" 2>/dev/null || true)"
+# Deferral scan: last assistant text (chat text plus the body of any
+# Slack/Gmail/canvas message-sending tool call in the same turn -- see
+# lib/transcript_text.py) + deliverable text.
+last_asst="$(python3 - "$transcript" 2>/dev/null <<'PYEOF' || true
+import json, os, sys
+sys.path.insert(0, os.path.expanduser("~/.claude/hooks/lib"))
+from transcript_text import last_assistant_text
+entries = []
+with open(sys.argv[1]) as f:
+    for line in f:
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            entries.append(json.loads(line))
+        except Exception:
+            pass
+print(last_assistant_text(entries))
+PYEOF
+)"
 
 deliv_text=""
 while IFS= read -r f; do
@@ -100,8 +126,8 @@ scan_target="$last_asst $deliv_text"
 hit="$(printf '%s' "$scan_target" | grep -oiE 'sweep the pdd|confirm the module text|to be confirmed against|re-read the [a-z ]{0,30}module|read the [a-z ]{0,30}module (first|before|and confirm)|\[[^]]*re-read[^]]*\]|go read the' | head -1 || true)"
 
 if [ -n "$hit" ]; then
-  echo "BLOCKED by delta_baseline_guard: the deliverable or final message defers primary-source reading to the reader (matched: \"$hit\"). That reading is yours. Open the source, read it, and state the finding directly. Remove the deferral and re-deliver." >&2
-  exit 2
+  cb_block "BLOCKED by delta_baseline_guard: the deliverable or final message defers primary-source reading to the reader (matched: \"$hit\"). That reading is yours. Open the source, read it, and state the finding directly. Remove the deferral and re-deliver."
 fi
 
+cb_clear
 exit 0

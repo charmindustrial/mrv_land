@@ -1,0 +1,40 @@
+CARBON-CONTENT CERTIFICATE (9.20 %) — EXHAUSTIVE LOCATION SEARCH
+Batch: INJ-07-2026-W1-QOWV (Ops Notes tab batch id INJ-06-2026-W2)
+Question: is the SGS certificate reporting Carbon 9.2 % present in either of the two
+permitted locations for this batch — the batch Drive folder, or Certify Sources?
+Session: 2026-08-06
+
+LOCATION 1 — batch Testing subfolder, fully enumerated
+  parentId = '1T-Sl2-uGy9G9l1Tvsp6g5sUl19wTw-js'  -> 4 files, every one opened and read:
+    07-26-W1-QOWV.pdf                                             SR26-04323.001  Carbon 8.4 %
+    CHARM INDUSTRIAL - 6-2026-W2 QOWV Physical Properties + TAN
+      (SR26-04323).pdf                                            SR26-04323.001  no CHN reported
+    CHARM INDUSTRIAL - AECN 7-2026-W1, QOWV 7-2026-W2.pdf          SR26-04220.001  Carbon 40.5 % (AECN)
+                                                                   SR26-04220.002  Carbon 8.4 % (QOWV 7-2026-W2)
+    7-2026-W1 WODO.pdf                                            WODO batch, not QOWV
+  No certificate in this folder reports 9.2 %.
+
+LOCATION 2 — Certify Sources tab for rmv_1KZBTSNE81S0DJT1, fully enumerated (6 of 6)
+    07-26-W1-QOWV.pdf                              -> Carbon Content of Bio-oil Injected
+    INJ-07-2026-W1 Ops Notes.xlsx                  -> 5 datapoints
+    Standard Emission Factors + Calculations (8).xlsx (x2)
+    Charm-RetirementCertificate-RD-EACs-20251218.pdf
+    CO to Basco Routing Map.png
+  No certificate reporting 9.2 % is attached.
+
+WHERE IT ACTUALLY IS
+  Drive fullText search `fullText contains 'SR26-03726'` and `fullText contains
+  '6-2026-W2-QOWV'` located it as `6-2026-W2-AECN-QOWV.pdf`
+  (id 1Mcm6F5VzL_XFTMT4e0cdir1djyKu1aur) in the INJ-06-2026-W2 batch Testing folder
+  (parentId 1Vo8R_ta7XOiVPhAYvtB1OrwQJVsluHUf). Opened and read this session:
+    page 1  SR26-03726.001  client id '6-2026-W2 AECN'    Carbon 40.8 %
+    page 2  SR26-03726.003  client id '6-2026-W2- QOWV l' Carbon 9.2 %, Hydrogen 9.6 %,
+            Nitrogen <0.75 %, Basco Louisiana, source id 'Liquid Portion after 24 hours',
+            sampled 18-Jun-2026 06:00, completed 25-Jun-2026 16:22,
+            signed Tiffany Scott, Lab Supervisor
+  A title search `title contains 'SR26-03726'` returns nothing, i.e. the certificate
+  number does not appear in any filename.
+
+CONCLUSION: the certificate supporting the reported 9.20 % exists and is a genuine SGS
+result for this batch's sample, but it is filed only in the June Week-2 batch folder and
+is present in neither of the two permitted locations for this batch.

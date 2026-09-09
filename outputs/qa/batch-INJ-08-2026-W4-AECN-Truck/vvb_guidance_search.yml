@@ -1,0 +1,460 @@
+- generic [ref=f15e1]:
+  - iframe [ref=f15e2]:
+    
+  - region
+  - generic [ref=f15e4]:
+    - navigation [ref=f15e5]:
+      - button "Skip to main content" [ref=f15e7] [cursor=pointer]
+      - button "Keyboard shortcuts" [ref=f15e11] [cursor=pointer]
+      - button "Accessibility feedback" [ref=f15e15] [cursor=pointer]
+    - banner [ref=f15e19]:
+      - generic [ref=f15e20]:
+        - link "Drive" [ref=f15e24] [cursor=pointer]:
+          - /url: https://drive.google.com/?tab=oo&authuser=0
+        - generic [ref=f15e27]:
+          - search [ref=f15e29]:
+            - table [ref=f15e31]:
+              - rowgroup [ref=f15e32]:
+                - row [ref=f15e33]:
+                  - cell [ref=f15e34]:
+                    - textbox "Get answers from Drive" [ref=f15e35]: title contains 'VVB Guidance'
+            - generic [ref=f15e40]:
+              - button "AI Overview search" [ref=f15e41] [cursor=pointer]
+              - tooltip [ref=f15e47]: AI Overview search
+            - button "Advanced search" [ref=f15e48] [cursor=pointer]
+            - button "Search Google Drive" [ref=f15e51] [cursor=pointer]
+          - generic [ref=f15e54]:
+            - button "Support" [ref=f15e57] [cursor=pointer]
+            - button "Settings" [ref=f15e62] [cursor=pointer]
+            - generic [ref=f15e67]:
+              - button "Studio" [ref=f15e441] [cursor=pointer]
+              - generic [ref=f15e69]:
+                - generic:
+                  - button "Ask Gemini" [ref=f15e76] [cursor=pointer]
+                  - tooltip [ref=f15e79]: Ask Gemini
+        - generic [ref=f15e81]:
+          - button "Google apps" [ref=f15e85] [cursor=pointer]
+          - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=f15e89] [cursor=pointer]':
+            - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=f15e94]'
+    - button "New" [ref=f15e99] [cursor=pointer]
+    - navigation [ref=f15e110]:
+      - heading "Folders and views" [level=2] [ref=f15e111]
+      - tree "Folders and views" [ref=f15e112]:
+        - treeitem [ref=f15e113]:
+          - link "Home" [ref=f15e114] [cursor=pointer]:
+            - generic "Home" [ref=f15e132]
+          - group
+        - treeitem [ref=f15e133]:
+          - link "Activity" [ref=f15e134] [cursor=pointer]:
+            - generic "Activity" [ref=f15e150]
+          - group
+        - treeitem [ref=f15e151]:
+          - link "Projects" [ref=f15e152] [cursor=pointer]:
+            - generic "Projects" [ref=f15e164]
+          - group
+        - treeitem [ref=f15e165]:
+          - link "Workspaces" [ref=f15e166] [cursor=pointer]:
+            - generic "Workspaces" [ref=f15e182]
+          - group
+        - treeitem [ref=f15e183]:
+          - link "My Drive Collapsed" [ref=f15e184] [cursor=pointer]:
+            - generic "My Drive" [ref=f15e201]
+            - text: Collapsed
+        - treeitem [ref=f15e202]:
+          - link "Shared drives Collapsed" [ref=f15e203] [cursor=pointer]:
+            - generic "Shared drives" [ref=f15e225]
+            - text: Collapsed
+        - treeitem [ref=f15e226]:
+          - link "Computers Collapsed" [ref=f15e227] [cursor=pointer]:
+            - generic "Computers" [ref=f15e246]
+            - text: Collapsed
+        - treeitem [ref=f15e247]:
+          - link "Items shared with me" [ref=f15e248] [cursor=pointer]:
+            - generic "Items shared with me" [ref=f15e267]: Shared with me
+          - group
+        - treeitem [ref=f15e268]:
+          - link "Recent items" [ref=f15e269] [cursor=pointer]:
+            - generic "Recent items" [ref=f15e288]: Recent
+          - group
+        - treeitem [ref=f15e289]:
+          - link "Starred items" [ref=f15e290] [cursor=pointer]:
+            - generic "Starred items" [ref=f15e304]: Starred
+          - group
+        - treeitem [ref=f15e305]:
+          - link "Spam" [ref=f15e306] [cursor=pointer]:
+            - generic "Spam" [ref=f15e323]
+          - group
+        - treeitem [ref=f15e324]:
+          - link "Trashed items" [ref=f15e325] [cursor=pointer]:
+            - generic "Trashed items" [ref=f15e343]: Trash
+          - group
+        - treeitem [ref=f15e344]:
+          - link "Storage" [ref=f15e345] [cursor=pointer]:
+            - generic "Storage" [ref=f15e361]
+          - group
+      - progressbar "32.1 GB used" [ref=f15e364]
+    - generic [ref=f15e368]:
+      - generic [ref=f15e374]:
+        - generic [ref=f15e382]:
+          - generic [ref=f15e391]: AI Overview
+          - generic [ref=f15e392]:
+            - generic [ref=f15e393]: Just a moment…
+            - generic [ref=f15e394]: Reviewing request…
+            - generic [ref=f15e395]: Gathering context…
+            - generic [ref=f15e396]: Creating overview…
+        - generic [ref=f15e399]:
+          - banner [ref=f15e402]:
+            - heading "Search results" [level=1] [ref=f15e403]
+          - toolbar [ref=f15e404]:
+            - generic [ref=f15e405]:
+              - radiogroup "List or Grid layout (⌥V then L)" [ref=f15e409]:
+                - generic [ref=f15e410]:
+                  - radio "List" [checked] [ref=f15e411] [cursor=pointer]
+                  - radio "Grid" [ref=f15e420] [cursor=pointer]
+              - button "View details (⌥V then D)" [ref=f15e429] [cursor=pointer]
+        - generic [ref=f15e453]:
+          - generic [ref=f15e454]: No filters applied
+          - toolbar "Filters" [ref=f15e456]:
+            - generic [ref=f15e458]:
+              - button "Type" [ref=f15e459] [cursor=pointer]
+              - button "People" [ref=f15e465] [cursor=pointer]
+              - button "Modified" [ref=f15e471] [cursor=pointer]
+              - button "Source" [ref=f15e477] [cursor=pointer]
+              - button "Location" [ref=f15e483] [cursor=pointer]
+              - generic "Title only" [ref=f15e489]:
+                - button "Title only" [ref=f15e491] [cursor=pointer]
+              - button "To do" [ref=f15e493] [cursor=pointer]
+      - main [ref=f15e499]:
+        - region [active] [ref=f15e505]:
+          - generic [ref=f15e506]:
+            - grid "Item List" [ref=f15e509]:
+              - rowgroup [ref=f15e510]:
+                - text: Name
+                - generic [ref=f15e511] [cursor=pointer]: Date modified
+                - text: Owner Location
+                - generic [ref=f15e517]:
+                  - button "Sort" [ref=f15e518] [cursor=pointer]
+                  - tooltip [ref=f15e523]: View sort options
+              - rowgroup [ref=f15e524]:
+                - row [ref=f15e525]:
+                  - gridcell [ref=f15e526]:
+                    - generic "feedback_read_vvb_guidance_and_cell_comments.md Markdown" [ref=f15e537]:
+                      - strong [ref=f15e540]: feedback_read_vvb_guidance_and_cell_comments.md
+                  - gridcell [ref=f15e541]:
+                    - generic "Modified Aug 6" [ref=f15e545]: Aug 6
+                  - gridcell [ref=f15e547]:
+                    - button [ref=f15e550]:
+                      - generic "Owned by me" [ref=f15e551]: me
+                  - gridcell [ref=f15e555]:
+                    - button "memory" [ref=f15e558] [cursor=pointer]
+                  - gridcell [ref=f15e571]:
+                    - generic [ref=f15e575]:
+                      - button "More actions (Alt+A)" [ref=f15e576] [cursor=pointer]
+                      - tooltip [ref=f15e582]: More actions (Alt+A)
+                - row [ref=f15e583]:
+                  - gridcell [ref=f15e584]:
+                    - generic "V 1.7 Charm Industrial G.P. Bio Oil Sequestration PDD.docx Microsoft Word Shared" [ref=f15e603]:
+                      - strong [ref=f15e606]: V 1.7 Charm Industrial G.P. Bio Oil Sequestration PDD.docx
+                      - img "Shared" [ref=f15e608]
+                  - gridcell [ref=f15e613]:
+                    - generic "Modified Feb 3, 2025" [ref=f15e617]: Feb 3, 2025
+                  - gridcell [ref=f15e619]:
+                    - button [ref=f15e622]:
+                      - generic "Owned by me" [ref=f15e623]: me
+                  - gridcell [ref=f15e627]:
+                    - button "AECN > Vaulted" [ref=f15e630] [cursor=pointer]
+                  - gridcell [ref=f15e641]:
+                    - generic [ref=f15e645]:
+                      - button "More actions (Alt+A)" [ref=f15e646] [cursor=pointer]
+                      - tooltip [ref=f15e652]: More actions (Alt+A)
+                - row [ref=f15e653]:
+                  - gridcell [ref=f15e654]:
+                    - generic "Final V 1.12 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx Microsoft Word Shared" [ref=f15e673]:
+                      - strong [ref=f15e676]: Final V 1.12 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx
+                      - img "Shared" [ref=f15e678]
+                  - gridcell [ref=f15e683]:
+                    - generic "Modified Jun 27" [ref=f15e687]: Jun 27
+                  - gridcell [ref=f15e689]:
+                    - button [ref=f15e692]:
+                      - generic "Owned by me" [ref=f15e693]: me
+                  - gridcell [ref=f15e697]:
+                    - button "PDDs+Supplemental Docs" [ref=f15e700] [cursor=pointer]
+                  - gridcell [ref=f15e711]:
+                    - generic [ref=f15e715]:
+                      - button "More actions (Alt+A)" [ref=f15e716] [cursor=pointer]
+                      - tooltip [ref=f15e722]: More actions (Alt+A)
+                - row [ref=f15e723]:
+                  - gridcell [ref=f15e724]:
+                    - generic "Final V 1.12 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx Microsoft Word Shared" [ref=f15e743]:
+                      - strong [ref=f15e746]: Final V 1.12 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx
+                      - img "Shared" [ref=f15e748]
+                  - gridcell [ref=f15e753]:
+                    - generic "Modified Dec 1, 2025" [ref=f15e757]: Dec 1, 2025
+                  - gridcell [ref=f15e759]:
+                    - button [ref=f15e762]:
+                      - generic "Owned by me" [ref=f15e763]: me
+                  - gridcell [ref=f15e767]:
+                    - button "Biochar" [ref=f15e770] [cursor=pointer]
+                  - gridcell [ref=f15e781]:
+                    - generic [ref=f15e785]:
+                      - button "More actions (Alt+A)" [ref=f15e786] [cursor=pointer]
+                      - tooltip [ref=f15e792]: More actions (Alt+A)
+                - row [ref=f15e793]:
+                  - gridcell [ref=f15e794]:
+                    - generic "V 1.10 Charm Industrial Bio Oil Geologic Storage PDD.docx Microsoft Word Shared" [ref=f15e813]:
+                      - strong [ref=f15e816]: V 1.10 Charm Industrial Bio Oil Geologic Storage PDD.docx
+                      - img "Shared" [ref=f15e818]
+                  - gridcell [ref=f15e823]:
+                    - generic "Modified Oct 22, 2025" [ref=f15e827]: Oct 22, 2025
+                  - gridcell [ref=f15e829]:
+                    - button [ref=f15e832]:
+                      - generic "Owned by me" [ref=f15e833]: me
+                  - gridcell [ref=f15e837]:
+                    - button "AECN > Vaulted" [ref=f15e840] [cursor=pointer]
+                  - gridcell [ref=f15e851]:
+                    - generic [ref=f15e855]:
+                      - button "More actions (Alt+A)" [ref=f15e856] [cursor=pointer]
+                      - tooltip [ref=f15e862]: More actions (Alt+A)
+                - row [ref=f15e863]:
+                  - gridcell [ref=f15e864]:
+                    - generic "Isometric Standard v1.8 — Isometric.pdf PDF Shared" [ref=f15e875]:
+                      - strong [ref=f15e878]: Isometric Standard v1.8 — Isometric.pdf
+                      - img "Shared" [ref=f15e880]
+                  - gridcell [ref=f15e885]:
+                    - generic "Modified Jan 9" [ref=f15e889]: Jan 9
+                  - gridcell [ref=f15e891]:
+                    - button [ref=f15e894]:
+                      - generic "Owned by Garrett Lutz" [ref=f15e895]: Garrett Lutz
+                  - gridcell [ref=f15e899]:
+                    - button "Protocol Stuff" [ref=f15e902] [cursor=pointer]
+                  - gridcell [ref=f15e913]:
+                    - generic [ref=f15e917]:
+                      - button "More actions (Alt+A)" [ref=f15e918] [cursor=pointer]
+                      - tooltip [ref=f15e924]: More actions (Alt+A)
+                - row [ref=f15e925]:
+                  - gridcell [ref=f15e926]:
+                    - generic "V 1.8 Charm Industrial G.P. Bio Oil Sequestration PDD.docx Microsoft Word Shared" [ref=f15e945]:
+                      - strong [ref=f15e948]: V 1.8 Charm Industrial G.P. Bio Oil Sequestration PDD.docx
+                      - img "Shared" [ref=f15e950]
+                  - gridcell [ref=f15e955]:
+                    - generic "Modified Feb 28, 2025" [ref=f15e959]: Feb 28, 2025
+                  - gridcell [ref=f15e961]:
+                    - button [ref=f15e964]:
+                      - generic "Owned by Brian Jamieson" [ref=f15e965]: Brian Jamieson
+                  - gridcell [ref=f15e969]:
+                    - button "Biochar PDD Feb 2025" [ref=f15e972] [cursor=pointer]
+                  - gridcell [ref=f15e983]:
+                    - generic [ref=f15e987]:
+                      - button "More actions (Alt+A)" [ref=f15e988] [cursor=pointer]
+                      - tooltip [ref=f15e994]: More actions (Alt+A)
+                - row [ref=f15e995]:
+                  - gridcell [ref=f15e996]:
+                    - generic "Final V 1.12 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx Microsoft Word In shared drive" [ref=f15e1015]:
+                      - strong [ref=f15e1018]: Final V 1.12 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx
+                      - img "Belongs to a shared drive" [ref=f15e1020]
+                  - gridcell [ref=f15e1024]:
+                    - generic "Modified Feb 23" [ref=f15e1028]: Feb 23
+                  - gridcell [ref=f15e1030]:
+                    - generic "Owner information not available" [ref=f15e1034]: —
+                  - gridcell [ref=f15e1036]:
+                    - button "original google docs - Not to be submitted" [ref=f15e1039] [cursor=pointer]
+                  - gridcell [ref=f15e1052]:
+                    - generic [ref=f15e1056]:
+                      - button "More actions (Alt+A)" [ref=f15e1057] [cursor=pointer]
+                      - tooltip [ref=f15e1063]: More actions (Alt+A)
+                - row [ref=f15e1064]:
+                  - gridcell [ref=f15e1065]:
+                    - generic "Final V 1.11 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx Microsoft Word Shared" [ref=f15e1084]:
+                      - strong [ref=f15e1087]: Final V 1.11 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx
+                      - img "Shared" [ref=f15e1089]
+                  - gridcell [ref=f15e1094]:
+                    - generic "Modified Nov 19, 2025" [ref=f15e1098]: Nov 19, 2025
+                  - gridcell [ref=f15e1100]:
+                    - button [ref=f15e1103]:
+                      - generic "Owned by me" [ref=f15e1104]: me
+                  - gridcell [ref=f15e1108]:
+                    - button "Bio-Oil PDD versions" [ref=f15e1111] [cursor=pointer]
+                  - gridcell [ref=f15e1122]:
+                    - generic [ref=f15e1126]:
+                      - button "More actions (Alt+A)" [ref=f15e1127] [cursor=pointer]
+                      - tooltip [ref=f15e1133]: More actions (Alt+A)
+                - row [ref=f15e1134]:
+                  - gridcell [ref=f15e1135]:
+                    - generic "V 1.8 Charm Industrial G.P. Bio Oil Sequestration PDD (1).docx Microsoft Word Shared" [ref=f15e1154]:
+                      - strong [ref=f15e1157]: V 1.8 Charm Industrial G.P. Bio Oil Sequestration PDD (1).docx
+                      - img "Shared" [ref=f15e1159]
+                  - gridcell [ref=f15e1164]:
+                    - generic "Modified Apr 8, 2025" [ref=f15e1168]: Apr 8, 2025
+                  - gridcell [ref=f15e1170]:
+                    - button [ref=f15e1173]:
+                      - generic "Owned by me" [ref=f15e1174]: me
+                  - gridcell [ref=f15e1178]:
+                    - button "Bio-Oil PDD versions" [ref=f15e1181] [cursor=pointer]
+                  - gridcell [ref=f15e1192]:
+                    - generic [ref=f15e1196]:
+                      - button "More actions (Alt+A)" [ref=f15e1197] [cursor=pointer]
+                      - tooltip [ref=f15e1203]: More actions (Alt+A)
+                - row [ref=f15e1204]:
+                  - gridcell [ref=f15e1205]:
+                    - generic "V 1.8 Charm Industrial G.P. Bio Oil Sequestration PDD.docx Microsoft Word Shared" [ref=f15e1224]:
+                      - strong [ref=f15e1227]: V 1.8 Charm Industrial G.P. Bio Oil Sequestration PDD.docx
+                      - img "Shared" [ref=f15e1229]
+                  - gridcell [ref=f15e1234]:
+                    - generic "Modified Feb 27, 2025" [ref=f15e1238]: Feb 27, 2025
+                  - gridcell [ref=f15e1240]:
+                    - button [ref=f15e1243]:
+                      - generic "Owned by me" [ref=f15e1244]: me
+                  - gridcell [ref=f15e1248]:
+                    - button "Bio-Oil PDD versions" [ref=f15e1251] [cursor=pointer]
+                  - gridcell [ref=f15e1262]:
+                    - generic [ref=f15e1266]:
+                      - button "More actions (Alt+A)" [ref=f15e1267] [cursor=pointer]
+                      - tooltip [ref=f15e1273]: More actions (Alt+A)
+                - row [ref=f15e1274]:
+                  - gridcell [ref=f15e1275]:
+                    - generic "Basco 6 Project Design Document v1.7.docx Microsoft Word Shared" [ref=f15e1294]:
+                      - strong [ref=f15e1297]: Basco 6 Project Design Document v1.7.docx
+                      - img "Shared" [ref=f15e1299]
+                  - gridcell [ref=f15e1304]:
+                    - generic "Modified Jul 28, 2025" [ref=f15e1308]: Jul 28, 2025
+                  - gridcell [ref=f15e1310]:
+                    - button [ref=f15e1313]:
+                      - generic "Owned by me" [ref=f15e1314]: me
+                  - gridcell [ref=f15e1318]:
+                    - button "PDD Docs" [ref=f15e1321] [cursor=pointer]
+                  - gridcell [ref=f15e1332]:
+                    - generic [ref=f15e1336]:
+                      - button "More actions (Alt+A)" [ref=f15e1337] [cursor=pointer]
+                      - tooltip [ref=f15e1343]: More actions (Alt+A)
+                - row [ref=f15e1344]:
+                  - gridcell [ref=f15e1345]:
+                    - generic "V 1.9 Charm Industrial G.P. Bio Oil Sequestration PDD.docx Microsoft Word Shared" [ref=f15e1364]:
+                      - strong [ref=f15e1367]: V 1.9 Charm Industrial G.P. Bio Oil Sequestration PDD.docx
+                      - img "Shared" [ref=f15e1369]
+                  - gridcell [ref=f15e1374]:
+                    - generic "Modified Apr 9, 2025" [ref=f15e1378]: Apr 9, 2025
+                  - gridcell [ref=f15e1380]:
+                    - button [ref=f15e1383]:
+                      - generic "Owned by me" [ref=f15e1384]: me
+                  - gridcell [ref=f15e1388]:
+                    - button "Bio-Oil PDD versions" [ref=f15e1391] [cursor=pointer]
+                  - gridcell [ref=f15e1402]:
+                    - generic [ref=f15e1406]:
+                      - button "More actions (Alt+A)" [ref=f15e1407] [cursor=pointer]
+                      - tooltip [ref=f15e1413]: More actions (Alt+A)
+                - row [ref=f15e1414]:
+                  - gridcell [ref=f15e1415]:
+                    - generic "Final V 1.12 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx Microsoft Word In shared drive" [ref=f15e1434]:
+                      - strong [ref=f15e1437]: Final V 1.12 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx
+                      - img "Belongs to a shared drive" [ref=f15e1439]
+                  - gridcell [ref=f15e1443]:
+                    - generic "Modified Dec 9, 2025" [ref=f15e1447]: Dec 9, 2025
+                  - gridcell [ref=f15e1449]:
+                    - generic "Owner information not available" [ref=f15e1453]: —
+                  - gridcell [ref=f15e1455]:
+                    - button "PDDs & Verification information" [ref=f15e1458] [cursor=pointer]
+                  - gridcell [ref=f15e1471]:
+                    - generic [ref=f15e1475]:
+                      - button "More actions (Alt+A)" [ref=f15e1476] [cursor=pointer]
+                      - tooltip [ref=f15e1482]: More actions (Alt+A)
+                - row [ref=f15e1483]:
+                  - gridcell [ref=f15e1484]:
+                    - generic "First V 1.10 Charm Industrial G.P. Bio Oil Sequestration PDD.docx Microsoft Word Shared" [ref=f15e1503]:
+                      - strong [ref=f15e1506]: First V 1.10 Charm Industrial G.P. Bio Oil Sequestration PDD.docx
+                      - img "Shared" [ref=f15e1508]
+                  - gridcell [ref=f15e1513]:
+                    - generic "Modified Jul 18, 2025" [ref=f15e1517]: Jul 18, 2025
+                  - gridcell [ref=f15e1519]:
+                    - button [ref=f15e1522]:
+                      - generic "Owned by me" [ref=f15e1523]: me
+                  - gridcell [ref=f15e1527]:
+                    - button "Bio-Oil PDD versions" [ref=f15e1530] [cursor=pointer]
+                  - gridcell [ref=f15e1541]:
+                    - generic [ref=f15e1545]:
+                      - button "More actions (Alt+A)" [ref=f15e1546] [cursor=pointer]
+                      - tooltip [ref=f15e1552]: More actions (Alt+A)
+                - row [ref=f15e1553]:
+                  - gridcell [ref=f15e1554]:
+                    - generic "Final V 1.10 Charm Industrial Bio Oil Geologic Storage PDD.docx Microsoft Word Shared" [ref=f15e1573]:
+                      - strong [ref=f15e1576]: Final V 1.10 Charm Industrial Bio Oil Geologic Storage PDD.docx
+                      - img "Shared" [ref=f15e1578]
+                  - gridcell [ref=f15e1583]:
+                    - generic "Modified Sep 22, 2025" [ref=f15e1587]: Sep 22, 2025
+                  - gridcell [ref=f15e1589]:
+                    - button [ref=f15e1592]:
+                      - generic "Owned by me" [ref=f15e1593]: me
+                  - gridcell [ref=f15e1597]:
+                    - button "Bio-Oil PDD versions" [ref=f15e1600] [cursor=pointer]
+                  - gridcell [ref=f15e1611]:
+                    - generic [ref=f15e1615]:
+                      - button "More actions (Alt+A)" [ref=f15e1616] [cursor=pointer]
+                      - tooltip [ref=f15e1622]: More actions (Alt+A)
+                - row [ref=f15e1623]:
+                  - gridcell [ref=f15e1624]:
+                    - generic "V 1.8 Charm Industrial G.P. Bio Oil Sequestration PDD.docx Microsoft Word In shared drive" [ref=f15e1643]:
+                      - strong [ref=f15e1646]: V 1.8 Charm Industrial G.P. Bio Oil Sequestration PDD.docx
+                      - img "Belongs to a shared drive" [ref=f15e1648]
+                  - gridcell [ref=f15e1652]:
+                    - generic "Modified May 27, 2025" [ref=f15e1656]: May 27, 2025
+                  - gridcell [ref=f15e1658]:
+                    - generic "Owner information not available" [ref=f15e1662]: —
+                  - gridcell [ref=f15e1664]:
+                    - button "Charm Biochar Feb 2025" [ref=f15e1667] [cursor=pointer]
+                  - gridcell [ref=f15e1680]:
+                    - generic [ref=f15e1684]:
+                      - button "More actions (Alt+A)" [ref=f15e1685] [cursor=pointer]
+                      - tooltip [ref=f15e1691]: More actions (Alt+A)
+                - row [ref=f15e1692]:
+                  - gridcell [ref=f15e1693]:
+                    - generic "Final V 1.11 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx Microsoft Word In shared drive" [ref=f15e1712]:
+                      - strong [ref=f15e1715]: Final V 1.11 Charm Industrial Bio Oil Geologic Storage PDD + Biochar.docx
+                      - img "Belongs to a shared drive" [ref=f15e1717]
+                  - gridcell [ref=f15e1721]:
+                    - generic "Modified Jan 15" [ref=f15e1725]: Jan 15
+                  - gridcell [ref=f15e1727]:
+                    - generic "Owner information not available" [ref=f15e1731]: —
+                  - gridcell [ref=f15e1733]:
+                    - button "PDD" [ref=f15e1736] [cursor=pointer]
+                  - gridcell [ref=f15e1749]:
+                    - generic [ref=f15e1753]:
+                      - button "More actions (Alt+A)" [ref=f15e1754] [cursor=pointer]
+                      - tooltip [ref=f15e1760]: More actions (Alt+A)
+                - row [ref=f15e1761]:
+                  - gridcell [ref=f15e1762]:
+                    - generic "V 1.5 Charm Industrial G.P. Bio Oil Sequestration PDD.docx Google Docs Shared" [ref=f15e1773]:
+                      - strong [ref=f15e1776]: V 1.5 Charm Industrial G.P. Bio Oil Sequestration PDD.docx
+                      - img "Shared" [ref=f15e1778]
+                  - gridcell [ref=f15e1783]:
+                    - generic "Modified Aug 15, 2024" [ref=f15e1787]: Aug 15, 2024
+                  - gridcell [ref=f15e1789]:
+                    - button [ref=f15e1792]:
+                      - generic "Owned by me" [ref=f15e1793]: me
+                  - gridcell [ref=f15e1797]:
+                    - button "Old Versions" [ref=f15e1800] [cursor=pointer]
+                  - gridcell [ref=f15e1811]:
+                    - generic [ref=f15e1815]:
+                      - button "More actions (Alt+A)" [ref=f15e1816] [cursor=pointer]
+                      - tooltip [ref=f15e1822]: More actions (Alt+A)
+                - row [ref=f15e1823]:
+                  - gridcell [ref=f15e1824]:
+                    - generic "Charm_Aqueous_QOWV_QA_Checklist_INJ-08-2026-W3.xlsx Microsoft Excel" [ref=f15e1844]:
+                      - strong [ref=f15e1847]: Charm_Aqueous_QOWV_QA_Checklist_INJ-08-2026-W3.xlsx
+                  - gridcell [ref=f15e1848]:
+                    - generic "Modified 1:43 PM" [ref=f15e1852]: 1:43 PM
+                  - gridcell [ref=f15e1854]:
+                    - button [ref=f15e1857]:
+                      - generic "Owned by me" [ref=f15e1858]: me
+                  - gridcell [ref=f15e1862]:
+                    - button "My Drive" [ref=f15e1865] [cursor=pointer]
+                  - gridcell [ref=f15e1873]:
+                    - generic [ref=f15e1877]:
+                      - button "More actions (Alt+A)" [ref=f15e1878] [cursor=pointer]
+                      - tooltip [ref=f15e1884]: More actions (Alt+A)
+            - progressbar [ref=f15e1887]
+      - generic:
+        - navigation
+    - generic [ref=f15e437]:
+      - generic:
+        - button "Show side panel":
+          - generic [ref=f15e1892] [cursor=pointer]
+  - region

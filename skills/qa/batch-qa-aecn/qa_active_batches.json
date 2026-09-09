@@ -1,6 +1,530 @@
 {
   "active_batches": [
     {
+      "batch_id": "INJ-08-2026-W4-AECN-Truck",
+      "batch_type": "AECN direct truck (out-of-scope sibling of the INJ-08-2026-W4 weekly rail removal)",
+      "oil_type": "AECN",
+      "delivery_mode": "direct_truck",
+      "checklist_path": "outputs/qa/batch-INJ-08-2026-W4-AECN-Truck/Batch_INJ-08-2026-W4-AECN-Truck_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-INJ-08-2026-W4-AECN-Truck/batch_INJ-08-2026-W4-AECN-Truck_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M103GTGP1S0BB07/edit",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1gGNoH5Xyp2J4YpcebR6qhT44E0s9rrdD",
+      "week": "2026-08-15 to 2026-08-22",
+      "injection_date": "Certify period 16-22 Aug 2026; BOLs loaded 8/15-8/17, delivered 8/19-8/22",
+      "bols": [
+        "2471-T",
+        "2472-T",
+        "2474-T",
+        "2477-T"
+      ],
+      "T0_initiation": "2026-08-31T17:07:04-07:00",
+      "T3_adversarial_review_complete": "2026-09-01T00:44:57Z",
+      "net_co2e_t_displayed": 101.64,
+      "counts": {
+        "pass": 42,
+        "fail": 1,
+        "flag": 5,
+        "na": 10
+      },
+      "fail_items": [
+        {
+          "section": "7a.2",
+          "what": "Injection Sequestration's Mass-of-product uncertainty is +/-4.53592 kg vs the +/-290.28 kg (4 x 72.57 kg discrete-weighing convention, per KB Layer 2) used consistently on the other three mass-basis components (Transport Process, Pyrolysis Process, Pyrolysis Embodied), all sharing the identical 4-BOL mass basis. No documented methodology justifies the smaller figure. Largest component in the removal (115.126t of 101.64t net)."
+        }
+      ],
+      "flag_items": [
+        {
+          "section": "2.7/5.4",
+          "what": "COBB's quantity_consumed_in_injection diverges from origin_quantity_kg on 2 of 4 rows (2472-T -265.75kg, 2477-T -382.25kg) by amounts not cleanly explained by sparging/filtration math -- COBB-side only, Certify's authoritative datapoints reconcile directly to the BOLs/Ops Notes."
+        },
+        {
+          "section": "5.5",
+          "what": "pH blank on all 4 truck deliveries (Ops Notes + COBB), same week-wide template gap already flagged on the sibling rail removal. Not a Certify datapoint, immaterial."
+        },
+        {
+          "section": "6.5/9.4",
+          "what": "AECN pyrolysis embodied EF applied as 0.0212 kgCO2e/kg but its own cited source document (and the live Standard EF sheet) shows 0.02116 -- a 0.0029t (~0.17%) immaterial, conservative-direction discrepancy."
+        }
+      ],
+      "notes": "Direct-truck sibling of the already-QA'd INJ-08-2026-W4 rail removal for the same week -- shares Drive folder and Ops Notes workbook (different tab: 'AECN Truck' vs 'AECN Rail') but is a separate Certify GHG entry. All 4 BOLs individually opened at both page 1 and page 3 (no sampling). Adversarial review independently re-verified the 7a.2 Fail against KB Layer 2's documented uncertainty convention (confirmed correct) and closed two evidence gaps (opened MRV_AECN_Analysis.xlsx primary source for the carbon range; opened the 2 remaining BOLs' page 1 to eliminate sampling on 3.7). No status changes resulted from adversarial review.",
+      "T_final_max_delivery": "2026-09-01T00:46:29Z",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1788223584.619149",
+      "T6_max_approval": "2026-09-01T00:51:17Z",
+      "T7_garrett_notified": "2026-09-01T00:51:31Z",
+      "garrett_slack": {
+        "user": "U08JW9HQG5B",
+        "channel": "C0944NQH1RP",
+        "thread_ts": "1788223891.917959"
+      },
+      "status": "closed",
+      "T_last_nudge": "2026-09-02T19:02:45Z",
+      "T_garrett_replied": "2026-09-02T19:15:12Z",
+      "garrett_reply": "Reply 1 (2026-09-01 17:20:16Z): 1. Uncertainty updated. 2. 0.0212 is rounded 0.02116, previously verified, no action. 3. pH will be updated soon. Reply 2 (2026-09-01 19:17:01Z): pH updated, reattaching Ops Notes in Certify right now (2.90). Reply 3 (2026-09-02 19:15:12Z, in nudge thread 1788375765.357359): COBB mismatches are cosmetic here because of operator error, this should be all completed.",
+      "re_review_note": "2026-09-02 01:02Z: Max already verified live in-thread (19:46:30Z): 7a.2 Fail FIXED (uncertainty corrected to ±290.28 kg, net 101.64→101.47t confirmed live in Certify by Max). 6.5/9.4 Flag CLOSED (agreed 0.0212 rounds 0.02116, no action). 5.5 Flag FIXED (pH updated to 2.90). 2.7/5.4 Flag STILL OPEN (Max asked Garrett to look at COBB divergence on 2472-T/2477-T, no reply yet). Playwright unavailable this pass for independent re-verification, but Max's own in-thread Certify spot-checks cover 7a.2. | 2026-09-02 19:02Z pass: no new Garrett reply since last check. Nudge sent to #team-mrv-alerts for the COBB divergence item. Playwright still unavailable. | 2026-09-02 21:15Z pass: no new Garrett reply since last check. COBB divergence on 2472-T/2477-T still the only open item. Not nudge-eligible (last nudge 2h ago). Playwright available this pass but no re-verification needed — only remaining item is COBB-side, not a Certify datapoint. | 2026-09-02 22:02Z pass: no new Garrett reply since last check. COBB divergence on 2472-T/2477-T still the only open item. Not nudge-eligible (last nudge 3h ago, 24h window). | 2026-09-03 16:01Z pass: no new Garrett reply since last check. COBB divergence on 2472-T/2477-T still the only open item. Not nudge-eligible (last nudge ~21h ago, 24h window). | 2026-09-03T19:15Z: Found Garrett's reply in the NUDGE thread (ts 1788375765.357359, not the original QA thread) from 2026-09-02T19:15:12Z — this was missed by all prior passes because the nudge thread was never checked (no max_report_threads field on this batch). Garrett said COBB mismatches are cosmetic operator error, batch all completed. 2.7/5.4 Flag CLOSED (COBB-side only, Certify unaffected, Garrett confirms operator error). All items now resolved: 1 Fail fixed (7a.2), 3 Flags closed (6.5/9.4 rounding accepted, 5.5 pH fixed, 2.7/5.4 COBB cosmetic). Net 101.47 tCO2e. Batch clean — closing.",
+      "T_re_review_complete": "2026-09-03T19:15:00Z",
+      "T_closed": "2026-09-03T19:15:00Z",
+      "closure_note": "Closed 2026-09-03 by garrett-completion-monitor: Garrett replied 'completed' (found in nudge thread, missed by 5 prior passes that only checked the original QA thread). 7a.2 Fail FIXED (confirmed by Max live in Certify 2026-09-01). All 3 Flags resolved: 6.5/9.4 rounding accepted, 5.5 pH fixed to 2.90, 2.7/5.4 COBB divergence confirmed cosmetic operator error. Net 101.47 tCO2e.",
+      "max_report_threads": [
+        {"channel": "C0944NQH1RP", "thread_ts": "1788451522.575549", "posted": "2026-09-03T19:25:22Z"}
+      ]
+    },
+    {
+      "batch_id": "INJ-08-2026-W4",
+      "batch_type": "AECN weekly time-block",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-INJ-08-2026-W4-AECN/Batch_INJ-08-2026-W4_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-INJ-08-2026-W4-AECN/batch_INJ-08-2026-W4_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M10397551S0CB5R/edit",
+      "week": "2026-08-15 to 2026-08-22",
+      "injection_date": "2026-08-15 to 2026-08-17 (weighings); Certify period 16-22 Aug 2026",
+      "railcars": [
+        "SHPX215076 (FULL, offloads 1-4, closed entirely within this week)"
+      ],
+      "offloads": 4,
+      "T0_initiation": "2026-08-31T23:12:59Z",
+      "T3_adversarial_review_complete": "2026-08-31T23:56:00Z",
+      "net_co2e_t_displayed": 100.274,
+      "counts": {
+        "pass": 50,
+        "fail": 0,
+        "flag": 5,
+        "na": 5
+      },
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "3.7",
+          "what": "BOL 2402-R's own stated Date (2026-06-25) differs from Ops Notes Origins Ledger date for the same BOL (2026-06-29) by 4 days -- consolidation/reference-date convention, same pattern as batch 2-181. Mass and routing unaffected."
+        },
+        {
+          "section": "5.5",
+          "what": "pH column blank on all 4 offloads (AECN Rail tab) and all 4 deliveries (AECN Truck tab) and COBB's injection_ph field this week -- week-wide template gap, no VVB Guidance coverage. pH is not a Certify datapoint, does not affect Net CDR."
+        },
+        {
+          "section": "7.4",
+          "what": "RP-level BCU Quant/GHG Statement cross-check deferred (RP still open, injection period 16-22 Aug 2026)."
+        },
+        {
+          "section": "9.8",
+          "what": "0.001t rounding gap between Certify's Calculation View Activities (18.291t) and Components tab Activities (18.292t) -- cross-tab display rounding artifact, immaterial (~0.001% of Net CDR)."
+        },
+        {
+          "section": "9.9",
+          "what": "1 of 26 Certify Sources is a generic filename ('image (44).png'), redundant with a descriptive route-map file already linked to the same datapoint."
+        }
+      ],
+      "notes": "Genuinely clean batch: Ops Notes properly attached to mass/carbon/all 3 distance datapoints in Certify (no attachment gap, unlike several sister weekly batches); all 8 scale tickets + all 3 BOLs individually uploaded to Certify Sources; BCU (5.764t) exactly equals the transport-process sum with full coverage, no over-crediting; pyrolysis process EF (0.13711712584901084) confirmed to match the new H2 2026 VVB-Guidance-derived factor (0.1371171) exactly, cross-checked against two independent primary sources. Adversarial review: 0 items challenged, 55/55 confirmed. Second, out-of-scope AECN direct-truck removal exists for the same week (per VVB Guidance's own pyrolysis table) -- flagged for awareness, not QA'd this session.",
+      "status": "closed",
+      "T_final_max_delivery": "2026-08-31T23:57:01Z",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1788220689.788859",
+      "T6_max_approval": "2026-09-01T00:06:21Z",
+      "T7_garrett_notified": "2026-09-01T00:06:21Z",
+      "garrett_slack": {
+        "user": "U08JW9HQG5B",
+        "channel": "C0944NQH1RP",
+        "thread_ts": "1788221175.798589"
+      },
+      "T_last_nudge": "2026-09-01T16:02:58Z",
+      "T_garrett_replied": "2026-09-01T19:20:56Z",
+      "garrett_reply": "complete",
+      "re_review_note": "2026-09-02 00:30Z: Garrett replied 'complete' on 2026-09-01T19:20:56Z. Could NOT independently re-verify in Certify (Playwright tools not available this pass). All 5 items were Flags (no Fails): 3.7 (BOL date mismatch), 5.5 (pH blank), 7.4 (RP-level cross-check deferred), 9.8 (0.001t rounding), 9.9 (generic filename). Posted to #team-mrv-alerts for Max to spot-check. | 2026-09-02 21:15Z: Re-verified live in Certify (Playwright working this pass). All 5 items confirmed as informational Flags with no Fails. Net removal 100.274 tCO2e, BCU 5.764 tCO2e, 10 components. Flag 9.8 (0.001t rounding) and 9.9 (image (44).png) still present as expected platform artifacts. Batch is clean — closing.",
+      "T_closed": "2026-09-02T21:15:00Z",
+      "closure_note": "Closed 2026-09-02 by garrett-completion-monitor: Garrett replied 'complete', independently re-verified in Certify. All 5 items were informational Flags (no Fails), batch structurally clean."
+    },
+    {
+      "batch_id": "INJ-08-2026-W3",
+      "batch_type": "AECN weekly time-block",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-INJ-08-2026-W3-AECN/Batch_INJ-08-2026-W3_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-INJ-08-2026-W3-AECN/batch_INJ-08-2026-W3_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M0T84DP11S0T879/edit",
+      "drive_folder_url": "https://drive.google.com/drive/folders/12_7gG51j12isK6EVtWnk_74Xv8ljJ7gW",
+      "week": "2026-08-08 to 2026-08-15 (Ops); Certify period 09-15 Aug 2026",
+      "injection_date": "2026-08-15",
+      "railcars": [
+        "SHPX215068 (FULL)",
+        "SHPX215078 (FULL)",
+        "GPRX5082 (FULL)",
+        "GPRX5098 (FULL)",
+        "GPRX5139 (FULL)",
+        "SHPX215082 (PARTIAL, offloads 1-2 this week)"
+      ],
+      "offloads": 22,
+      "T0_initiation": "2026-08-27T20:40:57Z",
+      "T3_adversarial_review_complete": "2026-08-27T21:18:50Z",
+      "net_co2e_t_displayed": 549.486,
+      "counts": {
+        "pass": 50,
+        "fail": 0,
+        "flag": 6,
+        "na": 4
+      },
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "2.3",
+          "what": "Tractor/trailer match independently confirmed for only 1 of 22 offload pairs this session (sampling scope, not a finding of an actual mismatch); no substitution-trigger annotation found anywhere in the 22 cell comments"
+        },
+        {
+          "section": "2.7",
+          "what": "3 COBB divergences (see 5.4) surfaced as a cross-source consistency flag"
+        },
+        {
+          "section": "5.4",
+          "what": "COBB batch label 'INJ-08-2026-W3B_bio_oil' (B-suffix naming divergence); 3 numeric divergences vs ticket-derived values (SHPX215078 O3 -46.6kg, SHPX215068 O3 documented override +15,501.8kg, SHPX215082 O1 +9.1kg=20lb) -- none verifier-impacting"
+        },
+        {
+          "section": "7.4",
+          "what": "Net ties exactly but RP-level BCU Quant/GHG Statement cross-check deferred (RP still open); cross-ref to 9.5/9.6"
+        },
+        {
+          "section": "8.3",
+          "what": "SHPX215082's 4 loads may have been physically unloaded in one continuous operation split across W2/W3 reporting by COBB's bulk-applied date, not physical timing -- ops team's own open item (their ref 'Claude-m8t'), not a mass error"
+        },
+        {
+          "section": "9.2",
+          "what": "Cross-ref to 3.5 attachment gap (embodied-calc distance datapoints not attached to Ops Notes)"
+        },
+        {
+          "section": "9.9",
+          "what": "5 duplicate uploads of 'Aug-16-2026-distance-route_map.png' + 'image (44).png' non-descriptive filenames"
+        }
+      ],
+      "status": "closed",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1787865631.862299",
+      "T_final_max_delivery": "2026-08-27T21:20:37Z",
+      "revision_note": "Initial delivery (2026-08-27T21:20:37Z) checked tractor/trailer match on only 1 of 22 offloads and disclosed this as a sampling gap. Max called this out as unacceptable. Went back and opened all 44 ticket images individually; found one genuine mismatch (GPRX5139 offload_1) with a real, quantified ~0.59t mass impact. Checklist corrected: 2.3 and 2.5 flipped from Flag/Pass to Fail.",
+      "garrett_slack": {
+        "user": "U08JW9HQG5B",
+        "dm_channel": "D08KEFVRJDP",
+        "thread_ts": "1787873369.860169"
+      },
+      "T7_garrett_notified": "2026-08-27T23:29:40Z",
+      "T_last_nudge": "2026-08-31T18:43:56Z",
+      "T_garrett_replied": "2026-08-31T23:00:00Z",
+      "garrett_reply": "complete",
+      "re_review_note": "2026-09-01: Re-verified live in Certify. ALL 5 Fails cleared. 9.5/9.6 BCU 31.425 tCO2e added (matches transport process exactly). 3.5 Ops Notes attached. 2.3/2.5 GPRX5139 offload_1 rig mismatch: confirmed genuine (independently re-read both ticket PDFs), but resolved per VVB Guidance's documented trigger-(b) standard-tare substitution (KL510 standard 29,478 lb) -- live VVB Guidance doc fetched fresh this session confirms the exact application text. Certify live-verified: Injection sequestration = 621.251 tCO2e, matching the substitution math exactly (417.28268 t x 0.406 x 3.667 = 621.251 t). Net removal 549.49 tCO2e. Note: the VVB Guidance doc itself has a minor 4kg arithmetic typo (states 17,394.72 kg as-ticketed; correct value is 17,390.72 kg) -- immaterial, flagged for Garrett, not corrected by Claude in his document.",
+      "T_re_review_complete": "2026-09-01T18:58:47Z",
+      "criteria_conformance_2026_09_01": {
+        "spec_criteria": 58,
+        "delivered": 60,
+        "missing": 0,
+        "extra": [
+          "2.8 Filtration solids loss deduction applied",
+          "8.4 Rail uncertainty conservatism (N offloads at least N inbound BOLs per railcar)"
+        ],
+        "reworded_count": 18,
+        "note": "First run of audit_criteria_conformance.py against this batch. Both extra items correspond to checks described in checklist_structure.md's rail/weekly PROSE but never added to the numbered spec table. Not resolved unilaterally - surfaced to Max."
+      },
+      "T_closed": "2026-09-01T19:15:00Z"
+    },
+    {
+      "batch_id": "INJ-08-2026-W2",
+      "batch_type": "AECN weekly time-block (SECOND)",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-INJ-08-2026-W2-AECN/Batch_INJ-08-2026-W2_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-INJ-08-2026-W2-AECN/batch_INJ-08-2026-W2_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M0DGH9RA1S0HRTQ/edit",
+      "week": "2026-08-01 to 2026-08-08",
+      "injection_date": "2026-08-08",
+      "railcars": [
+        "SHPX215082",
+        "SHPX215090",
+        "TILX200228",
+        "SHPX215070"
+      ],
+      "T0_initiation": "2026-08-27T20:26:36Z",
+      "T_final_max_delivery": "2026-08-27T21:09:41Z",
+      "max_dm_channel": "DLG4H88UF",
+      "max_dm_thread_ts": "1787865155.172549",
+      "T6_max_approval": "2026-08-27T21:25:00Z",
+      "T7_garrett_notified": "2026-08-27T21:25:07Z",
+      "garrett_slack": {
+        "user": "U08JW9HQG5B",
+        "dm_channel": "D08KEFVRJDP",
+        "thread_ts": "1787865907.884119"
+      },
+      "net_co2e_t_displayed": 252.257,
+      "counts": {
+        "pass": 48,
+        "fail": 0,
+        "flag": 6,
+        "na": 6
+      },
+      "fail_items": [],
+      "fail_items_resolved": [
+        {
+          "section": "2.3",
+          "was": "SHPX215090 offload_2: full ticket trailer 'RL192' vs empty ticket trailer 'KL 192' (same tractor CH2)",
+          "resolution": "NOT a mismatch. VVB Guidance August 1-31 doc (file 1_dYfx8sZERQI5fMPAtIaOsYNE5aQupm7AYHoIFsEH7Y), section 'Trailer identification on the tickets', names this exact offload: 'Two offloads in this Reporting Period fall into that category -- GPRX5240 offload 2 in Week 1 and SHPX215090 offload 2 in Week 2 -- and both use their as-ticketed pair unchanged.' RL192/KL192/KL 192 are documented as data-entry spellings of the same physical trailer, not separate units. As-ticketed net stands, no Certify change required.",
+          "corrected_2026-09-02": "Previous text here ('undocumented, no VVB Guidance coverage for W2') was itself wrong -- confirmed 2026-09-02 by opening the actual document; it is the first item in the guide."
+        },
+        {
+          "section": "3.5",
+          "was": "All 3 Allocated/Aggregate Distance datapoints linked only to route-map PNGs in Certify, not to Ops Notes",
+          "resolution": "FIXED 2026-09-01 per re_review_note below -- Ops Notes attached."
+        },
+        {
+          "section": "9.5/9.6",
+          "was": "Zero BCU/Reductions; BCU 0t vs 15.823t transport process activity, fully unoffset",
+          "resolution": "FIXED 2026-09-01 per re_review_note below -- BCU 15.823 tCO2e added, matches transport process exactly."
+        }
+      ],
+      "flag_items": [
+        {
+          "section": "2.1",
+          "what": "Scale tickets present only via Ops Notes hyperlink, not directly attached to Certify Mass of Injectant (AECN evidence matrix expects scale_ticket + ops_notes)"
+        },
+        {
+          "section": "3.7",
+          "what": "BOL 2414-R printed as '2314-R' (digit transposition, mass/content correct)"
+        },
+        {
+          "section": "5.4",
+          "what": "COBB SHPX215090 offload_4 diverges from Ops Notes by exactly the 204.41kg back-calc adjustment (COBB carries policy-adjusted, not raw, figure)"
+        },
+        {
+          "section": "6.1",
+          "what": "LCA CI calculation filename says '30Jan2026' instead of '30Jun2026' (content correct, verified Period 1-Jan-26 to 30-Jun-26)"
+        },
+        {
+          "section": "8.1",
+          "what": "TILX200228 1,377.39kg (1.77%) railcar loss, traced to 2 W1 offloads with COBB-derived (no ticket) mass; this week's own offload is clean"
+        },
+        {
+          "section": "9.9",
+          "what": "image (44).png generic filename; LCA CI filename typo (cross-ref 6.1)"
+        }
+      ],
+      "status": "closed",
+      "T_last_nudge": "2026-08-31T18:43:56Z",
+      "T_garrett_replied": "2026-08-31T23:00:00Z",
+      "garrett_reply": "Went through this, recheck plz",
+      "re_review_note": "2026-09-01: Re-verified live in Certify. ALL 4 Fails cleared. 9.5/9.6 BCU 15.823 tCO2e added (matches transport process exactly). 3.5 Ops Notes attached. 2.3 SHPX215090 offload_2 trailer mismatch (RL192 vs KL192): resolved -- live VVB Guidance doc fetched fresh this session names this exact offload as a documented same-trailer spelling variant (KL/RL 192), not a mismatch; as-ticketed net stands, no Certify change required. Net 268.080 tCO2e (from BCU addition only).",
+      "T_closed": "2026-09-01T19:15:00Z"
+    },
+    {
+      "batch_id": "INJ-08-2026-W1",
+      "batch_type": "AECN weekly time-block",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-INJ-08-2026-W1-AECN/Batch_INJ-08-2026-W1_QA_Checklist_v2.xlsx",
+      "checklist_path_note": "bumped to _v2 on 2026-09-02 because the _v1 file was open in Excel at the time of this correction; _v1 is stale as of this date",
+      "source_reads_path": "outputs/qa/batch-INJ-08-2026-W1-AECN/batch_INJ-08-2026-W1_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M0DVG8ZB1S05TY0/edit",
+      "week": "2026-07-25 to 2026-08-01",
+      "injection_date": "2026-08-01",
+      "railcars": [
+        "GPRX5106",
+        "TILX200228",
+        "GPRX5240"
+      ],
+      "net_co2e_t_displayed": 284.56,
+      "counts": {
+        "pass": 49,
+        "fail": 0,
+        "flag": 7,
+        "na": 4
+      },
+      "fail_items": [],
+      "fail_items_resolved": [
+        {
+          "section": "2.3",
+          "was": "TILX200228 O2 & GPRX5240 O2 scale tickets: tractor/trailer mismatch, unresolved (RL192 pattern)",
+          "resolution": "BOTH resolved via VVB Guidance August 1-31 doc (file 1_dYfx8sZERQI5fMPAtIaOsYNE5aQupm7AYHoIFsEH7Y), section 'Trailer Standard Empty Weight (AECN Rail Offloads)', which is the first section in the document. GPRX5240 offload 2: named explicitly as a documented same-trailer spelling variant (RL192/KL192 = one physical trailer), not a mismatch -- as-ticketed pair used unchanged, matching Garrett's claim. TILX200228 offload 2: a genuine rig mismatch (different tractor+trailer, 2 days apart) -- but already correctly handled per the same doc: 'only the tare is substituted, at the trailer 192 standard of 29,510 lb', matching Garrett's 'trailer drop, resolved with operations going forward.' Neither needed further action; both were already correctly reflected in Certify.",
+          "corrected_2026-09-02": "Max flagged in Slack (thread 1788282917.412099, msg ts 1788290645.336119, 2026-09-01 12:24 PDT) that this is literally the first item in the guidance doc. That correction was never propagated to this registry until now -- the item sat as 'unresolved' and got re-escalated to Max again on 2026-09-02 without checking whether he'd already answered it."
+        },
+        {
+          "section": "3.5",
+          "was": "Allocated distance datapoints linked only to route-map images, not Ops Notes",
+          "resolution": "FIXED 2026-09-02 per re_review_note below -- Ops Notes now attached to 6 datapoints including all distance."
+        },
+        {
+          "section": "9.5/9.6",
+          "was": "Zero BCU reductions; BCU 0 t vs 15.855 t transport process emissions",
+          "resolution": "FIXED 2026-09-02 per re_review_note below -- BCU 15.828 tCO2e added, exactly matching transport process sum."
+        }
+      ],
+      "flag_items": [
+        "3.7 - BOL 2414-R printed as 2314-R (typo, mass unaffected)",
+        "5.4 - COBB row has wrong railcar's BOL numbers pasted into lot text",
+        "5.6 - COBB has no injection-date field at all",
+        "6.4 - Certify EF 0.10399 vs live sheet 0.10380 (over tolerance)",
+        "7.4 - Math ties; flagged only via 9.5/9.6",
+        "9.2 - Math ties; flagged only via 3.5",
+        "9.9 - 2 generic filenames, 1 possible duplicate upload"
+      ],
+      "garrett_slack": {
+        "user": "U08JW9HQG5B",
+        "dm_channel": "D08KEFVRJDP",
+        "thread_ts": "1787861941.087039"
+      },
+      "T7_garrett_notified": "2026-08-26",
+      "status": "closed",
+      "T_last_nudge": "2026-08-31T18:43:56Z",
+      "T_garrett_replied": "2026-09-01T16:02:00Z",
+      "garrett_reply_summary": "2.3 TILX200228 O2: Garrett says 'trailer drop' with historical context in VVB Guidance, resolved with operations going forward -- CONFIRMED correct. 2.3 GPRX5240 O2: Garrett disputes finding, claims same truck and trailer -- CONFIRMED correct, per VVB Guidance's documented RL192/KL192 spelling-variant treatment.",
+      "re_review_note": "2026-09-02 21:15Z: Re-verified live in Certify. Net removal 284.56 tCO2e. Fail 3.5 FIXED: Ops Notes attached to all distance datapoints. Fail 9.5/9.6 FIXED: BCU 15.828 tCO2e added, matches transport process sum exactly. Fail 2.3 RESOLVED 2026-09-02 (see fail_items_resolved above): both TILX200228 O2 and GPRX5240 O2 are correctly handled per VVB Guidance August 1-31 doc, no Certify change needed. All 4 Fails cleared. T_closed 2026-09-02.",
+      "T_closed": "2026-09-02T21:45:00Z"
+    },
+    {
+      "batch_id": "INJ-08-2026-W1",
+      "batch_type": "AECN weekly time-block (FIFTH)",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-INJ-08-2026-W1-AECN/Batch_INJ-08-2026-W1_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-INJ-08-2026-W1-AECN/batch_INJ-08-2026-W1_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M0DVG8ZB1S05TY0/edit",
+      "week": "2026-07-25 to 2026-08-01",
+      "injection_date": "2026-08-01",
+      "railcars": [
+        "GPRX5106",
+        "TILX200228",
+        "GPRX5240"
+      ],
+      "T0_initiation": "2026-08-25T19:19:45Z",
+      "T_final_max_delivery": "2026-08-25T21:00:41Z",
+      "net_co2e_t_displayed": 276.262,
+      "counts": {
+        "pass": 45,
+        "fail": 3,
+        "flag": 8,
+        "na": 4
+      },
+      "fail_items": [
+        {
+          "section": "9.5/9.6",
+          "what": "Zero BCU reductions \u2014 no Reductions category, no BCU cert in 17 Sources; 15.855t transport process unoffset; EAC inventory tracker shows 2,561.71 units undrawn (not exhaustion)"
+        },
+        {
+          "section": "3.5",
+          "what": "Allocated Distance (rail 6,030mi, truck 944mi) datapoints linked only to route-map images, never Ops Notes \u2014 allocation-fraction math not independently verifiable from attached evidence (same gap as INJ-07-2026-W4)"
+        }
+      ],
+      "flag_items": [
+        {
+          "section": "2.3",
+          "what": "TILX200228 O2 and GPRX5240 O2 scale ticket rig mismatches (trailer 'RL192' vs paired empty), no substitution applied, no VVB Guidance coverage"
+        },
+        {
+          "section": "3.7",
+          "what": "BOL 2414-R printed as '2314-R' (digit transposition typo)"
+        },
+        {
+          "section": "5.4",
+          "what": "COBB row 467 consumed_lot mislabeled with GPRX5240's BOL numbers instead of Rail_TILX200228 pattern; BOL_number col and qty correct"
+        },
+        {
+          "section": "5.6",
+          "what": "COBB 'order_line_completed_on' field predates railcar arrival \u2014 doesn't map to injection-completion date"
+        },
+        {
+          "section": "6.4",
+          "what": "AECN pyrolysis process EF implied ~0.10399 (period-specific LCA sources) vs live generic Standard EFs sheet 0.10380 \u2014 small source-file divergence"
+        },
+        {
+          "section": "9.2",
+          "what": "Cross-ref to 3.5 attachment gap"
+        },
+        {
+          "section": "9.9",
+          "what": "2 generic filenames (Screenshot, image (44).png)"
+        }
+      ],
+      "status": "awaiting_max_review"
+    },
+    {
+      "batch_id": "INJ-07-2026-W4",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "status": "awaiting_max_review",
+      "qa_date": "2026-08-06",
+      "scope": "Removal components only - site-emission components excluded per Max 2026-08-06",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KZBJBN9C1S0M5R5/edit",
+      "drive_folder": "https://drive.google.com/drive/folders/1vaYJnDcSyNVILEV6FxEtbBB_4-IBiBrO",
+      "checklist_path": "outputs/qa/batch-INJ-07-2026-W4-AECN/Batch_INJ-07-2026-W4_QA_Checklist.xlsx",
+      "tally": {
+        "Pass": 44,
+        "Flag": 8,
+        "Fail": 2,
+        "N/A": 4
+      },
+      "fails": [
+        "2.1 - Full scale ticket for GPRX5102 offload_3 (CAT 1312226191445, 74,940 lb) not attached to Certify; in Drive only as unnamed photo 17837195237591692135944532212822.jpg",
+        "3.5 - Allocated/aggregate distance datapoints (563.77 truck-mi, 3,844.13 rail-mi, 600.6 offload-truck-mi) have no Ops Notes linkage; two AECN-to-Opelousas corridor maps mis-linked to the 42.9 mi truck leg"
+      ],
+      "flags": [
+        "1.2 - offload_3 full weighing filed only as an unnamed photo; TILX offload_1 full ticket filed twice",
+        "2.2 - four weighings 15-16 days before the booked injection date",
+        "3.7 - 2396-R prints prod period #0X-2026; 2395-R and 2396-R filed without TSCA and PO pages",
+        "5.4 - COBB books the GPRX5102 over-draw on offload_3 vs Ops Notes offload_4; week labelled INJ-20260719_bio_oil",
+        "6.4 - pyrolysis process CI stored as 0.104 vs EF sheet final quantity 0.1040167408 (2.28 kgCO2e)",
+        "8.1 - Ops Notes H11 comment asserts a prior claim belonging to SHPX215079, on a cell correctly holding 0.0",
+        "9.9 - generic filenames: image (44).png, Screenshot 2026-02-23 at 11.29.10 AM.png",
+        "9.10 - Certify/Drive source set differs in both directions"
+      ],
+      "net_tCO2e": 159.953,
+      "attachment_gate": "FAIL - Ops Notes not linked to the two allocated distance datapoints; clears when Garrett links it (same defect as Fail 3.5)",
+      "recheck_2026_09_03": "Checked live in Certify (this batch's Aug 6 delivery also never got a Slack reply). 3.5 FIXED: 'INJ-07-2026-W4 Ops Notes.xlsx' is now attached as a Source, linked to Mass of load + 3 other datapoints. 2.1 STILL OPEN: Sources tab shows the FULL scale ticket for GPRX5102 offload_3 is still missing -- only the Empty ticket for that offload is attached (Full tickets are present for offloads 1, 2, and 4). Removal now displays 159.49 tCO2e including site-emission burden components (this registry entry's 159.953 t was removal-components-only scope per the original note). One genuine Fail remains: get the offload_3 full ticket attached."
+    },
+    {
+      "batch_id": "INJ-07-2026-W1",
+      "batch_type": "AECN weekly time-block (THIRD)",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-INJ-07-2026-W1-AECN/Batch_INJ-07-2026-W1_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-INJ-07-2026-W1-AECN/batch_INJ-07-2026-W1_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYT7WF6Q1S03R7Q/edit",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1z9nzSrTSuW5BzIJVPGVOlb42LTQFF24y",
+      "week": "2026-06-27 to 2026-07-04 (Ops); Certify period 01-04 Jul 2026",
+      "injection_date": "2026-07-04",
+      "railcars": [
+        "GRPX5188",
+        "GPRX5098",
+        "GPRX5236",
+        "GPRX5107"
+      ],
+      "T0_initiation": "2026-08-05T22:49:30Z",
+      "net_co2e_t_displayed": 415.176,
+      "counts": {
+        "pass": 52,
+        "fail": 0,
+        "flag": 5,
+        "na": 4
+      },
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "3.7",
+          "what": "BOL print corrections on 2381-R and 2383-R; estimated vs weighed quantity both printed"
+        },
+        {
+          "section": "5.4",
+          "what": "COBB missing GPRX5236 offload_1 row; COBB GPRX5107 offload_1 stale (19,658.68 vs correct 19,876.40)"
+        },
+        {
+          "section": "6.4",
+          "what": "pyrolysis process CI entered 0.104 vs live sheet 0.1040167408; understates emissions 0.00525 t"
+        },
+        {
+          "section": "7.4",
+          "what": "BCU Quant sheet and GHG Statement are RP-level, not examined at batch level"
+        },
+        {
+          "section": "9.9",
+          "what": "generic filenames: image (44).png, Screenshot 2026-02-23 at 11.29.10 AM.png"
+        }
+      ],
+      "status": "awaiting_max_review",
+      "notes": "RE-READ 2026-08-06 after Garrett's fix: 9.10 RESOLVED - sources 59->62, the Ops Notes is now linked to all three allocated/aggregate distance datapoints (7 datapoints total). Also new datapoint 'Bio-Oil Mass - AECN via Rail (downstream, scale tickets)' 313,028.37512 kg re-bases the Opelousas->Basco truck leg off the BOL aggregate onto the mass those trucks carried: leg 1.537->1.535, activities 63.400->63.398, net 415.173->415.176, and BCU now exceeds the transport process sum by 0.0018 t (previous 0.7 kg rounding shortfall gone). Attachment gate PASS, citation audit 0 failures on 57 rows. Standard-empty substitution (KL192 mean+1SD 29,510 lb) verified per July VVB Guidance + Ops Notes cell annotations; 6 Fails from the first draft withdrawn. 0 Fails, 5 Flags remain for Garrett."
+    },
+    {
       "batch_id": "INJ-06-2026-W2",
       "batch_type": "AECN weekly time-block (SECOND)",
       "oil_type": "AECN",
@@ -76,7 +600,9 @@
         "thread_ts": "1782419770.261539"
       },
       "max_approved_garrett_delivery": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-31 per Max: resolved, closing out stale awaiting_garrett entries (65d/112d since notification, no reply, treated as resolved-but-never-marked-complete).",
+      "T_closed": "2026-08-31T18:30:20Z"
     },
     {
       "batch_id": "INJ-06-2026-W1",
@@ -199,7 +725,9 @@
         "Failure Category 13 added to references/lessons_learned.md (and General Principle 15 in distilled list)."
       ],
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-181",
@@ -252,9 +780,11 @@
         }
       ],
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett",
+      "status": "resolved",
       "token_cost_usd": 196.18,
-      "turn_count": 318
+      "turn_count": 318,
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-184",
@@ -349,7 +879,9 @@
       "max_correction_1_3_confabulation": "First-pass Item 1.3 flagged Drive Testing subfolder as empty without opening it \u2014 straight FC10 confabulation. Max caught the error. Re-verified by opening folder id 1BQloRHufk0J1Oeo-mF9nCgLHz_AIzs8u; CHN cert IS present (drive_file_id 1qG8JNyROfr3qAXrx8gTQit6pFOR7WSdv). Item 1.3 corrected Flag\u2192Pass; downstream references in 4.1, 9.10, and Hygiene summary also corrected per FC12 dependency-thread discipline.",
       "max_correction_buckets_b_c": "After 1.3 confabulation caught, Max asked what else was made up without verifying. Buckets enumerated: A (other miscounts/absence claims), B (SKILL-doc-as-proxy citations), C (Certify Sources listed but never opened). All resolved this session: live Standard EFs sheet 2026 tab, MRV_AECN_Analysis.xlsx, PDD App 7 BCU equation, Charm-A4 BCU cert content, AECN to Basco.png route map, Truck Embodied Emissions.png, GLEC screenshot, Viridi Global email, source #14 stale 2025 snapshot, 3 LCA xlsx (limited Certify preview), MRV Uncertainty Cheat Sheet xlsx, 'Vaulted'/'spill' grep across all 5 per-batch sources. Structural fixes also locked in (feedback_primary_source_open_rule.md, _primary_source_opened schema, audit_checklist negative-claim + SKILL-doc-proxy checks, pre-build self-audit gate, SKILL.md/checklist_structure.md updated).",
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-201",
@@ -401,7 +933,9 @@
         }
       ],
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-204",
@@ -481,7 +1015,9 @@
       ],
       "action_required": "Garrett to track the railcar-level reconciliation hand-off into the May RP's last-reported TILX200228 batch (whichever of 2-202/2-203 lands last). 2-204's April RP entry stands as-is.",
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-192",
@@ -527,7 +1063,9 @@
         }
       ],
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-191",
@@ -568,7 +1106,9 @@
         }
       ],
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-190",
@@ -612,7 +1152,9 @@
         }
       ],
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-188",
@@ -636,13 +1178,18 @@
         "flag": 3,
         "na": 4
       },
-      "net_co2e_t_displayed": 25.5,
+      "net_co2e_t_displayed": 21.04,
+      "net_co2e_t_displayed_pre_fix": 25.5,
       "net_co2e_t_sister_pattern_expected": 21.05,
+      "status": "closed",
+      "T_closed": "2026-09-03T16:35:00Z",
+      "closure_note": "Closed 2026-09-03: this batch's Slack thread (1777679494.547659, posted 2026-05-01) never got a reply from Max or Garrett, so it sat flagged as open for 4 months. Checked live in Certify today because the finding was material (17% Net CDR over-claim) -- it was already fixed: BCU 'Applied to Bio-Oil Transport Process Emissions' now reads 1.129 tCO2e, exactly matching the Bio-oil transport process component (1.129 t), matching the sister-pattern-expected value. Net removal now displays 21.04 tCO2e (vs sister-pattern-expected 21.05, within rounding). Fixed outside this thread/registry at some point between May and now, never marked. All 4 Fails (9.5/7.4/8.1/9.8) shared this one root cause and are cleared with it.",
       "fail_items": [
         {
           "section": "9.5",
           "what_to_verify": "BCU value 5.582 tCO2e is materially over-applied vs sister pattern. Sisters all match transport process exactly: 2-186=1.621, 2-187=1.612, 2-189=1.617. 2-188 transport process = 0.187 + 0.867 + 0.075 = 1.129 t but BCU = 5.582 t (excess 4.453 t flows into Net CDR as positive credit, inflating Net by ~17%). Source filename Charm-A4-2024-10-24-63-1976.pdf is also DIFFERENT from sisters' Charm-A3-2024-10-24-64-1976.pdf \u2014 likely wrong certificate linked. Garrett needs to either replace BCU with ~1.129 t (sister pattern) or provide allocation documentation justifying 5.582 t for THIS removal.",
-          "certify_location": "BCUs - Applied to Bio-Oil Transport Process Emissions component"
+          "certify_location": "BCUs - Applied to Bio-Oil Transport Process Emissions component",
+          "resolution": "FIXED, confirmed live 2026-09-03: BCU now 1.129 tCO2e, matches transport process exactly."
         },
         {
           "section": "7.4",
@@ -673,8 +1220,7 @@
         }
       ],
       "soft_escalation_for_garrett": "2-188 is treated as the physical LAST offload of railcar TIMX201060 (consumed_lot offload_4) per Ops Notes structure (only 2-188 Ops Notes Rail file shows all 4 offload rows populated; 2-189 Ops Notes shows 4th row blank). Per Max's earlier note in 2-186 registry, the consumed_lot suffix doesn't always match physical pull sequence. If 2-188 was NOT physically the last truck pulled, the FC11 last-offload conservatism back-calc belongs on a different batch (likely 2-189) and 2-188's Cargo (kg) would revert to raw 16,274.88 kg. Worth one-line confirmation from Garrett.",
-      "max_drive_upload_pending": true,
-      "status": "awaiting_max_review"
+      "max_drive_upload_pending": true
     },
     {
       "batch_id": "2-189",
@@ -723,8 +1269,10 @@
         }
       ],
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett",
-      "_pending_sequence_confirmation": "2026-05-01T23:43Z: Pinged Garrett in thread 1777669381.400469 for confirmation of which truck was physically last pulled from TIMX201060 (2-188 vs 2-189). Issue surfaced during 2-188 QA: 2-189 source-read had captured the Max-vs-data discrepancy as a soft note but didn't promote to a checklist FLAG. Per Max 2026-05-01 (post-2-188-QA): if Garrett confirms 2-189 was physically last, the FC11 back-calc swaps from 2-188 to 2-189; ~1,054.70 kg shifts per-batch (no railcar net change). Awaiting Garrett's response."
+      "status": "resolved",
+      "_pending_sequence_confirmation": "2026-05-01T23:43Z: Pinged Garrett in thread 1777669381.400469 for confirmation of which truck was physically last pulled from TIMX201060 (2-188 vs 2-189). Issue surfaced during 2-188 QA: 2-189 source-read had captured the Max-vs-data discrepancy as a soft note but didn't promote to a checklist FLAG. Per Max 2026-05-01 (post-2-188-QA): if Garrett confirms 2-189 was physically last, the FC11 back-calc swaps from 2-188 to 2-189; ~1,054.70 kg shifts per-batch (no railcar net change). Awaiting Garrett's response.",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-187",
@@ -767,7 +1315,9 @@
         }
       ],
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-186",
@@ -811,7 +1361,9 @@
         }
       ],
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-174",
@@ -836,7 +1388,9 @@
         }
       ],
       "date_sent": "2026-04-06",
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-185",
@@ -879,7 +1433,9 @@
       "date_sent": "2026-04-30",
       "T7_garrett_notified": "2026-04-30T20:46:24Z",
       "max_drive_upload_pending": true,
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
     },
     {
       "batch_id": "2-182",
@@ -911,7 +1467,154 @@
         }
       ],
       "date_sent": "2026-04-28",
-      "status": "awaiting_garrett"
+      "status": "resolved",
+      "closure_note": "Closed 2026-08-28 per Max: resolved, closing out stale awaiting_garrett entries during garrett-completion-monitor rollout audit.",
+      "T_closed": "2026-08-28T00:17:25Z"
+    },
+    {
+      "batch_id": "INJ-07-2026-W2",
+      "batch_type": "AECN weekly time-block (FOURTH)",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-INJ-07-2026-W2-AECN/Batch_INJ-07-2026-W2_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-INJ-07-2026-W2-AECN/batch_INJ-07-2026-W2_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYWP4BF01S0R568/edit",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1tWbQda-dFGW7cA6H7ghj6LY224L8hB8v",
+      "week": "Sat 2026-07-04 to Sat 2026-07-11 (Ops); Certify period 05-11 Jul 2026",
+      "injection_date": "2026-07-10",
+      "railcars": [
+        "SHPX215079 (offload 1 of 4)",
+        "TIMX201060 (offloads 1-4, fully drawn)"
+      ],
+      "T0_initiation": "2026-08-06T20:00:37Z",
+      "net_co2e_t_displayed": 133.938,
+      "counts": {
+        "pass": 47,
+        "fail": 1,
+        "flag": 6,
+        "na": 4
+      },
+      "fail_items": [
+        {
+          "section": "7.4",
+          "what": "GHG Statement Results sheet still carries Emissions Reductions 10.193 and Net 136.8623238 for this entry, and RP total 877.8863469 MT; Certify now reads 7.269 / 133.938. Clears on results regeneration (expected row 7.269 / 133.938, RP total 874.962 MT)."
+        }
+      ],
+      "flag_items": [
+        {
+          "section": "1.5",
+          "what": "Charm PO on all six BOL packages carries El Dorado KS ship-to on a Louisiana injection"
+        },
+        {
+          "section": "3.7",
+          "what": "PO header Q42025 vs line item Q32025 on all six; hand-corrected on 2390-R only"
+        },
+        {
+          "section": "5.4",
+          "what": "COBB labels batch INJ-20260709_bio_oil, not INJ-07-2026-W2; zero rows match by batch ID"
+        },
+        {
+          "section": "6.4",
+          "what": "Pyrolysis EF stored 0.104 vs sheet final 0.1040167408; understates emissions 0.00164 t"
+        },
+        {
+          "section": "9.9",
+          "what": "image (44).png and Screenshot 2026-02-23 generic names; the former is sole evidence for the 2199 mi rail leg"
+        },
+        {
+          "section": "9.10",
+          "what": "Ops Notes not linked to the 3 allocated-distance datapoints; 2 of 3 files on each are AECN-Opelousas road-route cards (2275.569 mi) supporting none of the values"
+        }
+      ],
+      "status": "awaiting_garrett",
+      "garrett_slack": {
+        "user": "U08JW9HQG5B",
+        "channel": "C0944NQH1RP",
+        "thread_ts": "1788462277.607719"
+      },
+      "T7_garrett_notified": "2026-09-03T17:04:37Z",
+      "status_note": "Delivered to Max 2026-08-06; Max corrected the BCU in Certify the same day, verified by re-reading Certify. 9.6 and 9.8 resolved. This is the batch that exposed the workflow gap: it was left with a narrative sentence in `status` instead of a registry enum value, so no automated sweep could ever see it. 7.4 confirmed resolved 2026-09-03 (see recheck below). The 6 Flags (1.5/3.7/5.4/6.4/9.9/9.10) sent to Garrett 2026-09-03 in #team-mrv-alerts.",
+      "gate3_adversarial_review": "complete - 4 challenges raised and all resolved by opening further primary sources (both Jun route maps; BOL pages 4-5 on all six)",
+      "resolved_items": [
+        {
+          "section": "9.6",
+          "what": "BCU corrected 10,193 -> 7,269 kgCO2e; verified in Certify 2026-08-06"
+        },
+        {
+          "section": "9.8",
+          "what": "Net now 133.938 t; verified in Certify 2026-08-06"
+        }
+      ],
+      "awaiting": "Regenerated July RP results, then close 7.4",
+      "recheck_2026_09_03": "Checked live: GHG statement ggs_1KZBX6AX41S029JS now totals 874.29 tCO2e (no longer the stale 877.886 MT cited in Fail 7.4), confirming the July RP results were regenerated at some point since Aug 6. 7.4 resolved. Still open: the 6 Flags (1.5/3.7/5.4/6.4/9.9/9.10) were never actually sent to Garrett.",
+      "T_last_nudge": "2026-09-09T19:01:18Z",
+      "max_report_threads": [
+        {"channel": "C0944NQH1RP", "thread_ts": "1788483684.064659", "posted": "2026-09-04T01:01:10Z"},
+        {"channel": "C0944NQH1RP", "thread_ts": "1788494576.996679", "posted": "2026-09-04T04:02:56Z"},
+        {"channel": "C0944NQH1RP", "thread_ts": "1788802249.041279", "posted": "2026-09-07T17:30:49Z"},
+        {"channel": "C0944NQH1RP", "thread_ts": "1788894087.448869", "posted": "2026-09-08T19:01:27Z"},
+        {"channel": "C0944NQH1RP", "thread_ts": "1788980478.398039", "posted": "2026-09-09T19:01:18Z"}
+      ],
+      "garrett_reply_2026_09_03": "Garrett replied 2026-09-03 18:26:38 PDT in the original QA thread: 'These are all cosmetic, non-verifier facing discrepancies that are acceptable. Not sure what PO you are referring to?' Pushed back on all 6 flags. Escalated to Max in #team-mrv-alerts for decision."
+    },
+    {
+      "batch_id": "INJ-07-2026-W3",
+      "batch_type": "AECN weekly time-block",
+      "oil_type": "AECN",
+      "delivery_mode": "rail",
+      "checklist_path": "outputs/qa/batch-INJ-07-2026-W3-AECN/Batch_INJ-07-2026-W3_QA_Checklist.xlsx",
+      "source_reads_path": "outputs/qa/batch-INJ-07-2026-W3-AECN/batch_INJ-07-2026-W3_source_reads.json",
+      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYV2NABZ1S0CZHJ/edit",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1lXC2uzkp9AbOhv6O6OMGNWnXTPEZRQ38",
+      "ghg_statement_id": "ggs_1KZBX6AX41S029JS",
+      "week": "2026-07-11 to 2026-07-18 (Ops); Certify period 12-18 Jul 2026",
+      "injection_date": "2026-07-18",
+      "railcars": [
+        "SHPX215079",
+        "GPRX5102"
+      ],
+      "offloads": 4,
+      "T0_initiation": "2026-08-06T22:37:56Z",
+      "T_final_max_delivery": "2026-08-06T23:32:33Z",
+      "net_co2e_t_displayed": 103.082,
+      "counts": {
+        "pass": 50,
+        "fail": 0,
+        "flag": 4,
+        "na": 4
+      },
+      "fail_items": [],
+      "flag_items": [
+        {
+          "section": "3.7",
+          "what": "2395-R and 2396-R filed as 3-page packages - no TSCA import cert, no purchase order; PO line item Q32025 vs header Q42025; 2396-R prints prod period #0X-2026; 2395-R page-2 density/litres correction"
+        },
+        {
+          "section": "5.4",
+          "what": "COBB labels the week INJ-20260712_bio_oil, not INJ-07-2026-W3 - not traceable by batch ID"
+        },
+        {
+          "section": "6.4",
+          "what": "pyrolysis process CI stored as 0.104 vs sheet Final Quantity 0.1040167408 (understates by 1.3 kgCO2e)"
+        },
+        {
+          "section": "9.9",
+          "what": "generic filenames: image (44).png (sole rail-distance evidence) and Screenshot 2026-02-23 at 11.29.10 AM.png"
+        }
+      ],
+      "status": "Max reviewed - awaiting go-ahead for Garrett hand-off",
+      "notes": "Adversarial review sent back 3 items (6.1, 8.2, 4.4) for evidence-quality, all fixed before delivery. Deferred to W4: the N_offloads >= N_BOLs draw-down check on railcar GPRX5102, whose offloads 2-4 sit in COBB under INJ-20260719.",
+      "resolved_items": [
+        {
+          "section": "7a.2",
+          "what": "Bio-Oil Mass uncertainty 290.98 -> 290.28 kg (= 4 x 72.57). Corrected by Max 2026-08-06; re-read in Certify the same day on the pyrolysis process and rail process modals. Net 103.082 t and discount 627 kg unchanged."
+        },
+        {
+          "section": "1.5",
+          "what": "Downgraded to Pass 2026-08-06. The flag rested on a Kansas procurement address, which is outside the check's scope - checklist_structure.md:38 and KB:484 both scope 1.5 to Vaulted references, and the scan returned zero Vaulted hits. Search term list was agent-chosen, not a given criterion."
+        }
+      ],
+      "max_review": "Reviewed 2026-08-06. 3.7 (short BOL packages) accepted as non-blocking. 7a.2 corrected."
     }
   ],
   "_pending_max_input": [

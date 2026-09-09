@@ -23,6 +23,8 @@ Read them whenever you're about to do non-trivial work in this folder.
 
 **When a hook fires and blocks a response, the only acceptable next output is the complete corrected work product — never an explanation of why the hook fired, never a patched fragment appended to the end.** Fix the triggering content, then re-deliver the entire thing. "The hook was a false positive" is not a valid response; rephrase and re-deliver regardless. This rule has been violated repeatedly and must be treated as a hard floor, not a preference.
 
+**Every such re-delivery must begin with the single line `**FINAL — supersedes everything above.**` and nothing before it.** No apology, no account of what the hook did, no "you saw this twice because". Re-delivering in full is required, but leaving Max to work out which of several near-identical copies is the live one is not acceptable, and explaining the rule when he calls it out reads as defensiveness. The marker line is the entire acknowledgement.
+
 **Any change to the folder structure must update BOTH `README.txt` AND `FOLDER_INDEX.md` in the same change.** Out-of-date docs mislead future agents and waste time. This rule comes from the workspace itself, not from Claude Code defaults — honor it.
 
 ## Skill discovery

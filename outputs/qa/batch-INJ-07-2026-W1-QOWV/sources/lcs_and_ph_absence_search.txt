@@ -1,0 +1,25 @@
+LCS AND pH — EXHAUSTIVE ABSENCE SEARCH IN THE BATCH OPS NOTES
+File: INJ-07-2026-W1 Ops Notes (Google Sheet 1CmmF6vRcTWbqZtPxsBLsRZnPfV0NJ3MeBgtOkGTpvrM)
+Local copy audited: sources/INJ-07-2026-W1_Ops_Notes.xlsx
+Session: 2026-08-06
+
+LCS / BUFFER
+  Method: openpyxl scan of EVERY cell of ALL 8 tabs (Summary, AECN Rail, WODO,
+  AECN Truck, Kerry, QOWV, WODO Shipments & EE Allocation, QOWV Shipments & EE
+  Allocation) against /lcs|liquid calcium|calcium sulfate|buffer/i.
+  Run twice: values load (data_only=True) and formula load (data_only=False).
+  RESULT: 0 hits in both passes.
+  Corroboration: Summary tab QOWV row records Sparging Loss 0.00 kg and
+  Filtration Loss 0.00 kg; the QOWV tab has no pre-treatment column of any kind.
+  CONCLUSION: no LCS (liquid caustic soda) pre-treatment is reported for this
+  batch, so no matching Certify component is required.
+
+pH
+  Method: openpyxl scan of every cell of the QOWV tab (used range A1:N73)
+  against /\bph\b/i.
+  RESULT: exactly 1 hit — K6 'pH range (target)', whose value cell L6 reads
+  '2.0 - 4.0'. No pH measurement column and no pH value for any of the 36 totes
+  or for the batch as a whole. Nothing populated below the totals row 53.
+  Contrast: the AECN Rail tab in the same workbook records a measured pH of 3.70
+  against every offload.
+  CONCLUSION: the QOWV tab states a target pH range and records no measured pH.

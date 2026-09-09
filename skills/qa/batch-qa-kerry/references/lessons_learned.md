@@ -146,7 +146,7 @@ For lessons that apply across all oil types (AECN, Kerry, future WODO/Aqueous), 
 **Mitigation (lock this in):**
 
 1. **Identify the root cause** of any flagged finding before patching.
-2. **Search every checklist evidence note** for the specific number, source filename, datapoint name, or claim that drove the original finding. Don't rely on memory of which items reference what.
+2. **Go back through the checklist row by row** and re-read every evidence note that cites the number, filename, datapoint name, or claim behind the original finding, re-opening the underlying documents myself rather than trusting memory of which rows reference what.
 3. **Audit every hit.** For each match, ask: does this item's status/reasoning still hold given the corrected understanding? If not, fix it in the same pass.
 4. **Audit dropped findings too** when restructuring the checklist (v1 → v2 → v3). Real findings can fall through restructuring cracks alongside spurious ones — re-check each prior version's findings list against the new structure before re-delivering.
 5. **Re-run the audit script** after edits — fixed evidence may have new citation tags or quoted numerics.

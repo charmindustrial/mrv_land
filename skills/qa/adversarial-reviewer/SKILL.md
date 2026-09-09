@@ -1,5 +1,5 @@
 ---
-name: qa-adversarial-reviewer
+name: adversarial-reviewer
 description: >
   Adversarial reviewer for Charm Industrial batch QA checklists. This skill is a sub-agent that independently validates EVERY item in a completed QA checklist — Pass, Fail, Flag, and N/A — against the knowledge base, Isometric protocols, and source data. It catches incorrect Passes (missed issues), unsupported Fails, fabricated ranges, lazy evidence notes, wrong N/A classifications, and logical errors before the checklist reaches Max. ALWAYS trigger this skill when: the QA agent has completed a batch QA and needs adversarial self-review (step 1 of the Batch QA Slack Workflow), or when Max asks for a "review," "sanity check," or "challenge" of QA findings. Also trigger when asked to verify whether a QA finding is supported by protocol or data.
 ---

@@ -66,6 +66,33 @@ Raw wellhead data exports from Basco use inconsistent column naming across repor
 - Any `qc_*` columns — internal QC flags
 - `time` — epoch timestamp (redundant if `Date` is parsed)
 
+## Analytics Workbook Format (July 2026 export onward)
+
+The July 2026 file (`basco6_analytics_2026_07.xlsx`) was not a raw SCADA export. It is a pre-processed analytics workbook pulled from BigQuery, with nine sheets:
+
+`Flow`, `Pressure`, `Daily_Volumes`, `Injectivity`, `Trends`, `Fluid_Properties`, `Events`, `Normalized`, `Params`.
+
+Only three carry minute-level readings; join them on `timestamp`:
+
+| Sheet | Column | Maps to |
+|---|---|---|
+| Flow | `timestamp` | `local_time` (naive, local CST/CDT) |
+| Flow | `corrected_flow_gpm` | `oil_rate_gpm` — bio-oil rate, already cleaned; NaN when idle |
+| Flow | `flow_gpm` | raw bio-oil rate, retains noise; use `corrected_` instead |
+| Pressure | `tubing_psi` | `surface_pressure_psi` |
+| Pressure | `casing_psi` | `annular_pressure_psi` |
+| Fluid_Properties | `corrected_brine_rate_gpm` | `brine_rate_gpm` |
+
+Drop from this format: `bottomhole_psi`, `masip_psi` (a constant 455), `viscosity_cp`, `ph`, `bottomhole_temp_f`, `injectivity`/`ii_*`, and all `*_flag` columns. `Daily_Volumes`, `Injectivity`, `Trends`, `Normalized` are derived rollups — do not concatenate them. `Events` spans **all time, not just the reporting period** — filter by `start_time` before using it.
+
+**Read the `Params` sheet first.** It reports the row count the generator retrieved for each tag, e.g. `Rows — Casing Pressure (raw)`. A zero there means the tag returned nothing and the corresponding compliance item cannot be evaluated — catch this before building charts. The first July 2026 file came through with casing pressure at 0 for the whole month while every other tag was full; a corrected file backfilled it from tag PT-1062 and added a `NOTE — Casing backfill` row to `Params`. Check `Params` for such notes on any re-issued file, and diff a re-issue against the original rather than assuming only the named column changed.
+
+**Google Sheets round-trip artifact.** When a corrected file arrives as a native Google Sheet rather than an .xlsx, empty cells come back as empty strings instead of blanks. A naive `DataFrame.equals()` then reports the flag/note text columns as fully changed when no value actually differs. Compare numeric columns with `np.isclose(..., equal_nan=True)` before concluding anything changed.
+
+Cleaning already applied upstream in this format, recorded in the `*_flag` columns: bio-oil readings below 1.0 GPM removed as HMI noise, readings above 100 GPM removed as communication errors, and viscosity pinned at a 1000 cP default removed as communication loss.
+
+`flowmeter_suspect` / `flowmeter_note` mark windows where flow read zero while pressure stayed stable — a metering outage, not a stop in injection. `est_rate_before_gpm` / `est_rate_after_gpm` are the **bracketing rates on either side of the window, not filled-in corrections**; `corrected_flow_gpm` stays NaN there and the volume is unresolved until someone enters a rate.
+
 ## Multi-Sheet Handling
 
 Older exports may split data across multiple sheets by date range (e.g., "2.4-2.20", "2.21-3.1"). When this occurs:

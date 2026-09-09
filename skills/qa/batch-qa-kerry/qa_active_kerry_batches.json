@@ -1,71 +1,184 @@
 {
-  "active_batches": [
-    {
-      "batch_id": "K-002",
-      "checklist_path": "outputs/qa/batch-K-002/Kerry_Batch_K-002_QA_Checklist.xlsx",
-      "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ0QGNBV1S0B315/edit",
-      "oil_type": "Kerry",
-      "delivery_mode": "tote",
-      "consumed_lots": ["KC_0005", "KC_0006", "KC_0007", "KC_0008"],
-      "reporting_period": "2026-04-21",
-      "T0_initiation": "2026-05-05T23:45:04Z",
-      "T1_data_gathering_complete": "2026-05-05T23:59:00Z",
-      "T2_checklist_draft_complete": "2026-05-06T00:08:00Z",
-      "T3_adversarial_review_complete": "2026-05-06T00:11:00Z",
-      "T5_max_review_start": "2026-05-06T00:12:36Z",
-      "T_v2_rebuild_after_max_corrections": "2026-05-06T22:09:35Z",
-      "T7_garrett_notified": "2026-05-08T22:26:35Z",
-      "garrett_user_id": "U08JW9HQG5B",
-      "garrett_dm_channel": "D08KEFVRJDP",
-      "garrett_dm_thread_ts": "1778279225.586309",
-      "max_dm_channel": "DLG4H88UF",
-      "max_dm_thread_ts": "1778026415.360119",
-      "counts_v2": {"pass": 16, "fail": 2, "flag": 1, "na": 0},
-      "net_co2e_t": 9.378,
-      "fail_items_v2": ["2B.1", "2B.2"],
-      "flag_items_v2": ["1.4"],
-      "sidebar_count_v2": 4,
-      "v2_notes": [
-        "Restructured around Max's actual QA question framework (Slack 2026-05-06)",
-        "v1 had 10 FAILs cascading from spurious AECN-imported assumptions (BOL absence, weighing metadata, measured tare convention) that don't apply to Kerry tote mode",
-        "v2 retains only the substantive findings: outdated 2025 Embodied EF (FAIL 2B.1+2B.2) + 1kg sheet display rounding (FLAG 1.4)",
-        "Embodied EF investigation: 0.0401 = 2025 Non-Tanker Truck Embodied; 2026 value = 0.1198. Material under-reporting ~140 kg = 0.140 tCO2e (1.5% of Net CDR)",
-        "Certify rendering blocked by SW InvalidStateError — could not directly open Distance.png, GLEC.png, EF 2025 PDF; cross-verified all values via live EF sheet read directly from Drive"
-      ],
-      "max_drive_upload_pending": true,
-      "status": "Awaiting Garrett 'Complete'"
-    }
-  ],
-  "_pending_max_input": [],
-  "_schema_notes": {
-    "active_batch_fields": [
-      "batch_id",
-      "checklist_path",
-      "certify_url",
-      "oil_type (always 'Kerry')",
-      "delivery_mode ('tote' or 'tanker')",
-      "consumed_lot (kc_NNNN sequential)",
-      "reporting_period",
-      "T0_initiation",
-      "T1_data_gathering_complete",
-      "T2_checklist_draft_complete",
-      "T3_adversarial_review_complete",
-      "T4_audit_clean",
-      "T5_max_review_start",
-      "T6_max_approval",
-      "T7_garrett_notified",
-      "max_dm_channel",
-      "max_dm_thread_ts",
-      "slack_channel",
-      "thread_ts",
-      "garrett_user_id",
-      "counts {pass, fail, flag, na}",
-      "net_co2e_t",
-      "fail_items",
-      "flag_items",
-      "max_drive_upload_pending",
-      "status"
-    ],
-    "registry_extension_note": "garrett-completion-monitor sweeps both qa_active_batches.json (AECN) and this Kerry registry on its scheduled cadence. See skills/qa/garrett-completion-monitor/SKILL.md for the multi-registry implementation."
+ "active_batches": [
+  {
+   "batch_id": "INJ-08-2026-W3-KERRY",
+   "checklist_path": "outputs/qa/batch-INJ-08-2026-W3-KERRY/Kerry_Batch_INJ-08-2026-W3_QA_Checklist.xlsx",
+   "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M0WQYKWY1S07FWW/edit",
+   "oil_type": "Kerry",
+   "delivery_mode": "tanker",
+   "consumed_lots": [],
+   "reporting_period": "2026-08-01 to 2026-08-31 (injection window 2026-08-09 to 2026-08-15)",
+   "T0_initiation": "2026-08-27T21:13:47Z",
+   "T3_adversarial_review_complete": "2026-08-27T21:56:00Z",
+   "T_final_max_delivery": "2026-08-27T21:56:24Z",
+   "max_user_id": "UL2SL4H5H",
+   "max_dm_channel": "DLG4H88UF",
+   "max_dm_thread_ts": "1787868078.269459",
+   "garrett_user_id": "U08JW9HQG5B",
+   "counts": {
+    "pass": 21,
+    "fail": 4,
+    "flag": 0,
+    "na": 0
+   },
+   "net_co2e_t": 19.797,
+   "fail_items": [
+    "1.7",
+    "2B.2",
+    "2B.4",
+    "2C.1"
+   ],
+   "flag_items": [
+    "S.4"
+   ],
+   "sidebar_count": 5,
+   "garrett_dm_channel": "D08KEFVRJDP",
+   "garrett_dm_thread_ts": "1787876375.764659",
+   "notes": [
+    "Second Kerry tanker batch (first was INJ-07-2026-W4-KERRY). Mass math, EFs (both independently pulled from live 2026 Standard EFs sheet and unit-converted), CHN, and pH all verified against primary sources.",
+    "1.7 FAIL: mandatory audit_attachments.py run (KERRY tanker matrix) found scale ticket images not attached as Certify Sources for Mass of Injectant / Allocated Kerry Oil Gross Mass -- only Ops Notes.xlsx is linked. Same gap category as precedent batch's fixed 1.7 (which ended with 3 sources on Mass of Injectant); not yet fixed here.",
+    "2B.2/2B.4 FAIL: Embodied component's Distance/EF datapoints still show 'No sources' in Certify -- same unresolved issue as precedent batch (Max awaiting technical assistance).",
+    "2C.1 FAIL (new for Kerry tanker QA): Certify Components tab shows only 3 components total, no Reductions/BCU category at all -- $0 BCU offset against 1.364 tCO2e transport process activity.",
+    "Sidebar: no COBB row exists for Kerry (consistent with precedent, unresolved); no BOL found in Drive/Certify/Injection Tracker; Ops Notes Kerry tab header still labeled for tote mode; VVB Guidance's 'materially higher' solids claim doesn't match the actual applied constant (immaterial, 0.07% of load); both scale tickets are manual field captures per Ops Notes comments."
+   ],
+   "max_drive_upload_pending": true,
+   "status": "closed",
+   "T_last_nudge": "2026-08-31T18:43:56Z",
+   "T_garrett_replied": "2026-08-31T23:00:00Z",
+   "garrett_reply": "complete",
+   "re_review_note": "2026-09-01: Re-verified live in Certify. All 4 Fails cleared: 1.7 scale tickets (FULL+EMPTY) now attached as Certify Sources; 2B.2/2B.4 Embodied distance + EF datapoints now have sources (Distance.png + Standard EFs sheet); 2C.1 BCU 1.364 tCO2e added, matches transport process exactly, BCU cert present. Net 19.797 -> 21.161 tCO2e (BCU addition). 8 sources total. Clean close.",
+   "T_re_review_complete": "2026-09-01T17:13:00Z"
+  },
+  {
+   "batch_id": "K-002",
+   "checklist_path": "outputs/qa/batch-K-002/Kerry_Batch_K-002_QA_Checklist.xlsx",
+   "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KQ0QGNBV1S0B315/edit",
+   "oil_type": "Kerry",
+   "delivery_mode": "tote",
+   "consumed_lots": [
+    "KC_0005",
+    "KC_0006",
+    "KC_0007",
+    "KC_0008"
+   ],
+   "reporting_period": "2026-04-21",
+   "T0_initiation": "2026-05-05T23:45:04Z",
+   "T1_data_gathering_complete": "2026-05-05T23:59:00Z",
+   "T2_checklist_draft_complete": "2026-05-06T00:08:00Z",
+   "T3_adversarial_review_complete": "2026-05-06T00:11:00Z",
+   "T5_max_review_start": "2026-05-06T00:12:36Z",
+   "T_v2_rebuild_after_max_corrections": "2026-05-06T22:09:35Z",
+   "T7_garrett_notified": "2026-05-08T22:26:35Z",
+   "garrett_user_id": "U08JW9HQG5B",
+   "garrett_dm_channel": "D08KEFVRJDP",
+   "garrett_dm_thread_ts": "1778279225.586309",
+   "max_dm_channel": "DLG4H88UF",
+   "max_dm_thread_ts": "1778026415.360119",
+   "counts_v2": {
+    "pass": 16,
+    "fail": 2,
+    "flag": 1,
+    "na": 0
+   },
+   "net_co2e_t": 9.378,
+   "fail_items_v2": [
+    "2B.1",
+    "2B.2"
+   ],
+   "flag_items_v2": [
+    "1.4"
+   ],
+   "sidebar_count_v2": 4,
+   "v2_notes": [
+    "Restructured around Max's actual QA question framework (Slack 2026-05-06)",
+    "v1 had 10 FAILs cascading from spurious AECN-imported assumptions (BOL absence, weighing metadata, measured tare convention) that don't apply to Kerry tote mode",
+    "v2 retains only the substantive findings: outdated 2025 Embodied EF (FAIL 2B.1+2B.2) + 1kg sheet display rounding (FLAG 1.4)",
+    "Embodied EF investigation: 0.0401 = 2025 Non-Tanker Truck Embodied; 2026 value = 0.1198. Material under-reporting ~140 kg = 0.140 tCO2e (1.5% of Net CDR)",
+    "Certify rendering blocked by SW InvalidStateError \u2014 could not directly open Distance.png, GLEC.png, EF 2025 PDF; cross-verified all values via live EF sheet read directly from Drive"
+   ],
+   "max_drive_upload_pending": true,
+   "status": "resolved",
+   "closure_note": "Closed 2026-08-31 per Max: resolved, closing out stale awaiting_garrett entries (65d/112d since notification, no reply, treated as resolved-but-never-marked-complete).",
+   "T_closed": "2026-08-31T18:30:20Z"
+  },
+  {
+   "batch_id": "INJ-07-2026-W4-KERRY",
+   "checklist_path": "outputs/qa/batch-INJ-07-2026-W4-KERRY/Kerry_Batch_INJ-07-2026-W4_QA_Checklist.xlsx",
+   "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYZ3JPB51S0VE5Q/edit",
+   "ghg_statement": "ggs_1KZBX6AX41S029JS",
+   "oil_type": "Kerry",
+   "delivery_mode": "tanker",
+   "first_of_mode": true,
+   "consumed_lots": [],
+   "reporting_period": "2026-07-01 to 2026-07-31 (injection week 19-25 Jul 2026)",
+   "T0_initiation": "2026-08-06T23:39:28Z",
+   "T_final_max_delivery": "2026-08-07T00:10:59Z",
+   "max_user_id": "UL2SL4H5H",
+   "garrett_user_id": "U08JW9HQG5B",
+   "counts": {
+    "pass": 23,
+    "fail": 2,
+    "flag": 0,
+    "na": 0
+   },
+   "net_co2e_t": 31.982,
+   "fail_items": [
+    "2B.2",
+    "3.6"
+   ],
+   "flag_items": [],
+   "sidebar_count": 10,
+   "notes": [
+    "First Kerry batch delivered by flatbed-haul tanker; prior K-001/K-002 were totes.",
+    "Registered MATRICES['KERRY'] (tanker) in audit_attachments.py; added 'Distance' to map_or_watco filename patterns.",
+    "Added KERRY_TANKER_STRUCTURE to build_kerry_checklist.py and normalised all section fills to #D6E4F0.",
+    "Attachment gate intentionally still FAILs on Mass of Injectant/ops_notes - that gap IS checklist FAIL 1.7.",
+    "Open for Max: Kerry tanker mass-uncertainty spec (72.57 kg used vs 1.13 kg in SKILL.md) needs a documented ruling."
+   ],
+   "max_drive_upload_pending": true,
+   "status": "Max reviewed 2026-08-10; 2 items open",
+   "max_corrections_2026_08_10": [
+    "1.7 Fail -> Pass: Ops Notes now attached; Mass of Injectant carries 3 sources (Sources tab 6 -> 8).",
+    "2A.2 Fail -> Pass: flatbed process EF re-pointed to 'Standard Emission Factors + Calculations (8).xlsx' (2026 tab).",
+    "1.6 / 2A.7 Flag -> Pass: Max ruled precision follows the SCALE not the oil type - tote scale 1.13 kg, commercial truck scale 72.57 kg. Certify was right.",
+    "2B.2 stays Fail: datapoint locked, Max awaiting technical assistance. Replacement derivation already on the removal in the 'Truck and Trailer EE 2026' tab of the newly attached workbook.",
+    "3.6 stays Fail: re-verified 2026-08-10, still no COBB row and Ops Notes pH cell still blank.",
+    "SKILL.md + checklist_structure.md uncertainty reference rewritten to key off the scale."
+   ],
+   "recheck_2026_09_03": "Checked live in Certify: 2B.2 now FIXED -- 'Route Distance Kerry to Basco' and 'Distance emission factor' both carry sources now ('Kerry to Basco Distance.png' and 'Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf'), where the datapoints previously showed no sources at all. Net unchanged 31.98 t. 3.6 (no COBB row, blank pH) can't be confirmed or denied from Certify -- that's an internal Charm record, not a Certify datapoint -- so it's carried forward as still open pending a direct check of Ops Notes/COBB.",
+   "status_2026_09_03": "1 of 2 open items resolved (2B.2). 3.6 unconfirmed, treat as still open."
   }
+ ],
+ "_pending_max_input": [],
+ "_schema_notes": {
+  "active_batch_fields": [
+   "batch_id",
+   "checklist_path",
+   "certify_url",
+   "oil_type (always 'Kerry')",
+   "delivery_mode ('tote' or 'tanker')",
+   "consumed_lot (kc_NNNN sequential)",
+   "reporting_period",
+   "T0_initiation",
+   "T1_data_gathering_complete",
+   "T2_checklist_draft_complete",
+   "T3_adversarial_review_complete",
+   "T4_audit_clean",
+   "T5_max_review_start",
+   "T6_max_approval",
+   "T7_garrett_notified",
+   "max_dm_channel",
+   "max_dm_thread_ts",
+   "slack_channel",
+   "thread_ts",
+   "garrett_user_id",
+   "counts {pass, fail, flag, na}",
+   "net_co2e_t",
+   "fail_items",
+   "flag_items",
+   "max_drive_upload_pending",
+   "status"
+  ],
+  "registry_extension_note": "garrett-completion-monitor sweeps both qa_active_batches.json (AECN) and this Kerry registry on its scheduled cadence. See skills/qa/garrett-completion-monitor/SKILL.md for the multi-registry implementation."
+ }
 }

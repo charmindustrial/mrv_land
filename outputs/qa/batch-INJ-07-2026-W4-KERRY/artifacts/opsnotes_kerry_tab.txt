@@ -1,0 +1,54 @@
+ARTIFACT — Ops Notes "INJ-07-2026-W4 Ops Notes", sheet "Kerry", full rendered tab.
+Source: https://docs.google.com/spreadsheets/d/1NHIUkU2DBJ5cetXxrl353IkQMrO62e89IlAZN4b0eAM/edit
+Read 2026-08-06 via Google Drive read_file_content (includeComments=true).
+Comment anchors reported for the whole workbook: "No anchored comments".
+
+### Sheet Name: Kerry
+### Table Range: A1:O33
+
+Row 1 : BATCH HEADER — Kerry (Calciner Waste Oil, IBC Totes)
+Row 2 : Batch ID (INJ-YYYY-WXX) | INJ-07-2026-W4                     || Constants
+Row 3 : Week Start (Sat)        | 7/18/2026                          || Lbs/Kg | 2.20462
+Row 4 : Week End (Sat)          | 7/25/2026                          || Kg/Lbs | 0.453592
+Row 5 :                                                              || Filtration Solids Content (Kerry Calciner) | 0.071%
+Row 6 :                                                              || pH range (target) | 2.0 - 4.0
+Row 7 :                                                              || Testing Uncertainty | 0.004
+Row 8 : SECTION 1 - IBC LEDGER  (one row per Kerry tote; tote tag ma...)
+
+Row 9  (column headers):
+  A Date | B UID | C Full Ticket (lb) | D Empty Ticket 2 (lb) |
+  E Gross Mass (kg) — transport | F Net Oil (kg) | G Net Injected (kg) — MOBI |
+  H pH | I Notes | J C Content | K C Content Uncertainty | L Mass Uncertainty (Scaling)
+
+Row 10 (the single ledger row for this batch):
+  A 7/17/2026
+  B TANKER Freiburger 07/26
+  C 73,300.00
+  D 36,400.00
+  E 16,737.54
+  F 16,737.54
+  G 16,725.66
+  H <EMPTY>
+  I <EMPTY>
+  J 0.528
+  K 0.002112
+  L <EMPTY>
+
+Rows 11-33: no further populated ledger rows.
+
+FULL CONSTANTS BLOCK AS RENDERED (column N / O):
+  Constants
+  Lbs/Kg                                       2.20462
+  Kg/Lbs                                       0.453592
+  Filtration Solids Content (Kerry Calciner)   0.071%
+  pH range (target)                            2.0 - 4.0
+  Testing Uncertainty                          0.004
+
+NOTES ON THIS ARTIFACT
+- The constants block above is reproduced in full. There is no mass-loss
+  constant of any kind on this tab beyond the filtration solids content.
+  The 0.0129 constant that appears on the AECN Rail, AECN Truck, WODO and
+  QOWV tabs of the same workbook does not appear on this tab.
+- Column H (pH) and column L (Mass Uncertainty (Scaling)) are both empty on
+  the one populated row. Column I (Notes) is also empty, so no operator
+  annotation explains either blank.

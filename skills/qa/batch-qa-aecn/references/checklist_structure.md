@@ -269,7 +269,7 @@ If a railcar instead drew down in FEWER offloads than the BOLs loaded into it (N
 
 **On 9.5:** Zero-value BCU Datapoints (derived zeros) have no sources — this is expected, not an error.
 
-**On 9.6:** BCU QA rule — BCU quantity (tCO2e) in Reductions MUST equal or exceed the corresponding diesel/process emission (tCO2e) in Activities. Check EVERY removal. **Always show the transport process sum explicitly in the evidence note, even when there is only one transport process leg.** For truck batches: `BCU 5.010 t = transport process sum 5.010 t (AECN→LA Tanker Truck Process; single leg)`. For rail batches: `BCU X.XXX t = process_leg_1 + process_leg_2 + process_leg_3 = X.XXX t`. The explicit-sum convention surfaces the calc the VVB will reconstruct and keeps truck-batch and rail-batch evidence-note shape parallel. (Convention locked in 2026-05-12 from Max correction on 2-181.)
+**On 9.6:** BCU QA rule — BCU quantity (tCO2e) in Reductions must NOT exceed the corresponding diesel/process emission (tCO2e) in Activities (full coverage = equal; over-coverage launders reductions into removals and is always a FAIL). Check every removal. **Always show the transport process sum explicitly in the evidence note, even when there is only one transport process leg.** For truck batches: `BCU 5.010 t = transport process sum 5.010 t (AECN→LA Tanker Truck Process; single leg)`. For rail batches: `BCU X.XXX t = process_leg_1 + process_leg_2 + process_leg_3 = X.XXX t`. The explicit-sum convention surfaces the calc the VVB will reconstruct and keeps truck-batch and rail-batch evidence-note shape parallel. (Convention locked in 2026-05-12 from Max correction on 2-181.)
 
 ---
 

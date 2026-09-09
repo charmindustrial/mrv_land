@@ -65,13 +65,21 @@ The QA workflow is four sequential gates. Each gate must be completed and verifi
 
 **Required reads (in this order):**
 
-1. **Scale tickets** — Open BOTH Full and Empty ticket images in Drive. Extract: gross weight, date, tractor #, trailer #, scale #, location from each ticket. Confirm tractor and trailer numbers match across both.
+0. **Reporting-period VVB guidance doc — READ THIS BEFORE ANY OTHER SOURCE.** Open it from Drive using the query `title contains 'VVB Guidance'` — the doc whose period covers the batch's injection date (e.g. "VVB Guidance July 1 - July 31" for a 2026-07-04 injection; owner is normally garrett.lutz@). Read it **in full** — not just the section that looks relevant. This doc is where Charm records the operational explanations and substitution methods a verifier will rely on, and it is the difference between a finding and a false accusation. Record it in the source-read log under `vvb_guidance` with `live_source_url`, verbatim quotes of every section bearing on this batch, and any per-offload application list.
+
+   If no guidance doc exists for the period, record that you searched and found none — do not assume there is nothing to find.
+
+   **Why this is step 0:** on INJ-07-2026-W1 the QA agent raised six Fails against an empty (tare) weight of 29,510 lb that "appeared on no scale ticket." The July guidance doc documents that value as the published KL192 trailer standard empty weight (mean + 1σ over n = 22), names the exact three offloads it was applied to, and explains the rig mismatch that triggers it. Every one of the six Fails was wrong, and all six would have been avoided by reading this doc first. See `references/lessons_learned.md` Failure Category 14.
+
+1. **Scale tickets** — Open BOTH Full and Empty ticket images in Drive. Extract: gross weight, date, tractor #, trailer #, scale #, location from each ticket. Compare tractor and trailer numbers across the pair. A mismatch is **not automatically a finding** — under the Trailer Standard Empty Weight method a rig mismatch is the documented *trigger* for substituting a per-trailer standard tare. Check the guidance doc (step 0) and the Ops Notes cell annotation (step 4) before treating it as an error.
 
 2. **BOL / Billing documents** — Open BOL (check Certify Sources if not in Drive). Extract: BOL #, origin name+address, destination name+address, ship date, mass in all listed units, carrier name. For AECN truck: 1 BOL per shipment. For AECN rail: 3 truck BOLs per railcar (destination = SOPOR railyard).
 
 3. **Lab results (CHN PDF)** — Open SGS Certificate of Analysis, navigate to correct page. Extract: Certificate #, batch ID on page, sample date+location, Carbon %, Hydrogen %, Nitrogen %, Viscosity, Acid Number, Density.
 
 4. **Ops Notes** — Open Google Sheet. Extract: batch ID, completion date, origin lot, all mass values (origin mass, truck full/empty/net for each truck), sparging rate+loss, pH, total injectate mass.
+
+   **Read the CELL COMMENTS, not only the cell values.** Operators annotate substituted and adjusted figures in the cell note, and those notes are the explanation for any value that doesn't tie to a ticket. `openpyxl.load_workbook(path)` **without** `data_only=True` exposes them as `cell.comment.text`; a `data_only=True` load reads values only and will silently hide them. Dump every comment on the offload table into the source-read log. On INJ-07-2026-W1 all three substituted tare cells carried a note reading "Standard empty weight (KL192 = mean+1SD = 29,510 lb) substituted per Trailer Standard Empty Weight methodology (rig mismatch between full/empty ticket)" — the answer was in the workbook the whole time and was missed because only values were read.
 
 5. **COBB tracker** — Navigate to the "Basco Injection -- COBB" tab. **ROW VERIFICATION GATE:** Before extracting ANY value, read cell A of the row and confirm it contains the target batch ID. If cell A does not match, STOP — you are on the wrong row. The tracker has far more rows than the initial viewport shows. Use Name Box (jump to A50, A100, etc.) or Ctrl+F to find the batch. NEVER conclude a batch is absent based only on what's visible on screen. Extract: injection_batch, consumed_lot, BOL_number, origin_quantity_kg, order_line_completed_on.
 
@@ -131,7 +139,7 @@ At the start of Gate 2, read `mass_chain_findings.json` and process each finding
 - **Carbon content:** lab value matches Certify datapoint, used correctly in gross calculation
 - **Gross-to-net:** independent recalculation (injectate x carbon% x 3.667), verified against Certify
 - **Emission factors:** AECN pyrolysis process + embodied EFs match current values; tanker truck process + embodied EFs correct
-- **BCUs:** transport process BCU >= transport process activity emission
+- **BCUs:** transport process BCU <= transport process activity emission (full coverage = equal; never exceed)
 - **Document presence:** AECN LCA CI spreadsheet, LCA with stack emissions, supporting GHG data file — confirmed in Drive OR Certify Sources
 
 **Mandatory Verification Sub-Tasks (non-skippable):**
@@ -167,9 +175,11 @@ These items have failed across multiple batches. A checklist cannot exit Gate 2 
 2. Run a final verification pass on status counts
 3. Save the checklist to the MRV Expert workspace folder
 4. Deliver to Max via the Slack Workflow below
-5. **Record `T_final` and log token cost.** Immediately after the Slack Max-delivery message is sent (step 4), run `date -u +%Y-%m-%dT%H:%M:%SZ` and write the result to `outputs/qa/batch-[ID]/batch_timestamps.json` under key `T_final_max_delivery`. Then run `python3 skills/qa/batch-qa-aecn/scripts/compute_batch_token_cost.py [ID] --write-summary` to record per-batch API cost to `outputs/qa/batch-[ID]/token_cost.json`. This is the unit-economics input — skip it and the performance tracker has nothing to learn from.
+5. **Record `T_final`.** Immediately after the Slack Max-delivery message is sent (step 4), run `date -u +%Y-%m-%dT%H:%M:%SZ` and write the result to `outputs/qa/batch-[ID]/batch_timestamps.json` under key `T_final_max_delivery`. This gives the performance tracker its duration.
 
-**Exit condition:** Checklist delivered to Max. Performance monitor triggered. `token_cost.json` exists for the batch.
+   **Do NOT compute or report per-batch API cost.** Max retired cost tracking on 2026-08-06: it is no longer necessary and must not continue. Do not run `compute_batch_token_cost.py`, do not write `token_cost.json`, and do not put a dollar figure in the delivery message or summary. The script is left in `scripts/` for history only.
+
+**Exit condition:** Checklist delivered to Max. Performance monitor triggered. `batch_timestamps.json` carries `T_final_max_delivery`.
 
 ---
 
@@ -391,18 +401,21 @@ After completing all four gates:
 1. **Adversarial self-review** (Gate 3) — already done by this point
 2. **Slack Max** (user ID: UL2SL4H5H) confirming QA and self-review are complete. Include batch ID.
 3. **Max reviews** and provides feedback. Make updates until Max is satisfied.
-4. **Once Max approves**, Slack Garrett Lutz. Include:
+4. **Once Max approves, post to #team-mrv-alerts (channel C0944NQH1RP), tagging Garrett (<@U08JW9HQG5B>), a SHORT, lede-first message — not the full checklist dump** (routing changed 2026-08-31 per Max: Garrett-facing QA notifications go to the shared channel, not a DM, so the team sees outstanding issues and their resolution — added 2026-08-26: sending the entire PASS/FAIL/FLAG breakdown out of the gate buries the fails and flags, which are the only thing Garrett needs to act on). The message is just:
    - Batch ID
-   - PASS/FAIL/FLAG/N/A counts
-   - Details on each FAIL and FLAG
-   - Instructions to Garrett:
-     a. Sanity-check the findings and notes
-     b. Flag Max with any issues
-     c. Make any required updates
-     d. Comment "Complete" in the thread when done
-     e. "Complete" triggers re-review
-5. **Once Garrett responds "Complete":** Re-open the checklist, batch folder, and Certify entry. Verify that each correction has actually been made. Update the checklist (status, evidence notes, formatting).
-6. **Notify Max (two-step: email draft + Slack alert):**
+   - The FAIL and FLAG items only, one line each (item number + the issue — no PASS items, no counts, no full evidence essay)
+   - A direct prompt to reply in the thread once he's addressed the findings, which re-triggers a QA re-verification pass on that batch
+   Record the channel + this post's thread_ts in the batch's registry entry so the garrett-completion-monitor automation can find and watch it.
+
+   **4a. "Max approves" includes Max fixing something himself directly in Certify — that IS approval.** Do not wait for a separate verbal "send it" once he's made a correction. And **one blocked item must never gate the rest of the notification.** Before sending to Garrett, split what's outstanding into two buckets:
+   - **Garrett-actionable** (evidence gaps, mislinked sources, wrong EFs, labeling, COBB/Ops Notes records — anything he can fix) — send these to him now, regardless of what else is unresolved.
+   - **Externally blocked** (waiting on something neither Garrett nor Max controls directly — a reporting-period regeneration, a platform bug, a pending Isometric decision) — do not hold the Garrett-actionable items hostage to this. Record it as its own thing: set the registry `status` to exactly `"blocked_external"` and add a `blocked_on` field stating precisely what's being waited on and how to tell when it's cleared (e.g., "GHG statement ggs_XXX total no longer matches stale figure Y"). **`status` must always be one of the defined enum values — `awaiting_garrett` / `re_reviewing` / `blocked_external` / `closed` — never a free-text narrative sentence.** Put narrative context in a `notes` field instead. A batch that got this wrong (INJ-07-2026-W2, Aug 2026) sat for a month with 6 Garrett-actionable flags never sent, because the whole notification was held on one externally-blocked Fail and the registry `status` field held a prose sentence instead of a recognized state — invisible to every automated sweep, which matches on the literal string.
+5. **Iterate — re-verify live, don't trust the reply at face value, narrow the list each round:**
+   a. When Garrett replies (in the #team-mrv-alerts thread), re-open Certify (and Ops Notes/COBB/Drive if relevant) and independently re-check every item he says he addressed. A "corrected" claim is not evidence — confirm the actual value/EF/source changed, not just a label or unit re-expression (a component can be renamed or re-unitized without the underlying number actually changing — verify by recomputing, not by reading the new label).
+   b. For each item: if genuinely fixed, mark PASS with the fresh evidence and drop it from the outstanding list. If claimed-fixed but not actually changed, keep it FAIL/FLAG with the sharper finding. If Garrett raises a substantive disagreement (a methodology or policy read, not a data fix) rather than making a change, do NOT resolve it yourself — go find the governing primary source, and if it doesn't settle the question outright, take it to Max with Garrett's exact words rather than picking a side.
+   c. Reply into that same #team-mrv-alerts thread with only what's still outstanding (never re-send the full list, and never re-send items already confirmed fixed), and prompt him again to note when addressed.
+   d. Repeat until the outstanding list is empty — either because every item is fixed and verified, or because remaining ones were resolved a different way (a primary-source read, a Max ruling, a re-scoped finding). Update the checklist after every round, not just at the end.
+6. **Once nothing is outstanding, notify Max (two-step: email draft + Slack alert):**
    This is a deliberate two-step workflow. Slack DMs are too compressed for detailed re-review findings. The Gmail connector lacks send permissions. Max prefers a scannable Slack alert that points to the full email for review and manual sending.
    a. **Create a Gmail draft** (HTML format) to max@charmindustrial.com. Do NOT send — only draft. Subject: "QA Re-Review: Batch [ID] — [All Resolved / X of Y Unresolved]". Body includes: full summary of re-review findings (what was corrected, what remains unresolved with current vs. expected values), recommended next steps, and a **direct link to the updated QA checklist file** (using `computer:///` protocol pointing to the file in the MRV Expert workspace folder). Max should not have to hunt for the checklist.
    b. **Send a short Slack DM** to Max (user ID: UL2SL4H5H) alerting him the draft is ready. Keep it brief — just batch ID, one-line outcome, and "draft ready in Gmail." Example: "QA re-review draft ready for Batch 2-163 — 1 unresolved item. Check Gmail drafts."
@@ -442,7 +455,7 @@ The file `skills/qa/batch-qa-aecn/qa_active_batches.json` in the MRV Expert work
 - BCUs broken out by 5 categories: injection diesel, waste disposal, pre-treatment diesel, pre-treatment waste, bio-oil transport
 - Counterfactuals = 0 for bio-oil geological storage per protocol
 - Zero-value BCU Datapoints (derived zeros) have no sources — this is expected, not an error
-- **BCU QA Rule:** BCU quantity (tCO2e) in Reductions MUST equal or exceed the corresponding diesel/process emission (tCO2e) in Activities. At minimum: transport process BCU >= transport process activity for all trucking and rail.
+- **BCU QA Rule:** BCU quantity (tCO2e) in Reductions must NOT exceed the corresponding diesel/process emission (tCO2e) in Activities — a BCU offsets an emission that already occurred, it cannot exceed it. Full coverage (BCU = activity emission) is the target for transport process BCU across all trucking and rail. Under-coverage (BCU < activity) is a completeness gap (FLAG or FAIL depending on materiality); over-coverage (BCU > activity) manufactures removal credit out of a reduction instrument and is always a FAIL. (Corrected 2026-08-26 per Max — the prior "MUST equal or exceed" wording was backwards and could launder reductions into removals; see batch 2-188 precedent where a 4.453t excess inflated Net CDR ~17% and was flagged.)
 
 ## Reward & Penalty Framework
 

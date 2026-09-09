@@ -36,23 +36,20 @@ import json, os, sys, re, time, glob
 transcript_path = sys.argv[1]
 session_dir = os.path.dirname(transcript_path)
 
-# ── circuit breaker (match the other stop hooks) ──────────────────────────────
-bc_file = os.path.join(session_dir, 'precedent_block_count')
+# ── circuit breaker: shared across every hook, see ~/.claude/hooks/lib/circuit_breaker.py
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from circuit_breaker import Breaker
+except Exception:
+    sys.exit(0)  # shared library missing/broken -- fail open, never crash
+brk = Breaker(state_file=os.path.join(session_dir, 'precedent_block_count'),
+              label='PRECEDENT GROUNDING', max_strikes=3)
 def _bc():
-    try:
-        return int(open(bc_file).read().strip())
-    except Exception:
-        return 0
+    return brk.count
 def _set_bc(n):
-    try:
-        open(bc_file, 'w').write(str(n))
-    except Exception:
-        pass
-if _bc() >= 3:
-    print("─"*72, file=sys.stderr)
-    print("PRECEDENT GROUNDING — circuit breaker active (3 blocks). Passing through.", file=sys.stderr)
+    brk._write(n)
+if brk.tripped():
     print("Manually confirm every MUST-HAVE traces to COWF-005 before use.", file=sys.stderr)
-    print("─"*72, file=sys.stderr)
     sys.exit(0)
 
 # ── session start time, to only judge files touched THIS session ──────────────
@@ -78,6 +75,46 @@ if session_start is None:
 
 ANCHOR = re.compile(r'cowf-?005|elk\s*meadow|iss-?3[89]|iss-?40|precedent:', re.I)
 
+# ── authorship gate: a recent mtime alone is not proof THIS session wrote it ──
+# This file's own docstring says "screener output written this session", but
+# the check below only ever verified a TIME WINDOW against the whole shared
+# Drive folder -- any file matching the glob, touched by ANY process (another
+# concurrent Claude Code session running the same biomass-screener skill on a
+# different project, a sync, a manual edit) within that window looked
+# identical to one this session actually wrote. That let an unrelated
+# session's "Genesee South" screener block every response in a completely
+# different conversation, repeatedly, with no connection to what was
+# actually said here. Same failure class no_deferral_guard.sh already
+# guards against (a stale/foreign file bumped by something else) -- missing
+# here. Found 2026-09-02 on a real case. Now requires this session's own
+# transcript to reference the file's basename via a write-class tool call
+# (Write/Edit/MultiEdit/NotebookEdit, an Office MCP writer, or a Bash
+# command) before it counts as a target at all.
+WRITE_TOOL_NAMES = {'Write', 'Edit', 'MultiEdit', 'NotebookEdit'}
+authored_blob_parts = []
+try:
+    with open(transcript_path) as f:
+        for line in f:
+            try:
+                e = json.loads(line)
+            except Exception:
+                continue
+            msg = e.get('message', {})
+            if not isinstance(msg, dict):
+                continue
+            for item in (msg.get('content') or []):
+                if not isinstance(item, dict) or item.get('type') != 'tool_use':
+                    continue
+                name = item.get('name', '')
+                if name in WRITE_TOOL_NAMES or name == 'Bash' or 'word' in name.lower() or 'office' in name.lower():
+                    authored_blob_parts.append(name + ' ' + json.dumps(item.get('input', ''))[:5000])
+except Exception:
+    pass
+authored_blob = '\n'.join(authored_blob_parts).lower()
+
+def session_authored(path):
+    return os.path.basename(path).lower() in authored_blob
+
 # ── find screener outputs under the biomass Prospective tree ──────────────────
 roots = [
     os.path.expanduser("~/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Feedstocks/Biomass/Prospective"),
@@ -93,6 +130,8 @@ for root in roots:
                 continue  # Word/Excel lock file
             if "Outstanding Documents Checklist" in bn:
                 continue  # Max's shared tracker, not a screener output
+            if not session_authored(p):
+                continue  # not referenced by this session's own tool calls
             try:
                 if os.path.getmtime(p) >= session_start - 5:
                     targets.append(p)

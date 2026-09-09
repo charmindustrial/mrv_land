@@ -490,6 +490,42 @@ def format_failures(failures: list[tuple[Any, Any, list[str]]]) -> str:
     return "\n".join(lines)
 
 
+def coerce_pseudo_formulas(wb) -> list[str]:
+    """Force any cell whose text merely *starts* with '=' to be stored as a string.
+
+    openpyxl decides a value is a formula purely from a leading '=', so an evidence
+    marker like "= (factor rounded, see 6.4)" is written into the sheet as
+    <f> (factor rounded, see 6.4)</f>. Excel then fails to parse it, declares the
+    workbook damaged and offers to repair it — which is what made every generated
+    checklist open with a repair prompt. QA checklists contain no real formulas, so
+    every such cell is a false positive and is coerced back to text here.
+
+    Returns the coordinates that were coerced, e.g. ["Certify Recon!D6", ...].
+    """
+    coerced: list[str] = []
+    for ws in wb.worksheets:
+        for row in ws.iter_rows():
+            for cell in row:
+                if cell.data_type == "f":
+                    cell.data_type = "s"
+                    coerced.append(f"{ws.title}!{cell.coordinate}")
+    return coerced
+
+
+def _formula_elements_in_xlsx(path: Path) -> list[str]:
+    """Read the saved xlsx back and return any <f> formula payloads it contains."""
+    import re
+    import zipfile
+
+    found: list[str] = []
+    with zipfile.ZipFile(path) as z:
+        for name in z.namelist():
+            if name.startswith("xl/worksheets/sheet"):
+                xml = z.read(name).decode("utf8", "replace")
+                found.extend(re.findall(r"<f>([^<]*)</f>", xml))
+    return found
+
+
 def build_with_validation(
     rows: Iterable[tuple],
     source_reads_path: Path | str,
@@ -540,8 +576,21 @@ def build_with_validation(
         raise BuildAborted(msg)
 
     wb = build_workbook_fn(rows_list)
+    coerced = coerce_pseudo_formulas(wb)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(out_path)
+    leftover = _formula_elements_in_xlsx(out_path)
+    if leftover:
+        raise BuildAborted(
+            f"{len(leftover)} cell(s) were written as spreadsheet formulas: {leftover[:6]}. "
+            "Excel reports such a file as damaged and offers to repair it. No checklist cell "
+            "should ever be a formula — rewrite the text so it does not begin with '='."
+        )
     if print_summary:
         n_rows = sum(1 for r in rows_list if _row_triple(r) is not None)
         print(f"Pre-flight clean ({n_rows} rows). Saved {out_path}")
+        if coerced:
+            print(
+                f"note: coerced {len(coerced)} cell(s) beginning with '=' to text so Excel "
+                f"does not read them as formulas: {coerced[:5]}"
+            )

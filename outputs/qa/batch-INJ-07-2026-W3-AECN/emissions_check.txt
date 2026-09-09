@@ -1,0 +1,66 @@
+====================================================================================================
+6. GROSS SEQUESTRATION
+====================================================================================================
+MOBI 77.15615445 t x 0.402 x 3.667                                 113.738511 t vs Certify 113.739  OK
+
+====================================================================================================
+7. EMISSION COMPONENTS (full-precision EFs from the 2026 tab)
+====================================================================================================
+Pyrolysis process @ Certify-stored 0.104                           78.31719472 x 0.104 = 8.144988 t vs Certify 8.145  OK
+Pyrolysis process @ sheet Final 0.1040167408                       = 8.146299 t
+  rounding delta (sheet Final - Certify stored)                    +0.001311 t = +1.311 kgCO2e
+Pyrolysis embodied @ 0.02116                                       78.31719472 x 0.02116 = 1.657192 t vs Certify 1.657  OK
+AECN->SOPOR process: 78.31719 t x 107.49722 mi x 0.0001143         0.962278 t vs Certify 0.962  OK
+SOPOR->Opelousas rail process: x 2199 mi x 0.000025910374          4.462272 t vs Certify 4.462  OK
+Opelousas->Basco process: x 42.9 mi x 0.0001143                    0.384026 t vs Certify 0.384  OK
+AECN->SOPOR embodied: 323.110963 mi x 0.0002375605888              0.076758 t vs Certify 0.077  OK
+Rail embodied: 2203.165916 mi x 0.00003113066508                   0.068586 t vs Certify 0.069  OK
+Opelousas->Basco embodied: 343.2 mi x 0.0002375605888              0.081531 t vs Certify 0.082  OK
+TRANSPORT PROCESS SUM                                              0.962 + 4.462 + 0.384 = 5.808576 t vs Certify 0.962+4.462+0.384=5.808  OK
+TRANSPORT EMBODIED SUM                                             0.077 + 0.069 + 0.082 = 0.226875 t vs Certify 0.077+0.069+0.082=0.228  OK
+BIO-OIL TRANSPORT TOTAL                                            5.809 + 0.227 = 6.035451 t vs Certify subtotal 6.036  OK
+PYROLYSIS SUBTOTAL                                                 8.145 + 1.657 = 9.802180 t vs Certify 9.802  OK
+TOTAL ACTIVITIES                                                   15.837631 t vs Certify 15.838  OK
+
+====================================================================================================
+8. BCU
+====================================================================================================
+BCU - Transport Process (Certify)                                  5.808 tCO2e = 5,808 kgCO2e
+Transport process sum                                              5.808576 t  OK
+BCU >= transport process sum?                                      5.808 >= 5.809  OK
+BCU vs pyrolysis process (the W2 error mode)                       5.808 != 8.145 - BCU is NOT set to the pyrolysis figure  OK
+BCU applied to embodied?                                           transport embodied 0.227 t is NOT offset - correct per module scope  OK
+
+====================================================================================================
+9. UNCERTAINTY (Option B variance propagation)
+====================================================================================================
+Mass of Injectant uncertainty                                      290.28 kg = 4 offloads x 72.57  OK
+Bio-Oil Mass uncertainty                                           290.98 kg vs expected 4 x 72.57 = 290.28  <<< DIFFERS
+  difference                                                       +0.70 kg
+Carbon content uncertainty                                         0.1608 on 40.2 % = 0.004000 rel; rule 0.004  OK
+sigma(gross)                                                       624.57 kg  [rel 0.0054913]
+sigma(total) reconstructed                                         625.57 kg vs Certify discount 627 kg  OK
+  reconstruction gap                                               +1.43 kg (+0.23%)
+  same reconstruction using 290.28 on Bio-Oil Mass                 625.56 kg -> effect of the 0.70 kg discrepancy = +0.005 kg
+
+====================================================================================================
+10. NET
+====================================================================================================
+113.739 + 5.808 - 15.838 - 0.627                                   103.082 t vs Certify 103.082 (headline 103.08)  OK
+fully independent: gross + BCU - activities - discount             103.0819 t vs Certify 103.082  OK
+GHG Statement row for this entry                                   103.08 tCO2e, 12 Jul 2026 to 18 Jul 2026  OK
+Statement total check                                              sum of 9 entries = 874.53 vs 874.53  OK
+Buffer pool                                                        43.728 / 874.53 = 5.000 % vs Basco Low Risk 5%  OK
+
+====================================================================================================
+11. CARBON RANGE + N_offloads >= N_BOLs
+====================================================================================================
+Carbon 40.2 % vs mean+/-2SD                                        27.2337 - 51.6070 (n=285)  OK
+Hydrogen 7.4 % vs mean+/-2SD                                       5.7487 - 8.0001  OK
+Density 1.210 g/cm3 vs 1.01 floor                                  1.210 > 1.01  OK
+SHPX215079 fully drawn down this week?                             YES - offload_4 is the closing offload (loss 67.24 kg = 0.0858%)  OK
+  N_offloads vs N_inbound_BOLs                                     4 >= 3 -> per-offload uncertainty framing is conservative  OK
+GPRX5102 fully drawn down?                                         NO - offloads 2,3,4 sit in COBB under INJ-20260719 (W4). Check deferred to W4.
+  GPRX5102 all-4-offload sum (from COBB)                           77690.00000 vs BOL 77690  OK
+
+derived values: 75

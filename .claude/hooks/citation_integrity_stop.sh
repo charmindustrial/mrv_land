@@ -29,53 +29,55 @@
 set -euo pipefail
 
 input="$(cat)"
+hook_event="$(echo "$input" | jq -r '.hook_event_name // empty' 2>/dev/null || true)"
 transcript_path="$(echo "$input" | jq -r '.transcript_path // empty' 2>/dev/null || true)"
+
+# For SubagentStop, Claude Code also provides agent_transcript_path -- a file
+# scoped to ONLY that one subagent's own turns/tool calls (isSidechain:true,
+# tagged with that agent's id), isolated from the parent session's transcript.
+# Confirmed empirically 2026-08-27 by dumping a real SubagentStop input: the
+# main transcript_path is shared across parent + every subagent, so without
+# this, a reviewer sub-agent's claims could be "verified" by documents the
+# PARENT session read earlier, not anything the reviewer itself opened. Use
+# the isolated transcript when present so review claims are checked against
+# what that subagent actually did.
+if [ "$hook_event" = "SubagentStop" ]; then
+  agent_transcript_path="$(echo "$input" | jq -r '.agent_transcript_path // empty' 2>/dev/null || true)"
+  if [ -n "$agent_transcript_path" ] && [ -f "$agent_transcript_path" ]; then
+    transcript_path="$agent_transcript_path"
+  fi
+fi
 
 if [ -z "$transcript_path" ] || [ ! -f "$transcript_path" ]; then
   exit 0
 fi
 
-python3 - "$transcript_path" <<'PYEOF'
+python3 - "$transcript_path" "$hook_event" <<'PYEOF'
 import json, re, sys, os
+hook_event = sys.argv[2] if len(sys.argv) > 2 else ''
 
 transcript_path = sys.argv[1]
 
-# ── Circuit breaker: after 3 blocks in a session, pass through with a warning ─
+# ── Circuit breaker: shared across every hook, see lib/circuit_breaker.py ────
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from circuit_breaker import Breaker
+except Exception:
+    sys.exit(0)  # shared library missing/broken -- fail open, never crash
+
 session_dir = os.path.dirname(transcript_path)
-block_count_file = os.path.join(session_dir, 'citation_block_count')
-
-def read_block_count():
-    try:
-        with open(block_count_file, 'r') as f:
-            return int(f.read().strip())
-    except Exception:
-        return 0
-
-def write_block_count(n):
-    try:
-        with open(block_count_file, 'w') as f:
-            f.write(str(n))
-    except Exception:
-        pass
-
-def increment_block_count():
-    n = read_block_count() + 1
-    write_block_count(n)
-    return n
-
-def reset_block_count():
-    write_block_count(0)
-
-block_count = read_block_count()
-if block_count >= 3:
-    print("─" * 72, file=sys.stderr)
-    print("CITATION INTEGRITY — Circuit Breaker Active", file=sys.stderr)
-    print("─" * 72, file=sys.stderr)
-    print(f"Hook has blocked {block_count} times this session. Passing response", file=sys.stderr)
-    print("through. Citation integrity could not be enforced for this session.", file=sys.stderr)
-    print("Review the response manually before using it in a deliverable.", file=sys.stderr)
-    print("─" * 72, file=sys.stderr)
+brk = Breaker(
+    state_file=os.path.join(session_dir, 'citation_block_count'),
+    label='CITATION INTEGRITY',
+    max_strikes=3,
+)
+if brk.tripped():
     sys.exit(0)
+
+def block(lines):
+    brk.block_and_exit(lines)
+
+reset_block_count = brk.clear
 
 # ── Load transcript ──────────────────────────────────────────────────────────
 entries = []
@@ -107,6 +109,48 @@ for entry in entries:
             if tid:
                 tool_uses[tid] = item.get('name', '')
                 tool_use_inputs[tid] = item.get('input', {})
+
+# ── Gate S (SubagentStop only): a review verdict with ZERO tool calls ────────
+# Added 2026-08-27. Every gate below this point only runs once "wrote_files"
+# is True -- which requires SOME tool call referencing a deliverable. A
+# reviewer sub-agent (e.g. adversarial-reviewer) that opens nothing at all
+# calls no tool whatsoever, so wrote_files stays False and the early exit
+# right below would let it pass through completely unchecked -- the single
+# worst case (total non-engagement, not just weak verification) would be
+# invisible to every other gate in this file. Catch it here, before that exit.
+if hook_event == 'SubagentStop' and not tool_uses:
+    REVIEW_VERDICT_RE = re.compile(
+        r'###?\s*(?:\d\.\s*)?(?:Confirmed Items|Challenged Items)\b|'
+        r'(?:^|\n)\s*-?\s*Verified:|Current Status:',
+        re.IGNORECASE)
+    _last_for_gate_s = ''
+    for _entry in reversed(entries):
+        _msg = _entry.get('message', {})
+        if not isinstance(_msg, dict) or _msg.get('role') != 'assistant':
+            continue
+        _content = _msg.get('content', [])
+        if isinstance(_content, list):
+            _parts = [c.get('text', '') for c in _content
+                      if isinstance(c, dict) and c.get('type') == 'text']
+            if _parts:
+                _last_for_gate_s = '\n'.join(_parts)
+                break
+        elif isinstance(_content, str) and _content:
+            _last_for_gate_s = _content
+            break
+    if REVIEW_VERDICT_RE.search(_last_for_gate_s):
+        block([
+            "─" * 72,
+            "CITATION INTEGRITY BLOCK — Gate S: Verdict With No Tool Use",
+            "─" * 72,
+            "This response reads like a completed review (Confirmed/Challenged Items,",
+            "'Verified:', 'Current Status:') but this subagent made ZERO tool calls --",
+            "nothing was opened, so nothing could have been verified.",
+            "",
+            "Action: open the primary source(s) / the checklist file before writing",
+            "a verdict on any item.",
+            "─" * 72,
+        ])
 
 # ── Exit early if no file-writing happened this session ─────────────────────
 # The hook's job is to protect deliverables. If no files were written,
@@ -397,57 +441,53 @@ try:
         _scan_blocks(label, blob.split('\n'))
 
     if deliv_violations or deliv_fabricated:
-        print("─" * 72, file=sys.stderr)
-        print("CITATION INTEGRITY BLOCK — Gate 3: Unbacked Citation in a Deliverable", file=sys.stderr)
-        print("─" * 72, file=sys.stderr)
+        _lines = [
+            "─" * 72,
+            "CITATION INTEGRITY BLOCK — Gate 3: Unbacked Citation in a Deliverable",
+            "─" * 72,
+        ]
         if deliv_violations:
             seen = []
             for f, s in deliv_violations:
                 if (f, s) not in seen:
                     seen.append((f, s))
-            print(f"{len(seen)} citation(s) written into a deliverable file with NO verbatim", file=sys.stderr)
-            print("quote backing them (section/clause/table reference, no quote in the same row):", file=sys.stderr)
-            print("", file=sys.stderr)
+            _lines.append(f"{len(seen)} citation(s) written into a deliverable file with NO verbatim")
+            _lines.append("quote backing them (section/clause/table reference, no quote in the same row):")
+            _lines.append("")
             for f, s in seen[:6]:
-                print(f'  ↳ [{f}] {s}', file=sys.stderr)
+                _lines.append(f'  ↳ [{f}] {s}')
             if len(seen) > 6:
-                print(f'  … and {len(seen) - 6} more', file=sys.stderr)
+                _lines.append(f'  … and {len(seen) - 6} more')
         if deliv_fabricated:
-            print("", file=sys.stderr)
-            print("Quote(s) in a deliverable not found in any opened source document:", file=sys.stderr)
+            _lines.append("")
+            _lines.append("Quote(s) in a deliverable not found in any opened source document:")
             for f, q in deliv_fabricated[:5]:
-                print(f'  ↳ [{f}] "{q}"', file=sys.stderr)
-        print("", file=sys.stderr)
-        print("Rule: a citation written into an .xlsx/.docx deliverable is held to the", file=sys.stderr)
-        print("same standard as one in chat — backed by exact verbatim source text.", file=sys.stderr)
-        print("Building via openpyxl/Bash is NOT an exemption. Put the verbatim quote", file=sys.stderr)
-        print("in the file (e.g. a quote column), or remove the normative citation.", file=sys.stderr)
-        print("─" * 72, file=sys.stderr)
-        increment_block_count()
-        sys.exit(2)
+                _lines.append(f'  ↳ [{f}] "{q}"')
+        _lines += [
+            "",
+            "Rule: a citation written into an .xlsx/.docx deliverable is held to the",
+            "same standard as one in chat — backed by exact verbatim source text.",
+            "Building via openpyxl/Bash is NOT an exemption. Put the verbatim quote",
+            "in the file (e.g. a quote column), or remove the normative citation.",
+            "─" * 72,
+        ]
+        block(_lines)
 except SystemExit:
     raise
 except Exception:
     pass  # Gate 3 fails open: never hard-crash the stop hook on extraction issues
 
 # ── Get last assistant message text ─────────────────────────────────────────
-last_text = ''
-for entry in reversed(entries):
-    msg = entry.get('message', {})
-    if not isinstance(msg, dict):
-        continue
-    if msg.get('role') != 'assistant':
-        continue
-    content = msg.get('content', [])
-    if isinstance(content, list):
-        parts = [c.get('text', '') for c in content
-                 if isinstance(c, dict) and c.get('type') == 'text']
-        if parts:
-            last_text = '\n'.join(parts)
-            break
-    elif isinstance(content, str) and content:
-        last_text = content
-        break
+# Includes the body of any Slack/Gmail/canvas message-sending tool call in
+# that same turn, not just plain chat text -- see lib/transcript_text.py for
+# why (a report delivered purely via slack_send_message was invisible to a
+# check that only ever looked at type=='text' content blocks).
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from transcript_text import last_assistant_text
+except Exception:
+    sys.exit(0)  # shared library missing/broken -- fail open, never crash
+last_text = last_assistant_text(entries)
 
 if not last_text:
     sys.exit(0)
@@ -467,6 +507,26 @@ QUOTE_RE = re.compile(r'[""]([^\""\n]{10,})[""]')
 quote_matches = list(QUOTE_RE.finditer(scannable))
 quote_texts  = [m.group(1).strip() for m in quote_matches]
 quote_starts = [m.start() for m in quote_matches]
+
+# Identifiers like ASTM method codes (D5865) or a cert/section number
+# (No. 0518.01) that, if shared between a signal and an earlier quote's
+# surroundings, mean this signal is a RESTATEMENT of an already-backed
+# citation, not a new unbacked one. Used by Gate 0 and Gate 1 -- a Gap N
+# reference in a closing summary, or a repeated citation late in a long
+# message, restating something already fully quoted earlier should not
+# need its own separate nearby quote.
+IDENT_RE = re.compile(
+    r'\b[A-Za-z]{1,4}\d{3,6}(?:\.\d{1,3})?\b'                       # ASTM-style: D5865
+    r'|\bNo\.?\s*\d{2,6}(?:\.\d{1,3})?\b'                            # cert number: No. 0518.01
+    r'|§\s*\d[\d.]*[a-z]?'                                           # §4.2
+    r'|\b(?:Section|Clause|Article|Table|Gap)\s*[A-Z]?\d[\d.]{0,6}\b',  # Section 4.2, Gap 3
+    re.IGNORECASE)
+
+def _idents_near(pos, radius=200):
+    lo, hi = max(0, pos - radius), min(len(scannable), pos + radius)
+    return set(m.group(0).lower() for m in IDENT_RE.finditer(scannable[lo:hi]))
+
+quote_idents = [_idents_near(qs) for qs in quote_starts]
 
 # ── Gate 0: Gap assertions must cite a requirement ───────────────────────────
 # A gap assertion claims that something required by a protocol/document is
@@ -492,6 +552,9 @@ if gap_signals:
         window_end   = sig_pos + 500
         nearby = any(window_start <= qs <= window_end for qs in quote_starts)
         if not nearby:
+            sig_idents = _idents_near(sig_pos)
+            if sig_idents and any(sig_idents & qi for qi in quote_idents):
+                continue
             line_start = scannable.rfind('\n', 0, sig_pos) + 1
             line_end   = scannable.find('\n', sig_pos)
             if line_end == -1:
@@ -508,27 +571,30 @@ if gap_signals:
                 deduped.append(s)
         missing_gap_quotes = deduped
 
-        print("─" * 72, file=sys.stderr)
-        print("CITATION INTEGRITY BLOCK — Gate 0: Gap Assertion Without Requirement Quote", file=sys.stderr)
-        print("─" * 72, file=sys.stderr)
-        print("The following gap/finding assertions appear without a verbatim quote", file=sys.stderr)
-        print("establishing the requirement that is supposedly missing:", file=sys.stderr)
-        print("", file=sys.stderr)
+        _lines = [
+            "─" * 72,
+            "CITATION INTEGRITY BLOCK — Gate 0: Gap Assertion Without Requirement Quote",
+            "─" * 72,
+            "The following gap/finding assertions appear without a verbatim quote",
+            "establishing the requirement that is supposedly missing:",
+            "",
+        ]
         for s in missing_gap_quotes[:5]:
-            print(f'  ↳ {s}', file=sys.stderr)
+            _lines.append(f'  ↳ {s}')
         if len(missing_gap_quotes) > 5:
-            print(f'  … and {len(missing_gap_quotes) - 5} more', file=sys.stderr)
-        print("", file=sys.stderr)
-        print('Rule: every gap or finding assertion ("is absent", "is missing",', file=sys.stderr)
-        print('"not in the work plan", "no mention of", "Gap N —", etc.) must be', file=sys.stderr)
-        print('accompanied by a verbatim quote from the source establishing the', file=sys.stderr)
-        print('requirement that is supposedly unmet. No quote = no gap.', file=sys.stderr)
-        print("", file=sys.stderr)
-        print("Action: open the source document, locate the requirement, quote it", file=sys.stderr)
-        print("verbatim, then state the gap.", file=sys.stderr)
-        print("─" * 72, file=sys.stderr)
-        increment_block_count()
-        sys.exit(2)
+            _lines.append(f'  … and {len(missing_gap_quotes) - 5} more')
+        _lines += [
+            "",
+            'Rule: every gap or finding assertion ("is absent", "is missing",',
+            '"not in the work plan", "no mention of", "Gap N —", etc.) must be',
+            'accompanied by a verbatim quote from the source establishing the',
+            'requirement that is supposedly unmet. No quote = no gap.',
+            "",
+            "Action: open the source document, locate the requirement, quote it",
+            "verbatim, then state the gap.",
+            "─" * 72,
+        ]
+        block(_lines)
 
 # ── Gate 1: Citation signal detection ────────────────────────────────────────
 # Signals: section/clause references, and "states/requires/etc. that" phrases.
@@ -551,6 +617,9 @@ signals = list(SIGNAL_RE.finditer(scannable))
 if not signals:
     sys.exit(0)  # No citation signals → Gates 1 and 2 are no-ops (Gate 0 already ran)
 
+# IDENT_RE / _idents_near / quote_idents are defined once, above, right after
+# quote_starts -- shared with Gate 0.
+
 # ── Gate 1 check: each signal must have a nearby quote ───────────────────────
 missing_quote_signals = []
 for sig in signals:
@@ -559,6 +628,16 @@ for sig in signals:
     window_end   = sig_pos + 500
     nearby = any(window_start <= qs <= window_end for qs in quote_starts)
     if not nearby:
+        # Second chance: a signal whose surrounding identifiers (an ASTM
+        # method code, a cert number) match an earlier quote's surroundings
+        # is restating a citation already backed earlier in this message --
+        # not missing one. Added 2026-08-31 after exactly this false
+        # positive: "A2LA Cert. No. 0518.01" / ASTM D5865 etc. quoted in
+        # full once, then re-flagged on a later restatement of the same
+        # numbers that fell outside the +/-250/500 char window above.
+        sig_idents = _idents_near(sig_pos)
+        if sig_idents and any(sig_idents & qi for qi in quote_idents):
+            continue
         # Extract the line containing the signal for the error message
         line_start = scannable.rfind('\n', 0, sig_pos) + 1
         line_end   = scannable.find('\n', sig_pos)
@@ -577,40 +656,43 @@ if missing_quote_signals:
             deduped.append(s)
     missing_quote_signals = deduped
 
-    print("─" * 72, file=sys.stderr)
-    print("CITATION INTEGRITY BLOCK — Gate 1: Missing Verbatim Quote", file=sys.stderr)
-    print("─" * 72, file=sys.stderr)
-    print("The following citation-signal phrases appear in the response without", file=sys.stderr)
-    print("a verbatim quoted string nearby:", file=sys.stderr)
-    print("", file=sys.stderr)
+    _lines = [
+        "─" * 72,
+        "CITATION INTEGRITY BLOCK — Gate 1: Missing Verbatim Quote",
+        "─" * 72,
+        "The following citation-signal phrases appear in the response without",
+        "a verbatim quoted string nearby:",
+        "",
+    ]
     for s in missing_quote_signals[:5]:
-        print(f'  ↳ {s}', file=sys.stderr)
+        _lines.append(f'  ↳ {s}')
     if len(missing_quote_signals) > 5:
-        print(f'  … and {len(missing_quote_signals) - 5} more', file=sys.stderr)
-    print("", file=sys.stderr)
-    print('Rule: every §/Section/Clause/Table reference and every phrase of the form', file=sys.stderr)
-    print('"[document] states/requires/specifies that …" must be accompanied by the', file=sys.stderr)
-    print('exact verbatim text from the source, in double quotes, within 500 chars.', file=sys.stderr)
-    print("", file=sys.stderr)
-    print("Action: open the source document, locate the exact text, and quote it.", file=sys.stderr)
-    print("─" * 72, file=sys.stderr)
-    increment_block_count()
-    sys.exit(2)
+        _lines.append(f'  … and {len(missing_quote_signals) - 5} more')
+    _lines += [
+        "",
+        'Rule: every §/Section/Clause/Table reference and every phrase of the form',
+        '"[document] states/requires/specifies that …" must be accompanied by the',
+        'exact verbatim text from the source, in double quotes, within 500 chars.',
+        "",
+        "Action: open the source document, locate the exact text, and quote it.",
+        "─" * 72,
+    ]
+    block(_lines)
 
 # ── Gate 2: Every quote must exist in the opened-document corpus ─────────────
 if not corpus_parts:
-    print("─" * 72, file=sys.stderr)
-    print("CITATION INTEGRITY BLOCK — Gate 2: No Source Documents Opened", file=sys.stderr)
-    print("─" * 72, file=sys.stderr)
-    print(f"Response contains {len(signals)} citation-signal phrase(s) and", file=sys.stderr)
-    print(f"{len(quote_texts)} quoted string(s), but no source documents were", file=sys.stderr)
-    print("opened this session via Read, Google Drive, Playwright, or Word.", file=sys.stderr)
-    print("", file=sys.stderr)
-    print("A quote that cannot be traced to an opened document is fabricated.", file=sys.stderr)
-    print("Action: open the source document first, then re-read and re-respond.", file=sys.stderr)
-    print("─" * 72, file=sys.stderr)
-    increment_block_count()
-    sys.exit(2)
+    block([
+        "─" * 72,
+        "CITATION INTEGRITY BLOCK — Gate 2: No Source Documents Opened",
+        "─" * 72,
+        f"Response contains {len(signals)} citation-signal phrase(s) and",
+        f"{len(quote_texts)} quoted string(s), but no source documents were",
+        "opened this session via Read, Google Drive, Playwright, or Word.",
+        "",
+        "A quote that cannot be traced to an opened document is fabricated.",
+        "Action: open the source document first, then re-read and re-respond.",
+        "─" * 72,
+    ])
 
 fabricated = []
 for qt in quote_texts:
@@ -632,27 +714,30 @@ for qt in quote_texts:
     fabricated.append(qt[:150])
 
 if fabricated:
-    print("─" * 72, file=sys.stderr)
-    print("CITATION INTEGRITY BLOCK — Gate 2: Quote Not Found in Any Opened Document", file=sys.stderr)
-    print("─" * 72, file=sys.stderr)
-    print("The following quote(s) do not appear verbatim in any document opened", file=sys.stderr)
-    print("this session via Read, Google Drive, Playwright, or Word:", file=sys.stderr)
-    print("", file=sys.stderr)
+    _lines = [
+        "─" * 72,
+        "CITATION INTEGRITY BLOCK — Gate 2: Quote Not Found in Any Opened Document",
+        "─" * 72,
+        "The following quote(s) do not appear verbatim in any document opened",
+        "this session via Read, Google Drive, Playwright, or Word:",
+        "",
+    ]
     for q in fabricated[:5]:
-        print(f'  ↳ "{q}"', file=sys.stderr)
+        _lines.append(f'  ↳ "{q}"')
     if len(fabricated) > 5:
-        print(f'  … and {len(fabricated) - 5} more', file=sys.stderr)
-    print("", file=sys.stderr)
-    print("These quotes are fabricated — they were not in the text of any source", file=sys.stderr)
-    print("read this session. Fabricated quotes are blocked unconditionally.", file=sys.stderr)
-    print("", file=sys.stderr)
-    print("Action:", file=sys.stderr)
-    print("  1. Open the source document (Read / Drive / Playwright).", file=sys.stderr)
-    print("  2. Locate the exact passage.", file=sys.stderr)
-    print("  3. Copy the verbatim text into the response.", file=sys.stderr)
-    print("─" * 72, file=sys.stderr)
-    increment_block_count()
-    sys.exit(2)
+        _lines.append(f'  … and {len(fabricated) - 5} more')
+    _lines += [
+        "",
+        "These quotes are fabricated — they were not in the text of any source",
+        "read this session. Fabricated quotes are blocked unconditionally.",
+        "",
+        "Action:",
+        "  1. Open the source document (Read / Drive / Playwright).",
+        "  2. Locate the exact passage.",
+        "  3. Copy the verbatim text into the response.",
+        "─" * 72,
+    ]
+    block(_lines)
 
 # All gates passed.
 reset_block_count()

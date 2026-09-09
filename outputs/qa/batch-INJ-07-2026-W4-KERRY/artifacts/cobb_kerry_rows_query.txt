@@ -1,0 +1,92 @@
+ARTIFACT — COBB tracker, tab "Basco Injection -- COBB", exhaustive Kerry search.
+Source: https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350
+Read 2026-08-06 in an authenticated browser session via the sheet's own query
+endpoint (gviz), which renders the live tab server-side. Page title returned by
+every query below: "Basco Injection -- COBB". Sheet banner: "Microsoft SQL
+Server Import  Last updated 3 days ago".
+
+COLUMN MAP CONFIRMED FROM THE RENDERED HEADER ROW
+  A injection_batch                  K offload_order_link
+  B injected_product                 L injection_completion_date
+  C consumed_lot                     M injection_ph
+  D security_tag                     N Proportion of Origin Consumed
+  E BOL_number                       O Origin Mass
+  F quantity_consumed_in_injection   P Consumed Origin Mass
+  G offloaded_quantity_kg            Q week_of_year
+  H origin_quantity_kg               R ISO_week_starting
+  I order_line_completed_on          S week_starting_injected
+  J purchase_order_link
+
+------------------------------------------------------------------------------
+QUERY 1 — select ... where A contains 'INJ-07-2026-W4'
+RESULT: header row only. Zero data rows returned.
+
+------------------------------------------------------------------------------
+QUERY 2 — select ... where A contains 'INJ-07'
+RESULT: rows returned for INJ-07-2026-W1 only, in two product streams
+(bio_oil and oily_fraction). No Calciner rows. No W2, W3 or W4 rows.
+
+------------------------------------------------------------------------------
+QUERY 3 — select A, count(C) where A contains 'INJ-07' group by A
+RESULT (verbatim):
+  injection_batch                 count consumed_lot
+  INJ-07-2026-W1_bio_oil          16
+  INJ-07-2026-W1_oily_fraction    17
+
+------------------------------------------------------------------------------
+QUERY 4 — select ... where A contains 'W4' or B contains 'kerry' or
+          B contains 'Kerry' or C contains 'kc_' or C contains 'KC_'
+RESULT: 91 data rows. The only Kerry/Calciner rows among them are the
+K-001 and K-002 rows reproduced in Query 5. Every other row is an
+INJ-05-2026-W4 bio_oil or aqueous_fraction row matched on the 'W4' token.
+
+------------------------------------------------------------------------------
+QUERY 5 — select A,B,C,E,F,G,H,I,L,M where B contains 'Calciner' or A contains 'K-0'
+RESULT (verbatim, complete — this is every Kerry row in the entire tracker):
+  injection_batch  injected_product  consumed_lot  BOL_number  quantity_consumed_in_injection  offloaded_quantity_kg  origin_quantity_kg  order_line_completed_on  injection_completion_date  injection_ph
+  K-001            Calciner          KC_0001                   1189                                                                                               2026-03-21                 13
+  K-001            Calciner          KC_0002                   1165                                                                                               2026-03-21                 13
+  K-001            Calciner          KC_0003                   999                                                                                                2026-03-21                 13
+  K-001            Calciner          KC_0004                   1185                                                                                               2026-03-21                 13
+  K-002            Calciner          KC_0006                   1209                                                                                               2026-05-22                 2.9
+  K-002            Calciner          KC_0007                   1175.5                                                                                             2026-05-22                 2.9
+  K-002            Calciner          KC_0008                   1141.5                                                                                             2026-05-22                 2.9
+  K-002            Calciner          KC-0005                   1092                                                                                               2026-05-22                 2.9
+
+------------------------------------------------------------------------------
+QUERY 6 — Google Drive full-sheet export of the same workbook
+RESULT: export truncates at INJ-05-2026-W1; contains no July Kerry row.
+
+------------------------------------------------------------------------------
+CONCLUSION SUPPORTED BY THE ABOVE
+The batch under review has no row in the COBB tracker. No kc_NNNN consumed lot
+has been assigned to it, and no injection_ph is recorded for it here. The gap
+is not confined to Kerry: the tracker holds no INJ-07-2026-W2, W3 or W4 row of
+any product type, so the whole weekly batch is pending entry.
+
+==============================================================================
+RE-VERIFICATION 2026-08-10 (sheet banner now reads "Last updated 1 hour ago")
+==============================================================================
+
+QUERY A — select A,B,C,F,L,M where B contains 'Calciner' or A contains the
+          W4 batch identifier
+RESULT (verbatim, complete):
+  injection_batch  injected_product  consumed_lot  quantity_consumed_in_injection  injection_completion_date  injection_ph
+  K-001            Calciner          KC_0001       1189                            2026-03-21                 13
+  K-001            Calciner          KC_0002       1165                            2026-03-21                 13
+  K-001            Calciner          KC_0003       999                             2026-03-21                 13
+  K-001            Calciner          KC_0004       1185                            2026-03-21                 13
+  K-002            Calciner          KC_0006       1209                            2026-05-22                 2.9
+  K-002            Calciner          KC_0007       1175.5                          2026-05-22                 2.9
+  K-002            Calciner          KC_0008       1141.5                          2026-05-22                 2.9
+  K-002            Calciner          KC-0005       1092                            2026-05-22                 2.9
+
+QUERY B — select A, count(C) where A contains 'INJ-07' group by A
+RESULT (verbatim):
+  injection_batch                 count consumed_lot
+  INJ-07-2026-W1_bio_oil          16
+  INJ-07-2026-W1_oily_fraction    17
+
+CONCLUSION UNCHANGED after four days and a fresh sync: the batch under review
+still has no row, no consumed lot, and no injection_ph in the tracker, and July
+still ends at Week 1.

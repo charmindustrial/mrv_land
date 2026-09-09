@@ -83,6 +83,12 @@ The QA workflow is four sequential gates. Each gate must be completed and verifi
 
 **Required reads (in this order):**
 
+0. **Reporting-period VVB guidance doc — READ THIS BEFORE ANY OTHER SOURCE.** Open it from Drive using the query `title contains 'VVB Guidance'` — the doc whose period covers the batch's injection date (owner is normally garrett.lutz@). Read it **in full**, not only the section that looks relevant. This is where Charm records the operational explanations and substitution methods a verifier relies on, and it is the difference between a finding and a false accusation. Record it in the source-read log under `vvb_guidance` with `live_source_url` and verbatim quotes of every section bearing on this batch. If no doc exists for the period, record that you searched and found none.
+
+   **Why this is step 0:** on AECN batch INJ-07-2026-W1 the QA agent raised six Fails against a tare weight that "appeared on no scale ticket." The period's guidance doc documented that exact value as a published per-trailer standard empty weight and named the offloads it applied to. All six Fails were wrong. See `skills/qa/batch-qa-aecn/references/lessons_learned.md` Failure Category 14.
+
+   **Also read the Ops Notes CELL COMMENTS, not only the cell values.** Operators annotate substituted or adjusted figures in the cell note. `openpyxl.load_workbook(path)` **without** `data_only=True` exposes them as `cell.comment.text`; a `data_only=True` load reads values only and hides them. Any figure that does not tie to a source document may be a documented substitution — check the annotation before calling it an error.
+
 1. **Mass quantification artifacts** (mode-dependent):
    - **Tote mode:** Open the tote weighing log + each tote-photo (if present). For each tote: serial #, gross-loaded weight, tare-empty weight, net = gross − tare, weighing date+location. Source-read log enumerates every tote: `totes: [{serial, gross_lb, tare_lb, net_kg, weighing_loc, weighing_date, source_doc}, ...]`.
    - **Tanker mode:** Open BOTH full and empty scale ticket PDFs. Extract: gross weight, date, tractor #, trailer #, scale #, location from each ticket. Confirm tractor and trailer numbers match across both. Source-read log: `scale_tickets: {full_ticket: {...}, empty_ticket: {...}, net_kg: ...}`.
@@ -169,9 +175,11 @@ If ANY category is missing or ANY mandatory field is absent, Gate 1 is NOT compl
 2. Run a final verification pass on status counts
 3. Save the checklist to the MRV Expert workspace folder (`outputs/qa/batch-[ID]/`)
 4. Deliver to Max via the Slack Workflow below
-5. **Record `T_final` and log token cost.** Run `date -u +%Y-%m-%dT%H:%M:%SZ`, write to `outputs/qa/batch-[ID]/batch_timestamps.json` under `T_final_max_delivery`. Then run `python3 skills/qa/batch-qa-aecn/scripts/compute_batch_token_cost.py [ID] --write-summary` (reused from AECN skill).
+5. **Record `T_final`.** Run `date -u +%Y-%m-%dT%H:%M:%SZ`, write to `outputs/qa/batch-[ID]/batch_timestamps.json` under `T_final_max_delivery`.
 
-**Exit condition:** Checklist delivered to Max. Performance monitor triggered. `token_cost.json` exists for the batch.
+   **Do NOT compute or report per-batch API cost.** Max retired cost tracking on 2026-08-06: it is no longer necessary and must not continue. Do not run `compute_batch_token_cost.py`, do not write `token_cost.json`, and do not put a dollar figure in the delivery message or summary.
+
+**Exit condition:** Checklist delivered to Max. Performance monitor triggered. `batch_timestamps.json` carries `T_final_max_delivery`.
 
 ---
 
@@ -313,19 +321,28 @@ Same as AECN skill — see `skills/qa/batch-qa-aecn/SKILL.md` Citation Disciplin
 
 Charm uses Option B (Variance Propagation) per Isometric Standard S3.7.3.
 
-**Per-weighing precision: 2.5 lb ≈ 1.13 kg per discrete weight.** Kerry totes and Kerry tankers are weighed on the same scale as Charm WODO; this is the WODO precision spec, not the AECN 72.57 kg rail-truck spec.
+**Per-weighing precision follows THE SCALE, not the oil type.** (Max, 2026-08-10.) Two specs are in play and picking between them is a question about which instrument did the weighing:
+
+| Scale used | Per-weighing precision | Applies to |
+|---|---|---|
+| Charm's tote scale | 2.5 lb ≈ **1.13 kg** per discrete weight | Kerry delivered in totes; Charm WODO / Aqueous totes |
+| Commercial truck scale (e.g. CAT Scale) | **72.57 kg** per discrete weight | Kerry delivered by tanker; AECN tanker and rail offloads |
+
+Do not read the 1.13 kg figure as "the Kerry number". It is the tote-scale number. A Kerry tanker weighed at a CAT Scale carries 72.57 kg, exactly as an AECN tanker does — the oil type is irrelevant to the instrument's precision. This was settled on INJ-07-2026-W4, the first Kerry tanker batch, where Certify correctly carried 72.57 kg against an earlier version of this reference that said 1.13 kg.
 
 | Component | Datapoint | Expected Uncertainty |
 |---|---|---|
 | Injection Sequestration | Carbon Content | 0.004 × Measured Value (0.4%) |
-| Injection Sequestration | Mass of Product | 1.13 kg per discrete weight (one weighing event) |
-| Transport — Kerry → Basco Flatbed (Process) | Mass of Load | 1.13 kg per discrete weight |
+| Injection Sequestration | Mass of Product | per-weighing precision for the scale used × number of discrete weighings |
+| Transport — Kerry → Basco Flatbed (Process) | Mass of Load | per-weighing precision for the scale used × number of discrete weighings |
 | Transport — Kerry → Basco Flatbed (Embodied) | (no Mass of Load) | Per-mile, no mass uncertainty input |
 | Transport (all modes) | Distance Traveled | No uncertainty required (use longest Google Maps distance) |
 
 **Per-removal framing:**
-- Tote mode: each tote is a discrete weighing event. With N totes weighed, summed Mass-of-Product uncertainty = N × 1.13 kg (additive convention, consistent with Charm WODO and AECN per-truck rule). The same N × 1.13 kg uncertainty applies to the Mass of Load on the Flatbed Process component.
-- Tanker mode: one discrete weighing event (scale ticket pair). Uncertainty = 1.13 kg on Mass of Product and Mass of Load.
+- Tote mode (Charm tote scale): each tote is a discrete weighing event. With N totes weighed, summed Mass-of-Product uncertainty = N × 1.13 kg (additive convention). The same N × 1.13 kg applies to the Mass of Load on the Flatbed Process component.
+- Tanker mode (commercial truck scale): one discrete weighing event (the full + empty ticket pair). Uncertainty = **72.57 kg** on Mass of Product and on Mass of Load.
+
+**Check the tickets before applying either number.** The scale name and number are printed on the ticket (e.g. "SCALE: 1895 / LOVES COUNTRY STORES … WILSON TOWNSHIP WI" on a CAT Scale ticket). If the mass came from a weighbridge ticket rather than Charm's own tote scale, it is the 72.57 kg spec.
 
 **Three-layer uncertainty verification:**
 1. **Completeness:** Every Kerry component requiring uncertainty has it, applied to the correct datapoint
@@ -380,19 +397,21 @@ After completing all four gates:
 1. **Adversarial self-review** (Gate 3) — already done
 2. **Slack Max** (user ID: UL2SL4H5H) confirming QA and self-review are complete. Include batch ID. **Prefix top-line with 🚨 if any FAIL items present** (per workspace memory `feedback_siren_emoji_on_fails.md`); FLAG-only and clean batches stay plain.
 3. **Max reviews** and provides feedback. Make updates until Max is satisfied.
-4. **Once Max approves**, Slack Garrett Lutz (user ID: U08JW9HQG5B). Include:
-   - Batch ID
-   - Delivery mode (tote / tanker)
-   - PASS/FAIL/FLAG/N/A counts
-   - Details on each FAIL and FLAG
-   - Instructions to Garrett:
-     a. Sanity-check the findings and notes
-     b. Flag Max with any issues
-     c. Make any required updates
-     d. Comment "Complete" in the thread when done
-     e. "Complete" triggers re-review
-5. **Once Garrett responds "Complete":** Re-open the checklist, batch folder, and Certify entry. Verify each correction has actually been made. Update the checklist (status, evidence notes, formatting).
-6. **Notify Max (two-step: email draft + Slack alert):**
+4. **Once Max approves, post to #team-mrv-alerts (channel C0944NQH1RP), tagging Garrett (<@U08JW9HQG5B>), a SHORT, lede-first message — not the full checklist dump** (routing changed 2026-08-31 per Max: Garrett-facing QA notifications go to the shared channel, not a DM — added 2026-08-26: sending the entire PASS/FAIL/FLAG breakdown out of the gate buries the fails and flags, which are the only thing Garrett needs to act on). The message is just:
+   - Batch ID + delivery mode (tote / tanker)
+   - The FAIL and FLAG items only, one line each (item number + the issue — no PASS items, no counts, no full evidence essay)
+   - A direct prompt to reply in the thread once he's addressed the findings, which re-triggers a QA re-verification pass on that batch
+   Record the channel + this post's thread_ts in the batch's registry entry so the garrett-completion-monitor automation can find and watch it.
+
+   **4a. "Max approves" includes Max fixing something himself directly in Certify — that IS approval.** Do not wait for a separate verbal "send it" once he's made a correction. And **one blocked item must never gate the rest of the notification.** Before sending to Garrett, split what's outstanding into two buckets:
+   - **Garrett-actionable** (evidence gaps, mislinked sources, wrong EFs, labeling, COBB/Ops Notes records — anything he can fix) — send these to him now, regardless of what else is unresolved.
+   - **Externally blocked** (waiting on something neither Garrett nor Max controls directly — a reporting-period regeneration, a platform bug, a pending Isometric decision) — do not hold the Garrett-actionable items hostage to this. Record it as its own thing: set the registry `status` to exactly `"blocked_external"` and add a `blocked_on` field stating precisely what's being waited on and how to tell when it's cleared (e.g., "GHG statement ggs_XXX total no longer matches stale figure Y"). **`status` must always be one of the defined enum values — `awaiting_garrett` / `re_reviewing` / `blocked_external` / `closed` — never a free-text narrative sentence.** Put narrative context in a `notes` field instead. A batch that got this wrong (INJ-07-2026-W2 AECN, Aug 2026) sat for a month with 6 Garrett-actionable flags never sent, because the whole notification was held on one externally-blocked Fail and the registry `status` field held a prose sentence instead of a recognized state — invisible to every automated sweep, which matches on the literal string.
+5. **Iterate — re-verify live, don't trust the reply at face value, narrow the list each round:**
+   a. When Garrett replies (in the #team-mrv-alerts thread), re-open Certify (and Ops Notes/Drive if relevant) and independently re-check every item he says he addressed. A "corrected" claim is not evidence — confirm the actual value/EF/source changed, not just a label or unit re-expression (a component can be renamed or re-unitized without the underlying number actually changing — verify by recomputing, not by reading the new label).
+   b. For each item: if genuinely fixed, mark PASS with the fresh evidence and drop it from the outstanding list. If claimed-fixed but not actually changed, keep it FAIL/FLAG with the sharper finding. If Garrett raises a substantive disagreement (a methodology or policy read, not a data fix) rather than making a change, do NOT resolve it yourself — go find the governing primary source, and if it doesn't settle the question outright, take it to Max with Garrett's exact words rather than picking a side.
+   c. Reply into that same #team-mrv-alerts thread with only what's still outstanding (never re-send the full list, and never re-send items already confirmed fixed), and prompt him again to note when addressed.
+   d. Repeat until the outstanding list is empty — either because every item is fixed and verified, or because remaining ones were resolved a different way (a primary-source read, a Max ruling, a re-scoped finding). Update the checklist after every round, not just at the end.
+6. **Once nothing is outstanding, notify Max (two-step: email draft + Slack alert):**
    a. **Create a Gmail draft** (HTML format) to max@charmindustrial.com. Do NOT send. Subject: "QA Re-Review: Kerry Batch [ID] — [All Resolved / X of Y Unresolved]". Body includes: full summary of re-review findings, recommended next steps, and a direct link to the updated QA checklist file (`computer:///` protocol).
    b. **Send a short Slack DM** to Max alerting him the draft is ready. Brief — batch ID, one-line outcome, "draft ready in Gmail."
 7. **Save completed checklist** to the workspace folder AND flag Max that manual upload to the Drive "Completed QA Sheets" folder is needed.

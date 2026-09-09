@@ -33,17 +33,49 @@
 # assumption label, and it CAN recompute any arithmetic that is shown. Both
 # together make the day-rate/vintage failure structurally hard to repeat.
 #
-# SCOPE BOUNDARY (stated, not silent): this hook scans the chat response and
-# text deliverables (.md/.csv). It does NOT extract numbers from binary .docx
-# or .xlsx bodies — a spreadsheet is numbers end to end and the csv/sheet
-# discipline (formulas in cells, constants in a labeled block) governs those.
+# GATE D (Deliverable numbers, added 2026-08-27): the three gates above only
+# ever saw the chat response and .md/.csv Write output. A QA batch checklist
+# is an .xlsx file whose evidence notes ARE the claims — a weight pulled off a
+# scale ticket, a temperature from an ops note, a volume from a test doc — and
+# until now those numbers were invisible to this hook by explicit design ("does
+# NOT extract numbers from binary .docx or .xlsx bodies"). That exclusion is
+# exactly why an agent could write a QA finding backed by a specific weight it
+# never actually read anywhere, and nothing here would catch it: the citation
+# hook (citation_integrity_stop.sh) only fires on §/Section-style citations,
+# not bare numeric evidence notes, and this hook skipped spreadsheets entirely.
+# Gate D closes that: it scans every row of every .xlsx (and paragraph of every
+# .docx) written or referenced this session with the SAME rule as Gate N above
+# — every claim number must be sourced, labeled, or the checked result of shown
+# arithmetic — applied per row, so a derived/computed figure (a mass sum, a CI
+# calculation) is allowed exactly when its arithmetic is shown and checks out,
+# per Max's explicit call on this design (a strict "must appear verbatim
+# everywhere" rule would misfire constantly on legitimate computed values).
+# Gate D also widens what counts as a "claim number" beyond currency/rate/percent
+# to the units a QA evidence note actually uses: lb, kg, MT, gal, psi, ppm, °F/°C,
+# and any comma-grouped figure (e.g. "29,510"). It does NOT attempt to verify
+# alphanumeric identifiers (tractor/trailer numbers, ticket IDs) — those aren't
+# regex-extractable as "numbers" reliably; that remains the adversarial-reviewer
+# skill's job (see its SKILL.md primary-source-check section).
 #
 # Exit codes: 0 = pass, 2 = block (stderr feeds back to Claude as error context).
 
 set -euo pipefail
 
 input="$(cat)"
+hook_event="$(echo "$input" | jq -r '.hook_event_name // empty' 2>/dev/null || true)"
 transcript_path="$(echo "$input" | jq -r '.transcript_path // empty' 2>/dev/null || true)"
+
+# For SubagentStop, Claude Code also provides agent_transcript_path -- a file
+# scoped to ONLY that one subagent's own turns/tool calls, isolated from the
+# parent session's transcript (see citation_integrity_stop.sh for the same
+# change and how this was confirmed empirically 2026-08-27). Use it so a
+# reviewer sub-agent's numeric claims are checked against what it itself read.
+if [ "$hook_event" = "SubagentStop" ]; then
+  agent_transcript_path="$(echo "$input" | jq -r '.agent_transcript_path // empty' 2>/dev/null || true)"
+  if [ -n "$agent_transcript_path" ] && [ -f "$agent_transcript_path" ]; then
+    transcript_path="$agent_transcript_path"
+  fi
+fi
 
 if [ -z "$transcript_path" ] || [ ! -f "$transcript_path" ]; then
   exit 0
@@ -55,25 +87,27 @@ import json, re, sys, os, subprocess as _sp
 transcript_path = sys.argv[1]
 session_dir = os.path.dirname(transcript_path)
 
-# ── Circuit breaker: after 3 blocks in a session, pass through with a warning ─
-block_count_file = os.path.join(session_dir, 'numeric_block_count')
-def _read_bc():
-    try:
-        with open(block_count_file) as f: return int(f.read().strip())
-    except Exception: return 0
-def _write_bc(n):
-    try:
-        with open(block_count_file, 'w') as f: f.write(str(n))
-    except Exception: pass
+# ── Circuit breaker: shared across every hook, see lib/circuit_breaker.py ────
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from circuit_breaker import Breaker
+except Exception:
+    sys.exit(0)  # shared library missing/broken -- fail open, never crash
 
-block_count = _read_bc()
-if block_count >= 3:
-    print("─" * 72, file=sys.stderr)
-    print("NUMERIC INTEGRITY — Circuit Breaker Active", file=sys.stderr)
-    print(f"Hook has blocked {block_count} times this session. Passing through.", file=sys.stderr)
-    print("Review every number and quote in the response manually before use.", file=sys.stderr)
-    print("─" * 72, file=sys.stderr)
+brk = Breaker(
+    state_file=os.path.join(session_dir, 'numeric_block_count'),
+    label='NUMERIC INTEGRITY',
+    max_strikes=3,
+)
+if brk.tripped():
     sys.exit(0)
+
+block_count = brk.count
+def _write_bc(n):
+    if n == 0:
+        brk.clear()
+    else:
+        brk._write(n)
 
 # ── Load transcript ──────────────────────────────────────────────────────────
 entries = []
@@ -203,13 +237,28 @@ for i, entry in enumerate(entries):
             for c in content):
         last_user = i
 
+# Includes the body of any Slack/Gmail/canvas message-sending tool call, not
+# just plain chat text -- see lib/transcript_text.py for why (a report
+# delivered purely via slack_send_message was invisible to a check that only
+# ever looked at type=='text' content blocks).
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from transcript_text import _is_message_tool, _tool_input_text
+except Exception:
+    sys.exit(0)  # shared library missing/broken -- fail open, never crash
+
 resp_parts = []
 for entry in entries[last_user+1:]:
     msg = entry.get('message', {})
     if not isinstance(msg, dict) or msg.get('role') != 'assistant': continue
     for item in (msg.get('content') or []):
-        if isinstance(item, dict) and item.get('type') == 'text':
+        if not isinstance(item, dict): continue
+        if item.get('type') == 'text':
             resp_parts.append(item.get('text', '') or '')
+        elif item.get('type') == 'tool_use' and _is_message_tool(item.get('name', '')):
+            t = _tool_input_text(item.get('input', {}))
+            if t:
+                resp_parts.append(t)
 
 # Add text deliverables (.md/.csv) written this session
 for tid, inp in tool_inputs.items():
@@ -299,12 +348,29 @@ for m in ARITH_RE.finditer(norm_resp):
 
 # ── GATE N: claim numbers must be sourced, labeled, or computed ──────────────
 # Currency, explicit-currency-word amounts, per-unit rates, gCO2e/MJ, percentages.
+# Also QA-measurement units (added 2026-08-27 alongside Gate D below): a QA
+# finding -- in chat/subagent prose, not only a spreadsheet row -- routinely
+# asserts a weight/volume/temperature ("tare weight 29,510 lb") with none of
+# the patterns above. Without this, Gate N would see zero "claim numbers" in
+# exactly the sentence a QA reviewer's report is built from, regardless of
+# whether that number was ever actually sourced.
+QA_UNIT_NUM_RE = re.compile(
+    r'\d[\d,]*(?:\.\d+)?\s?(?:lbs?|kgs?|MT|mt\b|gal(?:lons?)?|psi|ppm|°F|°C|degF|degC|'
+    # Carbon-removal quantities -- the actual units this workspace's numbers
+    # are usually in. Missing here meant a bare figure like "47.3 tCDR" or
+    # "12,000 BCUs" (no thousands comma, so BARE_NUM_RE misses it too) shipped
+    # with no sourcing check at all. Found 2026-09-02 on review.
+    r't ?CO2e?|t ?CDR|BCUs?|EACs?)',
+    re.IGNORECASE)
+BARE_NUM_RE = re.compile(r'(?<![\w.-])\d{1,3}(?:,\d{3})+(?:\.\d+)?(?![\w-])')
 NUM_PATTERNS = [
     re.compile(r'[\$€£]\s?\d[\d,]*(?:\.\d+)?\s?(?:k|K|M|bn|billion|million|thousand)?'),
     re.compile(r'\d[\d,]*(?:\.\d+)?\s?(?:USD|EUR|GBP|euros?|dollars?)', re.IGNORECASE),
     re.compile(r'\d[\d,]*(?:\.\d+)?\s?(?:/|per\s)\s?(?:yr|year|tonne|tonnes|t\b|MT|MJ|day|unit|kWh|km|mile|gal)', re.IGNORECASE),
     re.compile(r'\d[\d,]*(?:\.\d+)?\s?gCO2e/MJ', re.IGNORECASE),
     re.compile(r'\d[\d.]*\s?%'),
+    QA_UNIT_NUM_RE,
+    BARE_NUM_RE,
 ]
 def num_candidates(raw):
     """Numeric strings to search for in the corpus for this figure."""
@@ -355,6 +421,113 @@ for pat in NUM_PATTERNS:
         violations.append(('NUMBER',
             f'Unsourced, unlabeled figure "{raw}" — not found in any source read '
             f'this session and no assumption label nearby. Context: …{ctx}…'))
+
+# ── GATE D: scan .xlsx / .docx deliverable bodies, row/paragraph by row ──────
+# (QA_UNIT_NUM_RE / BARE_NUM_RE now defined once, above, as part of NUM_PATTERNS)
+
+def _resolve_deliv(p):
+    cands = [p]
+    proj_dir = os.environ.get('CLAUDE_PROJECT_DIR', '')
+    if proj_dir and not os.path.isabs(p):
+        cands.append(os.path.join(proj_dir, p))
+    for cand in cands:
+        if cand and os.path.isfile(cand):
+            return cand
+    return None
+
+def _extract_blocks(path):
+    if path.lower().endswith('.xlsx'):
+        import openpyxl
+        wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+        blocks = []
+        for ws in wb.worksheets:
+            for row in ws.iter_rows(values_only=True):
+                blocks.append(' | '.join(str(c) for c in row if c is not None))
+        return blocks
+    if path.lower().endswith('.docx'):
+        import zipfile as _zip
+        with _zip.ZipFile(path) as z:
+            xml = z.read('word/document.xml').decode('utf-8', 'ignore')
+        return [re.sub(r'<[^>]+>', ' ', p) for p in xml.split('</w:p>')]
+    return []
+
+deliverable_paths = set()
+for tid, inp in tool_inputs.items():
+    if not isinstance(inp, dict): continue
+    name = tool_names.get(tid, '')
+    if name in ('Write', 'Edit'):
+        fp = inp.get('file_path', '')
+        if fp.lower().endswith(('.xlsx', '.docx')):
+            deliverable_paths.add(fp)
+    elif name == 'Bash':
+        cmd = inp.get('command', '')
+        if isinstance(cmd, str):
+            for m in re.finditer(r'[\w./\-]+\.(?:xlsx|docx)', cmd, re.IGNORECASE):
+                deliverable_paths.add(m.group(0))
+
+for raw_path in deliverable_paths:
+    path = _resolve_deliv(raw_path)
+    if not path:
+        continue
+    try:
+        blocks = _extract_blocks(path)
+    except Exception:
+        continue
+    fname = os.path.basename(path)
+    for block in blocks:
+        block = norm_punct(block or '')
+        block_norm = re.sub(r'\s+', ' ', block).strip()
+        if not block_norm:
+            continue
+
+        # Recompute any arithmetic shown within this row/paragraph first, so a
+        # verified result is exempt below exactly like Gate A exempts it in chat.
+        arith_results = set()
+        for m in ARITH_RE.finditer(block_norm):
+            a, op, b, c = to_num(m.group(1)), m.group(2), to_num(m.group(3)), to_num(m.group(4))
+            if None in (a, b, c): continue
+            try:
+                if op in ('×', 'x', '*'): expect = a * b
+                elif op in ('/', '÷'): expect = a / b if b else None
+                elif op == '+': expect = a + b
+                elif op == '-': expect = a - b
+                else: expect = None
+            except ZeroDivisionError:
+                expect = None
+            if expect is None: continue
+            if expect != 0 and abs(c - expect) / abs(expect) > 0.015:
+                violations.append(('ARITHMETIC',
+                    f'[{fname}] shown arithmetic does not compute: '
+                    f'{m.group(0).strip()} (expected ≈ {expect:,.2f}).'))
+            else:
+                arith_results.add(m.group(4).strip())
+
+        claimed_spans = []
+        for pat in NUM_PATTERNS:
+            for m in pat.finditer(block_norm):
+                raw = m.group(0).strip()
+                pos, endpos = m.start(), m.end()
+                if any(pos < e and s < endpos for s, e in claimed_spans):
+                    continue
+                claimed_spans.append((pos, endpos))
+                cands = num_candidates(raw)
+                if not cands:
+                    digits = re.search(r'\d[\d,]*(?:\.\d+)?', raw)
+                    if not digits: continue
+                    cands = [digits.group(0), digits.group(0).replace(',', '')]
+                if value_in_corpus(cands):                       # (a) sourced this session
+                    continue
+                if near_assumption(pos, block_norm):             # (b) labeled assumption
+                    continue
+                if any(rr == cands[0] or rr in cands for rr in arith_results):  # (c) verified arithmetic result
+                    continue
+                if re.search(r'=\s*[\$€£]?\s*' + re.escape(cands[0]), block_norm):
+                    continue
+                ctx = block_norm[:160]
+                violations.append(('NUMBER',
+                    f'[{fname}] unsourced figure "{raw}" — not found in any source read '
+                    f'this session, no assumption label, not a shown-correct calculation. '
+                    f'Row/paragraph: …{ctx}…'))
 
 # ── Verdict ──────────────────────────────────────────────────────────────────
 if not violations:

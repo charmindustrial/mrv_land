@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Echo Audit — MRV Analyst</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.5; padding: 24px; max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; margin-bottom: 4px; }
+  .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 16px; }
+  .summary-strip { display: flex; gap: 16px; padding: 14px 18px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .summary-item { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
+  .summary-count { font-size: 1.8rem; font-weight: 700; }
+  .summary-label { font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+  .count-total { color: #1a1a2e; }
+  .count-disq { color: #c0392b; }
+  .count-sust { color: #27ae60; }
+  .count-nosust { color: #7f8c8d; }
+  .section { margin-bottom: 24px; }
+  .section-header { font-size: 1.15rem; font-weight: 600; padding: 10px 14px; border-radius: 6px 6px 0 0; }
+  .section-header.disq { background: #fdecea; color: #c0392b; border-left: 4px solid #c0392b; }
+  .section-header.sust { background: #e8f5e9; color: #1b5e20; border-left: 4px solid #27ae60; }
+  .section-header.nosust { background: #f5f5f5; color: #555; border-left: 4px solid #95a5a6; }
+  .candidate { background: #fff; border: 1px solid #e0e0e0; border-top: none; padding: 14px 16px; }
+  .candidate:last-child { border-radius: 0 0 6px 6px; }
+  .candidate-name { font-weight: 600; font-size: 1.0rem; }
+  .candidate-org { color: #666; font-size: 0.9rem; }
+  .evidence-block { background: #fafafa; border-left: 3px solid #ddd; padding: 8px 12px; margin: 8px 0 4px 0; font-size: 0.88rem; color: #333; }
+  .evidence-block.disq-ev { border-left-color: #e74c3c; background: #fef5f4; }
+  .evidence-block.sust-ev { border-left-color: #27ae60; background: #f4faf5; }
+  .evidence-block.exp-ev { border-left-color: #2980b9; background: #f4f8fc; }
+  .gate-label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .gate-label.fail { color: #c0392b; }
+  .gate-label.pass { color: #27ae60; }
+  .gate-label.info { color: #2980b9; }
+  .legend { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.85rem; }
+  .legend h3 { font-size: 0.95rem; margin-bottom: 6px; }
+  .legend p { margin-bottom: 4px; color: #444; }
+  .footer { font-size: 0.8rem; color: #999; margin-top: 24px; padding-top: 12px; border-top: 1px solid #e0e0e0; }
+  .priority-note { font-size: 0.85rem; color: #1b5e20; font-style: italic; margin: 4px 0 8px 0; }
+  .nosust-note { font-size: 0.85rem; color: #666; font-style: italic; margin: 4px 0 8px 0; }
+  .exp-fail-block { background: #fef5f4; border-left: 3px solid #e67e22; padding: 8px 12px; margin: 8px 0 4px 0; font-size: 0.88rem; }
+</style>
+</head>
+<body>
+
+<h1>Resume Echo Audit</h1>
+<p class="subtitle">MRV Analyst — Charm Industrial &middot; Living report, refreshed twice daily &middot; Last updated: Sep 4, 2026 4:10 PM</p>
+
+<div class="summary-strip">
+  <div class="summary-item">
+    <span class="summary-count count-total">22</span>
+    <span class="summary-label">Total</span>
+  </div>
+  <div class="summary-item">
+    <span class="summary-count count-disq">2</span>
+    <span class="summary-label">Disqualified</span>
+  </div>
+  <div class="summary-item">
+    <span class="summary-count count-sust">4</span>
+    <span class="summary-label">Sustainability BG</span>
+  </div>
+  <div class="summary-item">
+    <span class="summary-count count-nosust">16</span>
+    <span class="summary-label">No Sustainability BG</span>
+  </div>
+</div>
+
+<!-- ===== DISQUALIFIED ===== -->
+<div class="section">
+  <div class="section-header disq">Disqualified (2)</div>
+
+  <div class="candidate">
+    <div class="candidate-name">SivaSri Mutukuri</div>
+    <div class="candidate-org">Cardinal Health</div>
+    <div class="gate-label fail">Gate 1 — Fabrication (ai_artifact)</div>
+    <div class="evidence-block disq-ev">
+      Resume fabrication signature: the bullet blocks under "Senior Data Analyst, Cardinal Health (Jan 2024–present)" and "Data Analyst, Zensar Technologies (May 2019–Jul 2022)" are verbatim-identical, word-for-word — the same six bullet points appear under two different employers in two different countries. LinkedIn identity check passed (correct person, corroborates Cardinal Health and UMBC), but the fabricated resume content is independently disqualifying.
+    </div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Chiranjeevi Arvapalli</div>
+    <div class="candidate-org">Molina Healthcare</div>
+    <div class="gate-label fail">Gate 1 — Identity Mismatch</div>
+    <div class="evidence-block disq-ev">
+      Submitted LinkedIn URL (linkedin.com/in/chiranjeevi-arvapalli) resolves to LinkedIn's "This page doesn't exist" 404 page — dead link, no profile found. Per the skill's standing rule, a dead or unresolvable LinkedIn link is an identity_mismatch disqualification.
+    </div>
+  </div>
+</div>
+
+<!-- ===== SUSTAINABILITY / MRV BACKGROUND ===== -->
+<div class="section">
+  <div class="section-header sust">Sustainability / MRV Background (4) — Priority Review</div>
+  <p class="priority-note">These candidates passed all integrity checks and have relevant sustainability, MRV, carbon, or environmental experience or education. Priority tier for Max's review.</p>
+
+  <div class="candidate">
+    <div class="candidate-name">David Markowitz</div>
+    <div class="candidate-org">(Independent Advisory)</div>
+    <div class="gate-label pass">Gate 1 — Clean</div>
+    <div class="evidence-block">No posting-language match. LinkedIn is genuinely his and corroborates ecological consulting, Google X, World Parks, University of Michigan, Memphis location.</div>
+    <div class="gate-label info">Experience — ~11+ years</div>
+    <div class="evidence-block exp-ev">Ecological Consultant, (Independent Advisory), Feb 2025–present (~1yr 7mo); Project Coordinator, Alphabet/Google X, Mar 2022–Apr 2024 (2yr 2mo); Principal Ecologist, World Parks, Feb 2018–Mar 2022 (4yr 2mo); Business Analyst, PlanetWatchers, Nov 2017–Jan 2020 (2yr 3mo, overlaps with World Parks); Healthcare Research Analyst, Signals Analytics, Aug 2016–Sep 2017 (1yr 2mo); Forestry Technician, USFS, Jun–Aug 2015 (3mo). Total ~11+ years cumulative.</div>
+    <div class="gate-label pass">Gate 2 — Sustainability Experience</div>
+    <div class="evidence-block sust-ev">Extensive MRV and carbon-market background: LinkedIn headline "Data-Driven Monitoring, Reporting and Verification"; resume states "developed MRV protocols for the SankalpTaru Foundation"; advised environmental ventures on "verification methodologies" and "voluntary carbon markets"; REDD+ certified via Albert Ludwig University of Freiburg Carbon Accounting certificate; IUCN Professional Certificate in Finance for Nature; MS Conservation Ecology (University of Michigan); Principal Ecologist at World Parks ("conservation finance," "net-zero sustainability projects"); Business Analyst at PlanetWatchers ("carbon reduction and natural resource management strategies").</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Sara Speak</div>
+    <div class="candidate-org">Water Remediation Technology</div>
+    <div class="gate-label pass">Gate 1 — Clean</div>
+    <div class="evidence-block">No posting-language match. LinkedIn is genuinely hers and corroborates Water Remediation Technology and MSU Denver. Previously applied to Analytical Lab Technician at Charm (closed Jan 2026) — different role, not a concern.</div>
+    <div class="gate-label info">Experience — ~10 years 6 months</div>
+    <div class="evidence-block exp-ev">Water Quality Manager, Water Remediation Technology, Jun 2024–present (~1yr 3mo); EHS Project Manager, SGS, Sep 2022–Jun 2024 (1yr 10mo); Environmental Compliance Specialist, WM, Mar 2021–Sep 2022 (1yr 7mo); Environmental Compliance Specialist, City of Thornton, Feb 2020–Mar 2021 (1yr 1mo); Lab Analyst, Pace Analytical, Sep 2019–Feb 2020 (6mo); Production Chemist, Evonik, May 2017–Sep 2019 (2yr 5mo); Quality Control Technician, Ball Corp, Jun 2016–May 2017 (1yr); Lab Assistant, MSU Denver, Aug 2015–May 2016 (10mo). Total ~10 years 6 months. No internships.</div>
+    <div class="gate-label pass">Gate 2 — Sustainability Experience</div>
+    <div class="evidence-block sust-ev">Extensive environmental compliance and monitoring: Water Quality Manager (Water Remediation Technology) managing RCRA/NPDES regulatory compliance; EHS Project Manager (SGS) with ISO 14001 certification in progress; Environmental Compliance Specialist (WM/Waste Management and City of Thornton) managing environmental permits and compliance programs. BS Chemistry, minor Environmental Science (MSU Denver).</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Isaac Ubben</div>
+    <div class="candidate-org">Yard Stick PBC, Blue Earth County, Nicollet County</div>
+    <div class="gate-label pass">Gate 1 — Clean</div>
+    <div class="evidence-block">No posting-language match. LinkedIn is genuinely his and corroborates Yard Stick PBC and Blue Earth County.</div>
+    <div class="gate-label info">Experience — ~5 years 7 months</div>
+    <div class="evidence-block exp-ev">Field Operations Lead II, Yard Stick PBC, May 2023–May 2026 (3yr 1mo); GIS &amp; Technology Coordinator, Blue Earth County, Apr 2022–Apr 2023 (1yr 1mo); GIS Technician, Nicollet County, Nov 2020–Mar 2022 (1yr 5mo). Total ~5 years 7 months. No internships.</div>
+    <div class="gate-label pass">Gate 2 — Sustainability Experience</div>
+    <div class="evidence-block sust-ev">Field Operations Lead II, Yard Stick PBC: environmental programs, environmental project developers — Yard Stick is a soil-carbon measurement company (a Public Benefit Corporation). GIS &amp; Technology Coordinator, Blue Earth County Environmental Services division. BS Geographic Information Science + Environmental Science &amp; Policy (University of Northern Iowa). LinkedIn: "passionate about leveraging geospatial technology... to advance sustainable agriculture, conservation, and environmental initiatives."</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Jaime Hurtado</div>
+    <div class="candidate-org">Benny's Landscaping &amp; Irrigation, GRID Alternatives, FirstBank</div>
+    <div class="gate-label pass">Gate 1 — Clean</div>
+    <div class="evidence-block">No posting-language match. LinkedIn is genuinely his and corroborates Benny's Landscaping, GRID Alternatives, and FirstBank.</div>
+    <div class="gate-label info">Experience — ~6 years 9 months</div>
+    <div class="evidence-block exp-ev">Irrigation Tech/Office Manager, Benny's Landscaping &amp; Irrigation, Apr 2021–Nov 2025 (4yr 8mo); SolarCorps Fellow, GRID Alternatives, Aug 2019–Dec 2020 (1yr 5mo); Loan Officer, FirstBank, Dec 2017–Jul 2018 (8mo). Total ~6 years 9 months. No internships (SolarCorps is a fellowship/service role, not an internship).</div>
+    <div class="gate-label pass">Gate 2 — Sustainability Experience</div>
+    <div class="evidence-block sust-ev">SolarCorps Fellow, GRID Alternatives: "Executed hands-on renewable energy deployment by installing residential and commercial solar photovoltaic (PV) systems. Collected, verified, and logged technical field data including site assessments, shade analysis, and system performance metrics." BS Business Administration (Colorado Mountain College), Power BI certification.</div>
+  </div>
+</div>
+
+<!-- ===== NO SUSTAINABILITY BACKGROUND ===== -->
+<div class="section">
+  <div class="section-header nosust">No Sustainability Background (16) — Not Disqualifying</div>
+  <p class="nosust-note">These candidates passed all integrity and experience checks but have no sustainability, MRV, carbon, ESG, or related background. This is not disqualifying — it is a lower-priority tier, not a rejection.</p>
+
+  <div class="candidate">
+    <div class="candidate-name">Somil Doshi</div>
+    <div class="candidate-org">United Health Group</div>
+    <div class="evidence-block">Business Analyst, United Health Group and Optum (healthcare IT); Data Analyst, Trigent Software. MS Engineering Data Science (University of Houston). ~3yr 6mo total experience. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Hitesh Patil</div>
+    <div class="candidate-org">PepsiCo</div>
+    <div class="evidence-block">Marketing Analyst, PepsiCo (Media Mix Modeling); Data Analyst, Procter &amp; Gamble (retail assortment/forecasting). MS Computer Science. ~5yr total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Sushanth Reddy</div>
+    <div class="candidate-org">PTC</div>
+    <div class="evidence-block">Data Analyst, PTC, Citi, Sigma Infosolutions, Zentek Infosoft (healthcare, banking, marketing analytics). MS Information Systems and Business Analytics. ~5yr 10mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Chester Baah</div>
+    <div class="candidate-org">Aflac</div>
+    <div class="evidence-block">Data Analyst, Aflac (insurance policy/customer analytics); Intern SQL Developer, Redline Athletics. BS Kinesiology &amp; Exercise Science (University of Tulsa). ~3yr 8mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Fitrie Amalia Dewi</div>
+    <div class="candidate-org">RevoU, Partou Kinderbetreuung Germany</div>
+    <div class="evidence-block">Data Analytics bootcamp (RevoU), early-childhood educator (Partou Kinderbetreuung, Germany), nursing assistant (Caritas St. Lukas Hospital), German Language Education degree. ~3yr 4mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Rebecca Morris</div>
+    <div class="candidate-org">Boulder County Sheriff's Office, Intrado, QuickCare, U.S. Army</div>
+    <div class="evidence-block">Data Analyst, Boulder County Sheriff's Office and Intrado (911 tech). QuickCare (nursing-home software implementation). U.S. Army medic. BS Computer Science/Software Engineering. ~20yr total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Nikunj Vaghani</div>
+    <div class="candidate-org">PenFed Credit Union, TX</div>
+    <div class="evidence-block">Data Analyst, PenFed Credit Union (consumer lending) and Infosys (healthcare claims). MS IT and Management. ~4yr 2mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Mohammad Al Tamish Azim</div>
+    <div class="candidate-org">Capital One Financial, Walgreens, Mphasis</div>
+    <div class="evidence-block">Business Systems Analyst, Capital One and Walgreens; Business Analyst, Mphasis. MS Computer Science, BE Information Technology. ~6yr 8mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Sarah Saleem</div>
+    <div class="candidate-org">University of St. Thomas (UROP), IBM, Naxxa Consulting</div>
+    <div class="evidence-block">Data Governance Consultant at IBM (banking and energy-sector clients — enterprise data governance, not sustainability). Program Coordinator (UROP). Content Strategist. BS Applied Biosciences (biomedical). ~5yr 4mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Ramyasree Kuppam</div>
+    <div class="candidate-org">Wells Fargo USA</div>
+    <div class="evidence-block">Data Analyst, Wells Fargo (financial KPI dashboards) and Maxgen Technologies (CRM/marketing analytics). MS Computer Science. ~4yr 8mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Nithya Sahithi Devisetty</div>
+    <div class="candidate-org">Uber</div>
+    <div class="evidence-block">Data Analyst — AI/ML, Uber (financial operations). Data Analyst, Florida Division of Emergency Management (disaster logistics, not sustainability). MS Computer Science. ~4yr 5mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Joshith Reddy Puli</div>
+    <div class="candidate-org">McKesson</div>
+    <div class="evidence-block">Data Analyst, McKesson (pharmacy/prescription analytics) and Cognizant (insurance policy/claims analytics). MS Data Science. ~3yr 1mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Navya Teja Pathuri</div>
+    <div class="candidate-org">CGI Inc.</div>
+    <div class="evidence-block">Data Analyst, CGI Inc. (utility smart-meter forecasting — operational billing, not sustainability) and Hexaware (marketing/textbook-demand). MS Data Science &amp; Business Analytics. ~4yr 7mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Pujit Koduru</div>
+    <div class="candidate-org">Molina Healthcare</div>
+    <div class="evidence-block">Senior Data &amp; Analytics, Molina Healthcare (provider network / claims analytics). Cigna, Robert Half, Mindlabz Technologies. Cleveland State University. ~6yr 8mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Tejaswini Vadlamudi</div>
+    <div class="candidate-org">UVA Health</div>
+    <div class="evidence-block">BI Developer, UVA Health, JPMorgan Chase, Accenture (healthcare), OpenText. MS Data Science &amp; AI. ~4yr 9mo total. No sustainability content.</div>
+  </div>
+
+  <div class="candidate">
+    <div class="candidate-name">Harshitha L.</div>
+    <div class="candidate-org">Humana, Worksmart Technologies</div>
+    <div class="evidence-block">Business Systems Analyst, Humana (healthcare/insurance CRM); Salesforce Developer, Worksmart Technologies (enterprise CRM/ERP). MS Computer Science, BTech Computer Science. ~3yr 8mo total. No sustainability content.</div>
+  </div>
+</div>
+
+<!-- ===== LEGEND ===== -->
+<div class="legend">
+  <h3>Legend &amp; Method</h3>
+  <p><strong>Gate 1 — Source Integrity:</strong> Checks whether the resume copies language from the job posting or Charm's internal Job Materials brief, and whether the candidate's submitted LinkedIn corroborates or contradicts their resume claims. Any match on language copying, identity mismatch, experience mismatch, or AI-drafting artifact is disqualifying.</p>
+  <p><strong>Experience Gate:</strong> Total cumulative work experience must be &ge; 3.0 years. Internships count toward the total but cannot be a strict majority (&gt;50%) of it. Under 3 years is disqualifying.</p>
+  <p><strong>Gate 2 — Sustainability / MRV Background:</strong> Any experience or education in MRV, carbon accounting, ESG, LCA, environmental monitoring, conservation, renewable energy, or a related sustainability field. <em>Not disqualifying</em> — this is a priority split, not a rejection gate.</p>
+  <p><strong>This is a living, twice-daily-refreshed document</strong>, not a one-time audit. Candidates are automatically removed when their Lever stage moves away from "New applicant." New applicants are screened on each pass.</p>
+</div>
+
+<div class="footer">
+  Resume Echo Audit &middot; MRV Analyst posting (b536ec2d) &middot; Charm Industrial &middot; Automated by Resume Echo Review skill &middot; Read-only on Lever and LinkedIn &middot; No resume files persist
+</div>
+
+</body>
+</html>

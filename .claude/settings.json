@@ -49,6 +49,14 @@
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/delta_baseline_guard.sh\""
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/no_fragment_redelivery_guard.sh\""
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -135,6 +143,14 @@
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/citation_integrity_stop.sh\""
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/numeric_integrity_stop.sh\""
+          }
+        ]
       }
     ],
     "SessionEnd": [
@@ -143,6 +159,16 @@
           {
             "type": "command",
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/browser_cleanup_sessionend.sh\""
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "nohup \"$HOME/.garrett-completion-monitor/catchup_check.sh\" >/dev/null 2>&1 &"
           }
         ]
       }
@@ -160,6 +186,7 @@
       "mcp__claude_ai_Google_Drive__create_file",
       "mcp__claude_ai_Gmail__search_threads",
       "mcp__claude_ai_Gmail__get_thread",
+      "mcp__claude_ai_Gmail__get_message",
       "mcp__claude_ai_Gmail__list_drafts",
       "mcp__claude_ai_Gmail__list_labels",
       "mcp__claude_ai_Google_Calendar__list_calendars",
@@ -224,7 +251,67 @@
       "WebSearch",
       "WebFetch",
       "Bash(curl:*)",
-      "Bash(wget:*)"
+      "Bash(wget:*)",
+      "mcp__playwright__browser_find",
+      "mcp__playwright__browser_network_request",
+      "mcp__playwright-mrv__browser_find",
+      "mcp__playwright-mrv__browser_network_request",
+      "mcp__playwright-mrv-2__browser_click",
+      "mcp__playwright-mrv-2__browser_take_screenshot",
+      "mcp__playwright-mrv-2__browser_navigate",
+      "mcp__playwright-mrv-2__browser_navigate_back",
+      "mcp__playwright-mrv-2__browser_wait_for",
+      "mcp__playwright-mrv-2__browser_evaluate",
+      "mcp__playwright-mrv-2__browser_snapshot",
+      "mcp__playwright-mrv-2__browser_resize",
+      "mcp__playwright-mrv-2__browser_close",
+      "mcp__playwright-mrv-2__browser_tabs",
+      "mcp__playwright-mrv-2__browser_console_messages",
+      "mcp__playwright-mrv-2__browser_network_requests",
+      "mcp__playwright-mrv-2__browser_find",
+      "mcp__playwright-mrv-2__browser_network_request",
+      "mcp__playwright-mrv-3__browser_click",
+      "mcp__playwright-mrv-3__browser_take_screenshot",
+      "mcp__playwright-mrv-3__browser_navigate",
+      "mcp__playwright-mrv-3__browser_navigate_back",
+      "mcp__playwright-mrv-3__browser_wait_for",
+      "mcp__playwright-mrv-3__browser_evaluate",
+      "mcp__playwright-mrv-3__browser_snapshot",
+      "mcp__playwright-mrv-3__browser_resize",
+      "mcp__playwright-mrv-3__browser_close",
+      "mcp__playwright-mrv-3__browser_tabs",
+      "mcp__playwright-mrv-3__browser_console_messages",
+      "mcp__playwright-mrv-3__browser_network_requests",
+      "mcp__playwright-mrv-3__browser_find",
+      "mcp__playwright-mrv-3__browser_network_request",
+      "mcp__playwright-mrv-4__browser_click",
+      "mcp__playwright-mrv-4__browser_take_screenshot",
+      "mcp__playwright-mrv-4__browser_navigate",
+      "mcp__playwright-mrv-4__browser_navigate_back",
+      "mcp__playwright-mrv-4__browser_wait_for",
+      "mcp__playwright-mrv-4__browser_evaluate",
+      "mcp__playwright-mrv-4__browser_snapshot",
+      "mcp__playwright-mrv-4__browser_resize",
+      "mcp__playwright-mrv-4__browser_close",
+      "mcp__playwright-mrv-4__browser_tabs",
+      "mcp__playwright-mrv-4__browser_console_messages",
+      "mcp__playwright-mrv-4__browser_network_requests",
+      "mcp__playwright-mrv-4__browser_find",
+      "mcp__playwright-mrv-4__browser_network_request",
+      "mcp__playwright-login__browser_click",
+      "mcp__playwright-login__browser_take_screenshot",
+      "mcp__playwright-login__browser_navigate",
+      "mcp__playwright-login__browser_navigate_back",
+      "mcp__playwright-login__browser_wait_for",
+      "mcp__playwright-login__browser_evaluate",
+      "mcp__playwright-login__browser_snapshot",
+      "mcp__playwright-login__browser_resize",
+      "mcp__playwright-login__browser_close",
+      "mcp__playwright-login__browser_tabs",
+      "mcp__playwright-login__browser_console_messages",
+      "mcp__playwright-login__browser_network_requests",
+      "mcp__playwright-login__browser_find",
+      "mcp__playwright-login__browser_network_request"
     ]
   }
 }

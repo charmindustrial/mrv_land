@@ -1,0 +1,105 @@
+- generic [active] [ref=f20e2]:
+  - alert [ref=f20e1]
+  - region "0 notifications."
+  - generic [ref=f20e3]:
+    - navigation [ref=f20e5]:
+      - generic [ref=f20e9]:
+        - generic [ref=f20e10]:
+          - link "Isometric Registry" [ref=f20e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f20e27]:
+            - link "Registry" [ref=f20e28] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=f20e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f20e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f20e32]:
+          - generic [ref=f20e33]:
+            - link "Account" [ref=f20e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f20e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f20e36]: "|"
+          - button "Current user menu" [ref=f20e37] [cursor=pointer]:
+            - generic [ref=f20e38]: Menu
+    - main [ref=f20e41]:
+      - generic [ref=f20e43]:
+        - button "Collapse sidebar" [ref=f20e45] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=f20e49]:
+          - list [ref=f20e51]:
+            - listitem [ref=f20e52]:
+              - link "All projects" [ref=f20e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=f20e54]: /
+            - listitem [ref=f20e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=f20e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [ref=f20e57]: /
+            - listitem [ref=f20e58]:
+              - link "All GHG statements" [ref=f20e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - generic [ref=f20e60]: /
+            - listitem [ref=f20e61]:
+              - link "ggs_1KZBX6AX41S029JS" [ref=f20e62] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statement/ggs_1KZBX6AX41S029JS
+              - generic [ref=f20e63]: /
+            - listitem [ref=f20e64]: rmv_1KZBTSNE81S0DJT1
+      - generic [ref=f20e65]:
+        - navigation [ref=f20e69]:
+          - generic [ref=f20e71]:
+            - link "Overview" [ref=f20e72] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=f20e73] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+            - link "Evidence" [ref=f20e74] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/evidence
+          - generic [ref=f20e75]:
+            - generic [ref=f20e76]: Project setup
+            - generic [ref=f20e77]:
+              - link "General" [ref=f20e78] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=f20e79] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=f20e80] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=f20e81] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=f20e82]:
+            - generic [ref=f20e83]: Carbon accounting
+            - generic [ref=f20e84]:
+              - link "LCA" [ref=f20e85] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=f20e86] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=f20e87] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "GHG entry data" [ref=f20e88] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+          - link "Templates" [ref=f20e91] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=f20e93]:
+          - generic [ref=f20e96]:
+            - heading "GHG entry" [level=1] [ref=f20e98]
+            - generic [ref=f20e99]:
+              - generic [ref=f20e100]:
+                - generic [ref=f20e101]: Removal
+                - generic [ref=f20e105]: 5.53 tCO₂e
+                - generic [ref=f20e107]:
+                  - generic [ref=f20e108]: •
+                  - generic [ref=f20e109]: 01 Jul 2026 to 04 Jul 2026
+                - generic [ref=f20e110]:
+                  - generic [ref=f20e111]: •
+                  - generic [ref=f20e112]: rmv_1KZBTSNE81S0DJT1
+              - generic [ref=f20e113]:
+                - button "More actions" [ref=f20e114] [cursor=pointer]
+                - button "Projected credit allocation" [ref=f20e117] [cursor=pointer]
+                - button "Toggle timeline sidebar" [ref=f20e121] [cursor=pointer]
+          - generic [ref=f20e124]:
+            - tablist [ref=f20e127]:
+              - tab "Components" [ref=f20e128] [cursor=pointer]
+              - tab "Calculation view" [ref=f20e130] [cursor=pointer]
+              - tab "Datapoints" [ref=f20e132] [cursor=pointer]
+              - tab "Sources" [selected] [ref=f20e134] [cursor=pointer]
+            - tabpanel "Sources" [ref=f20e137]:
+              - heading "Sources" [level=2] [ref=f20e139]

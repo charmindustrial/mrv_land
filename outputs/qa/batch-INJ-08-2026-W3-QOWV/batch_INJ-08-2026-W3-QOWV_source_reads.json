@@ -1,0 +1,258 @@
+{
+  "batch_id": "INJ-08-2026-W3",
+  "oil_type": "Aqueous (QOWV)",
+  "reporting_period": "09 Aug 2026 to 15 Aug 2026 (Certify removal window); Ops Notes week 2026-08-08 to 2026-08-15",
+  "production_periods": ["PP#8", "November 2025", "February 2026", "March 2026", "April 2026", "PP#7"],
+  "n_totes": 37,
+  "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M0ZD6K9J1S0WPD4/edit",
+  "certify_removal_id": "rmv_1M0ZD6K9J1S0WPD4",
+  "net_co2e_t": 4.669,
+
+  "vvb_guidance": {
+    "doc": "VVB Guidance August 1 - August 31",
+    "live_source_url": "https://docs.google.com/document/d/1_dYfx8sZERQI5fMPAtIaOsYNE5aQupm7AYHoIFsEH7Y/edit",
+    "read_in_full": true,
+    "quotes": [
+      "QOWV Tote Transport — Totes Routed via Kansas (Weeks 3 and 4). Purpose. QOWV is Charm's aqueous bio-oil fraction, shipped from the Colorado production site to the Basco 6 injection site in Louisiana in intermediate bulk containers (IBC totes). Four totes injected in Week 3 (INJ-08-2026-W3) ... did not travel that route directly: they were trucked from Colorado to Charm's Kansas site on 2025-10-21, stored there, and later repositioned from Kansas to Louisiana.",
+      "Method. Truck transport is calculated as two terms. Vehicle embodied emissions are expressed per mile driven and are independent of load, so the miles of any given truck are apportioned between the batches sharing it, by each batch's share of the totes on board. Fuel use is expressed per tonne-mile and therefore needs no apportionment: each batch is charged its own cargo mass over the distance that cargo travelled.",
+      "Distances. Charm Colorado to Charm Kansas is 537 miles one way, and Charm Kansas to Basco 6 is 684 miles one way; each is evidenced by a filed route map. The via-Kansas route totals 1,221 miles against 1,201 miles for the direct route, 1.7 per cent longer.",
+      "Application — Week 3 (four totes, tags 118811, 118837, 118872, 118886): Colorado to Kansas (shipment #32/#33) 2 trucks, 34 totes aboard, 4 batch totes, share 4/34, miles 537x2, allocated 126.4. Kansas to Basco 6 (repositioning) 1 truck, 6 totes aboard, 4 batch totes, share 4/6, miles 684, allocated 456.0. Total allocated miles for the week therefore rise from 1,693.3, covering the 33 totes that travelled the direct route, to 2,275.7.",
+      "Which of the two trucks on the Colorado to Kansas shipment carried which tote was not recorded. This does not affect the result, because four totes out of 34 across two trucks allocates the same mileage as four out of 17 on one truck.",
+      "Carbon intensity is unaffected. Pyrolysis emissions for these totes remain keyed to the month in which the oil was produced, not to the route taken or to the week of injection.",
+      "QOWV Tote Transport — Vehicle Class Emission Factors. Correction. QOWV totes travel on a flatbed trailer, not in a tanker. Until this period the calculation applied tanker emission factors to both QOWV transport terms. Both now use the flatbed and non-tanker factors, which are the factors the equivalent WODO tote transport has always used: Fuel use, well to wheel — 0.1143 replaced by 0.1384 kg CO2e per tonne-mile (flatbed truck). Vehicle embodied — 0.23756 replaced by 0.19279 kg CO2e per mile (non-tanker truck).",
+      "Direction and effect. The correction ... increases reported QOWV transport emissions and so reduces the net removal, by approximately 0.9 tonnes CO2e for Week 3."
+    ],
+    "no_lcs_or_charm_contents_mention": true
+  },
+
+  "batch_folder_inventory": [
+    {"name": "INJ-08-2026-W3 Ops Notes.xlsx (Google Sheet)", "type": "spreadsheet", "present": true, "drive_id": "13_q45NsiXKH6RVdQ5LF98sRIJFiJH3PZ5K6dqXs2YDE"},
+    {"name": "Testing/ (subfolder)", "type": "folder", "present": true, "drive_id": "1FBKhGa-E-CEDe_HZfXn4O4TZvFqbCs5Y", "contents": ["CHARM INDUSTRIAL - 08-2026-W3 AECN + QOWV + Kerry (SR26-05021.001-003).pdf", "08-2026-W2 AECN - 08-2026 W2 QOWV.pdf (prior week, not used)"]},
+    {"name": "Scale Tickets/ (subfolder)", "type": "folder", "present": true, "drive_id": "1EgnqDOiFZsIr-AWL_FSFs9vInbnAHC9E", "note": "AECN railcar tickets; not applicable to QOWV tote weighing (Ops Notes IBC ledger is the accepted QOWV weighing record)"},
+    {"name": "Kerry Scale Tickets/ (subfolder)", "type": "folder", "present": true, "drive_id": "1vwz4vll1myTDZw0vRMtI-Uim5FEueyc6"},
+    {"name": "Completed QA Checklists/ (subfolder)", "type": "folder", "present": true, "drive_id": "1P7DEQ8Ia-H_x6FrjmlvN19MDDSdqWo7L"},
+    {"name": "Bio-Oil Shipment Tracker", "type": "tab-in-workbook", "present": true, "note": "carried as 'QOWV Shipments & EE Allocation' tab inside the Ops Notes workbook, per 2026 weekly-batch convention (no standalone file)"},
+    {"name": "Charm Contents sheet", "type": "file", "present": false, "note": "confirmed absent from both Drive batch folder and Certify Sources tab (23 sources enumerated, none titled Charm Contents); consistent with precedent on INJ-07-2026-W1-QOWV where four independent searches established this artifact no longer exists for any 2026 weekly time-block batch; its content (per-PP mass breakdown) is carried in the Ops Notes IBC ledger Production Period column"}
+  ],
+
+  "totes": {
+    "direct_lane_co_to_la": {
+      "count": 33,
+      "rows": "QOWV!A11:A43",
+      "gross_total_kg": 34113.00,
+      "tare_uniform_kg": 57.60,
+      "note": "per-tote tag, gross, tare, net-produced, empty-tote-weight(measured post-unload), net-injected, production period all populated; no blanks"
+    },
+    "kansas_lane_co_to_ks_to_la": {
+      "count": 4,
+      "tags": ["118811", "118837", "118872", "118886"],
+      "lots": ["MFO Lot 2590 (LOT00002590)", "MFO Lot 2574 (LOT00002574)", "MFO Lot 2536 (LOT00002536)", "MFO Lot 2488 (LOT00002488)"],
+      "production_period": "PP#7",
+      "ci_per_tote": 0.1373671128,
+      "rows": "QOWV!A45:A48",
+      "gross_total_kg": 4039.00,
+      "vvb_confirmed": true
+    },
+    "batch_total_gross_kg": 38152.00
+  },
+
+  "ops_notes": {
+    "live_source_url": "https://docs.google.com/spreadsheets/d/13_q45NsiXKH6RVdQ5LF98sRIJFiJH3PZ5K6dqXs2YDE/edit?gid=723508849",
+    "_primary_source_opened": [
+      {"file": "INJ-08-2026-W3 Ops Notes", "action": "opened live Google Sheet, QOWV tab navigated cell-by-cell via Name Box through all 37 tote rows and the totals/CI/uncertainty block, formulas read from the formula bar", "live_source_url": "https://docs.google.com/spreadsheets/d/13_q45NsiXKH6RVdQ5LF98sRIJFiJH3PZ5K6dqXs2YDE/edit?gid=723508849"}
+    ],
+    "oil_type": "QOWV (Aqueous)",
+    "tab": "QOWV",
+    "header": {"batch_id_cell_B2": "INJ-08-2026-W3", "week_start_B3": "8/8/2026", "week_end_B4": "8/15/2026"},
+    "columns": {
+      "A": "Tag", "B": "Gross Mass (kg) [Transport Emissions basis]", "C": "Tote Mass (kg) [uniform 57.60, IBC container tare]",
+      "D": "Net Oil Produced (kg) [Pyrolysis Emissions Mass basis] = B-C, formula confirmed D11='=B11-C11'",
+      "E": "Empty Tote Weight (kg) [measured post-unload weight, varies 82.50-257.50]",
+      "F": "Net Oil Injected (kg) [MOBI] = B-E, formula confirmed F11='=IF(E11=\"\",\"\",B11-E11)'",
+      "G": "Production Period (per tote)", "H": "Carbon Intensity (per tote, from Per-Production-Month CI reference table)",
+      "I": "Production Emissions (per tote, kg) = D*H", "J": "Scale Uncertainty (per tote, kg) = 1.13398 constant",
+      "K": "Kansas Tote label (rows 45-48 only)"
+    },
+    "totals_row_50": {
+      "B50_total_mass_transported_kg": 38152.00, "B50_formula": "=SUM(B11:B48)",
+      "C50_total_tare_kg": 2131.20,
+      "D50_total_oil_produced_kg": 36020.80, "D50_formula": "=SUM(D11:D48)",
+      "E50_total_empty_weight_kg": 5818.50,
+      "F50_total_oil_injected_MOBI_kg": 32333.50, "F50_formula": "=SUM(F11:F48)",
+      "H50_weighted_avg_CI": 0.1269709835, "H50_formula": "=IFERROR(SUMPRODUCT(D11:D48,H11:H48)/SUMIF(H11:H48,\"<>\",D11:D48),\"\")",
+      "I50_total_production_emissions_kg": 4573.60,
+      "J50_total_uncertainty_kg": 41.95726, "J50_formula": "=SUM(J11:J48)"
+    },
+    "lane_subtotals": {
+      "B51_total_for_CO_to_LA_kg": 34113.00, "B51_formula": "=SUM(B11:B43)",
+      "B52_total_for_KS_totes_kg": 4039.00, "B52_formula": "=SUM(B45:B48)"
+    },
+    "per_production_month_CI_reference_table": {
+      "PP#8": 0.1575553395, "November 2025": 0.1392140548, "December 2025": 0.1630616644,
+      "January 2026": 0.1568340169, "February 2026": 0.1330497939, "March 2026": 0.1185251532,
+      "April 2026": 0.1314184532, "May 2026": 0.1106615762, "June 2026": 0.1236896674,
+      "July 2026 and later (H2 2026 blended)": 0.120947, "PP#7": 0.1373671128
+    },
+    "constants_block": {"Lbs/Kg": 2.20462, "Kg/Lbs": 0.453592, "Sparging Mass Loss": 0.0129, "pH range (target)": "2.0 - 4.0", "QOWV 6-Mo CI (kg CO2e/kg)": 0.120947},
+    "lcs_use_kg": null,
+    "lcs_search_note": "Full visual review of QOWV tab columns A-K across all rows (header through totals) found no LCS / Liquid Calcium Sulfate / buffer column of any kind; consistent with the Ops Notes standard column set used for this batch",
+    "certify_h1_2026_ci_policy_check": "All 37 totes' production periods (PP#8, Nov 2025, Feb 2026, Mar 2026, Apr 2026, PP#7) predate the Jul-Dec 2026 H1-2026-blended-CI window; per corrected workspace policy (project_charm_h1_2026_ci_policy.md) the blended CI 0.120947 applies only to oil PRODUCED Jul-Dec 2026, so individual monthly/PP CIs are correctly applied here, not the blended figure - no violation"
+  },
+
+  "shipment_tracker": {
+    "tab_name": "QOWV Shipments & EE Allocation",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/13_q45NsiXKH6RVdQ5LF98sRIJFiJH3PZ5K6dqXs2YDE/edit?gid=1046191823",
+    "batch_summary_row6": {"batch": "INJ-08-2026-W3", "fraction": "QOWV", "inj_week": "2026-08-08 to 2026-08-15", "n_totes": 37},
+    "direct_distance_one_way_mi_B8": 1201,
+    "table_A_direct_co_to_basco": {
+      "trucks": [
+        {"truck": "COLA21", "ship_date": "2026-06-22", "totes_on_truck": 40, "batch_totes": 1, "batch_share": "2.5%", "mileage_one_way": 1201, "allocated_miles": 30.0},
+        {"truck": "COLA25", "ship_date": "2026-07-16", "totes_on_truck": 40, "batch_totes": 6, "batch_share": "15.0%", "mileage_one_way": 1201, "allocated_miles": 180.2},
+        {"truck": "COLA29", "ship_date": "2026-08-03", "totes_on_truck": 21, "batch_totes": 18, "batch_share": "85.7%", "mileage_one_way": 1201, "allocated_miles": 1029.4},
+        {"truck": "COLA30", "ship_date": "2026-08-04", "totes_on_truck": 20, "batch_totes": 7, "batch_share": "35.0%", "mileage_one_way": 1201, "allocated_miles": 420.4},
+        {"truck": "Truck 2 (by Date Shipped)", "ship_date": "2025-12-02", "totes_on_truck": 36, "batch_totes": 1, "batch_share": "2.8%", "mileage_one_way": 1201, "allocated_miles": 33.4}
+      ],
+      "subtotal_A_totes": 33, "subtotal_A_allocated_miles": 1693.3,
+      "subtotal_A_formula": "G18='=SUM(G12:G16)'"
+    },
+    "table_B_via_kansas": {
+      "co_to_ks_distance_one_way_mi_B21": 537, "ks_to_la_distance_one_way_mi_B22": 684, "via_ks_route_total_one_way_mi_C23": 1221,
+      "legs": [
+        {"leg": "Leg 1 - Shipment #32/#33: Charm CO -> Charm KS", "ship_date": "2025-10-21", "totes_on_trucks": 34, "batch_totes": 4, "batch_share": 0.1176470588, "mileage_one_way": 1074.0, "mileage_formula": "F26='=$B$21*H26', H26(trucks)=2", "allocated_miles": 126.4},
+        {"leg": "Leg 2 - Charm KS -> Basco LA (repositioning)", "ship_date": "not recorded", "totes_on_trucks": 6, "batch_totes": 4, "batch_share": 0.6666666667, "mileage_one_way": 684.0, "allocated_miles": 456.0}
+      ],
+      "subtotal_B_allocated_miles": 582.4, "subtotal_B_formula": "G28='=SUM(G26:G27)'"
+    },
+    "grand_total_allocated_miles_A_plus_B": 2275.7,
+    "grand_total_cell_A30_formula": "GRAND TOTAL ALLOCATED MILES (A + B) = 2,275.7",
+    "shipment_tracker_cells_are_formulas": {
+      "B50": "=SUM(B11:B48)", "B51": "=SUM(B11:B43)", "B52": "=SUM(B45:B48)",
+      "rp_share_table_A_E12": "=D12/C12", "rp_allocated_miles_table_A_G12": "=E12*F12", "subtotal_A_G18": "=SUM(G12:G16)",
+      "leg1_mileage_F26": "=$B$21*H26", "leg1_allocated_G26": "confirmed formula, not constant",
+      "subtotal_B_G28": "=SUM(G26:G27)",
+      "all_confirmed_live_formulas_no_hardcoded_constants": true
+    }
+  },
+
+  "testing": {
+    "lab_report_pdf": "CHARM INDUSTRIAL - 08-2026-W3 AECN + QOWV + Kerry (SR26-05021.001-003).pdf",
+    "drive_id": "1FUXbzpufADdK1EhePR2gVlzKhtHw4g9m",
+    "read_as_pdf_pages": true,
+    "sgs_order_no": "5482329",
+    "qowv_certificate": {
+      "certificate_number": "SR26-05021.002",
+      "client_id": "08-2026-W3 QOWV",
+      "location": "BASCO LOUISIANA",
+      "sampled": "19-Aug-2026 07:00",
+      "received": "21-Aug-2026 10:30",
+      "completed": "22-Aug-2026 23:09",
+      "carbon_pct": 8.2,
+      "hydrogen_pct": 10.1,
+      "nitrogen_pct": "<0.75",
+      "kinematic_viscosity_cst": 0.9260,
+      "acid_number": 31,
+      "density_g_cm3": 1.044,
+      "method": "ASTM D5291 (Method C)"
+    }
+  },
+
+  "certify": {
+    "components_tab_total": 6,
+    "components": [
+      {"name": "Injection sequestration", "bucket": "Sequestrations", "value_tco2e": 9.722, "modal_inputs": {"carbon_content_of_product": "8.2 ±0.032799999999999996 %, 2 sources", "mass_of_product": "32,333.5 ±41.95726 kg, 1 source (Mass of Injectant (per injection))"}},
+      {"name": "CO to LA Flatbed Truck Transport Process Emissions - QOWV", "bucket": "Activities", "value_tco2e": 5.670, "modal_inputs": {"emission_factor": "Flatbed, Northern America, WTW, 0.086 kgCO2e/(km*t), 1 source (GLEC V3.2)", "distance_traveled": "Distance from Miniforge CO to Basco, 1,201 mi, 1 source (CO to Basco Routing Map.png)", "mass_of_load": "QOWV Transport Mass (CO to B6), 34,113 ±37.42 kg, 1 source (Ops Notes)"}},
+      {"name": "CO->KS-> LA Flatbed Truck Transport Process Emissions - QOWV", "bucket": "Activities", "value_tco2e": 0.683, "modal_inputs": {"emission_factor": "Flatbed, Northern America, WTW, 0.086 kgCO2e/(km*t), 1 source", "distance_traveled": "1,221 mi, 1 source", "mass_of_load": "4,039 ±4.54 kg, 1 source"}},
+      {"name": "CO->KS-> LA Flatbed Truck Transport Embodied Emissions - QOWV", "bucket": "Activities", "value_tco2e": 0.439, "modal_inputs": {"distance_emission_factor": "0.119794 kgCO2e/km, 1 source (Standard Emission Factors + Calculations (8).xlsx)", "distance_traveled": "QOWV Embodied Distance (CO->KS->B6), 2,275.7 mi, 2 sources (Ops Notes + CO to Basco Routing Map.png)"}, "scope_note": "value is the GRAND TOTAL allocated embodied miles for the WHOLE batch (Direct lane Subtotal A 1,693.3 + Kansas lane Subtotal B 582.4 = 2,275.7), per the Shipment Tracker's own A30 grand-total cell and the VVB Guidance leg table; component title names only the KS leg, which is a naming/scope-clarity issue, not a value error"},
+      {"name": "Pyrolysis - Charm QOWV PP Emissions", "bucket": "Activities", "value_tco2e": 4.574, "modal_inputs": {"carbon_emission_factor": "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted), 0.12697098348438993 tCO2e/t, 18 sources (incl. Ops Notes)", "mass": "QOWV Pyrolysis Mass [Certify input], 36,020.8 ±41.96 kg, 1 source (Ops Notes)"}},
+      {"name": "BCU - Transport Process", "bucket": "Adjustments/Reductions", "value_tco2e": 6.353, "modal_inputs": {"constant_co2_reduction": "6,353 kgCO2e, 1 source (Charm-RetirementCertificate-RD-EACs-20251218.pdf)"}}
+    ],
+    "stored_bucket_tco2e": 16.075, "emitted_bucket_tco2e": 11.366,
+    "calculation_view": {"net_co2e_removed_t": 4.669, "sequestrations_t": 9.722, "adjustments_t": 6.353, "activities_t": 11.365, "uncertainty_discount_kg": 42},
+    "certify_sources_tab_total": [
+      "INJ-08-2026-W3 Ops Notes.xlsx", "CHARM INDUSTRIAL - 08-2026-W3 AECN + QOWV + Kerry (SR26-05021.001-003).pdf",
+      "Charm-RetirementCertificate-RD-EACs-20251218.pdf", "Standard Emission Factors + Calculations (8).xlsx",
+      "Charm Inv Bulk Upload March.csv", "QOWV 20251210 CAR-444.pdf", "WODO 20251216 CAR-445 (1).pdf",
+      "Miniforge Pyrolysis Up-Time Reporting (2).xlsx", "SP&C November (1).xlsx", "Cap Ex MRV November.xlsx",
+      "20260430_173503_013aed48f1933648.csv", "Nov-04-2025-distance-transported-route_map.png",
+      "Nov-16-2025-distance-transported-route_map.png", "November 2025 PP (11_1-11_30) Biomass Throughput (1).xlsx",
+      "Nov PP Waste Disposal Emissions Calc Sheet (1).xlsx", "November 2025 PP Water Usage Log.xlsx",
+      "Propane Consumption Calculator 11_1_25-11_30_25 (1).xlsx", "route.geojson", "AB~INVOICE_5K4J362875592.PDF",
+      "Diesel Consumption Calc 11_1_25-11_30_25.xlsx", "November 2025 Production Period Summary.xlsx",
+      "CO to Basco Routing Map.png", "GLEC V3.2"
+    ],
+    "certify_sources_tab_count_confirmed": 23,
+    "attachment_map": {
+      "Mass of Injectant (per injection)": ["INJ-08-2026-W3 Ops Notes.xlsx"],
+      "Carbon Content of Bio-oil Injected (per injection)": ["INJ-08-2026-W3 Ops Notes.xlsx", "CHARM INDUSTRIAL - 08-2026-W3 AECN + QOWV + Kerry (SR26-05021.001-003).pdf"],
+      "QOWV Transport Mass (CO to B6)": ["INJ-08-2026-W3 Ops Notes.xlsx"],
+      "Mass of load": ["INJ-08-2026-W3 Ops Notes.xlsx"],
+      "QOWV Pyrolysis Mass [Certify input]": ["INJ-08-2026-W3 Ops Notes.xlsx"],
+      "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)": ["INJ-08-2026-W3 Ops Notes.xlsx", "Charm Inv Bulk Upload March.csv", "QOWV 20251210 CAR-444.pdf", "WODO 20251216 CAR-445 (1).pdf", "Miniforge Pyrolysis Up-Time Reporting (2).xlsx", "SP&C November (1).xlsx", "Cap Ex MRV November.xlsx", "20260430_173503_013aed48f1933648.csv", "Nov-04-2025-distance-transported-route_map.png", "Nov-16-2025-distance-transported-route_map.png", "November 2025 PP (11_1-11_30) Biomass Throughput (1).xlsx", "Nov PP Waste Disposal Emissions Calc Sheet (1).xlsx", "November 2025 PP Water Usage Log.xlsx", "Propane Consumption Calculator 11_1_25-11_30_25 (1).xlsx", "route.geojson", "AB~INVOICE_5K4J362875592.PDF", "Diesel Consumption Calc 11_1_25-11_30_25.xlsx", "November 2025 Production Period Summary.xlsx"],
+      "QOWV Embodied Distance (CO->KS->B6) [Certify input]": ["INJ-08-2026-W3 Ops Notes.xlsx", "CO to Basco Routing Map.png"],
+      "Distance from Miniforge CO to Basco": ["CO to Basco Routing Map.png"],
+      "Distance emission factor": ["Standard Emission Factors + Calculations (8).xlsx"],
+      "Flatbed, Northern America, WTW": ["GLEC V3.2"],
+      "Constant CO2 reduction": ["Charm-RetirementCertificate-RD-EACs-20251218.pdf"],
+      "charm_contents_linked_datapoints_note": "none - no Charm Contents document exists in Sources (confirmed absent, see batch_folder_inventory)"
+    },
+    "required_evidence": {
+      "Mass of Injectant": ["ops_notes"],
+      "Carbon Content of Bio-oil Injected": ["lab", "ops_notes"],
+      "QOWV Transport Mass": ["ops_notes"],
+      "QOWV Pyrolysis Mass": ["ops_notes"],
+      "QOWV Pyrolysis Emissions - Carbon Intensity": ["ops_notes"],
+      "QOWV Embodied Distance": ["ops_notes", "map_or_watco"],
+      "Distance from": ["map_or_watco"],
+      "Distance emission factor": ["ef_sheet"],
+      "Flatbed, Northern America": ["ef_sheet"],
+      "Constant CO2 reduction": ["eac_cert"]
+    }
+  },
+
+  "routing_map_evidence": {
+    "file": "CO to Basco Routing Map.png",
+    "certify_source_id": "src_1KSTWP2AP1S0QQPF",
+    "full_resolution_downloaded_and_read_as_pixels": true,
+    "resolution": "1842x863",
+    "destination_shown": "4675 LA-115, St Landry, LA 71367",
+    "route_options_shown": [
+      {"route": "via US-287 S and US-287 S (fastest, avoids road closures)", "duration": "17 hr 22 min", "distance_mi": 1132},
+      {"route": "via US-287 S, US-287 S and I-20 E", "duration": "17 hr 3x min", "distance_mi": 1129},
+      {"route": "via I-70 E (has tolls, different time zone)", "duration": "17 hr 36 min", "distance_mi": 1201}
+    ],
+    "longest_option_mi": 1201,
+    "certify_value_used_mi": 1201,
+    "longest_option_used": true
+  },
+
+  "standard_efs": {
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/",
+    "_primary_source_opened": [
+      {"file": "Standard Emission Factors + Calculations", "action": "opened live Google Sheet via Drive connector CSV export, 2026 tab read in full, cross-checked against browser-rendered gid=684080705", "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/"}
+    ],
+    "tab": "2026",
+    "flatbed_truck_process_ef": {"native_value": 0.0001384, "native_unit": "MT CO2e/t-mi", "source": "GLEC V3.2 2025, ISOMETRIC", "updated_flag": true, "converted_kgco2e_per_km_t": 0.086, "km_to_t_mi_constant": 1.60934},
+    "non_tanker_truck_embodied_ef": {"native_value": 0.00019279082556, "native_unit": "MT CO2e/mi", "source": "GLEC V3.2 2025", "updated_flag": true, "converted_kgco2e_per_km": 0.119794},
+    "vvb_confirms_this_period_ef_correction": "0.1143->0.1384 kgCO2e/t-mi (flatbed fuel use), 0.23756->0.19279 kgCO2e/mi (non-tanker embodied) - matches values recomputed here exactly"
+  },
+
+  "lcs_check": {"lcs_use_kg": null, "search_method": "full visual review of Ops Notes QOWV tab all columns/rows; VVB Guidance August doc read in full with no LCS mention", "conclusion": "N/A - no LCS use reported for this batch"},
+
+  "bcu_check": {
+    "bcu_reduction_kgco2e": 6353,
+    "transport_process_activities_sum_tco2e": 6.353,
+    "computation": "5.670 (CO to LA Process) + 0.683 (CO->KS->LA Process) = 6.353",
+    "match": "exact - BCU offsets combined transport-process activities exactly, neither over nor under"
+  },
+
+  "_derived_values": {
+    "flatbed_ef_check": "0.1384 MT/t-mi / 1.60934 = 0.0859984 kgCO2e/(km*t), matches Certify displayed 0.086",
+    "embodied_ef_check": "0.19279 kg/mi / 1.60934 = 0.119794 kgCO2e/km, matches Certify exactly",
+    "direct_process_recompute": "34.113 t x 1932.82 km x 0.0859984/1000 = 5.671 tCO2e vs Certify 5.670 t - reconciles",
+    "ks_process_recompute": "4.039 t x (1221mi x 1.60934=1965.2km) x 0.0859984/1000 = 0.683 tCO2e - reconciles exactly",
+    "embodied_recompute": "2275.7 mi x 1.60934 = 3661.4 km x 0.119794 = 438.6 kg = 0.439 tCO2e - reconciles exactly",
+    "sequestration_recompute": "32.3335 t x 8.2% x 3.667 = 9.7217 tCO2e vs Certify 9.722 t - reconciles",
+    "pyrolysis_recompute": "36.0208 t x 0.12697098348438993 = 4.5736 tCO2e vs Certify 4.574 t - reconciles",
+    "net_recompute": "9.722 + 6.353 - 11.366 - 0.042(uncertainty discount) = 4.667 vs Certify displayed 4.669 t (rounding-level agreement)"
+  }
+}

@@ -1,0 +1,883 @@
+{
+  "batch_id": "INJ-07-2026-W4-KERRY",
+  "oil_type": "Kerry",
+  "delivery_mode": "tanker",
+  "delivery_mode_basis": "Kerry Scale Tickets folder holds a full + empty CAT Scale ticket pair for a single tractor/trailer (07 / 1013), article weighed = TANKER; Ops Notes Kerry tab has ONE ledger row with UID 'TANKER Freiburger 07/26'; one composite SGS sample, not per-tote. No tote weighing log, no per-tote serials.",
+  "reporting_period": "01 Jul 2026 to 31 Jul 2026",
+  "injection_week": "Ops Notes week 7/18/2026 - 7/25/2026; Certify sequestered range 19 Jul 2026 to 25 Jul 2026",
+  "injection_site": "Basco 6",
+  "certify_removal_id": "rmv_1KYZ3JPB51S0VE5Q",
+  "certify_ghg_statement_id": "ggs_1KZBX6AX41S029JS",
+  "drive_folder": "https://drive.google.com/drive/folders/1vaYJnDcSyNVILEV6FxEtbBB_4-IBiBrO",
+  "session_T0": "2026-08-06T23:39:28Z",
+  "vvb_guidance": {
+    "doc_title": "VVB Guidance July 1 - July 31",
+    "live_source_url": "https://docs.google.com/document/d/1IQS3Aeqg3MISVjXqzRtYcYmCvEfRo7LNxQgilqdlF0U/edit",
+    "owner": "garrett.lutz@charmindustrial.com",
+    "read_in_full": true,
+    "sections_present": [
+      "Scale Tickets - Tractor/Trailer Nomenclature Mismatch (Third-Party Drop-Trailer Offloads)",
+      "Return of Empty IBC Totes to Colorado for Reuse",
+      "Out-of-Boundary Diversion of Bio-Oil for R&D Testing",
+      "Charm Production-Period Documentation Included in This Reporting Period",
+      "Diesel Delivery Transport vs. Diesel Site Emissions",
+      "Production Bio-Oil Carbon Content - In-House CHN Analysis (Emissions Allocation Only)",
+      "Site Workover and Inspection",
+      "Trailer Standard Empty Weight (AECN Rail Offloads)"
+    ],
+    "kerry_specific_sections": "NONE. Searched the full text; the July doc contains no Kerry section. The only mass-substitution method documented is the AECN-rail per-trailer standard empty weight, whose stated application is 'July 1 - July 31 RP (Week 1, INJ-07-2026-W1)' for trailers KL192/KL188/KL720/KL510 - none of which is the Kerry trailer (1013).",
+    "verbatim_relevant_quote": "\"Trigger and application. For a given offload, substitute the standard empty weight for the trailer recorded on the Full ticket when either (a) the empty scale ticket is missing, or (b) the empty ticket's tractor and/or trailer do not match the Full ticket. Substituted values are annotated in the ops-notes Empty Scale Ticket cell.\"",
+    "bearing_on_this_batch": "None. The Kerry tanker has a matched full+empty pair on the same tractor 07 / trailer 1013, so no substitution was triggered or applied.",
+    "prior_period_kerry_note": "April 1 - April 30 2026 VVB Guidance section 4 'Kerry Oil Carbon Content - Weighted Average Methodology' documents mass-weighting across ~4 totes. That method is inapplicable here: this batch is a single tanker with one composite sample."
+  },
+  "ops_notes_cell_comments": {
+    "checked": true,
+    "result": "Drive returned 'Comment Anchors: No anchored comments' for the whole workbook. Kerry tab 'Notes' column (col I) is empty for the single ledger row. No annotated substitutions exist to explain any figure."
+  },
+  "scale_tickets": {
+    "read_method": "Downloaded each JPG from Drive and read the image pixels directly (Drive auto-OCR NOT used as the source of record).",
+    "full_ticket": {
+      "file": "Kerry_W4_FULL_ticket4921_2026-07-13_WilsonTownshipWI_73300lb.jpg",
+      "certify_source_name": "W4 Kerry CAT Scale Ticket 4921 FULL.jpg",
+      "ticket_number": "1189526194921",
+      "weigh_number": "4921",
+      "date": "7-13-26",
+      "time": "10:17",
+      "scale": "1895",
+      "location": "LOVES COUNTRY STORES, I43 S BUISNESS DR EX 120, WILSON TOWNSHIP WI",
+      "steer_axle_lb": 12100,
+      "drive_axle_lb": 31800,
+      "trailer_axle_lb": 29400,
+      "gross_weight_lb": 73300,
+      "axle_sum_check": "12100 + 31800 + 29400 = 73300 -> reconciles to stated gross",
+      "article_weighed": "TANKER",
+      "company": "FREIBURGER",
+      "tractor": "07",
+      "trailer": "1013"
+    },
+    "empty_ticket_used": {
+      "file": "Kerry_W4_EMPTY2-SOURCE-OF-TRUTH_ticket8165_2026-07-17_PortBarreLA_36400lb.jpg",
+      "certify_source_name": "W4 Kerry CAT Scale Ticket 8165 EMPTY.jpg",
+      "ticket_number": "1186426198165",
+      "weigh_number": "8165",
+      "date": "7-17-26",
+      "time": "11:07",
+      "scale": "1864",
+      "location": "LOVES, US HWY 190, PORT BARRE LA",
+      "steer_axle_lb": 12160,
+      "drive_axle_lb": 15320,
+      "trailer_axle_lb": 8920,
+      "gross_weight_lb": 36400,
+      "axle_sum_check": "12160 + 15320 + 8920 = 36400 -> reconciles to stated gross",
+      "article_weighed": "TANKER",
+      "company": "FREIBURGER",
+      "tractor": "07",
+      "trailer": "1013"
+    },
+    "empty_ticket_unused_preload": {
+      "file": "Kerry_W4_EMPTY1-preload-reference-only_ticket3157_2026-07-12_RacineWI_36380lb.jpg",
+      "in_certify_sources": false,
+      "ticket_number": "1083026193157",
+      "weigh_number": "3157",
+      "date": "7-12-26",
+      "time": "14:19",
+      "scale": "830",
+      "location": "HIGHLANDS PETRO #68, I94 & EXIT 333, RACINE WI",
+      "steer_axle_lb": 12280,
+      "drive_axle_lb": 15120,
+      "trailer_axle_lb": 8980,
+      "gross_weight_lb": 36380,
+      "axle_sum_check": "12280 + 15120 + 8980 = 36380 -> reconciles to stated gross",
+      "article_weighed": "TANKER",
+      "company": "FREIBURGER",
+      "tractor": "07",
+      "trailer": "1013"
+    },
+    "vehicle_identity_check": "Tractor 07 and trailer 1013 are identical across all three tickets. No rig mismatch; the July VVB Guidance standard-empty-weight substitution is not triggered.",
+    "tare_selection": "Post-offload empty (36,400 lb) used rather than the pre-load empty (36,380 lb). The heavier tare yields the lower net, i.e. the conservative choice. Delta 20 lb = 9.07 kg of forgone credit basis.",
+    "net_kg": 16737.54,
+    "net_derivation": "(73,300 - 36,400) lb = 36,900 lb; 36,900 x 0.453592 kg/lb = 16,737.54 kg",
+    "date_proximity": "Full 7/13/26 and empty 7/17/26 vs injection week ending 7/25/26 - both inside the 14-day window.",
+    "_primary_source_opened": [
+      {
+        "action": "image_read",
+        "what": "CAT Scale full ticket 4921",
+        "artifact_path": "screenshots/Kerry_W4_FULL_ticket4921.jpg",
+        "read_at": "2026-08-06"
+      },
+      {
+        "action": "image_read",
+        "what": "CAT Scale empty ticket 8165 (tare used)",
+        "artifact_path": "screenshots/Kerry_W4_EMPTY2_ticket8165.jpg",
+        "read_at": "2026-08-06"
+      },
+      {
+        "action": "image_read",
+        "what": "CAT Scale pre-load empty ticket 3157 (not used)",
+        "artifact_path": "screenshots/Kerry_W4_EMPTY1_ticket3157.jpg",
+        "read_at": "2026-08-06"
+      }
+    ]
+  },
+  "bol": {
+    "present_in_drive": false,
+    "present_in_certify_sources": false,
+    "search_exhaustiveness": "Drive batch folder enumerated (5 children: June W4 Scale Tickets, INJ-07-2026-W4 Ops Notes, Kerry Scale Tickets, Testing, Completed QA Checklists); Kerry Scale Tickets folder enumerated (3 JPGs, no BOL); Testing folder enumerated (1 PDF, the SGS CoA); Certify Sources tab enumerated in full (6 sources, no BOL).",
+    "consequence": "The conservative-mass cross-check MIN(scale-ticket net, origin BOL mass) has no second leg for this batch. Reported mass rests entirely on the CAT Scale ticket pair.",
+    "open_question_for_garrett": "Do Kerry flatbed-haul tanker shipments generate a Bill of Lading? Kerry tote shipments do not (Max, 2026-05-06), but tanker mode is new as of this batch."
+  },
+  "lab_results": {
+    "certificate_number": "SR26-04592.002",
+    "read_method": "Downloaded the PDF from Certify Sources and read page 2 directly.",
+    "certify_source_name": "W4 Kerry-AECN SGS COA.pdf",
+    "client_id": "07-2026-W4 Kerry",
+    "sgs_order_no": "5482329",
+    "location": "BASCO LOUISIANA",
+    "sample_source": "Submitted Sample",
+    "sample_type": "As Submitted",
+    "sampled_by": "Client",
+    "sampled": "24-Jul-2026 08:00",
+    "received": "31-Jul-2026 09:45",
+    "analysed": "31-Jul-2026 11:51 - 31-Jul-2026 13:56",
+    "completed": "31-Jul-2026 13:56",
+    "carbon_pct_mm": 52.8,
+    "carbon_method": "ASTM D5291 (Method C)",
+    "carbon_qualifier": "# - Result is outside of test method limits and/or analytical range used in method precision study",
+    "hydrogen_pct_mm": 6.7,
+    "hydrogen_qualifier": "# (same qualifier)",
+    "nitrogen_pct_mm": "<0.75",
+    "titration_solvent_volume_mL": 60,
+    "acid_number_mgKOH_g": 67,
+    "acid_number_method": "ASTM D664 (Method A)",
+    "density_15C_g_cm3": 1.231,
+    "density_method": "ASTM D4052",
+    "kinematic_viscosity_40C_cSt": 7074,
+    "viscosity_method": "ASTM D445",
+    "authorised_signatory": "Jared Camardelle, Laboratory Supervisor",
+    "companion_sample_on_same_certificate": "SR26-04592.001, Client ID '07-2026-W4 AECN', Carbon 39.4 %, Hydrogen 7.1 %, Nitrogen <0.75 %, Acid Number 66 mgKOH/g, Density 1.211 g/cm3, Viscosity 24.34 cSt. Both samples carry the '#' qualifier on Carbon and Hydrogen.",
+    "_primary_source_opened": [
+      {
+        "action": "pdf_read",
+        "what": "SGS Certificate of Analysis SR26-04592, page 2 (Kerry sample .002)",
+        "artifact_path": "Certify_W4_Kerry-AECN_SGS_COA.pdf",
+        "read_at": "2026-08-06",
+        "pages_read": "2 of 2"
+      }
+    ]
+  },
+  "ops_notes": {
+    "file": "INJ-07-2026-W4 Ops Notes",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1NHIUkU2DBJ5cetXxrl353IkQMrO62e89IlAZN4b0eAM/edit",
+    "owner": "garrett.lutz@charmindustrial.com",
+    "batch_id_in_sheet": "INJ-07-2026-W4",
+    "week_start": "7/18/2026",
+    "week_end": "7/25/2026",
+    "kerry_tab_header": "BATCH HEADER - Kerry (Calciner Waste Oil, IBC Totes)",
+    "kerry_tab_constants": {
+      "lbs_per_kg": 2.20462,
+      "kg_per_lb": 0.453592,
+      "filtration_solids_content_kerry_calciner": "0.071%",
+      "ph_range_target": "2.0 - 4.0",
+      "testing_uncertainty": 0.004
+    },
+    "kerry_ledger_row": {
+      "date": "7/17/2026",
+      "uid": "TANKER Freiburger 07/26",
+      "full_ticket_lb": 73300.0,
+      "empty_ticket_2_lb": 36400.0,
+      "gross_mass_kg_transport": 16737.54,
+      "net_oil_kg": 16737.54,
+      "net_injected_kg_mobi": 16725.66,
+      "ph": "BLANK",
+      "notes": "BLANK",
+      "c_content": 0.528,
+      "c_content_uncertainty": 0.002112,
+      "mass_uncertainty_scaling": "BLANK"
+    },
+    "summary_tab_kerry_row": {
+      "sigma_deliveries_cargo_kg": 16737.54,
+      "sigma_uncertainty_adj_kg": 0.0,
+      "mass_used_kg": 16737.54,
+      "sparging_loss_kg": 0.0,
+      "filtration_loss_kg": 11.88,
+      "mobi_kg": 16725.66114
+    },
+    "summary_tab_kerry_rollup": {
+      "composite_sample_id": "07-2026-W4 Kerry",
+      "c_pct": "52.80%",
+      "lab_coa_link": "COA SR26-04592.002",
+      "c_content_uncertainty": "0.2112%",
+      "testing_uncertainty": "0.40%"
+    },
+    "sparging_check": "Sparging Loss = 0.00 kg for Kerry on both the Kerry tab and the Summary tab. The 1.29% sparging constant appears on the AECN Rail / AECN Truck / WODO / QOWV tabs but is absent from the Kerry tab's constants block. FC-K4 clear - no sparging applied to Kerry.",
+    "filtration_check": "16,737.54 x 0.00071 = 11.8836 kg -> 11.88 kg as reported. 16,737.54 - 11.88 = 16,725.66 kg MOBI. Kerry uses its own 0.071% calciner solids content, distinct from the 0.195% AECN figure.",
+    "other_oil_types_this_week": "AECN Rail 134,084.35 kg MOBI (separate removal rmv_1KZBJBN9C1S0M5R5). AECN Truck, WODO and QOWV tabs are all zero this week.",
+    "_primary_source_opened": [
+      {
+        "action": "sheet_grid_read",
+        "what": "INJ-07-2026-W4 Ops Notes, Kerry tab, full rendered grid incl. constants block and cell comments",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/1NHIUkU2DBJ5cetXxrl353IkQMrO62e89IlAZN4b0eAM/edit",
+        "artifact_path": "artifacts/opsnotes_kerry_tab.txt",
+        "read_at": "2026-08-06",
+        "negative_check_tokens": [
+          "Sparging"
+        ],
+        "items_found": []
+      }
+    ],
+    "sparging_check_source": [
+      {
+        "action": "sheet_grid_read",
+        "what": "INJ-07-2026-W4 Ops Notes, Kerry tab, full rendered grid incl. constants block and cell comments",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/1NHIUkU2DBJ5cetXxrl353IkQMrO62e89IlAZN4b0eAM/edit",
+        "artifact_path": "artifacts/opsnotes_kerry_tab.txt",
+        "read_at": "2026-08-06",
+        "negative_check_tokens": [
+          "Sparging"
+        ],
+        "items_found": []
+      }
+    ]
+  },
+  "cobb": {
+    "tab": "Basco Injection -- COBB",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350",
+    "sheet_banner": "Microsoft SQL Server Import - Last updated 3 days ago",
+    "cobb_row_id_verified": false,
+    "cobb_cell_A_value": null,
+    "row_absent": true,
+    "columns_confirmed": [
+      "injection_batch",
+      "injected_product",
+      "consumed_lot",
+      "security_tag",
+      "BOL_number",
+      "quantity_consumed_in_injection",
+      "offloaded_quantity_kg",
+      "origin_quantity_kg",
+      "order_line_completed_on",
+      "purchase_order_link",
+      "offload_order_link",
+      "injection_completion_date",
+      "injection_ph",
+      "Proportion of Origin Consumed",
+      "Origin Mass",
+      "Consumed Origin Mass",
+      "week_of_year",
+      "ISO_week_starting",
+      "week_starting_injected"
+    ],
+    "exhaustive_search_methods": [
+      "1. Drive connector full-sheet export - export truncates at INJ-05-2026-W1; no July Kerry row.",
+      "2. gviz query: where A contains 'INJ-07-2026-W4' -> 0 rows.",
+      "3. gviz query: where A contains 'INJ-07' -> only INJ-07-2026-W1_bio_oil (16 lots) and INJ-07-2026-W1_oily_fraction (17 lots).",
+      "4. gviz query: where A contains 'W4' or B contains 'Kerry' or C contains 'kc_'/'KC_' -> 91 rows; the only Kerry rows returned are K-001 and K-002.",
+      "5. gviz query: where B contains 'Calciner' or A contains 'K-0' -> 8 rows total, listed below.",
+      "6. gviz aggregate: select A, count(C) where A contains 'INJ-07' group by A -> confirms W1 is the only July batch present."
+    ],
+    "all_kerry_rows_in_cobb": [
+      {
+        "injection_batch": "K-001",
+        "injected_product": "Calciner",
+        "consumed_lot": "KC_0001",
+        "qty_consumed": 1189,
+        "injection_completion_date": "2026-03-21",
+        "injection_ph": 13
+      },
+      {
+        "injection_batch": "K-001",
+        "injected_product": "Calciner",
+        "consumed_lot": "KC_0002",
+        "qty_consumed": 1165,
+        "injection_completion_date": "2026-03-21",
+        "injection_ph": 13
+      },
+      {
+        "injection_batch": "K-001",
+        "injected_product": "Calciner",
+        "consumed_lot": "KC_0003",
+        "qty_consumed": 999,
+        "injection_completion_date": "2026-03-21",
+        "injection_ph": 13
+      },
+      {
+        "injection_batch": "K-001",
+        "injected_product": "Calciner",
+        "consumed_lot": "KC_0004",
+        "qty_consumed": 1185,
+        "injection_completion_date": "2026-03-21",
+        "injection_ph": 13
+      },
+      {
+        "injection_batch": "K-002",
+        "injected_product": "Calciner",
+        "consumed_lot": "KC-0005",
+        "qty_consumed": 1092,
+        "injection_completion_date": "2026-05-22",
+        "injection_ph": 2.9
+      },
+      {
+        "injection_batch": "K-002",
+        "injected_product": "Calciner",
+        "consumed_lot": "KC_0006",
+        "qty_consumed": 1209,
+        "injection_completion_date": "2026-05-22",
+        "injection_ph": 2.9
+      },
+      {
+        "injection_batch": "K-002",
+        "injected_product": "Calciner",
+        "consumed_lot": "KC_0007",
+        "qty_consumed": 1175.5,
+        "injection_completion_date": "2026-05-22",
+        "injection_ph": 2.9
+      },
+      {
+        "injection_batch": "K-002",
+        "injected_product": "Calciner",
+        "consumed_lot": "KC_0008",
+        "qty_consumed": 1141.5,
+        "injection_completion_date": "2026-05-22",
+        "injection_ph": 2.9
+      }
+    ],
+    "finding": "No COBB row exists for the W4 Kerry tanker. No kc_NNNN consumed lot has been assigned to it. The gap is not Kerry-specific: COBB carries no INJ-07-2026-W2, W3 or W4 rows at all, so the whole batch (AECN included) is pending entry.",
+    "consequence_for_kerry": "COBB is the only other place injection_ph is recorded. With the Ops Notes Kerry pH cell blank AND no COBB row, pH for this batch is captured nowhere.",
+    "_primary_source_opened": [
+      {
+        "action": "csv_exported",
+        "what": "COBB 'Basco Injection -- COBB' tab, six independent queries against the live sheet",
+        "live_source_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350",
+        "artifact_path": "artifacts/cobb_kerry_rows_query.txt",
+        "read_at": "2026-08-06; re-verified 2026-08-10",
+        "negative_check_tokens": [
+          "INJ-07-2026-W4_",
+          "K-003",
+          "Calciner          KC_0009"
+        ],
+        "items_found": []
+      }
+    ]
+  },
+  "certify": {
+    "removal_id": "rmv_1KYZ3JPB51S0VE5Q",
+    "net_removal_tco2e": 31.982,
+    "header_display": "Removal - 31.98 tCO2e - 19 Jul 2026 to 25 Jul 2026",
+    "ghg_statement": {
+      "id": "ggs_1KZBX6AX41S029JS",
+      "status": "DRAFT",
+      "period": "01 Jul 2026 to 31 Jul 2026",
+      "total_tonnes_removed": 874.53,
+      "projected_supplier_allocation": 830.802,
+      "projected_buffer_pool_allocation": 43.728,
+      "buffer_pct_check": "43.728 / 874.53 = 5.00% -> matches Basco 6 Low Risk 5% buffer",
+      "verification_protocol_version": "Bio-oil Geological Storage v1.2",
+      "baseline_protocol_version": "Bio-oil Geological Storage v1.0",
+      "ghg_entries_total": 9,
+      "entries_covering_19_25_Jul": [
+        "rmv_1KZBJBN9C1S0M5R5 (159.95 tCO2e, AECN)",
+        "rmv_1KYZ3JPB51S0VE5Q (31.98 tCO2e, Kerry)"
+      ],
+      "duplicate_kerry_check": "Exactly one Kerry removal for W4. No double-count."
+    },
+    "calculation_view": {
+      "sequestrations_t": 32.384,
+      "adjustments_t": 2.525,
+      "activities_t": 2.735,
+      "uncertainty_discount_kg": 191,
+      "net_t": 31.982,
+      "counterfactuals": "No counterfactual line is present in the calculation view. Counterfactual = 0, as required by the Kerry waste boundary. FC-K6 clear.",
+      "independent_recompute": "32.384 + 2.525 - 2.735 - 0.191 = 31.983 -> agrees with 31.982 within display rounding."
+    },
+    "components_total": 4,
+    "components": {
+      "Injection sequestration": {
+        "name": "Injection sequestration",
+        "group": "Stored > CO2 stored",
+        "class": "Sequestrations",
+        "value_tco2e": 32.384,
+        "blueprint": "Carbon rich substance sequestration (carbon_rich_substance_sequestration)",
+        "calculation": "output = product_mass * carbon_content * {co2e_of_carbon}",
+        "inputs": {
+          "Carbon Content of Bio-oil Injected (per injection)": {
+            "value": 52.8,
+            "unit": "%",
+            "uncertainty": "+/-0.2112",
+            "sources": 1
+          },
+          "Mass of Injectant (per injection)": {
+            "value": 16725.66,
+            "unit": "kg",
+            "uncertainty": "+/-72.57",
+            "sources": 2
+          }
+        },
+        "independent_recompute": "16.72566 t x 0.528 x 3.667 = 32.3838 tCO2e -> matches 32.384",
+        "_primary_source_opened": [
+          {
+            "action": "modal_opened",
+            "what": "Certify component modal: Injection sequestration",
+            "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYZ3JPB51S0VE5Q/edit",
+            "read_at": "2026-08-06"
+          }
+        ]
+      },
+      "Kerry to Basco Flatbed Truck Transport Process Emissions": {
+        "name": "Kerry to Basco Flatbed Truck Transport Process Emissions",
+        "group": "Emitted > Bio-oil transport",
+        "class": "Removal activities",
+        "value_tco2e": 2.525,
+        "pct_of_gross": "7.90%",
+        "blueprint": "Transport emissions (transport)",
+        "calculation": "output = mass * distance * carbon_intensity",
+        "inputs": {
+          "Emissions Factor - Flatbed Truck Transport Fuel Use (Well to Wheel)": {
+            "value": 0.1384,
+            "unit": "kgCO2e/(t.mi)",
+            "sources": 1
+          },
+          "Route Distance Kerry to Basco": {
+            "value": 1090,
+            "unit": "mi",
+            "sources": 1
+          },
+          "Allocated Kerry Oil Gross Mass": {
+            "value": 16737.54,
+            "unit": "kg",
+            "uncertainty": "+/-72.57",
+            "sources": 2
+          }
+        },
+        "independent_recompute": "16.73754 t x 1,090 mi x 0.1384 kgCO2e/(t.mi) = 2,524.96 kg = 2.525 tCO2e -> matches",
+        "mass_basis_check": "Mass of Load = 16,737.54 kg = pre-filtration transported mass, NOT the 16,725.66 kg MOBI. FC-K2 clear.",
+        "_primary_source_opened": [
+          {
+            "action": "modal_opened",
+            "what": "Certify component modal: Kerry to Basco Flatbed Truck Transport Process Emissions",
+            "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYZ3JPB51S0VE5Q/edit",
+            "read_at": "2026-08-06"
+          }
+        ]
+      },
+      "Kerry to Basco Flatbed Truck Transport Embodied Emissions": {
+        "name": "Kerry to Basco Flatbed Truck Transport Embodied Emissions",
+        "group": "Emitted > Bio-oil transport",
+        "class": "Removal activities",
+        "value_tco2e": 0.21,
+        "pct_of_gross": "0.66%",
+        "blueprint": "Distance-based emissions (distance_based_ci_emissions)",
+        "calculation": "output = distance * carbon_intensity",
+        "inputs": {
+          "Distance emission factor": {
+            "value": 0.11979,
+            "unit": "kgCO2e/km",
+            "sources": 1
+          },
+          "Route Distance Kerry to Basco": {
+            "value": 1090,
+            "unit": "mi",
+            "sources": 1
+          }
+        },
+        "mass_of_load_present": false,
+        "independent_recompute": "1,090 mi x 1.60934 km/mi = 1,754.18 km; x 0.11979 kgCO2e/km = 210.1 kg = 0.210 tCO2e -> matches",
+        "fc8_check": "No Mass of Load datapoint on the embodied component; factor is per-distance only. FC8 clear.",
+        "_primary_source_opened": [
+          {
+            "action": "modal_opened",
+            "what": "Certify component modal: Kerry to Basco Flatbed Truck Transport Embodied Emissions",
+            "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYZ3JPB51S0VE5Q/edit",
+            "read_at": "2026-08-06"
+          }
+        ]
+      },
+      "Constant CO2 reduction": {
+        "name": "Constant CO2 reduction",
+        "group": "Stored > Bio-oil transport",
+        "class": "Adjustments",
+        "value_tco2e": 2.525,
+        "pct_of_gross": "7.90%",
+        "blueprint": "Constant CO2 reduction (constant_reduction)",
+        "inputs": {
+          "Constant CO2 reduction": {
+            "value": 2525,
+            "unit": "kgCO2e",
+            "sources": 1
+          }
+        },
+        "bcu_check": "BCU 2,525 kgCO2e >= transport process activity 2,524.96 kgCO2e. Embodied 210 kg correctly NOT offset.",
+        "_primary_source_opened": [
+          {
+            "action": "modal_opened",
+            "what": "Certify component modal: Constant CO2 reduction",
+            "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYZ3JPB51S0VE5Q/edit",
+            "read_at": "2026-08-06"
+          }
+        ]
+      }
+    },
+    "upstream_production_components_present": false,
+    "fc_k5_check": "No 'Kerry Production Process', 'Kerry Production Embodied', 'Kerry Biomass Sourcing' or any pyrolysis/feedstock component appears. The removal has exactly 4 components, all within the transport + injection scope. FC-K5 clear.",
+    "injection_site_components_on_removal": "OBSERVED: no injection-site component appears on this removal - it carries exactly 4 components, all transport or sequestration. ALSO OBSERVED: the GHG statement's 'Reporting period emissions' tab reads 'No components / 0 components', so site emissions are not held at statement level for this RP either. Per KB 10B, Charm's practice is to carry site emissions as sub-components on a scapegoat removal; I did not trace which of the statement's other 8 entries holds them, because site-emissions accounting is out of Kerry-batch scope (separate site-emissions QA skill). Recorded as observation, not as a finding against this removal.",
+    "certify_sources_tab_total": 6,
+    "certify_sources_enumeration": [
+      {
+        "name": "W4 Kerry CAT Scale Ticket 8165 EMPTY.jpg",
+        "type": "Document",
+        "visibility": "PRIVATE",
+        "datapoints": [
+          "Allocated Kerry Oil Gross Mass",
+          "Mass of Injectant (per injection)"
+        ]
+      },
+      {
+        "name": "W4 Kerry CAT Scale Ticket 4921 FULL.jpg",
+        "type": "Document",
+        "visibility": "PRIVATE",
+        "datapoints": [
+          "Allocated Kerry Oil Gross Mass",
+          "Mass of Injectant (per injection)"
+        ]
+      },
+      {
+        "name": "W4 Kerry-AECN SGS COA.pdf",
+        "type": "Document",
+        "visibility": "PRIVATE",
+        "datapoints": [
+          "Carbon Content of Bio-oil Injected (per injection)"
+        ]
+      },
+      {
+        "name": "Charm-RetirementCertificate-RD-EACs-20251218.pdf",
+        "type": "Document",
+        "visibility": "PRIVATE",
+        "datapoints": [
+          "Constant CO2 reduction"
+        ]
+      },
+      {
+        "name": "Kerry to Basco Distance.png",
+        "type": "Document",
+        "visibility": "PUBLIC",
+        "datapoints": [
+          "Route Distance Kerry to Basco"
+        ]
+      },
+      {
+        "name": "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf",
+        "type": "Document",
+        "visibility": "PRIVATE",
+        "datapoints": [
+          "Distance emission factor",
+          "Emissions Factor - Flatbed Truck Transport Fuel Use (Well to Wheel)"
+        ]
+      }
+    ],
+    "datapoints_total": 6,
+    "datapoints": [
+      {
+        "name": "Mass of Injectant (per injection)",
+        "value": "16.726 t",
+        "collection": "REPORTED"
+      },
+      {
+        "name": "Carbon Content of Bio-oil Injected (per injection)",
+        "value": "52.80 %",
+        "collection": "REPORTED"
+      },
+      {
+        "name": "Allocated Kerry Oil Gross Mass",
+        "value": "16.738 t",
+        "collection": "REPORTED"
+      },
+      {
+        "name": "Route Distance Kerry to Basco",
+        "value": "1,090 mi",
+        "collection": "DERIVED"
+      },
+      {
+        "name": "Emissions Factor - Flatbed Truck Transport Fuel Use (Well to Wheel)",
+        "value": "0.09 kgCO2e/(km.t) [display-rounded from 0.1384 kgCO2e/(t.mi)]",
+        "collection": "DERIVED"
+      },
+      {
+        "name": "Distance emission factor",
+        "value": "0.1198 kgCO2e/km",
+        "collection": "REPORTED"
+      }
+    ],
+    "attachment_map": {
+      "Mass of Injectant (per injection)": [
+        "INJ-07-2026-W4 Ops Notes.xlsx",
+        "W4 Kerry CAT Scale Ticket 4921 FULL.jpg",
+        "W4 Kerry CAT Scale Ticket 8165 EMPTY.jpg"
+      ],
+      "Allocated Kerry Oil Gross Mass": [
+        "W4 Kerry CAT Scale Ticket 4921 FULL.jpg",
+        "W4 Kerry CAT Scale Ticket 8165 EMPTY.jpg"
+      ],
+      "Carbon Content of Bio-oil Injected (per injection)": [
+        "W4 Kerry-AECN SGS COA.pdf",
+        "INJ-07-2026-W4 Ops Notes.xlsx"
+      ],
+      "Route Distance Kerry to Basco": [
+        "Kerry to Basco Distance.png"
+      ],
+      "Emissions Factor - Flatbed Truck Transport Fuel Use (Well to Wheel)": [
+        "Standard Emission Factors + Calculations (8).xlsx"
+      ],
+      "Distance emission factor": [
+        "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf"
+      ],
+      "Constant CO2 reduction": [
+        "Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+      ]
+    },
+    "required_evidence": {
+      "Mass of Injectant": [
+        "scale_ticket",
+        "ops_notes"
+      ],
+      "Allocated Kerry Oil Gross Mass": [
+        "scale_ticket"
+      ],
+      "Carbon Content of Bio-oil Injected": [
+        "lab"
+      ],
+      "Route Distance": [
+        "map_or_watco"
+      ],
+      "Emissions Factor - Flatbed": [
+        "ef_sheet"
+      ],
+      "Distance emission factor": [
+        "ef_sheet"
+      ],
+      "Constant CO": [
+        "eac_cert"
+      ]
+    },
+    "required_evidence_basis": "Built from this batch's four actual components and six actual sources, not guessed. 'Mass of Injectant' requires ops_notes because the reported 16,725.66 kg is the ticket-derived 16,737.54 kg less an 11.88 kg filtration loss computed from the Kerry calciner solids constant of 0.071%; neither the deduction nor the constant appears on any attached source. 'Allocated Kerry Oil Gross Mass' needs only the tickets because full minus empty gives it directly. Registered as MATRICES['KERRY'] in audit_attachments.py, scoped to tanker mode.",
+    "ops_notes_attached_to_removal": false,
+    "filtration_evidence_gap": "RESOLVED 2026-08-10. 'INJ-07-2026-W4 Ops Notes.xlsx' is now attached and linked to the Mass of Injectant datapoint, which now carries three sources. The 0.071% calciner solids constant and the resulting 11.88 kg deduction from 16,737.54 kg to 16,725.66 kg are therefore on the record for a verifier."
+  },
+  "distance_evidence": {
+    "certify_source_name": "Kerry to Basco Distance.png",
+    "read_method": "Downloaded the signed-URL PNG from Certify and read the image pixels directly.",
+    "tool": "Google Maps driving directions",
+    "origin_entered": "4343 Expo Dr, Manitowoc, WI 54220",
+    "destination_entered": "4687 LA-115, St Landry, LA 71367",
+    "routes_offered": [
+      {
+        "route": "via I-57 S",
+        "time": "16 hr 36 min",
+        "miles": 1059,
+        "note": "Fastest route, the usual traffic"
+      },
+      {
+        "route": "via I-57 S and US-165 S",
+        "time": "16 hr 42 min",
+        "miles": 1071
+      },
+      {
+        "route": "via I-55 S",
+        "time": "16 hr 49 min",
+        "miles": 1090,
+        "note": "This route has tolls"
+      }
+    ],
+    "value_used_in_certify": 1090,
+    "convention_check": "1,090 mi is the LONGEST of the three offered routes, consistent with Charm's stated convention of using the longest Google Maps distance (which is why no uncertainty is carried on Distance Traveled).",
+    "origin_consistency": "Wisconsin origin agrees with the scale tickets (full weigh at Wilson Township WI, pre-load empty at Racine WI). Destination St Landry LA agrees with the post-offload empty weigh at Port Barre LA.",
+    "_primary_source_opened": [
+      {
+        "action": "image_read",
+        "what": "Certify source 'Kerry to Basco Distance.png', Google Maps route comparison",
+        "artifact_path": "screenshots/Certify_Kerry_to_Basco_Distance.png",
+        "read_at": "2026-08-06"
+      }
+    ]
+  },
+  "emission_factors": {
+    "live_source": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/ (2026 tab, GLEC V3.2 2025 / GREET 2025)",
+    "read_this_session": true,
+    "flatbed_process": {
+      "sheet_row_verbatim": "Updated | Truck Transport Fuel Use (Well to Wheel) -- Flatbed Truck | MT CO2e/t-mi | 0.0001384 | 0 | 0.0001384 | GLEC V3.2 2025 | ISOMETRIC",
+      "sheet_value_kg_per_t_mi": 0.1384,
+      "certify_value_kg_per_t_mi": 0.1384,
+      "match": true,
+      "_primary_source_opened": [
+        {
+          "action": "sheet_grid_read",
+          "what": "Standard Emission Factors + Calculations, 2026 tab (GLEC V3.2 2025 / GREET 2025)",
+          "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit?gid=684080705#gid=684080705",
+          "read_at": "2026-08-06",
+          "row_read_verbatim": "Updated | Truck Transport Fuel Use (Well to Wheel) -- Flatbed Truck | MT CO2e/t-mi | 0.0001384 | 0 | 0.0001384 | GLEC V3.2 2025 | ISOMETRIC"
+        }
+      ]
+    },
+    "non_tanker_embodied": {
+      "sheet_row_verbatim": "Updated | Vehicle Embodied Emissions --Non-Tanker Truck | MT CO2e/mi | 0.0001927908256 | 0 | 0.0001928 | GLEC V3.2 2025",
+      "sheet_value_kg_per_mi": 0.1927908256,
+      "converted_kg_per_km": "0.1927908256 / 1.60934 = 0.1197824",
+      "certify_value_kg_per_km": 0.11979,
+      "match": true,
+      "_primary_source_opened": [
+        {
+          "action": "sheet_grid_read",
+          "what": "Standard Emission Factors + Calculations, 2026 tab (GLEC V3.2 2025 / GREET 2025)",
+          "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit?gid=684080705#gid=684080705",
+          "read_at": "2026-08-06",
+          "row_read_verbatim": "Updated | Vehicle Embodied Emissions --Non-Tanker Truck | MT CO2e/mi | 0.0001927908256 | 0 | 0.0001928 | GLEC V3.2 2025"
+        }
+      ]
+    },
+    "superseded_values_on_older_tabs": {
+      "flatbed_process_GLEC_V3.0": 0.1367939,
+      "flatbed_process_GLEC_V3.0_2024": 0.135156,
+      "non_tanker_embodied_GREET_2023_kg_per_mi": 0.06281443884,
+      "non_tanker_embodied_GREET_2024_kg_per_mi": 0.0644927
+    },
+    "attached_evidence_document": {
+      "certify_source_name": "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf",
+      "read_method": "Downloaded the signed-URL PDF from Certify and read the single page directly.",
+      "page_count": 1,
+      "document_heading_verbatim": "GREET 2024 Values",
+      "contents": [
+        "MHDV Summary of Energy Consumption and Emissions Related to Part Manufacturing and Vehicle Assembly (VMA): per-vehicle lifetime = 7,294,804.00 g CO2e",
+        "MHDV Assembly, Disposal and Recycling (incl. paint production) = 1,711,534.00",
+        "MHDV Trailer Summary ... per-trailer lifetime = 14,988,739.00",
+        "MHDV Trailer Assembly, Disposal and Recycling (incl. paint production) = 1,321,367.00",
+        "Total Lifetime Embodied Emissions Truck and Trailer = 25,316,444.00",
+        "EPA Vehicle Useful Life Heavy Duty Diesel Engine = 453,000.00",
+        "Total Embodied Emissions (g CO2e)/Mile = 55.89",
+        "Total Embodied Emissions (kg CO2e)/Mile = 0.0558862",
+        "Total Embodied Emissions (MT CO2e)/Mile = 0.0000558862",
+        "2022 Deadhead Average % of Overall Mileage --Tanker Truck = 41.00%",
+        "Tanker Truck Total Embodied Emissions (MTCO2e)/Mile w/ Deadhead = 0.000078799527",
+        "Tanker converted to kgCO2e/km = 0.04896387816",
+        "2022 Deadhead Average % of Overall Mileage -- Non-Tanker Truck = 15.40%",
+        "Non-Tanker Truck Total Embodied Emissions (MTCO2e)/Mile w/ Deadhead = 0.0000644927",
+        "Non-Tanker converted to kgCO2e/km = 0.04007398255",
+        "Km per Mile = 1.60934"
+      ],
+      "supports_embodied_value": false,
+      "embodied_gap": "The document's Non-Tanker output is 0.04007398255 kgCO2e/km. Certify reports 0.11979 kgCO2e/km. The document does not derive, contain or support the reported figure.",
+      "supports_process_value": false,
+      "process_gap": "The document contains no transport fuel-use / process emission factor of any kind - it is purely a vehicle embodied-emissions derivation. The figure 0.1384 does not appear in it.",
+      "_primary_source_opened": [
+        {
+          "action": "pdf_read",
+          "what": "Certify source 'Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf', complete document (1 page), downloaded from Certify and rendered",
+          "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYZ3JPB51S0VE5Q/edit?tab=sources&reference=ref_1KQ0QEDMG1S0J7G2",
+          "artifact_path": "Certify_EF_Truck_and_Trailer_EE_2025.pdf",
+          "read_at": "2026-08-06",
+          "pages_read": "1 of 1",
+          "heading_verbatim": "GREET 2024 Values",
+          "negative_check_tokens": [
+            "0.1384",
+            "Fuel Use",
+            "Well to Wheel",
+            "0.11979",
+            "0.1197"
+          ],
+          "items_found": []
+        }
+      ]
+    }
+  },
+  "bcu_evidence": {
+    "certify_source_name": "Charm-RetirementCertificate-RD-EACs-20251218.pdf",
+    "read_method": "Downloaded the signed-URL PDF from Certify and read the certificate page directly.",
+    "instrument": "TERC - Transport Emission Reduction Certificate",
+    "retiring_organization": "Amazon.com Services LLC",
+    "on_behalf_of": "Charm Industrial, Inc",
+    "date_of_retirement": "Dec 18, 2025",
+    "vintage_year": 2024,
+    "commodity_type": "Renewable Diesel TERCS",
+    "number_of_tercs_retired": 2795,
+    "verification_body": "Turner, Mason & Company",
+    "certificate_number": "TERC1012_2024_DF_RENEWABLE_DIESEL-13-47206-50000",
+    "unit_statement_verbatim": "Each TERC represents one metric ton of carbon dioxide equivalent (\"tCO2e\") reduced.",
+    "check": "2,795 tCO2e retired supports the 2.525 tCO2e drawn against this removal. Whether the pool has been over-drawn across all removals is an EAC-inventory-level reconciliation, not a per-batch check.",
+    "_primary_source_opened": [
+      {
+        "action": "pdf_read",
+        "what": "TERC Certificate of Retirement",
+        "artifact_path": "Certify_RD_EAC_Retirement_20251218.pdf",
+        "read_at": "2026-08-06"
+      }
+    ]
+  },
+  "uncertainty_verification": {
+    "method": "Opened each Certify component modal and read the +/- values from the INPUTS section. No aggregate back-calculation used.",
+    "layer_1_completeness": {
+      "Injection sequestration / Carbon Content": "+/-0.2112 % present",
+      "Injection sequestration / Mass of Injectant": "+/-72.57 kg present",
+      "Transport Process / Mass of Load": "+/-72.57 kg present",
+      "Transport Process / Distance Traveled": "no uncertainty - correct per convention (longest Google Maps distance)",
+      "Transport Process / Emission Factor": "no uncertainty - matches the 0 uncertainty factor on the 2026 EF sheet row",
+      "Transport Embodied": "no Mass of Load datapoint exists; distance and EF carry none - correct"
+    },
+    "layer_2_correctness": {
+      "carbon_content": "Expected 0.004 x 52.8 = 0.2112. Reported 0.2112. Correct.",
+      "mass_of_injectant": "Reported 72.57 kg and CORRECT. Max settled the rule on 2026-08-10: per-weighing precision follows the scale that did the weighing, not the oil type. 2.5 lb / 1.13 kg is the precision of Charm's tote scale; 72.57 kg is the precision of a commercial truck scale. This tanker was weighed on CAT Scale weighbridges (scale 1895 Wilson Township WI; scale 1864 Port Barre LA), so the commercial-scale spec governs, as it does for an AECN tanker. One discrete weighing event, so 1 x 72.57 kg. The Kerry skill and checklist reference have been corrected to key off the scale rather than the oil type.",
+      "mass_of_load": "Same 72.57 kg, correct on the same basis."
+    },
+    "layer_3_discount": {
+      "reported_discount_kg": 191,
+      "independent_recompute": "Relative uncertainty on carbon = 0.2112/52.8 = 0.004. Relative on mass = 72.57/16,725.66 = 0.0043389. Combined in quadrature = sqrt(0.004^2 + 0.0043389^2) = 0.0059021. 32.384 t x 0.0059021 = 0.19114 t = 191 kg.",
+      "match": true,
+      "sensitivity": "Had 1.13 kg been used instead of 72.57 kg, the discount would fall to about 130 kg and net would rise to about 32.04 t. The value in place therefore under-credits by roughly 61 kg CO2e."
+    },
+    "_primary_source_opened": [
+      {
+        "action": "modal_opened",
+        "what": "Each Certify component detail modal; +/- values read from the INPUTS section",
+        "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1KYZ3JPB51S0VE5Q/edit",
+        "read_at": "2026-08-06",
+        "modals_opened": [
+          "Injection sequestration",
+          "Kerry to Basco Flatbed Truck Transport Process Emissions",
+          "Kerry to Basco Flatbed Truck Transport Embodied Emissions",
+          "Constant CO2 reduction"
+        ]
+      }
+    ]
+  },
+  "gate1_exit_checks": {
+    "all_six_source_categories_non_null": true,
+    "delivery_mode_recorded": "tanker",
+    "cobb_row_id_verified": false,
+    "cobb_row_absent_with_exhaustive_search": true,
+    "certify_sources_tab_total_recorded": 6,
+    "scale_ticket_pair_complete": true,
+    "note": "cobb_row_id_verified is false because no COBB row exists for this batch. Six independent query methods are enumerated above. This is recorded as a finding, not as an incomplete read."
+  },
+  "recheck_2026_08_10": {
+    "certify_sources_tab_total_now": 8,
+    "new_sources": [
+      "INJ-07-2026-W4 Ops Notes.xlsx (-> Mass of Injectant + Carbon Content)",
+      "Standard Emission Factors + Calculations (8).xlsx (-> Emissions Factor - Flatbed, PUBLIC)"
+    ],
+    "mass_of_injectant_sources_now": [
+      "INJ-07-2026-W4 Ops Notes.xlsx",
+      "W4 Kerry CAT Scale Ticket 4921 FULL.jpg",
+      "W4 Kerry CAT Scale Ticket 8165 EMPTY.jpg"
+    ],
+    "distance_ef_source_still": [
+      "Standard Emission Factors + Calculations - Truck and Trailer EE 2025.pdf"
+    ],
+    "new_ef_workbook_tabs_observed": [
+      "2026 (active)",
+      "Truck and Trailer EE 2026 (cell A1 reads 'GREET 2025 Values')",
+      "2026 Railcar Embodied Emissions",
+      "H1 2026 AECN Process Emissions",
+      "(hidden) Truck and Trailer EE 2025",
+      "(hidden) 2025"
+    ],
+    "cobb_recheck": "Sheet banner 'Last updated 1 hour ago'. Still no INJ-07-2026-W4 row; grouped count over July still returns INJ-07-2026-W1_bio_oil (16) and INJ-07-2026-W1_oily_fraction (17) only. Every Calciner row is still K-001 or K-002.",
+    "rp_emissions_recheck": "GHG statement 'Reporting period emissions' tab still reads 'No components / 0 components'.",
+    "values_unchanged": "Net 31.982 t, sequestration 32.384 t, adjustments 2.525 t, activities 2.735 t, uncertainty discount 191 kg - all identical to the 2026-08-06 read."
+  }
+}

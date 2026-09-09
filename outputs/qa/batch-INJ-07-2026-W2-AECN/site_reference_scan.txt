@@ -1,0 +1,61 @@
+SITE-REFERENCE SCAN - batch INJ-07-2026-W2 (AECN)
+Every location string read out of each source document opened this session.
+Purpose: confirm the injection site is Basco 6 and record whether any
+Vaulted / Hutchinson / Kansas reference appears anywhere in the batch evidence.
+
+SCALE TICKETS (10 read, full + empty for 5 offloads)
+  SHPX215079 offload_1 full   -> PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA
+  SHPX215079 offload_1 empty  -> PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA
+  TIMX201060 offload_1 full   -> THE QUARTERS TS, I-49 EXIT 23, OPELOUSAS LA
+  TIMX201060 offload_1 empty  -> PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA
+  TIMX201060 offload_2 full   -> PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA
+  TIMX201060 offload_2 empty  -> PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA
+  TIMX201060 offload_3 full   -> PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA
+  TIMX201060 offload_3 empty  -> PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA
+  TIMX201060 offload_4 full   -> PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA
+  TIMX201060 offload_4 empty  -> PILOT TRAVEL CENTER, I 49 EXIT 40, BUNKIE LA
+
+BILLS OF LADING (6 read)
+  2389-R From -> BioEnergie AE Cote-Nord Canada, Port-Cartier, Quebec
+  2389-R Ship To -> Societe du port ferroviaire de Baie-Comeau, Baie-Comeau, Quebec
+  2390-R From -> BioEnergie AE Cote-Nord Canada, Port-Cartier, Quebec
+  2390-R Ship To -> Societe du port ferroviaire de Baie-Comeau, Baie-Comeau, Quebec
+  2391-R From -> BioEnergie AE Cote-Nord Canada, Port-Cartier, Quebec
+  2391-R Ship To -> Societe du port ferroviaire de Baie-Comeau, Baie-Comeau, Quebec
+  2392-R From -> BioEnergie AE Cote-Nord Canada, Port-Cartier, Quebec
+  2392-R Ship To -> Societe du port ferroviaire de Baie-Comeau, Baie-Comeau, Quebec
+  2393-R From -> BioEnergie AE Cote-Nord Canada, Port-Cartier, Quebec
+  2393-R Ship To -> Societe du port ferroviaire de Baie-Comeau, Baie-Comeau, Quebec
+  2394-R From -> BioEnergie AE Cote-Nord Canada, Port-Cartier, Quebec
+  2394-R Ship To -> Societe du port ferroviaire de Baie-Comeau, Baie-Comeau, Quebec
+  purchase order Ship To -> Charm Industrial, 838 SW Purity Springs Road, El Dorado KS
+     NOTE: this is the standing Charm purchase-order template ship-to on the AECN
+     supply contract, not an injection-site reference for this batch. It names a
+     Kansas address. Recorded here explicitly so the scan is complete and honest.
+
+LAB CERTIFICATE
+  SR26-04370.001 LOCATION -> BASCO LOUISIANA
+
+ROUTE EVIDENCE
+  AECN to SOPOR map -> 175 Bd du Portage des Mousses, Port-Cartier TO Societe du
+     port ferroviaire de Baie-Comeau (SOPOR)
+  Opelousas to Basco map -> 4687 LA-115, St Landry, LA 71367 TO Acadiana Railway,
+     1224 Cortez St, Opelousas
+  Watco rail email -> total mileage for this move was 2199 (no site named)
+
+OPS NOTES
+  AECN Rail tab -> railcar arrival location Opelousas; leg labels AECN to SOPOR,
+     Rail, Opelousas to Basco
+
+CERTIFY (33 sources, 10 components, 17 datapoints)
+  component names -> Opelousas to Basco Tanker Truck Transport (process, embodied);
+     SOPOR to Opelousas Rail Transport; AECN to SOPOR Tanker Truck Transport;
+     Injection sequestration; AECN pyrolysis from rail loads
+
+RESULT
+  Injection site references: Basco 6 / Basco Louisiana, consistently.
+  Vaulted references found: none.
+  Hutchinson references found: none.
+  Kansas references found: one, and only in the AECN purchase-order ship-to
+     template described above, which is a procurement address and not an
+     injection or storage site for this batch.

@@ -1,0 +1,222 @@
+- generic [active] [ref=f140e1]:
+  - alert [ref=f140e2]
+  - region "0 notifications."
+  - generic [ref=f140e3]:
+    - navigation [ref=f140e5]:
+      - generic [ref=f140e9]:
+        - generic [ref=f140e10]:
+          - link "Isometric Registry" [ref=f140e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f140e27]:
+            - link "Registry" [ref=f140e28] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=f140e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f140e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f140e32]:
+          - generic [ref=f140e33]:
+            - link "Account" [ref=f140e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f140e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f140e36]: "|"
+          - button "Current user menu" [ref=f140e37] [cursor=pointer]:
+            - generic [ref=f140e38]: Menu
+    - main [ref=f140e41]:
+      - generic [ref=f140e43]:
+        - button "Collapse sidebar" [ref=f140e45] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=f140e49]:
+          - list [ref=f140e51]:
+            - listitem [ref=f140e52]:
+              - link "All projects" [ref=f140e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=f140e54]: /
+            - listitem [ref=f140e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=f140e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [ref=f140e57]: /
+            - listitem [ref=f140e58]:
+              - link "GHG Entries" [ref=f140e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+              - generic [ref=f140e60]: /
+            - listitem [ref=f140e61]: rmv_1M103GTGP1S0BB07
+      - generic [ref=f140e62]:
+        - navigation [ref=f140e66]:
+          - generic [ref=f140e68]:
+            - link "Overview" [ref=f140e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=f140e70] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+            - link "Evidence" [ref=f140e71] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/evidence
+          - generic [ref=f140e72]:
+            - generic [ref=f140e73]: Project setup
+            - generic [ref=f140e74]:
+              - link "General" [ref=f140e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=f140e76] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=f140e77] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=f140e78] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=f140e79]:
+            - generic [ref=f140e80]: Carbon accounting
+            - generic [ref=f140e81]:
+              - link "LCA" [ref=f140e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=f140e83] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=f140e84] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "GHG entry data" [ref=f140e85] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+          - link "Templates" [ref=f140e88] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=f140e90]:
+          - generic [ref=f140e93]:
+            - heading "GHG entry" [level=1] [ref=f140e95]
+            - generic [ref=f140e96]:
+              - generic [ref=f140e97]:
+                - generic [ref=f140e98]: Removal
+                - generic [ref=f140e102]: 101.64 tCO₂e
+                - generic [ref=f140e104]:
+                  - generic [ref=f140e105]: •
+                  - generic [ref=f140e106]: 16 Aug 2026 to 22 Aug 2026
+                - generic [ref=f140e107]:
+                  - generic [ref=f140e108]: •
+                  - generic [ref=f140e109]: rmv_1M103GTGP1S0BB07
+              - generic [ref=f140e110]:
+                - button "More actions" [ref=f140e111] [cursor=pointer]
+                - button "Projected credit allocation" [ref=f140e114] [cursor=pointer]
+                - button "Toggle timeline sidebar" [ref=f140e118] [cursor=pointer]
+          - generic [ref=f140e121]:
+            - tablist [ref=f140e124]:
+              - tab "Components" [ref=f140e125] [cursor=pointer]
+              - tab "Calculation view" [selected] [ref=f140e127] [cursor=pointer]
+              - tab "Datapoints" [ref=f140e129] [cursor=pointer]
+              - tab "Sources" [ref=f140e131] [cursor=pointer]
+            - tabpanel "Calculation view" [ref=f140e134]:
+              - generic [ref=f140e135]:
+                - generic [ref=f140e139]:
+                  - generic [ref=f140e140]:
+                    - generic [ref=f140e143]:
+                      - button "Net CO₂e Removed 101.640 t" [ref=f140e145]:
+                        - generic [ref=f140e146]:
+                          - generic [ref=f140e147]: Net CO₂e Removed
+                          - generic [ref=f140e148]: 101.640 t
+                      - generic [ref=f140e155]:
+                        - button "Sequestrations 115.126 t" [ref=f140e158]:
+                          - generic [ref=f140e159]:
+                            - generic [ref=f140e160]: Sequestrations
+                            - generic [ref=f140e161]: 115.126 t
+                        - generic [ref=f140e165]: +
+                        - button "Adjustments 19.808 tCO₂e" [ref=f140e172]:
+                          - generic [ref=f140e173]:
+                            - generic [ref=f140e174]: Adjustments
+                            - generic [ref=f140e175]: 19.808 tCO₂e
+                        - generic [ref=f140e179]: "-"
+                        - button "Activities 32.818 tCO₂e" [ref=f140e186]:
+                          - generic [ref=f140e187]:
+                            - generic [ref=f140e188]: Activities
+                            - generic [ref=f140e189]: 32.818 tCO₂e
+                        - generic [ref=f140e193]: "-"
+                        - generic [ref=f140e199]:
+                          - generic [ref=f140e200]: Uncertainty Discount
+                          - generic [ref=f140e201]: 476 kg
+                    - generic [ref=f140e203]:
+                      - generic [ref=f140e204]: ⌘ + scroll to zoom
+                      - generic [ref=f140e206]:
+                        - button [ref=f140e208] [cursor=pointer]
+                        - button [ref=f140e213] [cursor=pointer]
+                  - button "View full screen" [ref=f140e218] [cursor=pointer]
+                - generic [ref=f140e221]:
+                  - heading "Datapoints (10)" [level=2] [ref=f140e222]
+                  - grid "Data points" [ref=f140e225]:
+                    - rowgroup [ref=f140e226]:
+                      - row [ref=f140e227]:
+                        - columnheader "Name" [ref=f140e228]
+                        - columnheader "Value" [ref=f140e230]
+                        - columnheader "Collection method" [ref=f140e232]
+                        - columnheader "Reference ID" [ref=f140e234]
+                        - columnheader "Sources" [ref=f140e236]
+                    - rowgroup [ref=f140e238]:
+                      - row [ref=f140e239]:
+                        - rowheader "Mass of Injectant (per injection)" [ref=f140e240]
+                        - gridcell "77.711 t" [ref=f140e242]
+                        - gridcell "Derived" [ref=f140e243]
+                        - gridcell "mr_NQxNTtIRYqxNmAFu-out_2fhhkmR6wwhHOUBB-0" [ref=f140e248]
+                        - gridcell [ref=f140e250]:
+                          - button "INJ-08-2026-W4 Ops Notes.xlsx" [ref=f140e252] [cursor=pointer]
+                      - row [ref=f140e257]:
+                        - rowheader "Carbon Content of Bio-oil Injected (per injection)" [ref=f140e258]
+                        - gridcell "40.40 %" [ref=f140e260]
+                        - gridcell "Derived" [ref=f140e261]
+                        - gridcell "mr_NQxNTtIRYqxNmAFu-out_eXfWuwymY5V2d1w8-0" [ref=f140e266]
+                        - gridcell [ref=f140e268]:
+                          - generic [ref=f140e269]:
+                            - button "CHARM INDUSTRIAL - 08-2026-W4 AECN + QOWV (SR26-05110.001-002).pdf" [ref=f140e270] [cursor=pointer]
+                            - button "+ 1 more" [ref=f140e275] [cursor=pointer]
+                      - row [ref=f140e276]:
+                        - rowheader "Constant CO₂ reduction" [ref=f140e277]
+                        - gridcell "19.808 tCO₂e" [ref=f140e279]
+                        - gridcell "Reported" [ref=f140e280]
+                        - gridcell "—" [ref=f140e285]
+                        - gridcell [ref=f140e286]:
+                          - button "Charm-RetirementCertificate-RD-EACs-20251218.pdf" [ref=f140e288] [cursor=pointer]
+                      - row [ref=f140e293]:
+                        - rowheader "Bio-Oil Mass - AECN" [ref=f140e294]
+                        - gridcell "78.880 t" [ref=f140e296]
+                        - gridcell "Reported" [ref=f140e297]
+                        - gridcell "mr_0gYbzaGwmBSwOMr0-out_2KL08M3lgyDycMJj-0" [ref=f140e302]
+                        - gridcell [ref=f140e304]:
+                          - generic [ref=f140e305]:
+                            - button "BOL_2471-T.pdf" [ref=f140e306] [cursor=pointer]
+                            - button "+ 4 more" [ref=f140e311] [cursor=pointer]
+                      - row [ref=f140e312]:
+                        - rowheader "AECN Production Process Emissions" [ref=f140e313]
+                        - gridcell "0.14 kgCO₂e/kg" [ref=f140e315]
+                        - gridcell "Reported" [ref=f140e316]
+                        - gridcell "AECN Production Process Emissions H2 2026" [ref=f140e321]
+                        - gridcell [ref=f140e323]:
+                          - generic [ref=f140e324]:
+                            - button "Supporting GHG data 30Jun2026 S.xlsx" [ref=f140e325] [cursor=pointer]
+                            - button "+ 2 more" [ref=f140e330] [cursor=pointer]
+                      - row [ref=f140e331]:
+                        - rowheader "AECN Production Embodied Emissions" [ref=f140e332]
+                        - gridcell "0.02 kgCO₂e/kg" [ref=f140e334]
+                        - gridcell "Reported" [ref=f140e335]
+                        - gridcell "—" [ref=f140e340]
+                        - gridcell [ref=f140e341]:
+                          - button "Standard Emission Factors + Calculations (4).xlsx" [ref=f140e343] [cursor=pointer]
+                      - row [ref=f140e348]:
+                        - rowheader "Aggregate Distance Transported AECN to Basco" [ref=f140e349]
+                        - gridcell "2,197 mi" [ref=f140e351]
+                        - gridcell "Derived" [ref=f140e352]
+                        - gridcell "mr_0gYbzaGwmBSwOMr0-out_J6kGGG8GgKv8kHIJ-0" [ref=f140e357]
+                        - gridcell [ref=f140e359]:
+                          - generic [ref=f140e360]:
+                            - button "Aug-22-2026-distance-route_map.png" [ref=f140e361] [cursor=pointer]
+                            - button "+ 8 more" [ref=f140e366] [cursor=pointer]
+                      - row [ref=f140e367]:
+                        - rowheader "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck" [ref=f140e368]
+                        - gridcell "0.1476 kgCO₂e/km" [ref=f140e370]
+                        - gridcell "Derived" [ref=f140e371]
+                        - gridcell "mr_0gYbzaGwmBSwOMr0-out_gGfIyB5LZpnf7AbH-0" [ref=f140e376]
+                        - gridcell [ref=f140e378]:
+                          - button "Standard Emission Factors + Calculations (8).xlsx" [ref=f140e380] [cursor=pointer]
+                      - row [ref=f140e385]:
+                        - rowheader "Distance from AECN to Basco" [ref=f140e386]
+                        - gridcell "2,197 mi" [ref=f140e388]
+                        - gridcell "Derived" [ref=f140e389]
+                        - gridcell "mr_0gYbzaGwmBSwOMr0-out_cytwLs0e0psUUWnP-0" [ref=f140e394]
+                        - gridcell [ref=f140e396]:
+                          - button "AECN to Basco.png" [ref=f140e398] [cursor=pointer]
+                      - row [ref=f140e403]:
+                        - rowheader "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck" [ref=f140e404]
+                        - gridcell "0.07 kgCO₂e/(km⋅t)" [ref=f140e406]
+                        - gridcell "Derived" [ref=f140e407]
+                        - gridcell "mr_0gYbzaGwmBSwOMr0-out_4YerTE6HIKQttwrr-0" [ref=f140e412]
+                        - gridcell [ref=f140e414]:
+                          - button "Standard Emission Factors + Calculations (8).xlsx" [ref=f140e416] [cursor=pointer]

@@ -1,0 +1,20 @@
+LCS / buffering - exhaustive absence search for batch INJ-07-2026-W2 (WODO), 2026-08-06
+
+Method 1 - Ops Notes WODO tab, every populated cell dumped (A1:O33, values + formulas + comments).
+  Columns present: A Tag, B Gross Mass (kg), C Tote Mass (kg), D Net Oil Produced (kg),
+  E Empty Tote Weight (kg), F Net Oil Injected (kg), G Production Period, H Carbon Intensity,
+  I Production Emissions, J Scale Uncertainty. Constants block K3:L6.
+  -> no LCS, Liquid Calcium Sulfate, or buffer column.
+
+Method 2 - case-insensitive string scan of the WODO tab and the WODO Shipments & EE Allocation tab
+  for 'lcs', 'calcium', 'buffer', 'ph'. Single hit: WODO!K6 = 'pH range (target)' (a constants label).
+  -> no LCS or buffering entry of any kind.
+
+Method 3 - Certify Components tab for rmv_1KYWWAQ3J1S09AWW, all 5 components enumerated:
+  Injection sequestration; CO to LA Flatbed Truck Transport Process Emissions - WODO;
+  CO to LA Flatbed Truck Transport Embodied Emissions - WODO; Pyrolysis - Charm WODO PP Emissions;
+  Constant CO2 reduction.
+  -> no LCS component.
+
+Conclusion: no LCS use is reported for this batch and none is expected - LCS buffering is an Aqueous
+pre-treatment, and this is a WODO batch. Item 9.1 renders N/A.

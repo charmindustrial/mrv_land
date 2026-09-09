@@ -1,0 +1,44 @@
+{
+  "_comment": "Single source of truth for the ancillary-data-request automation. IDs verified live against Slack/Drive on 2026-09-02.",
+
+  "ask_channel_id": "C088BL7DHV1",
+  "ask_channel_name": "mrv-ops-la",
+
+  "alert_channel_id": "C0944NQH1RP",
+  "alert_channel_name": "team-mrv-alerts",
+
+  "tag_on_alert_user_ids": ["U08JW9HQG5B", "UL2SL4H5H"],
+  "tag_on_alert_user_names": ["Garrett Lutz", "Max Lavine"],
+
+  "finished_product_folder_id": "1Yuw2LEF4K8CpTS3lgP-4DRWsSPWICr36",
+  "finished_product_folder_name": "Processed Ancillary Data Drafts",
+
+  "reporters": {
+    "community": {
+      "label": "Community Event + Grievance log",
+      "reporter_name": "Alison",
+      "user_id": "U06P5C12J0J",
+      "route": "file_as_submitted",
+      "processing_skill": null
+    },
+    "wellhead": {
+      "label": "Wellhead data",
+      "reporter_name": "Casey",
+      "user_id": "U07U1RH990T",
+      "route": "process",
+      "processing_skill": "wellhead-data-transform"
+    },
+    "oxidizer": {
+      "label": "Oxidizer sensor data",
+      "reporter_name": "Evan",
+      "user_id": "U08DEK006D9",
+      "route": "process",
+      "processing_skill": "tox-sparging-analysis"
+    }
+  },
+
+  "post_day_of_month": 1,
+  "scan_interval_hours": 3,
+
+  "AUTO_POST_APPROVED": true
+}

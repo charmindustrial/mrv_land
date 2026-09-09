@@ -1,7 +1,7 @@
 ---
 name: qa-garrett-completion-monitor
 description: >
-  Monitors Slack threads for Garrett Lutz's completion responses across ALL active batch QA workflows. This sub-agent sweeps a registry of in-flight QA batches, detects when Garrett signals he's done (using any colloquial phrasing — "complete," "done," "fixed," "all set," "updated," etc.), then re-reviews his Certify corrections, updates the QA checklist, and reports back to Max. ALWAYS trigger this skill when: a scheduled task fires to check Garrett's QA threads, when the QA workflow reaches the "monitor Garrett" phase, or when Max asks about the status of any batch awaiting Garrett's response. Also trigger when a new batch needs to be added to or removed from the active monitoring registry.
+  Monitors Slack threads for Garrett Lutz's completion responses across ALL active batch QA workflows. This sub-agent reads through a registry of in-flight QA batches, detects when Garrett signals he's done (using any colloquial phrasing — "complete," "done," "fixed," "all set," "updated," etc.), then re-reviews his Certify corrections, updates the QA checklist, and reports back to Max. ALWAYS trigger this skill when: a scheduled task fires to check Garrett's QA threads, when the QA workflow reaches the "monitor Garrett" phase, or when Max asks about the status of any batch awaiting Garrett's response. Also trigger when a new batch needs to be added to or removed from the active monitoring registry.
 ---
 
 # QA Garrett Completion Monitor
@@ -20,7 +20,7 @@ After the QA agent sends findings to Garrett, there's a gap — Garrett works in
    - `skills/qa/batch-qa-kerry/qa_active_kerry_batches.json` — Kerry batches
    - `skills/qa/batch-qa-charm/qa_active_charm_batches.json` — Charm WODO/Aqueous batches
 
-   Each registry has the same `active_batches` array shape. Sweep them in sequence; treat the union as your full registry of in-flight batches awaiting Garrett's response. When updating or removing an entry, update the originating registry file (the AECN entry comes out of the AECN registry, the Kerry entry out of the Kerry registry).
+   Each registry has the same `active_batches` array shape. Read them in sequence; treat the union as your full registry of in-flight batches awaiting Garrett's response. When updating or removing an entry, update the originating registry file (the AECN entry comes out of the AECN registry, the Kerry entry out of the Kerry registry).
 
 ## The Active Batches Registries
 
@@ -65,12 +65,26 @@ Kerry batches use `consumed_lot` pattern `kc_NNNN` and have a `delivery_mode` fi
 **Field notes:**
 - `checklist_path` is relative to the MRV Expert workspace folder
 - `fail_items` and `flag_items` contain enough context for re-review without needing to re-read the entire checklist
-- `status` is one of: `awaiting_garrett`, `re_reviewing`, `closed`
+- `status` is one of: `awaiting_garrett`, `re_reviewing`, `blocked_external`, `closed`. **This must always be one of these four literal values — never a free-text sentence.** Sweeps match on the literal string, so a narrative status (e.g., "Delivered to Max, six flags still open...") is invisible to this skill and will never get picked up. Put narrative context in a `notes` field instead.
+- `blocked_on` (only present when `status: "blocked_external"`) — states precisely what external event is being waited on and how to tell when it's cleared (e.g., "GHG statement ggs_XXX total no longer matches stale figure Y")
 - When adding a new batch, populate all fields from the QA workflow context. The more detail in `what_to_verify`, the better the re-review will be.
 
-## Sweep Protocol
+## Monitoring Procedure
 
-When triggered (typically by a scheduled task), do this for each batch in the registry with `status: "awaiting_garrett"`:
+When triggered (typically by a scheduled task), do the following for each batch in the registry.
+
+### 0. Sweep `blocked_external` entries first
+
+For every batch with `status: "blocked_external"`: check live whether the condition in `blocked_on` has cleared (e.g., re-read the relevant GHG statement or Certify entry). If it has cleared:
+1. Send whatever Garrett-actionable FAIL/FLAG items were held back (Step 4/4a of the originating QA skill's Slack Workflow) — post them to #team-mrv-alerts now, exactly as if Max had just approved.
+2. Set `status: "awaiting_garrett"` and populate `slack_channel`/`thread_ts` from the new post.
+3. Continue to the standard monitoring procedure below for this batch on the next sweep.
+
+If `blocked_on` has not cleared, leave the entry as-is and move to the next batch — do not silently drop it, and do not let it revert to a prose status.
+
+### 1. Standard sweep
+
+Do this for each batch in the registry with `status: "awaiting_garrett"`:
 
 ### 1. Check the Slack Thread
 
@@ -95,7 +109,9 @@ The key signal is that Garrett is communicating he's finished making the request
 
 ### 2. Re-Review in Certify
 
-Open the batch's `certify_url` in the browser (Claude in Chrome). For each item in `fail_items` and `flag_items`:
+**Tool note (fixed 2026-09-01, corrected same day — the Playwright browser tools do not appear in your default tool list; they are deferred, so calling one directly fails and looks like "no browser tools available." Load their schemas first, ONE AT A TIME):** a single `ToolSearch` call with a comma-separated list of tool names is unreliable for these — a live test of that format failed 3 times in a row with "No matching deferred tools found," and only succeeded once split into individual calls. Call `ToolSearch` six separate times, one tool per call: `select:mcp__playwright__browser_navigate`, then `select:mcp__playwright__browser_snapshot`, then `select:mcp__playwright__browser_click`, then `select:mcp__playwright__browser_evaluate`, then `select:mcp__playwright__browser_wait_for`, then `select:mcp__playwright__browser_close` — before doing anything else in this step. Use the **`playwright`** server only (headless, per the workspace's hard rule) — never `chrome-control`, and never `playwright-mrv`/`playwright-mrv-2/3/4` (the project's own `.mcp.json` copies of these servers run HEADED, with no `--headless` flag; using one in an unattended run risks popping a visible browser window on Max's screen). "Claude in Chrome" is not a real tool here — that phrasing is stale, ignore it.
+
+Open the batch's `certify_url` with `mcp__playwright__browser_navigate`. For each item in `fail_items` and `flag_items`:
 
 1. Navigate to the location specified in `certify_location`
 2. Extract the current values
@@ -108,6 +124,19 @@ Open the batch's `certify_url` in the browser (Claude in Chrome). For each item 
 - **Data entry corrections:** Verify the new value matches what the QA finding specified.
 
 Document what you find for each item — the current values and whether they satisfy the original finding.
+
+**HARD RULE — you read every evidence document yourself. Never hand one back to Max.**
+
+Certify is not the only place evidence lives, and "it isn't in Certify Sources" is never a reason to stop. Scale tickets live in the batch Drive folder's **Scale Tickets** subfolder, BOLs in the reporting-period **AECN BOLs** folder, and the originating QA session has usually already downloaded both into `outputs/qa/batch-<id>/screenshots/` or `/tickets/` and `/bols/`. Check the per-batch output folder first, then Drive, then Certify. A mass finding cannot be closed or left open on Certify values alone — open the ticket.
+
+Before writing any item as unresolved, you must have tried, and be able to name the failure of, all three: (1) the per-batch output folder, (2) the batch Drive folder subfolders, (3) Certify Sources.
+
+These phrasings are banned from your re-review note, your registry entry and your Slack message:
+- "needs ticket-level PDF review" / "needs review" / "requires opening the original …"
+- "cannot re-verify from Certify alone"
+- "needs Max adjudication" for anything that is a document read rather than a judgement call
+
+Max adjudicates **judgement** — whether a Flag is acceptable, whether to accept a documented deviation. He does not adjudicate whether a number on a ticket says what it says. If a document is genuinely unreadable or access is genuinely denied, say exactly that, name the file and the specific error, and list the three paths you tried. That is a legibility/access blocker and is legitimate. Anything short of that, go read it.
 
 **Close browser tabs when finished.** Max's browser gets cluttered otherwise.
 

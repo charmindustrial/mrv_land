@@ -213,6 +213,26 @@ quote_matches = list(QUOTE_RE.finditer(scannable))
 quote_texts   = [m.group(1).strip() for m in quote_matches]
 quote_starts  = [m.start() for m in quote_matches]
 
+# Identifiers (ASTM-style codes, cert numbers, §/Section/Clause/Article/Table/
+# Gap N) that, if shared between a signal and an earlier quote's surroundings,
+# mean this signal restates an already-backed citation rather than
+# introducing a new unbacked one. Mirrors citation_integrity_stop.sh's Gate 0/
+# Gate 1 fix (2026-08-31) -- this file has the identical window-only check and
+# the identical false-positive risk on a long document that correctly cites
+# something once and restates it later.
+IDENT_RE = re.compile(
+    r'\b[A-Za-z]{1,4}\d{3,6}(?:\.\d{1,3})?\b'
+    r'|\bNo\.?\s*\d{2,6}(?:\.\d{1,3})?\b'
+    r'|§\s*\d[\d.]*[a-z]?'
+    r'|\b(?:Section|Clause|Article|Table|Gap)\s*[A-Z]?\d[\d.]{0,6}\b',
+    re.IGNORECASE)
+
+def _idents_near(pos, radius=200):
+    lo, hi = max(0, pos - radius), min(len(scannable), pos + radius)
+    return set(m.group(0).lower() for m in IDENT_RE.finditer(scannable[lo:hi]))
+
+quote_idents = [_idents_near(qs) for qs in quote_starts]
+
 missing_quote_signals = []
 for sig in signals:
     sig_pos = sig.start()
@@ -220,6 +240,9 @@ for sig in signals:
     window_end   = sig_pos + 500
     nearby = any(window_start <= qs <= window_end for qs in quote_starts)
     if not nearby:
+        sig_idents = _idents_near(sig_pos)
+        if sig_idents and any(sig_idents & qi for qi in quote_idents):
+            continue
         line_start = scannable.rfind('\n', 0, sig_pos) + 1
         line_end   = scannable.find('\n', sig_pos)
         if line_end == -1:

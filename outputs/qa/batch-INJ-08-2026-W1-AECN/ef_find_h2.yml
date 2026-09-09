@@ -1,0 +1,175 @@
+- application [ref=f21e1]:
+  - iframe [ref=f21e2]:
+    
+  - iframe [ref=f21e3]:
+    
+  - banner "Menu bar" [ref=f21e4]:
+    - generic [ref=f21e7]:
+      - link "Sheets home" [ref=f21e9] [cursor=pointer]:
+        - /url: https://docs.google.com/spreadsheets/u/0/?authuser=0&usp=sheets_web
+      - generic [ref=f21e16]:
+        - generic "Standard Emission Factors + Calculations" [ref=f21e18]:
+          - generic [ref=f21e19]:
+            - generic: Standard Emission Factors + Calculations
+            - textbox "Rename" [ref=f21e21]: Standard Emission Factors + Calculations
+          - generic [ref=f21e22]:
+            - button "Shared externally" [ref=f21e24] [cursor=pointer]
+            - checkbox "Star" [ref=f21e28] [cursor=pointer]
+            - button "Move" [ref=f21e480] [cursor=pointer]
+            - 'button "Document status: Saved to Drive." [ref=f21e32]':
+              - generic [ref=f21e33] [cursor=pointer]
+        - generic [ref=f21e40]:
+          - button "Last edit was yesterday at 9:45 AM" [ref=f21e42] [cursor=pointer]
+          - button "Show all comments" [ref=f21e46] [cursor=pointer]
+          - button "Join a call here or present this tab to the call" [ref=f21e483] [cursor=pointer]
+          - generic [ref=f21e55]:
+            - button "Share. Warning, this document contains sensitive content." [ref=f21e484] [cursor=pointer]: Share
+            - button "Quick sharing actions" [ref=f21e58] [cursor=pointer]
+          - generic [ref=f21e487]:
+            - generic:
+              - button "Ask Gemini" [ref=f21e494] [cursor=pointer]
+              - tooltip [ref=f21e497]: Ask Gemini
+          - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=f21e62] [cursor=pointer]'
+    - generic [ref=f21e64]:
+      - menubar [ref=f21e66]:
+        - menuitem "File" [ref=f21e67] [cursor=pointer]
+        - menuitem "Edit" [ref=f21e68] [cursor=pointer]
+        - menuitem "View" [ref=f21e69] [cursor=pointer]
+        - menuitem "Insert" [ref=f21e70] [cursor=pointer]
+        - menuitem "Format" [ref=f21e71] [cursor=pointer]
+        - menuitem "Data" [ref=f21e72] [cursor=pointer]
+        - menuitem "Tools" [ref=f21e73] [cursor=pointer]
+        - menuitem "Gemini" [ref=f21e74] [cursor=pointer]
+        - menuitem "Extensions" [ref=f21e75] [cursor=pointer]
+        - menuitem "Help" [ref=f21e76] [cursor=pointer]
+      - generic [ref=f21e77]:
+        - generic [ref=f21e78]:
+          - toolbar "Search the menus (Option+/)" [ref=f21e79]:
+            - combobox "Menus" [ref=f21e81]
+          - toolbar "Main" [ref=f21e82]:
+            - button "Undo (⌘Z)" [ref=f21e83] [cursor=pointer]
+            - button "Redo (⌘Y)" [ref=f21e88] [cursor=pointer]
+            - button "Print (⌘P)" [ref=f21e93] [cursor=pointer]
+            - button "Paint format" [ref=f21e98] [cursor=pointer]
+            - combobox "Zoom" [ref=f21e103] [cursor=pointer]:
+              - option "Zoom list. 100% selected." [selected] [ref=f21e106]:
+                - textbox "Zoom" [ref=f21e107]: 100%
+            - separator [disabled] [ref=f21e111]
+            - button "Format as currency" [ref=f21e112] [cursor=pointer]:
+              - generic [ref=f21e113]: $
+            - button "Format as percent" [ref=f21e115] [cursor=pointer]:
+              - generic [ref=f21e116]: "%"
+            - button "Decrease decimal places" [ref=f21e118] [cursor=pointer]
+            - button "Increase decimal places" [ref=f21e123] [cursor=pointer]
+            - button "More formats" [ref=f21e128] [cursor=pointer]:
+              - generic [ref=f21e129]: "123"
+            - separator [disabled] [ref=f21e132]
+            - listbox "Font" [ref=f21e133] [cursor=pointer]:
+              - option "Font list. Default (Arial) selected." [selected] [ref=f21e552]: Default (Arial)
+            - separator [disabled] [ref=f21e140]
+            - button "Decrease font size (⌘+Shift+comma)" [ref=f21e141] [cursor=pointer]
+            - combobox "Font size" [ref=f21e146] [cursor=pointer]:
+              - option "Font size list. 10 selected." [selected] [ref=f21e149]:
+                - textbox "Font size" [ref=f21e150]: "10"
+            - button "Increase font size (⌘+Shift+period)" [ref=f21e151] [cursor=pointer]
+            - separator [disabled] [ref=f21e156]
+            - button "Bold (⌘B)" [ref=f21e157] [cursor=pointer]
+            - button "Italic (⌘I)" [ref=f21e162] [cursor=pointer]
+            - button "Strikethrough (⌘+Shift+X)" [ref=f21e167] [cursor=pointer]
+            - button "Text color" [ref=f21e172] [cursor=pointer]
+            - separator [disabled] [ref=f21e179]
+            - button "Fill color" [ref=f21e180] [cursor=pointer]
+            - button "Borders" [ref=f21e187] [cursor=pointer]
+            - button "Merge cells" [disabled] [ref=f21e193]
+            - button "Select merge type" [disabled] [ref=f21e198]
+            - separator [disabled] [ref=f21e204]
+            - button "Horizontal align" [ref=f21e205] [cursor=pointer]
+            - button "Vertical align" [ref=f21e214] [cursor=pointer]
+            - button "Text wrapping" [ref=f21e223] [cursor=pointer]
+            - button "Text rotation" [ref=f21e232] [cursor=pointer]
+            - separator [disabled] [ref=f21e241]
+            - button "More" [ref=f21e242] [cursor=pointer]
+        - toolbar "Mode and view" [ref=f21e249]:
+          - button "Hide the menus (Ctrl+Shift+F)" [ref=f21e250] [cursor=pointer]
+    - generic [ref=f21e255]:
+      - complementary "Side panel" [ref=f21e256]:
+        - tablist [ref=f21e498]:
+          - tab "Calendar":
+            - generic [ref=f21e259] [cursor=pointer]
+          - tab "Keep":
+            - generic [ref=f21e260] [cursor=pointer]
+          - tab "Tasks":
+            - generic [ref=f21e261] [cursor=pointer]
+          - tab "Contacts":
+            - generic [ref=f21e262] [cursor=pointer]
+          - tab "Maps":
+            - generic [ref=f21e263] [cursor=pointer]
+          - separator [disabled] [ref=f21e499]
+          - tab "Loom":
+            - generic [ref=f21e500] [cursor=pointer]
+          - tab "Get Add-ons":
+            - generic [ref=f21e501] [cursor=pointer]
+      - generic:
+        - button "Hide side panel":
+          - generic [ref=f21e502] [cursor=pointer]
+    - generic [ref=f21e264]:
+      - dialog [ref=f21e507]:
+        - generic [ref=f21e509]:
+          - table [ref=f21e511]:
+            - rowgroup [ref=f21e512]:
+              - row [ref=f21e553]:
+                - cell [ref=f21e514]:
+                  - searchbox "Find in sheet" [active] [ref=f21e515]
+                - cell [ref=f21e554]:
+                  - region
+          - region [ref=f21e517]
+          - button "Previous" [disabled] [ref=f21e518]
+          - button "Next" [disabled] [ref=f21e521]
+          - button "More options" [ref=f21e525]
+        - button "Close" [ref=f21e529] [cursor=pointer]
+      - generic [ref=f21e266]:
+        - generic "Name box (⌘ + J)" [ref=f21e267]:
+          - textbox [ref=f21e268]: D3
+          - button "Name box menu button. Select one of the menu items to navigate to its corresponding named range." [ref=f21e270] [cursor=pointer]
+        - textbox [ref=f21e286]
+  - navigation "Sheet tab bar" [ref=f21e322]:
+    - toolbar [ref=f21e323]:
+      - button "Add Sheet" [ref=f21e324] [cursor=pointer]
+      - button "Create a canvas" [ref=f21e534] [cursor=pointer]
+      - button "All Sheets" [ref=f21e329] [cursor=pointer]
+    - toolbar [ref=f21e338]:
+      - button "2026" [ref=f21e339]
+      - button "Truck and Trailer EE 2026" [ref=f21e347] [cursor=pointer]
+      - button "2 2026 SPSO Electricity EFs" [ref=f21e355] [cursor=pointer]:
+        - generic [ref=f21e358]:
+          - generic [ref=f21e359]: "2"
+          - generic [ref=f21e363]: 2026 SPSO Electricity EFs
+      - button "2 2026 RMPA Electricity EFs" [ref=f21e367] [cursor=pointer]:
+        - generic [ref=f21e370]:
+          - generic [ref=f21e371]: "2"
+          - generic [ref=f21e375]: 2026 RMPA Electricity EFs
+      - button "2 2026 SPNO Electricity EFs" [ref=f21e379] [cursor=pointer]:
+        - generic [ref=f21e382]:
+          - generic [ref=f21e383]: "2"
+          - generic [ref=f21e387]: 2026 SPNO Electricity EFs
+      - button "ElecInfra Summary" [ref=f21e391] [cursor=pointer]
+      - button "2026 Railcar Embodied Emissions" [ref=f21e399] [cursor=pointer]
+      - button "H1 2026 AECN Process Emissions" [ref=f21e407] [cursor=pointer]
+      - button "2026 LCS Embodied Emissions" [ref=f21e415] [cursor=pointer]
+      - button "Vaulted- EE 8/25 Update" [ref=f21e423] [cursor=pointer]
+      - button "2026 Methanol" [ref=f21e431] [cursor=pointer]
+      - button "2026 Water" [ref=f21e439] [cursor=pointer]
+      - button "2026 Sample Transport Materiality" [ref=f21e447] [cursor=pointer]
+      - button "2026 Currency Conversions for Cost-Based EFs" [ref=f21e455] [cursor=pointer]
+    - toolbar [ref=f21e463]:
+      - button "Scroll left" [disabled] [ref=f21e464]
+      - button "Scroll right" [ref=f21e469] [cursor=pointer]
+  - generic [ref=f21e474]:
+    - textbox
+  - link "Turn on screen reader support" [ref=f21e475] [cursor=pointer]:
+    - /url: "#"
+  - textbox [ref=f21e476]
+  - region [ref=f21e477]: To enable screen reader support, press ⌘+Option+Z To learn about keyboard shortcuts, press ⌘slash
+  - generic [ref=f21e478]: Banner hidden
+  - region
+  - generic [ref=f21e542]: Name box. ⌘ + J. A1 selected. Type a cell range or named range and hit the Enter key to navigate to the specified range.

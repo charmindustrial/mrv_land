@@ -86,12 +86,51 @@ KERRY_TOTE_STRUCTURE = [
 ]
 
 
+# Tanker-mode variant. Same item IDs and same substance as the tote framework —
+# only the wording that presumes multiple totes is restated for a single
+# shipment. Kerry moved to flatbed-haul tankers with INJ-07-2026-W4 (first
+# tanker batch: one weighing pair, one composite sample, no per-tote ledger).
+KERRY_TANKER_STRUCTURE = [
+    {
+        "section": "Section 1: Injection Sequestration",
+        "items": [
+            ("1.1", "Does the C content match the lab result for this shipment's composite sample?"),
+            ("1.2", "Does the C content have sources that validate the C content reported?"),
+            ("1.3", "Is uncertainty quantified and reported correctly for the C content?"),
+            ("1.4", "Does the Mass of Injectate match the 'Total Oil Injected' value in Ops Notes?"),
+            ("1.5", "Is the 'Total Oil Injected' value in Ops Notes correctly computed?"),
+            ("1.6", "Is the uncertainty quantified and reported correctly for the Mass of Injectate?"),
+            ("1.7", "Is the 'Total Oil Injected' value evidenced properly (evidence value confirms reported value)?"),
+        ],
+    },
+    KERRY_TOTE_STRUCTURE[1],   # Section 2A — mode-independent
+    KERRY_TOTE_STRUCTURE[2],   # Section 2B — mode-independent
+    KERRY_TOTE_STRUCTURE[3],   # Section 2C — mode-independent
+    {
+        "section": "Section 3: MRV Parameter Checks (shipment SGS CoA + Ops Notes)",
+        "items": [
+            ("3.1", "Is density reported and above the formation-fluid injection floor (1.01 g/cm³)?"),
+            ("3.2", "Is hydrogen content reported and within expected range?"),
+            ("3.3", "Is nitrogen content reported and within expected range?"),
+            ("3.4", "Is viscosity reported?"),
+            ("3.5", "Is acid number reported?"),
+            ("3.6", "Is pH recorded (Ops Notes or COBB) and within expected range for bio-oil?"),
+        ],
+    },
+]
+
+STRUCTURES = {"tote": KERRY_TOTE_STRUCTURE, "tanker": KERRY_TANKER_STRUCTURE}
+
+
 # Style helpers
 FAIL_FILL = PatternFill("solid", fgColor="FFC7CE")
 FLAG_FILL = PatternFill("solid", fgColor="FFF2CC")
-SECTION_FILL = PatternFill("solid", fgColor="9DC3E6")
-HEADER_FILL = PatternFill("solid", fgColor="D9E1F2")
-SIDEBAR_FILL = PatternFill("solid", fgColor="E7E6E6")
+# One neutral colour for EVERY section / sub-section / sidebar header (SKILL.md
+# formatting spec). Never yellow (collides with FLAG), never green, never a
+# second tone. Status fills are the only semantic colours on the sheet.
+SECTION_FILL = PatternFill("solid", fgColor="D6E4F0")
+HEADER_FILL = PatternFill("solid", fgColor="D6E4F0")
+SIDEBAR_FILL = PatternFill("solid", fgColor="D6E4F0")
 FLAG_FONT = Font(color="996600", bold=False)
 NA_FONT = Font(italic=True, color="808080")
 SECTION_FONT = Font(bold=True, size=12)
@@ -207,7 +246,8 @@ def _write_sidebar(ws, row: int, observations: list) -> int:
     return row
 
 
-def build_kerry_checklist(out_path: str, batch_meta: dict, findings: dict, sidebar: list = None) -> dict:
+def build_kerry_checklist(out_path: str, batch_meta: dict, findings: dict, sidebar: list = None,
+                          mode: str = None) -> dict:
     """
     Build a Kerry tote-mode QA checklist xlsx.
 
@@ -223,6 +263,11 @@ def build_kerry_checklist(out_path: str, batch_meta: dict, findings: dict, sideb
         dict with status counts and item id -> status mapping for caller's records.
     """
     sidebar = sidebar or []
+    if mode is None:
+        mode = str(batch_meta.get("delivery_mode", "tote")).strip().lower()
+    structure = STRUCTURES.get(mode)
+    if structure is None:
+        raise ValueError(f"unknown delivery mode {mode!r}; expected one of {sorted(STRUCTURES)}")
     wb = openpyxl.Workbook()
     ws = wb.active
     ws.title = "QA Checklist"
@@ -236,7 +281,7 @@ def build_kerry_checklist(out_path: str, batch_meta: dict, findings: dict, sideb
     counts = {"Pass": 0, "Fail": 0, "Flag": 0, "N/A": 0, "Unfilled": 0}
     item_status = {}
 
-    for section in KERRY_TOTE_STRUCTURE:
+    for section in structure:
         r = _section_header(ws, r, section["section"])
         r = _col_header(ws, r)
         for item_id, question in section["items"]:

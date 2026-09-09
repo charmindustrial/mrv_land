@@ -1,0 +1,135 @@
+- generic [active] [ref=f32e1]:
+  - alert [ref=f32e2]
+  - region "0 notifications."
+  - generic [ref=f32e3]:
+    - navigation [ref=f32e5]:
+      - generic [ref=f32e9]:
+        - generic [ref=f32e10]:
+          - link "Isometric Registry" [ref=f32e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f32e27]:
+            - link "Registry" [ref=f32e28] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=f32e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f32e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f32e32]:
+          - generic [ref=f32e143]:
+            - link "Account" [ref=f32e144] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f32e145] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f32e146]: "|"
+          - button "Current user menu" [ref=f32e147] [cursor=pointer]:
+            - generic [ref=f32e148]: Menu
+    - main [ref=f32e37]:
+      - generic [ref=f32e39]:
+        - button "Collapse sidebar" [ref=f32e41] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=f32e45]:
+          - list [ref=f32e47]:
+            - listitem [ref=f32e48]:
+              - link "All projects" [ref=f32e49] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [ref=f32e50]: /
+            - listitem [ref=f32e51]:
+              - link "Charm Bio-oil Geologic Storage" [ref=f32e151] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [ref=f32e54]: /
+            - listitem [ref=f32e55]:
+              - link "All GHG statements" [ref=f32e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - generic [ref=f32e57]: /
+            - listitem [ref=f32e58]: ggs_1KZBX6AX41S029JS
+      - generic [ref=f32e59]:
+        - navigation [ref=f32e152]:
+          - generic [ref=f32e154]:
+            - link "Overview" [ref=f32e155] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=f32e156] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+            - link "Evidence" [ref=f32e157] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/evidence
+          - generic [ref=f32e158]:
+            - generic [ref=f32e159]: Project setup
+            - generic [ref=f32e160]:
+              - link "General" [ref=f32e161] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=f32e162] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=f32e163] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=f32e164] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=f32e165]:
+            - generic [ref=f32e166]: Carbon accounting
+            - generic [ref=f32e167]:
+              - link "LCA" [ref=f32e168] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=f32e169] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=f32e170] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "GHG entry data" [ref=f32e171] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+          - link "Templates" [ref=f32e174] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=f32e75]:
+          - generic [ref=f32e175]:
+            - heading "GHG Statement" [level=1] [ref=f32e177]
+            - generic [ref=f32e178]:
+              - generic [ref=f32e179]:
+                - generic [ref=f32e180]: Draft
+                - generic [ref=f32e184]: 877.45 tCO₂e
+                - generic [ref=f32e186]:
+                  - generic [ref=f32e187]: •
+                  - generic [ref=f32e188]: 01 Jul 2026 to 31 Jul 2026
+              - generic [ref=f32e189]:
+                - button "More actions" [ref=f32e190] [cursor=pointer]
+                - button "Toggle timeline sidebar" [ref=f32e193] [cursor=pointer]
+                - link "Submit" [ref=f32e196] [cursor=pointer]:
+                  - /url: /account/submit-ghg-statement/ggs_1KZBX6AX41S029JS
+          - generic [ref=f32e91]:
+            - tablist [ref=f32e94]:
+              - tab "Details" [selected] [ref=f32e95] [cursor=pointer]
+              - tab "GHG Entries" [ref=f32e97] [cursor=pointer]
+              - tab "Monitoring" [ref=f32e99] [cursor=pointer]
+              - tab "Reporting period emissions" [ref=f32e101] [cursor=pointer]
+              - tab "Sensitivity analysis" [ref=f32e103] [cursor=pointer]
+              - tab "Submissions" [ref=f32e105] [cursor=pointer]
+            - tabpanel "Details" [ref=f32e108]:
+              - generic [ref=f32e109]:
+                - generic [ref=f32e110]:
+                  - generic [ref=f32e111]: GHG Statement ID
+                  - generic [ref=f32e112]: ggs_1KZBX6AX41S029JS
+                - generic [ref=f32e113]:
+                  - generic [ref=f32e114]: Total tonnes removed
+                  - generic [ref=f32e115]: 877.45 tCO₂e
+                - generic [ref=f32e197]:
+                  - generic [ref=f32e198]: Projected supplier allocation
+                  - generic [ref=f32e199]: 833.576 credits
+                - generic [ref=f32e200]:
+                  - generic [ref=f32e201]: Projected buffer pool allocation
+                  - generic [ref=f32e202]: 43.874 credits
+                - generic [ref=f32e118]:
+                  - generic [ref=f32e119]: Project
+                  - link "Charm Bio-oil Geologic Storage" [ref=f32e203] [cursor=pointer]:
+                    - /url: /project/prj_1HZSSWBQM1S08H83
+                - generic [ref=f32e123]:
+                  - generic [ref=f32e124]: Report
+                  - generic [ref=f32e125]:
+                    - img "More info" [ref=f32e204]
+                    - text: —
+                - generic [ref=f32e128]: Verifier
+                - generic [ref=f32e133]:
+                  - generic [ref=f32e135]:
+                    - generic [ref=f32e136]: Verification protocol version
+                    - img "More info" [ref=f32e137]
+                  - link "Bio-oil Geological Storage v1.2" [ref=f32e207] [cursor=pointer]:
+                    - /url: /protocol/bio-oil-geological-storage/1.2
+                - generic [ref=f32e208]:
+                  - generic [ref=f32e210]:
+                    - generic [ref=f32e211]: Baseline protocol version
+                    - img "More info" [ref=f32e212]
+                  - link "Bio-oil Geological Storage v1.0" [ref=f32e216] [cursor=pointer]:
+                    - /url: /protocol/bio-oil-geological-storage/1.0

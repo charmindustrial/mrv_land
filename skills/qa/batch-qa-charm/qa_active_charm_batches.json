@@ -25,9 +25,9 @@
     "na": 1
    },
    "T_re_review_complete": "2026-06-25T21:20:00Z",
-   "re_review_2026_06_25": "Garrett uploaded the batch Ops Notes to the WODO Certify entry and linked it to Mass of Injectant, Carbon Content (alongside lab CoA), Transport Process Mass of Load, WODO Tote Carbon Intensity, WODO Tote Mass (pyrolysis), and Aggregate Distance; the weak 'Charm Inv Bulk Upload March.csv' was removed. Verified LIVE: sources 5 -> 10. All 5 evidence FAILs (4.2/5.4/6.3/7.3/7.6) cleared. Net unchanged 8.12 t. WODO required-evidence matrix defined + registered in audit_attachments.MATRICES; attachment gate + full audit return 0. Standing flags unchanged: 7.1 (3 PPs in one PE component), 7.5 (no PE-mass uncertainty), 8.1 (transport-process diesel 1.954 t with NO BCU offset \u2014 verified live, none added; unlike the AECN W1 entry).",
-   "dropped_findings_2026_06_25": "7.1 (3 PPs in one PE component) DROPPED to Pass: no primary source requires one Certify component per production period. Aggregated component uses a production-mass-weighted blended CI (0.96874) that reconciles exactly to the per-PP sum (10831.49 kg); all 3 PPs captured. The 'one component per PP' rule existed only in the skill's own (unvalidated) scaffolding. | 7.5 and 8.1 also reclassified after reading Bio-oil Geological Storage v1.2: \u00a76.5 permits omitting uncertainty for inputs <1% of net (PE-mass unc = 0.135% of net) -> 7.5 Pass; protocol \u00a78 net-CDR has no reductions/BCU term and no BCU is applied -> 8.1 N/A. Clean batch: 30 Pass / 0 Flag / 2 N/A. All statuses traced to primary sources.",
-   "correction_2026_06_25_max": "Max corrected my over-drop: (1) 7.1 1:1 PP:component rule was MADE UP (correctly dropped, skill fixed). (2) 8.1 BCU rule is REAL and Max-stated (all diesel transport-process must be BCU-offset) \u2014 restored to FAIL, was wrongly N/A. (3) 7.5 - pyrolysis is 133% of net, NOT a <1% input; \u00a76.5 carve-out does not apply; restored to FLAG (uncertainty required+missing). Skill docs + lessons_learned (FC-C11, FC-C12) updated for KB accuracy.",
+   "re_review_2026_06_25": "Garrett uploaded the batch Ops Notes to the WODO Certify entry and linked it to Mass of Injectant, Carbon Content (alongside lab CoA), Transport Process Mass of Load, WODO Tote Carbon Intensity, WODO Tote Mass (pyrolysis), and Aggregate Distance; the weak 'Charm Inv Bulk Upload March.csv' was removed. Verified LIVE: sources 5 -> 10. All 5 evidence FAILs (4.2/5.4/6.3/7.3/7.6) cleared. Net unchanged 8.12 t. WODO required-evidence matrix defined + registered in audit_attachments.MATRICES; attachment gate + full audit return 0. Standing flags unchanged: 7.1 (3 PPs in one PE component), 7.5 (no PE-mass uncertainty), 8.1 (transport-process diesel 1.954 t with NO BCU offset — verified live, none added; unlike the AECN W1 entry).",
+   "dropped_findings_2026_06_25": "7.1 (3 PPs in one PE component) DROPPED to Pass: no primary source requires one Certify component per production period. Aggregated component uses a production-mass-weighted blended CI (0.96874) that reconciles exactly to the per-PP sum (10831.49 kg); all 3 PPs captured. The 'one component per PP' rule existed only in the skill's own (unvalidated) scaffolding. | 7.5 and 8.1 also reclassified after reading Bio-oil Geological Storage v1.2: §6.5 permits omitting uncertainty for inputs <1% of net (PE-mass unc = 0.135% of net) -> 7.5 Pass; protocol §8 net-CDR has no reductions/BCU term and no BCU is applied -> 8.1 N/A. Clean batch: 30 Pass / 0 Flag / 2 N/A. All statuses traced to primary sources.",
+   "correction_2026_06_25_max": "Max corrected my over-drop: (1) 7.1 1:1 PP:component rule was MADE UP (correctly dropped, skill fixed). (2) 8.1 BCU rule is REAL and Max-stated (all diesel transport-process must be BCU-offset) — restored to FAIL, was wrongly N/A. (3) 7.5 - pyrolysis is 133% of net, NOT a <1% input; §6.5 carve-out does not apply; restored to FLAG (uncertainty required+missing). Skill docs + lessons_learned (FC-C11, FC-C12) updated for KB accuracy.",
    "garrett_user_id": "U08JW9HQG5B",
    "max_approved_garrett_delivery": true,
    "T_garrett_notified": "2026-06-25T21:39:51Z",
@@ -75,7 +75,7 @@
    "T0": "2026-06-30T21:14:53 PDT",
    "T_qa_complete": "2026-06-30T21:43:48Z",
    "garrett_user_id": "U08JW9HQG5B",
-   "note": "WODO removal in pre-evidence-linking state (5 sources, no Ops Notes/CoA/Charm Contents linked) \u2014 same pattern as W1 pre-fix. PLUS no WODO CHN this week (45% C placeholder) and embodied distance not allocated. BCU present (8.1 PASS, unlike W1 initial).",
+   "note": "WODO removal in pre-evidence-linking state (5 sources, no Ops Notes/CoA/Charm Contents linked) — same pattern as W1 pre-fix. PLUS no WODO CHN this week (45% C placeholder) and embodied distance not allocated. BCU present (8.1 PASS, unlike W1 initial).",
    "thread_ts": "1782856907.043059",
    "max_approved_garrett_delivery": true,
    "T_max_approved": "2026-06-30T22:01:19Z",
@@ -389,7 +389,14 @@
   {
    "batch_id": "INJ-08-2026-W3",
    "oil_type": "Aqueous (QOWV)",
-   "production_periods": ["PP#8", "November 2025", "February 2026", "March 2026", "April 2026", "PP#7"],
+   "production_periods": [
+    "PP#8",
+    "November 2025",
+    "February 2026",
+    "March 2026",
+    "April 2026",
+    "PP#7"
+   ],
    "reporting_period": "09 Aug 2026 to 15 Aug 2026 (Certify removal window); Ops Notes injection week 2026-08-08 to 2026-08-15",
    "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M0ZD6K9J1S0WPD4/edit",
    "certify_removal_id": "rmv_1M0ZD6K9J1S0WPD4",
@@ -399,7 +406,12 @@
    "net_co2e_t": 4.669,
    "slack_channel": "DLG4H88UF",
    "status": "awaiting_max_review_clean",
-   "status_counts": {"pass": 35, "flag": 1, "fail": 0, "na": 1},
+   "status_counts": {
+    "pass": 35,
+    "flag": 1,
+    "fail": 0,
+    "na": 1
+   },
    "fail_items": [],
    "flag_items": [
     "6.2 single batch-wide Transport Embodied component (2,275.7 mi) is titled 'CO->KS-> LA ... Embodied Emissions', naming only the 4-tote Kansas leg when its value is the whole-batch aggregate (Direct Subtotal A 1,693.3 mi + Kansas Subtotal B 582.4 mi); value fully correct and evidenced, naming/scope-clarity issue only"
@@ -416,7 +428,15 @@
   {
    "batch_id": "INJ-08-2026-W4",
    "oil_type": "Aqueous (QOWV)",
-   "production_periods": ["November 2025", "December 2025", "February 2026", "March 2026", "April 2026", "PP#7", "PP#8"],
+   "production_periods": [
+    "November 2025",
+    "December 2025",
+    "February 2026",
+    "March 2026",
+    "April 2026",
+    "PP#7",
+    "PP#8"
+   ],
    "reporting_period": "Certify removal window 16 Aug 2026 to 22 Aug 2026; Ops Notes injection week 2026-08-15 to 2026-08-22",
    "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M105QK8B1S046XF/edit",
    "certify_removal_id": "rmv_1M105QK8B1S046XF",
@@ -425,8 +445,13 @@
    "n_totes": 42,
    "net_co2e_t": 5.139,
    "slack_channel": "DLG4H88UF",
-   "status": "qa_complete_awaiting_max_review",
-   "status_counts": {"pass": 28, "flag": 2, "fail": 1, "na": 1},
+   "status": "resolved",
+   "status_counts": {
+    "pass": 28,
+    "flag": 2,
+    "fail": 1,
+    "na": 1
+   },
    "fail_items": [
     "5.2 (CO->KS->LA lane) - the 1,221 mi via-Kansas Process distance is the correct value but its sole Certify evidence is the direct-route map ('CO to Basco Routing Map.png'), not the Kansas-leg maps ('Charm CO to Charm KS.png', 'Charm KS to Charm LA.png') the Shipment Tracker's own sheet note names and instructs be attached - neither exists among the removal's 39 sources"
    ],
@@ -445,7 +470,6 @@
    "garrett_channel": "C0944NQH1RP",
    "garrett_thread_ts": "1788281161.949449",
    "T_garrett_notified": "2026-09-01T13:26:01Z",
-   "status": "resolved",
    "independent_reverification_2026_09_01": "Max re-sent the QA request this morning (separately from the session that produced the Garrett notification above); ran it fresh per the no-resume convention, independent of the prior write-up. Converged exactly: same 28 Pass / 2 Flag / 1 Fail / 1 N/A, same three findings (5.2/6.1/6.3), all six Certify components and net 5.139t independently recomputed and reconciled. One correction made: Certify Sources tab reads 38 total live today, not 39 as previously recorded (fixed throughout the checklist and source-read log; does not change either finding). Citation audit (audit_checklist.py) and structural attachment gate (audit_attachments.py) both re-run clean: 0 citation failures, attachment gate PASS. Told Max in Slack this was redundant with the already-in-flight Garrett notification - no action needed from him.",
    "T_independent_reverification": "2026-09-01T16:59:00Z",
    "T_last_nudge": "2026-09-02T00:15:00Z",
@@ -454,7 +478,308 @@
    "re_review_note": "2026-09-02 00:30Z: Garrett replied 'Complete' on 2026-09-01T19:17:53Z. Could NOT independently re-verify in Certify (Playwright tools not available this pass). Three findings to check: 5.2 Fail (Kansas-leg maps missing from Certify Sources), 6.1 Flag (Tanker Truck mislabel), 6.3 Flag (Kansas-leg maps missing from Embodied evidence). Posted to #team-mrv-alerts for Max to spot-check. | 2026-09-03 16:01Z: Independently re-verified ALL THREE findings live in Certify (Playwright working this pass). (1) 5.2 Fail FIXED: both 'Charm CO to Charm KS.png' and 'Charm KS to Charm LA.png' now attached to the 'Distance traveled' datapoint on the CO->KS->LA Transport Process component. (2) 6.1 Flag FIXED: EF datapoint label corrected from 'Tanker Truck' to 'Flatbed Truck'; value unchanged at 0.119794 kgCO2e/km (correct Non-Tanker rate). (3) 6.3 Flag FIXED: Embodied distance datapoint ('QOWV Embodied Transport Distance', 2,554.3 mi) now shows 3 sources including both Kansas-leg maps. Sources tab now shows 43 total (up from 38 at last independent verification). All 6 components and net 5.14 tCO2e confirmed live. Batch clean — closing.",
    "T_closed": "2026-09-03T16:01:00Z",
    "closure_note": "Closed 2026-09-03 by garrett-completion-monitor: Garrett replied 'Complete', all 3 findings independently re-verified FIXED live in Certify. 5.2 Fail (Kansas-leg maps) attached. 6.1 Flag (Tanker Truck label) corrected to Flatbed Truck. 6.3 Flag (Embodied distance evidence) now has 3 sources. Net 5.14 tCO2e confirmed.",
-   "max_report_threads": [{"channel": "C0944NQH1RP", "thread_ts": "1788451360.649539", "posted": "2026-09-03T16:02:40Z"}]
+   "max_report_threads": [
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1788451360.649539",
+     "posted": "2026-09-03T16:02:40Z"
+    }
+   ]
+  },
+  {
+   "batch_id": "INJ-08-2026-W5",
+   "oil_type": "WODO",
+   "production_periods": [
+    "February 2026 (3 totes, CI 0.849896)",
+    "March 2026 (6 totes, CI 0.790065)",
+    "June 2026 (1 tote, CI 1.110536)",
+    "H2 2026 blended CI 0.795241 (8 totes produced Jul 2026)"
+   ],
+   "reporting_period": "Certify removal window 23 Aug 2026 to 29 Aug 2026; Ops Notes injection week 2026-08-22 to 2026-08-29",
+   "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M1KP21WZ1S0TQPG/edit",
+   "certify_removal_id": "rmv_1M1KP21WZ1S0TQPG",
+   "checklist_path": "outputs/qa/batch-INJ-08-2026-W5-WODO/Charm_WODO_QA_Checklist_INJ-08-2026-W5.xlsx",
+   "lcs_use_kg": null,
+   "n_totes": 18,
+   "net_co2e_t": 22.957,
+   "slack_channel": "DLG4H88UF",
+   "status": "closed",
+   "status_counts": {
+    "pass": 28,
+    "flag": 1,
+    "fail": 2,
+    "na": 1
+   },
+   "fail_items": [
+    "4.4 Carbon Content uncertainty: Certify shows +/-0.23647%; expected +/-0.2216% (0.004 x 55.4%) per the 0.4%-relative convention -- 6.7% relative overstatement, unexplained",
+    "6.3 Aggregate Distance datapoint carries only the routing map (1 source) in Certify; the Ops Notes/tracker evidence linked to 5 sibling datapoints on this same removal is not linked here. Value (1,201 mi) is correct and independently reproduces from the Shipment Tracker's live formulas -- evidence-attachment gap, not a valuation error"
+   ],
+   "flag_items": [
+    "5.3 Transport Process Mass-of-Load datapoint titled 'WODO Trip Count Source' -- describes a trip count, not a mass. Value (20,554 kg) correct and reproduces exactly. Same recurring naming-hygiene defect seen on essentially every WODO/QOWV batch this year"
+   ],
+   "T0": "2026-09-10T23:52:58Z",
+   "T_qa_complete": "2026-09-11T00:15:00Z",
+   "T_adversarial_review_complete": "2026-09-11T00:19:00Z",
+   "garrett_user_id": "U08JW9HQG5B",
+   "max_approved_garrett_delivery": true,
+   "note": "All five Certify components independently recomputed from primary sources and reconcile exactly (seq 39.363t, process 3.416t, embodied 0.232t, pyrolysis 16.000t, net 22.957t vs Certify 22.96t displayed). Both EFs match the live 2026 tab and the reporting-period VVB-guidance corrected values. BCU (3.416t) offsets the flatbed transport-process emission exactly via a verified Renewable Diesel TERC retirement certificate (Charm-RetirementCertificate-RD-EACs-20251218.pdf, Amazon.com Services LLC retiring on behalf of Charm Industrial, Dec 18 2025, vintage 2024). All Ops Notes totals reconcile to zero delta across 18 totes. Adversarial review completed with no status changes; one observation noted (the 'Tote Loss Dataset' hyperlink behind the 7.84 kg/tote Standard Loss figure was read by label only, not independently opened). An unintended edit was made to Ops Notes cell N1 during formula cross-checking and undone via Ctrl+Z in the same turn -- content confirmed reverted (N1 empty); disclosed to Max.",
+   "T_max_notified": "2026-09-11T00:21:00Z",
+   "T_max_approved": "2026-09-11T00:25:00Z",
+   "thread_ts": "1789086632.397149",
+   "garrett_channel": "C0944NQH1RP",
+   "garrett_thread_ts": "1789086747.051209",
+   "T_garrett_notified": "2026-09-11T00:25:47Z",
+   "T_garrett_replied": "2026-09-11T00:40:35Z",
+   "garrett_reply": "Garrett replied 2026-09-10 17:40 PDT: '4.4 is currently being fixed by Mangrove. Ops notes added [for 6.3].' Did not address 5.3 flag.",
+   "max_report_threads": [
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1789088734.247229",
+     "posted": "2026-09-11T01:05:34Z"
+    }
+   ],
+   "notes": "2026-09-28: closed per Max ('The first one is done, verified, out of scope.')"
+  },
+  {
+   "batch_id": "INJ-09-2026-W1",
+   "oil_type": "WODO",
+   "production_periods": [
+    "February 2026 (1 tote, CI 0.8498961226)",
+    "March 2026 (4 totes, CI 0.790064533)",
+    "May 2026 (6 totes, CI 0.6328458891)",
+    "July 2026 (2 totes, H2 2026 blended CI 0.795241)"
+   ],
+   "reporting_period": "Certify removal window 30 Aug 2026 to 04 Sep 2026; Ops Notes injection week 2026-08-29 to 2026-09-05",
+   "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M2PJXHXC1S04Y5N/edit",
+   "certify_removal_id": "rmv_1M2PJXHXC1S04Y5N",
+   "checklist_path": "outputs/qa/batch-INJ-09-2026-W1-WODO/Charm_WODO_QA_Checklist_INJ-09-2026-W1.xlsx",
+   "lcs_use_kg": null,
+   "n_totes": 13,
+   "net_co2e_t": 19.081,
+   "slack_channel": "DLG4H88UF",
+   "status": "awaiting_garrett",
+   "status_counts": {
+    "pass": 29,
+    "flag": 2,
+    "fail": 0,
+    "na": 1
+   },
+   "fail_items": [
+    "2.1 tote 301257 gross 1,115 kg (Ops Notes, Q4) vs 1,120 kg (Oil_inventory_data)",
+    "8.1 BCU 2,481 kg exceeds process 2,480.9758 kg"
+   ],
+   "flag_items": [
+    "2.2 57.6 kg standard tare",
+    "7.2 pyrolysis datapoint titles",
+    "7.3 blended H2 CI unlinked"
+   ],
+   "T0": "2026-09-21T22:56:13Z",
+   "T_qa_complete": "2026-09-21T23:11:41Z",
+   "T_adversarial_review_complete": "2026-09-21T23:16:00Z",
+   "garrett_user_id": "U08JW9HQG5B",
+   "max_approved_garrett_delivery": true,
+   "note": "All five Certify components independently recomputed from primary sources and reconcile exactly (seq 29.575 t, process 2.481 t, embodied 0.151 t, pyrolysis 10.220 t, net 19.081 t). Both EFs match the live 2026 tab. Ops Notes totals reconcile to zero delta across 13 totes; 7.84 kg/tote standard loss reproduces from the Tote Loss Dataset (mean 4.7327 + sample SD 3.1052). Tote roster verified per attribute against the BGN & DC Production Bio-Oil Inventory, which confirms COLA_35 = 20 totes (13 WODO + 7 June-2026 QOWV) behind the 0.65 share and 780.65 mi. BCU 2,481 kg offsets the flatbed process emission exactly; certificate downloaded from this removal (src_1KVRCCD7J1S087E3), byte-identical to the W2 copy. Attached Ops Notes copy (2026-09-18) matches the live sheet cell for cell. Neither INJ-08-2026-W5 Fail recurs (carbon uncertainty exactly 0.2292; aggregate distance carries Ops Notes + map); Mass-of-Load datapoint now correctly named. September VVB guidance covers only AECN Rail W3.",
+   "adversarial_review": "Completed 2026-09-21. All 32 items re-challenged; every component, total, uncertainty, share, per-PP emission and CI basis recomputed with zero delta; roster re-checked against all 58 inventory tabs. Reviewer proposed 5.2 -> Flag (map origin reads 'Your location'); rejected on Max's INJ-07-2026-W1 ruling that this same reused map's origin is Fort Lupton, origin wording disclosed in the 5.2 note instead. Adopted: 7.3 -> Flag (unlinked blended CI), 7.2 reworded to lead with the CI match and cross-referenced at 7.4, 2.3 sample-SD wording, 2.4 reference corrected, 8.1 certificate re-downloaded from this removal.",
+   "thread_ts": "1790032799.783359",
+   "T_max_notified": "2026-09-21T23:19:59Z",
+   "T_max_approved": "2026-09-21T23:27:45Z",
+   "garrett_channel": "C0944NQH1RP",
+   "garrett_thread_ts": "1790701015.317169",
+   "T_garrett_notified": "2026-09-21T23:26:51Z",
+   "garrett_thread_ts_prior": "1790033211.781469",
+   "T_garrett_notified_missed_items": "2026-09-29T16:57:08Z",
+   "notes": "2026-09-29: missed items posted to Garrett (2026-09-29T16:57:08Z), thread 1790701015.317169. | 2026-10-05: Garrett replied 'All finished!' — 8.1 BCU verified PASS (BCU 2,480.9758 = process emission exactly in Certify). 2.1 DISPUTED: Garrett says BGN Inventory governs over Oil_inventory_data for tote 301257 gross (1,115 vs 1,120 kg). Max needs to rule on whether the BGN Inventory source hierarchy argument is acceptable or whether the scale record must be checked. 2.2 Flag unchanged (standard tare).",
+   "T_garrett_replied": "2026-10-05T17:00:00Z",
+   "garrett_reply": "Garrett says: 'These are all acceptable discrepancies-BGN Inv takes precedent over oil inv data, rounding error here, red herring.' 8.1 BCU verified matching process in Certify. 2.1 gross discrepancy disputed.",
+   "T_last_nudge": "2026-10-05T12:16:08Z",
+   "max_report_threads": [
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1790889215.151299",
+     "posted": "2026-10-01T21:13:35Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1790978594.689029",
+     "posted": "2026-10-02T22:03:14Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791184568.263919",
+     "posted": "2026-10-05T12:16:08Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791195393.630809",
+     "posted": "2026-10-05T17:16:33Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791216800.551849",
+     "posted": "2026-10-05T16:13:31Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791466345.119059",
+     "posted": "2026-10-08T13:32:25Z"
+    }
+   ]
+  },
+  {
+   "batch_id": "INJ-09-2026-W2-QOWV",
+   "oil_type": "Aqueous (QOWV)",
+   "production_periods": [
+    "July 2025 (PP8)",
+    "September 2025",
+    "October 2025",
+    "December 2025",
+    "April 2026",
+    "May 2026"
+   ],
+   "reporting_period": "September 1 - September 30 2026 RP; Certify removal window 05 Sep 2026 to 11 Sep 2026; Ops Notes injection week 2026-09-05 to 2026-09-12",
+   "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M2TTAZYD1S0BCCS/edit",
+   "certify_removal_id": "rmv_1M2TTAZYD1S0BCCS",
+   "drive_folder_url": "https://drive.google.com/drive/u/0/folders/1Oz-oUtmLMxrMQe7cfyzcLEE5ZUg8qzRh",
+   "checklist_path": "outputs/qa/batch-INJ-09-2026-W2-QOWV/Charm_Aqueous_QOWV_QA_Checklist_INJ-09-2026-W2.xlsx",
+   "n_totes": 38,
+   "lcs_use_kg": null,
+   "net_co2e_t": 4.484,
+   "status": "awaiting_garrett",
+   "fail_items": [
+    "1.2/7.2 H50 blank; re-attach corrected Ops Notes",
+    "3.2/3.5 228470, 228485, 301108 period conflict between Ops Notes/work orders and inventory",
+    "3.4 Truck 1 is two 20-tote trucks; embodied distance 2,281.9 mi",
+    "8.1 BCU 6,454 kg short of 6,454.494 kg"
+   ],
+   "flag_items": [
+    "2.2 57.6 kg standard tare",
+    "7.3 typed CIs H11:H15, H47, H48"
+   ],
+   "status_counts": {
+    "pass": 30,
+    "flag": 2,
+    "fail": 0,
+    "na": 1
+   },
+   "slack_channel": "C0944NQH1RP",
+   "thread_ts": "1790109172.975159",
+   "T_garrett_notified": "2026-09-22T20:32:58Z",
+   "notes": "Deterministic recompute (recompute_qowv.py) returns 18/18 OK, exit 0. Net 4.484 t reproduces from source. | 2026-09-29: missed items posted to Garrett (2026-09-29T16:57:08Z), thread 1790701015.317169. | 2026-10-05: Garrett replied 'All finished!' — 3.4 embodied distance verified PASS (2,281.9 mi in Certify). 1.2/7.2 CI verified PASS (0.1226 populated). 8.1 BCU verified PASS (6,454.494 = process). 3.5 DISPUTED: Garrett says 'All totes labeled by month' but does not address three specific totes (228470, 228485 Oct 2025 in Ops Notes vs PP#10 in inventory; 301108 May 2026 vs April 2026). Max needs to rule. Certify net now 4.54 t (was 4.484). COBB doubled rows: Garrett says COBB not source of truth.",
+   "max_dm_ts": "1790107283.748389",
+   "audit": "audit_checklist.py: 32 rows, 0 failures; attachment gate PASS. recompute_qowv.py: 18/18 OK, exit 0.",
+   "garrett_thread_ts_prior": null,
+   "garrett_thread_ts": "1790701015.317169",
+   "garrett_channel": "C0944NQH1RP",
+   "T_garrett_notified_missed_items": "2026-09-29T16:57:08Z",
+   "T_last_nudge": "2026-10-05T12:16:08Z",
+   "max_report_threads": [
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1790889215.151299",
+     "posted": "2026-10-01T21:13:35Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1790978594.689029",
+     "posted": "2026-10-02T22:03:14Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791184568.263919",
+     "posted": "2026-10-05T12:16:08Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791195393.630809",
+     "posted": "2026-10-05T17:16:33Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791216800.551849",
+     "posted": "2026-10-05T16:13:31Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791466345.119059",
+     "posted": "2026-10-08T13:32:25Z"
+    }
+   ]
+  },
+  {
+   "batch_id": "INJ-09-2026-W4-QOWV",
+   "oil_type": "Aqueous (QOWV)",
+   "production_periods": [
+    "June 2026 (32 totes, CI 0.1236896674)",
+    "July 2026 (8 totes, Jan-Jun 2026 blended CI 0.120947)",
+    "February 2026 (2 totes, CI 0.1330497939)"
+   ],
+   "reporting_period": "September 1 - September 30 2026 RP; Certify removal window 19 Sep 2026 to 25 Sep 2026; Ops Notes injection week 2026-09-18 to 2026-09-25",
+   "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3SG7D701S0HZ1Z/edit",
+   "certify_removal_id": "rmv_1M3SG7D701S0HZ1Z",
+   "drive_folder_url": "https://drive.google.com/drive/u/0/folders/1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0",
+   "checklist_path": "outputs/qa/batch-INJ-09-2026-W4-QOWV/Charm_Aqueous_QOWV_QA_Checklist_INJ-09-2026-W4.xlsx",
+   "n_totes": 42,
+   "lcs_use_kg": null,
+   "status": "closed",
+   "T_closed": "2026-10-08T13:32:00Z",
+   "T0": "2026-10-06T14:34:05Z",
+   "T_gate1_complete": "2026-10-06T14:59:45Z",
+   "slack_channel": "C0944NQH1RP",
+   "garrett_user_id": "U08JW9HQG5B",
+   "notes": "Gates 1-4 complete; run_gates.py green 2026-10-07T10:16:58Z (independent step audit 30/30; three independent reviews, the third covering 2.1, 3.5, 7.1, 7.3 and C.1 after the weighing-record, July-summary and 3.5 additions). Injection tracker first read from the 2026-09-28 export, then live 2026-10-06 19:26 BST after the MRV lead's sign-in; 2.3/3.1/sidebar revised from it and re-reviewed by an independent agent. On hold until the MRV lead returns (PENDING_ON_RETURN.md in the batch folder): Slack DM to Max (slack_send_message is on the ask list), then Garrett post after approval, Drive filing, performance-monitor T5-T10. Rulings 2026-10-07 applied (7.2 BCU scope; 2.3 COBB not a cross-check). Open: 301274 source hierarchy (Garrett: 'BGN Inv takes precedent over oil inv data', unruled); whether to rebuild the Jan-Jun blend from today's summaries (QOWV 0.1201299366 / WODO 0.7870217282, -6.0121 kg on W4). Same before-BCU monthly CIs found in INJ-08-2026-W5, INJ-09-2026-W1 WODO, W2 QOWV, W3 QOWV (cross_batch_bcu_basis_scan.txt). | 2026-10-07 re-review: 4 of 7 FAILs verified PASS. 3 remain open (7.2 CI recalc, 2.3 gross, 4.4 uncertainty). 7.2 needs clarification sent back to Garrett. Posted to #team-mrv-alerts with Max tagged. | 2026-10-08 closure: all 7 FAILs resolved. 2.3 fixed (rev4 B40 1080.0, Certify MoI 34,223.5 kg). 4.4 fixed (uncertainty 0.0316). 7.2 dropped by Max. 5 FLAGs remain (non-blocking). Corrected posted in Garrett thread.",
+   "status_counts": {
+    "pass": 20,
+    "flag": 5,
+    "fail": 7,
+    "na": 1
+   },
+   "fail_items": [
+    "2.3 301274 gross 1036.0 (Ops Notes/BGN inventory) vs 1080.0 (production system weighing)",
+    "3.4 COLA-38 denominator 6 vs 18 (2568.8056 mi vs 3236.0278)",
+    "4.4 carbon uncertainty 0.03523 vs 0.0316",
+    "5.1 tanker process EF 0.0001143 vs flatbed 0.0001384",
+    "6.1 tanker embodied EF vs non-tanker",
+    "7.2 June/February CIs count biomass transport before its BCUs: June 0.1173329448, Feb 0.1230857484 on the ruled basis; production emissions -217.5714 kg",
+    "8.1 BCU 5895 vs process 5895.2448 / 7138.2492"
+   ],
+   "flag_items": [
+    "1.3 no tote-to-truck rows on allocation tab",
+    "2.2 57.6 kg standard tare",
+    "3.1 tag 300020 shared by lots 4746 and LOT00004770",
+    "3.5 no fill date on any 2026 tote; 301210/301215/301223/301228 (June) weighed 2026-07-01 and 301305/301312/301317/301331 (July) weighed 2026-08-31, records place them in their labelled month (June summary N4 and the Jan-Jun blend count the June four); no change to the removal",
+    "7.3 blended CI unlinked; both 'Jul 26 Production Period Summary' files hold June's figures"
+   ],
+   "net_co2e_t": 4.076,
+   "T_gates_green": "2026-10-07T10:16:58Z",
+   "gate_receipt_checklist_sha256": "2174118bcf4f21e80877c98df471e453df7459abc18f2cbcf7c1add7d7c06092",
+   "max_rulings_2026_10_07": {
+    "7.2": "BCUs should be applied to diesel transport, including biomass transport process emissions and handling (not embodied emissions). -> June/February CIs move to after-BCU (I19 = C11*F7): June 0.1173329448, February 0.1230857484; July blend 0.120947 stands; production emissions 5,009.9151 -> 4,792.3437 kg (-217.5714). 7.2 stays Fail with this fix.",
+    "2.3": "On COBB, I defer to Garrett. He works directly with the team that uses COBB and I do not, so if they have changed up he would know that first. -> COBB not a cross-check; 301215 dropped; 301274 (production system 1,080.0 vs Ops Notes/BGN 1,036.0 kg) stays, 2.3 Fail.",
+    "7.2_dropped": "Max: 'You did not ask whether we should go back and re-value already verified statements from earlier in the year, and that is in fact what responding to this would entail. Go apologize to Garrett ... and drop the issue.' Apology + drop posted in Garrett thread 2026-10-07 (ts 1791386771.165939)."
+   },
+   "T_max_notified": "2026-10-07T10:24:33Z",
+   "T_garrett_notified": "2026-10-07T10:24:33Z",
+   "garrett_thread_ts": "1791368645.831699",
+   "garrett_thread_link": "https://charmindustrial.slack.com/archives/C0944NQH1RP/p1791368645831699",
+   "T_garrett_replied": "2026-10-07T14:35:00Z",
+   "garrett_reply": "Garrett replied 'Completed' but asked for clarification on 7.2 ('not clear on what 7.2 is referring to, is this recalcing Production Period CIs?'). 2.3: 'already been internally confirmed.' Tag 300020: 'adjusted manually from direction from ops team, known internal flag.' Verified PASS: 5.1 (flatbed EF 0.1384), 6.1 (non-tanker embodied 0.1928), 3.4 (distance 2,568.81 mi), 8.1 (BCU = process 7.146). Still open: 7.2 (CI not recalculated, weighted CI 0.12362 vs expected ~0.1183), 2.3 (301274 gross disputed), 4.4 (uncertainty unverified).",
+   "max_report_threads": [
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791384090.928019",
+     "posted": "2026-10-07T14:41:30Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791466345.119059",
+     "posted": "2026-10-08T13:32:25Z"
+    }
+   ],
+   "recheck_2026_10_07T1526Z": {
+    "2.3": "fixed: rev4 QOWV!B40 1080.0 kg; Certify Mass of Injectant 34,223.5 kg, pyrolysis mass 40,569.8 kg",
+    "4.4": "fixed: carbon content 7.9 % +/- 0.0316",
+    "7.2": "dropped by Max; but rev4 L18 (June) already changed to 0.1173329448, weighted CI 0.1187155539, Certify 0.118716. With June at 0.1236896674 the weighted CI would be 0.1236199533 (production emissions 5,015.2368 vs 4,816.2663 kg). Revert question put to Max."
+   }
   }
  ],
  "_schema_note": "Each active Charm WODO/Aqueous batch entry follows the same shape as qa_active_batches.json (AECN) and qa_active_kerry_batches.json (Kerry). Charm-specific fields: oil_type ('WODO' or 'Aqueous'), production_periods (array of PP identifiers), lcs_use_kg (Aqueous only; null if not used). Standard fields: batch_id, checklist_path, certify_url, reporting_period, slack_channel, thread_ts, status ('awaiting_garrett' or 'closed'), fail_items, flag_items."

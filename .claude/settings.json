@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/.claude/auto-sync.sh",
+            "command": "bash \"/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/.claude/auto-sync.sh\"",
             "async": true
           }
         ]
@@ -55,6 +55,22 @@
           {
             "type": "command",
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/no_fragment_redelivery_guard.sh\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/final_marker_receipt_guard.sh"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/qa_chat_result_guard.sh"
           }
         ]
       }
@@ -122,6 +138,24 @@
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/input_file_write_guard.sh\""
           }
         ]
+      },
+      {
+        "matcher": "mcp__claude_ai_Slack__slack_send_message|mcp__claude_ai_Slack__slack_send_message_draft|mcp__claude_ai_Slack__slack_schedule_message|mcp__claude_ai_Slack__slack_create_canvas|mcp__claude_ai_Slack__slack_update_canvas|mcp__claude_ai_Gmail__create_draft|mcp__claude_ai_Gmail__update_draft|mcp__claude_ai_Gmail__send_message|mcp__claude_ai_Gmail__reply|mcp__claude_ai_Gmail__forward|mcp__gmail-mrv__draft_email|mcp__gmail-mrv__send_email",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/qa_delivery_gate_guard.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Agent|SendMessage",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/literal_instruction_guard.sh\""
+          }
+        ]
       }
     ],
     "PostToolUse": [
@@ -131,6 +165,15 @@
           {
             "type": "command",
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/research_citation_guard.sh\""
+          }
+        ]
+      },
+      {
+        "matcher": "Agent|SendMessage",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/tier2_sheet_qa_post.sh\""
           }
         ]
       }
@@ -151,6 +194,30 @@
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/numeric_integrity_stop.sh\""
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/precedent_grounding_guard.sh\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/delta_baseline_guard.sh\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/no_fragment_redelivery_guard.sh\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/final_marker_receipt_guard.sh"
+          }
+        ]
       }
     ],
     "SessionEnd": [
@@ -159,16 +226,6 @@
           {
             "type": "command",
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/browser_cleanup_sessionend.sh\""
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "nohup \"$HOME/.garrett-completion-monitor/catchup_check.sh\" >/dev/null 2>&1 &"
           }
         ]
       }

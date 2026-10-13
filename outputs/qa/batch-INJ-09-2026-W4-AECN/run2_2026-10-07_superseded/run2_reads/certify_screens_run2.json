@@ -1,0 +1,258 @@
+{
+ "_run": 2,
+ "_read_utc": "2026-10-07T00:08:05Z",
+ "page": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3Z5YJN51S0SN1Q/edit",
+ "tabs": {
+  "components": {
+   "count": 26,
+   "header": "362.07 tCO2e",
+   "file": "certify_run2/page_initial.yml"
+  },
+  "calculation_view": {
+   "net_t": 362.068,
+   "seq_t": 425.691,
+   "adjustments_t": 22.439,
+   "activities_t": 83.62,
+   "discount_t": 2.443,
+   "datapoints": 42,
+   "file": "certify_run2/calculation_view.yml"
+  },
+  "datapoints": {
+   "count": 43,
+   "file": "certify_run2/datapoints_tab.yml"
+  },
+  "sources": {
+   "count": 72,
+   "private": 50,
+   "public": 22,
+   "names_match_run1": true,
+   "file": "certify_run2/sources_enumeration_run2.json"
+  }
+ },
+ "modals": {
+  "injection_sequestration": {
+   "total_t": 425.691,
+   "inputs": [
+    [
+     "Carbon Content of Bio-oil Injected (per injection)",
+     "44 ±0.176 %",
+     "No sources"
+    ],
+    [
+     "Mass of Injectant (per injection)",
+     "263,834.2716 ±1,015.98 kg",
+     "No sources"
+    ]
+   ],
+   "how": "text snapshot"
+  },
+  "aecn_bio_oil_loss": {
+   "total_t": 0.145,
+   "inputs": [
+    [
+     "AECN Bio-oil Loss - Upstream Emissions",
+     "0.145 tCO2e",
+     "2 sources"
+    ]
+   ],
+   "how": "text snapshot"
+  },
+  "pyro_embodied": {
+   "total_t": 5.667,
+   "inputs": [
+    [
+     "Carbon Intensity - AECN Pyrolysis Embodied",
+     "0.02116 tCO2e/t",
+     "1 source"
+    ],
+    [
+     "Bio-Oil Mass - AECN via Rail",
+     "267,807.11 ±1,015.98 kg",
+     "32 sources"
+    ]
+   ],
+   "how": "screenshot modal_pyro_embodied.png"
+  },
+  "pyro_process": {
+   "total_t": 36.722,
+   "inputs": [
+    [
+     "Carbon Intensity - AECN Pyrolysis Process",
+     "0.13712 tCO2e/t",
+     "1 source"
+    ],
+    [
+     "Bio-Oil Mass - AECN via Rail",
+     "267,807.11 ±1,015.98 kg",
+     "32 sources"
+    ]
+   ],
+   "how": "screenshot pyro_process_check.png"
+  },
+  "aecn_sopor_truck_embodied": {
+   "total_t": 0.264,
+   "inputs": [
+    [
+     "EF Vehicle Embodied - Tanker Truck",
+     "0.23756 kgCO2e/mi",
+     "1 source"
+    ],
+    [
+     "Allocated Distance AECN to Sopor Quebec (truck)",
+     "1,111.70083 mi",
+     "8 sources"
+    ]
+   ],
+   "how": "screenshot modal_aecn_sopor_truck_embodied.png"
+  },
+  "aecn_sopor_truck_process": {
+   "total_t": 3.291,
+   "inputs": [
+    [
+     "EF Truck Transport Fuel Use - Tanker",
+     "0.1143 kgCO2e/(t·mi)",
+     "1 source"
+    ],
+    [
+     "Distance from AECN to Sopor Quebec (truck)",
+     "107.49722 mi",
+     "1 source"
+    ],
+    [
+     "Bio-Oil Mass - AECN via Rail",
+     "267,807.11 ±1,015.98 kg",
+     "32 sources"
+    ]
+   ],
+   "how": "text snapshot"
+  },
+  "baton_rouge_basco_truck_process": {
+   "total_t": 1.2,
+   "inputs": [
+    [
+     "Tanker truck, Northern America, WTW",
+     "0.071 kgCO2e/(km·t)",
+     "1 source"
+    ],
+    [
+     "Distance traveled",
+     "136 mi",
+     "No sources"
+    ],
+    [
+     "Mass of load",
+     "77,228.57 ±290.28 kg",
+     "No sources"
+    ]
+   ],
+   "how": "text snapshot"
+  },
+  "opel_basco_truck_process": {
+   "total_t": 1.313,
+   "inputs": [
+    [
+     "EF Truck Transport Fuel Use - Tanker",
+     "0.1143 kgCO2e/(t·mi)",
+     "1 source"
+    ],
+    [
+     "Distance from Opelousas to B6 (truck)",
+     "42.9 mi",
+     "1 source"
+    ],
+    [
+     "Bio-Oil Mass - AECN via Rail",
+     "267,807.11 ±1,015.98 kg",
+     "32 sources"
+    ]
+   ],
+   "how": "text snapshot"
+  },
+  "opel_br_basco_truck_embodied": {
+   "total_t": 0.462,
+   "inputs": [
+    [
+     "EF Vehicle Embodied - Tanker Truck",
+     "0.23756 kgCO2e/mi",
+     "1 source"
+    ],
+    [
+     "Allocated Distance Opelousas to B6 (truck)",
+     "1,946 mi",
+     "No sources"
+    ]
+   ],
+   "how": "text snapshot"
+  },
+  "rail_process_baton_rouge": {
+   "total_t": 2.677,
+   "inputs": [
+    [
+     "Rail transport, Northern America, WTW",
+     "0.0161 kgCO2e/(km·t)",
+     "1 source"
+    ],
+    [
+     "Distance traveled",
+     "2,153 km",
+     "No sources"
+    ],
+    [
+     "Mass of load",
+     "77,228.57 kg (no ±)",
+     "No sources"
+    ]
+   ],
+   "how": "text snapshot"
+  },
+  "rail_process_opelousas": {
+   "total_t": 10.858,
+   "inputs": [
+    [
+     "EF Rail Transport Fuel Use",
+     "0.02591 kgCO2e/(t·mi)",
+     "1 source"
+    ],
+    [
+     "Distance from Sopor Quebec to Opelousas (rail)",
+     "2,199 mi",
+     "1 source"
+    ],
+    [
+     "Mass of load",
+     "190,578.54 ±725.7 kg",
+     "No sources"
+    ]
+   ],
+   "how": "screenshot modal_rail_process_opelousas.png"
+  },
+  "rail_embodied": {
+   "total_t": 0.47,
+   "inputs": [
+    [
+     "EF Vehicle Embodied -- Railcar",
+     "0.03113 kgCO2e/mi",
+     "1 source"
+    ],
+    [
+     "Allocated Distance Sopor Quebec to Opelousas (rail)",
+     "15,102.69 mi",
+     "2 sources"
+    ]
+   ],
+   "how": "text snapshot"
+  },
+  "bcu_transport_process": {
+   "total_t": 19.339,
+   "inputs": [
+    [
+     "Constant CO2 reduction",
+     "19,339 kgCO2e",
+     "No sources"
+    ]
+   ],
+   "how": "screenshot modal_bcu.png"
+  }
+ },
+ "all_match_graphql_pull": true
+}

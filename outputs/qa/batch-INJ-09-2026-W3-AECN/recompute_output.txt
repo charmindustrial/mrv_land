@@ -1,0 +1,76 @@
+== 1. Scale tickets vs Ops Notes (10 offloads)
+OK  Rail_GPRX5102_8.5.2026_offload_1 net: recomputed 20130.412960 vs 20130.412960 kg (delta +0.000000)
+OK  Rail_GPRX5102_8.5.2026_offload_2 net: recomputed 18951.073760 vs 18951.073760 kg (delta +0.000000)
+OK  Rail_GPRX5102_8.5.2026_offload_3 net: recomputed 20402.568160 vs 20402.568160 kg (delta +0.000000)
+OK  Rail_GPRX5102_8.5.2026_offload_4 net: recomputed 18334.188640 vs 18334.188640 kg (delta +0.000000)
+OK  Rail_SHPX215046_8.7.2026_offload_1 net: recomputed 21055.740640 vs 21055.740640 kg (delta +0.000000)
+OK  Rail_SHPX215046_8.7.2026_offload_2 net: recomputed 20992.237760 vs 20992.237760 kg (delta +0.000000)
+OK  Rail_TILX200231_8.12.2026_offload_1 net: recomputed 20048.766400 vs 20048.766400 kg (delta +0.000000)
+OK  Rail_TILX200231_8.12.2026_offload_2 net: recomputed 19504.456000 vs 19504.456000 kg (delta +0.000000)
+OK  Rail_TILX200231_8.12.2026_offload_3 net: recomputed 19876.401440 vs 19876.401440 kg (delta +0.000000)
+OK  Rail_TILX200231_8.12.2026_offload_4 net: recomputed 18025.746080 vs 18025.746080 kg (delta +0.000000)
+OK  Ops A46 sum of cargo: recomputed 197321.591840 vs 197321.591800 kg (delta +0.000040)
+
+== 2. Ops rollup: sparging, filtration, R&D removal, MOBI
+OK  D46 sparging = C46 x 0.0129: recomputed 2545.448534 vs 2545.448535 kg (delta -0.000001)
+OK  E46 filtration = (C46 - D46) x 0.00196: recomputed 381.761241 vs 381.761241 kg (delta -0.000000)
+OK  K46 R&D removal = 200 gal x 3.785411784 L x 1.192 kg/L: recomputed 902.442169 vs 902.442169 kg (delta +0.000000)
+OK  F46 MOBI = C46 - D46 - E46 - K46: recomputed 193491.939856 vs 193491.939900 kg (delta -0.000044)
+OK  Certify Bio-Oil Mass via Rail = Ops C46: recomputed 197321.590000 vs 197321.591800 kg (delta -0.001800)
+
+== 3. Railcar balances (conservative mass, Failure Category 11)
+OK  GPRX5102: 4 offloads 77818.24352 kg <= loaded 77940 kg (loss 121.75648 kg); back-calc not triggered
+OK  TILX200231: 4 offloads 77455.36992 kg <= loaded 77520 kg (loss 64.63008 kg); back-calc not triggered
+
+== 4. Certify components from their own inputs
+OK  Injection sequestration = mass x C x 3.667: recomputed 282.999147 vs 282.999147 t (delta -0.000000)
+OK  Certify carbon = SGS SR26-05599.002: recomputed 0.397000 vs 0.397000 fraction (delta +0.000000)
+OK  Pyrolysis process (Certify CI): recomputed 27.056737 vs 27.056736 t (delta +0.000000)
+OK  Pyrolysis process (sheet F4 0.1371171258): recomputed 27.056170 vs 27.056736 t (delta -0.000567)
+OK  Pyrolysis embodied (sheet F5): recomputed 4.175325 vs 4.175325 t (delta +0.000000)
+OK  AECN to SOPOR Tanker Truck Transport Process Emissions (own inputs): recomputed 2.424477 vs 2.424477 t (delta -0.000000)
+OK  AECN to SOPOR Tanker Truck Transport Process Emissions (sheet EF): recomputed 2.424477 vs 2.424477 t (delta +0.000000)
+OK  SOPOR to Opelousas Rail Transport Process Emissions (own inputs): recomputed 11.242613 vs 11.242613 t (delta +0.000000)
+OK  SOPOR to Opelousas Rail Transport Process Emissions (sheet EF): recomputed 11.242775 vs 11.242613 t (delta +0.000162)
+OK  Opelousas to Basco - Tanker Truck Transport Process Emissions (own inputs): recomputed 0.967560 vs 0.967560 t (delta +0.000000)
+OK  Opelousas to Basco - Tanker Truck Transport Process Emissions (sheet EF): recomputed 0.967560 vs 0.967560 t (delta +0.000000)
+
+== 5. Allocated distances and embodied legs
+OK  Ops L38 = sum(cargo/loaded) x 107.5 x 3: recomputed 818.795718 vs 818.795718 mi (delta +0.000000)
+OK  Ops M38 = 2199 (GPRX full) + 2199 (TILX full) + 2199 x SHPX W3 fraction: recomputed 5588.312880 vs 5588.312880 mi (delta -0.000000)
+OK  Opelousas-Basco allocated = 42.9 x 2 x 10: recomputed 858.000000 vs 858.000000 mi (delta +0.000000)
+OK  AECN to SOPOR Tanker Truck Transport Embodied Emissions (own inputs): recomputed 0.194488 vs 0.194488 t (delta +0.000000)
+OK  AECN to SOPOR Tanker Truck Transport Embodied Emissions (Ops distance x sheet EF): recomputed 0.194514 vs 0.194488 t (delta +0.000026)
+OK  SOPOR to Opelousas Rail Transport Embodied Emissions (own inputs): recomputed 0.173964 vs 0.173964 t (delta +0.000000)
+OK  SOPOR to Opelousas Rail Transport Embodied Emissions (Ops distance x sheet EF): recomputed 0.173968 vs 0.173964 t (delta +0.000004)
+OK  Opelousas to Basco Tanker Truck Transport Embodied Emissions (own inputs): recomputed 0.203826 vs 0.203826 t (delta +0.000000)
+OK  Opelousas to Basco Tanker Truck Transport Embodied Emissions (Ops distance x sheet EF): recomputed 0.203827 vs 0.203826 t (delta +0.000001)
+
+== 6. Uncertainty inputs
+OK  Mass +/- = 10 offload weighings x 72.57 kg: recomputed 725.700000 vs 725.700000 kg (delta -0.000000)
+OK  Carbon +/- = 0.004 x 39.7 %: recomputed 0.158800 vs 0.158830 % (delta -0.000030)
+
+== 7. Activities, BCU and net
+OK  Activities = pyrolysis + transport: recomputed 46.438990 vs 46.439000 t (delta -0.000010)
+OK  Net = Seq + BCU - Activities - Discount vs Calculation view 249.637: recomputed 249.637427 vs 249.637000 t (delta +0.000427)
+OK  Net vs Certify header (2 decimals): recomputed 249.637427 vs 249.640000 t (delta -0.002573)
+
+== 8. Uncertainty discount (combined one-sigma of sequestration and mass-driven activities)
+OK  Discount = sqrt(sigma_seq^2 + sigma_act^2): recomputed 1.557720 vs 1.557720 t (delta -0.000000)
+
+== FINDINGS (Certify input vs evidence; checklist findings, not arithmetic mismatches)
+FINDING 2.7/7.1/9.1/9.8 Mass of Injectant: Certify 194394.38206 kg vs Ops F46 MOBI 193491.93986 kg; difference 902.44220 kg = K46 R&D removal 902.44217 kg not deducted in Certify
+FINDING 7.1/9.1 gross: Certify 282.999147 t vs internal 193.4919399 t x 0.397 x 3.667 = 281.685373 t (overstated 1.313774 t)
+FINDING 9.8 net: internal 281.685373 + min(BCU, process) 14.634650 - 46.438990 - discount re-derived on corrected mass 1.553904 = 248.327129 t vs Certify Calculation view 249.637 t (delta -1.309871)
+FINDING 9.6 BCU: 14.635000 t vs transport process sum 14.634650175 t (Certify values) / 14.634812457 t (sheet EFs); over-coverage 0.000349825 t / 0.000187543 t
+FINDING 2.5 SHPX215046: W3 offloads 1-2 42047.97840 + W2 offloads 3-4 35652.33120 = 77700.30960 kg vs loaded 77680 kg: over-draw 20.30960 kg; the cut goes on the last load, offload 4 (booked in W2): 14821.22064 kg vs 14841.53024 kg claimed in W2; W3 offloads 1-2 stay at their raw ticket nets
+FINDING 3.5 AECN-SOPOR allocated distance: Certify 818.69019 mi vs Ops L38 818.7957175 mi (delta -0.10553 mi; with 107.49722 mi the Ops method gives 818.77454 mi); emission effect -0.0000251 t
+FINDING 9.2 rail fuel EF: Certify 0.0000259100 vs sheet F10 2.5910374e-05 MT/(t-mi); effect on rail process +0.0001623 t (Certify lower); pyrolysis CI 0.13712 vs sheet 0.1371171258: effect +0.0005669 t (Certify higher)
+
+== CORRECTIONS (one pass, each step cumulative; Certify values unchanged)
+FINDING 8.2 custody losses: GPRX5102 + TILX200231 lost 186.38656 kg between loading and offload; uncharged upstream emissions: pyrolysis 0.029501 + AECN-SOPOR truck 0.002290 + rail 0.010620 = 0.042411 t (Certify factors)
+FINDING corrections A (2.7: deduct K46 R&D removal): cargo 197321.59180 kg; MOBI 193491.93986 kg; gross 281.685373 t; activities 46.438990 t; BCU target = transport process 14634.650 kgCO2e; discount 1.553904 t; net 248.327129 t (Certify 249.637; delta -1.309871)
+FINDING corrections B (A + 8.2: charge upstream emissions of the 186.38656 kg railcar losses): cargo 197321.59180 kg; MOBI 193491.93986 kg; gross 281.685373 t; activities 46.481401 t; BCU target = transport process 14647.560 kgCO2e; discount 1.553904 t; net 248.297628 t (Certify 249.637; delta -1.339372)
+FINDING corrections C (B + 2.3: KL720 standard empty 29,645 lb on TILX200231 offload 2): cargo 197319.32384 kg; MOBI 193489.70554 kg; gross 281.682120 t; activities 46.480872 t; BCU target = transport process 14647.392 kgCO2e; discount 1.553894 t; net 248.294746 t (Certify 249.637; delta -1.342254)
+
+0 arithmetic mismatch(es)

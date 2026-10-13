@@ -1,0 +1,41 @@
+{
+ "_run": 2,
+ "searched_utc": "2026-10-07T01:06:28Z",
+ "purpose": "rail-distance evidence for SOPOR to Baton Rouge (2,152 mi in report v1.7; Certify 2,153 km, no sources)",
+ "queries": [
+  {
+   "query": "(title contains 'Baton Rouge' or title contains 'RailLogix' or title contains 'Carville' or title contains '2152' or title contains '2,152' or fullText contains 'RailLogix') and modifiedTime > '2026-09-01T00:00:00Z'",
+   "hits": [
+    "RailLogix (Carville LA) to Basco B6 Truck Route - 136 mi.png (truck route)",
+    "Rail Logix Lessons Learned (road routes only)",
+    "INJ-09-2026-W4 Ops Notes",
+    "weekly ops reports, daily orders, meeting notes, Baton Rouge case-study PDFs",
+    "QA working text exports created 2026-10-06 (bzux2m7nc.txt, b9zhj99g0.txt, butvbstc7.txt, page-0N.jpg)"
+   ],
+   "rail_distance_evidence_found": false
+  },
+  {
+   "query": "(title contains 'SOPOR' or title contains 'Rail Route' or title contains 'rail route' or title contains 'Baie' or title contains 'Watco') and modifiedTime > '2026-09-10T00:00:00Z'",
+   "hits": [
+    "RailLogix truck-route PNG",
+    "Aug26 GPRX5139 SOPOR Transload Spill photo (x2)"
+   ],
+   "rail_distance_evidence_found": false
+  },
+  {
+   "query": "fullText contains '2,152' or fullText contains '2152 mi' or fullText contains '2152 miles' or fullText contains '2,152 miles'",
+   "hits": [
+    "run-1 QA checklist text/page exports (2026-10-06)",
+    "BOL 2152-T Pickup 4.24.pdf (2025 truck BOL number, not a distance)",
+    "Billing Doc 2152-T.PDF",
+    "INJ-09-2026-W4 Ops Notes (K10 2152)",
+    "unrelated files"
+   ],
+   "rail_distance_evidence_found": false
+  }
+ ],
+ "items_found": [],
+ "negative_check_tokens": [
+  "rail-distance record found"
+ ]
+}

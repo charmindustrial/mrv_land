@@ -1,0 +1,59 @@
+{
+ "batch_id": "INJ-09-2026-W4::Rail_SHPX215079_8.4.2026_offload_3",
+ "_schema_version": "1.0",
+ "offload": "offload_3",
+ "railcar": "SHPX215079",
+ "scale_tickets": {
+  "full_ticket": {
+   "gross_weight_lb": 75800
+  },
+  "empty_ticket": {
+   "gross_weight_lb": 29200
+  },
+  "computed_net_lb": 46600,
+  "computed_net_kg": 21137.3872
+ },
+ "ops_notes": {
+  "bols_into_railcar": [
+   {
+    "bol": "2453-R",
+    "mass_MT": 25.99
+   },
+   {
+    "bol": "2454-R",
+    "mass_MT": 25.91
+   },
+   {
+    "bol": "2455-R",
+    "mass_MT": 25.97
+   }
+  ],
+  "total_railcar_loaded_MT": 77.87,
+  "offload_table": [
+   {
+    "id": "Rail_SHPX215079_8.4.2026_offload_1",
+    "cargo_kg": 21799.63152,
+    "_from": "W2 log"
+   },
+   {
+    "id": "Rail_SHPX215079_8.4.2026_offload_2",
+    "cargo_kg": 20611.22048,
+    "_from": "W2 log"
+   },
+   {
+    "id": "Rail_SHPX215079_8.4.2026_offload_3",
+    "cargo_kg": 21137.3872
+   },
+   {
+    "id": "Rail_SHPX215079_8.4.2026_offload_4",
+    "cargo_kg": 14321.7608
+   }
+  ]
+ },
+ "cobb": {
+  "row_id_at_qa": 3732,
+  "batch_id_col_a": "INJ-09-2026-W4_bio_oil",
+  "offloaded_quantity_kg": 21137.3872
+ },
+ "_note": "Per-offload input built from the W4 source-read log; cargo_kg = Ops 'AECN Rail' F (net) less J (Uncertainty Adjustment); total_railcar_loaded_MT = sum of BOL 'Qty shipped' read from the BOL images"
+}

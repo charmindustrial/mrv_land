@@ -1,0 +1,67 @@
+- dialog "Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions" [active] [ref=f165e589]:
+  - generic [ref=f165e590]:
+    - generic [ref=f165e591]:
+      - generic [ref=f165e593]:
+        - button "Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions" [ref=f165e596] [cursor=pointer]
+        - generic [ref=f165e597]:
+          - generic [ref=f165e598]: 0.462 tCO₂e
+          - generic [ref=f165e600]: 0.13%
+      - button "Toggle timeline sidebar" [ref=f165e602] [cursor=pointer]
+      - button "Close" [ref=f165e605] [cursor=pointer]
+    - generic [ref=f165e609]:
+      - generic [ref=f165e610]:
+        - generic [ref=f165e611]: Inputs
+        - grid "Input list" [ref=f165e612]:
+          - row "Distance emission factor" [ref=f165e613]:
+            - gridcell "Distance emission factor Emissions Factor - Vehicle Embodied Emissions - Tanker Truck 0.23756 kgCO₂e/mi 1 source Deselect datapoint" [ref=f165e614]:
+              - generic [ref=f165e615]:
+                - generic [ref=f165e616]: Distance emission factor
+                - generic [ref=f165e619]:
+                  - button "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck 0.23756 kgCO₂e/mi 1 source" [ref=f165e624] [cursor=pointer]:
+                    - generic [ref=f165e625]: Emissions Factor - Vehicle Embodied Emissions - Tanker Truck
+                    - generic [ref=f165e628]:
+                      - generic [ref=f165e629]: "0.23756"
+                      - text: kgCO₂e/mi
+                    - button "1 source" [disabled] [ref=f165e631]
+                  - button "Deselect datapoint" [ref=f165e635] [cursor=pointer]
+          - row "Distance traveled" [ref=f165e638]:
+            - gridcell "Distance traveled Allocated Distance Opelousas to B6 (truck) 1,946 mi No sources Deselect datapoint" [ref=f165e639]:
+              - generic [ref=f165e640]:
+                - generic [ref=f165e641]: Distance traveled
+                - generic [ref=f165e644]:
+                  - button "Allocated Distance Opelousas to B6 (truck) 1,946 mi No sources" [ref=f165e649] [cursor=pointer]:
+                    - generic [ref=f165e650]: Allocated Distance Opelousas to B6 (truck)
+                    - generic [ref=f165e653]:
+                      - generic [ref=f165e654]: 1,946
+                      - text: mi
+                    - generic [ref=f165e656]: No sources
+                  - button "Deselect datapoint" [ref=f165e660] [cursor=pointer]
+      - generic [ref=f165e663]:
+        - generic [ref=f165e664]: Description
+        - button "+ Add" [ref=f165e666] [cursor=pointer]
+      - generic [ref=f165e668]:
+        - generic [ref=f165e669]: Blueprint details
+        - generic [ref=f165e670]:
+          - generic [ref=f165e671]:
+            - generic [ref=f165e672]: Blueprint
+            - generic [ref=f165e675]:
+              - link "Distance-based emissions" [ref=f165e676] [cursor=pointer]:
+                - /url: https://docs.isometric.com/certify/component-blueprint-library#distance-based-emissions
+              - generic [ref=f165e677]: "->"
+          - generic [ref=f165e678]:
+            - generic [ref=f165e679]: Key
+            - generic [ref=f165e681]: distance_based_ci_emissions
+          - generic [ref=f165e682]:
+            - generic [ref=f165e683]: Gas type
+            - generic [ref=f165e685]: CO₂e
+          - generic [ref=f165e686]:
+            - generic [ref=f165e687]: Calculation
+            - generic [ref=f165e690]:
+              - generic [ref=f165e691]: output
+              - generic [ref=f165e693]: =
+              - generic [ref=f165e694]: distance
+              - generic [ref=f165e696]: "*"
+              - generic [ref=f165e697]: carbon_intensity
+    - generic [ref=f165e700]:
+      - button "Delete" [ref=f165e701] [cursor=pointer]
+      - button "Done" [ref=f165e702] [cursor=pointer]

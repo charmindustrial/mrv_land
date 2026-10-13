@@ -43,7 +43,7 @@ Kerry batches use `consumed_lot` pattern `kc_NNNN` and have a `delivery_mode` fi
         {
           "row": 84,
           "section": "BCU ≠ Transport Process Emission",
-          "what_to_verify": "BCU reduction must equal or exceed transport process emission. Previous values: process=4.623, BCU=4.556, shortfall=0.067",
+          "what_to_verify": "BCU reduction must equal transport process emission, never exceed it. Previous values: process=4.623, BCU=4.556, shortfall=0.067",
           "certify_location": "Components tab → Activities/Reductions → Bio-oil transport"
         }
       ],
@@ -68,6 +68,11 @@ Kerry batches use `consumed_lot` pattern `kc_NNNN` and have a `delivery_mode` fi
 - `status` is one of: `awaiting_garrett`, `re_reviewing`, `blocked_external`, `closed`. **This must always be one of these four literal values — never a free-text sentence.** Sweeps match on the literal string, so a narrative status (e.g., "Delivered to Max, six flags still open...") is invisible to this skill and will never get picked up. Put narrative context in a `notes` field instead.
 - `blocked_on` (only present when `status: "blocked_external"`) — states precisely what external event is being waited on and how to tell when it's cleared (e.g., "GHG statement ggs_XXX total no longer matches stale figure Y")
 - When adding a new batch, populate all fields from the QA workflow context. The more detail in `what_to_verify`, the better the re-review will be.
+- **`T_garrett_notified` (ISO8601 UTC) is required, not optional, on every entry.** It is the only legitimate basis for computing elapsed time since notification. If an entry is missing it, do not estimate or guess a plausible-sounding elapsed time from context — treat the batch as **not nudge-eligible** and say so explicitly (e.g. "NOT NUDGE-ELIGIBLE: INJ-08-2026-W5-QOWV — no T_garrett_notified recorded, cannot compute elapsed time"). A real incident (2026-09-10) had this monitor report "7h since notification" for a batch notified 40 minutes earlier, with no stored timestamp behind the number — the figure was fabricated, and the resulting nudge fired on a batch Garrett had already replied "Completed" to two and a half minutes earlier. Never repeat this: no stored timestamp means no nudge, full stop.
+
+## Hard Rule — Never Nudge Without a Fresh Check
+
+Before posting ANY nudge/reminder for a batch, re-read that batch's actual Garrett thread (checking all populated thread-reference fields — `garrett_slack_channel`/`garrett_thread_ts`, `slack_channel`/`thread_ts`, or nested `garrett_slack.dm_channel`/`garrett_slack.thread_ts`, whichever shape the entry uses) **immediately before sending**, not from a state snapshot read earlier in the pass. If that thread has ANY reply from Garrett you have not yet processed — even one that arrived seconds ago — stop, process it as a completion signal or a substantive reply per the Monitoring Procedure below, and do not send the nudge. A pass that reads the thread once at the start and acts on a nudge decision several minutes later without re-checking is exactly the bug that caused a duplicate, unnecessary nudge to go out on 2026-09-10 after Garrett had already replied. "I checked earlier in this pass" is not the same as "I checked right before sending" — only the latter counts.
 
 ## Monitoring Procedure
 
@@ -118,7 +123,7 @@ Open the batch's `certify_url` with `mcp__playwright__browser_navigate`. For eac
 3. Evaluate whether the issue has been corrected, using the criteria in `what_to_verify`
 
 **Common verification patterns:**
-- **BCU vs. process emission mismatches:** Extract both values from the Components tab. The BCU reduction (tCO₂e) must equal or exceed the corresponding process emission (tCO₂e). This is the core rule from the knowledge base.
+- **BCU vs. process emission mismatches:** Extract both values from the Components tab. The BCU reduction (tCO₂e) must equal the corresponding process emission (tCO₂e) and never exceed it; over-coverage of any size stays a FAIL. This is the core rule from the knowledge base. (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.)
 - **Generic filenames (FLAG-level, not FAIL):** Check the Sources tab for whether the file has been renamed to something descriptive (not a screenshot timestamp or auto-generated name). Note: generic filenames are a process hygiene issue and should always be classified as a Flag, not a Fail.
 - **Missing or incorrect values:** Compare current Certify values against what the checklist expected.
 - **Data entry corrections:** Verify the new value matches what the QA finding specified.
@@ -153,6 +158,14 @@ For each FAIL/FLAG item that was re-reviewed:
 - Only FAIL rows should have red fill (all 4 columns)
 - Everything else should have no fill
 - Section header rows preserved with their original formatting
+
+**Then run the delivery lock before any Slack or Gmail message about the batch**
+(added 2026-09-29): `python3 .claude/skills/batch-qa-charm/run_gates.py outputs/qa/batch-<ID>`.
+Editing the checklist breaks its receipt, and `qa_delivery_gate_guard.sh` blocks every
+message naming the batch until the lock prints ALL GATES GREEN on the updated file. The
+lock requires the batch's required-step record and its independent audit for every oil
+type. If the lock names a missing or unevidenced step, do that step and record it; a
+batch QA'd before the record existed gets its record completed, not skipped.
 
 ### 4. Notify Max
 
@@ -213,7 +226,7 @@ This registration step is what makes the monitoring generic — no need to creat
 ## Key References
 
 - **Knowledge base:** `Charm_Isometric_Knowledge_Base.md` in MRV Expert workspace
-- **BCU rule (Section 13B):** BCU quantity (tCO₂e) must equal or exceed the corresponding transport process emission (tCO₂e)
+- **BCU rule (Section 13B):** BCU quantity (tCO₂e) must equal, and never exceed, the corresponding transport process emission (tCO₂e)
 - **Garrett's user ID:** U08JW9HQG5B
 - **Max's user ID:** UL2SL4H5H
 - **Garrett's DM channel:** D08KEFVRJDP

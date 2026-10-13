@@ -160,6 +160,28 @@ Do NOT raise either as a checklist FAIL or FLAG. If they surface in Ops Notes or
 
 ---
 
+## FC-C13 — Production CI counts biomass transport before its BCUs (INJ-09-2026-W4-QOWV 7.2)
+
+**The rule (Max-stated, 2026-10-07):** "BCUs should be applied to diesel transport, including biomass transport process emissions and handling (not embodied emissions)."
+
+**The failure:** the live monthly Production Period Summaries put biomass transport into the consolidated inventory at its total, before BCUs (`I19 = C9*F7`, "Total Emissions"), while the BCUs on process and log handling sit at C10. The CI they produce, copied into the Ops Notes monthly constants, counts emissions the BCUs already offset. The Jan–Jun 2026 blended CI (V2 workbook) was built on the right basis (`I19 = C11*F7`, "Remaining Emissions to Allocate" = embodied only). On W4 the June and February totes overstated production emissions by 219.64 kg (package versions) or 223.58 kg (linked sheets, blend rebuilt); the same constants appear in INJ-08-2026-W5 (QOWV and WODO), INJ-09-2026-W1 WODO, W2 QOWV and W3 QOWV. Local copies of the Jul-Dec 2025 summaries use `C9*F7` too; on the 2026-10-06 Ops Notes exports that reaches the 2025 QOWV product in W5, W2 and W3 (estimate about 726 kg).
+
+**Mitigation / detection:** for every monthly CI a batch uses, open its summary and read the I19 formula. `C11*F7` (after BCUs) is correct; `C9*F7` is a FAIL on 7.2 whenever the month has BCUs applied to biomass transport (C10 > 0); with C10 = 0 the two formulas give the same figure (e.g. May 2026, C9 = 0). In each summary C10 = SUM(C5,C7) (process + handling) and C11 = C9-C10 (embodied). Recompute the CI with I19 = C11 and quantify the change. Embodied biomass transport is never offset and must stay in. Two versions of the Jan-Jun 2026 summaries exist: the Google Sheets the Ops Notes link, and the July RP package versions reworked 2026-08-11 that the blend was built from; check which one a CI comes from.
+
+**Scope limit (Max, 2026-10-07):** the rule above does NOT reach back into CIs already used in verified statements. The W4 7.2 finding asked to recalculate the June and February 2026 CIs, which had already gone through verification earlier in the year. I had put the rule to Max as a general question about BCUs and never said that applying it meant re-valuing verified statements. He dropped the finding: "You did not ask whether we should go back and re-value already verified statements from earlier in the year, and that is in fact what responding to this would entail." Raise this check only on a CI not yet used in any verified statement, and when asking Max for a ruling, state what the ruling would force before asking.
+
+---
+
+## FC-C14 — Using COBB as a cross-check (INJ-09-2026-W4-QOWV 2.3)
+
+**The rule (Max-stated, 2026-10-07):** "On COBB, I defer to Garrett. He works directly with the team that uses COBB and I do not, so if they have changed up he would know that first." Garrett's recorded position (#team-mrv-alerts, 2026-10-05): "COBB is not source of truth heree" (W2 QOWV) and "cobb not source of truth here" (W3 QOWV).
+
+**The failure:** a conflict between the Ops Notes and the injection tracker's COBB tabs (consumed quantity, injection entries) was graded as a Fail. COBB is not a record that can contradict the ledger.
+
+**Mitigation / detection:** read COBB if the step list asks for the injection record, but do not raise or grade a finding on COBB alone. A conflict counts only when a source of record disagrees: Ops Notes, the BGN inventory (Q4 production tab), or the production system's own weighing (Oil_inventory_data, Historical Tote Record). The order among those three is not yet ruled; Garrett's view is "BGN Inv takes precedent over oil inv data" (routed to Max 2026-10-05).
+
+---
+
 ## Cross-cutting FCs reused from AECN / Kerry
 
 These apply identically to Charm batches; see the AECN/Kerry skills' `lessons_learned.md` for full text:

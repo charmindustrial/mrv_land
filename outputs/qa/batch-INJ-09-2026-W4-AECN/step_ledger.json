@@ -1,0 +1,138 @@
+{
+ "batch_id": "INJ-09-2026-W4-AECN",
+ "run": 3,
+ "steps": {
+  "P1_knowledge_base": {
+   "done": true,
+   "evidence": "[log:preflight.knowledge_base] Read tool 01:10:32Z (lines 1 onward) and 01:10:38Z (remainder), all 1,300 lines, before the first batch source (Drive search for the VVB guidance at 01:11:53Z)"
+  },
+  "P2_lessons_learned": {
+   "done": true,
+   "evidence": "[log:preflight.lessons_learned] Read tool 01:10:33Z, whole file, Failure Categories 1-14"
+  },
+  "P3_checklist_structure": {
+   "done": true,
+   "evidence": "[log:preflight.checklist_structure] Read tool 01:10:34Z, whole file"
+  },
+  "P4_failure_categories_printed": {
+   "done": true,
+   "evidence": "[log:preflight.failure_categories_printed] [log:preflight.failure_categories_printed_utc] the 14-item list was posted as a chat message at 01:11:11Z and re-sent whole at 01:11:27Z (hook re-delivery), before the first batch source (Drive search for the VVB guidance at 01:11:53Z); its presence in the session record was confirmed at 01:11:47Z"
+  },
+  "P5_registry_checked": {
+   "done": true,
+   "evidence": "[log:registry_check] skills/qa/batch-qa-aecn/qa_active_batches.json read 01:10:43Z and the W4 entry pulled 01:10:50Z, before Gate 1: run-1 entry found ('gates_blocked_pending_max_step_exceptions'); run 3 starts fresh"
+  },
+  "P6_inputs_confirmed": {
+   "done": true,
+   "evidence": "[log:inputs_confirmed] batch ID and Drive folder 1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0 from the request; removal rmv_1M3Z5YJN51S0SN1Q taken from the registry entry at 01:10:50Z and re-confirmed by Isometric ListProjectGhgEntries at 01:22:52Z (three removals dated 2026-09-19 to 2026-09-25: AECN, Kerry, QOWV); AECN-only basis in [log:inputs_confirmed.aecn_only_basis]"
+  },
+  "T0_stamped_monitor_triggered": {
+   "done": true,
+   "evidence": "batch_timestamps.json T0_initiation 2026-10-07T01:10:10Z, stamped by 'date -u' at the first step of run 3 (01:10:09Z); the performance monitor was started as an independent agent at 01:10:29Z ('Performance monitor run-3 kickoff'), before any reading, and it wrote row 18 of outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx at 01:15:20Z"
+  },
+  "G1_0_vvb_guidance_full": {
+   "done": true,
+   "evidence": "[log:vvb_guidance.read_order] [log:vvb_guidance._primary_source_opened] [log:vvb_guidance.quote_br_method] Drive search title contains 'VVB Guidance' 01:11:53Z, export 01:11:58Z, saved as source_exports/VVB_Guidance_September_1-30_run3.txt 01:12:09Z and read in full 01:12:12Z; the first batch source (W4 Drive folder copy) came after it at 01:12:23Z; verbatim quotes logged under vvb_guidance.quote_*"
+  },
+  "G1_1_scale_tickets": {
+   "done": true,
+   "evidence": "[log:scale_tickets.offloads] [log:scale_tickets.pair_comparison] all 28 W4 ticket images (14 full, 14 empty) opened with the Read tool 01:12:51Z-01:15:31Z and the four W2 SHPX215079 tickets 01:16:12Z-01:16:14Z; gross, date, tractor, trailer, scale and location per ticket in run3_reads/scale_tickets_run3.json"
+  },
+  "G1_2_bols": {
+   "done": true,
+   "evidence": "[log:bols.per_bol] [log:bols.per_railcar] all 12 BOLs opened page by page as images 01:17:25Z-01:19:36Z (2497-R re-read 01:18:54Z); BOL number, form, ship date and every mass field are recorded per bill in run3_reads/bol_reads_run3.json. Origin, destination and carrier are printed identically on every bill's page 1 and are entered once in build_source_reads.py (applied to all 12 in bols.per_bol), not per bill in that file; page 1 of 2497-R and 2498-R re-read 10:27:21Z and 10:27:29Z shows them: From 'BioEnergie AE Côte-Nord Canada, 175 Portage des Mousses, Port-Cartier, Québec, Canada G5B 2V9', Ship To 'CHARM Industrial Inc. /WATCO, Société du port ferroviaire de Baie-Comeau, 18, Route Maritime, Baie-Comeau, Québec, Canada, G4Z 2L6', Carrier Name 'Transport Baie-Comeau'"
+  },
+  "G1_3_lab_results": {
+   "done": true,
+   "evidence": "[log:lab_results.certificate] [log:lab_results.carbon_pct] [log:lab_results.acid_number_mgKOH_g] SGS certificate SR26-05719 opened 01:20:22Z, page 2 for 9-2026-W4-AECN: certificate, sample dates, C, H, N, viscosity, acid number, density in run3_reads/sgs_coa_run3.json"
+  },
+  "G1_4_ops_notes": {
+   "done": true,
+   "evidence": "[log:ops_notes.rollup] [log:ops_notes.offload_table] [log:ops_notes.railcars] [log:ops_notes.constants] live sheet exported 01:20:47Z and every tab dumped (run3_reads/ops_notes_dump_run3_all_tabs.txt, 279 lines); lines 1-269 (nine tabs, every AECN figure) read 01:21:22Z-01:21:25Z; the tenth tab, 'Whole Oil Shipments & EE Alloca' (lines 270-279), read 10:27:22Z: labelled 'INJ-09-2026-W3 - Whole Oil Shipments & EE Mileage', no totes, no AECN data. Re-exported 08:25Z after the 07:26:58Z edit, which changed 17 cells: 7 on the Kerry tab and 10 on the Summary tab (Kerry rows and totals), none on the AECN tabs [log:ops_notes.change_since_first_read]"
+  },
+  "G1_4_cell_comments": {
+   "done": true,
+   "evidence": "[log:ops_notes.cell_comments] [log:ops_notes.cell_comments_check] workbook loaded with openpyxl without data_only; every cell comment on every tab dumped in run3_reads/ops_notes_dump_run3_all_tabs.txt (01:21:22Z) and checked again on the 08:25Z re-export"
+  },
+  "G1_5_cobb_row_verified": {
+   "done": true,
+   "evidence": "[log:cobb.tab] [log:cobb.batch_id_col_a] [log:cobb.row_id_at_qa] [log:cobb.batch_id_col_a_matches_target] COBB export 01:22:05Z; tab 'Basco Injection -- COBB', column A 'INJ-09-2026-W4_bio_oil' on rows 3724-3737 checked before any value was read (01:22:12Z-01:22:31Z); rows in run3_reads/cobb_rows_run3.json"
+  },
+  "G1_6_certify_four_tabs": {
+   "done": true,
+   "evidence": "[log:certify.components] [log:certify.calc_view] [log:certify.datapoints_tab_count] Certify page opened read-only: Components 01:24:51Z, Calculation view 01:25:22Z, Datapoints 01:26:05Z (43 rows), Sources 01:26:34Z; captures certify_run3/components_tab.yml, certify_run3/calculation_view.yml, certify_run3/datapoints_tab.yml, certify_run3/sources_tab.yml"
+  },
+  "G1_6_sources_tab_total": {
+   "done": true,
+   "evidence": "[log:certify.certify_sources_tab_total] [log:certify.certify_sources_enumeration] 72 sources with file name, type and linked datapoints and components; certify_run3/certify_sources_enumeration_run3.json"
+  },
+  "G1_mass_chain_script": {
+   "done": true,
+   "evidence": "[log:mass_chain.counts] [log:mass_chain.non_pass] [log:mass_chain.fc11_flag_explained] the mass-chain script (skills/qa/_lab/batch-qa-aecn-deterministic/scripts/compute_mass_chain) run on all 14 offloads (started 02:25:28Z, finished 08:23:31Z after the machine slept): PASS 73, SKIP 10, FLAG 1, no computation FAIL; mass_chain/summary.json"
+  },
+  "G1_registry_updated": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-aecn/qa_active_batches.json W4 entry updated at the Gate 1 exit 08:24:07Z (status run3_gate1_complete, T0, T1, Gate 1 summary, run history) and again at T2 08:39:42Z [log:registry_check]"
+  },
+  "G2_0_findings_routed": {
+   "done": true,
+   "evidence": "[log:mass_chain.non_pass] [log:mass_chain.fc11_flag_explained] mass_chain/summary.json read at the Gate 1 exit check (08:23:50Z); the one policy FLAG (SHPX215079 offload 4, ticket 14,714.52448 kg against Ops cargo 14,321.7608 kg) is the last-offload cut, checked against the railcar balance and carried in checklist rows 2.5 and 8.3; the 14 cobb_offload_consistency PASS results are cited in row 5.4; the 10 SKIP results are the checks that do not apply to non-closing offloads"
+  },
+  "G2_1_ticket_pairs_compared": {
+   "done": true,
+   "evidence": "[log:scale_tickets.certify_vs_drive] [log:scale_tickets.pair_comparison] [log:scale_tickets.pairs_all_match] all 28 ticket files downloaded from Certify Sources 02:07Z-02:09:57Z (certify_run3/files/_download_manifest_run3.json) and compared byte for byte with the Drive copies (certify_run3/certify_vs_drive_compare_run3.json); tractor and trailer numbers compared for each full/empty pair"
+  },
+  "G2_2_cobb_values": {
+   "done": true,
+   "evidence": "[log:cobb.tab] [log:cobb.row_id_at_qa] [log:cobb.offloaded_quantity_kg] [log:cobb.origin_quantity_kg] [log:cobb.injection_completion_date] tab 'Basco Injection -- COBB', rows 3724-3737 (latest import 2026-10-05 12:24:22); all 14 offloaded quantities, origin quantities and completion date 2026-09-25 recorded in run3_reads/cobb_rows_run3.json"
+  },
+  "G2_3_component_modals": {
+   "done": true,
+   "evidence": "[log:certify.modal_reads] all 13 AECN component windows opened one at a time 01:26Z-01:50Z (truck embodied and sequestration re-read 01:50:25Z); INPUTS and every +/- recorded in certify_run3/modal_*.txt and compared with 72.57 kg per weighing and 0.004 x carbon in checklist rows 7a.1 and 7a.2"
+  },
+  "G2_ef_live_sheet": {
+   "done": true,
+   "evidence": "[log:standard_efs._primary_source_opened] [log:standard_efs.row6_tanker_fuel] [log:standard_efs.row10_rail_fuel] live Standard Emission Factors sheet exported 02:13Z (source_exports/Standard_Emission_Factors_export_run3_2026-10-07T0213Z.xlsx), 2026 tab read cell by cell at full precision (run3_reads/standard_ef_2026_tab_run3.txt)"
+  },
+  "G2_carbon_range_source": {
+   "done": true,
+   "evidence": "[log:carbon_range._primary_source_opened] [log:carbon_range.mean_C_pct] [log:carbon_range.n] the MRV_AECN_Analysis workbook exported (source_exports/MRV_AECN_Analysis.xlsx_run3.xlsx) and its Summary Statistics read at 02:15Z"
+  },
+  "G2_bcu_sources": {
+   "done": true,
+   "evidence": "[log:bcu_sources._primary_source_opened] [log:bcu_sources.certificate_quote] [log:bcu_sources.protocol_s4_2_1_eq5] BCU certificate PDF downloaded from Certify Sources 02:10:57Z and read 02:12:52Z (2,795 TERCs); Transportation Emissions Accounting protocol pages 9-12 read 02:15:43Z-02:15:52Z for BCU eligibility and Equation 5"
+  },
+  "G2_route_map": {
+   "done": true,
+   "evidence": "[log:route_evidence._primary_source_opened] [log:certify.sources_downloaded_and_opened] the four route maps attached in Certify Sources downloaded 02:10:24Z-02:10:57Z and opened 02:11Z-02:12:32Z; the RailLogix-to-Basco map from the W4 Drive folder opened 02:15:58Z-02:16:11Z"
+  },
+  "G2_rail_allocation": {
+   "done": true,
+   "evidence": "[log:ops_notes.rollup] [log:mass_chain.railcar_balance] recompute sections 4 and 6 in recompute_output.txt: railcar balances for all four railcars, AECN-SOPOR allocated distance (L42 1,111.729637 mi) and rail allocated distance (M42 15,102.688236 mi) recomputed from the offload shares"
+  },
+  "G2_recompute_pasted": {
+   "done": true,
+   "evidence": "[log:recompute.mismatch_line] recompute_INJ-09-2026-W4-AECN.py ran at exit 0 (recompute_output.txt); the first full output (147 lines) was posted in chat at 08:28:48Z and re-sent whole at 08:31:35Z, before the checklist build at 08:39Z; after the Gate 3 additions (block '12. Checks added after the run-3 Gate 3 review') the full 159-line output (sha256 68f1b602...) was posted at 09:27:36Z and re-sent whole at 09:31:36Z, before any delivery"
+  },
+  "G3_reviewer_independent": {
+   "done": true,
+   "evidence": "adversarial_review.md written by an independent agent started 08:41:09Z (it did not build the checklist and did not open the QA's recompute), saved 09:12:48Z, with its own adversarial_review_recompute.py and adversarial_review_recompute_output.txt: 62 rows reviewed, 55 confirmed, 7 challenged, 8 observations"
+  },
+  "G3_challenges_resolved": {
+   "done": true,
+   "evidence": "adversarial_resolution.md: all 7 challenges accepted (one point on 2.6a rebutted with the Drive title), all 8 observations resolved (observation 2 rebutted as a W4 finding, kept as context in 8.3; observation 7 concerns rule files outside the checklist); facts re-read 09:13:13Z-09:24:49Z (after the review arrived at 09:13:04Z) and logged [log:gate3_followup, certify.ops_notes_copies.loss_positive_sum_kg, standard_efs.tanker_embodied_build, route_evidence.search_2153, cobb.late_september_railcars]; Batch_INJ-09-2026-W4-AECN_QA_Checklist.xlsx rebuilt 09:26:20Z (2.2, 7a.1, 8.2, 8.3 Flag to Fail; evidence changed on 1.4, 2.6a, 3.5, 7.3, 7a.3, 8.1, 9.2, 9.6, 9.8); audit_checklist 57 rows, 0 failures; T3 09:25:59Z ; final rebuild 10:11:02Z applied the 2026-10-07 rule on COBB (memory project_cobb_not_source_of_truth: 'never raise or grade a finding on COBB alone'): row 5.4 Flag to Pass, COBB-only points removed from rows 3.7 and 5.5; audit_checklist 57 rows, 0 failures"
+  },
+  "G4_render_in_excel": {
+   "done": true,
+   "evidence": "render_check/Excel_export_Batch_INJ-09-2026-W4-AECN_QA_Checklist.pdf: Microsoft Excel's own PDF export (AppleScript 'save workbook as ... PDF file format') of the final checklist saved 10:11:02Z, made 10:11Z; all 11 landscape pages read with the Read tool at 10:12Z: header block on every page, section bars, red Fail rows, yellow Flag rows, grey italic N/A rows, row 5.4 Pass, no clipped text (the 09:26:20Z build was also exported and all 12 pages read at 09:42Z)"
+  },
+  "G4_status_counts": {
+   "done": true,
+   "evidence": "Batch_INJ-09-2026-W4-AECN_QA_Checklist.xlsx (saved 10:11:02Z, sha256 c52ea1bfe698ca86...) column C counted by script at 10:11:07Z: Pass 31 / Fail 13 / Flag 13 / N/A 5 (62 rows); audit_checklist counts 57 auditable rows; T4 re-stamped 10:11:02Z in batch_timestamps.json"
+  },
+  "G4_monitor_independent": {
+   "done": true,
+   "evidence": "outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx row 18 written by independent monitor agents, not the QA agent: kickoff update started 01:10:29Z (saved 01:15:20Z); T4 update started 09:43Z (saved 09:54:25Z); correction after the 10:11:02Z rebuild (saved 10:14:19Z): Y18 31, Z18 13, AA18 13, M18 5, AB18-AF18 T0-T4 (AF18 10:11:02Z), AQ18 2, notes L18/X18"
+  }
+ }
+}

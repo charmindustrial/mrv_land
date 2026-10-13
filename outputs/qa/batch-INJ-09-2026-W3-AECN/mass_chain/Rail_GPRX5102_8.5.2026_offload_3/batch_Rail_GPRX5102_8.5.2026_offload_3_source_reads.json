@@ -1,0 +1,57 @@
+{
+ "batch_id": "INJ-09-2026-W3::Rail_GPRX5102_8.5.2026_offload_3",
+ "_schema_version": "1.0",
+ "offload": "offload_3",
+ "railcar": "GPRX5102",
+ "scale_tickets": {
+  "full_ticket": {
+   "gross_weight_lb": 73600
+  },
+  "empty_ticket": {
+   "gross_weight_lb": 28620
+  },
+  "computed_net_lb": 44980,
+  "computed_net_kg": 20402.56816
+ },
+ "ops_notes": {
+  "bols_into_railcar": [
+   {
+    "bol": "2456-R",
+    "mass_MT": 25.99
+   },
+   {
+    "bol": "2457-R",
+    "mass_MT": 25.98
+   },
+   {
+    "bol": "2458-R",
+    "mass_MT": 25.97
+   }
+  ],
+  "total_railcar_loaded_MT": 77.94,
+  "offload_table": [
+   {
+    "id": "Rail_GPRX5102_8.5.2026_offload_1",
+    "cargo_kg": 20130.41296
+   },
+   {
+    "id": "Rail_GPRX5102_8.5.2026_offload_2",
+    "cargo_kg": 18951.07376
+   },
+   {
+    "id": "Rail_GPRX5102_8.5.2026_offload_3",
+    "cargo_kg": 20402.56816
+   },
+   {
+    "id": "Rail_GPRX5102_8.5.2026_offload_4",
+    "cargo_kg": 18334.18864
+   }
+  ]
+ },
+ "cobb": {
+  "row_id_at_qa": 1778,
+  "batch_id_col_a": "INJ-09-2026-W3_bio_oil",
+  "offloaded_quantity_kg": 20402.56816
+ },
+ "_note": "Per-offload input built from the W3 source-read log for compute_mass_chain.py; offload_table source: W3 Ops Notes rows"
+}

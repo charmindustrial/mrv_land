@@ -29,24 +29,17 @@
 set -euo pipefail
 
 input="$(cat)"
-hook_event="$(echo "$input" | jq -r '.hook_event_name // empty' 2>/dev/null || true)"
-transcript_path="$(echo "$input" | jq -r '.transcript_path // empty' 2>/dev/null || true)"
-
-# For SubagentStop, Claude Code also provides agent_transcript_path -- a file
-# scoped to ONLY that one subagent's own turns/tool calls (isSidechain:true,
-# tagged with that agent's id), isolated from the parent session's transcript.
-# Confirmed empirically 2026-08-27 by dumping a real SubagentStop input: the
-# main transcript_path is shared across parent + every subagent, so without
-# this, a reviewer sub-agent's claims could be "verified" by documents the
-# PARENT session read earlier, not anything the reviewer itself opened. Use
-# the isolated transcript when present so review claims are checked against
-# what that subagent actually did.
-if [ "$hook_event" = "SubagentStop" ]; then
-  agent_transcript_path="$(echo "$input" | jq -r '.agent_transcript_path // empty' 2>/dev/null || true)"
-  if [ -n "$agent_transcript_path" ] && [ -f "$agent_transcript_path" ]; then
-    transcript_path="$agent_transcript_path"
-  fi
-fi
+# Which transcript this hook is about, and whose counters it belongs to, are
+# decided in ONE place: ~/.claude/hooks/lib/subagent_scope.sh. It picks the
+# subagent's own transcript on SubagentStop AND exports CLAUDE_HOOK_AGENT_SCOPE,
+# so this guard's circuit breaker and the shared per-turn block budget land in
+# the same per-worker file every other guard uses. Those two steps used to be
+# hand-copied into all fifteen guards, and five copies did the first without the
+# second -- see that file's header for the 2026-09-17 failure it caused.
+source ~/.claude/hooks/lib/subagent_scope.sh
+hook_scope_resolve "$input"
+transcript_path="$HOOK_TRANSCRIPT_PATH"
+hook_event="$HOOK_EVENT_NAME"
 
 if [ -z "$transcript_path" ] || [ ! -f "$transcript_path" ]; then
   exit 0
@@ -66,10 +59,18 @@ except Exception:
     sys.exit(0)  # shared library missing/broken -- fail open, never crash
 
 session_dir = os.path.dirname(transcript_path)
+# Shared per-turn block budget: work out a name for the current turn so that
+# every guard counts its blocks against the same budget (lib/circuit_breaker.py).
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from transcript_text import turn_key_from_path as _tk_from_path
+    _turn = _tk_from_path(transcript_path)
+except Exception:
+    _turn = None
 brk = Breaker(
     state_file=os.path.join(session_dir, 'citation_block_count'),
     label='CITATION INTEGRITY',
-    max_strikes=3,
+    max_strikes=3, turn_key=_turn, transcript_path=transcript_path
 )
 if brk.tripped():
     sys.exit(0)
@@ -80,6 +81,8 @@ def block(lines):
 reset_block_count = brk.clear
 
 # ── Load transcript ──────────────────────────────────────────────────────────
+import datetime as _dt
+
 entries = []
 try:
     with open(transcript_path, 'r', encoding='utf-8') as f:
@@ -96,6 +99,20 @@ except Exception:
 # ── Build tool-use index: id → name (and inputs) ─────────────────────────────
 tool_uses = {}
 tool_use_inputs = {}
+tool_use_times = {}   # tool_use id → when that call was made (epoch seconds)
+
+
+def _entry_epoch(entry):
+    ts = entry.get('timestamp')
+    if not isinstance(ts, str) or not ts:
+        return None
+    try:
+        return _dt.datetime.strptime(ts[:19], '%Y-%m-%dT%H:%M:%S').replace(
+            tzinfo=_dt.timezone.utc).timestamp()
+    except Exception:
+        return None
+
+
 for entry in entries:
     msg = entry.get('message', {})
     if not isinstance(msg, dict):
@@ -109,6 +126,7 @@ for entry in entries:
             if tid:
                 tool_uses[tid] = item.get('name', '')
                 tool_use_inputs[tid] = item.get('input', {})
+                tool_use_times[tid] = _entry_epoch(entry)
 
 # ── Gate S (SubagentStop only): a review verdict with ZERO tool calls ────────
 # Added 2026-08-27. Every gate below this point only runs once "wrote_files"
@@ -156,142 +174,84 @@ if hook_event == 'SubagentStop' and not tool_uses:
 # The hook's job is to protect deliverables. If no files were written,
 # this is a conversational session and the hook should not run.
 # The PostToolUse-on-Write hook already enforces at write time.
-WRITE_TOOLS = {
-    'Write', 'Edit',
-    'mcp__word__create_document', 'mcp__word__insert_text',
-    'mcp__word__replace_text', 'mcp__word__save_document',
-}
-# Tools that PUBLISH text directly (not necessarily to local disk): a Google
-# Sheet/Doc via the Drive API, a Slack canvas. Citations in the text they
-# publish must be gated too — that text lives in the tool_use input.
-PUBLISH_TOOLS = {
-    'mcp__claude_ai_Google_Drive__create_file',
-    'mcp__claude_ai_Slack__slack_create_canvas',
-    'mcp__claude_ai_Slack__slack_update_canvas',
-}
-wrote_files = any(name in WRITE_TOOLS or name in PUBLISH_TOOLS
+# Write-detection (tool names + the "did this Bash call actually write"
+# check) lives in one shared place now -- see lib/write_detection.py for why:
+# four copies of this same logic already drifted apart once (2026-09-10).
+try:
+    from write_detection import WRITE_TOOL_NAMES, PUBLISH_TOOL_NAMES, is_real_write, write_targets as _write_targets
+except Exception:
+    WRITE_TOOL_NAMES, PUBLISH_TOOL_NAMES = set(), set()
+    def is_real_write(_): return False
+    def _write_targets(_): return []
+
+def _is_excluded_deliverable_path(p):
+    """Memory files, hook state, scratch/tmp output are never deliverables --
+    regardless of write detection. Fix 2026-09-16: Gate 3 was flagging a
+    memory file under ~/.claude/.../memory/ that was only READ, and a
+    subagent scratchpad report under /private/tmp/.../scratchpad/, because a
+    single Bash command that performed a real write ALSO mentioned those
+    other paths -- is_real_write() gates the whole command, not the specific
+    path, so every path-looking string in that command was swept in."""
+    if not p:
+        return False
+    pp = str(p).replace('\\', '/')
+    home_claude = os.path.expanduser('~/.claude')
+    if pp.startswith(home_claude) or '/.claude/' in pp:
+        return True
+    if pp.startswith('/private/tmp/') or pp.startswith('/tmp/') or '/private/tmp/' in pp:
+        return True
+    if re.search(r'(^|/)scratchpad(/|$)', pp):
+        return True
+    return False
+wrote_files = any(name in WRITE_TOOL_NAMES or name in PUBLISH_TOOL_NAMES
                   for name in tool_uses.values())
-# A deliverable can also be produced by a Bash heredoc (openpyxl/python-docx)
-# or named in a Write/Edit path. Those citations must be gated too — so do NOT
-# exit early if any tool call this session touched an .xlsx/.docx/.csv/.md file.
 _DELIV_REF_RE = re.compile(r'\.(?:xlsx|docx|csv|md)\b', re.IGNORECASE)
 if not wrote_files:
     for _tid, _inp in tool_use_inputs.items():
         if not isinstance(_inp, dict):
             continue
         _nm = tool_uses.get(_tid, '')
-        _blob = _inp.get('command', '') if _nm == 'Bash' else _inp.get('file_path', '')
-        if isinstance(_blob, str) and _DELIV_REF_RE.search(_blob):
+        if _nm != 'Bash':
+            continue  # a non-Bash, non-WRITE_TOOL_NAMES/PUBLISH_TOOL_NAMES call is a read, not a write
+        _blob = _inp.get('command', '')
+        if isinstance(_blob, str) and _DELIV_REF_RE.search(_blob) and is_real_write(_blob):
             wrote_files = True
             break
 if not wrote_files:
     sys.exit(0)
 
-# ── Build corpus from source-read tool results ───────────────────────────────
-# These tools return actual document text as their result.
-SOURCE_READ_TOOLS = {
-    'Read',
-    'mcp__claude_ai_Google_Drive__read_file_content',
-    'mcp__claude_ai_Google_Drive__download_file_content',
-    'mcp__word__get_document_text',
-    'mcp__playwright__browser_snapshot',
-    'mcp__playwright-mrv__browser_snapshot',
-    'mcp__playwright-mrv-2__browser_snapshot',
-    'mcp__playwright-mrv-3__browser_snapshot',
-    'mcp__playwright-mrv-4__browser_snapshot',
-}
-
-corpus_parts = []
-read_file_paths = set()  # Track paths Read this session so we can reload from disk
-
-# Index tool_use inputs by id so we can get the file_path arg for Read calls
-tool_use_inputs = {}
-for entry in entries:
-    msg = entry.get('message', {})
-    if not isinstance(msg, dict):
-        continue
-    content = msg.get('content', [])
-    if not isinstance(content, list):
-        continue
-    for item in content:
-        if isinstance(item, dict) and item.get('type') == 'tool_use':
-            tid = item.get('id', '')
-            if tid:
-                tool_use_inputs[tid] = item.get('input', {})
-
-for entry in entries:
-    msg = entry.get('message', {})
-    if not isinstance(msg, dict):
-        continue
-    content = msg.get('content', [])
-    if not isinstance(content, list):
-        continue
-    for item in content:
-        if not isinstance(item, dict):
-            continue
-        if item.get('type') != 'tool_result':
-            continue
-        tid = item.get('tool_use_id', '')
-        tool_name = tool_uses.get(tid)
-        if tool_name not in SOURCE_READ_TOOLS:
-            continue
-        # Track file paths for Read calls so we can reload current content
-        if tool_name == 'Read':
-            fp = tool_use_inputs.get(tid, {}).get('file_path', '')
-            if fp:
-                read_file_paths.add(fp)
-        result = item.get('content', '')
-        if isinstance(result, str):
-            corpus_parts.append(result)
-        elif isinstance(result, list):
-            for r in result:
-                if isinstance(r, dict) and r.get('type') == 'text':
-                    corpus_parts.append(r.get('text', ''))
-
-# Reload every file that was Read this session from disk (current content).
-# This handles the case where Claude edits a file after reading it: the transcript
-# corpus only has the pre-edit snapshot, but a quote from the edited content is
-# legitimate. Reading from disk gives the hook the current post-edit text.
-# PDFs are extracted with pdftotext (binary files can't be read as text).
+# ── Build corpus from everything read this session ───────────────────────────
+# One shared builder for this hook and numeric_integrity_stop.sh:
+# ~/.claude/hooks/lib/source_corpus.py. This hook's own copy never looked at a
+# web page at all (no WebFetch, no shell fetch in its tool list), and a PDF
+# opened with the Read tool arrives as page images, so nothing from it landed
+# here either. On 2026-09-22 that combination reported passages read minutes
+# earlier as invented, four times over one turn.
 import os, subprocess as _sp
-for fp in read_file_paths:
-    try:
-        if not os.path.isfile(fp):
-            continue
-        if fp.lower().endswith('.pdf'):
-            try:
-                r = _sp.run(['pdftotext', fp, '-'],
-                            capture_output=True, text=True, timeout=30)
-                if r.returncode == 0 and r.stdout:
-                    corpus_parts.append(r.stdout)
-            except Exception:
-                pass  # pdftotext unavailable or failed; fall through silently
-        else:
-            with open(fp, 'r', encoding='utf-8', errors='replace') as fh:
-                corpus_parts.append(fh.read())
-    except Exception:
-        pass  # Can't read the file; fall back to transcript-only for this path
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from source_corpus import build_corpus, sentence_around as _sentence_around
+except Exception:
+    sys.exit(0)  # shared library missing/broken -- fail open, never crash
 
-# Also scan the session tool-results directory for oversized output files saved to disk.
-# Large Playwright snapshots and Drive downloads are saved as .txt files with a
-# "Output has been saved to /path/..." message instead of inline content.
-# Context compaction also removes Read call records, breaking read_file_paths tracking.
-# Reading the whole tool-results directory fixes both problems.
-tool_results_dir = os.path.join(session_dir, 'tool-results')
-if os.path.isdir(tool_results_dir):
-    for fname in os.listdir(tool_results_dir):
-        if fname.endswith('.txt') or fname.endswith('.md'):
-            fpath = os.path.join(tool_results_dir, fname)
-            try:
-                with open(fpath, 'r', encoding='utf-8', errors='replace') as fh:
-                    corpus_parts.append(fh.read())
-            except Exception:
-                pass
+# tool_use_inputs (tool id -> its arguments) is already built above.
+# include_user_text=True since 2026-09-24: a quote of Max's own typed words, or
+# of the coordinator's task prompt in a worker, is a quote of something given
+# this session (fire-mining cluster 19). source_file: the session's workers /
+# coordinator and its tool-results folder count too (clusters 15 and 18).
+_corpus = build_corpus(entries, tool_uses, tool_use_inputs, session_dir,
+                       include_user_text=True, source_file=transcript_path)
+corpus_parts = _corpus.parts
+# Documents no reader on this machine could turn into text: quotes taken from
+# them cannot be checked, so they are not called fabricated. Say so instead.
+unindexed_sources = _corpus.unindexed
 
 raw_corpus = '\n'.join(corpus_parts)
 
 # Strip Read tool line-number prefixes ("123\t") — Read returns "N\tline_text"
-stripped_corpus = re.sub(r'^\d+\t', '', raw_corpus, flags=re.MULTILINE)
+# Padded "   12\t", "12→" and "L12:" forms too, not only an unpadded "12\t".
+stripped_corpus = re.sub(r'^[ \t]*(?:L\d+:[ \t]?|\d+(?:\t|\u2192))', '', raw_corpus,
+                         flags=re.MULTILINE)
 
 # Normalize typographic punctuation to ASCII equivalents (smart quotes, apostrophes, dashes)
 # Drive/Word documents use curly quotes; responses often use straight quotes.
@@ -320,19 +280,94 @@ try:
     proj_dir = os.environ.get('CLAUDE_PROJECT_DIR', '')
     DELIV_PATH_RE = re.compile(r'[\w./\-]+\.(?:xlsx|docx|csv|md)', re.IGNORECASE)
     deliverable_paths = set()
+
+    # Not deliverables, so never Gate 3 targets (fire-mining cluster 18, 23
+    # wrong blocks): skill files, the knowledge base, anything under .claude,
+    # memory folders, hook/agent reports, and working notes or ledgers
+    # (*_notes.md, *_ledger.*). They hold Claude's working notes and rules,
+    # not claims sent to anyone. Checked on the path as written AND on the
+    # real path, because a relative save target hides the folder it is in.
+    # Folder names are matched on the path INSIDE the workspace, and with
+    # case: the workspace itself sits under ".../Claude/Skills/MRV Expert/",
+    # so a plain search for "skills/" would have excused every file in it.
+    _GATE3_SKIP_RE = re.compile(
+        r'(?:^|/)(?:skills|knowledge-base|\.claude|memory|reports)/'
+        r'|(?:_notes\.md|_ledger\.[A-Za-z0-9]+)$')
+    _ws_root = (proj_dir or os.getcwd()).rstrip('/')
+
+    def _inside_ws(path):
+        pp = str(path).replace('\\', '/')
+        if _ws_root and pp.startswith(_ws_root + '/'):
+            return pp[len(_ws_root) + 1:]
+        return pp
+
+    def _gate3_excluded(p):
+        if _is_excluded_deliverable_path(p):
+            return True
+        cands = [p]
+        base_dir = proj_dir or os.getcwd()
+        if base_dir and not os.path.isabs(p):
+            cands.append(os.path.join(base_dir, p))
+        for cand in cands:
+            for form in (cand, os.path.realpath(cand)):
+                if _is_excluded_deliverable_path(form) or _GATE3_SKIP_RE.search(_inside_ws(form)):
+                    return True
+        return False
+
+    def _written_by_call(path, call_epoch):
+        """Could the command at this moment have produced this file? A file
+        last modified BEFORE the command ran was not written by it."""
+        if call_epoch is None:
+            return True  # no clock to judge by: fail open, check the file
+        cands = [path]
+        if proj_dir and not os.path.isabs(path):
+            cands.append(os.path.join(proj_dir, path))
+        for cand in cands:
+            try:
+                # A minute of slack: the transcript's clock and the file
+                # system's are not the same clock.
+                if os.path.getmtime(cand) >= (call_epoch - 60):
+                    return True
+            except Exception:
+                continue
+        return False
+
     for tid, inp in tool_use_inputs.items():
         if not isinstance(inp, dict):
             continue
         name = tool_uses.get(tid, '')
         if name in ('Write', 'Edit'):
             fp = inp.get('file_path', '')
-            if fp.lower().endswith(('.xlsx', '.docx', '.csv', '.md')):
+            if fp.lower().endswith(('.xlsx', '.docx', '.csv', '.md')) and not _gate3_excluded(fp):
                 deliverable_paths.add(fp)
         elif name == 'Bash':
             cmd = inp.get('command', '')
+            # A command that merely MENTIONS a filename (a grep, a read-only
+            # openpyxl load) never proved this session authored it -- that was
+            # the 2026-09-16 fix. Memory files and scratchpads are excluded
+            # categorically for the same reason. Harvest ONLY the file the command actually saved to, not every
+            # filename it mentions. Gating on is_real_write() and then taking
+            # every name was the 2026-09-17 false alarm: one command opened v5
+            # of a document read-only and saved v6, and this gate demanded
+            # verbatim quotes for v5, which the worker never wrote. The target
+            # list lives in lib/write_detection.py so no hook re-derives it.
             if isinstance(cmd, str):
-                for m in DELIV_PATH_RE.finditer(cmd):
-                    deliverable_paths.add(m.group(0))
+                for target in _write_targets(cmd):
+                    if not DELIV_PATH_RE.fullmatch(target):
+                        continue
+                    if _gate3_excluded(target):
+                        continue
+                    # A command cannot have written a file that is OLDER than
+                    # the command. Second half of the 2026-09-17 fix: taking
+                    # only the save target stopped v5 being swept in, but a
+                    # command can still quote someone else's save inside text
+                    # it is writing -- a report doing exactly that had this
+                    # gate demanding quotes for a document finished hours
+                    # earlier by another worker. The file's own clock settles
+                    # it, and settles the v5 case a second way for free.
+                    if not _written_by_call(target, tool_use_times.get(tid)):
+                        continue
+                    deliverable_paths.add(target)
 
     def _resolve(p):
         cands = [p]
@@ -371,18 +406,23 @@ try:
     DELIV_SIGNAL_RE = re.compile(
         r'(?:§\s*\d[\d.]*[a-z]?|[Ss]ection\s+\d[\d.]*|[Cc]lause\s+\d[\d.]*'
         r'|[Aa]rticle\s+\d[\d.]*|[Tt]able\s+[A-Z]?\d+)')
-    DELIV_QUOTE_RE = re.compile(r'[""\"]([^""\"\n]{10,})[""\"]')
+    # Pair quote marks sequentially first, filter by length AFTER pairing --
+    # a length threshold baked into the pairing regex itself makes a short
+    # genuine quote's closing mark get stolen by the next quote's opening
+    # mark, stitching two real short quotes into one fake long one.
+    DELIV_QUOTE_RE = re.compile(r'[""\"]([^""\"\n]*)[""\"]')
 
     def _quote_in_corpus(qt):
         if len(qt) < 15:
             return False
         norm_qt = re.sub(r'\s+', ' ', normalize_punct(qt)).strip()
-        return qt in raw_corpus or qt in stripped_corpus or norm_qt in norm_corpus
+        return (qt in raw_corpus or qt in stripped_corpus or norm_qt in norm_corpus
+                or _corpus.has_quote(qt))   # honest '...', markdown, line numbers (cluster 12)
 
     deliv_violations = []
     deliv_fabricated = []
 
-    def _scan_blocks(label, blocks):
+    def _scan_blocks(label, blocks, src_path=None):
         # A citation in a block passes only if a corpus-verified quote sits in
         # the SAME block. Any quoted string not found in the corpus = fabricated.
         for block in blocks:
@@ -390,10 +430,23 @@ try:
             if not block:
                 continue
             sigs = list(DELIV_SIGNAL_RE.finditer(block))
-            qs = [m.group(1).strip() for m in DELIV_QUOTE_RE.finditer(block)]
-            backed = any(_quote_in_corpus(q) for q in qs)
-            for q in qs:
-                if len(q) >= 15 and not _quote_in_corpus(q):
+            qms = [m for m in DELIV_QUOTE_RE.finditer(block) if len(m.group(1).strip()) >= 10]
+            qs = [m.group(1).strip() for m in qms]
+
+            def _ok(i, _qms=qms, _qs=qs, _block=block):
+                # Claude's own earlier words count only under the narrow
+                # self-attribution rule, and never the file being checked
+                # (source_corpus.own_quote_ok).
+                return (_quote_in_corpus(_qs[i]) or
+                        (len(_qs[i]) >= 15 and _corpus.own_quote_ok(
+                            _qs[i], _sentence_around(_block, _qms[i].start(), _qms[i].end()),
+                            exclude_path=src_path)))
+            oks = [_ok(i) for i in range(len(qs))]
+            backed = any(oks)
+            for i, q in enumerate(qs):
+                if unindexed_sources:
+                    continue   # a source we could not read; never call it invented
+                if len(q) >= 15 and not oks[i]:
                     deliv_fabricated.append((label, q[:150]))
             if sigs and not backed:
                 for sig in sigs:
@@ -410,14 +463,14 @@ try:
             blocks = _extract_blocks(path)
         except Exception:
             continue
-        _scan_blocks(os.path.basename(path), blocks)
+        _scan_blocks(os.path.basename(path), blocks, src_path=path)
 
     # (b) text PUBLISHED through an MCP tool (Google Sheet/Doc via Drive, Slack
     #     canvas, Word text args). That text never touches local disk — it lives
     #     in the tool_use input. Gather every string value and scan line-by-line
     #     (line granularity keeps tabular publishes from laundering one quote
     #     across many rows).
-    PUBLISH_SCAN_TOOLS = PUBLISH_TOOLS | {
+    PUBLISH_SCAN_TOOLS = PUBLISH_TOOL_NAMES | {
         'mcp__word__create_document', 'mcp__word__insert_text', 'mcp__word__replace_text',
     }
 
@@ -431,9 +484,72 @@ try:
             for v in obj:
                 yield from _all_strings(v)
 
-    for tid, inp in tool_use_inputs.items():
-        if tool_uses.get(tid) not in PUBLISH_SCAN_TOOLS or not isinstance(inp, dict):
+    # Which publishes to judge (2026-10-05). This loop used to scan every
+    # publish call in the WHOLE session. A Google Doc created, found wanting,
+    # trashed and re-created three times kept getting blocked for text that
+    # only the trashed copies held -- every re-send was judged on all three
+    # versions, and earlier turns' publishes were judged again forever. Rule
+    # now: only publishes made this turn, only the LAST version of each
+    # document (same title + folder for a create, same file id for an edit),
+    # and never a file this turn moved to the trash.
+    _turn_start = 0
+    for _i, _e in enumerate(entries):
+        _m = _e.get('message', {})
+        if not isinstance(_m, dict) or _m.get('role') != 'user':
             continue
+        _c = _m.get('content', [])
+        if isinstance(_c, list) and any(isinstance(x, dict) and x.get('type') == 'tool_result' for x in _c):
+            continue
+        _turn_start = _i
+    _turn_ids, _results = [], {}
+    for _e in entries[_turn_start:]:
+        _m = _e.get('message', {})
+        _c = _m.get('content', []) if isinstance(_m, dict) else []
+        if not isinstance(_c, list):
+            continue
+        for _it in _c:
+            if not isinstance(_it, dict):
+                continue
+            if _it.get('type') == 'tool_use' and _it.get('id'):
+                _turn_ids.append(_it['id'])
+            elif _it.get('type') == 'tool_result':
+                _rc = _it.get('content', '')
+                if isinstance(_rc, list):
+                    _rc = ' '.join(x.get('text', '') for x in _rc if isinstance(x, dict))
+                _results[_it.get('tool_use_id', '')] = _rc if isinstance(_rc, str) else ''
+    _trashed = set()
+    for _tid in _turn_ids:
+        _nm = tool_uses.get(_tid, '')
+        _in = tool_use_inputs.get(_tid, {})
+        if isinstance(_in, dict) and ('trash' in _nm or 'delete' in _nm):
+            for _k in ('fileId', 'file_id', 'id', 'documentId'):
+                if _in.get(_k):
+                    _trashed.add(str(_in[_k]))
+
+    def _created_id(_tid):
+        _m = re.search(r'"id"\s*:\s*"([^"]+)"', _results.get(_tid, ''))
+        return _m.group(1) if _m else None
+
+    _latest = {}
+    for _tid in _turn_ids:
+        _in = tool_use_inputs.get(_tid, {})
+        if tool_uses.get(_tid) not in PUBLISH_SCAN_TOOLS or not isinstance(_in, dict):
+            continue
+        _fid = next((str(_in[k]) for k in ('fileId', 'file_id', 'documentId', 'document_id')
+                     if _in.get(k)), None)
+        if _fid:
+            _key = ('file', _fid)
+        elif _in.get('title'):
+            _key = ('new', str(_in.get('title')), str(_in.get('parentId', '')))
+        else:
+            _key = ('call', _tid)
+        _latest[_key] = _tid
+    _publish_ids = [t for t in _latest.values()
+                    if _created_id(t) not in _trashed
+                    and str(tool_use_inputs.get(t, {}).get('fileId', '')) not in _trashed]
+
+    for tid in _publish_ids:
+        inp = tool_use_inputs.get(tid, {})
         blob = '\n'.join(_all_strings(inp))
         if not blob:
             continue
@@ -495,16 +611,27 @@ if not last_text:
 # ── Strip code blocks before signal/quote detection ─────────────────────────
 # Citations inside fenced code blocks and inline code are examples/illustrations,
 # not real document claims, and should not trigger the gate.
-def strip_code_blocks(text):
-    text = re.sub(r'```[\s\S]*?```', '', text)   # fenced code blocks
-    text = re.sub(r'`[^`\n]+`', '', text)         # inline code
-    return text
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from transcript_text import strip_inline_code as strip_code_blocks
+except Exception:
+    sys.exit(0)  # shared library missing/broken -- fail open, never crash
+try:
+    from recap import is_narrative, is_heading_line
+except Exception:
+    sys.exit(0)  # shared library missing/broken -- fail open, never crash
 
 scannable = strip_code_blocks(last_text)
 
 # ── Extract all verbatim quotes (needed by Gate 0 and Gate 1) ────────────────
-QUOTE_RE = re.compile(r'[""]([^\""\n]{10,})[""]')
-quote_matches = list(QUOTE_RE.finditer(scannable))
+# Pair quote marks sequentially first, filter by length AFTER pairing -- see
+# DELIV_QUOTE_RE above for why the length test must never gate the pairing.
+QUOTE_RE = re.compile(r'[""]([^\""\n]*)[""]')
+# Pair first (above), THEN filter to real quotes (>=10 chars stripped) -- a
+# length filter here, after pairing, is safe; it must never sit inside the
+# pairing regex itself (that was the original bug). Filter the match list
+# once so quote_texts/quote_starts/quote_idents stay index-aligned.
+quote_matches = [m for m in QUOTE_RE.finditer(scannable) if len(m.group(1).strip()) >= 10]
 quote_texts  = [m.group(1).strip() for m in quote_matches]
 quote_starts = [m.start() for m in quote_matches]
 
@@ -560,6 +687,11 @@ if gap_signals:
             if line_end == -1:
                 line_end = sig_pos + 150
             snippet = scannable[line_start:line_end].strip()[:120]
+            # A bare heading, or a recap of an earlier/reported gap finding
+            # ("Max said Gap 3 was missing a quote"), is not a live unbacked
+            # gap assertion. Exemption-gap review, 2026-09-24.
+            if is_heading_line(snippet) or is_narrative(snippet):
+                continue
             missing_gap_quotes.append(snippet)
 
     if missing_gap_quotes:
@@ -620,6 +752,48 @@ if not signals:
 # IDENT_RE / _idents_near / quote_idents are defined once, above, right after
 # quote_starts -- shared with Gate 0.
 
+# ── Own-document pointers (fire-mining cluster 21, 11 wrong blocks) ─────────
+# "§3 of this brief", "line 12 of sec_1_2_6.md" (a file written this session),
+# "§4.1 SFC MBM: 22 requirement rows", "word counts §1=661", "Section 1 is
+# unchanged" point into Claude's OWN output -- where something sits in the
+# document being built, how long a section is -- not at an outside source, so
+# there is nothing to quote. Exempt: a reference followed by "of this/my/our
+# <document word>", one on a line that names a file this session wrote, and
+# one followed by a count or status word rather than a claim.
+_OWN_DOC_AFTER_RE = re.compile(
+    r'\s*(?:,\s*)?(?:of|in)\s+(?:(?:this|my|our)\s+(?:brief|memo|report|document|doc|draft|'
+    r'message|reply|summary|file|deck|notes?|rfp|checklist|workbook|sheet|review|write-?up)'
+    # "the" only with words that always mean Claude's own working text --
+    # "the report" or "the document" can be an outside source.
+    r'|the\s+(?:notes|draft|summary|write-?up|ledger|reply|message|checklist))\b',
+    re.IGNORECASE)
+_OWN_DOC_LINE_RE = re.compile(r'\b(?:doc|document|file|draft)\s+lines?\s+\d', re.IGNORECASE)
+_OWN_DOC_COUNT_RE = re.compile(
+    r'[^.\n"]{0,40}?(?:=\s*\d|\b\d[\d,]*\s+(?:\w+\s+)?(?:rows?|words?|lines?|paragraphs?|'
+    r'references?|items?|cells?|characters|chars)\b|\b(?:is\s+)?(?:unchanged|untouched)\b|'
+    r'\blines?\s+\d)', re.IGNORECASE)
+_written_names = _corpus.written_basenames()
+
+def _own_doc_pointer(sig, line):
+    after = scannable[sig.end():sig.end() + 80]
+    if _OWN_DOC_AFTER_RE.match(after) or _OWN_DOC_COUNT_RE.match(after):
+        return True
+    if _OWN_DOC_LINE_RE.search(line):
+        return True
+    # A file this session wrote, named right at the reference: "§3 of
+    # sec_1_2_6.md", "sec_1_2_6.md §3". Merely naming the file somewhere on
+    # the line is not enough -- the same line may also cite an outside rule.
+    after_low = after.lower()
+    before_low = scannable[max(0, sig.start() - 40):sig.start()].lower()
+    for n in _written_names:
+        if not n:
+            continue
+        if re.match(r'\s*(?:,\s*)?(?:of|in)\s+`?' + re.escape(n), after_low):
+            return True
+        if before_low.rstrip(' `:,').endswith(n):
+            return True
+    return False
+
 # ── Gate 1 check: each signal must have a nearby quote ───────────────────────
 missing_quote_signals = []
 for sig in signals:
@@ -644,6 +818,13 @@ for sig in signals:
         if line_end == -1:
             line_end = sig_pos + 150
         snippet = scannable[line_start:line_end].strip()[:120]
+        # A bare heading, or a recap of an earlier/reported citation signal
+        # ("Max said Section 4.2 requires that ..."), is not a live unbacked
+        # claim. Exemption-gap review, 2026-09-24.
+        if is_heading_line(snippet) or is_narrative(snippet):
+            continue
+        if _own_doc_pointer(sig, scannable[line_start:line_end]):
+            continue
         missing_quote_signals.append(snippet)
 
 if missing_quote_signals:
@@ -695,7 +876,7 @@ if not corpus_parts:
     ])
 
 fabricated = []
-for qt in quote_texts:
+for _qi, qt in enumerate(quote_texts if not unindexed_sources else []):
     if len(qt) < 15:
         continue  # Too short to verify reliably — skip
     qt_norm_punct = normalize_punct(qt)
@@ -709,6 +890,15 @@ for qt in quote_texts:
         continue
     # Check 3: whitespace-normalized match (handles minor whitespace differences)
     if norm_qt in norm_corpus:
+        continue
+    # Check 4: honest '...' elision, markdown, line-number prefixes (cluster 12)
+    if _corpus.has_quote(qt):
+        continue
+    # Check 5: Claude's own earlier message or a file it wrote -- ONLY when the
+    # sentence says so or names the file (clusters 14/19). A repeated invented
+    # quote with no such attribution still fails here.
+    _qm = quote_matches[_qi]
+    if _corpus.own_quote_ok(qt, _sentence_around(scannable, _qm.start(), _qm.end())):
         continue
 
     fabricated.append(qt[:150])
@@ -726,6 +916,7 @@ if fabricated:
         _lines.append(f'  ↳ "{q}"')
     if len(fabricated) > 5:
         _lines.append(f'  … and {len(fabricated) - 5} more')
+    _lines += _corpus.note_lines()
     _lines += [
         "",
         "These quotes are fabricated — they were not in the text of any source",

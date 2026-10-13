@@ -1,0 +1,69 @@
+- dialog "AECN pyrolysis (from rail loads) - embodied emissions" [active] [ref=f129e2]:
+  - generic [ref=f129e3]:
+    - generic [ref=f129e4]:
+      - generic [ref=f129e6]:
+        - button "AECN pyrolysis (from rail loads) - embodied emissions" [ref=f129e9] [cursor=pointer]
+        - generic [ref=f129e10]:
+          - generic [ref=f129e11]: 5.667 tCO₂e
+          - generic [ref=f129e13]: 1.57%
+      - button "Toggle timeline sidebar" [ref=f129e15] [cursor=pointer]
+      - button "Close" [ref=f129e18] [cursor=pointer]
+    - generic [ref=f129e22]:
+      - generic [ref=f129e23]:
+        - generic [ref=f129e24]: Inputs
+        - grid "Input list" [ref=f129e25]:
+          - row "Carbon emission factor" [ref=f129e26]:
+            - gridcell "Carbon emission factor Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail) 0.02116 tCO₂e/t 1 source Deselect datapoint" [ref=f129e27]:
+              - generic [ref=f129e28]:
+                - generic [ref=f129e29]: Carbon emission factor
+                - generic [ref=f129e32]:
+                  - button "Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail) 0.02116 tCO₂e/t 1 source" [ref=f129e37] [cursor=pointer]:
+                    - generic [ref=f129e38]: Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail)
+                    - generic [ref=f129e41]:
+                      - generic [ref=f129e42]: "0.02116"
+                      - text: tCO₂e/t
+                    - button "1 source" [disabled] [ref=f129e44]
+                  - button "Deselect datapoint" [ref=f129e48] [cursor=pointer]
+          - row "Mass" [ref=f129e51]:
+            - gridcell "Mass Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources Deselect datapoint" [ref=f129e52]:
+              - generic [ref=f129e53]:
+                - generic [ref=f129e54]: Mass
+                - generic [ref=f129e57]:
+                  - button "Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources" [ref=f129e62] [cursor=pointer]:
+                    - generic [ref=f129e63]: Bio-Oil Mass - AECN via Rail
+                    - generic [ref=f129e66]:
+                      - generic [ref=f129e67]:
+                        - generic [ref=f129e68]: 267,807.11
+                        - generic [ref=f129e69]: ±1,015.98
+                      - text: kg
+                    - button "32 sources" [disabled] [ref=f129e70]
+                  - button "Deselect datapoint" [ref=f129e74] [cursor=pointer]
+      - generic [ref=f129e77]:
+        - generic [ref=f129e78]: Description
+        - button "+ Add" [ref=f129e80] [cursor=pointer]
+      - generic [ref=f129e82]:
+        - generic [ref=f129e83]: Blueprint details
+        - generic [ref=f129e84]:
+          - generic [ref=f129e85]:
+            - generic [ref=f129e86]: Blueprint
+            - generic [ref=f129e89]:
+              - link "Mass-based CI emissions" [ref=f129e90] [cursor=pointer]:
+                - /url: https://docs.isometric.com/certify/component-blueprint-library#mass-based-ci-emissions
+              - generic [ref=f129e91]: "->"
+          - generic [ref=f129e92]:
+            - generic [ref=f129e93]: Key
+            - generic [ref=f129e95]: mass_based_ci_emissions
+          - generic [ref=f129e96]:
+            - generic [ref=f129e97]: Gas type
+            - generic [ref=f129e99]: CO₂e
+          - generic [ref=f129e100]:
+            - generic [ref=f129e101]: Calculation
+            - generic [ref=f129e104]:
+              - generic [ref=f129e105]: output
+              - generic [ref=f129e107]: =
+              - generic [ref=f129e108]: mass
+              - generic [ref=f129e110]: "*"
+              - generic [ref=f129e111]: carbon_intensity
+    - generic [ref=f129e114]:
+      - button "Delete" [ref=f129e115] [cursor=pointer]
+      - button "Done" [ref=f129e116] [cursor=pointer]

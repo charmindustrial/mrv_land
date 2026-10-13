@@ -1,0 +1,94 @@
+AECN EMBODIED CARBON INTENSITY — EQUIPMENT REPLACEMENT, MAINTENANCE, SPARE PARTS AND CONSUMABLES
+Response to verifier query
+15 September 2026
+
+
+QUESTION
+
+The AECN embodied emissions CI has not changed in two years. Please clarify whether AECN
+is accounting for any equipment replacement, maintenance, spare parts or consumables in the
+CI, and how that is being done or tracked. If not, please request an updated embodied
+emissions CI to be calculated for each year half, or demonstrate that it is not material.
+
+
+RESPONSE
+
+No. The embodied figure covers the one-off cost of building the plant — equipment,
+construction, installation — spread over lifetime output. Nothing in it covers parts or
+supplies bought while the plant runs, and nothing is tracked period to period. It is fixed
+by design, which is why it hasn't moved.
+
+We don't think it needs recalculating. Taking the oil as 40% carbon by mass (our assumption,
+not an AECN life-cycle figure — a higher true value helps this case), a tonne of oil locks
+away 1.47 tonnes of CO2. Subtracting AECN's own emissions of roughly 0.12 tonnes from
+production and 0.021 embodied leaves 1.32 tonnes of net removal per tonne of oil. One percent
+of that is 13 kg of CO2. At the US EPA's published factor for industrial machinery repair and
+maintenance, a dollar of spending carries about 0.13 kg — so it takes about USD 100 of spending
+per tonne of oil produced to give up those 13 kg. That is CAD 143 at today's rate, and across
+AECN's output of roughly 25,000 tonnes of oil a year it comes to CAD 3.6 million a year before
+it made a 1% difference — more than 3% of the plant's build cost, every year, on parts and
+supplies.
+
+As a check, our own pyrolysis site records this spending directly: USD 1,767 per pyrolyzer per
+month, about USD 21,200 a year per machine. Our site is harder on parts than Port-Cartier,
+since we keep swapping out pyrolyzer generations, and it still sits orders of magnitude below
+the threshold.
+
+Proposal: leave the embodied figure as it stands. If you would prefer plant-specific numbers,
+we can ask AECN to report annual maintenance and consumables spend with each half-yearly
+submission.
+
+
+SUPPORTING FIGURES AND SOURCES
+
+Embodied CI composition
+  Equipment                                    USD 36,300,000 x 0.178 kg CO2e/USD
+  Construction                                 USD  9,900,000 x 0.310 kg CO2e/USD
+  Installation, utilities, other non-equipment USD 36,300,000 x 0.245 kg CO2e/USD
+  Total                                        18,423.9 t CO2e
+  Expected lifetime production                 716,000,000 L = 873,520 t
+  Biomass transport                            0.0000678506492 t CO2e/t oil
+  Embodied CI                                  0.02115941123 t CO2e/t oil
+  Source: AECN Embodied Emissions Calc Sheet (Drive, EF Documentation)
+
+Embodied CI as recorded, unchanged across periods
+  2024 tab   0.02115941123
+  2025 tab   0.02115941123
+  2026 tab   0.02116
+  Source: Standard Emission Factors + Calculations
+
+AECN production CI (Final Quantity, as submitted to Certify)
+  H1 2025    0.1270447244   Standard Emission Factors + Calculations, '2025' tab, F3
+  H1 2026    0.1040167408   Standard Emission Factors + Calculations, '2026' tab, F3
+  H2 2026    0.1371171258   Standard Emission Factors + Calculations, '2026' tab, F4
+  Average    0.1227261970
+
+Net removal per tonne of oil
+  Carbon content               0.40 t C/t oil        ASSUMPTION — not from an AECN LCA
+  CO2:C molecular mass ratio   44/12
+  Gross CO2 sequestered        1.4666666667 t CO2/t oil
+  Less production CI           0.1227261970
+  Less embodied CI             0.02116
+  Net CDR                      1.3227804697 t CO2e/t oil
+  1% of net CDR                0.0132278047 t CO2e/t oil
+
+Threshold spend
+  EPA factor, NAICS 811310 Commercial and Industrial Machinery and Equipment
+    (except Automotive and Electronic) Repair and Maintenance
+    0.129 kg CO2e/2023 USD, with margins, purchaser price
+    Source: EPA Supply Chain GHG Emission Factors v1.4.0-rc.1,
+    Zenodo record 17080881, published 2025-09-12
+  Spend per tonne of oil       USD 102.54 = CAD 142.62
+  AECN annual production       25,217.12 t oil/yr
+    (H1 2026 output 10,334,884.3411132 L x 1.22 kg/L, annualised x2)
+  Annual threshold spend       USD 2,585,792 = CAD 3,596,577
+  USD to CAD                   1.3909, Bank of Canada daily average, 2026-09-14
+  Facility build cost          CAD 110,000,000
+  Threshold as share of build cost   3.27% per year
+
+Observed spare parts and consumables spend, Charm pyrolysis site
+  USD 1,767.46 per pyrolyzer per month (2024 USD), annualising to USD 21,209.56
+  Source: BGN Spare Parts and Consumable Estimates, 'V1 -- Cost-Based Only' tab,
+  labelled TOTAL row, cell I21 = SUM(I2:I20)
+  Note: cell I22 (USD 3,528.758) is =SUM(I3:I21), which re-adds the total to itself.
+  It is not a site-level figure and is not used here.

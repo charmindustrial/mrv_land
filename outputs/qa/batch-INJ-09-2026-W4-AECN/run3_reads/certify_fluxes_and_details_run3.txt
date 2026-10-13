@@ -1,0 +1,53 @@
+COMPONENT FLUXES WITH UNITS (GetGhgEntryQAData)
+## Bio-oil injection: EMITTED 23.650867569979493 tCO₂e
+   Basco Site Electricity Use (RECs): EMITTED 2.3294932342214465 tCO₂e
+   Argon Electricity Usage (RECs): EMITTED 95.35870165804266 kgCO₂e
+   B6 Injection site diesel emissions: EMITTED 2.3928479739 tCO₂e
+   B6 Injection site gasoline emissions: EMITTED 330.3176602 kgCO₂e
+   B6 Injection - Additional Transport Emissions: EMITTED 1.15242 tCO₂e
+   Support Travel: EMITTED 4.02664 tCO₂e
+   B6 Injection - Embodied Emissions: EMITTED 8.56001 tCO₂e
+   Methanol Emissions: EMITTED 802.73 kgCO₂e
+   Spare Parts and Consumables LA: EMITTED 664.72 kgCO₂e
+   E-85 Emissions: EMITTED 195.91 kgCO₂e
+   BCU - Diesel Site Emissions: MITIGATED 2.3930000000000002 tCO₂e
+   BCU - Additional Transport: MITIGATED 689.34 kgCO₂e
+   BCU - Methanol Transport: MITIGATED 18.08 kgCO₂e
+## Bio-oil processing: MITIGATED 0.0 kgCO₂e
+## Bio-oil storage: MITIGATED 0.0 kgCO₂e
+## Bio-oil transport: EMITTED 39.874781745783196 tCO₂e
+   AECN to SOPOR Tanker Truck Transport Process Emissions: EMITTED 3.2905278155670685 tCO₂e
+   SOPOR to Opelousas Rail Transport Process Emissions: EMITTED 10.858420047108599 tCO₂e
+   Opelousas to Basco - Tanker Truck Transport Process Emissions: EMITTED 1.3131841296716997 tCO₂e
+   Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions: EMITTED 462.29176 kgCO₂e
+   SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions: EMITTED 470.1467397 kgCO₂e
+   AECN to SOPOR Tanker Truck Transport Embodied Emissions: EMITTED 264.0956491748 kgCO₂e
+   SOPOR to Baton Rouge Rail Process Emissions: EMITTED 2.676997090481 tCO₂e
+   Baton Rouge to Basco Tanker Truck Process Emissions: EMITTED 1.2001185140800206 tCO₂e
+   BCU - Transport Process: MITIGATED 19.339 tCO₂e
+## Biomass feedstock processing: MITIGATED 0.0 kgCO₂e
+## Biomass feedstock sourcing: MITIGATED 0.0 kgCO₂e
+## Biomass feedstock transport: MITIGATED 0.0 kgCO₂e
+## CO₂ stored: MITIGATED 425.69132054116795 t
+   Injection sequestration: MITIGATED 425.69132054116795 t
+## Direct emissions: MITIGATED 0.0 kgCO₂e
+## Miscellaneous: MITIGATED 0.0 kgCO₂e
+## Pyrolysis or other process: EMITTED 42.5335093708 tCO₂e
+   AECN Bio-oil Loss: EMITTED 145.0 kgCO₂e
+   AECN pyrolysis (from rail loads) - process emissions: EMITTED 36.72171092319999 tCO₂e
+   AECN pyrolysis (from rail loads) - embodied emissions: EMITTED 5.666798447600001 tCO₂e
+## Sampling required for MRV: MITIGATED 0.0 kgCO₂e
+## Staff travel: MITIGATED 0.0 kgCO₂e
+## Surveys: MITIGATED 0.0 kgCO₂e
+
+GetGhgEntryDetails top-level fields (componentGroups omitted):
+  id: "rmv_1M3Z5YJN51S0SN1Q"
+  supplierReferenceId: "ba_vF2Al2cApYB1kI9h"
+  started: "2026-09-19"
+  completed: "2026-09-25"
+  creditType: "REMOVAL"
+  co2eRemoved: {"magnitude": 362.07, "precision": 2, "unit": "tCO₂e"}
+  uncertaintyDiscount: {"magnitude": 2.443, "precision": 3, "unit": "t"}
+  riskOfReversalPercentage: 5.0
+  creditAllocation: {"supplierAllocation": {"credits": 343.966, "creditsKg": "343966"}, "bufferPoolContribution": {"credits": 18.104, "creditsKg": "18104"}}
+  componentGroups keys in Details: ['carbonFlux', 'componentAttributions', 'displayName', 'id', 'type']

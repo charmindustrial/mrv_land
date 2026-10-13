@@ -1,0 +1,59 @@
+- tabpanel "Calculation view" [ref=e125]:
+  - generic [ref=e186]:
+    - generic [ref=e190]:
+      - generic [ref=e191]:
+        - generic [ref=e194]:
+          - button "Net CO₂e Removed 5.908 tCO₂e" [ref=e196]:
+            - generic [ref=e197]:
+              - generic [ref=e198]: Net CO₂e Removed
+              - generic [ref=e199]: 5.908 tCO₂e
+          - generic [ref=e206]:
+            - button "Sequestrations 6.621 tCO₂e" [ref=e209]:
+              - generic [ref=e210]:
+                - generic [ref=e211]: Sequestrations
+                - generic [ref=e212]: 6.621 tCO₂e
+            - generic [ref=e216]: "-"
+            - generic [ref=e221]:
+              - button "Activities 384 kgCO₂e" [ref=e224]:
+                - generic [ref=e225]:
+                  - generic [ref=e226]: Activities
+                  - generic [ref=e227]: 384 kgCO₂e
+              - generic [ref=e231]: +
+              - generic [ref=e236]:
+                - button "Counterfactuals 329 kgCO₂e" [active] [ref=e238]:
+                  - generic [ref=e239]:
+                    - generic [ref=e240]: Counterfactuals
+                    - generic [ref=e241]: 329 kgCO₂e
+                - button "Replacement Emission 329 kgCO₂e" [ref=e678]:
+                  - generic [ref=e679]:
+                    - generic [ref=e680]: Replacement Emission
+                    - generic [ref=e681]: 329 kgCO₂e
+        - generic [ref=e246]:
+          - generic [ref=e247]: ⌘ + scroll to zoom
+          - generic [ref=e249]:
+            - button [ref=e251] [cursor=pointer]
+            - button [ref=e256] [cursor=pointer]
+      - button "View full screen" [ref=e261] [cursor=pointer]
+    - generic [ref=e264]:
+      - heading "Datapoints (2)" [level=2] [ref=e685]
+      - grid "Data points" [ref=e268]:
+        - rowgroup [ref=e269]:
+          - row [ref=e270]:
+            - columnheader "Name" [ref=e271]
+            - columnheader "Value" [ref=e273]
+            - columnheader "Collection method" [ref=e275]
+            - columnheader "Sources" [ref=e277]
+        - rowgroup [ref=e279]:
+          - row [ref=e686]:
+            - rowheader "Mass of waste biomass" [ref=e687]
+            - gridcell "23.532 t" [ref=e689]
+            - gridcell "Reported" [ref=e690]
+            - gridcell "Not Integrated Feed Organic + 2 more" [ref=e695]:
+              - generic [ref=e696]:
+                - generic [ref=e697]: Not Integrated Feed Organic
+                - button "+ 2 more" [ref=e702] [cursor=pointer]
+          - row [ref=e703]:
+            - rowheader "Replacement Emission" [ref=e704]
+            - gridcell "14.00 kgCO₂e/t" [ref=e706]
+            - gridcell "Standard Published Value" [ref=e707]
+            - gridcell "2024-08 [Vaulted] [Derby] Replacement Emissions for Biosolids" [ref=e712]

@@ -1,0 +1,13 @@
+Reconciliation of raw/certify_log_of_issues_p1_2026-09-16.txt + p2 against Certify's own "Showing X of 97" header.
+
+Method: grep -oE "ISS-[0-9]+" over both capture files, EXCLUDING the free-text "NOTE:" commentary line in p2 (that line contains the substrings "ISS-7" and "ISS-9" as prose, not as row IDs, and inflates a naive count to 99).
+
+Unique row IDs actually captured (97, matching Certify's own header exactly):
+1-6, 10-42, 45-74, 76-86, 99-115
+
+Missing from both capture files (18 numbers, all confirmed absent from the row text, not just from the NOTE commentary):
+ISS-7, ISS-8, ISS-9, ISS-43, ISS-44, ISS-75, ISS-87, ISS-88, ISS-89, ISS-90, ISS-91, ISS-92, ISS-93, ISS-94, ISS-95, ISS-96, ISS-97, ISS-98
+
+Arithmetic: 115 (highest ID) - 18 (missing) = 97, matching both capture pages' own pagination footers ("Showing 50 of 97" / "Showing 47 of 97" = 97 total) and the live re-check of page 1 done 2026-09-16 (second pass), which again read "Showing 50 of 97".
+
+This 97 is Certify's own count of existing rows; the log's ID numbering simply skips 18 numbers (deleted/never-created issues), which is a normal artifact of an auto-incrementing ID sequence, not a capture gap.

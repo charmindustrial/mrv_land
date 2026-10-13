@@ -1,0 +1,111 @@
+net {'magnitude': 362.07, 'unit': 'tCO₂e'} discount {'magnitude': 2.4428820921580847, 'unit': 't'}
+
+### GROUP Bio-oil injection EMITTED {'magnitude': 23.650867569979493, 'unit': 'tCO₂e'}
+ * COMP cmp_1M3Z5YJN51S0M2W7 Basco Site Electricity Use (RECs) | ACTIVITY | blueprint grid_electricity_use_with_recs | flux EMITTED {'magnitude': 2.3294932342214465, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - grid_carbon_intensity | Louisiana Grid | 0.4630140342 kgCO₂e/kWh sd=None prec=1000 | dp=dtp_1KP1S7H1J1S0BYPQ | just=None | nsrc=1 | ['Standard Emission Factors + Calculations - 2026 SPSO Electricity EFs_src_1KNMFRD6N1S0BZQ2.pdf']
+     - grid_electricity_use | Basco Injection Electricity Usage (Grid) | 63575.19 kWh sd=1271.5038 prec=1000 | dp=dtp_1M3YZEKFJ1S0Z350 | just=None | nsrc=1 | ['September 26 Basco Electricity Usage.xlsx']
+     - procured_power_carbon_intensity | Louisiana RECS | 0.03664154577 kgCO₂e/kWh sd=None prec=1000 | dp=dtp_1KP1S8E6K1S0E710 | just=None | nsrc=1 | ['Standard Emission Factors + Calculations - 2026 SPSO Electricity EFs_src_1KNMFRD6N1S0BZQ2.pdf']
+     - procured_power_electricity_use | Basco Injection REC Applied | 63575.19 kWh sd=None prec=1000 | dp=dtp_1M3YZENH11S0DPKM | just=None | nsrc=2 | ['retirement-2026-07-22T09_16_04.pdf', 'retirement-2026-07-22T09_16_03.pdf']
+ * COMP cmp_1M3Z5YJN51S07QQW Argon Electricity Usage (RECs) | ACTIVITY | blueprint grid_electricity_use_with_recs | flux EMITTED {'magnitude': 95.35870165804266, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - grid_carbon_intensity | Louisiana Grid | 0.4630140342 kgCO₂e/kWh sd=None prec=1000 | dp=dtp_1KP1S7H1J1S0BYPQ | just=None | nsrc=1 | ['Standard Emission Factors + Calculations - 2026 SPSO Electricity EFs_src_1KNMFRD6N1S0BZQ2.pdf']
+     - grid_electricity_use | Argon Electricity Usage | 2602.43355 kWh sd=None prec=1000 | dp=dtp_1M3YZEP251S03KSJ | just=None | nsrc=2 | ['Argon Consumption Tracking September 1 - September 30 26.xlsx', '9.9.26 Daigle Argon.pdf']
+     - procured_power_carbon_intensity | Louisiana RECS | 0.03664154577 kgCO₂e/kWh sd=None prec=1000 | dp=dtp_1KP1S8E6K1S0E710 | just=None | nsrc=1 | ['Standard Emission Factors + Calculations - 2026 SPSO Electricity EFs_src_1KNMFRD6N1S0BZQ2.pdf']
+     - procured_power_electricity_use | Argon REC Applied - Input | 2602.43 kWh sd=None prec=1000 | dp=dtp_1M3YZEPGR1S0AXGW | just=None | nsrc=1 | ['retirement-2026-07-22T09_16_04.pdf']
+ * COMP cmp_1M3Z5YJN51S04YN4 B6 Injection site diesel emissions | ACTIVITY | blueprint mass_based_ci_emissions | flux EMITTED {'magnitude': 2.3928479739, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Diesel emission factor | 3.87 kgCO₂e/kg sd=None prec=1000 | dp=dtp_1K3729N9Z1S0VHFF | just=None | nsrc=1 | ['GLEC_NA_Fuel_Energy.png']
+     - mass | Basco Diesel Used (Mass) | 618.30697 kg sd=7.97616 prec=1000 | dp=dtp_1M3YZET1F1S05BBC | just='' | nsrc=1 | ['9-1- 9-30 Diesel Consumption Calcs.xlsx']
+ * COMP cmp_1M3Z5YJN51S0C8CE B6 Injection site gasoline emissions | ACTIVITY | blueprint fuel_usage_by_mass | flux EMITTED {'magnitude': 330.3176602, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - fuel_combustion_carbon_intensity | Emissions Factor - Gasoline - Combustion | 3.74 kgCO₂e/kg sd=None prec=1000 | dp=dtp_1K36Y76F01S0FCJS | just=None | nsrc=1 | ['GLEC_NA_Fuel_Energy.png']
+     - mass_of_fuel | Basco Injection Gasoline Usage (kg) | 88.32023 kg sd=1.13933 prec=1000 | dp=dtp_1M3YZETG21S0CN2P | just=None | nsrc=8 | ['9.23.26.LA.Gas.pdf', '9.8.26.LA.Gas.pdf', '9-1- 9-30 Gasoline Tracker LA.xlsx', '...']
+ * COMP cmp_1M3Z5YJN51S0NTE1 B6 Injection - Additional Transport Emissions | ACTIVITY | blueprint constant_activity_emissions | flux EMITTED {'magnitude': 1.15242, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_activity_emissions | Additional Emissions - Injection | 1.15242 tCO₂e sd=None prec=1000 | dp=dtp_1M3YZETXN1S0KYT0 | just='' | nsrc=1 | ['September 2026 Additional Transport Emissions Calc Sheet.xlsx']
+ * COMP cmp_1M3Z5YJN51S0DZY8 Support Travel | ACTIVITY | blueprint constant_activity_emissions | flux EMITTED {'magnitude': 4.02664, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_activity_emissions | Basco Support Travel Emissions | 4.02664 tCO₂e sd=None prec=1000 | dp=dtp_1M3YZF2AJ1S0XGVK | just=None | nsrc=1 | ['Basco Support Travel Calc Sheet September 1 - September 30.xlsx']
+ * COMP cmp_1M3Z5YJN51S01MSX B6 Injection - Embodied Emissions | ACTIVITY | blueprint constant_activity_emissions | flux EMITTED {'magnitude': 8.56001, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_activity_emissions | Basco Injection Embodied Emissions | 8.56001 tCO₂e sd=None prec=1000 | dp=dtp_1M3YZF2GR1S04TJX | just=None | nsrc=1 | ['Charm EE Monitor - RP 2026-09-01 to 2026-09-30.xlsx']
+ * COMP cmp_1M3Z5YJN51S0N9NJ Methanol Emissions | ACTIVITY | blueprint constant_activity_emissions | flux EMITTED {'magnitude': 802.73, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_activity_emissions | Basco Methanol Emissions | 802.73 kgCO₂e sd=None prec=1000 | dp=dtp_1M3YZF30P1S0C4A7 | just='' | nsrc=3 | ['Standard Emission Factors + Calculations (8).xlsx', 'Methanol Flush Impact Sep 1-Sep 30.xlsx', 'Vision Production Chemicals Methanol INV9921 9.8.26.pdf']
+ * COMP cmp_1M3Z5YJN51S08YH7 Spare Parts and Consumables LA | ACTIVITY | blueprint constant_activity_emissions | flux EMITTED {'magnitude': 664.72, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_activity_emissions | Basco SP&C Emissions | 664.72 kgCO₂e sd=None prec=1000 | dp=dtp_1M3YZF39D1S021G5 | just=None | nsrc=1 | ['Basco Inj Operations SP+C Inventory September 1 - September 30.xlsx']
+ * COMP cmp_1M3Z5YJN51S0WKCW E-85 Emissions | ACTIVITY | blueprint constant_activity_emissions | flux EMITTED {'magnitude': 195.91, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_activity_emissions | E-85 Emissions | 195.91 kgCO₂e sd=None prec=1000 | dp=dtp_1M3YZF3Q41S09B7F | just='' | nsrc=6 | ['9.7.26.LA.Gas.pdf', '9-1- 9-30 Gasoline Tracker LA.xlsx', '9.23.26.LA.Gas.pdf', '...']
+ * COMP cmp_1M3Z6AWTV1S0CSH2 BCU - Diesel Site Emissions | ADJUSTMENT | blueprint constant_reduction | flux MITIGATED {'magnitude': 2.3930000000000002, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_reduction | Constant CO₂ reduction | 2.3930000000000002 tCO₂e sd=None prec=1000 | dp=dtp_1M3Z6BCJS1S0ZXM8 | just=None | nsrc=0 | []
+ * COMP cmp_1M4437NA61S051H5 BCU - Additional Transport | ADJUSTMENT | blueprint constant_reduction | flux MITIGATED {'magnitude': 689.34, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_reduction | Constant CO₂ reduction | 689.34 kgCO₂e sd=None prec=1000 | dp=dtp_1M4438G701S0X71C | just='' | nsrc=0 | []
+ * COMP cmp_1M443YTMB1S0P7TW BCU - Methanol Transport | ADJUSTMENT | blueprint constant_reduction | flux MITIGATED {'magnitude': 18.08, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_reduction | Constant CO₂ reduction | 18.08 kgCO₂e sd=None prec=1000 | dp=dtp_1M443ZF1S1S0TRFE | just=None | nsrc=0 | []
+
+### GROUP Bio-oil transport EMITTED {'magnitude': 39.874781745783196, 'unit': 'tCO₂e'}
+ * COMP cmp_1M3Z5YJN51S0B6VG AECN to SOPOR Tanker Truck Transport Process Emissions | ACTIVITY | blueprint transport | flux EMITTED {'magnitude': 3.2905278155670685, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck | 0.07102272727272727 kgCO₂e/(km⋅t) sd=None prec=1000 | dp=dtp_1M3Z5WFFG1S0WMC4 | just=None | nsrc=1 | ['Standard Emission Factors + Calculations (8).xlsx']
+     - distance | Distance from AECN to Sopor Quebec (truck) | 107.49722 mi sd=None prec=1000 | dp=dtp_1M3Z5WYAN1S0PHE5 | just=None | nsrc=1 | ['AECN to SOPOR (Baie Comeau) (2).png']
+     - mass | Bio-Oil Mass - AECN via Rail | 267.80710999999997 t sd=1.01598 prec=1000 | dp=dtp_1M3Z5WCFD1S0HARQ | just='' | nsrc=32 | ['BOL_2454-R.pdf', 'BOL_2453-R.pdf', 'BOL_2455-R.pdf', '...']
+ * COMP cmp_1M3Z5YJN51S0YVQ5 SOPOR to Opelousas Rail Transport Process Emissions | ACTIVITY | blueprint transport | flux EMITTED {'magnitude': 10.858420047108599, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Emission Factors - Rail Transport Fuel Use (Well to Wheel) | 0.016099727590869323 kgCO₂e/(km⋅t) sd=None prec=1000 | dp=dtp_1M3SG3YBZ1S0FRA1 | just=None | nsrc=1 | ['GLEC_FRAMEWORK_v3_UPDATED_04_12_24.pdf']
+     - distance | Distance from Sopor Quebec to Opelousas (rail) | 2199.0 mi sd=None prec=1000 | dp=dtp_1M3Z5X1JZ1S0CEM3 | just=None | nsrc=1 | ['image (44).png']
+     - mass | Mass of load | 190.57854 t sd=0.7257 prec=1000 | dp=dtp_1M3Z6ER9S1S0M8GS | just=None | nsrc=0 | []
+ * COMP cmp_1M3Z5YJN51S0JGJT Opelousas to Basco - Tanker Truck Transport Process Emissions | ACTIVITY | blueprint transport | flux EMITTED {'magnitude': 1.3131841296716997, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck | 0.07102272727272727 kgCO₂e/(km⋅t) sd=None prec=1000 | dp=dtp_1M3Z5WFFG1S0WMC4 | just=None | nsrc=1 | ['Standard Emission Factors + Calculations (8).xlsx']
+     - distance | Distance from Opelousas to B6 (truck) | 42.9 mi sd=None prec=1000 | dp=dtp_1M3Z5X6HR1S0P0NP | just=None | nsrc=1 | ['Opelousas Railyard to Basco.png']
+     - mass | Bio-Oil Mass - AECN via Rail | 267.80710999999997 t sd=1.01598 prec=1000 | dp=dtp_1M3Z5WCFD1S0HARQ | just='' | nsrc=32 | ['BOL_2454-R.pdf', 'BOL_2453-R.pdf', 'BOL_2455-R.pdf', '...']
+ * COMP cmp_1M3Z5YJN51S065EF Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions | ACTIVITY | blueprint distance_based_ci_emissions | flux EMITTED {'magnitude': 462.29176, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Emissions Factor - Vehicle Embodied Emissions - Tanker Truck | 0.14761294042790105 kgCO₂e/km sd=None prec=1000 | dp=dtp_1M3Z5WEZN1S0E0XG | just=None | nsrc=1 | ['Standard Emission Factors + Calculations (8).xlsx']
+     - distance | Allocated Distance Opelousas to B6 (truck) | 1946.0 mi sd=None prec=1000 | dp=dtp_1M3Z5XA571S0BXVM | just='' | nsrc=0 | []
+ * COMP cmp_1M3Z5YJN51S0STA4 SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions | ACTIVITY | blueprint distance_based_ci_emissions | flux EMITTED {'magnitude': 470.1467397, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Emissions Factor - Vehicle Embodied Emissions -- Railcar | 0.019343285214348208 kgCO₂e/km sd=None prec=1000 | dp=dtp_1M3SG47TA1S09NC2 | just=None | nsrc=1 | ['Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf']
+     - distance | Allocated Distance Sopor Quebec to Opelousas (rail) | 15102.69 mi sd=None prec=1000 | dp=dtp_1M3Z5XDG41S01A93 | just='' | nsrc=2 | ['INJ-09-2026-W4 Ops Notes.xlsx', 'image (44).png']
+ * COMP cmp_1M3Z5YJN51S0DF5S AECN to SOPOR Tanker Truck Transport Embodied Emissions | ACTIVITY | blueprint distance_based_ci_emissions | flux EMITTED {'magnitude': 264.0956491748, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Emissions Factor - Vehicle Embodied Emissions - Tanker Truck | 0.14761294042790105 kgCO₂e/km sd=None prec=1000 | dp=dtp_1M3Z5WEZN1S0E0XG | just=None | nsrc=1 | ['Standard Emission Factors + Calculations (8).xlsx']
+     - distance | Allocated Distance AECN to Sopor Quebec (truck) | 1111.70083 mi sd=None prec=1000 | dp=dtp_1M3Z5XFPR1S0PPPJ | just=None | nsrc=8 | ['BOL_2454-R.pdf', 'BOL_2453-R.pdf', 'Sep-02-2026-distance-route_map.png', '...']
+ * COMP cmp_1M3Z6FXET1S0R8CW SOPOR to Baton Rouge Rail Process Emissions | ACTIVITY | blueprint transport | flux EMITTED {'magnitude': 2.676997090481, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Rail transport, Northern America, WTW | 0.0161 kgCO₂e/(km⋅t) sd=None prec=1000 | dp=dtp_1KGT9MXXG1S0ZH76 | just=None | nsrc=1 | ['GLEC V3.2']
+     - distance | Distance traveled | 2153.0 km sd=None prec=1000 | dp=dtp_1M3Z6H5911S0WS1E | just=None | nsrc=0 | []
+     - mass | Mass of load | 77.22857 t sd=None prec=1000 | dp=dtp_1M3Z6H6ZC1S0Z1BQ | just=None | nsrc=0 | []
+ * COMP cmp_1M3Z6JADY1S0XZTS Baton Rouge to Basco Tanker Truck Process Emissions | ACTIVITY | blueprint transport | flux EMITTED {'magnitude': 1.2001185140800206, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Tanker truck, Northern America, WTW | 0.071 kgCO₂e/(km⋅t) sd=None prec=1000 | dp=dtp_1M0ZRZTV61S064XW | just=None | nsrc=1 | ['GLEC V3.2']
+     - distance | Distance traveled | 136.0 mi sd=None prec=1000 | dp=dtp_1M3Z6N2H71S0XF2A | just=None | nsrc=0 | []
+     - mass | Mass of load | 77.22857 t sd=0.29028 prec=1000 | dp=dtp_1M3Z6NSS71S0KC88 | just=None | nsrc=0 | []
+ * COMP cmp_1M3Z73NSW1S0DZB5 BCU - Transport Process | ADJUSTMENT | blueprint constant_reduction | flux MITIGATED {'magnitude': 19.339, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_reduction | Constant CO₂ reduction | 19.339 tCO₂e sd=None prec=1000 | dp=dtp_1M3Z747551S013EB | just=None | nsrc=0 | []
+
+### GROUP CO₂ stored MITIGATED {'magnitude': 425.69132054116795, 'unit': 't'}
+ * COMP cmp_1M3Z5YJN51S09F9P Injection sequestration | SEQUESTRATION | blueprint carbon_rich_substance_sequestration | flux MITIGATED {'magnitude': 425.69132054116795, 'unit': 't'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_content | Carbon Content of Bio-oil Injected (per injection) | 44.0 % sd=0.176 prec=1000 | dp=dtp_1M3Z5YHSG1S0B1K3 | just=None | nsrc=0 | []
+     - product_mass | Mass of Injectant (per injection) | 263.83427159999997 t sd=1.01598 prec=1000 | dp=dtp_1M3Z5YJ7E1S0JBAD | just='' | nsrc=0 | []
+
+### GROUP Pyrolysis or other process EMITTED {'magnitude': 42.5335093708, 'unit': 'tCO₂e'}
+ * COMP cmp_1M3Z5YJN51S0F1F6 AECN Bio-oil Loss | ACTIVITY | blueprint constant_activity_emissions | flux EMITTED {'magnitude': 145.0, 'unit': 'kgCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - constant_activity_emissions | AECN Bio-oil Loss - Upstream Emissions | 145.0 kgCO₂e sd=None prec=1000 | dp=dtp_1M3Z5W79Y1S0WF3Q | just='' | nsrc=2 | ['_Bio-oil_loss_evidence.png', 'INJ-09-2026-W4 Ops Notes.xlsx']
+ * COMP cmp_1M3Z5YJN51S0141E AECN pyrolysis (from rail loads) - process emissions | ACTIVITY | blueprint mass_based_ci_emissions | flux EMITTED {'magnitude': 36.72171092319999, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail) | 0.13712 tCO₂e/t sd=None prec=1000 | dp=dtp_1M3Z5W8011S0M3VF | just=None | nsrc=1 | ['FH 2026 LCA w Stack Emissions.xlsx']
+     - mass | Bio-Oil Mass - AECN via Rail | 267.80710999999997 t sd=1.01598 prec=1000 | dp=dtp_1M3Z5WCFD1S0HARQ | just='' | nsrc=32 | ['BOL_2454-R.pdf', 'BOL_2453-R.pdf', 'BOL_2455-R.pdf', '...']
+ * COMP cmp_1M3Z5YJN51S0MRX3 AECN pyrolysis (from rail loads) - embodied emissions | ACTIVITY | blueprint mass_based_ci_emissions | flux EMITTED {'magnitude': 5.666798447600001, 'unit': 'tCO₂e'}
+     AF {'magnitude': 1.0, 'standardDeviation': None, 'unit': '', 'precision': 1000}
+     - carbon_intensity | Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail) | 0.02116 tCO₂e/t sd=None prec=1000 | dp=dtp_1M3Z5WD361S0BRK7 | just=None | nsrc=1 | ['AECN Embodied Emissions Calc Sheet (1).pdf']
+     - mass | Bio-Oil Mass - AECN via Rail | 267.80710999999997 t sd=1.01598 prec=1000 | dp=dtp_1M3Z5WCFD1S0HARQ | just='' | nsrc=32 | ['BOL_2454-R.pdf', 'BOL_2453-R.pdf', 'BOL_2455-R.pdf', '...']

@@ -2,7 +2,7 @@
 
 This document provides the complete specification for every checklist item in a Kerry-only batch QA: what to check, which primary source to open, what values to extract, expected ranges, and common failure modes.
 
-**Scope:** Kerry oil batches only — both **tote** (flatbed truck delivers totes; per-tote weighing) and **tanker** (flatbed-haul tanker; full + empty scale ticket pair) delivery modes. No AECN, WODO, or Aqueous items.
+**Scope:** Kerry oil batches only — both **tote** (flatbed truck delivers totes; per-tote weighing) and **tanker** (tanker truck with a bulk tanker trailer; full + empty scale ticket pair; the current mode since July 2026) delivery modes. No AECN, WODO, or Aqueous items.
 
 **System boundary (settled — don't re-litigate):** Kerry is waste-derived per VVB-validated methodology. Biomass sourcing and production emissions are out-of-scope; only transport and injection-site emissions are in-scope. No upstream production components are expected in Certify; counterfactuals = 0.
 
@@ -15,7 +15,8 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 | Aspect | Tote batch | Tanker batch |
 |---|---|---|
 | Delivery legs | 1 (Kerry origin → Basco) | 1 (Kerry origin → Basco) |
-| Transport components in Certify | 2 (process + embodied) | 2 (process + embodied) |
+| Transport components in Certify | 2 (flatbed process + embodied) | 2 (tanker truck process + embodied) |
+| Transport EFs (Standard EFs 2026 tab) | Flatbed Truck fuel use; Non-Tanker Truck embodied | Tanker Truck fuel use; Tanker Truck embodied |
 | Mass artifacts | Tote weighing log (per-tote serial, gross, tare, net) | Full + empty scale ticket pair (one weighing event) |
 | Authoritative mass source | Sum of per-tote nets | Scale ticket net (Full gross − Empty gross) |
 | Tote count | Multiple per truckload (varies) | N/A (one tanker = one weighing) |
@@ -84,7 +85,7 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 **No sparging deduction on Kerry.** Kerry enters the homogenization tank un-sparged. The 1.29% sparging deduction belongs to the AECN portion only and is QA'd by the AECN skill on the AECN production batch. If a sparging deduction is applied to Kerry mass anywhere (Ops Notes, Certify, Calculation View) → FAIL.
 
 **Mass transported (transport-EF basis):**
-- Tote mode: BOL gross mass (oil + tote tares + deck items). Used as the Mass of Load datapoint on the Flatbed Process component. **NOT MOBI alone** (see FC-K2).
+- Tote mode: BOL gross mass (oil + tote tares + deck items). Used as the Mass of Load datapoint on the flatbed process component. **NOT MOBI alone** (see FC-K2).
 - Tanker mode: BOL oil-only mass = MOBI (analog of AECN tanker truck).
 
 ---
@@ -101,7 +102,7 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 **Verifier references:** VR Appendix 1, VR Sec 3.5, PDD Sec A, Transport Emissions Acctg v1.1
 
 **Kerry transport convention:**
-- Mode: flatbed truck (totes or tanker) only. Rail not applicable.
+- Mode: tanker truck for tanker deliveries (current); flatbed truck for tote deliveries. Rail not applicable.
 - Single leg: Kerry origin → Basco, **1,090 mi** (current confirmed origin).
 - If a second origin is added in the future, this section's expected distance will need updating; surface as a FLAG until the route reference is updated.
 
@@ -170,15 +171,15 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 
 **Kerry components requiring uncertainty verification:**
 - Injection Sequestration (Carbon Content + Mass of Product)
-- Flatbed Truck Transport — Process (Mass of Load)
-- Flatbed Truck Transport — Embodied (no Mass of Load — per-mile only)
+- Transport — Process (Mass of Load): tanker truck (tanker mode) or flatbed (tote mode)
+- Transport — Embodied (no Mass of Load — per-mile only): tanker truck or flatbed
 - Injection-site components (electricity, pumping — same as AECN convention)
 
 **Per-weighing precision follows the SCALE, not the oil type** (Max, 2026-08-10). Charm's tote scale is 2.5 lb ≈ **1.13 kg** per discrete weight; a commercial truck scale (e.g. CAT Scale) is **72.57 kg** per discrete weight. Kerry in totes gets 1.13 kg; Kerry by tanker gets 72.57 kg, the same as an AECN tanker. Read the scale name off the ticket before choosing.
 
-**Tote-mode summed uncertainty:** With N totes weighed, Mass-of-Product uncertainty = N × 1.13 kg (additive convention, consistent with Charm WODO and AECN per-truck rule). Same N × 1.13 kg uncertainty applies to the Mass of Load on the Flatbed Process component.
+**Tote-mode summed uncertainty:** With N totes weighed, Mass-of-Product uncertainty = N × 1.13 kg (additive convention, consistent with Charm WODO and AECN per-truck rule). Same N × 1.13 kg uncertainty applies to the Mass of Load on the flatbed process component.
 
-**Tanker-mode uncertainty:** One discrete weighing event on a commercial truck scale. Mass-of-Product = **72.57 kg**. Mass of Load on Flatbed Process = **72.57 kg**. Settled on INJ-07-2026-W4, the first Kerry tanker batch.
+**Tanker-mode uncertainty:** One discrete weighing event on a commercial truck scale. Mass-of-Product = **72.57 kg**. Mass of Load on the tanker truck process component = **72.57 kg**. Settled on INJ-07-2026-W4, the first Kerry tanker batch.
 
 **Embodied components have no Mass of Load datapoint** — per-mile, mass-independent (same convention as AECN railcar embodied to avoid Failure Category 8 from the AECN lessons_learned).
 
@@ -191,6 +192,9 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 | 7.1 | No unexplained outliers in mass, carbon content, or calculated values | All sources | Values within expected ranges (mass: per-tote <~1.4 MT for IBC totes; carbon: no Kerry baseline yet → FLAG-with-note) | Outlier not investigated |
 | 7.2 | Any spills/losses documented, unrecovered mass deducted, incident report filed | Ops Notes, batch folder | If spill occurred: documented and deducted | Spill not deducted from mass |
 
+**Custody rule (2026-09-29):** upstream emissions of all oil in Charm custody are netted against removals. Production and transport emissions must be charged on the mass that entered custody on each leg, not only on the offloaded or injected mass; any lost mass (railcar loss, spill, standard loss, R&D removal) whose upstream emissions are not charged is a Fail, with the missing tCO2e computed.
+
+
 **Verifier reference:** GHG Stmt Sec C, VR Sec 3.5
 
 **Kerry baseline note:** No historical Kerry dataset yet exists (Kerry is a new supplier). Outlier checks on carbon content and mass should be FLAG-with-note rather than PASS-against-range until baselines accumulate. Update this section once n ≥ ~30 samples are available.
@@ -202,19 +206,19 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 | Item | Check | Primary Source | Expected | Common Failure |
 |------|-------|---------------|----------|----------------|
 | 8.1 | SEQUESTRATIONS: Gross injection sequestration matches internal gross | Certify Components | One sequestration entry for the Kerry batch | Sequestration value wrong |
-| 8.2 | ACTIVITIES — Transport: Process + embodied for flatbed Kerry → Basco | Certify Components | 2 components: "Flatbed Truck Transport Process" + "Flatbed Truck Transport Embodied" | Missing one of the two; wrong mode (e.g., tanker truck instead of flatbed) |
+| 8.2 | ACTIVITIES — Transport: Process + embodied for Kerry → Basco, vehicle class matching the delivery mode | Certify Components | 2 components: tanker mode "Kerry to Basco Tanker Truck Transport Process/Embodied Emissions"; tote mode "Flatbed Truck Transport Process/Embodied" | Missing one of the two; vehicle class not matching the delivery mode (e.g., flatbed factors on a tanker load) |
 | 8.3 | ACTIVITIES — Injection: electricity, pumping, embodied present | Certify Components | Injection-site emissions analogous to AECN at Basco | Missing component; wrong grid factor |
 | 8.4 | NO upstream production components | Certify Components | Kerry Production Process and Kerry Production Embodied components ABSENT (per VVB-validated waste boundary) | If present → FAIL (system-boundary violation) |
 | 8.5 | COUNTERFACTUALS: zero | Certify Components | 0 (waste boundary excludes upstream entirely; no offsetting counterfactual) | Non-zero counterfactual = FAIL (system-boundary violation) |
 
-| 8.6 | REDUCTIONS: BCU Transport quantity ≥ transport process activity | Certify Components + Calculation View | BCU Transport ≥ Flatbed Process emission | BCU underfunded |
+| 8.6 | REDUCTIONS: BCU Transport quantity = transport process activity (never exceeds) | Certify Components + Calculation View | BCU Transport = transport process emission | BCU underfunded, or BCU exceeds the emission (any size) |
 | 8.7 | Net removal matches internal calculation | Certify Calculation View | Agrees with independent gross-to-net | Discrepancy |
 | 8.8 | All Datapoints have descriptive source names | Certify Datapoints | No "Measurement XXXX" or "IMG_001" | Generic names = FLAG (not FAIL) |
 | 8.9 | All Sources match files in batch folder on Drive | Certify Sources vs Drive | Same files in both | File in one but not the other |
 
 **Verifier reference:** Certify Components, Certify Datapoints, Certify Sources, Certify Calculation View
 
-**On 8.2 (Transport mode):** Kerry uses **flatbed truck** (totes or tanker), NOT tanker truck (AECN convention) and NOT railcar. Process EF and Embodied EF must reference the flatbed values from the Standard EFs sheet 2026 tab.
+**On 8.2 (Transport mode, ruling 2026-10-06):** Kerry used to travel in totes on flatbeds and now travels in bulk tanker trailers. Tanker deliveries take the Tanker Truck fuel-use and Tanker Truck embodied factors; tote deliveries take the Flatbed Truck fuel-use and Non-Tanker Truck embodied factors. Never railcar. Read the commodity on the scale tickets ("TANKER") to confirm the vehicle.
 
 **On 8.4 (No upstream production):** This is the most distinctive Kerry check. Kerry's VVB-validated boundary excludes biomass sourcing and production emissions entirely. If Certify shows any of:
 - "Kerry Production Process Emissions"
@@ -226,7 +230,7 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 
 **On 8.5 (Counterfactuals):** The waste boundary excludes upstream rather than offsetting it with a counterfactual emission. Counterfactual = 0 is correct. Non-zero counterfactual = FAIL.
 
-**On 8.6 (BCU ≥ activity):** BCUs offset transport process emissions only. Embodied emissions are NOT BCU-eligible (per protocol).
+**On 8.6 (BCU = activity, never more):** BCUs offset transport process emissions only. Over-coverage is a FAIL (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.). Embodied emissions are NOT BCU-eligible (per protocol).
 
 **On 8.8:** Generic/non-descriptive filenames are a FLAG with yellow fill, not a FAIL. The content is correct; the naming is a hygiene issue.
 

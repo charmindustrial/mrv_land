@@ -298,7 +298,17 @@ def check_last_offload_derivation(log):
 
     inbound_kg = round(sum(bol_values) * 1000, 2)
     prior_sum_kg = round(sum(prior_cargo), 2)
-    expected_kg = round(inbound_kg - prior_sum_kg, 2)
+    # Failure Category 11: the back-calc applies only when the raw scale-ticket total
+    # would exceed the BOL total. Otherwise the last offload keeps its raw ticket value.
+    raw_this_kg = (log.get("scale_tickets") or {}).get("computed_net_kg")
+    triggered = raw_this_kg is None or prior_sum_kg + raw_this_kg > inbound_kg
+    if triggered:
+        expected_kg = round(inbound_kg - prior_sum_kg, 2)
+        basis = f"back-calc {inbound_kg} − {prior_sum_kg}"
+    else:
+        expected_kg = round(raw_this_kg, 2)
+        basis = (f"raw scale ticket; back-calc not triggered because "
+                 f"{prior_sum_kg} + {round(raw_this_kg, 2)} ≤ {inbound_kg}")
     delta_kg = round(actual_kg - expected_kg, 2)
     delta_pct = _pct_delta(actual_kg, expected_kg)
     status = "PASS" if delta_pct <= TOLERANCE_PCT else "FAIL"
@@ -308,13 +318,15 @@ def check_last_offload_derivation(log):
         "computed": {
             "inbound_kg": inbound_kg,
             "prior_offload_sum_kg": prior_sum_kg,
+            "raw_this_offload_kg": raw_this_kg,
+            "back_calc_triggered": triggered,
             "expected_last_offload_kg": expected_kg,
             "actual_last_offload_kg": actual_kg,
             "delta_kg": delta_kg,
             "delta_pct": delta_pct,
         },
         "log_values": {"this_offload": this_offload, "last_row_id": last_row.get("id")},
-        "note": (f"Expected = {expected_kg} kg (= {inbound_kg} − {prior_sum_kg}); "
+        "note": (f"Expected = {expected_kg} kg ({basis}); "
                  f"actual = {actual_kg} kg; delta = {delta_kg} kg ({delta_pct}%). "
                  f"Tolerance ≤{TOLERANCE_PCT}%."),
     }

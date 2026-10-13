@@ -1,0 +1,52 @@
+- generic [ref=e1]:
+  - alert [ref=e2]
+  - region "0 notifications."
+  - generic [ref=e3]:
+    - navigation [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - link "Isometric Registry" [ref=e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e27]:
+            - link "Registry" [ref=e28] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - link "Account" [ref=e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=e36]: "|"
+          - button "Current user menu" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]: Menu
+    - main [ref=e41]:
+      - navigation "Breadcrumbs" [ref=e44]:
+        - list [ref=e46]:
+          - listitem [ref=e47]:
+            - link "All projects" [ref=e48] [cursor=pointer]:
+              - /url: /account/certify
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]: Private
+          - heading "FH 2026 LCA w Stack Emissions.xlsx" [level=2] [ref=e57]
+          - generic [ref=e58]: Document
+        - generic [ref=e64]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: Limited preview
+            - generic [ref=e70]: To view the complete version of the spreadsheet, please download the file and open it in Microsoft Excel.
+          - generic [ref=e71]:
+            - generic [ref=e73]:
+              - generic [ref=e74]:
+                - complementary
+                - complementary:
+                  - complementary "Sidebar panel":
+                    - button "Close sidebar" [ref=e80] [cursor=pointer]
+              - tablist "Sheet tabs" [ref=e88]:
+                - tab "Sheet1" [selected] [ref=e89] [cursor=pointer]
+            - generic:
+              - region "Notifications alt+T"
+              - region "Notifications alt+T"

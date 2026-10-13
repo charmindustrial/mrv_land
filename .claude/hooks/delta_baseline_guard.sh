@@ -31,6 +31,12 @@
 input="$(cat 2>/dev/null || true)"
 command -v jq >/dev/null 2>&1 || exit 0
 
+# Cluster 25 (fire-mining review, 2026-09-24): captured BEFORE
+# hook_scope_resolve below overwrites the transcript with the subagent's own
+# one. This is the PARENT session's transcript -- the coordinator's -- used
+# as a second place to look for the PDD/KB read on a SubagentStop.
+parent_transcript_raw="$(printf '%s' "$input" | jq -r '.transcript_path // empty' 2>/dev/null || echo "")"
+
 # Avoid stop-hook re-entry loops.
 active="$(printf '%s' "$input" | jq -r '.stop_hook_active // false' 2>/dev/null || echo false)"
 [ "$active" = "true" ] && exit 0
@@ -44,13 +50,31 @@ WORKSPACE="$(cd "$SCRIPT_DIR/../.." 2>/dev/null && pwd || echo "")"
 cwd="$(printf '%s' "$input" | jq -r '.cwd // empty' 2>/dev/null || echo "")"
 case "$cwd" in "$WORKSPACE"|"$WORKSPACE"/*) : ;; *) exit 0 ;; esac
 
-transcript="$(printf '%s' "$input" | jq -r '.transcript_path // empty' 2>/dev/null || echo "")"
+# Which transcript this hook is about, and whose counters it belongs to, are
+# decided in ONE place: ~/.claude/hooks/lib/subagent_scope.sh. It picks the
+# subagent's own transcript on SubagentStop AND exports CLAUDE_HOOK_AGENT_SCOPE,
+# so this guard's circuit breaker and the shared per-turn block budget land in
+# the same per-worker file every other guard uses. Those two steps used to be
+# hand-copied into all fifteen guards, and five copies did the first without the
+# second -- see that file's header for the 2026-09-17 failure it caused.
+source ~/.claude/hooks/lib/subagent_scope.sh
+hook_scope_resolve "$input"
+transcript="$HOOK_TRANSCRIPT_PATH"
+hook_event="$HOOK_EVENT_NAME"
+
 [ -f "$transcript" ] || exit 0
 
 # Circuit breaker: shared across every hook, see ~/.claude/hooks/lib/circuit_breaker.sh
 SESSION_DIR="$(dirname "$transcript")"
 source ~/.claude/hooks/lib/circuit_breaker.sh
-cb_init "$SESSION_DIR/delta_baseline_block_count" 3
+# Name the current turn so this guard's blocks count against the same shared
+# budget every other guard uses -- see ~/.claude/hooks/lib/circuit_breaker.sh.
+TURN_KEY="$(python3 -c 'import sys,os
+sys.path.insert(0, os.path.expanduser("~/.claude/hooks/lib"))
+from transcript_text import turn_key_from_path
+print(turn_key_from_path(sys.argv[1]))' "$transcript" 2>/dev/null || echo no-user-turn)"
+[ -n "$TURN_KEY" ] || TURN_KEY="no-user-turn"
+cb_init "$SESSION_DIR/delta_baseline_block_count" 3 "$TURN_KEY" "$transcript"
 if cb_tripped "DELTA-BASELINE GUARD"; then
   echo "Manually confirm the PDD and KB were actually read before this deliverable ships." >&2
   exit 0
@@ -84,6 +108,69 @@ authored="$(printf '%s' "$tooluses" \
 pdd_ok=false; kb_ok=false
 printf '%s' "$tooluses" | grep -q 'Charm_PDD_v1\.12' && pdd_ok=true
 printf '%s' "$tooluses" | grep -q 'Charm_Isometric_Knowledge_Base\.md' && kb_ok=true
+
+# Cluster 25: on a SubagentStop, a worker gets credit for the baseline read
+# two other ways before this guard blocks it for not opening the PDD/KB
+# itself:
+#   (a) the PARENT transcript (the coordinator that dispatched this worker)
+#       shows the PDD/KB read THIS session -- the coordinator did the
+#       reading and handed the worker a delta to execute, which is a real
+#       division of labor, not a skipped step.
+#   (b) the worker's own task prompt (its first real user entry) quotes the
+#       current-state delta explicitly -- the coordinator gave it the
+#       finding already extracted, verbatim.
+# A plain Stop (not a subagent) gets neither fallback: nothing read the
+# baseline docs for it to inherit credit from.
+if { [ "$pdd_ok" != "true" ] || [ "$kb_ok" != "true" ]; } && [ "$hook_event" = "SubagentStop" ] \
+   && [ -n "$parent_transcript_raw" ] && [ -f "$parent_transcript_raw" ] \
+   && [ "$parent_transcript_raw" != "$transcript" ]; then
+  parent_tooluses="$(jq -rs '.[]? | (.message.content[]? // empty) | select(.type=="tool_use") | "\(.name)\t\(.input|tostring)"' "$parent_transcript_raw" 2>/dev/null || true)"
+  if [ "$pdd_ok" != "true" ] && printf '%s' "$parent_tooluses" | grep -q 'Charm_PDD_v1\.12'; then
+    pdd_ok=true
+  fi
+  if [ "$kb_ok" != "true" ] && printf '%s' "$parent_tooluses" | grep -q 'Charm_Isometric_Knowledge_Base\.md'; then
+    kb_ok=true
+  fi
+fi
+
+if { [ "$pdd_ok" != "true" ] || [ "$kb_ok" != "true" ]; } && [ "$hook_event" = "SubagentStop" ]; then
+  task_prompt="$(python3 - "$transcript" 2>/dev/null <<'PYEOF' || true
+import json, sys
+try:
+    with open(sys.argv[1]) as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                e = json.loads(line)
+            except Exception:
+                continue
+            msg = e.get('message', {})
+            if not isinstance(msg, dict) or msg.get('role') != 'user':
+                continue
+            content = msg.get('content', '')
+            if isinstance(content, list):
+                text = '\n'.join(c.get('text', '') for c in content
+                                  if isinstance(c, dict) and c.get('type') == 'text')
+            else:
+                text = content
+            if text.strip().startswith('<'):
+                continue
+            print(text)
+            break
+except Exception:
+    pass
+PYEOF
+)"
+  # A quoted span of some length sitting near a mention of the PDD or the
+  # knowledge base is the worker being handed the delta verbatim, not being
+  # told to go read the whole document itself.
+  if printf '%s' "$task_prompt" | grep -qiE '(PDD|Knowledge Base)[^"`]{0,80}["`][^"`]{15,}["`]|["`][^"`]{15,}["`][^.]{0,80}(PDD|Knowledge Base)'; then
+    pdd_ok=true
+    kb_ok=true
+  fi
+fi
 
 if [ "$pdd_ok" != "true" ] || [ "$kb_ok" != "true" ]; then
   missing=""

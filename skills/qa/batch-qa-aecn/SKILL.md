@@ -73,7 +73,9 @@ The QA workflow is four sequential gates. Each gate must be completed and verifi
 
 1. **Scale tickets** — Open BOTH Full and Empty ticket images in Drive. Extract: gross weight, date, tractor #, trailer #, scale #, location from each ticket. Compare tractor and trailer numbers across the pair. A mismatch is **not automatically a finding** — under the Trailer Standard Empty Weight method a rig mismatch is the documented *trigger* for substituting a per-trailer standard tare. Check the guidance doc (step 0) and the Ops Notes cell annotation (step 4) before treating it as an error.
 
-2. **BOL / Billing documents** — Open BOL (check Certify Sources if not in Drive). Extract: BOL #, origin name+address, destination name+address, ship date, mass in all listed units, carrier name. For AECN truck: 1 BOL per shipment. For AECN rail: 3 truck BOLs per railcar (destination = SOPOR railyard).
+2. **BOL / Billing documents** — Open BOL (check Certify Sources if not in Drive) and read every page of the PDF. Extract: BOL #, form number (printed top-right — it tells you whether this is AECN's old five-page package or the new one-page form), origin name+address, destination name+address, ship date, carrier name, and every mass field with its printed label (tare, full, product delivered, quantity at 60°F in MT and litres, density at 60°F, any weighbridge Masse brute/tare/nette). For AECN truck: 1 BOL per shipment. For AECN rail: 3 truck BOLs per railcar (destination = SOPOR railyard).
+
+   **BOL mass = the weighed "Qty shipped" figure, found by field name, never by page number.** Page order differs between `-T` and `-R` packages and between the two formats. The old format's page-1 quantity block is the tank-level estimate, and the `-T` commercial invoice repeated that estimate on 2505-T — never use either as BOL mass. Field names and locations for both formats, plus a worked same-load comparison, are in the KB, Section 3, "AECN Bill of Lading Formats".
 
 3. **Lab results (CHN PDF)** — Open SGS Certificate of Analysis, navigate to correct page. Extract: Certificate #, batch ID on page, sample date+location, Carbon %, Hydrogen %, Nitrogen %, Viscosity, Acid Number, Density.
 
@@ -107,7 +109,7 @@ The entries the script reads (use these exact paths):
 2. `cobb.row_id_at_qa` AND `cobb.batch_id_col_a` equal to the target batch ID — confirming the correct COBB row was read. (Legacy field names `cobb_row_id_verified` / `cobb_cell_A_value` are pre-schema and no longer valid for new batches.)
 3. `"certify_sources_tab_total": [N]` with a COMPLETE enumeration of all N source filenames and their linked datapoints
 4. **(AECN rail only — pilot)** Run `python3 skills/qa/_lab/batch-qa-aecn-deterministic/scripts/compute_mass_chain.py outputs/qa/batch-[ID]/batch_[ID]_source_reads.json`. Read `mass_chain_findings.json` and triage by `check_type`:
-   - **`computation` FAIL** → fix the source-read log entry and rerun. Gate 1 is not complete until all computation checks pass or SKIP.
+   - **`computation` FAIL** → first check the log entry against the primary source. If the log was mistyped, fix it and rerun. If the log matches the source, the FAIL is a real finding: carry it as a Fail (or Flag) row in the checklist with the script's figures. A real finding never holds up Gate 1 or delivery; only an unchecked FAIL does.
    - **`computation` INSUFFICIENT_DATA** → a required entry is missing from the log; add it from reads already completed and rerun.
    - **`policy` FLAG** → does NOT block Gate 1. Record the finding; it will be resolved by LLM judgment in Gate 2.
    - **`policy` INSUFFICIENT_DATA** → the COBB entry is missing from the log; add it and rerun (COBB data is still required).
@@ -152,7 +154,9 @@ These items have failed across multiple batches. A checklist cannot exit Gate 2 
 
 3. **Uncertainty per-component (items 7a.1, 7a.2):** Open EACH Certify component detail modal (Injection Sequestration, AECN->Basco or AECN->SOPOR Transport Process, AECN Pyrolysis Process, AECN Pyrolysis Embodied). In the INPUTS section, read the +/- values. Record every uncertainty value. Compare against expected values (see Uncertainty Reference below). **Failure to open the modals = +3 laziness penalty.**
 
-**Exit condition:** The .xlsx checklist file exists with all items assigned a status (PASS/FAIL/FLAG/N/A) and every evidence note contains specific cited values. All three mandatory sub-tasks completed with primary-source evidence.
+4. **Deterministic recompute (MANDATORY; `run_gates.py` blocks without it).** Write `recompute_<batch>.py` in the batch folder. It reads the source-read log, recomputes the mass chain, conservative mass, sparging loss, gross CO2e, every component and net, compares each with the Certify value in the log (tolerance ~0.001 tCO2e). Every difference between Certify and the evidence (or Certify's own inputs) is a finding: print it as `FINDING <row>[/<row>]: ...` naming the checklist row that carries it, and grade that row Fail or Flag. Exit non-zero only when a difference has not been routed to a row yet or the script cannot run. `run_gates.py` blocks an unrouted difference and any FINDING whose row is not Fail or Flag; a routed finding never blocks delivery (findings rule, 2026-09-29). Paste its full output into the chat before delivery.
+
+**Exit condition:** The .xlsx checklist file exists with all items assigned a status (PASS/FAIL/FLAG/N/A) and every evidence note contains specific cited values. All four mandatory sub-tasks completed with primary-source evidence.
 
 ---
 
@@ -167,6 +171,58 @@ These items have failed across multiple batches. A checklist cannot exit Gate 2 
 ---
 
 ### GATE 4: Finalization & Delivery
+
+**DELIVERY IS LOCKED UNTIL `run_gates.py` PASSES — enforced, not advisory.**
+
+```
+python3 .claude/skills/batch-qa-charm/run_gates.py outputs/qa/batch-<ID>
+```
+
+All must be green: status casing (Pass/Fail/Flag/N/A, the exact casing
+`audit_checklist.py` matches), every `recompute_*.py` at exit 0, `audit_checklist.py`
+with row count > 0 / zero failures / every Pass-Fail-Flag row covered,
+`Attachment gate: PASS`, `[log:]` citations on N/A rows, and a performance-tracker row.
+It writes `gate_receipt.json` carrying the sha256 of the checklist that passed.
+`~/.claude/hooks/qa_delivery_gate_guard.sh` denies every Slack/Gmail send naming a batch
+without a matching green receipt, so editing the checklist afterwards re-blocks delivery.
+Origin: INJ-09-2026-W2-QOWV, 2026-09-22 — a checklist reached Max before the audit ran,
+and the audit then reported "Audit ran on 0 rows" because of a status-casing mismatch.
+
+**Required-step record (MANDATORY, added 2026-09-29).** On INJ-09-2026-W3-QOWV every
+gate passed while eight required steps were skipped. `run_gates.py` blocks unless the
+batch folder holds `step_ledger.json` with one entry per step id in
+`REQUIRED_STEPS["AECN"]` (`.claude/skills/batch-qa-charm/batch_step_ledger.py`), each
+`{"done": true, "evidence": "..."}`, or `{"done": "n/a", ...}` with a reason where the
+list allows it (rail-only steps on a truck batch, BCU steps with no BCUs). Evidence
+counts only if it is a `[log:KEY]` whose value in the source-read log is not empty, or
+a file in the batch folder (or the registry / performance tracker) made or changed at
+or after T0. A timestamp or URL on its own does not count, and a `[log:KEY]` or path
+that does not exist fails the entry. Record the pre-flight reads in the source-read log
+under `preflight` (`knowledge_base`, `lessons_learned`, `checklist_structure`, and
+`failure_categories_printed` holding the list printed to chat). Fill each entry when the
+step is done, not at the end. It also checks, straight from the files: one checklist
+under its original name (never `_v2`), no text naming Max, status-row and header
+formatting, row heights on merged rows, T0–T4 stamped, and an empty workspace root.
+An oil type the lock does not recognise is blocked.
+
+**Independent step audit (MANDATORY, added 2026-09-29).** After the last ledger entry
+and before `run_gates.py`, spawn a fresh agent (Agent tool) that did not do the QA. Give
+it the batch folder path and the `REQUIRED_STEPS["AECN"]` list, nothing else. It opens
+what each entry's evidence names and writes `ledger_audit.json`:
+`{"ledger_sha256": "<sha256 of step_ledger.json>", "auditor": "<agent name>", "steps":
+{"<id>": {"verdict": "verified" | "not_verified", "checked": "<what it opened and what
+it showed>"}}}`. The QA agent never writes this file. Any ledger edit after the audit
+breaks the hash and needs a fresh audit. A `not_verified` step is done, re-evidenced and
+re-audited.
+
+**Findings never block delivery (2026-09-29).** A problem in Certify or the evidence is a finding for Garrett. `run_gates.py` blocks it only while the checklist has not recorded it: a Certify evidence gap passes once a Fail row cites `[log:certify.attachment_gate]` and names every open datapoint; a recompute or mass-chain discrepancy passes once its FINDING line points at a Fail or Flag row. What still blocks is unfinished QA work. `delivery_exceptions.json` is only for a required QA step the MRV lead has authorised leaving undone: `step:<id>` with `authorized_by` quoting the answer, and the step marked `done: false`. Every pass is written into the receipt, and `run_gates.py` runs `tests/test_findings_never_block.py` before anything else.
+
+**Results in chat.** `~/.claude/hooks/qa_chat_result_guard.sh` (Stop) blocks a chat
+message that reports this batch's results before a green receipt matches the checklist,
+unless the message opens with `**Not final — delivery checks have not run.**`. The
+delivery guard covers every Slack send / draft / schedule / canvas tool and every Gmail
+draft / send / reply / forward tool.
+
 
 **Entry condition:** Gate 3 review incorporated.
 
@@ -288,7 +344,7 @@ A QA session is not "Gate 4 complete" until the audit script returns zero failur
 
 ## Key Formulas & Values (AECN)
 
-- **Conservative mass (truck batches):** MIN(scale ticket net, BOL mass)
+- **Conservative mass (truck batches):** MIN(scale ticket net, BOL mass), where BOL mass is the weighed "Qty shipped" figure (KB Section 3, "AECN Bill of Lading Formats")
 - **Conservative mass (rail batches — LAST offload only):** if `sum(all offloads' raw scale-ticket Cargo (kg))` exceeds `BOL inbound aggregate`, the last offload's Cargo (kg) is back-calculated as `BOL_aggregate − sum(prior offloads' raw scale-ticket Cargo (kg))`. This policy-applied value is what flows into Certify's Allocated Bio-Oil Mass. **Always run the railcar-balance check before flagging any rail-offload mass divergence: if `sum(all offload Cargo (kg) in Ops Notes) == BOL_aggregate`, the divergence is policy-driven, not an error.** See `references/lessons_learned.md` Failure Category 11 for full rationale.
 - **Scale ticket net:** Full gross - Empty gross (lbs), convert to kg (/ 2.20462)
 - **Sparging deduction:** 1.29% of injectate mass (standard for AECN at Basco). Applied to the policy-applied Cargo (kg) on the last offload of a railcar.
@@ -355,8 +411,9 @@ Charm uses Option B (Variance Propagation) per Isometric Standard S3.7.3. Per-co
 **Section 3.5 QA pattern for rail batches:** the distance check must mention BOTH the allocated AECN→SOPOR truck distance AND the allocated rail distance, plus the full Opelousas→Basco truck distance. Missing the truck-leg allocation (mentioning only rail) is incomplete — Max correction on 2-185 review.
 
 **BOL conventions for AECN:**
-- Truck delivery: 1 BOL per shipment, origin = AECN Quebec, destination = Basco
-- Rail delivery: 3 truck BOLs per railcar, destination = SOPOR railyard
+- Truck delivery: 1 BOL per shipment, origin = AECN Quebec, destination = Basco (BOL numbers end `-T`)
+- Rail delivery: 3 truck BOLs per railcar, destination = SOPOR railyard (BOL numbers end `-R`)
+- Format: AECN proposed a one-page BOL on 2026-09-29 that merges the old BOL page and the Shipping Details page. Expect both formats until the final version is in use. Identify each by its form number and read values by field name (KB Section 3, "AECN Bill of Lading Formats"). Checklist item 3.3 lists the internal ties to check on either format.
 
 ## AECN Identification in Certify
 
@@ -404,6 +461,7 @@ After completing all four gates:
 4. **Once Max approves, post to #team-mrv-alerts (channel C0944NQH1RP), tagging Garrett (<@U08JW9HQG5B>), a SHORT, lede-first message — not the full checklist dump** (routing changed 2026-08-31 per Max: Garrett-facing QA notifications go to the shared channel, not a DM, so the team sees outstanding issues and their resolution — added 2026-08-26: sending the entire PASS/FAIL/FLAG breakdown out of the gate buries the fails and flags, which are the only thing Garrett needs to act on). The message is just:
    - Batch ID
    - The FAIL and FLAG items only, one line each (item number + the issue — no PASS items, no counts, no full evidence essay)
+   - One problem, one line (2026-10-07, after INJ-09-2026-W4-AECN 2.2 and 8.3 went out as two items for the same gap). When one underlying gap fails more than one checklist row, send it once with every row number it affects ("2.2 / 8.3: ..."). Never list it twice: Garrett answers one, the other looks unanswered, and Max has to work out they were the same thing. Merge on the gap, not on the fix — two rows that share a fix but have different gaps stay separate.
    - A direct prompt to reply in the thread once he's addressed the findings, which re-triggers a QA re-verification pass on that batch
    Record the channel + this post's thread_ts in the batch's registry entry so the garrett-completion-monitor automation can find and watch it.
 
@@ -436,7 +494,7 @@ The file `skills/qa/batch-qa-aecn/qa_active_batches.json` in the MRV Expert work
 | Batch Drive Folder | Google Drive -> batch folder (e.g., "2-178") | Scale tickets, Ops Notes, testing/CHN results |
 | Ops Notes | Google Sheet within batch folder | Batch composition, injection data, mass calc, pH, consumables |
 | Scale Tickets | Scale Tickets subfolder | Empty/full ticket images with tractor #, trailer #, weights |
-| BOL / Billing | Batch folder or Certify Sources | Origin, destination, shipped mass (page 3 = authoritative) |
+| BOL / Billing | Batch folder or Certify Sources | Origin, destination, weighed shipped mass ("Qty shipped", located by field name — KB Section 3 "AECN Bill of Lading Formats") |
 | CHN Analysis | Testing subfolder | Carbon wt%, hydrogen, nitrogen |
 | COBB Tracker | Live Google Sheet | Lot tracking, BOL numbers, offloaded quantities, dates |
 | Certify Removal | Isometric registry | Components, Datapoints, Sources, Calculation View |

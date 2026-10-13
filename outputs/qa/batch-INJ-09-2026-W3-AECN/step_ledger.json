@@ -1,0 +1,137 @@
+{
+ "batch_id": "INJ-09-2026-W3-AECN",
+ "steps": {
+  "P1_knowledge_base": {
+   "done": true,
+   "evidence": "[log:preflight.knowledge_base]"
+  },
+  "P2_lessons_learned": {
+   "done": true,
+   "evidence": "[log:preflight.lessons_learned]"
+  },
+  "P3_checklist_structure": {
+   "done": true,
+   "evidence": "[log:preflight.checklist_structure]"
+  },
+  "P4_failure_categories_printed": {
+   "done": false,
+   "evidence": "[log:preflight.failure_categories_printed, preflight.failure_categories_printed_correction] NOT done before Gate 1: the earlier log entry claiming a 20:19Z print was false. List printed to chat late, 2026-09-29T22:52:38Z, after Gate 4. The ordering the step requires was not met."
+  },
+  "P5_registry_checked": {
+   "done": true,
+   "evidence": "[log:registry_check]"
+  },
+  "T0_stamped_monitor_triggered": {
+   "done": true,
+   "evidence": "[log:qa_session_T0_utc] batch_timestamps.json; independent monitor wrote tracker row 15 in outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx"
+  },
+  "G1_0_vvb_guidance_full": {
+   "done": true,
+   "evidence": "[log:vvb_guidance.quote_method, vvb_guidance.quote_scope] source_exports/VVB_Guidance_September_1-30_fetched_2026-09-29.txt read in full before any other source"
+  },
+  "G1_4_ops_notes": {
+   "done": true,
+   "evidence": "[log:ops_notes.offload_table, ops_notes.rollup, ops_notes.railcars] source_exports/INJ-09-2026-W3_Ops_Notes.xlsx"
+  },
+  "G1_4_cell_comments": {
+   "done": true,
+   "evidence": "[log:ops_notes.cell_comments_check] zero comments on all 10 tabs, confirmed from the xlsx parts"
+  },
+  "G1_2_bols": {
+   "done": true,
+   "evidence": "[log:bols.per_bol, bols.per_railcar] 9 BOL PDFs in bols/ read, all 5 pages each"
+  },
+  "G1_3_lab_results": {
+   "done": true,
+   "evidence": "[log:lab_results.carbon_pct, lab_results.density_15C_g_cm3] SR26-05599_W3_QOWV_AECN_COA.pdf page 2"
+  },
+  "G1_1_scale_tickets": {
+   "done": true,
+   "evidence": "[log:scale_tickets.offloads] 20 ticket PDFs in tickets/ read as images"
+  },
+  "G1_5_cobb_row_verified": {
+   "done": true,
+   "evidence": "[log:cobb.batch_id_col_a, cobb.row_id_at_qa] column A read on rows 1776-1785 and 848-857 before any value"
+  },
+  "G1_6_certify_four_tabs": {
+   "done": true,
+   "evidence": "[log:certify._primary_source_opened, certify.calc_view] certify_calculation_view.yml certify_datapoints_tab.yml certify_sources_tab.yml"
+  },
+  "G1_6_sources_tab_total": {
+   "done": true,
+   "evidence": "[log:certify.certify_sources_tab_total, certify.certify_sources_enumeration, certify.attachment_map] certify_attachment_map.json"
+  },
+  "G2_3_component_modals": {
+   "done": true,
+   "evidence": "[log:certify.modal_reads] 10 component windows opened: certify_modal_injection_sequestration.yml certify_modal_pyro_process.yml certify_modal_pyro_embodied.yml certify_modal_aecn_sopor_truck_process.yml certify_modal_aecn_sopor_truck_embodied.yml certify_modal_rail_process.yml certify_modal_rail_embodied.yml certify_modal_opel_basco_truck_process.yml certify_modal_opel_basco_truck_embodied.yml certify_modal_bcu.yml"
+  },
+  "G2_route_map": {
+   "done": true,
+   "evidence": "[log:certify.sources_downloaded_and_opened] certify_sources/AECN_to_SOPOR_Baie_Comeau_2.png certify_sources/Opelousas_Railyard_to_Basco.png certify_sources/image_44.png"
+  },
+  "P6_inputs_confirmed": {
+   "done": true,
+   "evidence": "[log:inputs_confirmed.certify_removal_url, inputs_confirmed.drive_folder_url, inputs_confirmed.reporting_period_certify, inputs_confirmed.aecn_only_basis]"
+  },
+  "G1_mass_chain_script": {
+   "done": true,
+   "evidence": "[log:mass_chain.counts, mass_chain.shpx215046_balance.log_verified_against_primary, mass_chain.script_fix_this_session] mass_chain/summary.json: 10 offloads run; 30 computation PASS, 8 SKIP, 2 FAIL. Both FAILs are the SHPX215046 railcar balance (77,700.3096 kg out vs 77,680 kg loaded), confirmed against the W3 and W2 tickets as a real over-draw, not a log error, and carried in the checklist as row 2.5 (Flag, fix on W2 offload 4) and row 8.3 (Fail)."
+  },
+  "G2_ef_live_sheet": {
+   "done": true,
+   "evidence": "[log:standard_efs.vs_certify, standard_efs.row4_aecn_process_H2_2026, standard_efs.row10_rail_fuel] source_exports/Standard_Emission_Factors_export_2026-09-29.xlsx"
+  },
+  "G2_carbon_range_source": {
+   "done": true,
+   "evidence": "[log:carbon_range.mean_C_pct, carbon_range.sd_C_pct, carbon_range.n, carbon_range.calc] source_exports/MRV_AECN_Analysis.xlsx"
+  },
+  "G2_bcu_sources": {
+   "done": true,
+   "evidence": "[log:bcu_sources.certificate_quote, bcu_sources.inventory_row16, bcu_sources.protocol_s4_2_1_eq5, bcu_sources.over_coverage_calc] certify_sources/Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+  },
+  "G1_registry_updated": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-aecn/qa_active_batches.json entry INJ-09-2026-W3 [log:inputs_confirmed.batch_id]"
+  },
+  "G2_0_findings_routed": {
+   "done": true,
+   "evidence": "[log:mass_chain.counts, mass_chain.shpx215046_balance.status, mass_chain.last_offload_GPRX5102, mass_chain.policy_flags] mass_chain/summary.json: 30 computation PASS -> confirmed items 2.4/5.2; 2 computation FAIL (SHPX balance) -> checklist 2.5 Fail; 20 policy PASS (COBB = Ops on all 10 rows) -> 5.4; 0 policy FLAG"
+  },
+  "G2_1_ticket_pairs_compared": {
+   "done": true,
+   "evidence": "[log:certify.ticket_sources_compare.result, scale_tickets.pair_comparison] certify_sources/tickets/certify_vs_drive_ticket_compare.json: 20 Certify ticket PDFs byte-identical to the read copies; 9 pairs match tractor and trailer, TILX200231 offload 2 tractor CH1 (full) vs CH2 (empty)"
+  },
+  "G2_2_cobb_values": {
+   "done": true,
+   "evidence": "[log:cobb.tab, cobb.row_id_at_qa, cobb.offloaded_quantity_kg, cobb.origin_quantity_kg, cobb.injection_completion_date] source_exports/COBB_Bio-oil_Injection_Tracker_export_2026-09-29.xlsx"
+  },
+  "G2_rail_allocation": {
+   "done": true,
+   "evidence": "[log:recompute.findings, ops_notes.rollup.aecn_sopor_alloc_mi_sum, ops_notes.rollup.rail_alloc_mi_sum] recompute_output.txt section 3 (railcar balances) and section 5 (L38 818.7957175 = sum(cargo/loaded) x 107.5 x 3; M38 5588.31288 = 2199 + 2199 + 2199 x SHPX fraction; 858 = 42.9 x 2 x 10)"
+  },
+  "G3_reviewer_independent": {
+   "done": true,
+   "evidence": "adversarial_review.md written by an independent agent (agentId ad3fd713a7852f593), with adversarial_review_recompute.py and adversarial_review_recompute_output.txt; 9 challenged, 53 confirmed"
+  },
+  "G3_challenges_resolved": {
+   "done": true,
+   "evidence": "adversarial_resolution.md: all 9 challenges and 8 observations resolved with sources read this session; Batch_INJ-09-2026-W3-AECN_QA_Checklist.xlsx rebuilt (rows 1.5, 2.3, 2.5, 2.7, 3.3, 3.7, 5.1, 7.3, 7a.3, 8.1, 8.3, 9.6, 9.8 changed; S.2 added) [log:vvb_guidance.august_standard_tare, policy.last_reported_rule, recompute.findings] 2.5 settled 2026-09-29 by ruling: the cut applies to the last load (offload 4, W2) [log:policy.last_load_ruling]; 2.5 and 3.3 now Flag pointing to W2, 8.3/9.6/9.8 text updated. Custody ruling 2026-09-29: upstream emissions of all oil in Charm custody are netted [log:policy.custody_rule]; railcar-loss emissions (0.042411 t) now Fail in 6.6, 7.2, 8.2, 9.2; sidebar S.2 removed."
+  },
+  "G2_recompute_pasted": {
+   "done": true,
+   "evidence": "recompute_INJ-09-2026-W3-AECN.py exit 0; recompute_output.txt (custody-loss version); full current output pasted as chat text at 2026-09-29T23:30:08Z, before any delivery [log:recompute.lines, recompute.findings]. Earlier pastes (21:34Z, 22:52Z, 23:18Z) showed superseded versions."
+  },
+  "G4_render_in_excel": {
+   "done": true,
+   "evidence": "render_check/Excel_export_Batch_INJ-09-2026-W3-AECN_QA_Checklist.pdf: Excel's own export of the checklist rebuilt for the custody rule, 8 landscape pages, all 8 read at 2026-09-29T23:29:01Z"
+  },
+  "G4_status_counts": {
+   "done": true,
+   "evidence": "Batch_INJ-09-2026-W3-AECN_QA_Checklist.xlsx column C after the custody-rule rebuild: Pass 31 / Fail 13 / Flag 13 / N/A 5 (62 rows), counted by script"
+  },
+  "G4_monitor_independent": {
+   "done": true,
+   "evidence": "outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx row 15 written by an independent monitor agent (agentId a7b3041d84e77a87b), counts and T4 updated by that agent after each rebuild"
+  }
+ }
+}

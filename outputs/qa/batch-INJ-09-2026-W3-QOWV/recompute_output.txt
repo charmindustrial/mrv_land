@@ -1,0 +1,43 @@
+OK  n_totes: recomputed 37 vs certify/log 37
+OK  per_row_formulas_D_F_I_rebuild: recomputed True vs certify/log True
+OK  gross_kg: recomputed 37682.0 vs certify/log 37682
+OK  produced_kg: recomputed 35550.8 vs certify/log 35550.8
+OK  injected_kg: recomputed 30808.5 vs certify/log 30808.5
+OK  production_emissions_kg: recomputed 4977.8507 vs certify/log 4977.8507
+OK  weighted_ci: recomputed 0.1400207787 vs certify/log 0.1400207787
+OK  weighted_ci_vs_certify_6dp: recomputed 0.140021 vs certify/log 0.140021
+OK  uncertainty_kg: recomputed 41.95726 vs certify/log 41.95726
+OK  uncertainty_vs_certify_seq: recomputed 41.95726 vs certify/log 41.95726
+OK  uncertainty_vs_certify_proc_display: recomputed 41.96 vs certify/log 41.96
+OK  uncertainty_vs_certify_pyro_display: recomputed 41.96 vs certify/log 41.96
+OK  carbon_unc_pct_abs: recomputed 0.032 vs certify/log 0.032
+OK  mass_of_product_kg: recomputed 30808.5 vs certify/log 30808.5
+OK  mass_of_load_kg: recomputed 37682.0 vs certify/log 37682
+OK  pyrolysis_mass_kg: recomputed 35550.8 vs certify/log 35550.8
+OK  alloc_miles_rebuilt: recomputed 1716.53 vs certify/log 1716.53
+OK  alloc_miles_vs_tab: recomputed 1716.527288 vs certify/log 1716.527288
+OK  process_ef_display: recomputed 0.086 vs certify/log 0.086
+OK  embodied_ef_display: recomputed 0.19279 vs certify/log 0.19279
+OK  seq_t: recomputed 9.038 vs certify/log 9.038
+OK  proc_t_certify_basis_glec_0.086: recomputed 6.264 vs certify/log 6.264
+OK  proc_t_sheet_basis_within_0.001t: recomputed True vs certify/log True
+OK  emb_t: recomputed 0.331 vs certify/log 0.331
+OK  pyro_t: recomputed 4.978 vs certify/log 4.978
+OK  bcu_matches_process_at_display_precision_t: recomputed 6.264 vs certify/log 6.264
+OK  net_t: recomputed 3.69 vs certify/log 3.69
+OK  net_with_rounded_39kg_within_0.001t: recomputed True vs certify/log True
+OK  discount_estimate_rounds_to_certify: recomputed 39 vs certify/log 39
+OK  standard_loss_not_applied: recomputed False vs certify/log False
+OK  lcs_component_needed: recomputed None vs certify/log None
+
+process emission: sheet basis 6263.442 kg, Certify/GLEC basis 6263.604 kg; BCU constant 6264 kg; BCU minus process = +0.558 kg (sheet) / +0.396 kg (Certify)
+BCU <= process emission (the BCU cap, checklist 8.1; not gating here): False on the Certify basis, False on the sheet basis
+net = 3.69032 t with discount estimate 39.26 kg; 3.69059 t with displayed 39 kg
+net on the EF sheet's process factor and the Ops Notes H50 CI = 3.69049 t
+
+FINDING 301154: 930.4 kg x (0.1236896673712938 - 0.1106615762401743) = 12.1213 kg CO2e overstated; corrected PE 4965.7294 kg, weighted CI 0.1396798206, net +0.01212 t
+FINDING 120509: tote mass 57.6 vs inventory tare 62.93 -> produced mass +5.33 kg, PE +0.8398 kg CO2e
+FINDING COLA_32: 17 vs 18 totes on truck -> allocated 1716.5273 vs 1704.7528 mi (+11.7745 mi), embodied +2.2700 kg CO2e
+net on the production record = 3.70517 t (+0.01485 t vs as submitted); pyrolysis 4964.8896 kg on 35545.47 kg, CI 0.1396771; embodied 328.661 kg; BCU 6263.604 kg; discount estimate 39.26 kg
+FINDING shipping orders: Truck 1 / Truck 2 totes rode 20- and 18-tote orders (Oil_inventory_data) -> allocated 2308.5889 mi (+592.0616 mi vs tab), embodied 0.44507 t (+0.11414 t); net on the production record incl. orders = 3.58876 t
+fix values: Certify CI 0.139680 (301154 only) -> pyrolysis 4.966 t; embodied distance 2308.59 mi -> 0.445 t; BCU 6263.604 kg

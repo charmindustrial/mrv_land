@@ -1,0 +1,83 @@
+- dialog "Opelousas to Basco - Tanker Truck Transport Process Emissions" [active] [ref=f156e2]:
+  - generic [ref=f156e3]:
+    - generic [ref=f156e4]:
+      - generic [ref=f156e6]:
+        - button "Opelousas to Basco - Tanker Truck Transport Process Emissions" [ref=f156e9] [cursor=pointer]
+        - generic [ref=f156e10]:
+          - generic [ref=f156e11]: 1.313 tCO₂e
+          - generic [ref=f156e13]: 0.36%
+      - button "Toggle timeline sidebar" [ref=f156e15] [cursor=pointer]
+      - button "Close" [ref=f156e18] [cursor=pointer]
+    - generic [ref=f156e22]:
+      - generic [ref=f156e23]:
+        - generic [ref=f156e24]: Inputs
+        - grid "Input list" [ref=f156e25]:
+          - row "Emission factor of transport" [ref=f156e26]:
+            - gridcell "Emission factor of transport Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.1143 kgCO₂e/(t⋅mi) 1 source Deselect datapoint" [ref=f156e27]:
+              - generic [ref=f156e28]:
+                - generic [ref=f156e29]: Emission factor of transport
+                - generic [ref=f156e32]:
+                  - button "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.1143 kgCO₂e/(t⋅mi) 1 source" [ref=f156e37] [cursor=pointer]:
+                    - generic [ref=f156e38]: Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck
+                    - generic [ref=f156e41]:
+                      - generic [ref=f156e42]: "0.1143"
+                      - text: kgCO₂e/(t⋅mi)
+                    - button "1 source" [disabled] [ref=f156e44]
+                  - button "Deselect datapoint" [ref=f156e48] [cursor=pointer]
+          - row "Distance traveled" [ref=f156e51]:
+            - gridcell "Distance traveled Distance from Opelousas to B6 (truck) 42.9 mi 1 source Deselect datapoint" [ref=f156e52]:
+              - generic [ref=f156e53]:
+                - generic [ref=f156e54]: Distance traveled
+                - generic [ref=f156e57]:
+                  - button "Distance from Opelousas to B6 (truck) 42.9 mi 1 source" [ref=f156e62] [cursor=pointer]:
+                    - generic [ref=f156e63]: Distance from Opelousas to B6 (truck)
+                    - generic [ref=f156e66]:
+                      - generic [ref=f156e67]: "42.9"
+                      - text: mi
+                    - button "1 source" [disabled] [ref=f156e69]
+                  - button "Deselect datapoint" [ref=f156e73] [cursor=pointer]
+          - row "Mass of load" [ref=f156e76]:
+            - gridcell "Mass of load Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources Deselect datapoint" [ref=f156e77]:
+              - generic [ref=f156e78]:
+                - generic [ref=f156e79]: Mass of load
+                - generic [ref=f156e82]:
+                  - button "Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources" [ref=f156e87] [cursor=pointer]:
+                    - generic [ref=f156e88]: Bio-Oil Mass - AECN via Rail
+                    - generic [ref=f156e91]:
+                      - generic [ref=f156e92]:
+                        - generic [ref=f156e93]: 267,807.11
+                        - generic [ref=f156e94]: ±1,015.98
+                      - text: kg
+                    - button "32 sources" [disabled] [ref=f156e95]
+                  - button "Deselect datapoint" [ref=f156e99] [cursor=pointer]
+      - generic [ref=f156e102]:
+        - generic [ref=f156e103]: Description
+        - button "+ Add" [ref=f156e105] [cursor=pointer]
+      - generic [ref=f156e107]:
+        - generic [ref=f156e108]: Blueprint details
+        - generic [ref=f156e109]:
+          - generic [ref=f156e110]:
+            - generic [ref=f156e111]: Blueprint
+            - generic [ref=f156e114]:
+              - link "Transport emissions" [ref=f156e115] [cursor=pointer]:
+                - /url: https://docs.isometric.com/certify/component-blueprint-library#transport-emissions
+              - generic [ref=f156e116]: "->"
+          - generic [ref=f156e117]:
+            - generic [ref=f156e118]: Key
+            - generic [ref=f156e120]: transport
+          - generic [ref=f156e121]:
+            - generic [ref=f156e122]: Gas type
+            - generic [ref=f156e124]: CO₂e
+          - generic [ref=f156e125]:
+            - generic [ref=f156e126]: Calculation
+            - generic [ref=f156e129]:
+              - generic [ref=f156e130]: output
+              - generic [ref=f156e132]: =
+              - generic [ref=f156e133]: mass
+              - generic [ref=f156e135]: "*"
+              - generic [ref=f156e136]: distance
+              - generic [ref=f156e138]: "*"
+              - generic [ref=f156e139]: carbon_intensity
+    - generic [ref=f156e142]:
+      - button "Delete" [ref=f156e143] [cursor=pointer]
+      - button "Done" [ref=f156e144] [cursor=pointer]

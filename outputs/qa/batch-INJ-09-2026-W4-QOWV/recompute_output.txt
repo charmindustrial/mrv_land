@@ -1,0 +1,50 @@
+OK  n_totes: recomputed 42 vs certify/log 42
+OK  per_row_formulas_D_F_I_rebuild: recomputed True vs certify/log True
+OK  per_tote_ci_matches_period_constant: recomputed True vs certify/log True
+OK  gross_kg: recomputed 42945.0 vs certify/log 42945
+OK  produced_kg: recomputed 40525.8 vs certify/log 40525.8
+OK  injected_kg: recomputed 34179.5 vs certify/log 34179.5
+OK  production_emissions_kg: recomputed 5009.9151 vs certify/log 5009.9151
+OK  weighted_ci_within_1e-9_of_H54: recomputed True vs certify/log True
+OK  weighted_ci_vs_certify_6dp: recomputed 0.123623 vs certify/log 0.123623
+OK  uncertainty_kg: recomputed 47.62716 vs certify/log 47.62716
+OK  uncertainty_vs_certify_seq: recomputed 47.62716 vs certify/log 47.62716
+OK  uncertainty_vs_certify_proc_display: recomputed 47.627 vs certify/log 47.627
+OK  uncertainty_vs_certify_pyro_display: recomputed 47.627 vs certify/log 47.627
+OK  carbon_pct_vs_lab: recomputed 7.9 vs certify/log 7.9
+OK  mass_of_product_kg: recomputed 34179.5 vs certify/log 34179.5
+OK  mass_of_load_kg: recomputed 42945.0 vs certify/log 42945
+OK  pyrolysis_mass_kg: recomputed 40525.8 vs certify/log 40525.8
+OK  alloc_miles_rebuilt_from_tab_inputs: recomputed 3236.03 vs certify/log 3236.03
+OK  alloc_miles_vs_tab_total: recomputed 3236.027778 vs certify/log 3236.027778
+OK  process_ef_is_sheet_tanker_row: recomputed 0.1143 vs certify/log 0.1143
+OK  embodied_ef_is_sheet_tanker_row: recomputed 0.23756 vs certify/log 0.23756
+OK  seq_t: recomputed 9.902 vs certify/log 9.902
+OK  proc_t_certify_inputs: recomputed 5.895 vs certify/log 5.895
+OK  emb_t_certify_inputs: recomputed 0.769 vs certify/log 0.769
+OK  pyro_t: recomputed 5.01 vs certify/log 5.01
+OK  bcu_t_display: recomputed 5.895 vs certify/log 5.895
+OK  discount_estimate_rounds_to_certify: recomputed 47 vs certify/log 47
+OK  net_t: recomputed 4.076 vs certify/log 4.076
+OK  standard_loss_not_applied: recomputed False vs certify/log False
+OK  lcs_component_needed: recomputed None vs certify/log None
+
+as submitted: seq 9901.5619 kg, process 5895.2448 kg, embodied 768.7513 kg, pyrolysis 5009.9210 kg, BCU 5895 kg, discount estimate 47.09 kg -> net 4.07555 t
+
+FINDING 5.1: process EF is the sheet's Tanker row (0.0001143 MT/t-mi); the Flatbed row is 0.0001384 MT/t-mi. 42.945 t x 1201 mi x 0.0001384 = 7.138249 t vs 5.895245 t submitted (+1.243004 t)
+FINDING 3.4: COLA-38 totes on truck 6 on the tab vs 18 on the production record -> share 0.8333333333 vs 0.2777777778, 1000.8333 vs 333.6111 mi
+NOTE COLA-40: tab 18 is the physical count documented in A19; inventory master lists 17 (A19 flags it for upstream reconciliation); 18 kept
+FINDING 3.4: batch mileage allocation 3236.0278 mi on the tab vs 2568.8056 mi with COLA-38 over its 18 totes (+667.2222 mi)
+FINDING 6.1: embodied EF is the sheet's Tanker row (0.0002375605888 MT/mi); the Non-Tanker row is 0.0001927908256 MT/mi. On the tab's 3236.0278 mi: 0.623876 t vs 0.768751 t submitted (-0.144875 t); with 3.4 also corrected: 0.495242 t (-0.273509 t)
+FINDING 4.4: carbon uncertainty 0.03523 percentage points in Certify vs 0.004 x 7.9 = 0.0316 (Ops Notes Summary!G20 0.000316 as a fraction); +11.4873% relative
+FINDING 7.2: per the 2026-10-07 ruling (BCUs on diesel transport incl. biomass transport process and handling, not embodied) production CIs count biomass transport after its BCUs; the June/February CIs come from linked sheets that count it before. Package versions (V2's sources) throughout: June 0.1172887280, February 0.1227182507, July 0.120947 (blend rebuilt from the package files 0.1209473831): production emissions 5009.9151 -> 4790.2737 kg (-219.6414 kg), weighted CI 0.1182030623. Linked sheets throughout: June 0.1173329448, February 0.1230857483, blend rebuilt 0.1201299366: 4786.3316 kg (-223.5835 kg), weighted CI 0.1181057898
+NOTE 7.2: which summary version governs is for the blend owner; for reference, the linked sheets' own basis (before BCUs) would give a July blend of 0.1277933300 and 5060.2918 kg
+FINDING 8.1: BCU 5895 kg vs process emission as submitted 5895.2448 kg (-0.2448 kg); vs process on the Flatbed factor 7138.2492 kg (-1243.2492 kg)
+FINDING 2.3: 301274 gross 1036.0 kg in the Ops Notes vs 1080.0 kg in the production system's weighing (Oil_inventory_data row 39, OIL260721143336) (+44.0 kg); post-unload measured in the Ops Notes (E 169.5 kg). If 1080.0 kg: sequestration +12.7465, production emissions +5.3217, net +7.4248 kg CO2e. The Ops Notes' 1036.0 kg equals the production weighing of 301277 (Oil_inventory_data row 40: OIL260721142141, gross 1036.0 kg)
+NOTE 2.3: per the 2026-10-07 ruling the injection tracker's COBB tabs are not a cross-check; the COBB-only conflict on 301215 (post-unload 442.5 kg in the Ops Notes vs 162.0 kg implied by COBB) is not carried
+NOTE 3.5: totes 301210, 301215, 301223, 301228 (June 2026 label, June CI) and 301305, 301312, 301317, 301331 (July 2026 label, blended CI) were weighed in the following month (2026-07-01, 2026-08-31). The June summary's Aqueous mass 46616.2 kg equals the 48 June-labelled QOWV rows (46616.2 kg, the four June totes included) and the Jan-Jun blend's June mass (46616.2 kg): True. Each tote's CI matches its labelled period; no change to the removal (documentation flag: no fill date)
+
+BCU must equal the corrected process component's output: 7138.2492 kg on the sheet's 0.0001384; 7138.4340 kg if the component uses GLEC 0.086 kgCO2e/(km*t) as on INJ-09-2026-W3-QOWV
+net on the evidence, CI after BCUs, package versions: 4.57300 t (+0.49744 t vs 4.07555 t as submitted); pyrolysis 4790.2737 kg, embodied 495.2421 kg, discount estimate 43.05 kg
+net on the evidence, CI after BCUs, linked sheets with the blend rebuilt: 4.57694 t (+0.50138 t vs 4.07555 t as submitted); pyrolysis 4786.3316 kg, embodied 495.2421 kg, discount estimate 43.05 kg
+fix values: process EF Flatbed 0.0001384 MT/t-mi -> 7.138249 t; BCU = corrected process output; embodied EF Non-Tanker 0.0001927908256 MT/mi on 2568.8056 mi -> 0.495242 t; carbon uncertainty 0.0316; pyrolysis CI after BCUs on the governing summary version (0.1182030623 package, 0.1181057898 linked)

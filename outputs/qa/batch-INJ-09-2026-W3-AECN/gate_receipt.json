@@ -1,0 +1,60 @@
+{
+ "batch_id": "INJ-09-2026-W3-AECN",
+ "checklist_file": "Batch_INJ-09-2026-W3-AECN_QA_Checklist.xlsx",
+ "checklist_sha256": "65eaa867d0ce6800b689254f62d0dca20ab580fc300877360939c5420d620b97",
+ "source_reads_file": "batch_INJ-09-2026-W3-AECN_source_reads.json",
+ "source_reads_sha256": "822f0d2321c9fce929c9837127775090ba189fc7a51e54602aefa7f813783582",
+ "generated_utc": "2026-09-30T00:26:28Z",
+ "all_gates_green": true,
+ "recorded_exceptions": [
+  {
+   "id": "attachment_gaps_routed",
+   "covers": [
+    "Allocated Distance Opelousas to B6 (truck)",
+    "Allocated Distance Sopor Quebec to Opelousas (rail)",
+    "Allocated Distance AECN to Sopor Quebec (truck)"
+   ],
+   "checklist_row": "3.5",
+   "why": "Certify evidence gaps are findings; the checklist carries them as a Fail"
+  },
+  {
+   "id": "step:P4_failure_categories_printed",
+   "authorized_by": "YES (MRV lead, 2026-09-29, answering 'Send despite my skipped step? ... send the checklist with the miss recorded?')",
+   "why": "Failure Category list not printed to chat before Gate 1; printed late at 22:52Z; no finding depends on it"
+  }
+ ],
+ "gates": {
+  "findings_rule_self_test": {
+   "ok": true,
+   "stdout": "9 tests passed"
+  },
+  "status_casing": {
+   "ok": true,
+   "status_rows": 62,
+   "auditable_rows": 57,
+   "na_rows_cited": 5
+  },
+  "recompute_INJ-09-2026-W3-AECN.py": {
+   "ok": true,
+   "exit": 0,
+   "stdout": "== 1. Scale tickets vs Ops Notes (10 offloads)\nOK  Rail_GPRX5102_8.5.2026_offload_1 net: recomputed 20130.412960 vs 20130.412960 kg (delta +0.000000)\nOK  Rail_GPRX5102_8.5.2026_offload_2 net: recomputed 18951.073760 vs 18951.073760 kg (delta +0.000000)\nOK  Rail_GPRX5102_8.5.2026_offload_3 net: recomputed 20402.568160 vs 20402.568160 kg (delta +0.000000)\nOK  Rail_GPRX5102_8.5.2026_offload_4 net: recomputed 18334.188640 vs 18334.188640 kg (delta +0.000000)\nOK  Rail_SHPX215046_8.7.2026_offload_1 net: recomputed 21055.740640 vs 21055.740640 kg (delta +0.000000)\nOK  Rail_SHPX215046_8.7.2026_offload_2 net: recomputed 20992.237760 vs 20992.237760 kg (delta +0.000000)\nOK  Rail_TILX200231_8.12.2026_offload_1 net: recomputed 20048.766400 vs 20048.766400 kg (delta +0.000000)\nOK  Rail_TILX200231_8.12.2026_offload_2 net: recomputed 19504.456000 vs 19504.456000 kg (delta +0.000000)\nOK  Rail_TILX200231_8.12.2026_offload_3 net: recomputed 19876.401440 vs 19876.401440 kg (delta +0.000000)\nOK  Rail_TILX200231_8.12.2026_offload_4 net: recomputed 18025.746080 vs 18025.746080 kg (delta +0.000000)\nOK  Ops A46 sum of cargo: recomputed 197321.591840 vs 197321.591800 kg (delta +0.000040)\n\n== 2. Ops rollup: sparging, filtration, R&D removal, MOBI\nOK  D46 sparging = C46 x 0.0129: recomputed 2545.448534 vs 2545.448535 kg (delta -0.000001)\nOK  E46 filtration = (C46 - D46) x 0.00196: recomputed 381.761241 vs 381.761241 kg (delta -0.000000)\nOK  K46 R&D removal = 200 gal x 3.785411784 L x 1.192 kg/L: recomputed 902.442169 vs 902.442169 kg (delta +0.000000)\nOK  F46 MOBI = C46 - D46 - E46 - K46: recomputed 193491.939856 vs 193491.939900 kg (delta -0.000044)\nOK  Certify Bio-Oil Mass via Rail = Ops C46: recomputed 197321.590000 vs 197321.591800 kg (delta -0.001800)\n\n== 3. Railcar balances (conservative mass, Failure Category 11)\nOK  GPRX5102: 4 offloads 77818.24352 kg <= loaded 77940 kg (loss 121.75648 kg); back-calc not triggered\nOK  TILX200231: 4 offloads 77455.36992 kg <= loaded 77520 kg (loss 64.63008 kg); back-calc not triggered\n\n== 4. Certify components from their own inputs\nOK  Injection sequestration = mass x C x 3.667: recomputed 282.999147 vs 282.999147 t (delta -0.000000)\nOK  Certify carbon = SGS SR26-05599.002: recomputed 0.397000 vs 0.397000 fraction (delta +0.000000)\nOK  Pyrolysis process (Certify CI): recomputed 27.056737 vs 27.056736 t (delta +0.000000)\nOK  Pyrolysis process (sheet F4 0.1371171258): recomputed 27.056170 vs 27.056736 t (delta -0.000567)\nOK  Pyrolysis embodied (sheet F5): recomputed 4.175325 vs 4.175325 t (delta +0.000000)\nOK  AECN to SOPOR Tanker Truck Transport Process Emissions (own inputs): recomputed 2.424477 vs 2.424477 t (delta -0.000000)\nOK  AECN to SOPOR Tanker Truck Transport Process Emissions (sheet EF): recomputed 2.424477 vs 2.424477 t (delta +0.000000)\nOK  SOPOR to Opelousas Rail Transport Process Emissions (own inputs): recomputed 11.242613 vs 11.242613 t (delta +0.000000)\nOK  SOPOR to Opelousas Rail Transport Process Emissions (sheet EF): recomputed 11.242775 vs 11.242613 t (delta +0.000162)\nOK  Opelousas to Basco - Tanker Truck Transport Process Emissions (own inputs): recomputed 0.967560 vs 0.967560 t (delta +0.000000)\nOK  Opelousas to Basco - Tanker Truck Transport Process Emissions (sheet EF): recomputed 0.967560 vs 0.967560 t (delta +0.000000)\n\n== 5. Allocated distances and embodied legs\nOK  Ops L38 = sum(cargo/loaded) x 107.5 x 3: recomputed 818.795718 vs 818.795718 mi (delta +0.000000)\nOK  Ops M38 = 2199 (GPRX full) + 2199 (TILX full) + 2199 x SHPX W3 fraction: recomputed 5588.312880 vs 5588.312880 mi (delta -0.000000)\nOK  Opelousas-Basco allocated = 42.9 x 2 x 10: recomputed 858.000000 vs 858.000000 mi (delta +0.000000)\nOK  AECN to SOPOR Tanker Truck Transport Embodied Emissions (own inputs): recomputed 0.194488 vs 0.194488 t (delta +0.000000)\nOK  AECN to SOPOR Tanker Truck Transport Embodied Emissions (Ops distance x sheet EF): recomputed 0.194514 vs 0.194488 t (delta +0.000026)\nOK  SOPOR to Opelousas Rail Transport Embodied Emissions (own inputs): recomputed 0.173964 vs 0.173964 t (delta +0.000000)\nOK  SOPOR to Opelousas Rail Transport Embodied Emissions (Ops distance x sheet EF): recomputed 0.173968 vs 0.173964 t (delta +0.000004)\nOK  Opelousas to Basco Tanker Truck Transport Embodied Emissions (own inputs): recomputed 0.203826 vs 0.203826 t (delta +0.000000)\nOK  Opelousas to Basco Tanker Truck Transport Embodied Emissions (Ops distance x sheet EF): recomputed 0.203827 vs 0.203826 t (delta +0.000001)\n\n== 6. Uncertainty inputs\nOK  Mass +/- = 10 offload weighings x 72.57 kg: recomputed 725.700000 vs 725.700000 kg (delta -0.000000)\nOK  Carbon +/- = 0.004 x 39.7 %: recomputed 0.158800 vs 0.158830 % (delta -0.000030)\n\n== 7. Activities, BCU and net\nOK  Activities = pyrolysis + transport: recomputed 46.438990 vs 46.439000 t (delta -0.000010)\nOK  Net = Seq + BCU - Activities - Discount vs Calculation view 249.637: recomputed 249.637427 vs 249.637000 t (delta +0.000427)\nOK  Net vs Certify header (2 decimals): recomputed 249.637427 vs 249.640000 t (delta -0.002573)\n\n== 8. Uncertainty discount (combined one-sigma of sequestration and mass-driven activities)\nOK  Discount = sqrt(sigma_seq^2 + sigma_act^2): recomputed 1.557720 vs 1.557720 t (delta -0.000000)\n\n== FINDINGS (Certify input vs evidence; checklist findings, not arithmetic mismatches)\nFINDING 2.7/7.1/9.1/9.8 Mass of Injectant: Certify 194394.38206 kg vs Ops F46 MOBI 193491.93986 kg; difference 902.44220 kg = K46 R&D removal 902.44217 kg not deducted in Certify\nFINDING 7.1/9.1 gross: Certify 282.999147 t vs internal 193.4919399 t x 0.397 x 3.667 = 281.685373 t (overstated 1.313774 t)\nFINDING 9.8 net: internal 281.685373 + min(BCU, process) 14.634650 - 46.438990 - discount re-derived on corrected mass 1.553904 = 248.327129 t vs Certify Calculation view 249.637 t (delta -1.309871)\nFINDING 9.6 BCU: 14.635000 t vs transport process sum 14.634650175 t (Certify values) / 14.634812457 t (sheet EFs); over-coverage 0.000349825 t / 0.000187543 t\nFINDING 2.5 SHPX215046: W3 offloads 1-2 42047.97840 + W2 offloads 3-4 35652.33120 = 77700.30960 kg vs loaded 77680 kg: over-draw 20.30960 kg; the cut goes on the last load, offload 4 (booked in W2): 14821.22064 kg vs 14841.53024 kg claimed in W2; W3 offloads 1-2 stay at their raw ticket nets\nFINDING 3.5 AECN-SOPOR allocated distance: Certify 818.69019 mi vs Ops L38 818.7957175 mi (delta -0.10553 mi; with 107.49722 mi the Ops method gives 818.77454 mi); emission effect -0.0000251 t\nFINDING 9.2 rail fuel EF: Certify 0.0000259100 vs sheet F10 2.5910374e-05 MT/(t-mi); effect on rail process +0.0001623 t (Certify lower); pyrolysis CI 0.13712 vs sheet 0.1371171258: effect +0.0005669 t (Certify higher)\n\n== CORRECTIONS (one pass, each step cumulative; Certify values unchanged)\nFINDING 8.2 custody losses: GPRX5102 + TILX200231 lost 186.38656 kg between loading and offload; uncharged upstream emissions: pyrolysis 0.029501 + AECN-SOPOR truck 0.002290 + rail 0.010620 = 0.042411 t (Certify factors)\nFINDING corrections A (2.7: deduct K46 R&D removal): cargo 197321.59180 kg; MOBI 193491.93986 kg; gross 281.685373 t; activities 46.438990 t; BCU target = transport process 14634.650 kgCO2e; discount 1.553904 t; net 248.327129 t (Certify 249.637; delta -1.309871)\nFINDING corrections B (A + 8.2: charge upstream emissions of the 186.38656 kg railcar losses): cargo 197321.59180 kg; MOBI 193491.93986 kg; gross 281.685373 t; activities 46.481401 t; BCU target = transport process 14647.560 kgCO2e; discount 1.553904 t; net 248.297628 t (Certify 249.637; delta -1.339372)\nFINDING corrections C (B + 2.3: KL720 standard empty 29,645 lb on TILX200231 offload 2): cargo 197319.32384 kg; MOBI 193489.70554 kg; gross 281.682120 t; activities 46.480872 t; BCU target = transport process 14647.392 kgCO2e; discount 1.553894 t; net 248.294746 t (Certify 249.637; delta -1.342254)\n\n0 arithmetic mismatch(es)"
+  },
+  "audit_checklist": {
+   "ok": true,
+   "rows": 57,
+   "failures": 0,
+   "stdout": "Audit ran on 57 rows (0 failures).\n\nAttachment gate: FAIL (3 gap(s)).\n    - Allocated Distance Opelousas to B6 (truck): required 'map_or_watco' evidence NOT attached in Certify (attached: 1 file(s), none matches map_or_watco). Per the evidence matrix this component requires ['ops_notes', 'map_or_watco'].\n    - Allocated Distance Sopor Quebec to Opelousas (rail): required 'map_or_watco' evidence NOT attached in Certify (attached: 1 file(s), none matches map_or_watco). Per the evidence matrix this component requires ['ops_notes', 'map_or_watco'].\n    - Allocated Distance AECN to Sopor Quebec (truck): required 'map_or_watco' evidence NOT attached in Certify (attached: 1 file(s), none matches map_or_watco). Per the evidence matrix this component requires ['ops_notes', 'map_or_watco'].\n\nAttachment gate failed \u2014 required evidence not attached in Certify (or attachment_map not captured). Record each gap as a Fail row citing [log:certify.attachment_gate] and naming the datapoint; run_gates.py lets recorded gaps through to Garrett."
+  },
+  "performance_tracker": {
+   "ok": true,
+   "batch_id": "INJ-09-2026-W3-AECN"
+  },
+  "required_steps": {
+   "ok": true,
+   "kind": "AECN",
+   "steps": 33,
+   "ledger_sha256": "16ba298a6d0786ac38181b1a36d8e55a196973906165f4175b471ce48a695d54",
+   "ledger_audit_sha256": "30bb5c1afa8b16b29b040ee8ab2725b2a31b3c1640deb0c5324c8b666858484c"
+  }
+ }
+}

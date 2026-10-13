@@ -1,0 +1,53 @@
+- dialog "AECN Bio-oil Loss" [active] [ref=f141e2]:
+  - generic [ref=f141e3]:
+    - generic [ref=f141e4]:
+      - generic [ref=f141e6]:
+        - button "AECN Bio-oil Loss" [ref=f141e9] [cursor=pointer]
+        - generic [ref=f141e10]:
+          - generic [ref=f141e11]: 0.145 tCO₂e
+          - generic [ref=f141e13]: 0.04%
+      - button "Toggle timeline sidebar" [ref=f141e15] [cursor=pointer]
+      - button "Close" [ref=f141e18] [cursor=pointer]
+    - generic [ref=f141e22]:
+      - generic [ref=f141e23]:
+        - generic [ref=f141e24]: Inputs
+        - grid "Input list" [ref=f141e25]:
+          - row "Constant emissions" [ref=f141e26]:
+            - gridcell "Constant emissions AECN Bio-oil Loss - Upstream Emissions 0.145 tCO₂e 2 sources Deselect datapoint" [ref=f141e27]:
+              - generic [ref=f141e28]:
+                - generic [ref=f141e29]: Constant emissions
+                - generic [ref=f141e32]:
+                  - button "AECN Bio-oil Loss - Upstream Emissions 0.145 tCO₂e 2 sources" [ref=f141e37] [cursor=pointer]:
+                    - generic [ref=f141e38]: AECN Bio-oil Loss - Upstream Emissions
+                    - generic [ref=f141e41]:
+                      - generic [ref=f141e42]: "0.145"
+                      - text: tCO₂e
+                    - button "2 sources" [disabled] [ref=f141e44]
+                  - button "Deselect datapoint" [ref=f141e48] [cursor=pointer]
+      - generic [ref=f141e51]:
+        - generic [ref=f141e52]: Description
+        - button "+ Add" [ref=f141e54] [cursor=pointer]
+      - generic [ref=f141e56]:
+        - generic [ref=f141e57]: Blueprint details
+        - generic [ref=f141e58]:
+          - generic [ref=f141e59]:
+            - generic [ref=f141e60]: Blueprint
+            - generic [ref=f141e63]:
+              - link "Constant emissions" [ref=f141e64] [cursor=pointer]:
+                - /url: https://docs.isometric.com/certify/component-blueprint-library#constant-emissions
+              - generic [ref=f141e65]: "->"
+          - generic [ref=f141e66]:
+            - generic [ref=f141e67]: Key
+            - generic [ref=f141e69]: constant_activity_emissions
+          - generic [ref=f141e70]:
+            - generic [ref=f141e71]: Gas type
+            - generic [ref=f141e73]: CO₂e
+          - generic [ref=f141e74]:
+            - generic [ref=f141e75]: Calculation
+            - generic [ref=f141e78]:
+              - generic [ref=f141e79]: constant_activity_emissions
+              - generic [ref=f141e81]: =
+              - generic [ref=f141e82]: constant_activity_emissions
+    - generic [ref=f141e85]:
+      - button "Delete" [ref=f141e86] [cursor=pointer]
+      - button "Done" [ref=f141e87] [cursor=pointer]

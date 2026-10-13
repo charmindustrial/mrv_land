@@ -1,0 +1,165 @@
+INDEPENDENT RECOMPUTE - INJ-09-2026-W4-AECN - adversarial reviewer - 2026-10-06T19:38Z
+
+== 0. Standard EF sheet 2026 tab (export 2026-10-06), cells read
+AECN process H2 2026 (MTCO2e/MT): 2026!F4 = 0.1371171258
+AECN embodied (MTCO2e/MT): 2026!F5 = 0.02116
+tanker process (MT/t-mi): 2026!F6 = 0.0001143
+rail process (MT/t-mi): 2026!F10 = 2.5910374e-05
+tanker embodied (MT/mi): 2026!F11 = 0.0002375605888
+railcar embodied (MT/mi): 2026!F13 = 3.113066508e-05
+
+== 1. Scale tickets (reviewer's image reads) vs Ops Notes D/E/F
+SHPX215053_1: (73800 - 29400) lb x 0.453592 = 20139.48480 kg | Ops D28=73800 E28=29400 F28=20139.48480 | D/E match=True | rig full CH1/KL720 / empty CH1/KL720 RL | dates 2026-09-22 / 2026-09-23
+SHPX215053_2: (73440 - 28640) lb x 0.453592 = 20320.92160 kg | Ops D29=73440 E29=28640 F29=20320.92160 | D/E match=True | rig full CH2/KL188 RL / empty CH2/KL188 RL | dates 2026-09-22 / 2026-09-23
+SHPX215053_3: (75200 - 28680) lb x 0.453592 = 21101.09984 kg | Ops D30=75200 E30=28680 F30=21101.09984 | D/E match=True | rig full CH2/KL188 RL / empty CH2/KL188 | dates 2026-09-23 / 2026-09-24
+SHPX215053_4: (64180 - 29640) lb x 0.453592 = 15667.06768 kg | Ops D31=64180 E31=29640 F31=15667.06768 | D/E match=True | rig full CH1/KL720 RL / empty CH1/KL720 | dates 2026-09-23 / 2026-09-24
+SHPX215039_1: (74500 - 28680) lb x 0.453592 = 20783.58544 kg | Ops D32=74500 E32=28680 F32=20783.58544 | D/E match=True | rig full CH2/KL188 / empty CH2/KL188 | dates 2026-09-18 / 2026-09-18
+SHPX215039_2: (78620 - 29480) lb x 0.453592 = 22289.51088 kg | Ops D33=78620 E33=29480 F33=22289.51088 | D/E match=True | rig full CH1/KL720 / empty CH1/KL720 | dates 2026-09-18 / 2026-09-18
+SHPX215039_3: (70620 - 29280) lb x 0.453592 = 18751.49328 kg | Ops D34=70620 E34=29280 F34=18751.49328 | D/E match=True | rig full CH1/KL720 / empty CH1/KL720 | dates 2026-09-19 / 2026-09-19
+SHPX215039_4: (63340 - 28620) lb x 0.453592 = 15748.71424 kg | Ops D35=63340 E35=28620 F35=15748.71424 | D/E match=True | rig full CH2/KL188 / empty CH2/KL188 | dates 2026-09-19 / 2026-09-19
+SHPX215091_1: (74200 - 28680) lb x 0.453592 = 20647.50784 kg | Ops D36=74200 E36=28680 F36=20647.50784 | D/E match=True | rig full CH2/KL188 / empty CH2/KL188 | dates 2026-09-17 / 2026-09-17
+SHPX215091_2: (72200 - 29240) lb x 0.453592 = 19486.31232 kg | Ops D37=72200 E37=29240 F37=19486.31232 | D/E match=True | rig full CH1/KL720 / empty CH1/KL720 | dates 2026-09-17 / 2026-09-17
+SHPX215091_3: (76060 - 28560) lb x 0.453592 = 21545.62000 kg | Ops D38=76060 E38=28560 F38=21545.62000 | D/E match=True | rig full CH2/KL188 / empty CH2/KL188 | dates 2026-09-17 / 2026-09-18
+SHPX215091_4: (64560 - 29580) lb x 0.453592 = 15866.64816 kg | Ops D39=64560 E39=29580 F39=15866.64816 | D/E match=True | rig full CH1/KL720 / empty CH1/KL720 | dates 2026-09-17 / 2026-09-18
+SHPX215079_3: (75800 - 29200) lb x 0.453592 = 21137.38720 kg | Ops D40=75800 E40=29200 F40=21137.38720 | D/E match=True | rig full CH1/KL192 / empty CH1/KL192 | dates 2026-09-05 / 2026-09-05
+SHPX215079_4: (60700 - 28260) lb x 0.453592 = 14714.52448 kg | Ops D41=60700 E41=28260 F41=14714.52448 | D/E match=True | rig full CH2/KL188 / empty CH2/KL188 | dates 2026-09-05 / 2026-09-06
+Sum of 14 nets: sum((full-empty) x 0.453592) = 268199.87776 kg
+Ops A46: read = 268199.8778 kg
+
+== 2. BOLs (reviewer's reads) - internal ties and railcar totals
+2497-R: full 45120 - tare 19210 = 25910 (delivered 25910); 25910/1000 = 25.91 (Qty shipped 25.91); 21648 L x 1.1969 = 25910.49 kg (gap +0.49)
+2498-R: full 45010 - tare 19280 = 25730 (delivered 25730); 25730/1000 = 25.73 (Qty shipped 25.73); 21497 L x 1.1969 = 25729.76 kg (gap -0.24)
+2500-R: full 44980 - tare 19050 = 25930 (delivered 25930); 25930/1000 = 25.93 (Qty shipped 25.93); 21664 L x 1.1969 = 25929.64 kg (gap -0.36)
+SHPX215053 loaded: sum(Qty shipped) x 1000 = 77570 kg | Ops E = 77570
+2459-R: full 44980 - tare 19120 = 25860 (delivered 25860); 25860/1000 = 25.86 (Qty shipped 25.86); 21566 L x 1.1991 = 25859.79 kg (gap -0.21)
+2460-R: full 45460 - tare 19540 = 25920 (delivered 25920); 25920/1000 = 25.92 (Qty shipped 25.92); 21652 L x 1.1971 = 25919.61 kg (gap -0.39)
+2461-R: full 45130 - tare 19270 = 25860 (delivered 25860); 25860/1000 = 25.86 (Qty shipped 25.86); 21602 L x 1.1971 = 25859.75 kg (gap -0.25)
+SHPX215039 loaded: sum(Qty shipped) x 1000 = 77640 kg | Ops E = 77640
+2465-R: full 45390 - tare 19370 = 26020 (delivered 26020); 26020/1000 = 26.02 (Qty shipped 26.02); 21720 L x 1.198 = 26020.56 kg (gap +0.56)
+2466-R: full 45150 - tare 19290 = 25860 (delivered 25860); 25860/1000 = 25.86 (Qty shipped 25.86); 21586 L x 1.198 = 25860.03 kg (gap +0.03)
+2467-R: full 45220 - tare 19330 = 25890 (delivered 25890); 25890/1000 = 25.89 (Qty shipped 25.89); 21634 L x 1.1967 = 25889.41 kg (gap -0.59)
+SHPX215091 loaded: sum(Qty shipped) x 1000 = 77770 kg | Ops E = 77770
+2453-R: full 45430 - tare 19440 = 25990 (delivered 25990); 25990/1000 = 25.99 (Qty shipped 25.99); 21595 L x 1.2035 = 25989.58 kg (gap -0.42)
+2454-R: full 45190 - tare 19280 = 25910 (delivered 25910); 25910/1000 = 25.91 (Qty shipped 25.91); 21608 L x 1.1991 = 25910.15 kg (gap +0.15)
+2455-R: full 45100 - tare 19130 = 25970 (delivered 25970); 25970/1000 = 25.97 (Qty shipped 25.97); 21658 L x 1.1991 = 25970.11 kg (gap +0.11)
+SHPX215079 loaded: sum(Qty shipped) x 1000 = 77870 kg | Ops E = 77870.0
+
+== 3. Railcar balances, losses and the SHPX215079 last-offload cut
+W2 SHPX215079 offloads 1-2: (76720-28660)x0.453592 + (73860-28420)x0.453592 = 21799.63152 + 20611.22048 = 42410.85200 kg (Ops H13 42410.852)
+SHPX215079 raw total: 42410.85200 + 21137.38720 + 14714.52448 = 78262.76368 kg
+Over-draw: 78262.76368 - 77870 = 392.76368 kg (Ops J41 392.76368)
+Offload 4 after cut: 77870 - 42410.85200 - 21137.38720 = 14321.76080 kg
+Chronology (reviewer reads of W2 and W4 tickets): off1 full 09-04 14:07; off2 full 09-05 09:24; off3 full 09-05 09:29; off4 full 09-05 14:20, empty 09-06 07:50 -> off4 is the last weighing
+SHPX215053 loss: 77570 - 77228.57392 = 341.42608 kg (0.440 %)
+SHPX215039 loss: 77640 - 77573.30384 = 66.69616 kg (0.086 %)
+SHPX215091 loss: 77770 - 77546.08832 = 223.91168 kg (0.288 %)
+Delivered (post-cut): 268199.87776 - 392.76368 = 267807.11408 kg | Certify Bio-Oil Mass 267.80710999999997 t
+Baton Rouge mass (SHPX215053): sum of its 4 nets = 77228.57392 kg
+Opelousas mass: 267807.11408 - 77228.57392 = 190578.54016 kg
+
+== 4. Sparging, filtration, MOBI, gross
+Sparging: 267807.11408 x 0.0129 = 3454.711772 kg (Ops D46 3454.711772)
+Filtration: 267807.11408 x (1-0.0129) x 0.00196 = 518.130709 kg (Ops E46 518.1307085)
+MOBI: 267807.11408 - 3454.711772 - 518.130709 = 263834.271600 kg (Ops F46 263834.2716; Certify 263.83427159999997 t)
+Gross: 263.8342716 t x 0.440 x 3.667 = 425.691321 t (Certify 425.691321)
+Carbon z-score: (44.0 - 39.420350877193) / 6.09332409018271 = 0.7516 SD
+Two-SD band: 39.420350877193 -/+ 2 x 6.09332409018271 = 27.23 to 51.61 %
+
+== 5. Every AECN component recomputed from Certify's own unrounded inputs
+AECN to SOPOR Tanker Truck Transport Process Emissions: recomputed 3.290528 t vs Certify 3.290528 t | inputs: Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.07102272727272727 kgCO₂e/(km⋅t) [1 src]; Distance from AECN to Sopor Quebec (truck) 107.49722 mi [1 src]; Bio-Oil Mass - AECN via Rail 267.80710999999997 t +/-1.01598 [32 src]
+SOPOR to Opelousas Rail Transport Process Emissions: recomputed 10.858420 t vs Certify 10.858420 t | inputs: Emission Factors - Rail Transport Fuel Use (Well to Wheel) 0.016099727590869323 kgCO₂e/(km⋅t) [1 src]; Distance from Sopor Quebec to Opelousas (rail) 2199.0 mi [1 src]; Mass of load 190.57854 t +/-0.7257 [0 src]
+Opelousas to Basco - Tanker Truck Transport Process Emissions: recomputed 1.313184 t vs Certify 1.313184 t | inputs: Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.07102272727272727 kgCO₂e/(km⋅t) [1 src]; Distance from Opelousas to B6 (truck) 42.9 mi [1 src]; Bio-Oil Mass - AECN via Rail 267.80710999999997 t +/-1.01598 [32 src]
+SOPOR to Baton Rouge Rail Process Emissions: recomputed 2.676997 t vs Certify 2.676997 t | inputs: Rail transport, Northern America, WTW 0.0161 kgCO₂e/(km⋅t) [1 src]; Distance traveled 2153.0 km [0 src]; Mass of load 77.22857 t [0 src]
+Baton Rouge to Basco Tanker Truck Process Emissions: recomputed 1.200119 t vs Certify 1.200119 t | inputs: Tanker truck, Northern America, WTW 0.071 kgCO₂e/(km⋅t) [1 src]; Distance traveled 136.0 mi [0 src]; Mass of load 77.22857 t +/-0.29028 [0 src]
+AECN to SOPOR Tanker Truck Transport Embodied Emissions: recomputed 0.264096 t vs Certify 0.264096 t | inputs: Emissions Factor - Vehicle Embodied Emissions - Tanker Truck 0.14761294042790105 kgCO₂e/km [1 src]; Allocated Distance AECN to Sopor Quebec (truck) 1111.70083 mi [8 src]
+SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions: recomputed 0.470147 t vs Certify 0.470147 t | inputs: Emissions Factor - Vehicle Embodied Emissions -- Railcar 0.019343285214348208 kgCO₂e/km [1 src]; Allocated Distance Sopor Quebec to Opelousas (rail) 15102.69 mi [2 src]
+Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions: recomputed 0.462292 t vs Certify 0.462292 t | inputs: Emissions Factor - Vehicle Embodied Emissions - Tanker Truck 0.14761294042790105 kgCO₂e/km [1 src]; Allocated Distance Opelousas to B6 (truck) 1946.0 mi [0 src]
+AECN pyrolysis (from rail loads) - process emissions: recomputed 36.721711 t vs Certify 36.721711 t | inputs: Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail) 0.13712 tCO₂e/t [1 src]; Bio-Oil Mass - AECN via Rail 267.80710999999997 t +/-1.01598 [32 src]
+AECN pyrolysis (from rail loads) - embodied emissions: recomputed 5.666798 t vs Certify 5.666798 t | inputs: Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail) 0.02116 tCO₂e/t [1 src]; Bio-Oil Mass - AECN via Rail 267.80710999999997 t +/-1.01598 [32 src]
+AECN Bio-oil Loss: recomputed 0.145000 t vs Certify 0.145000 t | inputs: AECN Bio-oil Loss - Upstream Emissions 145.0 kgCO₂e [2 src]
+Injection sequestration: recomputed 425.691321 t vs Certify 425.691321 t | inputs: Carbon Content of Bio-oil Injected (per injection) 44.0 % +/-0.176 [0 src]; Mass of Injectant (per injection) 263.83427159999997 t +/-1.01598 [0 src]
+BCU - Transport Process: recomputed 19.339000 t vs Certify 19.339000 t | inputs: Constant CO₂ reduction 19.339 tCO₂e [0 src]
+
+== 6. Transport legs on the evidence basis (Standard EF sheet factors, Ops/guidance distances)
+AECN-SOPOR truck process: 267.80711 t x (173 km / 1.609344 = 107.49722 mi) x 0.0001143 = 3.290528 t
+Opelousas rail process: 190.57854 t x 2199 mi x 2.5910374e-05 = 10.858577 t
+Opelousas-Basco truck process (Opelousas mass): 190.57854 t x 42.9 mi x 0.0001143 = 0.934496 t
+  Certify Opelousas truck overcharge: 1.313184 - 0.934496 = 0.378688 t
+Baton Rouge rail process on 2,152 mi: 77.22857 t x 2152 mi x 2.5910374e-05 = 4.306198 t
+  Certify Baton Rouge rail shortfall: 4.306198 - 2.676997 = 1.629201 t
+  Certify '2153 km' in miles: 2153 / 1.609344 = 1337.81 mi
+  2153 km as share of Watco 2,199 mi (3,538.9 km): 2153 / (2199 x 1.609344) = 0.608
+  ASSUMPTION straight-line Baie-Comeau to Baton Rouge: haversine((49.22N,68.15W),(30.45N,91.15W)), coordinates are approximate public values, not session-sourced = 2843 km
+Baton Rouge-Basco truck process: 77.22857 t x 136 mi x 0.0001143 = 1.200503 t (Certify 1.200119, GLEC library 0.071 kg/(km t))
+Transport process sum, Certify: 3.290528 + 10.858420 + 1.313184 + 2.676997 + 1.200119 = 19.3392476 t
+Transport process sum, evidence: 3.290528 + 10.858577 + 0.934496 + 4.306198 + 1.200503 = 20.5903011 t
+
+== 7. Allocated distances and embodied legs
+AECN-SOPOR allocated (Ops method): sum((F-J)/E_railcar x 107.5 x 3) = 1111.729637 mi (Ops L42 1111.729637; Certify 1111.70083)
+  same on 107.49722 mi: 1111.729637 x 107.49722/107.5 = 1111.700888 mi
+Ops M28 formula (live): =IF(F28="","",2*(IF(IFERROR(VLOOKUP(C28,$A$10:$P$14,16,FALSE),"")="FULL",IF(ROW()=MIN(IF($C$28:$C$41=C28,ROW($C$28:$C$41),10^9)),VLOOKUP(C28,$A$10:$P$14,11,FALSE),0),(F28-J28)/VLOOKUP(C28,$A$10:$P$14,5,FALSE)*VLOOKUP(C28,$A$10:$P$14,11,FALSE))))
+Rail allocated, one way: 2152 + 2199 + 2199 + 2199 x 0.455363 = 7551.344118 mi
+Rail allocated, round trip (live M42): 2 x 7551.344118 = 15102.688236 mi (Ops M42 15102.68824; Certify 15102.69)
+Round-trip extra rail embodied: 7551.344118 mi x 3.113066508e-05 = 0.235078 t
+SHPX215079 rail miles booked across weeks: W2 615.6079326 + 582.0479496 (one way) + W4 1193.813136 + 808.875100 (round trip) = 3200.3441 mi (one-way railcar = 2,199; round trip = 4,398)
+Truck embodied allocated: 2 x (42.9 x 10 + 136 x 4) = 1946.0 mi (Ops N42 1946)
+AECN to SOPOR Tanker Truck Transport Embodied Emissions (Ops miles x sheet EF): 1111.729637 x 0.0002375605888 = 0.264103 t (Certify 0.264096)
+SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions (Ops miles x sheet EF): 15102.68824 x 3.113066508e-05 = 0.470157 t (Certify 0.470147)
+Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions (Ops miles x sheet EF): 1946 x 0.0002375605888 = 0.462293 t (Certify 0.462292)
+
+== 8. Pyrolysis
+AECN pyrolysis (from rail loads) - process emissions (sheet CI): 267.80711 t x 0.1371171258 = 36.720942 t (Certify 36.721711)
+AECN pyrolysis (from rail loads) - embodied emissions (sheet CI): 267.80711 t x 0.02116 = 5.666799 t (Certify 5.666798)
+
+== 9. AECN Bio-oil Loss
+Image: transport process per railcar: 77.57 t x (107.49722 x 0.0001143 + 2199 x 2.5910374e-05) = 5.3728 t (image 5.3728)
+Image: transport embodied per railcar: 107.49722 x 3 x 0.0002375605888 + 2199 x 3.113066508e-05 = 0.14507 t (image 0.14507)
+Image total SHPX215053: 0.0044 x 5.3728 + 0.0044 x 0.14507 + 0.04682 + 0.00722 = 0.07832 t (image 0.07833)
+Loss, all three on Opelousas 2,199 mi: SHPX215053 0.078328 + SHPX215039 0.015301 + SHPX215091 0.051367 = 0.144996 t (Certify 0.145)
+Loss, SHPX215053 on its 2,152 mi leg: 0.077906 + 0.015301 + 0.051367 = 0.144574 t
+Loss per tonne lost: 0.144996 / 0.632034 = 0.2294 t/t (guidance 'approximately 0.229')
+Rail embodied of lost oil also inside the loss figure: sum(loss/BOL x 2199 x railcar EE EF) = 0.000557 t (main rail embodied already charges FULL railcars the whole trip)
+
+== 10. BCU against transport process
+BCU minus Certify process sum: 19.339 - 19.3392476 = -0.0002476 t
+BCU minus evidence process sum: 19.339 - 20.5903011 = -1.2513011 t
+If only the Opelousas truck mass is fixed: 19.3392476 - 1.313184 + 0.934496 = 18.9605596 t (BCU would exceed by 0.3784404)
+
+== 11. Net and uncertainty discount, Certify as entered
+   term Basco Injection Electricity Usage (Grid) (dtp_1M3YZEKFJ1S0Z350) +/-1271.5038: change in net -0.588724 t  [used by: Basco Site Electricity Use (RECs)]
+   term Basco Diesel Used (Mass) (dtp_1M3YZET1F1S05BBC) +/-7.97616: change in net -0.030868 t  [used by: B6 Injection site diesel emissions]
+   term Basco Injection Gasoline Usage (kg) (dtp_1M3YZETG21S0CN2P) +/-1.13933: change in net -0.004261 t  [used by: B6 Injection site gasoline emissions]
+   term Bio-Oil Mass - AECN via Rail (dtp_1M3Z5WCFD1S0HARQ) +/-1.01598: change in net -0.178274 t  [used by: AECN to SOPOR Tanker Truck Transport Process Emissions, Opelousas to Basco - Tanker Truck Transport Process Emissions, AECN pyrolysis (from rail loads) - process emissions, AECN pyrolysis (from rail loads) - embodied emissions]
+   term Mass of load (dtp_1M3Z6ER9S1S0M8GS) +/-0.7257: change in net -0.041348 t  [used by: SOPOR to Opelousas Rail Transport Process Emissions]
+   term Mass of load (dtp_1M3Z6NSS71S0KC88) +/-0.29028: change in net -0.004511 t  [used by: Baton Rouge to Basco Tanker Truck Process Emissions]
+   term Carbon Content of Bio-oil Injected (per injection) (dtp_1M3Z5YHSG1S0B1K3) +/-0.176: change in net +1.702765 t  [used by: Injection sequestration]
+   term Mass of Injectant (per injection) (dtp_1M3Z5YJ7E1S0JBAD) +/-1.01598: change in net +1.639263 t  [used by: Injection sequestration]
+Discount rebuilt: sqrt(sum of squared terms) = 2.4428820922 t (Certify 2.4428820921580847)
+Net: 425.691321 + 22.439420 - 83.619739 - 2.442882 = 362.068120 t (Calculation view 362.068)
+Discount share of gross: 2.442882 / 425.691321 = 0.574 %
+
+== 12. Corrected scenarios (cumulative)
+A  Baton Rouge rail on 2,152 mi, sheet rail EF | BCU held at 19.339 19.3390000 t | activities 85.248939 | adjustments 22.439420 | discount 2.442882 | net 360.438919 t (Certify-as-entered 362.068120; change -1.629200)
+A  Baton Rouge rail on 2,152 mi, sheet rail EF | BCU = corrected process sum 20.9684480 t | activities 85.248939 | adjustments 24.068868 | discount 2.442882 | net 362.068367 t (Certify-as-entered 362.068120; change +0.000248)
+B  A + Opelousas truck on Opelousas mass (its +/-0.7257 t) | BCU held at 19.339 19.3390000 t | activities 84.870251 | adjustments 22.439420 | discount 2.442586 | net 360.817903 t (Certify-as-entered 362.068120; change -1.250217)
+B  A + Opelousas truck on Opelousas mass (its +/-0.7257 t) | BCU = corrected process sum 20.5897600 t | activities 84.870251 | adjustments 23.690180 | discount 2.442586 | net 362.068663 t (Certify-as-entered 362.068120; change +0.000543)
+C  B + Baton Rouge rail mass +/-0.29028 t (same datapoint as truck leg) | BCU held at 19.339 19.3390000 t | activities 84.870251 | adjustments 22.439420 | discount 2.442670 | net 360.817820 t (Certify-as-entered 362.068120; change -1.250300)
+C  B + Baton Rouge rail mass +/-0.29028 t (same datapoint as truck leg) | BCU = corrected process sum 20.5897600 t | activities 84.870251 | adjustments 23.690180 | discount 2.442670 | net 362.068580 t (Certify-as-entered 362.068120; change +0.000460)
+D  C + loss with SHPX215053 on 2,152 mi | BCU held at 19.339 19.3390000 t | activities 84.869825 | adjustments 22.439420 | discount 2.442670 | net 360.818245 t (Certify-as-entered 362.068120; change -1.249874)
+D  C + loss with SHPX215053 on 2,152 mi | BCU = corrected process sum 20.5897600 t | activities 84.869825 | adjustments 23.690180 | discount 2.442670 | net 362.069006 t (Certify-as-entered 362.068120; change +0.000886)
+7a.1 alone: Baton Rouge rail mass +/-0.29028 t (separate datapoint) | BCU held at 19.339 19.3390000 t | activities 83.619739 | adjustments 22.439420 | discount 2.442903 | net 362.068099 t (Certify-as-entered 362.068120; change -0.000021)
+7a.1 alone: Baton Rouge rail mass +/-0.29028 t (shared datapoint) | BCU held at 19.339 19.3390000 t | activities 83.619739 | adjustments 22.439420 | discount 2.442921 | net 362.068080 t (Certify-as-entered 362.068120; change -0.000039)
+
+== 13. Ops copies attached in Certify
+src_1M3VZCDQF1S0FQ0D_INJ-09-2026-W4_Ops_Notes.xlsx: K10=2199.0 L10=42.9 G13=-392.76368 M42=7598.344118 N42=1201.2 A49=None
+src_1M3W1NWED1S0K0MP_INJ-09-2026-W4_Ops_Notes.xlsx: K10=2152.0 L10=42.9 G13=-392.76368 M42=7551.344118 N42=1201.2 A49=None
+live: K10=2152.0 L10=136 G13=0 M42=15102.68824 N42=1946 A49=RailLogix (Baton Rouge)
+live headers: P9='Full Railcar This Week?' Q9='Car Completes This Week?'; P13=PARTIAL Q13=Y
+
+== 14. Ticket timing and rail-uncertainty precondition
+SHPX215079_3 days full weigh to injection: 2026-09-25 - 2026-09-05 = 20 days
+SHPX215079_4 days full weigh to injection: 2026-09-25 - 2026-09-05 = 20 days
+SHPX215053: offloads 4 vs inbound BOLs 3 -> conservative
+SHPX215039: offloads 4 vs inbound BOLs 3 -> conservative
+SHPX215091: offloads 4 vs inbound BOLs 3 -> conservative
+SHPX215079: offloads 4 vs inbound BOLs 3 -> conservative

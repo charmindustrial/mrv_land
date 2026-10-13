@@ -80,7 +80,7 @@ For each batch, verify data from these sources:
 | **Batch Drive Folder** | Google Drive → batch folder (e.g., "2-161") | Scale tickets, Ops Notes, testing/CHN results |
 | **Ops Notes** | Google Sheet within batch folder | Batch composition, injection data, mass calc, pH, consumables |
 | **Scale Tickets** | Scale Tickets subfolder in batch folder | Empty/full ticket images with tractor #, trailer #, weights |
-| **BOL / Billing** | Billing docs in batch folder or Certify Sources | Origin, destination, shipped mass (page 3 = authoritative mass) |
+| **BOL / Billing** | Billing docs in batch folder or Certify Sources | Origin, destination, weighed shipped mass ("Qty shipped", located by field name — KB Section 3 "AECN Bill of Lading Formats") |
 | **CHN Analysis** | Testing subfolder | Carbon wt%, hydrogen, nitrogen |
 | **Bio-oil Injection Tracker (COBB)** | Shared Google Sheet | Lot tracking, BOL numbers, offloaded quantities, dates |
 | **Certify Removal Page** | Isometric registry → removal | Components, Datapoints, Sources, Calculation View |
@@ -100,7 +100,7 @@ For each batch, verify data from these sources:
 - **Tanker truck EFs:** Process = 0.07 kgCO₂e/(km·t); Embodied = 0.1476 kgCO₂e/km (2026: 0.00023756059 MTCO₂e/mi)
 - **Buffer pool (Basco):** 5% (Low Risk)
 - **AECN truck distance to Basco:** ~2,197 mi
-- **BOL authoritative mass:** Page 3, "Qty Shipped" field
+- **BOL authoritative mass:** the weighed "Qty shipped" figure, found by field name, never by page number and never the tank-level estimate. AECN has an old five-page package and a new one-page form (proposed 2026-09-29) — field map in KB Section 3, "AECN Bill of Lading Formats"
 
 ---
 

@@ -1,0 +1,23 @@
+OK  n_totes: recomputed 38 vs certify/log 38
+OK  gross_kg: recomputed 38830.4 vs certify/log 38830.4
+OK  produced_kg: recomputed 36641.6 vs certify/log 36641.6
+OK  injected_kg: recomputed 31250.9 vs certify/log 31250.9
+OK  weighted_ci: recomputed 0.1269082907 vs certify/log 0.1269082907
+OK  uncertainty_kg: recomputed 43.09124 vs certify/log 43.09124
+OK  uncertainty_vs_certify: recomputed 43.09124 vs certify/log 43.09124
+OK  carbon_unc_pct_abs: recomputed 0.0332 vs certify/log 0.0332
+OK  mass_of_load_kg: recomputed 38830.4 vs certify/log 38830.4
+OK  pyrolysis_mass_kg: recomputed 36641.6 vs certify/log 36641.6
+OK  seq_t: recomputed 9.512 vs certify/log 9.512
+OK  proc_t: recomputed 6.454 vs certify/log 6.454
+OK  emb_t: recomputed 0.336 vs certify/log 0.336
+OK  pyro_t: recomputed 4.65 vs certify/log 4.65
+OK  bcu_matches_proc_at_display_precision_t: recomputed 6.454 vs certify/log 6.454
+OK  net_t: recomputed 4.484 vs certify/log 4.484
+OK  standard_loss_not_applied: recomputed False vs certify/log False
+OK  lcs_component_needed: recomputed None vs certify/log None
+
+process emission 6454.494 kg (Certify 0.086 basis) / 6454.327 kg (sheet basis); BCU 6454 kg; BCU minus process -0.494 / -0.327 kg; BCU equals process (8.1): False
+FINDING periods: 5 December-labelled totes overstated production emissions by 158.6842 kg as submitted (relabelled in the live sheet); on the inventory's periods for all 8 totes: 103.4781 kg; PE 4650.1228 -> 4546.6447 kg; CI 0.1269082907 -> 0.1240842287; net +0.10348 t
+FINDING trucks: Truck 1 (40) is two 20-tote orders -> allocation 2281.9 mi vs 1741.45 mi; embodied 0.43993 t (+0.10419 t)
+LIVE 2026-09-29: Ops Notes I50 4491.438649 kg / D50 36641.6 = CI 0.1225775798; H50 ' ' (blank); Certify pyrolysis 4.491 t (= 4.491), net 4.643 t

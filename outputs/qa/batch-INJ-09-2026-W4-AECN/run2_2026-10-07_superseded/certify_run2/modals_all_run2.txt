@@ -1,0 +1,249 @@
+##### modal_aecn_sopor_truck_embodied.yml: NO DIALOG FOUND
+##### modal_aecn_sopor_truck_process.yml: NO DIALOG FOUND
+##### modal_baton_rouge_basco_truck_process.yml (83 lines)
+  - dialog "Baton Rouge to Basco Tanker Truck Process Emissions" [active] [ref=f18e589]:
+          - button "Baton Rouge to Basco Tanker Truck Process Emissions" [ref=f18e596] [cursor=pointer]
+            - generic [ref=f18e598]: 1.200 tCO₂e
+            - generic [ref=f18e600]: 0.33%
+        - button "Toggle timeline sidebar" [ref=f18e602] [cursor=pointer]
+        - button "Close" [ref=f18e605] [cursor=pointer]
+          - generic [ref=f18e611]: Inputs
+          - grid "Input list" [ref=f18e612]:
+            - row "Emission factor of transport" [ref=f18e613]:
+              - gridcell "Emission factor of transport Tanker truck, Northern America, WTW 0.071 kgCO₂e/(km⋅t) 1 source Deselect datapoint" [ref=f18e614]:
+                  - generic [ref=f18e616]: Emission factor of transport
+                    - button "Tanker truck, Northern America, WTW 0.071 kgCO₂e/(km⋅t) 1 source" [ref=f18e625] [cursor=pointer]:
+                      - generic [ref=f18e626]: Tanker truck, Northern America, WTW
+                        - generic [ref=f18e630]: "0.071"
+                        - text: kgCO₂e/(km⋅t)
+                      - button "1 source" [disabled] [ref=f18e632]
+                    - button "Deselect datapoint" [ref=f18e636] [cursor=pointer]
+            - row "Distance traveled" [ref=f18e639]:
+              - gridcell "Distance traveled Distance traveled 136 mi No sources Deselect datapoint" [ref=f18e640]:
+                  - generic [ref=f18e642]: Distance traveled
+                    - button "Distance traveled 136 mi No sources" [ref=f18e650] [cursor=pointer]:
+                      - generic [ref=f18e651]: Distance traveled
+                        - generic [ref=f18e655]: "136"
+                        - text: mi
+                      - generic [ref=f18e657]: No sources
+                    - button "Deselect datapoint" [ref=f18e661] [cursor=pointer]
+            - row "Mass of load" [ref=f18e664]:
+              - gridcell "Mass of load Mass of load 77,228.57 ±290.28 kg No sources Deselect datapoint" [ref=f18e665]:
+                  - generic [ref=f18e667]: Mass of load
+                    - button "Mass of load 77,228.57 ±290.28 kg No sources" [ref=f18e675] [cursor=pointer]:
+                      - generic [ref=f18e676]: Mass of load
+                          - generic [ref=f18e681]: 77,228.57
+                          - generic [ref=f18e682]: ±290.28
+                        - text: kg
+                      - generic [ref=f18e683]: No sources
+                    - button "Deselect datapoint" [ref=f18e687] [cursor=pointer]
+          - generic [ref=f18e691]: Description
+          - button "+ Add" [ref=f18e693] [cursor=pointer]
+          - generic [ref=f18e696]: Blueprint details
+              - generic [ref=f18e699]: Blueprint
+                - link "Transport emissions" [ref=f18e703] [cursor=pointer]:
+                - generic [ref=f18e704]: "->"
+              - generic [ref=f18e706]: Key
+              - generic [ref=f18e708]: transport
+              - generic [ref=f18e710]: Gas type
+              - generic [ref=f18e712]: CO₂e
+              - generic [ref=f18e714]: Calculation
+                - generic [ref=f18e718]: output
+                - generic [ref=f18e720]: =
+                - generic [ref=f18e721]: mass
+                - generic [ref=f18e723]: "*"
+                - generic [ref=f18e724]: distance
+                - generic [ref=f18e726]: "*"
+                - generic [ref=f18e727]: carbon_intensity
+        - button "Delete" [ref=f18e731] [cursor=pointer]
+        - button "Done" [ref=f18e732] [cursor=pointer]
+##### modal_bcu.yml: NO DIALOG FOUND
+##### modal_bio_oil_loss.yml (53 lines)
+  - dialog "AECN Bio-oil Loss" [active] [ref=f3e589]:
+          - button "AECN Bio-oil Loss" [ref=f3e596] [cursor=pointer]
+            - generic [ref=f3e598]: 0.145 tCO₂e
+            - generic [ref=f3e600]: 0.04%
+        - button "Toggle timeline sidebar" [ref=f3e602] [cursor=pointer]
+        - button "Close" [ref=f3e605] [cursor=pointer]
+          - generic [ref=f3e611]: Inputs
+          - grid "Input list" [ref=f3e612]:
+            - row "Constant emissions" [ref=f3e613]:
+              - gridcell "Constant emissions AECN Bio-oil Loss - Upstream Emissions 0.145 tCO₂e 2 sources Deselect datapoint" [ref=f3e614]:
+                  - generic [ref=f3e616]: Constant emissions
+                    - button "AECN Bio-oil Loss - Upstream Emissions 0.145 tCO₂e 2 sources" [ref=f3e624] [cursor=pointer]:
+                      - generic [ref=f3e625]: AECN Bio-oil Loss - Upstream Emissions
+                        - generic [ref=f3e629]: "0.145"
+                        - text: tCO₂e
+                      - button "2 sources" [disabled] [ref=f3e631]
+                    - button "Deselect datapoint" [ref=f3e635] [cursor=pointer]
+          - generic [ref=f3e639]: Description
+          - button "+ Add" [ref=f3e641] [cursor=pointer]
+          - generic [ref=f3e644]: Blueprint details
+              - generic [ref=f3e647]: Blueprint
+                - link "Constant emissions" [ref=f3e651] [cursor=pointer]:
+                - generic [ref=f3e652]: "->"
+              - generic [ref=f3e654]: Key
+              - generic [ref=f3e656]: constant_activity_emissions
+              - generic [ref=f3e658]: Gas type
+              - generic [ref=f3e660]: CO₂e
+              - generic [ref=f3e662]: Calculation
+                - generic [ref=f3e666]: constant_activity_emissions
+                - generic [ref=f3e668]: =
+                - generic [ref=f3e669]: constant_activity_emissions
+        - button "Delete" [ref=f3e673] [cursor=pointer]
+        - button "Done" [ref=f3e674] [cursor=pointer]
+##### modal_injection_sequestration.yml (71 lines)
+  - dialog "Injection sequestration" [active] [ref=e3741]:
+          - button "Injection sequestration" [ref=e3748] [cursor=pointer]
+          - generic [ref=e3749]: 425.691 tCO₂e
+        - button "Toggle timeline sidebar" [ref=e3753] [cursor=pointer]
+        - button "Close" [ref=e3756] [cursor=pointer]
+          - generic [ref=e3762]: Inputs
+          - grid "Input list" [ref=e3763]:
+            - row "Carbon content of product" [ref=e3764]:
+              - gridcell "Carbon content of product Carbon Content of Bio-oil Injected (per injection) 44 ±0.176 % No sources Deselect datapoint" [ref=e3765]:
+                  - generic [ref=e3767]: Carbon content of product
+                    - button "Carbon Content of Bio-oil Injected (per injection) 44 ±0.176 % No sources" [ref=e3775] [cursor=pointer]:
+                      - generic [ref=e3776]: Carbon Content of Bio-oil Injected (per injection)
+                          - generic [ref=e3781]: "44"
+                          - generic [ref=e3782]: ±0.176
+                        - text: "%"
+                      - generic [ref=e3783]: No sources
+                    - button "Deselect datapoint" [ref=e3787] [cursor=pointer]
+            - row "Mass of product" [ref=e3790]:
+              - gridcell "Mass of product Mass of Injectant (per injection) 263,834.2716 ±1,015.98 kg No sources Deselect datapoint" [ref=e3791]:
+                  - generic [ref=e3793]: Mass of product
+                    - button "Mass of Injectant (per injection) 263,834.2716 ±1,015.98 kg No sources" [ref=e3801] [cursor=pointer]:
+                      - generic [ref=e3802]: Mass of Injectant (per injection)
+                          - generic [ref=e3807]: 263,834.2716
+                          - generic [ref=e3808]: ±1,015.98
+                        - text: kg
+                      - generic [ref=e3809]: No sources
+                    - button "Deselect datapoint" [ref=e3813] [cursor=pointer]
+          - generic [ref=e3817]: Description
+          - button "+ Add" [ref=e3819] [cursor=pointer]
+          - generic [ref=e3822]: Blueprint details
+              - generic [ref=e3825]: Blueprint
+                - link "Carbon rich substance sequestration" [ref=e3829] [cursor=pointer]:
+                - generic [ref=e3830]: "->"
+              - generic [ref=e3832]: Key
+              - generic [ref=e3834]: carbon_rich_substance_sequestration
+              - generic [ref=e3836]: Gas type
+              - generic [ref=e3838]: CO₂
+              - generic [ref=e3840]: Calculation
+                - generic [ref=e3844]: output
+                - generic [ref=e3846]: =
+                - generic [ref=e3847]: product_mass
+                - generic [ref=e3849]: "*"
+                - generic [ref=e3850]: carbon_content
+                - generic [ref=e3852]: "*"
+                - generic [ref=e3853]: "{co2e_of_carbon}"
+        - button "Delete" [ref=e3857] [cursor=pointer]
+        - button "Done" [ref=e3858] [cursor=pointer]
+##### modal_opel_basco_truck_process.yml (83 lines)
+  - dialog "Opelousas to Basco - Tanker Truck Transport Process Emissions" [active] [ref=f21e589]:
+          - button "Opelousas to Basco - Tanker Truck Transport Process Emissions" [ref=f21e596] [cursor=pointer]
+            - generic [ref=f21e598]: 1.313 tCO₂e
+            - generic [ref=f21e600]: 0.36%
+        - button "Toggle timeline sidebar" [ref=f21e602] [cursor=pointer]
+        - button "Close" [ref=f21e605] [cursor=pointer]
+          - generic [ref=f21e611]: Inputs
+          - grid "Input list" [ref=f21e612]:
+            - row "Emission factor of transport" [ref=f21e613]:
+              - gridcell "Emission factor of transport Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.1143 kgCO₂e/(t⋅mi) 1 source Deselect datapoint" [ref=f21e614]:
+                  - generic [ref=f21e616]: Emission factor of transport
+                    - button "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.1143 kgCO₂e/(t⋅mi) 1 source" [ref=f21e624] [cursor=pointer]:
+                      - generic [ref=f21e625]: Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck
+                        - generic [ref=f21e629]: "0.1143"
+                        - text: kgCO₂e/(t⋅mi)
+                      - button "1 source" [disabled] [ref=f21e631]
+                    - button "Deselect datapoint" [ref=f21e635] [cursor=pointer]
+            - row "Distance traveled" [ref=f21e638]:
+              - gridcell "Distance traveled Distance from Opelousas to B6 (truck) 42.9 mi 1 source Deselect datapoint" [ref=f21e639]:
+                  - generic [ref=f21e641]: Distance traveled
+                    - button "Distance from Opelousas to B6 (truck) 42.9 mi 1 source" [ref=f21e649] [cursor=pointer]:
+                      - generic [ref=f21e650]: Distance from Opelousas to B6 (truck)
+                        - generic [ref=f21e654]: "42.9"
+                        - text: mi
+                      - button "1 source" [disabled] [ref=f21e656]
+                    - button "Deselect datapoint" [ref=f21e660] [cursor=pointer]
+            - row "Mass of load" [ref=f21e663]:
+              - gridcell "Mass of load Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources Deselect datapoint" [ref=f21e664]:
+                  - generic [ref=f21e666]: Mass of load
+                    - button "Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources" [ref=f21e674] [cursor=pointer]:
+                      - generic [ref=f21e675]: Bio-Oil Mass - AECN via Rail
+                          - generic [ref=f21e680]: 267,807.11
+                          - generic [ref=f21e681]: ±1,015.98
+                        - text: kg
+                      - button "32 sources" [disabled] [ref=f21e682]
+                    - button "Deselect datapoint" [ref=f21e686] [cursor=pointer]
+          - generic [ref=f21e690]: Description
+          - button "+ Add" [ref=f21e692] [cursor=pointer]
+          - generic [ref=f21e695]: Blueprint details
+              - generic [ref=f21e698]: Blueprint
+                - link "Transport emissions" [ref=f21e702] [cursor=pointer]:
+                - generic [ref=f21e703]: "->"
+              - generic [ref=f21e705]: Key
+              - generic [ref=f21e707]: transport
+              - generic [ref=f21e709]: Gas type
+              - generic [ref=f21e711]: CO₂e
+              - generic [ref=f21e713]: Calculation
+                - generic [ref=f21e717]: output
+                - generic [ref=f21e719]: =
+                - generic [ref=f21e720]: mass
+                - generic [ref=f21e722]: "*"
+                - generic [ref=f21e723]: distance
+                - generic [ref=f21e725]: "*"
+                - generic [ref=f21e726]: carbon_intensity
+        - button "Delete" [ref=f21e730] [cursor=pointer]
+        - button "Done" [ref=f21e731] [cursor=pointer]
+##### modal_opel_br_basco_truck_embodied.yml (67 lines)
+  - dialog "Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions" [active] [ref=f24e589]:
+          - button "Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions" [ref=f24e596] [cursor=pointer]
+            - generic [ref=f24e598]: 0.462 tCO₂e
+            - generic [ref=f24e600]: 0.13%
+        - button "Toggle timeline sidebar" [ref=f24e602] [cursor=pointer]
+        - button "Close" [ref=f24e605] [cursor=pointer]
+          - generic [ref=f24e611]: Inputs
+          - grid "Input list" [ref=f24e612]:
+            - row "Distance emission factor" [ref=f24e613]:
+              - gridcell "Distance emission factor Emissions Factor - Vehicle Embodied Emissions - Tanker Truck 0.23756 kgCO₂e/mi 1 source Deselect datapoint" [ref=f24e614]:
+                  - generic [ref=f24e616]: Distance emission factor
+                    - button "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck 0.23756 kgCO₂e/mi 1 source" [ref=f24e624] [cursor=pointer]:
+                      - generic [ref=f24e625]: Emissions Factor - Vehicle Embodied Emissions - Tanker Truck
+                        - generic [ref=f24e629]: "0.23756"
+                        - text: kgCO₂e/mi
+                      - button "1 source" [disabled] [ref=f24e631]
+                    - button "Deselect datapoint" [ref=f24e635] [cursor=pointer]
+            - row "Distance traveled" [ref=f24e638]:
+              - gridcell "Distance traveled Allocated Distance Opelousas to B6 (truck) 1,946 mi No sources Deselect datapoint" [ref=f24e639]:
+                  - generic [ref=f24e641]: Distance traveled
+                    - button "Allocated Distance Opelousas to B6 (truck) 1,946 mi No sources" [ref=f24e649] [cursor=pointer]:
+                      - generic [ref=f24e650]: Allocated Distance Opelousas to B6 (truck)
+                        - generic [ref=f24e654]: 1,946
+                        - text: mi
+                      - generic [ref=f24e656]: No sources
+                    - button "Deselect datapoint" [ref=f24e660] [cursor=pointer]
+          - generic [ref=f24e664]: Description
+          - button "+ Add" [ref=f24e666] [cursor=pointer]
+          - generic [ref=f24e669]: Blueprint details
+              - generic [ref=f24e672]: Blueprint
+                - link "Distance-based emissions" [ref=f24e676] [cursor=pointer]:
+                - generic [ref=f24e677]: "->"
+              - generic [ref=f24e679]: Key
+              - generic [ref=f24e681]: distance_based_ci_emissions
+              - generic [ref=f24e683]: Gas type
+              - generic [ref=f24e685]: CO₂e
+              - generic [ref=f24e687]: Calculation
+                - generic [ref=f24e691]: output
+                - generic [ref=f24e693]: =
+                - generic [ref=f24e694]: distance
+                - generic [ref=f24e696]: "*"
+                - generic [ref=f24e697]: carbon_intensity
+        - button "Delete" [ref=f24e701] [cursor=pointer]
+        - button "Done" [ref=f24e702] [cursor=pointer]
+##### modal_pyro_embodied.yml: NO DIALOG FOUND
+##### modal_pyro_process.yml: NO DIALOG FOUND
+##### modal_rail_embodied.yml: NO DIALOG FOUND
+##### modal_rail_process_baton_rouge.yml: NO DIALOG FOUND
+##### modal_rail_process_opelousas.yml: NO DIALOG FOUND

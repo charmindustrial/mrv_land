@@ -1,6 +1,66 @@
 {
  "active_batches": [
   {
+   "batch_id": "INJ-09-2026-W4-KERRY",
+   "checklist_path": "outputs/qa/batch-INJ-09-2026-W4-KERRY/Kerry_Batch_INJ-09-2026-W4_QA_Checklist.xlsx",
+   "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit",
+   "oil_type": "Kerry",
+   "delivery_mode": "tanker",
+   "consumed_lots": [
+    "WILA004_offload_1"
+   ],
+   "reporting_period": "2026-09-01 to 2026-09-30 (removal period 19-25 Sep 2026)",
+   "T0_initiation": "2026-10-06T18:23:50Z",
+   "T1_data_gathering_complete": "2026-10-06T18:47:35Z",
+   "max_user_id": "UL2SL4H5H",
+   "garrett_user_id": "U08JW9HQG5B",
+   "slack_channel": "C0944NQH1RP",
+   "thread_ts": "1791326632.670369",
+   "status": "closed",
+   "notes": "Delivered 2026-10-06. Garrett asked to fix 1.7 (W3/W4 ticket attribution) and 1.5 (Kerry solids constant, CAR-474 citation). Max ruled Kerry tanker deliveries take tanker-truck EFs (skill + KB updated). Drive filing of the final checklist runs after the Garrett loop closes (skill step 7). INJ-07-2026-W4-KERRY was reported with flatbed EFs; left for Max. | 2026-10-07: Garrett replied 'This has been switched.' Verified in Certify: W4 now sources Sept_W4_Full/Empty_Scale_Ticket_Kerry.pdf (MOBI 19.155 t, Gross Mass 19.169 t); W3 now sources Sept_W3_Full/Empty_Scale_Ticket_Kerry.jpg (MOBI 17.995 t, Gross Mass 18.008 t). 1.7 corrected. 1.5 (Kerry solids constant citation) unchanged but is a documentation-level item that does not block closure. Closed.",
+   "T_garrett_replied": "2026-10-07T10:06:00Z",
+   "garrett_reply": "This has been switched",
+   "T_re_review_complete": "2026-10-07T10:08:00Z",
+   "T2_checklist_draft_complete": "2026-10-06T18:54:12Z",
+   "T3_adversarial_review_complete": "2026-10-06T21:18:35Z",
+   "T4_checklist_finalized": "2026-10-06T21:20:25Z",
+   "T_gates_green": "2026-10-06T21:56:43Z",
+   "counts": {
+    "pass": 23,
+    "fail": 1,
+    "flag": 1,
+    "na": 0
+   },
+   "net_co2e_t": 37.73,
+   "fail_items": [
+    "1.7"
+   ],
+   "flag_items": [
+    "1.5"
+   ],
+   "sidebar_count": 7,
+   "max_drive_upload_pending": true,
+   "max_dm_channel": "DLG4H88UF",
+   "max_dm_thread_ts": "1791326600.011699",
+   "T5_max_review_start": "2026-10-06T22:00:09Z",
+   "T6_max_approval": "2026-10-06T22:00:09Z",
+   "T7_garrett_notified": "2026-10-06T22:43:52Z",
+   "T_final_max_delivery": "2026-10-06T22:43:20Z",
+   "T_last_nudge": "2026-10-07T07:50:39Z",
+   "max_report_threads": [
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791359432.652769",
+     "posted": "2026-10-07T07:50:39Z"
+    },
+    {
+     "channel": "C0944NQH1RP",
+     "thread_ts": "1791367823.655389",
+     "posted": "2026-10-07T10:10:23Z"
+    }
+   ]
+  },
+  {
    "batch_id": "INJ-08-2026-W3-KERRY",
    "checklist_path": "outputs/qa/batch-INJ-08-2026-W3-KERRY/Kerry_Batch_INJ-08-2026-W3_QA_Checklist.xlsx",
    "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M0WQYKWY1S07FWW/edit",

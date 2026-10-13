@@ -1,0 +1,61 @@
+{
+  "batch_id": "INJ-09-2026-W1",
+  "computed_at": "2026-09-17T17:01:18",
+  "source_reads_path": "outputs/qa/batch-INJ-09-2026-W1-AECN/batch_INJ-09-2026-W1-AECN_source_reads.json",
+  "checks": [
+    {
+      "check_id": "scale_ticket_subtraction",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "INSUFFICIENT_DATA",
+      "computed": {},
+      "log_values": {},
+      "note": "Missing scale_tickets.full_ticket.gross_weight_lb, .empty_ticket.gross_weight_lb, .computed_net_lb, or .computed_net_kg."
+    },
+    {
+      "check_id": "scale_ticket_vs_ops_notes_offload",
+      "materiality": "material",
+      "check_type": "policy",
+      "status": "INSUFFICIENT_DATA",
+      "computed": {},
+      "log_values": {},
+      "note": "Missing scale_tickets.computed_net_kg."
+    },
+    {
+      "check_id": "bol_list_sum_vs_stated_total",
+      "materiality": "hygiene",
+      "check_type": "computation",
+      "status": "SKIP",
+      "computed": {},
+      "log_values": {},
+      "note": "Not a railcar batch."
+    },
+    {
+      "check_id": "railcar_inbound_outbound_balance",
+      "materiality": "mixed",
+      "check_type": "computation",
+      "status": "SKIP",
+      "computed": {},
+      "log_values": {},
+      "note": "Not a railcar batch."
+    },
+    {
+      "check_id": "last_offload_derivation",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "SKIP",
+      "computed": {},
+      "log_values": {},
+      "note": "Not a railcar batch."
+    },
+    {
+      "check_id": "cobb_offload_consistency",
+      "materiality": "hygiene",
+      "check_type": "policy",
+      "status": "INSUFFICIENT_DATA",
+      "computed": {},
+      "log_values": {},
+      "note": "cobb.offloaded_quantity_kg missing."
+    }
+  ]
+}

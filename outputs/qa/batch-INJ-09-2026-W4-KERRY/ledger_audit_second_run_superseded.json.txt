@@ -1,0 +1,130 @@
+{
+ "ledger_sha256": "ef320ca2e19c574db19c075448bb39e5f6a1ef6c073e0e3498f9af674fe854ed",
+ "auditor": "Second independent step-audit subagent (general-purpose, spawned 21:34:42Z by the QA session; did not do this QA and is not the first auditor). Opened batch-folder files, the skill and reference files, the registry, the performance tracker, the QA session record and its subagent records; ran recompute_kerry.py read-only. No browser, no sign-in, no sends, no edits to any file but this one.",
+ "steps": {
+  "P1_knowledge_base": {
+   "verdict": "verified",
+   "checked": "QA session record 3e147847 (~/.claude/projects/-Users-maxlavine-Desktop-Claude-Skills-MRV-Expert/3e147847-1d37-460f-ba47-16c371b6747d.jsonl): Read of knowledge-base/Charm_Isometric_Knowledge_Base.md at 18:23:59Z returned lines 1-683 and at 18:24:01Z lines 684-1300; the file has 1,299 lines, so it was read whole, before Certify was first opened (18:24:52Z). Log key preflight.knowledge_base present."
+  },
+  "P2_lessons_learned": {
+   "verdict": "verified",
+   "checked": "QA session record 3e147847 (~/.claude/projects/-Users-maxlavine-Desktop-Claude-Skills-MRV-Expert/3e147847-1d37-460f-ba47-16c371b6747d.jsonl): Read of skills/qa/batch-qa-kerry/references/lessons_learned.md at 18:23:56Z returned all 168 lines (FC-K1 to FC-K8 and the cross-skill FC1/FC3/FC8/FC10 section), before Gate 1. Opened the file myself: same content. AECN FC12-FC14 were read later (18:42:50Z), but the Kerry file the step names was read in full in pre-flight."
+  },
+  "P3_checklist_structure": {
+   "verdict": "verified",
+   "checked": "QA session record 3e147847 (~/.claude/projects/-Users-maxlavine-Desktop-Claude-Skills-MRV-Expert/3e147847-1d37-460f-ba47-16c371b6747d.jsonl): Read of skills/qa/batch-qa-kerry/references/checklist_structure.md at 18:23:56Z returned all 236 lines (ending at the 8.9 Document Location Rule line), before Gate 1. Log key preflight.checklist_structure present."
+  },
+  "P4_failure_categories_printed": {
+   "verdict": "not_verified",
+   "checked": "Printed list now exists: QA session record 3e147847 (~/.claude/projects/-Users-maxlavine-Desktop-Claude-Skills-MRV-Expert/3e147847-1d37-460f-ba47-16c371b6747d.jsonl), assistant text block at 21:30:40Z (chat, not a thinking block) holds a numbered list of 12 entries with one-line lessons (FC-K2, FC-K4 to FC-K8, FC1, FC3, FC8, FC10, FC14, FC12/FC13) plus FC-K1/FC-K3 marked tote-only; checked against lessons_learned.md, it covers every tanker-applicable Kerry category and the named carry-overs. Requirement is 'before Gate 1 begins'. Gate 1 began 18:24:52Z; the print came 3 h later, after Gates 1-4 had run. The ordered re-pass after the print (21:30:43-21:32:54Z) re-opened the guidance, Drive listing, W2/W3/W4/Aug W5 Ops Notes, Standard EFs, CAR-474, Drive CoA, both W4 tickets, live COBB, the Certify Components/Calculation/Datapoints/Sources tabs, the four modals and the W3 Datapoints tab (all byte- or value-identical to the first pass, checked myself). It did NOT re-open these logged sources, which were opened only before the print: route map Kerry to Basco Distance.png (src_1KT1W9XED1S08J0H; rows 2A.3, 2A.4, 2B.3, 2B.4), retirement certificate PDF (src_1M1MFJPW11S08KY2; row 2C.1), the Removal-Batch Cross-Reference sheet (batch ID), the W2/W3 ticket files in w3_kerry_cross_check/ (row 1.7, S.2), INJ-09-2026-W1 and INJ-10-2026-W1 Ops Notes, and the Certify-attached copies of the Ops Notes (src_1M3W1NWED1S0K0MP), both EF workbooks (src_1KWZ2NVQM1S08AWN, src_1KVJRSYT91S09G2E; rows 2A.2, 2B.2), the CoA (src_1M3VZ8S8W1S013HS; row 1.2) and the two tickets. The QA's own plan in the 21:30:40Z message was 'Re-open every other source'; that was not completed, so these Gate 1 reads still precede the print. Also: log preflight.failure_categories_printed (11 entries) is not the list printed to chat (12 entries; it lacks the FC12/FC13 line)."
+  },
+  "P5_registry_checked": {
+   "verdict": "verified",
+   "checked": "QA session record 3e147847 (~/.claude/projects/-Users-maxlavine-Desktop-Claude-Skills-MRV-Expert/3e147847-1d37-460f-ba47-16c371b6747d.jsonl): cat of skills/qa/batch-qa-kerry/qa_active_kerry_batches.json at 18:23:53Z, before Gate 1, returned entries INJ-08-2026-W3-KERRY, K-002, INJ-07-2026-W4-KERRY and no INJ-09-2026-W4 entry. git HEAD copy of the registry holds the same three ids. Matches log preflight.registry_checked."
+  },
+  "P6_inputs_confirmed": {
+   "verdict": "verified",
+   "checked": "Max's kickoff message (QA session record 3e147847 (~/.claude/projects/-Users-maxlavine-Desktop-Claude-Skills-MRV-Expert/3e147847-1d37-460f-ba47-16c371b6747d.jsonl), 18:23:38Z) gives the Certify URL (rmv_1M3T2J3V51S0NCHH) and Drive folder 1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0 with 'W4 Kerry QA'. Opened source_exports/Removal_Batch_CrossRef_Sep2026_live_20261006T1834Z.xlsx: row 'rmv_1M3T2J3V51S0NCHH | INJ-09-2026-W4-KERRY | 2026-09-25', Kerry subtype only, AECN and Charm subtype blank. certify_initial_snapshot.yml: 4 components, all Kerry transport, injection sequestration and BCU."
+  },
+  "T0_stamped_monitor_triggered": {
+   "verdict": "verified",
+   "checked": "QA session record 3e147847 (~/.claude/projects/-Users-maxlavine-Desktop-Claude-Skills-MRV-Expert/3e147847-1d37-460f-ba47-16c371b6747d.jsonl): 'date' ran at 18:23:49Z and printed 2026-10-06T18:23:50Z (the 18:23:47Z attempt was held by a hook); log T0 and batch_timestamps.json carry 18:23:50Z. Monitor agent a67c74bfa20fb9f02 launched 18:25:54Z (two earlier launches blocked by a hook). Its record shows it wrote row 17 at 18:27:22Z. Opened Claude_QA_Performance_Tracker.xlsx: C17 'INJ-09-2026-W4-KERRY', E17 'In Progress (T0 logged)', AB17 2026-10-06 18:23:50."
+  },
+  "G1_0_vvb_guidance_full": {
+   "verdict": "verified",
+   "checked": "First pass broke the order: QA session record 3e147847 (~/.claude/projects/-Users-maxlavine-Desktop-Claude-Skills-MRV-Expert/3e147847-1d37-460f-ba47-16c371b6747d.jsonl) shows the Certify page (18:24:52Z) and Drive root listing (18:24:53Z) opened before the guidance (18:26:00Z, read in full by 18:27:53Z); every other first-pass source came after 18:27:53Z. Re-pass: guidance re-saved from the live docs 21:30:43-49Z with no other source opened after the 21:30:40Z message, then Read at 21:31:04-06Z returned whole files (Sep 90, Aug 209, Jul 55 lines). source_exports/repass/VVB_Guidance_*.txt sha256 equal the first-pass copies (Sep cc884f4f, Aug afa471ba, Jul 8845f3dd). The two out-of-order sources were re-opened after it (Drive listing 21:31:17Z, Components tab 21:32:20Z, repass/certify_components_tab.txt). All 17 logged quotes (9 July Kerry method, 6 Sep section titles, W4 window, July solids sentence) found word for word; live_source_url present for all three docs. So every source now has a read after a full guidance read. Ledger overstates one thing: 'every other source then re-opened' is not true (see P4 for the list)."
+  },
+  "G1_0_cell_comments": {
+   "verdict": "verified",
+   "checked": "Opened source_exports/INJ-09-2026-W4_Ops_Notes_live_20261006T1828Z.xlsx with openpyxl without data_only, all 10 tabs: two comments only, AECN Truck H28 and Kerry D18 ('Wellhead pH = weekly median of Ignition PH-1041, gated to StateRun=1; provided by G. Lutz 2026-09-30.'); Kerry M5 has none. Matches log vvb_guidance.ops_notes_cell_comments. QA record 18:28:41Z shows its own formula-mode load printing the D18 comment. Re-pass Ops Notes: no note differences in any tab."
+  },
+  "G1_delivery_mode": {
+   "verdict": "verified",
+   "checked": "Viewed both W4 ticket images in screenshots/: commodity 'TANKER' on each, one full + one empty pair. Ops Notes Kerry A1 'BATCH HEADER — Kerry (Calciner Waste Oil, Tankers)', A8 'SECTION 1 - TANKER LEDGER'. batch_folder_listing.txt: Kerry Oil/ holds only the two tickets, no tote log. Log delivery_mode 'tanker' with delivery_mode_basis."
+  },
+  "G1_1_mass_artifacts": {
+   "verdict": "verified",
+   "checked": "Viewed screenshots/Sept_W4_Full_Scale_Ticket_Kerry.jpg: #1189526252027, 9-09-26 09:27, scale 1895, Loves Wilson Township WI, gross 74000 lb, tractor 07, trailer 1013. Empty: #1319926254821, 9-11-26 13:20, scale 3199, Loves Lake Village AR, gross 34300 lb, tractor 07, trailer 1013. All match log scale_tickets.full_ticket/empty_ticket; net 39,700 lb x 0.453592 = 18,007.6024 kg = log net_kg. QA record: both images Read 18:29:14Z and again 21:32:01Z."
+  },
+  "G1_2_bol": {
+   "verdict": "verified",
+   "checked": "No BOL exists to open; absence was searched and recorded. Scanned every Drive search result in the QA record (root + Kerry Oil/ + Testing/ + Scale Tickets/ listings 18:24:53-18:28:17Z, fullText 'Kerry' search, re-pass listing 21:31:17Z): no file titled BOL/Bill of Lading. certify_sources_tab.txt lists 8 sources, none a BOL. Log bol.status 'absent' with bol.searched; checklist S.5 records it and that the July guidance names the CAT ticket pair as the mass evidence."
+  },
+  "G1_3_lab_results": {
+   "verdict": "verified",
+   "checked": "Viewed source_exports/Drive_Testing_SR26-05719_COA_1Viar0c3xdOh.pdf page 1: Certificate SR26-05719.001, client ID 9-2026-W4-KERRY, location FORT LUPTON CO, sampled 25-Sep-2026 07:00, Carbon 57.9, H 6.4, N <0.75, viscosity 545.2 cSt, acid 154, density 1.201 g/cm3. Matches log lab_results. Certify-attached copy sha256 276ccd65... equals the Drive copy; re-pass copy identical."
+  },
+  "G1_4_ops_notes": {
+   "verdict": "verified",
+   "checked": "Opened the live Ops Notes export: Kerry F10/A18 18007.6024 kg (mass in), C18 MOBI 17994.817, D18 pH 2.97; Summary G8 AECN Rail MOBI after sparging 263834.2716 (AECN Truck row 9 is 0, so that is all the sparged AECN), G13 total MOBI 316008.5886 (includes QOWV 34179.5, as the log key name says). Matches log ops_notes.kerry_row, rollup, summary, aecn_mass_in_kg_summary_G8, total_mobi_all_oils_kg_summary_G13."
+  },
+  "G1_5_cobb_row_verified": {
+   "verdict": "verified",
+   "checked": "Opened source_exports/COBB_live_calciner_rows_20261006T1842Z.txt (live query 'where A contains calciner', QA record 18:42:15Z): the W4 row is picked out by cell A 'INJ-09-2026-W4_calciner' (COBB's name for this Kerry week; only one W4 calciner row per block), product 'Kerry Calciner'. consumed_lot is 'WILA004_offload_1', which does NOT follow kc_NNNN; the check was made and the deviation recorded in log cobb_tracker.consumed_lot_pattern and checklist S.7 (tote-era pattern), not hidden."
+  },
+  "G1_6_certify_four_tabs": {
+   "verdict": "verified",
+   "checked": "Components: certify_initial_snapshot.yml shows tabs Components/Calculation view/Datapoints/Sources, 4 components, Mitigated 40.450, Emitted 2.503; re-read 21:32:20Z (repass/certify_components_tab.txt). Calculation view: certify_calculation_view.txt 37.730 t = 38.206 + 2.244 - 2.502 - 217 kg. Datapoints: certify_datapoints_tab.txt 'Datapoints (7)'. Sources: certify_sources_tab.txt 'Sources (8)'. QA record shows each tab clicked and captured 18:35:25-37Z and again 21:32:45-52Z; re-pass copies byte-identical."
+  },
+  "G1_6_sources_tab_total": {
+   "verdict": "verified",
+   "checked": "Log certify.certify_sources_tab_total = 8; certify_sources_enumeration lists 8 entries with source ids and linked datapoints (Ops Notes, Empty ticket, Full ticket, CoA, retirement certificate, two Standard EF workbooks, route map). Matches the 8 names in certify_sources_tab.txt. attachment_map covers all 7 datapoints."
+  },
+  "G1_registry_updated": {
+   "verdict": "verified",
+   "checked": "skills/qa/batch-qa-kerry/qa_active_kerry_batches.json (changed 18:47:35Z) now holds INJ-09-2026-W4-KERRY first, absent at git HEAD: checklist_path, certify_url, delivery_mode 'tanker', consumed_lots, T0, T1 18:47:35Z, status re_reviewing; slack_channel null because delivery has not happened. QA record shows the write at 18:47:35Z, after Gate 1 reads."
+  },
+  "G2_1_mass_artifacts_opened": {
+   "verdict": "verified",
+   "checked": "Both W4 ticket images viewed by me: tractor 07 / trailer 1013 on both. sha256 of the Certify-attached copies equal the Drive copies (Full f96cc79a..., Empty fa212238...). Matches log scale_tickets.tractor_trailer_match and certify_copies_identical_to_drive."
+  },
+  "G2_2_cobb_values": {
+   "verdict": "verified",
+   "checked": "Live COBB W4 row: offloaded_quantity_kg 18007.6024, origin_quantity_kg 20000, order_line_completed_on 2026-09-24 18:04:36, injection_completion_date 2026-09-23, pH 2.97; re-pass COBB identical apart from the 'Last updated' header stamp (checked myself). Matches log cobb_tracker.w4_row. kc_NNNN not followed (WILA004_offload_1), recorded in S.7."
+  },
+  "G2_3_component_modals": {
+   "verdict": "verified",
+   "checked": "Opened all four modal captures: injection sequestration (carbon 57.9 ±0.2316 %, mass 17,994.817 ±72.57 kg), transport process (EF 0.1143 kgCO2e/(t.mi), 1,090 mi, mass 18.0076 ±0.07257 t), transport embodied (0.23756 kgCO2e/mi, 1,090 mi), BCU (2,243.51 kgCO2e). Both tickets read 'CAT SCALE / Certified Automated Truck Scale', so SKILL.md's 72.57 kg commercial-truck-scale figure applies. QA record: modals opened 18:34:43-18:35:08Z and re-opened 21:32:32-41Z; copies identical."
+  },
+  "G2_system_boundary": {
+   "verdict": "verified",
+   "checked": "certify_initial_snapshot.yml and repass/certify_components_tab.txt: exactly 4 components (Injection sequestration; Kerry to Basco Tanker Truck Transport Process; ...Embodied; BCUs - Applied to Bio-Oil Transport Process). No production, biomass or counterfactual component. Ops Notes Summary E11 Kerry sparging loss 0.0. Log certify.components_total 4, no_upstream_production_component and no_counterfactual_component true."
+  },
+  "G2_transport_mass_basis": {
+   "verdict": "verified",
+   "checked": "Process modal Mass of load 18.0076 t vs ticket net (74,000 - 34,300) x 0.453592 = 18,007.6024 kg and Ops Notes Summary B11 18007.6024: the oil-only ticket net for a tanker, not the post-filtration 17,994.817. Checklist 2A.5 records it."
+  },
+  "G2_ef_live_sheet": {
+   "verdict": "verified",
+   "checked": "Opened source_exports/Standard_EFs_live_20261006T1840Z.xlsx tab 2026: row 6 'Truck Transport Fuel Use (Well to Wheel) -- Tanker Truck' 0.0001143 MT CO2e/t-mi (GLEC V3.2 2025); row 11 'Vehicle Embodied Emissions --Tanker Truck' 0.0002375605888 MT CO2e/mi. Equal to Certify 0.1143 kg/(t.mi) and 0.23756 kg/mi. Re-pass export of the live sheet (21:31:21Z): all 2,930 cells identical."
+  },
+  "G2_required_evidence_defined": {
+   "verdict": "verified",
+   "checked": "Log certify.required_evidence holds 7 entries, one per datapoint on certify_datapoints_tab.txt (Mass of Injectant: scale_ticket+ops_notes; Allocated Kerry Oil Gross Mass: scale_ticket; Carbon Content: lab; Route Distance: map_or_watco; two EFs: ef_sheet; BCUs Applied: eac_cert), with required_evidence_basis. QA record shows the attachment gate run on it: 'Attachment gate: PASS (0 gap(s))' at 18:54:11Z, 21:18:32Z and 21:34:21Z."
+  },
+  "G2_recompute_pasted": {
+   "verdict": "verified",
+   "checked": "recompute_kerry.py is in the batch folder and only reads the log. Ran it now: exit 0, output byte-identical to recompute_output.txt (29 OK, 0 unrouted, 6 FINDING lines routed to 1.5 Flag and 1.7 Fail). QA session record 3e147847 (~/.claude/projects/-Users-maxlavine-Desktop-Claude-Skills-MRV-Expert/3e147847-1d37-460f-ba47-16c371b6747d.jsonl): assistant text at 21:34:12Z holds a code block of 40 lines equal to recompute_output.txt line for line. The file was written 21:33:53Z after the last log change (21:33:46Z). The condensed 21:20:41Z paste is superseded. Delivery has not happened, so the paste precedes it."
+  },
+  "G3_reviewer_independent": {
+   "verdict": "verified",
+   "checked": "adversarial_review_INJ-09-2026-W4-KERRY.md (saved 19:12:08Z): '32 entries: 27 upheld, 5 challenged', row by row 1.1-3.6 and S.1-S.7. Subagent record agent-a47f803292fafd096: prompt says 'You did not build this checklist', it loaded the adversarial-reviewer skill, used Bash/Read/Write only, and wrote the review file itself (Write at 19:08:08Z and 19:12:07Z)."
+  },
+  "G3_challenges_resolved": {
+   "verdict": "verified",
+   "checked": "Opened the final checklist (saved 21:19:58Z): Challenge 1, 1.5 is Flag with AECN Rail O7 0.00196, the July 'materially higher' quote and the Aug W5 O5 note; Challenge 2, 1.7 Fail states COBB carries 18,007.6024 on both lots, cites the W3 Certify removal read live (w3_kerry_cross_check/certify_W3_kerry_datapoints_tab.txt shows 19.155 t), quotes the KB 2-week rule, gives 2.38818 t / 0.14467 t and lists dependent rows; Challenge 3, 2A.6 no longer uses COBB; Challenge 4, 3.6 quotes the July pH sentence verbatim; Challenge 5, S.4 cites C10, F10, A18, C18."
+  },
+  "G4_render_in_excel": {
+   "verdict": "verified",
+   "checked": "screenshots/Excel_render_checklist.pdf: Creator 'Excel', 4 pages, 792x612 landscape, created 21:20:07Z, after the last checklist save (21:19:58Z). Viewed all 4 pages: final content (1.5 Flag, 1.7 Fail, status row), columns A-E fit, colours render. QA record 21:20:02Z: osascript 'tell application \"Microsoft Excel\" ... file format PDF file format' returned ok; PDF Read at 21:20:10Z."
+  },
+  "G4_status_counts": {
+   "verdict": "verified",
+   "checked": "Counted column C of Kerry_Batch_INJ-09-2026-W4_QA_Checklist.xlsx with openpyxl: Pass 23, Fail 1 (1.7), Flag 1 (1.5), N/A 0, 25 rows. Matches status_counts.json and the checklist STATUS COUNTS row 62 'Pass 23 | Fail 1 | Flag 1 | N/A 0 (25 items)'."
+  },
+  "G4_monitor_independent": {
+   "verdict": "verified",
+   "checked": "Tracker row 17 (C17 INJ-09-2026-W4-KERRY) was written by monitor subagent a67c74bfa20fb9f02 (its record shows the openpyxl write at 18:27:22Z and lists cells A17-AB17). Searched the QA's own session record: no command writes to Claude_QA_Performance_Tracker.xlsx (the path appears only in ledger text and a hook edit). Row 17 still holds the T0 entry only; the monitor skill's next trigger is Max's approval, not yet reached."
+  }
+ }
+}

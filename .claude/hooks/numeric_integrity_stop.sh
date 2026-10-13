@@ -62,20 +62,17 @@
 set -euo pipefail
 
 input="$(cat)"
-hook_event="$(echo "$input" | jq -r '.hook_event_name // empty' 2>/dev/null || true)"
-transcript_path="$(echo "$input" | jq -r '.transcript_path // empty' 2>/dev/null || true)"
-
-# For SubagentStop, Claude Code also provides agent_transcript_path -- a file
-# scoped to ONLY that one subagent's own turns/tool calls, isolated from the
-# parent session's transcript (see citation_integrity_stop.sh for the same
-# change and how this was confirmed empirically 2026-08-27). Use it so a
-# reviewer sub-agent's numeric claims are checked against what it itself read.
-if [ "$hook_event" = "SubagentStop" ]; then
-  agent_transcript_path="$(echo "$input" | jq -r '.agent_transcript_path // empty' 2>/dev/null || true)"
-  if [ -n "$agent_transcript_path" ] && [ -f "$agent_transcript_path" ]; then
-    transcript_path="$agent_transcript_path"
-  fi
-fi
+# Which transcript this hook is about, and whose counters it belongs to, are
+# decided in ONE place: ~/.claude/hooks/lib/subagent_scope.sh. It picks the
+# subagent's own transcript on SubagentStop AND exports CLAUDE_HOOK_AGENT_SCOPE,
+# so this guard's circuit breaker and the shared per-turn block budget land in
+# the same per-worker file every other guard uses. Those two steps used to be
+# hand-copied into all fifteen guards, and five copies did the first without the
+# second -- see that file's header for the 2026-09-17 failure it caused.
+source ~/.claude/hooks/lib/subagent_scope.sh
+hook_scope_resolve "$input"
+transcript_path="$HOOK_TRANSCRIPT_PATH"
+hook_event="$HOOK_EVENT_NAME"
 
 if [ -z "$transcript_path" ] || [ ! -f "$transcript_path" ]; then
   exit 0
@@ -94,10 +91,18 @@ try:
 except Exception:
     sys.exit(0)  # shared library missing/broken -- fail open, never crash
 
+# Shared per-turn block budget: work out a name for the current turn so that
+# every guard counts its blocks against the same budget (lib/circuit_breaker.py).
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from transcript_text import turn_key_from_path as _tk_from_path
+    _turn = _tk_from_path(transcript_path)
+except Exception:
+    _turn = None
 brk = Breaker(
     state_file=os.path.join(session_dir, 'numeric_block_count'),
     label='NUMERIC INTEGRITY',
-    max_strikes=3,
+    max_strikes=3, turn_key=_turn, transcript_path=transcript_path
 )
 if brk.tripped():
     sys.exit(0)
@@ -134,18 +139,42 @@ for entry in entries:
                 tool_inputs[tid] = item.get('input', {})
 
 # ── Only run when a deliverable was produced (mirror citation hook) ──────────
-WRITE_TOOLS = {'Write', 'Edit', 'mcp__word__create_document', 'mcp__word__insert_text',
-               'mcp__word__replace_text', 'mcp__word__save_document'}
-PUBLISH_TOOLS = {'mcp__claude_ai_Google_Drive__create_file',
-                 'mcp__claude_ai_Slack__slack_create_canvas',
-                 'mcp__claude_ai_Slack__slack_update_canvas'}
-wrote = any(n in WRITE_TOOLS or n in PUBLISH_TOOLS for n in tool_names.values())
+# Write-detection (tool names + the "did this Bash call actually write"
+# check) lives in one shared place now -- see lib/write_detection.py for why:
+# four copies of this same logic already drifted apart once (2026-09-10).
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from write_detection import WRITE_TOOL_NAMES, PUBLISH_TOOL_NAMES, is_real_write
+except Exception:
+    WRITE_TOOL_NAMES, PUBLISH_TOOL_NAMES = set(), set()
+    def is_real_write(_): return False
+
+def _is_excluded_deliverable_path(p):
+    """Memory files, hook state, scratch/tmp output are never deliverables --
+    see citation_integrity_stop.sh's Gate 3 fix (2026-09-16) for why: a Bash
+    command's is_real_write() check gates the WHOLE command, so any other
+    path-looking string it merely mentions (a cat'd memory file, a
+    scratchpad report) was being swept into the harvested deliverable set."""
+    if not p:
+        return False
+    pp = str(p).replace('\\', '/')
+    home_claude = os.path.expanduser('~/.claude')
+    if pp.startswith(home_claude) or '/.claude/' in pp:
+        return True
+    if pp.startswith('/private/tmp/') or pp.startswith('/tmp/') or '/private/tmp/' in pp:
+        return True
+    if re.search(r'(^|/)scratchpad(/|$)', pp):
+        return True
+    return False
+wrote = any(n in WRITE_TOOL_NAMES or n in PUBLISH_TOOL_NAMES for n in tool_names.values())
 _DELIV_RE = re.compile(r'\.(?:xlsx|docx|csv|md)\b', re.IGNORECASE)
 if not wrote:
     for tid, inp in tool_inputs.items():
         if not isinstance(inp, dict): continue
-        blob = inp.get('command', '') if tool_names.get(tid) == 'Bash' else inp.get('file_path', '')
-        if isinstance(blob, str) and _DELIV_RE.search(blob):
+        if tool_names.get(tid) != 'Bash':
+            continue  # a non-Bash, non-WRITE_TOOL_NAMES/PUBLISH_TOOL_NAMES call is a read, not a write
+        blob = inp.get('command', '')
+        if isinstance(blob, str) and _DELIV_RE.search(blob) and is_real_write(blob):
             wrote = True; break
 # Scope: only run when this session actually produced work product. A purely
 # conversational turn (incidental numbers like "meeting at 3pm", "5 batches")
@@ -156,70 +185,39 @@ if not wrote:
     sys.exit(0)
 
 # ── Build corpus of everything READ / GIVEN this session ─────────────────────
-SOURCE_READ_TOOLS = {
-    'Read', 'WebFetch',
-    'mcp__claude_ai_Google_Drive__read_file_content',
-    'mcp__claude_ai_Google_Drive__download_file_content',
-    'mcp__word__get_document_text',
-    'mcp__playwright__browser_snapshot', 'mcp__playwright-mrv__browser_snapshot',
-    'mcp__playwright-mrv-2__browser_snapshot', 'mcp__playwright-mrv-3__browser_snapshot',
-    'mcp__playwright-mrv-4__browser_snapshot',
-    'Bash',  # pdftotext / grep / python calc output — legitimate sourced/computed values
-}
-corpus_parts, read_paths = [], set()
-for entry in entries:
-    msg = entry.get('message', {})
-    if not isinstance(msg, dict): continue
-    role = msg.get('role', '')
-    for item in (msg.get('content') or []):
-        if not isinstance(item, dict): continue
-        t = item.get('type')
-        # (1) numbers/quotes the USER supplied are given inputs, not fabrications
-        if role == 'user' and t == 'text':
-            corpus_parts.append(item.get('text', '') or ''); continue
-        # (2) results of source-read / command tools
-        if t == 'tool_result':
-            name = tool_names.get(item.get('tool_use_id', ''))
-            if name not in SOURCE_READ_TOOLS: continue
-            if name == 'Read':
-                fp = tool_inputs.get(item.get('tool_use_id', ''), {}).get('file_path', '')
-                if fp: read_paths.add(fp)
-            res = item.get('content', '')
-            if isinstance(res, str):
-                corpus_parts.append(res)
-            elif isinstance(res, list):
-                for r in res:
-                    if isinstance(r, dict) and r.get('type') == 'text':
-                        corpus_parts.append(r.get('text', '') or '')
-
-# Reload Read files from disk (current content; PDFs via pdftotext)
-for fp in list(read_paths):
-    try:
-        if not os.path.isfile(fp): continue
-        if fp.lower().endswith('.pdf'):
-            r = _sp.run(['pdftotext', fp, '-'], capture_output=True, text=True, timeout=30)
-            if r.returncode == 0 and r.stdout: corpus_parts.append(r.stdout)
-        else:
-            with open(fp, encoding='utf-8', errors='replace') as fh: corpus_parts.append(fh.read())
-    except Exception: pass
-
-# Session tool-results dir (oversized outputs saved to disk)
-tr_dir = os.path.join(session_dir, 'tool-results')
-if os.path.isdir(tr_dir):
-    for fn in os.listdir(tr_dir):
-        if fn.endswith(('.txt', '.md')):
-            try:
-                with open(os.path.join(tr_dir, fn), encoding='utf-8', errors='replace') as fh:
-                    corpus_parts.append(fh.read())
-            except Exception: pass
+# One shared builder, used by this hook and citation_integrity_stop.sh alike:
+# ~/.claude/hooks/lib/source_corpus.py. Two copies of this list used to exist
+# and both were blind to the same two things -- a PDF opened with the Read tool
+# (the result is page images, so no text ever arrived) and a web page fetched
+# in the shell (only whatever the command printed arrived, tags and all). On
+# 2026-09-22 that reported passages read minutes earlier as invented, four
+# times over one turn. Fixing it in one place is the point.
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from source_corpus import build_corpus, sentence_around as _sentence_around
+except Exception:
+    sys.exit(0)  # shared library missing/broken -- fail open, never crash
+# source_file: the session's other transcripts (workers, coordinator) and its
+# tool-results folder are read too -- a worker often did the reading (2026-09-24).
+_corpus = build_corpus(entries, tool_names, tool_inputs, session_dir,
+                       source_file=transcript_path)
+corpus_parts = _corpus.parts
+# Documents no reader on this machine could turn into text. Quotes cannot be
+# checked against them, so quotes are NOT reported at all this run -- saying
+# nothing beats calling an honest quote invented.
+unindexed_sources = _corpus.unindexed
 
 def norm_punct(s):
     return (s.replace('‘',"'").replace('’',"'").replace('“','"')
              .replace('”','"').replace('–','-').replace('—','-')
              .replace('…','...'))
 
-raw_corpus = norm_punct(re.sub(r'^\d+\t', '', '\n'.join(corpus_parts), flags=re.MULTILINE))
+# Read's line-number prefixes come as "12\t", padded "   12\t" or "12→" (and
+# "L12:" in some tools); strip every form, not only the unpadded tab one.
+raw_corpus = norm_punct(re.sub(r'^[ \t]*(?:L\d+:[ \t]?|\d+(?:\t|\u2192))', '',
+                               '\n'.join(corpus_parts), flags=re.MULTILINE))
 norm_corpus = re.sub(r'\s+', ' ', raw_corpus).strip()
+norm_corpus_lower = norm_corpus.lower()
 # number-search corpus: drop thousands separators so "15,000" matches "15000"
 num_corpus = re.sub(r'(?<=\d),(?=\d)', '', raw_corpus)
 
@@ -247,57 +245,55 @@ try:
 except Exception:
     sys.exit(0)  # shared library missing/broken -- fail open, never crash
 
-resp_parts = []
+resp_sources = []  # list of (label, raw_text); kept SEPARATE per source so a
+# quote/number/arithmetic delimiter pair can never straddle two of them.
+# Bug fixed 2026-09-16: chat text and a .md deliverable used to be joined
+# into ONE buffer before Gate Q paired up quote marks, so a stray " in the
+# chat reply paired with an unrelated " later in the deliverable and
+# everything in between -- including the deliverable's own headings -- was
+# flagged as one fabricated "quote" (real evidence: e2e_project_report.md
+# writer blocked twice on a "quote" spanning from chat prose into the
+# report's own "## Test 2 - attribution" heading). label=None means
+# chat/message text; it stays unprefixed to match this hook's prior message
+# format for chat-only findings (see test c below).
+chat_parts = []
 for entry in entries[last_user+1:]:
     msg = entry.get('message', {})
     if not isinstance(msg, dict) or msg.get('role') != 'assistant': continue
     for item in (msg.get('content') or []):
         if not isinstance(item, dict): continue
         if item.get('type') == 'text':
-            resp_parts.append(item.get('text', '') or '')
+            chat_parts.append(item.get('text', '') or '')
         elif item.get('type') == 'tool_use' and _is_message_tool(item.get('name', '')):
             t = _tool_input_text(item.get('input', {}))
             if t:
-                resp_parts.append(t)
+                chat_parts.append(t)
+if chat_parts:
+    resp_sources.append((None, '\n'.join(chat_parts)))
 
-# Add text deliverables (.md/.csv) written this session
+# Add text deliverables (.md/.csv) written this session -- each file is its
+# OWN source, never concatenated with chat text or with another file.
+_src_paths = {}   # label -> path, so a file is never used to vouch for itself
 for tid, inp in tool_inputs.items():
     if not isinstance(inp, dict): continue
     if tool_names.get(tid) in ('Write',) :
         fp = inp.get('file_path', '')
-        if fp.lower().endswith(('.md', '.csv')) and os.path.isfile(fp):
+        if (fp.lower().endswith(('.md', '.csv')) and os.path.isfile(fp)
+                and not _is_excluded_deliverable_path(fp)):
             try:
                 with open(fp, encoding='utf-8', errors='replace') as fh:
-                    resp_parts.append(fh.read())
+                    resp_sources.append((os.path.basename(fp), fh.read()))
+                _src_paths[os.path.basename(fp)] = fp
             except Exception: pass
 
-response = norm_punct('\n'.join(resp_parts))
-if not response.strip():
+if not any((t or '').strip() for _, t in resp_sources):
     sys.exit(0)
-
-# Strip fenced code blocks and inline code (build scripts, paths — not prose claims)
-resp_scan = re.sub(r'```.*?```', ' ', response, flags=re.DOTALL)
-resp_scan = re.sub(r'`[^`]*`', ' ', resp_scan)
-norm_resp = re.sub(r'\s+', ' ', resp_scan).strip()
 
 def in_corpus_text(s):
     s = re.sub(r'\s+', ' ', s).strip()
-    return len(s) >= 3 and s.lower() in norm_corpus.lower()
+    return len(s) >= 3 and s.lower() in norm_corpus_lower
 
 violations = []
-
-# ── GATE Q: quoted strings >= 40 chars must exist in the corpus ──────────────
-passed_quote_spans = []
-for m in re.finditer(r'"([^"]{40,})"', resp_scan):
-    q = m.group(1).strip()
-    if in_corpus_text(q):
-        passed_quote_spans.append((m.start(), m.end()))
-    else:
-        snippet = (q[:80] + '…') if len(q) > 80 else q
-        violations.append(('QUOTE', f'Quoted text not found in any source read this session: "{snippet}"'))
-
-def inside_passed_quote(pos):
-    return any(a <= pos <= b for a, b in passed_quote_spans)
 
 # ── Assumption-marker detector ───────────────────────────────────────────────
 # STRICT set only. Deliberately EXCLUDES hedge words ("roughly", "about",
@@ -314,7 +310,36 @@ def near_assumption(pos, text, window=60):
     lo, hi = max(0, pos-window), min(len(text), pos+window)
     return bool(ASSUMPTION_RE.search(text[lo:hi]))
 
-# ── GATE A: recompute shown arithmetic "A op B = C" ──────────────────────────
+# Counts of Claude's OWN text -- "Read the full rewrite (6,598 words)", "2,700
+# chars", "4 pages" -- describe the message or file itself, so no source could
+# ever hold them (fire-mining cluster 24). Exempt only when the unit is
+# words/chars/characters/lines/pages/bytes AND the sentence is about the
+# message/report/file, with no rule words (must, shall, limit, ...).
+OWN_COUNT_UNIT_RE = re.compile(r'\s*\)?\s*(?:words?|chars?|characters|lines|pages|bytes)\b', re.IGNORECASE)
+OWN_TEXT_NOUN_RE = re.compile(
+    r'\b(?:message|reply|answer|response|report|summary|file|document|doc|draft|'
+    r'rewrite|re-?cut|version|text|memo|brief|notes?|output|section|deck|'
+    r'transcript|write-?up|chat|page)s?\b', re.IGNORECASE)
+RULE_WORD_RE = re.compile(
+    r'\b(?:must|shall|required?|requires|limit|maximum|minimum|at least|no more than)\b',
+    re.IGNORECASE)
+def own_text_count(text, start, end):
+    if not OWN_COUNT_UNIT_RE.match(text[end:end + 24]):
+        return False
+    sent = _sentence_around(text, start, end)
+    return bool(OWN_TEXT_NOUN_RE.search(sent)) and not RULE_WORD_RE.search(sent)
+
+# A division shown as a percentage -- "23/36=63.9" -- is right when the result
+# is 100 times the ratio (fire-mining cluster 10: blocked as "expected 0.64").
+def arithmetic_ok(a, op, b, c, expect):
+    if abs(c - expect) / abs(expect) <= 0.015:
+        return True
+    if op in ('/', '÷'):
+        pct = 100.0 * expect
+        return abs(c - pct) / abs(pct) <= 0.015
+    return False
+
+# ── GATE A helpers: recompute shown arithmetic "A op B = C" ──────────────────
 def to_num(tok):
     tok = tok.replace(',', '').strip()
     mult = 1.0
@@ -329,24 +354,8 @@ def to_num(tok):
 ARITH_RE = re.compile(
     r'[\$€£]?\s*([\d,]+(?:\.\d+)?(?:[kKmMbB]|bn)?)\s*([×x\*/÷+\-])\s*'
     r'[\$€£]?\s*([\d,]+(?:\.\d+)?(?:[kKmMbB]|bn)?)\s*=\s*[\$€£]?\s*([\d,]+(?:\.\d+)?(?:[kKmMbB]|bn)?)')
-for m in ARITH_RE.finditer(norm_resp):
-    a, op, b, c = to_num(m.group(1)), m.group(2), to_num(m.group(3)), to_num(m.group(4))
-    if None in (a, b, c): continue
-    try:
-        if op in ('×', 'x', '*'): expect = a * b
-        elif op in ('/', '÷'): expect = a / b if b else None
-        elif op == '+': expect = a + b
-        elif op == '-': expect = a - b
-        else: expect = None
-    except ZeroDivisionError:
-        expect = None
-    if expect is None or expect == 0: continue
-    if abs(c - expect) / abs(expect) > 0.015:
-        violations.append(('ARITHMETIC',
-            f'Shown arithmetic does not compute: {m.group(0).strip()} '
-            f'(expected ≈ {expect:,.2f}).'))
 
-# ── GATE N: claim numbers must be sourced, labeled, or computed ──────────────
+# ── GATE N helpers: claim numbers must be sourced, labeled, or computed ──────
 # Currency, explicit-currency-word amounts, per-unit rates, gCO2e/MJ, percentages.
 # Also QA-measurement units (added 2026-08-27 alongside Gate D below): a QA
 # finding -- in chat/subagent prose, not only a spreadsheet row -- routinely
@@ -383,8 +392,12 @@ def num_candidates(raw):
     if plain.replace('.', '').isdigit():
         try:
             base = float(plain)
-            if 'k' in low or 'thousand' in low: cands.add(str(int(base*1e3)))
-            if re.search(r'\bm\b|million', low): cands.add(str(int(base*1e6)))
+            # Only a "k" written as a multiplier ("15k", "15 K"). Any "k" used
+            # to count, so "0.33 kg" was also searched as "330" -- with every
+            # tool result now in the corpus, some unrelated 330 always turned
+            # up and an unsourced figure passed (found 2026-09-24).
+            if re.search(r'\d\s?k\b', low) or 'thousand' in low: cands.add(str(int(base*1e3)))
+            if re.search(r'\d\s?m\b|million', low): cands.add(str(int(base*1e6)))
             if 'bn' in low or 'billion' in low: cands.add(str(int(base*1e9)))
         except ValueError: pass
     return [c for c in cands if c]
@@ -396,31 +409,121 @@ def value_in_corpus(cands):
             return True
     return False
 
-seen = set()
-for pat in NUM_PATTERNS:
-    for m in pat.finditer(norm_resp):
-        raw = m.group(0).strip()
-        pos = m.start()
-        key = (raw, pos)
-        if key in seen: continue
-        seen.add(key)
-        if inside_passed_quote(pos):            # number inside a verified quote
+# ── Run Gates Q, A, N once PER SOURCE -- never across a joined buffer ────────
+for src_label, src_text in resp_sources:
+    src_text = norm_punct(src_text or '')
+    if not src_text.strip():
+        continue
+    # Strip fenced code blocks and inline code (build scripts, paths — not prose
+    # claims) -- EXCEPT a bare identifier (filename, tool name) inside a single
+    # backtick span, which is citation evidence, not illustrative code. Shared
+    # with citation_integrity_stop.sh / verification_integrity_guard.sh /
+    # self_conduct_claim_guard.sh / mrv_doc_output_guard.sh so this behavior
+    # can't drift apart between callers again -- see lib/transcript_text.py.
+    sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+    try:
+        from transcript_text import strip_inline_code as _strip_inline_code_shared
+    except Exception:
+        sys.exit(0)  # shared library missing/broken -- fail open, never crash
+    resp_scan = re.sub(r'```.*?```', ' ', src_text, flags=re.DOTALL)
+    resp_scan = _strip_inline_code_shared(resp_scan)
+    norm_resp = re.sub(r'\s+', ' ', resp_scan).strip()
+    prefix = f'[{src_label}] ' if src_label else ''
+
+    # ── GATE Q: quoted strings >= 40 chars must exist in the corpus ──────────
+    passed_quote_spans = []
+    # A quoted passage lives on ONE line. Allowing the pattern to run across a
+    # line break made the closing quote of one bullet pair up with the opening
+    # quote of the next, so two short quoted phrases in a list were read as one
+    # long fabricated quote spanning the text between them -- 2026-09-17, a real
+    # handoff message blocked over the stitched-together string
+    # '. - The CORSIA contrast sentence, appearing once. - The FCC gloss:'.
+    # Excluding the newline makes that pairing impossible.
+    # Pair quote marks sequentially first (so a short genuine pair like
+    # "which worker is this" is consumed as its own pair), THEN apply the
+    # 40+ char length test to each pair -- length must never gate the pairing
+    # itself, or a real short quote's closing mark gets stolen by the next
+    # phrase's opening mark, stitching two genuine short quotes into one
+    # fabricated-looking long one. An odd trailing quote pairs with nothing.
+    for m in re.finditer(r'"([^"\n]*)"', resp_scan):
+        q = m.group(1).strip()
+        if len(q) < 40:
             continue
-        cands = num_candidates(raw)
-        if not cands: continue
-        # percentages are checked leniently (only block if clearly unsourced AND unlabeled)
-        if value_in_corpus(cands):              # (a) appears in a source read this session
-            continue
-        if near_assumption(pos, norm_resp):     # (b) explicitly labeled an assumption
-            continue
-        # (c) result of verified arithmetic — approximated: appears as an RHS in resp
-        if re.search(r'=\s*[\$€£]?\s*' + re.escape(cands[0]), norm_resp):
-            continue
-        snippet_lo = max(0, pos-45)
-        ctx = norm_resp[snippet_lo:pos+len(raw)+15].strip()
-        violations.append(('NUMBER',
-            f'Unsourced, unlabeled figure "{raw}" — not found in any source read '
-            f'this session and no assumption label nearby. Context: …{ctx}…'))
+        # Also accepted: the quote with honest '...' elision, markdown or line
+        # numbers (cluster 12), and -- only when the sentence says it is
+        # quoting Claude's own earlier message or names the file -- Claude's
+        # own earlier words (clusters 14/19; see source_corpus.own_quote_ok).
+        if (in_corpus_text(q) or _corpus.has_quote(q)
+                or _corpus.own_quote_ok(q, _sentence_around(resp_scan, m.start(), m.end()),
+                                        exclude_path=_src_paths.get(src_label))):
+            passed_quote_spans.append((m.start(), m.end()))
+        else:
+            snippet = (q[:80] + '…') if len(q) > 80 else q
+            violations.append(('QUOTE', f'{prefix}Quoted text not found in any source read this session: "{snippet}"'))
+
+    # Gate N below works on norm_resp (whitespace collapsed), so the spans
+    # found above -- measured in resp_scan -- are re-located in norm_resp.
+    # Comparing positions from two different texts let a figure far from any
+    # quote count as "inside a verified quote" (found 2026-09-24: "0.33 kg"
+    # passed unchecked once more quotes began to pass).
+    _norm_spans = []
+    for _a, _b in passed_quote_spans:
+        _qn = re.sub(r'\s+', ' ', resp_scan[_a:_b]).strip()
+        if _qn:
+            _i = norm_resp.find(_qn)
+            while _i != -1:
+                _norm_spans.append((_i, _i + len(_qn)))
+                _i = norm_resp.find(_qn, _i + 1)
+
+    def inside_passed_quote(pos, _spans=_norm_spans):
+        return any(a <= pos <= b for a, b in _spans)
+
+    # ── GATE A: recompute shown arithmetic "A op B = C" ──────────────────────
+    for m in ARITH_RE.finditer(norm_resp):
+        a, op, b, c = to_num(m.group(1)), m.group(2), to_num(m.group(3)), to_num(m.group(4))
+        if None in (a, b, c): continue
+        try:
+            if op in ('×', 'x', '*'): expect = a * b
+            elif op in ('/', '÷'): expect = a / b if b else None
+            elif op == '+': expect = a + b
+            elif op == '-': expect = a - b
+            else: expect = None
+        except ZeroDivisionError:
+            expect = None
+        if expect is None or expect == 0: continue
+        if not arithmetic_ok(a, op, b, c, expect):
+            violations.append(('ARITHMETIC',
+                f'{prefix}Shown arithmetic does not compute: {m.group(0).strip()} '
+                f'(expected ≈ {expect:,.2f}).'))
+
+    # ── GATE N: claim numbers must be sourced, labeled, or computed ──────────
+    seen = set()
+    for pat in NUM_PATTERNS:
+        for m in pat.finditer(norm_resp):
+            raw = m.group(0).strip()
+            pos = m.start()
+            key = (raw, pos)
+            if key in seen: continue
+            seen.add(key)
+            if inside_passed_quote(pos):            # number inside a verified quote
+                continue
+            cands = num_candidates(raw)
+            if not cands: continue
+            # percentages are checked leniently (only block if clearly unsourced AND unlabeled)
+            if value_in_corpus(cands):              # (a) appears in a source read this session
+                continue
+            if near_assumption(pos, norm_resp):     # (b) explicitly labeled an assumption
+                continue
+            if own_text_count(norm_resp, pos, m.end()):   # a count of Claude's own text
+                continue
+            # (c) result of verified arithmetic — approximated: appears as an RHS in resp
+            if re.search(r'=\s*[\$€£]?\s*' + re.escape(cands[0]), norm_resp):
+                continue
+            snippet_lo = max(0, pos-45)
+            ctx = norm_resp[snippet_lo:pos+len(raw)+15].strip()
+            violations.append(('NUMBER',
+                f'{prefix}Unsourced, unlabeled figure "{raw}" — not found in any source read '
+                f'this session and no assumption label nearby. Context: …{ctx}…'))
 
 # ── GATE D: scan .xlsx / .docx deliverable bodies, row/paragraph by row ──────
 # (QA_UNIT_NUM_RE / BARE_NUM_RE now defined once, above, as part of NUM_PATTERNS)
@@ -457,13 +560,24 @@ for tid, inp in tool_inputs.items():
     name = tool_names.get(tid, '')
     if name in ('Write', 'Edit'):
         fp = inp.get('file_path', '')
-        if fp.lower().endswith(('.xlsx', '.docx')):
+        if fp.lower().endswith(('.xlsx', '.docx')) and not _is_excluded_deliverable_path(fp):
             deliverable_paths.add(fp)
     elif name == 'Bash':
         cmd = inp.get('command', '')
-        if isinstance(cmd, str):
+        # A Bash command merely MENTIONING a deliverable's filename (grep, cat,
+        # openpyxl load_workbook for a read) is not proof this session authored
+        # it -- only an actual write ACTION is. Without this gate, any read of
+        # another session's file inside a Bash call caused this hook to treat
+        # that unrelated file as this session's own deliverable and scan it
+        # (real bug, 2026-09-16: a QOWV checklist read-only via openpyxl in
+        # Bash got flagged for 33 "unsourced figures" it never wrote).
+        # Even when the command DOES write for real, it can also mention an
+        # unrelated path (a memory file merely cat'd, a scratchpad report) --
+        # exclude those categorically, they are never deliverables.
+        if isinstance(cmd, str) and is_real_write(cmd):
             for m in re.finditer(r'[\w./\-]+\.(?:xlsx|docx)', cmd, re.IGNORECASE):
-                deliverable_paths.add(m.group(0))
+                if not _is_excluded_deliverable_path(m.group(0)):
+                    deliverable_paths.add(m.group(0))
 
 for raw_path in deliverable_paths:
     path = _resolve_deliv(raw_path)
@@ -495,7 +609,7 @@ for raw_path in deliverable_paths:
             except ZeroDivisionError:
                 expect = None
             if expect is None: continue
-            if expect != 0 and abs(c - expect) / abs(expect) > 0.015:
+            if expect != 0 and not arithmetic_ok(a, op, b, c, expect):
                 violations.append(('ARITHMETIC',
                     f'[{fname}] shown arithmetic does not compute: '
                     f'{m.group(0).strip()} (expected ≈ {expect:,.2f}).'))
@@ -519,6 +633,8 @@ for raw_path in deliverable_paths:
                     continue
                 if near_assumption(pos, block_norm):             # (b) labeled assumption
                     continue
+                if own_text_count(block_norm, pos, endpos):      # a count of Claude's own text
+                    continue
                 if any(rr == cands[0] or rr in cands for rr in arith_results):  # (c) verified arithmetic result
                     continue
                 if re.search(r'=\s*[\$€£]?\s*' + re.escape(cands[0]), block_norm):
@@ -530,11 +646,19 @@ for raw_path in deliverable_paths:
                     f'Row/paragraph: …{ctx}…'))
 
 # ── Verdict ──────────────────────────────────────────────────────────────────
+# A quote finding is only honest when every source could actually be read. If a
+# PDF could not be turned into text, drop the quote findings and say so.
+if unindexed_sources:
+    violations = [v for v in violations if v[0] != 'QUOTE']
+
 if not violations:
     _write_bc(0)
     sys.exit(0)
 
-_write_bc(block_count + 1)
+# Claim this turn's next block slot. False means guards have already bounced
+# this same turn three times, and this one stands down (lib/circuit_breaker.py).
+if not brk.claim_or_release():
+    sys.exit(0)
 by_gate = {}
 for g, msg in violations:
     by_gate.setdefault(g, []).append(msg)
@@ -557,9 +681,17 @@ for g in ('QUOTE', 'NUMBER', 'ARITHMETIC'):
     if len(by_gate[g]) > 12:
         print(f"   • …and {len(by_gate[g])-12} more", file=sys.stderr)
     print("", file=sys.stderr)
+for _n in _corpus.note_lines():
+    print(_n, file=sys.stderr)
+print("", file=sys.stderr)
 print("Fix: for each item, either (1) read the primary source and quote/cite the", file=sys.stderr)
 print("actual figure, or (2) label it ASSUMPTION/ESTIMATE/PLACEHOLDER and show the", file=sys.stderr)
-print("derivation inline. Then re-deliver the COMPLETE corrected response.", file=sys.stderr)
+print("derivation inline.", file=sys.stderr)
+try:
+    from guard_footer import print_footer
+    print_footer()   # the ONE shared re-send instruction (lib/guard_footer.py)
+except Exception:
+    pass
 print("─" * 72, file=sys.stderr)
 sys.exit(2)
 PYEOF

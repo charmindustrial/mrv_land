@@ -1,0 +1,138 @@
+{
+ "ledger_sha256": "50363ac941c27ead7677421cfadcc5ee6dbf1262c4aec1f8a1b5bf06051c767c",
+ "auditor": "independent step auditor (subagent)",
+ "steps": {
+  "P1_knowledge_base": {
+   "verdict": "verified",
+   "checked": "Session record: Read of the knowledge base at 01:10:32Z returned lines 1-650 and at 01:10:38Z returned lines 650-1300, the file's last line ('For questions or updates, contact Max Lavine'); the first batch source (Drive search for the VVB guidance) came at 01:11:53Z. Log preflight.knowledge_base says lines 1300, two reads."
+  },
+  "P2_lessons_learned": {
+   "verdict": "verified",
+   "checked": "Session record: Read at 01:10:33Z returned lines 1-313, the whole file (312 newlines); the file holds headings 'Failure Category 1' to 'Failure Category 14'. Log preflight.lessons_learned matches."
+  },
+  "P3_checklist_structure": {
+   "verdict": "verified",
+   "checked": "Session record: Read at 01:10:34Z returned lines 1-442, the whole file (441 newlines). Log preflight.checklist_structure matches."
+  },
+  "P4_failure_categories_printed": {
+   "verdict": "verified",
+   "checked": "Session record: assistant chat messages at 01:11:11Z and 01:11:27Z (the second opening with the FINAL marker after a citation hook at 01:11:16Z) both carry the 14-item list FC1-FC14; the 01:11:47Z check printed 'FOUND 2026-10-07T01:11:11.679Z' and 'FOUND ...01:11:27.661Z'; the first batch source call was the Drive search at 01:11:53Z. Log preflight.failure_categories_printed holds the same 14 items."
+  },
+  "P5_registry_checked": {
+   "verdict": "verified",
+   "checked": "Session record: Read of skills/qa/batch-qa-aecn/qa_active_batches.json at 01:10:43Z, and a script at 01:10:50Z printed the INJ-09-2026-W4 entry with status 'gates_blocked_pending_max_step_exceptions' and T0 2026-10-06T18:20:56Z, all before the Drive search at 01:11:53Z. Log registry_check matches."
+  },
+  "P6_inputs_confirmed": {
+   "verdict": "verified",
+   "checked": "The request at 2026-10-06T18:20:40Z gives Drive folder 1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0 on both its 'Certify:' and 'Folder:' lines; the 01:10:50Z registry pull shows rmv_1M3Z5YJN51S0SN1Q; the Isometric query at 01:22:52Z is saved in run3_reads/certify_project_entries_run3.txt, which lists three removals dated 2026-09-19..2026-09-25: rmv_1M3Z5YJN51S0SN1Q (AECN, 362.07), rmv_1M3T2J3V51S0NCHH (Kerry, 37.73), rmv_1M3SG7D701S0HZ1Z (QOWV, 4.08). Log inputs_confirmed.aecn_only_basis present."
+  },
+  "T0_stamped_monitor_triggered": {
+   "verdict": "verified",
+   "checked": "batch_timestamps.json T0_initiation 2026-10-07T01:10:10Z; session record shows 'date -u' run at 01:10:09Z printing 2026-10-07T01:10:10Z, the Agent call 'Performance monitor run-3 kickoff' at 01:10:29Z, and the first pre-flight read at 01:10:32Z. The monitor's own transcript (agent-adc1896b0c75a814a) shows its row-18 write returning 'saved' at 01:15:20Z."
+  },
+  "G1_0_vvb_guidance_full": {
+   "verdict": "verified",
+   "checked": "Session record: Drive search \"title contains 'VVB Guidance'\" 01:11:53Z, download 01:11:58Z, save 01:12:09Z, Read at 01:12:12Z returned lines 1-54 of source_exports/VVB_Guidance_September_1-30_run3.txt (whole file, 53 newlines), then the W4 Drive folder copy at 01:12:23Z. Log vvb_guidance.read_order, _primary_source_opened and quote_br_method present."
+  },
+  "G1_1_scale_tickets": {
+   "verdict": "verified",
+   "checked": "Session record: 28 Read calls on drive_w4/Scale Tickets PDFs between 01:12:51Z and 01:15:31Z (8 SHPX215053, 8 SHPX215039, 8 SHPX215091, 4 SHPX215079), each returning the page, plus the four W2 SHPX215079 tickets 01:16:12Z-01:16:14Z. run3_reads/scale_tickets_run3.json holds 16 offloads (14 W4 + 2 W2), full and empty ticket each, with ticket number, date, scale, location, tractor, trailer and gross."
+  },
+  "G1_2_bols": {
+   "verdict": "verified",
+   "checked": "Re-audit of the changed entry. Session record: Read calls on all 12 bols/BOL_*.pdf 01:17:25Z-01:19:36Z (2497-R again 01:18:54Z), and page-1 re-reads of 2497-R at 10:27:21Z and 2498-R at 10:27:29Z. run3_reads/bol_reads_run3.json holds the 12 BOLs with form, ship date and mass fields, and the entry now says origin, destination and carrier are set once in build_source_reads.py (lines 259-263), not per bill in that file. I opened page 1 of all 12 BOLs: each shows From 'BioEnergie AE Côte-Nord Canada, 175 Portage des Mousses, Port-Cartier, Québec, Canada G5B 2V9', Ship To 'CHARM Industrial Inc. /WATCO, Société du port ferroviaire de Baie-Comeau, 18, Route Maritime, Baie-Comeau, Québec, Canada, G4Z 2L6' and Carrier Name 'Transport Baie-Comeau', matching the quoted text and the single entry in the builder."
+  },
+  "G1_3_lab_results": {
+   "verdict": "verified",
+   "checked": "Session record: Read of drive_w4/Testing/SR26-05719 W4 Kerry AECN QOWV COA.pdf at 01:20:22Z. run3_reads/sgs_coa_run3.json page_2 holds SR26-05719.002, client ID 9-2026-W4-AECN, sampled 25-Sep-2026 14:00, received 28-Sep-2026, C 44.0, H 6.6, N <0.75, viscosity 13.38, acid number 156, density 1.203. Log lab_results.certificate, carbon_pct and acid_number_mgKOH_g match."
+  },
+  "G1_4_ops_notes": {
+   "verdict": "verified",
+   "checked": "Re-audit of the changed entry. Session record: export 01:20:47Z, dump 01:21:22Z, Reads of run3_reads/ops_notes_dump_run3_all_tabs.txt at 01:21:25Z, 01:21:30Z and 01:21:33Z covering lines 1-269 (the entry's 01:21:25Z end is within a minute), and a Read at 10:27:22Z from line 265 to 279, covering the tenth tab. I opened lines 268-279: tab 'Whole Oil Shipments & EE Alloca', A1 'INJ-09-2026-W3 - Whole Oil Shipments & EE Mileage', D6 '# Totes' 0, no AECN data. The 08:25:46Z comparison lists 17 changed cells: Kerry C10, D10, E10, F10, A18, B18, C18 (7) and Summary B11, D11, F11, G11, B13, D13, F13, G13, B19, B21 (10), none on the AECN tabs, as the entry and log ops_notes.change_since_first_read now say."
+  },
+  "G1_4_cell_comments": {
+   "verdict": "verified",
+   "checked": "Session record: the 01:21:22Z dump script loads the workbook a second time without data_only and writes every comment on every one of the 10 tabs; it reported 'comments: 2', and both (AECN Truck H28, Kerry D18) sit on dump lines 103 and 118, inside the lines read. The 08:25:46Z re-export comparison checks comment text on every cell of every tab. Log ops_notes.cell_comments and cell_comments_check match."
+  },
+  "G1_5_cobb_row_verified": {
+   "verdict": "verified",
+   "checked": "Session record: the COBB export script at 01:22:05Z selects rows by column A of tab 'Basco Injection -- COBB' and prints column A with each row; the 01:22:22Z script records only rows whose column A is 'INJ-09-2026-W4_bio_oil'. run3_reads/cobb_rows_run3.json rows 3724-3737 are 14 rows, all 'INJ-09-2026-W4_bio_oil'. The column-A filter ran inside the same 01:22:05Z script that printed values, so no value from a non-W4 row was used. Log cobb.batch_id_col_a_matches_target true."
+  },
+  "G1_6_certify_four_tabs": {
+   "verdict": "verified",
+   "checked": "Session record: read-only navigation of rmv_1M3Z5YJN51S0SN1Q with snapshots saved to certify_run3/components_tab.yml (01:24:43Z), calculation_view.yml (01:24:55Z), datapoints_tab.yml (01:25:52Z) and sources_tab.yml (01:26:09Z), with chat confirmations at 01:24:51Z, 01:25:22Z, 01:26:05Z ('43 rows') and 01:26:34Z; clicks were tab changes only. All four files exist; log certify.datapoints_tab_count = 43."
+  },
+  "G1_6_sources_tab_total": {
+   "verdict": "verified",
+   "checked": "Log certify.certify_sources_tab_total = 72 and certify.certify_sources_enumeration has 72 entries; certify_run3/certify_sources_enumeration_run3.json is a list of 72. Session record at 01:26:34Z: 'All 72 sources match run 2'."
+  },
+  "G1_mass_chain_script": {
+   "verdict": "verified",
+   "checked": "Session record: command at 02:25:28Z runs build_mass_chain_inputs.py, which calls skills/qa/_lab/batch-qa-aecn-deterministic/scripts/compute_mass_chain.py; its output arrived 08:23:32Z (machine slept): 14 offloads, Counter PASS 73, SKIP 10, FLAG 1, 'exit codes max: 0'. mass_chain/summary.json and the 14 offload folders exist; log mass_chain.counts matches."
+  },
+  "G1_registry_updated": {
+   "verdict": "verified",
+   "checked": "Session record: 08:24:07Z script set the W4 entry to status run3_gate1_complete with T0, T1, gate1_exit_utc 08:24:08Z, gate1_summary and run_history; 08:39:42Z script set run3_gate2_complete and T2. The registry entry now carries those fields (status since moved to run3_gate3_complete)."
+  },
+  "G2_0_findings_routed": {
+   "verdict": "verified",
+   "checked": "mass_chain/summary.json non-pass is one FLAG on SHPX215079 offload 4 (ticket 14714.52448 kg vs Ops cargo 14321.7608 kg); the 08:23:50Z command rebuilt the log from summary.json and printed the counts. Checklist row 2.5 states 'its one FLAG is this cut'; row 8.3 carries the cross-week context; row 5.4 cites 'cobb_offload_consistency 14 of 14 PASS'; the 10 SKIPs are last_offload_derivation on the 10 non-closing offloads."
+  },
+  "G2_1_ticket_pairs_compared": {
+   "verdict": "verified",
+   "checked": "certify_run3/files/_download_manifest_run3.json lists 28 ticket files, HTTP 200, downloaded 02:08:12Z-02:09:55Z; certify_run3/certify_vs_drive_compare_run3.json (compared 02:11:40Z) marks each identical; log scale_tickets.certify_vs_drive {compared 28, identical 28}; scale_tickets.pair_comparison has 14 pairs with tractor and trailer match fields, pairs_all_match true."
+  },
+  "G2_2_cobb_values": {
+   "verdict": "verified",
+   "checked": "Log cobb.tab 'Basco Injection -- COBB', row_id_at_qa '3724-3737 (latest import 2026-10-05T12:24:22)', offloaded_quantity_kg and origin_quantity_kg 14 entries each, injection_completion_date ['2026-09-25T00:00:00']; run3_reads/cobb_rows_run3.json holds the 14 rows."
+  },
+  "G2_3_component_modals": {
+   "verdict": "verified",
+   "checked": "Session record: component windows opened one per navigation from 01:26:35Z to 01:50:07Z (machine slept 01:33Z-01:49Z), truck embodied and sequestration reopened 01:50:17Z-01:50:21Z and printed 01:50:25Z. certify_run3 holds 13 modal_*.txt files with INPUTS (e.g. Baton Rouge rail 'Mass of load 77,228.57 kg' with no +/-). Checklist row 7a.1 cites 72.57 kg per weighing and row 7a.2 '0.176 % against 0.004 x 44.0'."
+  },
+  "G2_ef_live_sheet": {
+   "verdict": "verified",
+   "checked": "Session record: Drive export of the Standard Emission Factors sheet at 02:13:24Z, saved as source_exports/Standard_Emission_Factors_export_run3_2026-10-07T0213Z.xlsx (file exists); Read of run3_reads/standard_ef_2026_tab_run3.txt at 02:13:55Z returned lines 1-71, the whole file. Log standard_efs.row6_tanker_fuel (0.0001143 MT CO2e/t-mi) and row10_rail_fuel present."
+  },
+  "G2_carbon_range_source": {
+   "verdict": "verified",
+   "checked": "source_exports/MRV_AECN_Analysis.xlsx_run3.xlsx exists; Read of run3_reads/supporting_workbooks_dump_run3.txt at 02:15:22Z returned lines 1-118, the whole file, including 'MRV_AECN_Analysis.xlsx_run3.xlsx :: Summary Statistics' (Mean B5 39.420350877193). Log carbon_range mean 39.420350877193, n 285, read_utc 02:15:22Z."
+  },
+  "G2_bcu_sources": {
+   "verdict": "verified",
+   "checked": "Manifest: Charm-RetirementCertificate-RD-EACs-20251218.pdf downloaded HTTP 200 at 02:11:00Z (command 02:10:57Z); session Read at 02:12:35Z, recorded 02:12:52Z; Read of Transportation Emissions Accounting v1.1 pages 9-12 at 02:15:43Z returned 4 pages, recorded 02:15:52Z. Log bcu_sources.certificate_terc_count 2795 and protocol_s4_2_1_eq5 quote Equation 5."
+  },
+  "G2_route_map": {
+   "verdict": "verified",
+   "checked": "Manifest: the four Aug-05/Aug-07/Aug-12/Sep-02 route maps downloaded 02:10:26Z-02:10:27Z and the AECN-to-SOPOR and Opelousas-to-Basco maps 02:10:59Z; session Reads of all of them 02:11:49Z-02:12:21Z (recorded 02:12:32Z); Read of drive_w4/RailLogix (Carville LA) to Basco B6 Truck Route - 136 mi.png at 02:16:01Z, recorded 02:16:11Z. Log route_evidence._primary_source_opened matches."
+  },
+  "G2_rail_allocation": {
+   "verdict": "verified",
+   "checked": "recompute_output.txt section 4 recomputes loaded mass and loss for SHPX215053, SHPX215039, SHPX215091 and SHPX215079 (loss 0) plus the railyard split; section 6 prints 'Ops L42 ... recomputed 1111.729637' and 'Ops M42 ... recomputed 15102.688236 vs 15102.688240 mi'."
+  },
+  "G2_recompute_pasted": {
+   "verdict": "verified",
+   "checked": "Session record: chat messages at 08:28:48Z and 08:31:35Z contain all 134 non-blank lines of the 147-line output (identical to run 1's file); messages at 09:27:36Z and 09:31:36Z contain all 145 non-blank lines of the current 159-line recompute_output.txt, whose sha256 is 68f1b60239388d14... The checklist build ran at 08:38:49Z, after the first paste; no delivery has happened. Log recompute.mismatch_line '0 arithmetic mismatch(es)'."
+  },
+  "G3_reviewer_independent": {
+   "verdict": "verified",
+   "checked": "Transcript agent-adbade51748a34d28 (Gate 3 independent review) starts 08:41:11Z and saves adversarial_review.md at 09:12:47Z; it never touched recompute_INJ-09-2026-W4-AECN.py, recompute_output.txt or build_checklist.py and wrote its own adversarial_review_recompute.py. adversarial_review.md has 7 challenged rows, 55 confirmed-row bullets (62 total) and 8 observations."
+  },
+  "G3_challenges_resolved": {
+   "verdict": "verified",
+   "checked": "Re-audit of the changed entry. The session record shows the review arriving at 09:13:04Z, the first re-read (Read adversarial_review.md) at 09:13:13Z and source checks through 09:23:39Z, with the build pre-check read at 09:24:49Z, so the stated 09:13:13Z-09:24:49Z window holds. Log gate3_followup.reads_utc now reads '2026-10-07T09:13:13Z-09:24:49Z (first re-read 09:13:13Z, after the review arrived at 09:13:04Z)', and adversarial_resolution.md now says between 09:13Z and 09:24Z; no '09:03' remains in either. Unchanged parts already checked: all 7 challenges and 8 observations answered, 09:25:00Z rebuild moved 2.2, 7a.1, 8.2, 8.3 to Fail with audit 57 rows 0 failures, T3 09:25:59Z, 10:11:02Z rebuild gives 5.4 Pass with no COBB point left in 3.7 or 5.5, audit 57 rows 0 failures; all cited log keys exist."
+  },
+  "G4_render_in_excel": {
+   "verdict": "verified",
+   "checked": "render_check/Excel_export_Batch_INJ-09-2026-W4-AECN_QA_Checklist.pdf exists; session record shows the AppleScript Excel 'save workbook as ... PDF file format' run inside the 10:10:56Z command (checklist saved 10:11:02Z) and a Read returning 11 pages at 10:11:20Z-10:11:22Z (the entry says 10:12Z, under one minute off). I opened all 11 pages: header block on every page, section bars, red Fail rows, yellow Flag rows, grey italic N/A rows, row 5.4 Pass, no clipped text. The 09:42:10Z Read of the earlier export returned 12 pages."
+  },
+  "G4_status_counts": {
+   "verdict": "verified",
+   "checked": "I counted column C of Batch_INJ-09-2026-W4-AECN_QA_Checklist.xlsx: Pass 31, Fail 13, Flag 13, N/A 5 (62); sha256 c52ea1bfe698ca86...; session record 10:11:07Z output '{Pass: 31, Flag: 13, Fail: 13, N/A: 5} c52ea1bfe698ca86 10:11:02Z' and 'Audit ran on 57 rows (0 failures)'; batch_timestamps.json T4_checklist_finalized 2026-10-07T10:11:02Z."
+  },
+  "G4_monitor_independent": {
+   "verdict": "verified",
+   "checked": "Tracker row 18: Y 31, Z 13, AA 13, M 5, AB-AF 01:10:10 / 02:18:50 / 08:39:32 / 09:25:59 / 10:11:02, AQ 2, L18 and X18 carry the RUN 3 correction note; file saved 10:14:19Z. Saves came from monitor agents: kickoff transcript 'saved' 01:15:20Z, T4 agent (started 09:42:46Z) 'saved' 09:54:25Z, correction agent started 10:11:17Z. The QA agent's own commands made no write to the tracker."
+  }
+ }
+}

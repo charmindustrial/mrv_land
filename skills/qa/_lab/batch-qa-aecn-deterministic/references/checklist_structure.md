@@ -15,7 +15,7 @@ Every section below has truck-batch defaults. Where rail batches differ, look fo
 | Delivery legs | 1 (AECN → Basco) | 3 (AECN→SOPOR truck, SOPOR→Opelousas rail, Opelousas→Basco truck) |
 | Transport components in Certify | 2 (process + embodied) | **6** (process + embodied per leg) |
 | BOLs | 1 per shipment | **3 BOLs IN to SOPOR** + scale tickets at offload truck-out |
-| Authoritative mass source | BOL "Qty Shipped" page 3 | **Scale tickets at the offload truck-out** (each delivery truck weighed at Basco) |
+| Authoritative mass source | BOL weighed "Qty shipped" (by field name — KB Section 3 "AECN Bill of Lading Formats") | **Scale tickets at the offload truck-out** (each delivery truck weighed at Basco) |
 | Offload truck count | 1 | Typically **4 trucks OUT** per railcar (varies) |
 | Pyrolysis component names in Certify | `AECN Pyrolysis Process/Embodied Emissions` | `AECN pyrolysis (from rail loads) - process/embodied emissions` (signal to VVB) |
 | Distance evidence | Google Maps (longest route) | **Email/written confirmation from rail logistics provider** (e.g., Watco). No Google Maps for rail. |
@@ -83,7 +83,7 @@ Every section below has truck-batch defaults. Where rail batches differ, look fo
 |------|-------|---------------|----------|----------------|
 | 3.1 | Truck BOL(s) present for each shipment | Drive or Certify Sources | At least 1 BOL per truck shipment | BOL missing from both Drive and Certify |
 | 3.2 | If rail delivery: truck BOLs from AECN present (destination = SOPOR railyard) | Drive or Certify Sources | 3 BOLs per railcar | Wrong destination, missing BOLs |
-| 3.3 | BOL mass matches or exceeds reported injectate mass | BOL page 3 "Qty Shipped" | BOL mass >= injectate mass | BOL mass < reported injectate |
+| 3.3 | BOL mass matches or exceeds reported injectate mass | BOL weighed "Qty shipped" (by field name) | BOL mass >= injectate mass. BOL's own figures tie (see below) | BOL mass < reported injectate. Tank-level estimate used as BOL mass. BOL contradicts itself |
 | 3.4 | Origin and destination correct on BOL | BOL | AECN Quebec -> Basco, or AECN -> SOPOR -> Basco (rail) | Wrong origin/destination |
 | 3.5 | Transportation distance consistent with known AECN route | Certify Datapoints | AECN truck ~2,197mi; AECN rail ~2,199mi | Distance significantly off |
 | 3.6 | Transport mode = tanker truck or railcar (AECN modes) | Certify Datapoints | Tanker truck (direct) or railcar (via SOPOR) | Wrong mode recorded |
@@ -91,7 +91,15 @@ Every section below has truck-batch defaults. Where rail batches differ, look fo
 
 **Verifier references:** VR Appendix 1, VR Sec 3.5, PDD Sec A, Transport Emissions Acctg v1.1
 
-**BOL authoritative mass:** Page 3, "Qty Shipped" field. (Rail: see 🚂 Rail note below — BOLs document the inbound side; offload mass authority is scale tickets.)
+**BOL authoritative mass:** the weighed quantity at 60°F, "Qty shipped". Find it by field name, not page number: page order differs between `-T` and `-R` packages, and AECN proposed a one-page format on 2026-09-29. Field names for both formats: KB Section 3, "AECN Bill of Lading Formats". Record the form number in the source-read log. Never use the tank-level estimate (old format's page-1 quantity block, repeated on the `-T` commercial invoice on 2505-T). (Rail: see 🚂 Rail note below — BOLs document the inbound side; offload mass authority is scale tickets.)
+
+**Item 3.3 — BOL internal ties (either format).** Check each and cite the figures:
+- Full weight − Tare weight = Product delivered (kg)
+- Product delivered (kg) ÷ 1,000 = Qty shipped (MT at 60°F)
+- Weighbridge Masse nette = Product delivered (kg), when the printout is in the package
+- Litres at 60°F × density at 60°F = Product delivered (kg), within the density's printed rounding (litres × 0.0005 — ≈ 11 kg on a 21,625 L load)
+
+A BOL that contradicts itself is a finding on 3.3. Precedent: 2492-T printed 20.17 MT on page 1 and 27.01 MT on page 3 (physically impossible for the truck); Ops recorded its choice in a cell comment → Flag. Grade others by the FAIL vs FLAG decision rule.
 
 **AECN transport modes:**
 - Direct truck: Tanker truck, AECN Quebec → Basco, ~2,197 mi, 1 BOL
@@ -349,7 +357,7 @@ Script-computed numbers (e.g., `5805.98 = (41660 - 28860) × 0.453592`) live in 
 See `outputs/qa/batch-2-204/batch_2-204_source_reads.json` and `batch-2-201/batch_2-201_source_reads.json` `_derived_values` blocks for the live convention. High-frequency keys:
 
 - `scale_ticket_net_kg`, `scale_ticket_net_lb` — raw scale-ticket math
-- `bol_<id>_R_masse_nette_kg`, `bol_aggregate_kg_recalc` — per-BOL and summed inbound masses
+- `bol_<id>_R_masse_nette_kg`, `bol_aggregate_kg_recalc` — per-BOL and summed inbound masses. The one-page BOL (form `TR98-012-R01`) has no Masse nette field. For it use `bol_<id>_product_delivered_kg`, and record `bol_<id>_form` on every BOL so the log shows which format was read
 - `allocation_fraction`, `allocation_fraction_recalc`
 - `allocated_truck_distance_km_calc`, `allocated_rail_distance_mi_calc`
 - `gross_co2e_recalc_kg`, `gross_co2e_recalc_t`

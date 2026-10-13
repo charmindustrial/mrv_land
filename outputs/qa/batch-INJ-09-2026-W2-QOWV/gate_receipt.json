@@ -1,0 +1,37 @@
+{
+ "batch_id": "INJ-09-2026-W2",
+ "checklist_file": "Charm_Aqueous_QOWV_QA_Checklist_INJ-09-2026-W2.xlsx",
+ "checklist_sha256": "a6f500d7c6150c5d2cafefd9602d3e6dfaabeb93b6aaa064dd79065d3f6e37c8",
+ "source_reads_file": "batch_INJ-09-2026-W2-QOWV_source_reads.json",
+ "source_reads_sha256": "8bf6b191bde460b519b390dbeacb18694184b3ba06fb03b88aedf334c459558d",
+ "generated_utc": "2026-09-29T16:55:32Z",
+ "all_gates_green": true,
+ "gates": {
+  "status_casing": {
+   "ok": true,
+   "status_rows": 33,
+   "auditable_rows": 32,
+   "na_rows_cited": 1
+  },
+  "recompute_qowv.py": {
+   "ok": true,
+   "exit": 0,
+   "stdout": "OK  n_totes: recomputed 38 vs certify/log 38\nOK  gross_kg: recomputed 38830.4 vs certify/log 38830.4\nOK  produced_kg: recomputed 36641.6 vs certify/log 36641.6\nOK  injected_kg: recomputed 31250.9 vs certify/log 31250.9\nOK  weighted_ci: recomputed 0.1269082907 vs certify/log 0.1269082907\nOK  uncertainty_kg: recomputed 43.09124 vs certify/log 43.09124\nOK  uncertainty_vs_certify: recomputed 43.09124 vs certify/log 43.09124\nOK  carbon_unc_pct_abs: recomputed 0.0332 vs certify/log 0.0332\nOK  mass_of_load_kg: recomputed 38830.4 vs certify/log 38830.4\nOK  pyrolysis_mass_kg: recomputed 36641.6 vs certify/log 36641.6\nOK  seq_t: recomputed 9.512 vs certify/log 9.512\nOK  proc_t: recomputed 6.454 vs certify/log 6.454\nOK  emb_t: recomputed 0.336 vs certify/log 0.336\nOK  pyro_t: recomputed 4.65 vs certify/log 4.65\nOK  bcu_matches_proc_at_display_precision_t: recomputed 6.454 vs certify/log 6.454\nOK  net_t: recomputed 4.484 vs certify/log 4.484\nOK  standard_loss_not_applied: recomputed False vs certify/log False\nOK  lcs_component_needed: recomputed None vs certify/log None\n\nprocess emission 6454.494 kg (Certify 0.086 basis) / 6454.327 kg (sheet basis); BCU 6454 kg; BCU minus process -0.494 / -0.327 kg; BCU equals process (8.1): False\nFINDING periods: 5 December-labelled totes overstated production emissions by 158.6842 kg as submitted (relabelled in the live sheet); on the inventory's periods for all 8 totes: 103.4781 kg; PE 4650.1228 -> 4546.6447 kg; CI 0.1269082907 -> 0.1240842287; net +0.10348 t\nFINDING trucks: Truck 1 (40) is two 20-tote orders -> allocation 2281.9 mi vs 1741.45 mi; embodied 0.43993 t (+0.10419 t)\nLIVE 2026-09-29: Ops Notes I50 4491.438649 kg / D50 36641.6 = CI 0.1225775798; H50 ' ' (blank); Certify pyrolysis 4.491 t (= 4.491), net 4.643 t"
+  },
+  "audit_checklist": {
+   "ok": true,
+   "rows": 32,
+   "failures": 0,
+   "stdout": "Audit ran on 32 rows (0 failures).\n\nAttachment gate: PASS (0 gap(s))."
+  },
+  "performance_tracker": {
+   "ok": true,
+   "batch_id": "INJ-09-2026-W2"
+  },
+  "charm_required_steps": {
+   "ok": true,
+   "steps": 30,
+   "ledger_sha256": "14a7198841312aea0f2061f59ee3a0c0b23a6eee7d9f344b3f51c6031676bfd0"
+  }
+ }
+}

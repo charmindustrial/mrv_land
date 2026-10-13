@@ -1,0 +1,33 @@
+- generic [active] [ref=f10e1]:
+  - alert [ref=f10e2]
+  - region "0 notifications."
+  - generic [ref=f10e20]:
+    - generic [ref=f10e21]:
+      - generic [ref=f10e22]:
+        - generic [ref=f10e23]:
+          - text: By signing in, you acknowledge that you have read and agree to our
+          - link "Terms of Service" [ref=f10e24] [cursor=pointer]:
+            - /url: https://isometric.com/terms
+          - text: and
+          - link "Privacy Policy" [ref=f10e25] [cursor=pointer]:
+            - /url: https://isometric.com/privacy
+          - text: .
+        - separator [ref=f10e26]
+      - generic [ref=f10e27]:
+        - button "Sign in with Google" [ref=f10e28] [cursor=pointer]
+        - button "Sign in with Microsoft" [ref=f10e40] [cursor=pointer]
+        - generic [ref=f10e49]:
+          - separator [ref=f10e50]
+          - generic [ref=f10e51]: Or sign in with your email
+          - separator [ref=f10e52]
+        - generic [ref=f10e53]:
+          - generic [ref=f10e55]:
+            - generic [ref=f10e56]: Email address
+            - textbox "Email address" [ref=f10e59]:
+              - /placeholder: name@company.com
+          - button "Sign in" [ref=f10e61] [cursor=pointer]
+          - generic [ref=f10e64]: We'll email you a magic link for a password-free sign in
+    - generic [ref=f10e69]:
+      - text: New to Isometric?
+      - link "Create an account" [ref=f10e70] [cursor=pointer]:
+        - /url: /signup?redirectTo=%2Faccount%2Fcertify%2Fproject%2Fprj_1HZSSWBQM1S08H83%2Fghg-entry%2Frmv_1M3T2J3V51S0NCHH%2Fedit

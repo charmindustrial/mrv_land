@@ -6,13 +6,14 @@ Produces the verified reporting package for a reporting period, matching the pre
 established in the May 2026 reporting:
 
   - "{Month} CatOx -- Raw.xlsx"        raw readings exactly as received (one sheet)
-  - "{Month} CatOx -- Processed.xlsx"  verifier-facing: EXACTLY TWO tabs, one clean chart
-                                       per train (inlet + outlet lines, 600F setpoint line,
-                                       grey offline shading). Nothing else.
+  - "{Month} CatOx -- Processed.xlsx"  verifier-facing: the tabs listed in the config's
+                                       processed_tabs — one clean chart per train (inlet +
+                                       outlet lines, setpoint line, grey offline shading)
+                                       plus a Raw Data tab. Nothing else.
 
 The interpretation/controls narrative lives in the static CatOx Engineering Brief
 (Google Drive), NOT in these workbooks. Do NOT add Operational Log / Transition Events /
-Combustion Signal / Raw Data / Notes tabs to the Processed workbook — those are TMI for a
+Combustion Signal / Notes tabs to the Processed workbook — those are TMI for a
 verifier (confirmed by Max, July 2026).
 
 Usage:
@@ -54,13 +55,14 @@ except (FileNotFoundError, KeyError, json.JSONDecodeError) as e:
 # ── Data loading ────────────────────────────────────────────────────────────
 def _parse_time(s):
     """
-    Parse the timestamp column. Exports have arrived in two shapes:
+    Parse the timestamp column. Exports have arrived in three shapes:
       'M/D/YY H:MM'            (May/June 2026 combined export)
-      'YYYY-MM-DD HH:MM:SS.fff' (July 2026 onward per-train export)
+      'YYYY-MM-DD HH:MM:SS.fff' (July/August 2026 per-train export)
+      'M/D/YYYY H:MM'          (September 2026 combined export, 'timestamp_central')
     Try each declared shape, then fall back to pandas' own detection. Unparseable
     values become blank so the caller can drop those rows.
     """
-    for fmt in ('%m/%d/%y %H:%M', '%Y-%m-%d %H:%M:%S.%f'):
+    for fmt in ('%m/%d/%y %H:%M', '%Y-%m-%d %H:%M:%S.%f', '%m/%d/%Y %H:%M'):
         out = pd.to_datetime(s, format=fmt, errors='coerce')
         if out.notna().mean() > 0.9:
             return out
@@ -153,8 +155,14 @@ def load_data(paths):
 
     df['time'] = _parse_time(df['time'])
     df = df.dropna(subset=['time']).sort_values('time').reset_index(drop=True)
+    # Two kinds of "no reading" arrive: an offline sentinel (0 / -238) and, since September
+    # 2026, empty cells. Both become blank, but they are counted apart for the chat report —
+    # sentinel stretches are the unit offline, scattered empties are dropped single readings.
     for c in ['T1_in', 'T1_out', 'T2_in', 'T2_out']:
-        df[c] = pd.to_numeric(df[c], errors='coerce').replace(OFFLINE_SENTINELS, np.nan)
+        v = pd.to_numeric(df[c], errors='coerce')
+        n_empty, n_sent = int(v.isna().sum()), int(v.isin(OFFLINE_SENTINELS).sum())
+        print(f"  {c}: {n_sent} offline-sentinel reading(s), {n_empty} empty cell(s)")
+        df[c] = v.replace(OFFLINE_SENTINELS, np.nan)
 
     # ── Orientation self-check (never trust a historical swap blindly) ──
     for n, ic, oc in [(1, 'T1_in', 'T1_out'), (2, 'T2_in', 'T2_out')]:
@@ -207,6 +215,8 @@ def report_stuck_readings(df, min_readings=12):
         if allfrozen.loc[d.index[0]] and len(d) >= min_readings:
             blocks.append((d['time'].iloc[0], d['time'].iloc[-1], len(d)))
 
+    report_train_holds(df, min_readings)
+
     if not blocks:
         print("  No all-channel frozen block found. Readings track independently — good.")
         return blocks
@@ -223,13 +233,50 @@ def report_stuck_readings(df, min_readings=12):
 
     keep = ~pd.concat([(df['time'] >= s) & (df['time'] <= e) for s, e, _ in blocks],
                       axis=1).any(axis=1)
-    print(f"\n  Excluding frozen block(s) — {keep.sum()} of {len(df)} readings remain:")
+    _print_share(df, keep)
+    return blocks
+
+
+def _print_share(df, keep):
+    print(f"\n  Excluding held readings — {keep.sum()} of {len(df)} readings remain:")
     for n, oc in [(1, 'T1_out'), (2, 'T2_out')]:
         s = df.loc[keep, oc]
         at = (s >= THRESH_F).sum(); bl = ((s < THRESH_F) & s.notna()).sum(); off = s.isna().sum()
         print(f"    Train {n}: at/above {THRESH_F}°F {at/keep.sum()*100:.1f}% | "
               f"below {bl/keep.sum()*100:.1f}% | offline {off/keep.sum()*100:.1f}%")
-    return blocks
+
+
+def report_train_holds(df, min_readings=12):
+    """
+    One-train version of the frozen check (added September 2026, when a Train 2 hold at
+    600/694°F ran 9.8 h and the all-channel check missed it because Train 1 kept moving).
+
+    Flags stretches where BOTH sensors of one train repeat their previous value together for
+    >= min_readings with the outlet held at/above the setpoint — the case that inflates the
+    at-temperature share. Dropouts of up to 3 readings inside a stretch are bridged; longer gaps
+    (offline stretches) end it. Prints the jump on
+    release: a multi-hundred-degree move in one 5-minute step is not physical cooling, so the
+    held values were stale. No release threshold is applied here; read the steps and judge.
+    Diagnostic for the chat report only.
+    """
+    print("\n  One-train holds with outlet at/above setpoint (both sensors frozen together):")
+    held = pd.Series(False, index=df.index)
+    for n, ic, oc in [(1, 'T1_in', 'T1_out'), (2, 'T2_in', 'T2_out')]:
+        x = df[[ic, oc]].ffill(limit=3)  # bridge short dropouts only, never an offline stretch
+        fr = (x[ic] == x[ic].shift()) & (x[oc] == x[oc].shift())
+        for _, g in df[fr].groupby((fr != fr.shift()).cumsum()[fr]):
+            i0, i1 = g.index[0] - 1, g.index[-1]
+            if len(g) < min_readings or not x.loc[i0, oc] >= THRESH_F:
+                continue
+            held.loc[i0:i1] = True
+            after = (f"{df.loc[i1+1, ic]:.0f}/{df.loc[i1+1, oc]:.0f}" if i1 + 1 in df.index else "end of file")
+            print(f"    Train {n}: {df.time[i0]:%b %d %H:%M} -> {df.time[i1]:%b %d %H:%M} "
+                  f"({(len(g)+1)*5/60:.1f}h) held {x.loc[i0, ic]:.0f}/{x.loc[i0, oc]:.0f}°F "
+                  f"(inlet/outlet), next reading {after}")
+    if held.any():
+        _print_share(df, ~held)
+    else:
+        print("    none")
 
 
 # ── Processed chart (matches the May precedent style) ─────────────────────────
@@ -278,7 +325,10 @@ def _write_raw_sheet(ws, raw, cols):
         ws.column_dimensions[get_column_letter(j)].width = 20 if j == 1 else 28
     for i, row in raw.iterrows():
         for j, h in enumerate(cols, 1):
-            ws.cell(row=i + 2, column=j, value=row[h])
+            # Empty cells in the export arrive as NaN; write them as truly empty, not as a
+            # blank number (which Excel can flag as damaged content).
+            v = row[h]
+            ws.cell(row=i + 2, column=j, value=None if pd.isna(v) else v)
     ws.freeze_panes = 'A2'
 
 

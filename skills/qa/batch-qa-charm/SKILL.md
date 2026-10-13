@@ -32,7 +32,7 @@ Unlike Kerry (waste-product boundary), Charm-produced bio-oil carries its full c
 - **In scope:** Charm biomass sourcing, Charm production emissions (per Production Period CI), bio-oil transport (Charm origin → Basco), injection-site emissions.
 - **Production Emissions** must be captured for every Production Period in the injection batch — either one component per PP OR a single aggregated component carrying a production-mass-weighted blended CI that reconciles exactly to the per-PP sum. Both are acceptable. The completeness requirement is that no PP's production emissions are omitted; it is NOT that each PP gets its own component. Per-PP CIs and masses must be evidenced (Ops Notes / PP Summary). (No primary source requires per-PP component granularity — verified absent on INJ-06-2026-W1; do NOT flag aggregation as a deviation.)
 - **Counterfactuals:** zero (bio-oil geological storage per protocol).
-- **BCUs:** transport process BCU ≥ transport process activity emission.
+- **BCUs:** transport process BCU = transport process activity emission, never more (over-coverage is a FAIL).
 
 **Production Period / Production Batch convention:** Charm's internal terminology slashes these together ("Production Period/Production Batch"). Per workspace memory `project_charm_batch_definitions.md`, this is operationally correct — not a v1.2 protocol contradiction. Treat PP and "Production Batch" as the same unit for QA purposes.
 
@@ -210,6 +210,8 @@ If ANY category is missing or ANY mandatory field is absent, Gate 1 is NOT compl
 
 **Exit condition:** The .xlsx checklist exists with all items assigned a status (PASS/FAIL/FLAG/N/A), every evidence note contains specific cited values with `[log:KEY]` tags, and all four mandatory sub-tasks completed with primary-source evidence.
 
+5. **Deterministic recompute (MANDATORY, added 2026-09-21 after INJ-09-2026-W1).** Hand arithmetic and the reviewer's pass are not the check. Copy `scripts_recompute_wodo.py` from this skill folder into the batch output folder and run it against the raw Ops Notes export and the source-read log. It re-sums every tote, recomputes weighted CI, uncertainty, all five components and net, and compares each with Certify. Every difference between Certify and the evidence (or Certify's own inputs) is a finding: print it as `FINDING <row>[/<row>]: ...` naming the checklist row that carries it, and grade that row Fail or Flag. Exit non-zero only when a difference has not been routed to a row yet or the script cannot run. `run_gates.py` blocks an unrouted difference and any FINDING whose row is not Fail or Flag; a routed finding never blocks delivery (findings rule, 2026-09-29). Paste its output into the chat before delivery.
+
 ---
 
 ### GATE 3: Adversarial Self-Review
@@ -225,6 +227,69 @@ If ANY category is missing or ANY mandatory field is absent, Gate 1 is NOT compl
 ### GATE 4: Finalization & Delivery
 
 **Entry condition:** Gate 3 review incorporated.
+
+**DELIVERY IS LOCKED UNTIL `run_gates.py` PASSES. This is enforced, not advisory.**
+
+```
+python3 .claude/skills/batch-qa-charm/run_gates.py outputs/qa/batch-<ID>
+```
+
+It runs, and all must be green: status-casing check (Pass/Fail/Flag/N/A — the exact
+casing `audit_checklist.py` matches), every `recompute_*.py` at exit 0,
+`audit_checklist.py` with row count > 0, zero row failures, and every Pass/Fail/Flag
+row covered, `Attachment gate: PASS`, `[log:]` citations on N/A rows, and a
+performance-tracker row for the batch. It then writes `gate_receipt.json` carrying
+the sha256 of the checklist that passed.
+
+**Required-step record (added 2026-09-28 after INJ-09-2026-W3-QOWV; every batch type
+since 2026-09-29).** Every gate above passed on that batch while eight required steps
+were skipped. `run_gates.py` now also requires `step_ledger.json` in the batch folder:
+one entry per step id in `REQUIRED_STEPS["CHARM"]` (`batch_step_ledger.py`, this folder),
+each `{"done": true, "evidence": "..."}`. Evidence counts only if it is a `[log:KEY]`
+whose value in the source-read log is not empty, or a file in the batch folder (or the
+registry / performance tracker) made or changed at or after T0. A timestamp or URL on
+its own does not count, and a `[log:KEY]` or path that does not exist fails the entry.
+Record the pre-flight reads in the source-read log under `preflight`
+(`knowledge_base`, `lessons_learned`, `checklist_structure`, and
+`failure_categories_printed` holding the list printed to chat), each with what was read.
+Fill each entry when the step is done, not at the end. It also checks, straight from
+the files: one checklist under its original name (no `_v2`), no text naming Max in the
+checklist, status-row and header formatting, row heights on merged sidebar rows (Excel
+does not auto-size them), T0–T4 stamped, and an empty workspace root. Every run deletes
+the previous receipt first, so a failed run blocks delivery. Never add a `_vN`
+checklist: if the file is open in Excel, confirm it has no unsaved edits, close that
+workbook, rebuild in place, reopen.
+
+**Independent step audit (added 2026-09-29).** The QA agent writes its own evidence, so
+the record alone catches a forgotten step, not a false claim. After the last ledger
+entry and before `run_gates.py`, spawn a fresh agent (Agent tool) that did not do the QA.
+Give it the batch folder path and the `REQUIRED_STEPS["CHARM"]` list, nothing else. It
+opens what each entry's evidence names and writes `ledger_audit.json`:
+`{"ledger_sha256": "<sha256 of step_ledger.json>", "auditor": "<agent name>", "steps":
+{"<id>": {"verdict": "verified" | "not_verified", "checked": "<what it opened and what
+it showed>"}}}`. The QA agent never writes this file. `run_gates.py` blocks unless every
+step is `verified` and the hash matches the ledger on disk, so any ledger edit after the
+audit needs a fresh audit. A `not_verified` step is done, re-evidenced and re-audited.
+
+**Findings never block delivery (2026-09-29).** A problem in Certify or the evidence is a finding for Garrett. `run_gates.py` blocks it only while the checklist has not recorded it: a Certify evidence gap passes once a Fail row cites `[log:certify.attachment_gate]` and names every open datapoint; a recompute or mass-chain discrepancy passes once its FINDING line points at a Fail or Flag row. What still blocks is unfinished QA work. `delivery_exceptions.json` is only for a required QA step the MRV lead has authorised leaving undone: `step:<id>` with `authorized_by` quoting the answer, and the step marked `done: false`. Every pass is written into the receipt, and `run_gates.py` runs `tests/test_findings_never_block.py` before anything else.
+
+`~/.claude/hooks/qa_delivery_gate_guard.sh` (PreToolUse, registered on every Slack
+send / draft / schedule / canvas tool and every Gmail draft / send / reply / forward
+tool) denies any message naming a batch unless that batch's folder holds a green
+receipt whose hash still matches the checklist on disk. Edit the checklist after the
+gates and the hash breaks and delivery blocks again. There is no path to Max or
+Garrett that skips this.
+
+**Results in chat (added 2026-09-29).** `~/.claude/hooks/qa_chat_result_guard.sh` (Stop)
+blocks a chat message that reports this batch's results (status counts, item statuses,
+a status table) before a green receipt matches the checklist, unless the message opens
+with `**Not final — delivery checks have not run.**`.
+
+Origin: on INJ-09-2026-W2-QOWV (2026-09-22) the checklist went to Max before the audit
+ran. When it was finally run it reported "Audit ran on 0 rows" — the checklist had been
+built with upper-case statuses, which the audit does not match, so the citation gate had
+never run on a single row of a file already delivered. Only the gate checked from
+outside can prevent that.
 
 **Work:**
 1. Apply final formatting per the Formatting Specification below
@@ -297,7 +362,7 @@ The checklist follows Max's actual QA question framework for Charm-produced batc
 - 7.6 Is the mass evidenced with a copy of the Charm Contents sheet for the batch?
 
 **Section 8: Other** (1 item)
-- 8.1 Are all diesel transport-process emissions offset by BCUs, and does the BCU total ≥ the transport-process sum? (Hard rule: ALL diesel transport-process emissions MUST be BCU-offset. A diesel transport-process emission with no BCU = FAIL, not N/A. N/A only if there are no diesel transport-process emissions at all.)
+- 8.1 Are all diesel transport-process emissions offset by BCUs, and does the BCU total equal (never exceed) the transport-process sum? (Hard rule: ALL diesel transport-process emissions MUST be BCU-offset. A diesel transport-process emission with no BCU = FAIL, not N/A. N/A only if there are no diesel transport-process emissions at all.)
 
 **Section 9: Aqueous Buffering (LCS)** (1 item, Aqueous-only — N/A for WODO)
 - 9.1 If LCS use is reported in Ops Notes, does a matching Certify component exist (correct mass, correct EF, evidenced)?
@@ -350,7 +415,7 @@ The checklist follows Max's actual QA question framework for Charm-produced batc
 
 Same as AECN skill — see `skills/qa/batch-qa-aecn/SKILL.md` Citation Discipline section. Every PASS / FAIL / FLAG status must cite a `[log:KEY]` from `batch_[ID]_source_reads.json`. Adversarial review is log-driven (no hypotheticals). "Blocking" requires three enumerated tooling-path attempts. The pre-delivery audit script (`skills/qa/batch-qa-aecn/scripts/audit_checklist.py`, reused) catches gaps.
 
-**STRUCTURAL evidence-attachment gate (MANDATORY, all oil types).** The reused `audit_checklist.py` now also runs `audit_attachments.py`, which FAILS the audit (Gate 4 not complete) unless (a) `certify.attachment_map` is captured in the source-read log (each datapoint → its sources actually linked in Certify, read from the Sources tab), and (b) every component has its required evidence attached. WODO/Aqueous have **no validated matrix yet** — the gate refuses to pass until you define `certify.required_evidence` from the batch's ACTUAL components (do not guess), reflecting the Production-Period CI / flatbed-transport / LCS structure. Build it from the first real WODO/Aqueous batch; once validated, register it in `audit_attachments.MATRICES` (e.g. "WODO", "AQUEOUS").
+**STRUCTURAL evidence-attachment gate (MANDATORY, all oil types).** The reused `audit_checklist.py` now also runs `audit_attachments.py`, which FAILS the audit (Gate 4 not complete) unless (a) `certify.attachment_map` is captured in the source-read log (each datapoint → its sources actually linked in Certify, read from the Sources tab), and (b) every component has its required evidence attached. WODO/Aqueous have **no validated matrix yet** — the gate refuses to pass until you define `certify.required_evidence` from the batch's ACTUAL components (do not guess), reflecting the Production-Period CI / flatbed-transport / LCS structure. Build it from the first real WODO/Aqueous batch; once validated, register it in `audit_attachments.MATRICES` (e.g. "WODO", "AQUEOUS"). A gap found here is a finding, not unfinished work: record it as a Fail row that cites `[log:certify.attachment_gate]` and names each open datapoint, and `run_gates.py` lets it through to Garrett.
 
 ## Formatting Specification
 
@@ -465,7 +530,7 @@ The `garrett-completion-monitor` sub-agent sweeps `qa_active_batches.json` (AECN
 - For Charm: full set of BCUs expected (including transport and pre-treatment-related categories if applicable)
 - Counterfactuals = 0 for bio-oil geological storage per protocol
 - **Production emissions captured for every Production Period** — one component per PP OR a single aggregated mass-weighted component (both acceptable; only an omitted PP is a finding)
-- **BCU QA Rule:** BCU quantity (tCO2e) in Reductions MUST equal or exceed the corresponding diesel/process emission (tCO2e) in Activities. At minimum: transport process BCU ≥ transport process activity.
+- **BCU QA Rule:** BCU quantity (tCO2e) in Reductions must NOT exceed the corresponding diesel/process emission (tCO2e) in Activities: a BCU offsets an emission that already occurred and cannot exceed it. Full coverage (BCU = activity emission) is the target. Over-coverage (BCU > activity) is always a FAIL, whatever the size. (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.)
 
 ## Document Location Rule
 
@@ -497,8 +562,9 @@ After completing all four gates:
 4. **Once Max approves, post to #team-mrv-alerts (channel C0944NQH1RP), tagging Garrett (<@U08JW9HQG5B>), a SHORT, lede-first message — not the full checklist dump** (routing changed 2026-08-31 per Max: Garrett-facing QA notifications go to the shared channel, not a DM — added 2026-08-26, after batch INJ-08-2026-W1-QOWV: sending the entire PASS/FAIL/FLAG breakdown out of the gate buries the fails and flags, which are the only thing Garrett needs to act on). The message is just:
    - Batch ID + oil type
    - The FAIL and FLAG items only, one line each (item number + the issue — no PASS items, no counts, no full evidence essay)
+   - One problem, one line (2026-10-07, after INJ-09-2026-W4-AECN 2.2 and 8.3 went out as two items for the same gap). When one underlying gap fails more than one checklist row, send it once with every row number it affects ("2.2 / 8.3: ..."). Never list it twice: Garrett answers one, the other looks unanswered, and Max has to work out they were the same thing. Merge on the gap, not on the fix — two rows that share a fix but have different gaps stay separate.
    - A direct prompt to reply in the thread once he's addressed the findings, which re-triggers a QA re-verification pass on that batch
-   Record the channel + this post's thread_ts in the batch's registry entry so the garrett-completion-monitor automation can find and watch it.
+   Record the channel + this post's thread_ts **and** the notification timestamp (`T_garrett_notified`, ISO8601 UTC, set to now) in the batch's registry entry so the garrett-completion-monitor automation can find and watch it. **The timestamp is not optional.** Without it, that automation cannot compute real elapsed time since notification and has been observed fabricating a plausible-looking number instead (e.g. reporting "7h since notification" for a batch notified 40 minutes earlier) — which caused a nudge to fire on a batch Garrett had already answered. If you add an entry without this field, a downstream nudge decision has no real data to work from.
 
    **4a. "Max approves" includes Max fixing something himself directly in Certify — that IS approval.** Do not wait for a separate verbal "send it" once he's made a correction. And **one blocked item must never gate the rest of the notification.** Before sending to Garrett, split what's outstanding into two buckets:
    - **Garrett-actionable** (evidence gaps, mislinked sources, wrong EFs, labeling, COBB/Ops Notes records — anything he can fix) — send these to him now, regardless of what else is unresolved.

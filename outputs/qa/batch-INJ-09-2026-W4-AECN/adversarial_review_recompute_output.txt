@@ -1,0 +1,166 @@
+=== 1. Scale tickets vs Ops Notes F28:F41 (net kg = (full-empty) lb x 0.453592)
+SHPX215053 o1: (73800-29400) lb = 44400 lb -> 20139.48480 kg | Ops F28 20139.48480 | diff +0.000000 | Ops D/E 73800/29400
+SHPX215053 o2: (73440-28640) lb = 44800 lb -> 20320.92160 kg | Ops F29 20320.92160 | diff +0.000000 | Ops D/E 73440/28640
+SHPX215053 o3: (75200-28680) lb = 46520 lb -> 21101.09984 kg | Ops F30 21101.09984 | diff +0.000000 | Ops D/E 75200/28680
+SHPX215053 o4: (64180-29640) lb = 34540 lb -> 15667.06768 kg | Ops F31 15667.06768 | diff +0.000000 | Ops D/E 64180/29640
+SHPX215039 o1: (74500-28680) lb = 45820 lb -> 20783.58544 kg | Ops F32 20783.58544 | diff +0.000000 | Ops D/E 74500/28680
+SHPX215039 o2: (78620-29480) lb = 49140 lb -> 22289.51088 kg | Ops F33 22289.51088 | diff -0.000000 | Ops D/E 78620/29480
+SHPX215039 o3: (70620-29280) lb = 41340 lb -> 18751.49328 kg | Ops F34 18751.49328 | diff +0.000000 | Ops D/E 70620/29280
+SHPX215039 o4: (63340-28620) lb = 34720 lb -> 15748.71424 kg | Ops F35 15748.71424 | diff +0.000000 | Ops D/E 63340/28620
+SHPX215091 o1: (74200-28680) lb = 45520 lb -> 20647.50784 kg | Ops F36 20647.50784 | diff +0.000000 | Ops D/E 74200/28680
+SHPX215091 o2: (72200-29240) lb = 42960 lb -> 19486.31232 kg | Ops F37 19486.31232 | diff +0.000000 | Ops D/E 72200/29240
+SHPX215091 o3: (76060-28560) lb = 47500 lb -> 21545.62000 kg | Ops F38 21545.62000 | diff +0.000000 | Ops D/E 76060/28560
+SHPX215091 o4: (64560-29580) lb = 34980 lb -> 15866.64816 kg | Ops F39 15866.64816 | diff +0.000000 | Ops D/E 64560/29580
+SHPX215079 o3: (75800-29200) lb = 46600 lb -> 21137.38720 kg | Ops F40 21137.38720 | diff +0.000000 | Ops D/E 75800/29200
+SHPX215079 o4: (60700-28260) lb = 32440 lb -> 14714.52448 kg | Ops F41 14714.52448 | diff +0.000000 | Ops D/E 60700/28260
+sum of 14 nets 268199.8778 kg | Ops A46 268199.8778 | axle readings sum to gross on all 28: True
+net range 32440..49140 lb; full gross range 60700..78620 lb
+ticket age at 2026-09-25 (days, full weigh):
+  SHPX215053 o1: full 2026-09-22 16:19 -> 2.32 d; empty 2026-09-23 07:00
+  SHPX215053 o2: full 2026-09-22 16:16 -> 2.32 d; empty 2026-09-23 07:08
+  SHPX215053 o3: full 2026-09-23 11:43 -> 1.51 d; empty 2026-09-24 05:08
+  SHPX215053 o4: full 2026-09-23 12:18 -> 1.49 d; empty 2026-09-24 05:09
+  SHPX215039 o1: full 2026-09-18 13:18 -> 6.45 d; empty 2026-09-18 16:37
+  SHPX215039 o2: full 2026-09-18 13:16 -> 6.45 d; empty 2026-09-18 16:00
+  SHPX215039 o3: full 2026-09-19 12:34 -> 5.48 d; empty 2026-09-19 16:17
+  SHPX215039 o4: full 2026-09-19 12:30 -> 5.48 d; empty 2026-09-19 15:39
+  SHPX215091 o1: full 2026-09-17 11:22 -> 7.53 d; empty 2026-09-17 13:23
+  SHPX215091 o2: full 2026-09-17 11:57 -> 7.50 d; empty 2026-09-17 14:00
+  SHPX215091 o3: full 2026-09-17 16:25 -> 7.32 d; empty 2026-09-18 06:44
+  SHPX215091 o4: full 2026-09-17 16:11 -> 7.33 d; empty 2026-09-18 07:02
+  SHPX215079 o3: full 2026-09-05 09:29 -> 19.60 d; empty 2026-09-05 12:35
+  SHPX215079 o4: full 2026-09-05 14:20 -> 19.40 d; empty 2026-09-06 07:50
+W2 SHPX215079 offloads 1-2:
+  o1: (76720-28660) lb -> 21799.63152 kg (2026-09-04 14:07 / 2026-09-05 07:23)
+  o2: (73860-28420) lb -> 20611.22048 kg (2026-09-05 09:24 / 2026-09-05 12:03)
+  W2 total 42410.85200 kg | Ops H13 42410.852
+
+=== 2. BOLs (old format TR95-012-R00 / Shipping Details TR95-010-R01 / weighbridge)
+2497-R SHPX215053: full-tare 25910 vs delivered 25910 [True]; kg/1000 25.91 vs Qty 25.91 [True]; nette 25910 [True]; L x rho 25910.49 gap +0.49 kg (allow 1.08)
+2498-R SHPX215053: full-tare 25730 vs delivered 25730 [True]; kg/1000 25.73 vs Qty 25.73 [True]; nette 25730 [True]; L x rho 25729.76 gap -0.24 kg (allow 1.07)
+2500-R SHPX215053: full-tare 25930 vs delivered 25930 [True]; kg/1000 25.93 vs Qty 25.93 [True]; nette 25930 [True]; L x rho 25929.64 gap -0.36 kg (allow 1.08)
+2459-R SHPX215039: full-tare 25860 vs delivered 25860 [True]; kg/1000 25.86 vs Qty 25.86 [True]; nette 25860 [True]; L x rho 25859.79 gap -0.21 kg (allow 1.08)
+2460-R SHPX215039: full-tare 25920 vs delivered 25920 [True]; kg/1000 25.92 vs Qty 25.92 [True]; nette 25920 [True]; L x rho 25919.61 gap -0.39 kg (allow 1.08)
+2461-R SHPX215039: full-tare 25860 vs delivered 25860 [True]; kg/1000 25.86 vs Qty 25.86 [True]; nette 25860 [True]; L x rho 25859.75 gap -0.25 kg (allow 1.08)
+2465-R SHPX215091: full-tare 26020 vs delivered 26020 [True]; kg/1000 26.02 vs Qty 26.02 [True]; nette 26020 [True]; L x rho 26020.56 gap +0.56 kg (allow 1.09)
+2466-R SHPX215091: full-tare 25860 vs delivered 25860 [True]; kg/1000 25.86 vs Qty 25.86 [True]; nette 25860 [True]; L x rho 25860.03 gap +0.03 kg (allow 1.08)
+2467-R SHPX215091: full-tare 25890 vs delivered 25890 [True]; kg/1000 25.89 vs Qty 25.89 [True]; nette 25890 [True]; L x rho 25889.41 gap -0.59 kg (allow 1.08)
+2453-R SHPX215079: full-tare 25990 vs delivered 25990 [True]; kg/1000 25.99 vs Qty 25.99 [True]; nette 25990 [True]; L x rho 25989.58 gap -0.42 kg (allow 1.08)
+2454-R SHPX215079: full-tare 25910 vs delivered 25910 [True]; kg/1000 25.91 vs Qty 25.91 [True]; nette 25910 [True]; L x rho 25910.15 gap +0.15 kg (allow 1.08)
+2455-R SHPX215079: full-tare 25970 vs delivered 25970 [True]; kg/1000 25.97 vs Qty 25.97 [True]; nette 25970 [True]; L x rho 25970.11 gap +0.11 kg (allow 1.08)
+max |litres x density - delivered| = 0.59 kg
+loaded SHPX215053 = 77570 kg
+loaded SHPX215039 = 77640 kg
+loaded SHPX215091 = 77770 kg
+loaded SHPX215079 = 77870 kg
+
+=== 3. Railcar balance
+SHPX215053: loaded 77570 | delivered 77228.57392 | loaded-delivered +341.42608 kg (0.440 %) | Ops G 341.42608
+SHPX215039: loaded 77640 | delivered 77573.30384 | loaded-delivered +66.69616 kg (0.086 %) | Ops G 66.69616
+SHPX215091: loaded 77770 | delivered 77546.08832 | loaded-delivered +223.91168 kg (0.288 %) | Ops G 223.91168
+SHPX215079: loaded 77870 | delivered 78262.76368 | loaded-delivered -392.76368 kg (-0.504 %) | Ops G 0
+SHPX215079 over-draw 392.76368 kg -> offload 4 carries 14321.76080 kg (= 77870 - 63548.23920) | Ops J41 392.76368
+total lost mass 632.03392 kg
+SHPX215079 cross-week mass held (offloads 3+4 after cut) 35459.14800 kg
+
+=== 4. Rollup
+mass used 267807.11408 (Ops C46 267807.11410); sparging 3454.711772 (D46 3454.711772); filtration 518.130709 (E46 518.130708); MOBI 263834.2716 (F46 263834.2716)
+Baton Rouge delivered 77228.57392 kg (C49 77228.57392); Opelousas delivered 190578.54016 kg (C50 190578.5402)
+
+=== 5. Standard EF sheet (2026 tab) full precision
+  F4 AECN process H2 2026: 0.1371171258
+  F5 AECN embodied: 0.02116
+  F6 tanker process MT/(t mi): 0.0001143
+  F10 rail process MT/(t mi): 2.5910374e-05
+  F11 tanker embodied MT/mi: 0.0002375605888
+  F13 railcar embodied MT/mi: 3.113066508e-05
+Certify factor values vs sheet:
+  tanker process Certify 0.07102272727272727 kg/(km t) x 1.609344 = 0.1143000000 kg/(t mi) vs sheet 0.1143
+  rail process (Opelousas) Certify 0.016099727590869323 -> 0.0259100000 kg/(t mi) vs sheet 0.025910374
+  rail process (Baton Rouge) Certify GLEC library 0.0161 kg/(km t)
+  tanker process (Baton Rouge) Certify GLEC library 0.071 kg/(km t) vs sheet 0.0710227273
+  rail embodied Certify 0.019343285214348208 kg/km x 1.609344 = 0.0311300000 kg/mi vs sheet 0.0311306651
+  tanker embodied Certify 0.14761294042790105 kg/km x 1.609344 = 0.2375600000 kg/mi vs sheet 0.2375605888
+  pyrolysis CI Certify 0.13712 vs sheet 0.1371171258; embodied 0.02116 vs 0.02116
+
+=== 6. Components recomputed on Certify's own inputs (t)
+AECN to SOPOR Tanker Truck Transport Process Emissions: 267.80710999999997 t x 107.49722 mi x 0.07102272727272727 = 3.290528 | Certify 3.290528
+SOPOR to Opelousas Rail Transport Process Emissions: 190.57854 t x 2199.0 mi x 0.016099727590869323 = 10.858420 | Certify 10.858420
+Opelousas to Basco - Tanker Truck Transport Process Emissions: 267.80710999999997 t x 42.9 mi x 0.07102272727272727 = 1.313184 | Certify 1.313184
+SOPOR to Baton Rouge Rail Process Emissions: 77.22857 t x 2153.0 km x 0.0161 = 2.676997 | Certify 2.676997
+Baton Rouge to Basco Tanker Truck Process Emissions: 77.22857 t x 136.0 mi x 0.071 = 1.200119 | Certify 1.200119
+SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions: 15102.69 mi x 0.019343285214348208 kg/km = 0.470147 | Certify 0.470147
+Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions: 1946.0 mi x 0.14761294042790105 kg/km = 0.462292 | Certify 0.462292
+AECN to SOPOR Tanker Truck Transport Embodied Emissions: 1111.70083 mi x 0.14761294042790105 kg/km = 0.264096 | Certify 0.264096
+pyrolysis process 36.721711 | Certify 36.721711; embodied 5.666798 | Certify 5.666798
+transport process sum 19.3392476; embodied sum 1.196534; pyrolysis 42.388509; loss 0.145; AECN activities 63.069291
+BCU 19.339 vs process sum 19.3392476: BCU - sum = -0.0002476 t
+site activities 20.550448; site BCUs 3.10042; total activities 83.619739; adjustments 22.43942
+sequestration 425.691321 = 263.83427159999997 t x 0.44 x 3.667 = 425.691321
+net = 425.691321 - 83.619739 + 22.43942 - 2.4428820922 = 362.068120 (Certify co2eRemoved 362.07)
+MOBI check: Certify injectant 263.83427159999997 t vs my MOBI 263.8342716 t; Bio-oil mass 267.80710999999997 t vs my mass used 267.8071141 t
+gross on my MOBI: 425.691321 t
+
+=== 7. Uncertainty discount re-derived
+  carbon: 1.702765 t
+  injectant mass: 1.639263 t
+  grid electricity: 0.588724 t
+  bio-oil mass (4 components): 0.178274 t
+  Opelousas rail mass: 0.041348 t
+  Baton Rouge truck mass: 0.004511 t
+  site diesel: 0.030868 t
+  site gasoline: 0.004261 t
+root-sum-square 2.4428820922 t | Certify 2.4428820922 | diff +0.00e+00 | 0.574 % of gross
+with Baton Rouge rail mass +/-0.29028 t on today's inputs: term 0.010062 -> discount 2.4429028145 (+0.0000207)
+
+=== 8. Evidence-based corrections
+Baton Rouge rail on 2,152 mi: 77.22857 t x 2152 mi x 1.609344 x 0.0161/1000 = 4.306208 t (sheet factor 4.306198); Certify 2.676997; understated 1.629211
+  2,153 km = 1337.8 mi = 60.8 % of 2,199 mi
+Opelousas truck on Opelousas mass 190.57854 t: 0.934496 t vs Certify 1.313184; overstated 0.378688
+process sum on evidence 20.5897709 t (vs Certify 19.3392476; +1.2505233); BCU would draw 1.2507709 t more
+Opelousas-mass fix alone: sum 18.9605596; BCU 19.339 exceeds it by 0.3784404
+activities on evidence 84.870262 t (Certify 83.619739; delta +1.250523)
+discount on corrected inputs (Opelousas truck on its own mass +/-725.7 kg, BR rail 2,152 mi +/-290.28 kg): 2.4425798 t
+net on evidence, BCU = corrected process sum: 362.068670 t (vs Certify 362.068120; +0.000550)
+net on evidence, BCU left at 19.339: 360.817899 t (-1.250221)
+BCU exact-figure gap today: process sum 19.3392476 - BCU 19.339 = 0.0002476 t (0.2476 kg) below
+
+=== 9. Allocated distances
+AECN-SOPOR allocated on 107.5: 1111.729637 mi (Ops L42 1111.729637); on 107.49722: 1111.70089 (Certify 1111.70083)
+rail allocated round trip 15102.68824 (Ops M42 15102.68824); one way 7551.34412; difference x sheet railcar factor 0.235078 t, x Certify factor 0.235073 t
+SHPX215079 rail miles: W2 one way 1197.65588 + W4 round trip 2002.68824 = 3200.34412 (full round trip would be 4398, one way 2199)
+truck embodied distance 10 x 42.9 x 2 + 4 x 136 x 2 = 1946.0 mi (Ops N42 1946)
+tanker embodied factor on sheet carries deadhead uplift: base 0.0001652020785 x 1.438 = 0.0002375606 (sheet F11 0.0002375605888)
+  truck embodied with round trip AND uplift 0.462293 t; round trip without uplift 0.321483 t; difference 0.140810 t
+
+=== 10. AECN Bio-oil Loss
+example-image basis (SHPX215053 on 2,199 mi, Certify CIs): pyrolysis process 0.04682 embodied 0.00722 transport process 0.02365 embodied 0.00064 total 0.07833 (image 0.07833)
+  full-railcar upstream process 77.57 t on 2,199 mi = 5.3728 t (image 5.3728); upstream embodied 322.5 x 0.0002375605888 + 2199 x 3.113066508e-05 = 0.14507 (image 0.14507)
+loss on Opelousas distances for all three 0.144996 t; with SHPX215053 on 2,152 mi 0.144574 t; Certify 0.145; Certify - guidance basis +0.000426
+rail embodied on lost share also charged in full-car rail allocation: 0.000551 t (one-way basis)
+guidance '~0.229 t per t': loss/lost mass = 0.2294 t/t
+
+=== 11. Carbon range
+mean 39.420350877193 sd 6.09332409018271 n 285: band 27.23..51.61; 44.0 is 0.752 SD above mean
+carbon +/-: 0.004 x 44.0 = 0.176; mass +/-: 14 x 72.57 = 1015.98; 10 x 72.57 = 725.7; 4 x 72.57 = 290.28
+
+=== 12. September results workbook vs report v1.7
+workbook: injected 1261268.83 kg; gross 1988.19; process 385.3341; site 20.5500; reductions 172.6573; discount 10.9981; net 1743.96
+report v1.7 Section E: gross 1988.19, process 384.65, site 20.48, discount 11.00, reductions 171.95, net 1744.01
+W4 AECN row: H 263834.2716 J 63.069 K 20.55 L 22.439 M 2.4429 -> net 362.0684
+EAC tracker September usage 171.9503 vs workbook reductions 172.6573: short by 0.7070
+BCU certificate 2,795 TERCs vs tracker total 2765.361153: 29.638847
+
+=== 13. Extra checks
+attached Ops copy (2026-10-01, linked to the loss) G10:G13 = [341.42608, 66.69616, 223.91168, -392.76368]; sum 239.27024 kg vs 632.03392 kg behind Certify's loss
+  loss emission at Certify's own rate 0.229418 t/t on 239.27024 kg = 0.054893 t (Certify 0.145)
+Argon grid electricity 2602.43355 kWh, +/- shown: None; KB 2% = 52.0487 kWh -> term 0.024099 t
+  discount with Argon grid +/-2% added: 2.4430009600 (+0.0001189 t)
+  Basco Site Electricity Use (RECs): procured 63575.19 kWh, +/- shown None; REC CI 0.03664154577
+  Argon Electricity Usage (RECs): procured 2602.43 kWh, +/- shown None; REC CI 0.03664154577
+SHPX215091 full weighs 2026-09-17 and SHPX215039 o1-o2 full weighs 2026-09-18 precede the Certify period start 2026-09-19
+Certify period 2026-09-19 to 2026-09-25
+net on evidence, BCU = corrected process sum AND loss at guidance basis 0.144574: 362.069096 t; QA checklist 9.8 states 362.069035 -> gap +0.000061 t
+share of week's mass held across weeks: 13.24 %
+Standard EF workbook copies in Certify files: 3, distinct hashes {'d49871d1b53d5f7c'}
+2026-09-18 is a Friday; 2026-09-25 is a Friday

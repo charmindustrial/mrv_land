@@ -1,0 +1,67 @@
+- dialog "AECN to SOPOR Tanker Truck Transport Embodied Emissions" [active] [ref=f159e589]:
+  - generic [ref=f159e590]:
+    - generic [ref=f159e591]:
+      - generic [ref=f159e593]:
+        - button "AECN to SOPOR Tanker Truck Transport Embodied Emissions" [ref=f159e596] [cursor=pointer]
+        - generic [ref=f159e597]:
+          - generic [ref=f159e598]: 0.264 tCO₂e
+          - generic [ref=f159e600]: 0.07%
+      - button "Toggle timeline sidebar" [ref=f159e602] [cursor=pointer]
+      - button "Close" [ref=f159e605] [cursor=pointer]
+    - generic [ref=f159e609]:
+      - generic [ref=f159e610]:
+        - generic [ref=f159e611]: Inputs
+        - grid "Input list" [ref=f159e612]:
+          - row "Distance emission factor" [ref=f159e613]:
+            - gridcell "Distance emission factor Emissions Factor - Vehicle Embodied Emissions - Tanker Truck 0.23756 kgCO₂e/mi 1 source Deselect datapoint" [ref=f159e614]:
+              - generic [ref=f159e615]:
+                - generic [ref=f159e616]: Distance emission factor
+                - generic [ref=f159e619]:
+                  - button "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck 0.23756 kgCO₂e/mi 1 source" [ref=f159e624] [cursor=pointer]:
+                    - generic [ref=f159e625]: Emissions Factor - Vehicle Embodied Emissions - Tanker Truck
+                    - generic [ref=f159e628]:
+                      - generic [ref=f159e629]: "0.23756"
+                      - text: kgCO₂e/mi
+                    - button "1 source" [disabled] [ref=f159e631]
+                  - button "Deselect datapoint" [ref=f159e635] [cursor=pointer]
+          - row "Distance traveled" [ref=f159e638]:
+            - gridcell "Distance traveled Allocated Distance AECN to Sopor Quebec (truck) 1,111.70083 mi 8 sources Deselect datapoint" [ref=f159e639]:
+              - generic [ref=f159e640]:
+                - generic [ref=f159e641]: Distance traveled
+                - generic [ref=f159e644]:
+                  - button "Allocated Distance AECN to Sopor Quebec (truck) 1,111.70083 mi 8 sources" [ref=f159e649] [cursor=pointer]:
+                    - generic [ref=f159e650]: Allocated Distance AECN to Sopor Quebec (truck)
+                    - generic [ref=f159e653]:
+                      - generic [ref=f159e654]: 1,111.70083
+                      - text: mi
+                    - button "8 sources" [disabled] [ref=f159e656]
+                  - button "Deselect datapoint" [ref=f159e660] [cursor=pointer]
+      - generic [ref=f159e663]:
+        - generic [ref=f159e664]: Description
+        - button "+ Add" [ref=f159e666] [cursor=pointer]
+      - generic [ref=f159e668]:
+        - generic [ref=f159e669]: Blueprint details
+        - generic [ref=f159e670]:
+          - generic [ref=f159e671]:
+            - generic [ref=f159e672]: Blueprint
+            - generic [ref=f159e675]:
+              - link "Distance-based emissions" [ref=f159e676] [cursor=pointer]:
+                - /url: https://docs.isometric.com/certify/component-blueprint-library#distance-based-emissions
+              - generic [ref=f159e677]: "->"
+          - generic [ref=f159e678]:
+            - generic [ref=f159e679]: Key
+            - generic [ref=f159e681]: distance_based_ci_emissions
+          - generic [ref=f159e682]:
+            - generic [ref=f159e683]: Gas type
+            - generic [ref=f159e685]: CO₂e
+          - generic [ref=f159e686]:
+            - generic [ref=f159e687]: Calculation
+            - generic [ref=f159e690]:
+              - generic [ref=f159e691]: output
+              - generic [ref=f159e693]: =
+              - generic [ref=f159e694]: distance
+              - generic [ref=f159e696]: "*"
+              - generic [ref=f159e697]: carbon_intensity
+    - generic [ref=f159e700]:
+      - button "Delete" [ref=f159e701] [cursor=pointer]
+      - button "Done" [ref=f159e702] [cursor=pointer]

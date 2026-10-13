@@ -1,0 +1,178 @@
+- generic [active] [ref=f171e2]:
+  - alert [ref=f171e1]
+  - region "0 notifications."
+  - generic [ref=f171e3]:
+    - navigation [ref=f171e5]:
+      - generic [ref=f171e9]:
+        - generic [ref=f171e10]:
+          - link "Isometric Registry" [ref=f171e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f171e27]:
+            - link "Certificates" [ref=f171e28] [cursor=pointer]:
+              - /url: /certificates
+            - link "Projects" [ref=f171e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f171e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f171e32]:
+          - generic [ref=f171e33]:
+            - link "Account" [ref=f171e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f171e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f171e36]: "|"
+          - button "Current user menu" [ref=f171e37] [cursor=pointer]:
+            - generic [ref=f171e38]: Menu
+    - main [ref=f171e41]:
+      - generic [ref=f171e43]:
+        - button "Hide sidebar" [ref=f171e45] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=f171e49]:
+          - list [ref=f171e51]:
+            - listitem [ref=f171e52]:
+              - link "All projects" [ref=f171e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [aria-hidden] [ref=f171e54]: /
+            - listitem [ref=f171e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=f171e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [aria-hidden] [ref=f171e57]: /
+            - listitem [ref=f171e58]: GHG statements
+      - generic [ref=f171e59]:
+        - navigation [ref=f171e63]:
+          - generic [ref=f171e65]:
+            - link "Overview" [ref=f171e66] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=f171e67] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+            - link "Evidence" [ref=f171e68] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/evidence
+          - generic [ref=f171e69]:
+            - generic [ref=f171e70]: Project setup
+            - generic [ref=f171e71]:
+              - link "General" [ref=f171e72] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=f171e73] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=f171e74] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Sites" [ref=f171e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/sites
+          - generic [ref=f171e76]:
+            - generic [ref=f171e77]: GHG accounting
+            - generic [ref=f171e78]:
+              - link "LCA" [ref=f171e79] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=f171e80] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=f171e81] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "GHG entry data" [ref=f171e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+          - generic [ref=f171e84]:
+            - link "Templates" [ref=f171e85] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+            - link "Processes" [ref=f171e86] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/processes
+        - generic [ref=f171e91]:
+          - generic [ref=f171e93]:
+            - heading "GHG statements" [level=1] [ref=f171e94]
+            - link [ref=f171e96] [cursor=pointer]:
+              - /url: https://docs.isometric.com/user-guides/certify/ghg-statement
+          - generic [ref=f171e99]: Submitted GHG statements contain GHG entry data and completed reports which are verified by a third-party verifier.
+          - generic [ref=f171e100]:
+            - link "Add" [ref=f171e102] [cursor=pointer]:
+              - /url: /account/new-ghg-statement/prj_1HZSSWBQM1S08H83
+            - generic [ref=f171e105]:
+              - grid "GHG Statement" [ref=f171e107]:
+                - rowgroup [ref=f171e108]:
+                  - row [ref=f171e109]:
+                    - columnheader "Statement period" [ref=f171e110]
+                    - columnheader "Status" [ref=f171e112]
+                    - columnheader "Last submitted" [ref=f171e114]
+                    - columnheader "Net CO₂e removed" [ref=f171e116]
+                - rowgroup [ref=f171e118]:
+                  - row [ref=f171e119] [cursor=pointer]:
+                    - rowheader "01 Aug 2026 to 31 Aug 2026 13 GHG entries" [ref=f171e120]:
+                      - generic [ref=f171e121]:
+                        - generic [ref=f171e122]: 01 Aug 2026 to 31 Aug 2026
+                        - generic [ref=f171e123]: 13 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e124]
+                    - gridcell "11 Sep 2026" [ref=f171e130]
+                    - gridcell "1,746.14 tCO₂e" [ref=f171e132]
+                  - row [ref=f171e133] [cursor=pointer]:
+                    - rowheader "01 Jul 2026 to 31 Jul 2026 9 GHG entries" [ref=f171e134]:
+                      - generic [ref=f171e135]:
+                        - generic [ref=f171e136]: 01 Jul 2026 to 31 Jul 2026
+                        - generic [ref=f171e137]: 9 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e138]
+                    - gridcell "14 Aug 2026" [ref=f171e144]
+                    - gridcell "874.29 tCO₂e" [ref=f171e146]
+                  - row [ref=f171e147] [cursor=pointer]:
+                    - rowheader "01 Jun 2026 to 30 Jun 2026 5 GHG entries" [ref=f171e148]:
+                      - generic [ref=f171e149]:
+                        - generic [ref=f171e150]: 01 Jun 2026 to 30 Jun 2026
+                        - generic [ref=f171e151]: 5 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e152]
+                    - gridcell "11 Jul 2026" [ref=f171e158]
+                    - gridcell "647.05 tCO₂e" [ref=f171e160]
+                  - row [ref=f171e161] [cursor=pointer]:
+                    - rowheader "01 May 2026 to 31 May 2026 6 GHG entries" [ref=f171e162]:
+                      - generic [ref=f171e163]:
+                        - generic [ref=f171e164]: 01 May 2026 to 31 May 2026
+                        - generic [ref=f171e165]: 6 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e166]
+                    - gridcell "22 Jun 2026" [ref=f171e172]
+                    - gridcell "425.59 tCO₂e" [ref=f171e174]
+                  - row [ref=f171e175] [cursor=pointer]:
+                    - rowheader "01 Apr 2026 to 30 Apr 2026 22 GHG entries" [ref=f171e176]:
+                      - generic [ref=f171e177]:
+                        - generic [ref=f171e178]: 01 Apr 2026 to 30 Apr 2026
+                        - generic [ref=f171e179]: 22 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e180]
+                    - gridcell "14 May 2026" [ref=f171e186]
+                    - gridcell "490.82 tCO₂e" [ref=f171e188]
+                  - row [ref=f171e189] [cursor=pointer]:
+                    - rowheader "03 Mar 2026 to 31 Mar 2026 24 GHG entries" [ref=f171e190]:
+                      - generic [ref=f171e191]:
+                        - generic [ref=f171e192]: 03 Mar 2026 to 31 Mar 2026
+                        - generic [ref=f171e193]: 24 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e194]
+                    - gridcell "16 Apr 2026" [ref=f171e200]
+                    - gridcell "612.99 tCO₂e" [ref=f171e202]
+                  - row [ref=f171e203] [cursor=pointer]:
+                    - rowheader "01 Feb 2026 to 02 Mar 2026 30 GHG entries" [ref=f171e204]:
+                      - generic [ref=f171e205]:
+                        - generic [ref=f171e206]: 01 Feb 2026 to 02 Mar 2026
+                        - generic [ref=f171e207]: 30 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e208]
+                    - gridcell "10 Mar 2026" [ref=f171e214]
+                    - gridcell "764.14 tCO₂e" [ref=f171e216]
+                  - row [ref=f171e217] [cursor=pointer]:
+                    - rowheader "07 Nov 2025 to 31 Jan 2026 3 GHG entries" [ref=f171e218]:
+                      - generic [ref=f171e219]:
+                        - generic [ref=f171e220]: 07 Nov 2025 to 31 Jan 2026
+                        - generic [ref=f171e221]: 3 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e222]
+                    - gridcell "19 Feb 2026" [ref=f171e228]
+                    - gridcell "43.47 tCO₂e" [ref=f171e230]
+                  - row [ref=f171e231] [cursor=pointer]:
+                    - rowheader "01 Oct 2025 to 06 Nov 2025 17 GHG entries" [ref=f171e232]:
+                      - generic [ref=f171e233]:
+                        - generic [ref=f171e234]: 01 Oct 2025 to 06 Nov 2025
+                        - generic [ref=f171e235]: 17 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e236]
+                    - gridcell "19 Nov 2025" [ref=f171e242]
+                    - gridcell "454.71 tCO₂e" [ref=f171e244]
+                  - row [ref=f171e245] [cursor=pointer]:
+                    - rowheader "09 Sep 2025 to 30 Sep 2025 10 GHG entries" [ref=f171e246]:
+                      - generic [ref=f171e247]:
+                        - generic [ref=f171e248]: 09 Sep 2025 to 30 Sep 2025
+                        - generic [ref=f171e249]: 10 GHG entries
+                    - gridcell "Certificates issued" [ref=f171e250]
+                    - gridcell "18 Oct 2025" [ref=f171e256]
+                    - gridcell "291.85 tCO₂e" [ref=f171e258]
+              - navigation "Pagination" [ref=f171e259]:
+                - generic [ref=f171e260]: Showing 10 of 19
+                - generic [ref=f171e261]:
+                  - button "Previous page" [disabled]: Previous
+                  - button "Next page" [ref=f171e262] [cursor=pointer]: Next

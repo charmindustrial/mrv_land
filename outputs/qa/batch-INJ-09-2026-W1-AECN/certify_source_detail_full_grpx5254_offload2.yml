@@ -1,0 +1,562 @@
+- generic [ref=f27e2]:
+  - alert [ref=f27e1]
+  - region "0 notifications."
+  - generic [ref=f27e3]:
+    - navigation [ref=f27e5]:
+      - generic [ref=f27e9]:
+        - generic [ref=f27e10]:
+          - link "Isometric Registry" [ref=f27e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f27e27]:
+            - link "Registry" [ref=f27e28] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=f27e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f27e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f27e32]:
+          - generic [ref=f27e33]:
+            - link "Account" [ref=f27e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f27e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f27e36]: "|"
+          - button "Current user menu" [ref=f27e37] [cursor=pointer]:
+            - generic [ref=f27e38]: Menu
+    - main [ref=f27e41]:
+      - generic [ref=f27e43]:
+        - button "Collapse sidebar" [ref=f27e45] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=f27e49]:
+          - list [ref=f27e51]:
+            - listitem [ref=f27e52]:
+              - link "All projects" [ref=f27e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [aria-hidden] [ref=f27e54]: /
+            - listitem [ref=f27e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=f27e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [aria-hidden] [ref=f27e57]: /
+            - listitem [ref=f27e58]:
+              - link "GHG Entries" [ref=f27e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+              - generic [aria-hidden] [ref=f27e60]: /
+            - listitem [ref=f27e61]: rmv_1M2GBNMY91S0H2MB
+      - generic [ref=f27e62]:
+        - navigation [ref=f27e66]:
+          - generic [ref=f27e68]:
+            - link "Overview" [ref=f27e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=f27e70] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+            - link "Processes" [ref=f27e71] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/processes
+            - link "Evidence" [ref=f27e74] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/evidence
+          - generic [ref=f27e75]:
+            - generic [ref=f27e76]: Project setup
+            - generic [ref=f27e77]:
+              - link "General" [ref=f27e78] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=f27e79] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=f27e80] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Storage sites" [ref=f27e81] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/storage-sites
+          - generic [ref=f27e82]:
+            - generic [ref=f27e83]: GHG accounting
+            - generic [ref=f27e84]:
+              - link "LCA" [ref=f27e85] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=f27e86] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=f27e87] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "GHG entry data" [ref=f27e88] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+          - link "Templates" [ref=f27e91] [cursor=pointer]:
+            - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+        - generic [ref=f27e93]:
+          - generic [ref=f27e96]:
+            - heading "GHG entry" [level=1] [ref=f27e98]
+            - generic [ref=f27e99]:
+              - generic [ref=f27e100]:
+                - generic [ref=f27e101]: Removal
+                - generic [ref=f27e105]: 708.74 tCO₂e
+                - generic [ref=f27e107]:
+                  - generic [aria-hidden] [ref=f27e108]: •
+                  - generic [ref=f27e109]: 30 Aug 2026 to 04 Sep 2026
+                - generic [ref=f27e110]:
+                  - generic [aria-hidden] [ref=f27e111]: •
+                  - generic [ref=f27e112]: rmv_1M2GBNMY91S0H2MB
+              - generic [ref=f27e113]:
+                - button "More actions" [ref=f27e114] [cursor=pointer]
+                - button "Projected credit allocation" [ref=f27e117] [cursor=pointer]
+                - button "Toggle timeline sidebar" [ref=f27e121] [cursor=pointer]
+          - generic [ref=f27e124]:
+            - tablist [ref=f27e127]:
+              - tab "Components" [ref=f27e128] [cursor=pointer]
+              - tab "Calculation view" [ref=f27e130] [cursor=pointer]
+              - tab "Datapoints" [ref=f27e132] [cursor=pointer]
+              - tab "Sources" [selected] [ref=f27e134] [cursor=pointer]
+            - tabpanel "Sources" [ref=f27e137]:
+              - generic [ref=f27e138]:
+                - heading "Sources (53)" [level=2] [ref=f27e139]
+                - grid "Sources" [ref=f27e142]:
+                  - rowgroup [ref=f27e143]:
+                    - row [ref=f27e144]:
+                      - columnheader "Name" [ref=f27e145]
+                      - columnheader "Data points" [ref=f27e147]
+                      - columnheader "Type" [ref=f27e149]
+                      - columnheader "Public visibility" [ref=f27e151]
+                  - rowgroup [ref=f27e153]:
+                    - row [ref=f27e154]:
+                      - rowheader [ref=f27e155]:
+                        - button "INJ-09-2026-W1 Ops Notes - 2026-09-17" [ref=f27e156] [cursor=pointer]
+                      - gridcell "Allocated Distance Sopor Quebec to Opelousas (rail) + 6 more" [ref=f27e161]:
+                        - generic [ref=f27e162]:
+                          - generic [ref=f27e163]: Allocated Distance Sopor Quebec to Opelousas (rail)
+                          - button "+ 6 more" [ref=f27e164] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e165]
+                      - gridcell "Private" [ref=f27e166]
+                    - row [ref=f27e171]:
+                      - rowheader [ref=f27e172]:
+                        - button "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jan2026 to 30Jun2026.xlsx" [ref=f27e173] [cursor=pointer]
+                      - gridcell "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail) + 1 more" [ref=f27e178]:
+                        - generic [ref=f27e179]:
+                          - generic [ref=f27e180]: Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)
+                          - button "+ 1 more" [ref=f27e181] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e182]
+                      - gridcell "Private" [ref=f27e183]
+                    - row [ref=f27e188]:
+                      - rowheader [ref=f27e189]:
+                        - button "Supporting GHG data 30Jun2026 S.xlsx" [ref=f27e190] [cursor=pointer]
+                      - gridcell "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail) + 1 more" [ref=f27e195]:
+                        - generic [ref=f27e196]:
+                          - generic [ref=f27e197]: Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)
+                          - button "+ 1 more" [ref=f27e198] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e199]
+                      - gridcell "Private" [ref=f27e200]
+                    - row [ref=f27e205]:
+                      - rowheader [ref=f27e206]:
+                        - button "SR26-05371 09-2026-W1 AECN.pdf" [ref=f27e207] [cursor=pointer]
+                      - gridcell "Carbon Content of Bio-oil Injected (per injection)" [ref=f27e212]
+                      - gridcell "Document" [ref=f27e215]
+                      - gridcell "Private" [ref=f27e216]
+                    - row [ref=f27e221]:
+                      - rowheader [ref=f27e222]:
+                        - button "Full_GPRX5107_offload_4.pdf" [ref=f27e223] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e228]:
+                        - generic [ref=f27e229]:
+                          - generic [ref=f27e230]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e231] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e232]
+                      - gridcell "Private" [ref=f27e233]
+                    - row [ref=f27e238]:
+                      - rowheader [ref=f27e239]:
+                        - button "Empty_GPRX5107_offload_4.pdf" [ref=f27e240] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e245]:
+                        - generic [ref=f27e246]:
+                          - generic [ref=f27e247]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e248] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e249]
+                      - gridcell "Private" [ref=f27e250]
+                    - row [ref=f27e255]:
+                      - rowheader [ref=f27e256]:
+                        - button "Full_GPRX5107_offload_3.pdf" [ref=f27e257] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e262]:
+                        - generic [ref=f27e263]:
+                          - generic [ref=f27e264]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e265] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e266]
+                      - gridcell "Private" [ref=f27e267]
+                    - row [ref=f27e272]:
+                      - rowheader [ref=f27e273]:
+                        - button "Empty_GPRX5107_offload_3.pdf" [ref=f27e274] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e279]:
+                        - generic [ref=f27e280]:
+                          - generic [ref=f27e281]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e282] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e283]
+                      - gridcell "Private" [ref=f27e284]
+                    - row [ref=f27e289]:
+                      - rowheader [ref=f27e290]:
+                        - button "Full_GPRX5107_offload_2.pdf" [ref=f27e291] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e296]:
+                        - generic [ref=f27e297]:
+                          - generic [ref=f27e298]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e299] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e300]
+                      - gridcell "Private" [ref=f27e301]
+                    - row [ref=f27e306]:
+                      - rowheader [ref=f27e307]:
+                        - button "Empty_GPRX5107_offload_2.pdf" [ref=f27e308] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e313]:
+                        - generic [ref=f27e314]:
+                          - generic [ref=f27e315]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e316] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e317]
+                      - gridcell "Private" [ref=f27e318]
+                    - row [ref=f27e323]:
+                      - rowheader [ref=f27e324]:
+                        - button "Full_GPRX5107_offload_1.pdf" [ref=f27e325] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e330]:
+                        - generic [ref=f27e331]:
+                          - generic [ref=f27e332]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e333] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e334]
+                      - gridcell "Private" [ref=f27e335]
+                    - row [ref=f27e340]:
+                      - rowheader [ref=f27e341]:
+                        - button "Empty_GPRX5107_offload_1.pdf" [ref=f27e342] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e347]:
+                        - generic [ref=f27e348]:
+                          - generic [ref=f27e349]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e350] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e351]
+                      - gridcell "Private" [ref=f27e352]
+                    - row [ref=f27e357]:
+                      - rowheader [ref=f27e358]:
+                        - button "Full_GRPX5254_offload_4.pdf" [ref=f27e359] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e364]:
+                        - generic [ref=f27e365]:
+                          - generic [ref=f27e366]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e367] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e368]
+                      - gridcell "Private" [ref=f27e369]
+                    - row [ref=f27e374]:
+                      - rowheader [ref=f27e375]:
+                        - button "Empty_GRPX5254_offload_4.pdf" [ref=f27e376] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e381]:
+                        - generic [ref=f27e382]:
+                          - generic [ref=f27e383]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e384] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e385]
+                      - gridcell "Private" [ref=f27e386]
+                    - row [ref=f27e391]:
+                      - rowheader [ref=f27e392]:
+                        - button "Full_GRPX5254_offload_3.pdf" [ref=f27e393] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e398]:
+                        - generic [ref=f27e399]:
+                          - generic [ref=f27e400]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e401] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e402]
+                      - gridcell "Private" [ref=f27e403]
+                    - row [ref=f27e408]:
+                      - rowheader [ref=f27e409]:
+                        - button "Empty_GRPX5254_offload_3.pdf" [ref=f27e410] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e415]:
+                        - generic [ref=f27e416]:
+                          - generic [ref=f27e417]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e418] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e419]
+                      - gridcell "Private" [ref=f27e420]
+                    - row [ref=f27e425]:
+                      - rowheader [ref=f27e426]:
+                        - button "Full_GRPX5254_offload_2.pdf" [ref=f27e427] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e432]:
+                        - generic [ref=f27e433]:
+                          - generic [ref=f27e434]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e435] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e436]
+                      - gridcell "Private" [ref=f27e437]
+                    - row [ref=f27e442]:
+                      - rowheader [ref=f27e443]:
+                        - button "Empty_GRPX5254_offload_2.pdf" [ref=f27e444] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e449]:
+                        - generic [ref=f27e450]:
+                          - generic [ref=f27e451]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e452] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e453]
+                      - gridcell "Private" [ref=f27e454]
+                    - row [ref=f27e459]:
+                      - rowheader [ref=f27e460]:
+                        - button "Full_GRPX5254_offload_1.pdf" [ref=f27e461] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e466]:
+                        - generic [ref=f27e467]:
+                          - generic [ref=f27e468]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e469] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e470]
+                      - gridcell "Private" [ref=f27e471]
+                    - row [ref=f27e476]:
+                      - rowheader [ref=f27e477]:
+                        - button "Empty_GRPX5254_offload_1.pdf" [ref=f27e478] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail + 1 more" [ref=f27e483]:
+                        - generic [ref=f27e484]:
+                          - generic [ref=f27e485]: Bio-Oil Mass - AECN via Rail
+                          - button "+ 1 more" [ref=f27e486] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e487]
+                      - gridcell "Private" [ref=f27e488]
+                    - row [ref=f27e493]:
+                      - rowheader [ref=f27e494]:
+                        - button "BOL_2446-R.pdf" [ref=f27e495] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail" [ref=f27e500]
+                      - gridcell "Document" [ref=f27e503]
+                      - gridcell "Private" [ref=f27e504]
+                    - row [ref=f27e509]:
+                      - rowheader [ref=f27e510]:
+                        - button "BOL_2445-R.pdf" [ref=f27e511] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail" [ref=f27e516]
+                      - gridcell "Document" [ref=f27e519]
+                      - gridcell "Private" [ref=f27e520]
+                    - row [ref=f27e525]:
+                      - rowheader [ref=f27e526]:
+                        - button "BOL_2444-R.pdf" [ref=f27e527] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail" [ref=f27e532]
+                      - gridcell "Document" [ref=f27e535]
+                      - gridcell "Private" [ref=f27e536]
+                    - row [ref=f27e541]:
+                      - rowheader [ref=f27e542]:
+                        - button "BOL_2432-R.pdf" [ref=f27e543] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail" [ref=f27e548]
+                      - gridcell "Document" [ref=f27e551]
+                      - gridcell "Private" [ref=f27e552]
+                    - row [ref=f27e557]:
+                      - rowheader [ref=f27e558]:
+                        - button "BOL_2431-R.pdf" [ref=f27e559] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail" [ref=f27e564]
+                      - gridcell "Document" [ref=f27e567]
+                      - gridcell "Private" [ref=f27e568]
+                    - row [ref=f27e573]:
+                      - rowheader [ref=f27e574]:
+                        - button "BOL_2430-R.pdf" [ref=f27e575] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN via Rail" [ref=f27e580]
+                      - gridcell "Document" [ref=f27e583]
+                      - gridcell "Private" [ref=f27e584]
+                    - row [ref=f27e589]:
+                      - rowheader [ref=f27e590]:
+                        - button "BOL_2496-T.pdf" [ref=f27e591] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e596]:
+                        - generic [ref=f27e597]:
+                          - generic [ref=f27e598]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e599] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e600]
+                      - gridcell "Private" [ref=f27e601]
+                    - row [ref=f27e606]:
+                      - rowheader [ref=f27e607]:
+                        - button "BOL_2495-T.pdf" [ref=f27e608] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e613]:
+                        - generic [ref=f27e614]:
+                          - generic [ref=f27e615]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e616] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e617]
+                      - gridcell "Private" [ref=f27e618]
+                    - row [ref=f27e623]:
+                      - rowheader [ref=f27e624]:
+                        - button "BOL_2494-T.pdf" [ref=f27e625] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e630]:
+                        - generic [ref=f27e631]:
+                          - generic [ref=f27e632]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e633] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e634]
+                      - gridcell "Private" [ref=f27e635]
+                    - row [ref=f27e640]:
+                      - rowheader [ref=f27e641]:
+                        - button "BOL_2493-T.pdf" [ref=f27e642] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e647]:
+                        - generic [ref=f27e648]:
+                          - generic [ref=f27e649]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e650] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e651]
+                      - gridcell "Private" [ref=f27e652]
+                    - row [ref=f27e657]:
+                      - rowheader [ref=f27e658]:
+                        - button "BOL_2492-T.pdf" [ref=f27e659] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e664]:
+                        - generic [ref=f27e665]:
+                          - generic [ref=f27e666]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e667] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e668]
+                      - gridcell "Private" [ref=f27e669]
+                    - row [ref=f27e674]:
+                      - rowheader [ref=f27e675]:
+                        - button "BOL_2491-T.pdf" [ref=f27e676] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e681]:
+                        - generic [ref=f27e682]:
+                          - generic [ref=f27e683]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e684] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e685]
+                      - gridcell "Private" [ref=f27e686]
+                    - row [ref=f27e691]:
+                      - rowheader [ref=f27e692]:
+                        - button "BOL_2490-T.pdf" [ref=f27e693] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e698]:
+                        - generic [ref=f27e699]:
+                          - generic [ref=f27e700]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e701] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e702]
+                      - gridcell "Private" [ref=f27e703]
+                    - row [ref=f27e708]:
+                      - rowheader [ref=f27e709]:
+                        - button "BOL_2489-T.pdf" [ref=f27e710] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e715]:
+                        - generic [ref=f27e716]:
+                          - generic [ref=f27e717]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e718] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e719]
+                      - gridcell "Private" [ref=f27e720]
+                    - row [ref=f27e725]:
+                      - rowheader [ref=f27e726]:
+                        - button "BOL_2488-T.pdf" [ref=f27e727] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e732]:
+                        - generic [ref=f27e733]:
+                          - generic [ref=f27e734]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e735] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e736]
+                      - gridcell "Private" [ref=f27e737]
+                    - row [ref=f27e742]:
+                      - rowheader [ref=f27e743]:
+                        - button "BOL_2487-T.pdf" [ref=f27e744] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e749]:
+                        - generic [ref=f27e750]:
+                          - generic [ref=f27e751]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e752] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e753]
+                      - gridcell "Private" [ref=f27e754]
+                    - row [ref=f27e759]:
+                      - rowheader [ref=f27e760]:
+                        - button "BOL_2486-T.pdf" [ref=f27e761] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e766]:
+                        - generic [ref=f27e767]:
+                          - generic [ref=f27e768]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e769] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e770]
+                      - gridcell "Private" [ref=f27e771]
+                    - row [ref=f27e776]:
+                      - rowheader [ref=f27e777]:
+                        - button "BOL_2485-T.pdf" [ref=f27e778] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e783]:
+                        - generic [ref=f27e784]:
+                          - generic [ref=f27e785]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e786] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e787]
+                      - gridcell "Private" [ref=f27e788]
+                    - row [ref=f27e793]:
+                      - rowheader [ref=f27e794]:
+                        - button "BOL_2484-T.pdf" [ref=f27e795] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e800]:
+                        - generic [ref=f27e801]:
+                          - generic [ref=f27e802]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e803] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e804]
+                      - gridcell "Private" [ref=f27e805]
+                    - row [ref=f27e810]:
+                      - rowheader [ref=f27e811]:
+                        - button "BOL_2481-T.pdf" [ref=f27e812] [cursor=pointer]
+                      - gridcell "Bio-Oil Mass - AECN + 1 more" [ref=f27e817]:
+                        - generic [ref=f27e818]:
+                          - generic [ref=f27e819]: Bio-Oil Mass - AECN
+                          - button "+ 1 more" [ref=f27e820] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e821]
+                      - gridcell "Private" [ref=f27e822]
+                    - row [ref=f27e827]:
+                      - rowheader [ref=f27e828]:
+                        - button "Aug-28-2026-distance-route_map.png" [ref=f27e829] [cursor=pointer]
+                      - gridcell "Allocated Distance AECN to Sopor Quebec (truck)" [ref=f27e834]
+                      - gridcell "Document" [ref=f27e837]
+                      - gridcell "Public" [ref=f27e838]
+                    - row [ref=f27e843]:
+                      - rowheader [ref=f27e844]:
+                        - button "Sep-03-2026-distance-route_map.png" [ref=f27e845] [cursor=pointer]
+                      - gridcell "Allocated Distance AECN to Sopor Quebec (truck)" [ref=f27e850]
+                      - gridcell "Document" [ref=f27e853]
+                      - gridcell "Public" [ref=f27e854]
+                    - row [ref=f27e859]:
+                      - rowheader [ref=f27e860]:
+                        - button "Charm-RetirementCertificate-RD-EACs-20251218.pdf" [ref=f27e861] [cursor=pointer]
+                      - gridcell "BCUs Applied - Bio-Oil Transport Process [Certify input]" [ref=f27e866]
+                      - gridcell "Document" [ref=f27e869]
+                      - gridcell "Public" [ref=f27e870]
+                    - row [ref=f27e875]:
+                      - rowheader [ref=f27e876]:
+                        - button "FH 2026 LCA w Stack Emissions.xlsx" [ref=f27e877] [cursor=pointer]
+                      - gridcell "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail) + 1 more" [ref=f27e882]:
+                        - generic [ref=f27e883]:
+                          - generic [ref=f27e884]: Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)
+                          - button "+ 1 more" [ref=f27e885] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e886]
+                      - gridcell "Public" [ref=f27e887]
+                    - row [ref=f27e892]:
+                      - rowheader [ref=f27e893]:
+                        - button "Standard Emission Factors + Calculations (8).xlsx" [ref=f27e894] [cursor=pointer]
+                      - gridcell "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck" [ref=f27e899]
+                      - gridcell "Document" [ref=f27e902]
+                      - gridcell "Public" [ref=f27e903]
+                    - row [ref=f27e908]:
+                      - rowheader [ref=f27e909]:
+                        - button "Standard Emission Factors + Calculations (8).xlsx" [ref=f27e910] [cursor=pointer]
+                      - gridcell "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck" [ref=f27e915]
+                      - gridcell "Document" [ref=f27e918]
+                      - gridcell "Public" [ref=f27e919]
+                    - row [ref=f27e924]:
+                      - rowheader [ref=f27e925]:
+                        - button "AECN Embodied Emissions Calc Sheet (1).pdf" [ref=f27e926] [cursor=pointer]
+                      - gridcell "Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail) + 1 more" [ref=f27e931]:
+                        - generic [ref=f27e932]:
+                          - generic [ref=f27e933]: Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail)
+                          - button "+ 1 more" [ref=f27e934] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e935]
+                      - gridcell "Public" [ref=f27e936]
+                    - row [ref=f27e941]:
+                      - rowheader [ref=f27e942]:
+                        - button "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=f27e943] [cursor=pointer]
+                      - gridcell "Emissions Factor - Vehicle Embodied Emissions -- Railcar" [ref=f27e948]
+                      - gridcell "Document" [ref=f27e951]
+                      - gridcell "Public" [ref=f27e952]
+                    - row [ref=f27e957]:
+                      - rowheader [ref=f27e958]:
+                        - button "Opelousas Railyard to Basco.png" [ref=f27e959] [cursor=pointer]
+                      - gridcell "Allocated Distance Opelousas to B6 (truck) + 1 more" [ref=f27e964]:
+                        - generic [ref=f27e965]:
+                          - generic [ref=f27e966]: Allocated Distance Opelousas to B6 (truck)
+                          - button "+ 1 more" [ref=f27e967] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e968]
+                      - gridcell "Public" [ref=f27e969]
+                    - row [ref=f27e974]:
+                      - rowheader [ref=f27e975]:
+                        - button "GLEC_FRAMEWORK_v3_UPDATED_04_12_24.pdf" [ref=f27e976] [cursor=pointer]
+                      - gridcell "Emission Factors - Rail Transport Fuel Use (Well to Wheel)" [ref=f27e981]
+                      - gridcell "Document" [ref=f27e984]
+                      - gridcell "Public" [ref=f27e985]
+                    - row [ref=f27e990]:
+                      - rowheader [ref=f27e991]:
+                        - button "AECN to SOPOR (Baie Comeau) (2).png" [ref=f27e992] [cursor=pointer]
+                      - gridcell "Allocated Distance AECN to Sopor Quebec (truck) + 1 more" [ref=f27e997]:
+                        - generic [ref=f27e998]:
+                          - generic [ref=f27e999]: Allocated Distance AECN to Sopor Quebec (truck)
+                          - button "+ 1 more" [ref=f27e1000] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e1001]
+                      - gridcell "Public" [ref=f27e1002]
+                    - row [ref=f27e1007]:
+                      - rowheader [ref=f27e1008]:
+                        - button "image (44).png" [ref=f27e1009] [cursor=pointer]
+                      - gridcell "Allocated Distance Sopor Quebec to Opelousas (rail) + 1 more" [ref=f27e1014]:
+                        - generic [ref=f27e1015]:
+                          - generic [ref=f27e1016]: Allocated Distance Sopor Quebec to Opelousas (rail)
+                          - button "+ 1 more" [ref=f27e1017] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e1018]
+                      - gridcell "Public" [ref=f27e1019]
+                    - row [ref=f27e1024]:
+                      - rowheader [ref=f27e1025]:
+                        - button "AECN to Basco.png" [ref=f27e1026] [cursor=pointer]
+                      - gridcell "Aggregate Distance Transported AECN to Basco + 1 more" [ref=f27e1031]:
+                        - generic [ref=f27e1032]:
+                          - generic [ref=f27e1033]: Aggregate Distance Transported AECN to Basco
+                          - button "+ 1 more" [ref=f27e1034] [cursor=pointer]
+                      - gridcell "Document" [ref=f27e1035]
+                      - gridcell "Public" [ref=f27e1036]
+  - generic [ref=f27e1045]:
+    - button "Dismiss" [ref=f27e1047] [cursor=pointer]
+    - dialog "Data point reference" [active] [ref=f27e1048]:
+      - generic [ref=f27e1049]:
+        - heading "Full_GRPX5254_offload_2.pdf" [level=2] [ref=f27e1051]
+        - generic [ref=f27e1052]:
+          - button "Download source" [ref=f27e1053] [cursor=pointer]
+          - link [ref=f27e1056] [cursor=pointer]:
+            - /url: /account/certify/source/src_1M2NFB8CT1S05QJ5
+          - button "Close" [ref=f27e1059] [cursor=pointer]
+      - generic [ref=f27e1063]:
+        - tablist [ref=f27e1065]:
+          - tab "Preview" [selected] [ref=f27e1066] [cursor=pointer]
+          - tab "Details" [ref=f27e1068] [cursor=pointer]
+        - tabpanel "Preview" [ref=f27e1070]

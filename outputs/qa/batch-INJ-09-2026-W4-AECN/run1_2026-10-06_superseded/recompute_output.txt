@@ -1,0 +1,147 @@
+== 1. Scale tickets vs Ops Notes (14 offloads)
+OK  Rail_SHPX215053_9.1.2026_offload_1 net: recomputed 20139.484800 vs 20139.484800 kg (delta +0.000000)
+OK  Rail_SHPX215053_9.1.2026_offload_2 net: recomputed 20320.921600 vs 20320.921600 kg (delta +0.000000)
+OK  Rail_SHPX215053_9.1.2026_offload_3 net: recomputed 21101.099840 vs 21101.099840 kg (delta +0.000000)
+OK  Rail_SHPX215053_9.1.2026_offload_4 net: recomputed 15667.067680 vs 15667.067680 kg (delta +0.000000)
+OK  Rail_SHPX215039_8.6.2026_offload_1 net: recomputed 20783.585440 vs 20783.585440 kg (delta +0.000000)
+OK  Rail_SHPX215039_8.6.2026_offload_2 net: recomputed 22289.510880 vs 22289.510880 kg (delta -0.000000)
+OK  Rail_SHPX215039_8.6.2026_offload_3 net: recomputed 18751.493280 vs 18751.493280 kg (delta +0.000000)
+OK  Rail_SHPX215039_8.6.2026_offload_4 net: recomputed 15748.714240 vs 15748.714240 kg (delta +0.000000)
+OK  Rail_SHPX215091_8.11.2026_offload_1 net: recomputed 20647.507840 vs 20647.507840 kg (delta +0.000000)
+OK  Rail_SHPX215091_8.11.2026_offload_2 net: recomputed 19486.312320 vs 19486.312320 kg (delta +0.000000)
+OK  Rail_SHPX215091_8.11.2026_offload_3 net: recomputed 21545.620000 vs 21545.620000 kg (delta +0.000000)
+OK  Rail_SHPX215091_8.11.2026_offload_4 net: recomputed 15866.648160 vs 15866.648160 kg (delta +0.000000)
+OK  Rail_SHPX215079_8.4.2026_offload_3 net: recomputed 21137.387200 vs 21137.387200 kg (delta +0.000000)
+OK  Rail_SHPX215079_8.4.2026_offload_4 net: recomputed 14714.524480 vs 14714.524480 kg (delta +0.000000)
+OK  Ops A46 = sum of ticket nets: recomputed 268199.877760 vs 268199.877800 kg (delta -0.000040)
+
+== 2. SHPX215079 last-offload cut (Failure Category 11)
+OK  H13 previously claimed = W2 offloads 1-2: recomputed 42410.852000 vs 42410.852000 kg (delta +0.000000)
+OK  Over-draw = W2 + W4 nets - BOL 77,870 = J41: recomputed 392.763680 vs 392.763680 kg (delta +0.000000)
+OK  B46 = sum of J: recomputed 392.763680 vs 392.763680 kg (delta +0.000000)
+OK  Offload 4 after cut = 77,870 - W2 - offload 3: recomputed 14321.760800 vs 14321.760800 kg (delta +0.000000)
+OK  COBB offload 4 offloaded_quantity_kg: recomputed 14321.760000 vs 14321.760800 kg (delta -0.000800)
+
+== 3. Ops rollup: sparging, filtration, MOBI
+OK  C46 = A46 - B46: recomputed 267807.114080 vs 267807.114100 kg (delta -0.000020)
+OK  D46 sparging = sum(cargo x 0.0129): recomputed 3454.711772 vs 3454.711772 kg (delta -0.000000)
+OK  E46 filtration = sum((cargo - sparging) x 0.00196): recomputed 518.130709 vs 518.130708 kg (delta +0.000000)
+OK  F46 MOBI = C46 - D46 - E46 (K46 blank): recomputed 263834.271620 vs 263834.271600 kg (delta +0.000020)
+OK  Summary B17 = F46: recomputed 263834.271600 vs 263834.271600 kg (delta +0.000000)
+OK  Certify Mass of Injectant = F46: recomputed 263834.271600 vs 263834.271600 kg (delta +0.000000)
+OK  Certify Bio-Oil Mass via Rail = C46: recomputed 267807.110000 vs 267807.114100 kg (delta -0.004100)
+
+== 4. Railcar balances, losses and railyard split
+OK  SHPX215053 loaded E = BOL Qty shipped sum: recomputed 77570.000000 vs 77570.000000 kg (delta +0.000000)
+OK  SHPX215053 loss G = loaded - delivered: recomputed 341.426080 vs 341.426080 kg (delta +0.000000)
+OK  SHPX215039 loaded E = BOL Qty shipped sum: recomputed 77640.000000 vs 77640.000000 kg (delta +0.000000)
+OK  SHPX215039 loss G = loaded - delivered: recomputed 66.696160 vs 66.696160 kg (delta +0.000000)
+OK  SHPX215091 loaded E = BOL Qty shipped sum: recomputed 77770.000000 vs 77770.000000 kg (delta +0.000000)
+OK  SHPX215091 loss G = loaded - delivered: recomputed 223.911680 vs 223.911680 kg (delta +0.000000)
+OK  SHPX215079 loaded E = BOL Qty shipped sum: recomputed 77870.000000 vs 77870.000000 kg (delta +0.000000)
+OK  SHPX215079 loss G = loaded - delivered: recomputed 0.000000 vs 0.000000 kg (delta +0.000000)
+OK  C49 Baton Rouge mass = SHPX215053 delivered: recomputed 77228.573920 vs 77228.573920 kg (delta +0.000000)
+OK  C50 Opelousas mass = C46 - C49: recomputed 190578.540180 vs 190578.540200 kg (delta -0.000020)
+OK  Certify Baton Rouge rail Mass of load = C49: recomputed 77228.570000 vs 77228.573920 kg (delta -0.003920)
+OK  Certify Baton Rouge truck Mass of load = C49: recomputed 77228.570000 vs 77228.573920 kg (delta -0.003920)
+OK  Certify Opelousas rail Mass of load = C50: recomputed 190578.540000 vs 190578.540180 kg (delta -0.000180)
+
+== 5. Certify components from their own inputs
+OK  Injection sequestration = mass x C x 3.667: recomputed 425.691321 vs 425.691321 t (delta +0.000000)
+OK  Certify carbon = SGS SR26-05719.002: recomputed 0.440000 vs 0.440000 fraction (delta +0.000000)
+OK  Pyrolysis process (Certify CI): recomputed 36.721711 vs 36.721711 t (delta +0.000001)
+OK  Pyrolysis process (sheet F4): recomputed 36.720942 vs 36.721711 t (delta -0.000769)
+OK  Pyrolysis embodied (Certify CI): recomputed 5.666799 vs 5.666798 t (delta +0.000000)
+OK  Pyrolysis embodied (sheet F5): recomputed 5.666799 vs 5.666798 t (delta +0.000000)
+OK  AECN to SOPOR Tanker Truck Transport Process Emissions (own inputs): recomputed 3.290528 vs 3.290528 t (delta +0.000000)
+OK  SOPOR to Opelousas Rail Transport Process Emissions (own inputs): recomputed 10.858420 vs 10.858420 t (delta +0.000000)
+OK  Opelousas to Basco - Tanker Truck Transport Process Emissions (own inputs): recomputed 1.313184 vs 1.313184 t (delta -0.000000)
+OK  SOPOR to Baton Rouge Rail Process Emissions (own inputs): recomputed 2.676997 vs 2.676997 t (delta +0.000000)
+OK  Baton Rouge to Basco Tanker Truck Process Emissions (own inputs): recomputed 1.200119 vs 1.200119 t (delta +0.000000)
+OK  AECN to SOPOR Tanker Truck Transport Process Emissions (evidence mass x distance x sheet EF): recomputed 3.290528 vs 3.290528 t (delta +0.000000)
+OK  SOPOR to Opelousas Rail Transport Process Emissions (evidence mass x distance x sheet EF): recomputed 10.858577 vs 10.858420 t (delta +0.000157)
+OK  Baton Rouge to Basco Tanker Truck Process Emissions (evidence mass x distance x sheet EF): recomputed 1.200503 vs 1.200119 t (delta +0.000384)
+INFO Opelousas to Basco - Tanker Truck Transport Process Emissions: evidence basis (Opelousas mass C50 x 42.9 mi x sheet EF) 0.934496 t vs Certify 1.313184 t (see FINDING)
+INFO SOPOR to Baton Rouge Rail Process Emissions: evidence basis (C49 x 2,152 mi x sheet EF) 4.306198 t vs Certify 2.676997 t (see FINDING)
+
+== 6. Allocated distances and embodied legs
+OK  Ops L42 = sum(cargo/loaded) x 107.5 x 3: recomputed 1111.729637 vs 1111.729637 mi (delta +0.000000)
+OK  Certify AECN-SOPOR allocated = Ops method on 107.49722 mi: recomputed 1111.700888 vs 1111.700830 mi (delta +0.000058)
+OK  Ops M42 = 2 x (2152 + 2199 + 2199) + 2 x 2199 x SHPX215079 W4 share: recomputed 15102.688236 vs 15102.688240 mi (delta -0.000004)
+OK  Certify rail allocated = Ops M42: recomputed 15102.690000 vs 15102.688240 mi (delta +0.001760)
+OK  Ops N42 = 2 x (42.9 x 10 + 136 x 4): recomputed 1946.000000 vs 1946.000000 mi (delta +0.000000)
+OK  Certify truck allocated = Ops N42: recomputed 1946.000000 vs 1946.000000 mi (delta +0.000000)
+OK  AECN to SOPOR Tanker Truck Transport Embodied Emissions (own inputs): recomputed 0.264096 vs 0.264096 t (delta +0.000000)
+OK  AECN to SOPOR Tanker Truck Transport Embodied Emissions (Ops distance x sheet EF): recomputed 0.264103 vs 0.264096 t (delta +0.000007)
+OK  SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions (own inputs): recomputed 0.470147 vs 0.470147 t (delta +0.000000)
+OK  SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions (Ops distance x sheet EF): recomputed 0.470157 vs 0.470147 t (delta +0.000010)
+OK  Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions (own inputs): recomputed 0.462292 vs 0.462292 t (delta +0.000000)
+OK  Opelousas/Baton Rouge to Basco Tanker Truck Transport Embodied Emissions (Ops distance x sheet EF): recomputed 0.462293 vs 0.462292 t (delta +0.000001)
+
+== 7. Uncertainty inputs
+OK  Mass of Injectant +/- = 14 x 72.57: recomputed 1015.980000 vs 1015.980000 kg (delta -0.000000)
+OK  Bio-Oil Mass via Rail +/- = 14 x 72.57: recomputed 1015.980000 vs 1015.980000 kg (delta -0.000000)
+OK  Opelousas rail Mass of load +/- = 10 x 72.57: recomputed 725.700000 vs 725.700000 kg (delta -0.000000)
+OK  Baton Rouge truck Mass of load +/- = 4 x 72.57: recomputed 290.280000 vs 290.280000 kg (delta +0.000000)
+OK  Carbon +/- = 0.004 x 44.0: recomputed 0.176000 vs 0.176000 % (delta +0.000000)
+INFO Baton Rouge rail Mass of load +/-: Certify None (none); expected 4 x 72.57 = 290.28 kg (see FINDING)
+
+== 8. Activities, adjustments and net
+OK  AECN activities = pyrolysis + transport + loss: recomputed 63.069291 vs 63.069291 t (delta +0.000000)
+OK  Site activities (out of batch scope) = 20.550448: recomputed 20.550448 vs 20.550448 t (delta +0.000000)
+OK  Activities total vs Calculation view 83.620: recomputed 83.619739 vs 83.620000 t (delta -0.000261)
+OK  Adjustments total vs Calculation view 22.439: recomputed 22.439420 vs 22.439000 t (delta +0.000420)
+OK  Sequestrations vs Calculation view 425.691: recomputed 425.691321 vs 425.691000 t (delta +0.000321)
+OK  Net = Seq + Adj - Activities - Discount vs Calculation view 362.068: recomputed 362.068120 vs 362.068000 t (delta +0.000120)
+OK  Net vs Certify header: recomputed 362.068120 vs 362.070000 t (delta -0.001880)
+
+== 9. Uncertainty discount (combined one-sigma, one term per datapoint; correlated uses summed)
+OK  Discount from component inputs (electricity +/- at grid factor 0.4630140342): recomputed 2.442882 vs 2.442882 t (delta +0.000000)
+   term dtp_1M3Z5YHSG1S0B1K3: +1.702765 t
+   term dtp_1M3Z5YJ7E1S0JBAD: +1.639263 t
+   term dtp_1M3YZEKFJ1S0Z350: -0.588724 t
+   term dtp_1M3Z5WCFD1S0HARQ: -0.178274 t
+   term dtp_1M3Z6ER9S1S0M8GS: -0.041348 t
+   term dtp_1M3YZET1F1S05BBC: -0.030868 t
+   term dtp_1M3Z6NSS71S0KC88: -0.004511 t
+   term dtp_1M3YZETG21S0CN2P: -0.004261 t
+
+== 10. AECN Bio-oil Loss (guidance: pyrolysis CIs + loading-origin-to-rail-yard transport, pro-rated)
+OK  Example image: SHPX215053 341.43 kg on Opelousas distances = 0.07833: recomputed 0.078328 vs 0.078330 t (delta -0.000002)
+OK  Example transport process 0.02365: recomputed 0.023648 vs 0.023650 t (delta -0.000002)
+OK  Example transport embodied 0.00064: recomputed 0.000639 vs 0.000640 t (delta -0.000001)
+OK  Loss, all three railcars on Opelousas distances vs Certify 145 kg: recomputed 0.144996 vs 0.145000 t (delta -0.000004)
+INFO loss with SHPX215053 on its own 2,152 mi rail leg: 0.144574 t; per tonne lost 0.2287 t (guidance 'approximately 0.229')
+
+== FINDINGS (Certify input vs evidence; checklist findings, not arithmetic mismatches)
+FINDING 3.5/9.2/7.2 Baton Rouge rail distance: Certify 'Distance traveled' 2153.0 km (no source) vs Ops K10 2152.0 mi and guidance '2,152'; on 2,152 mi the leg is 4.306208 t vs Certify 2.676997 t: understated 1.629211 t
+FINDING 2.7/9.2 Opelousas-Basco truck mass: Certify uses 'Bio-Oil Mass - AECN via Rail' 267.80711 t (all four railcars) vs Ops C50 Opelousas mass 190.57854 t; SHPX215053's 77.22857 t is charged on both the Opelousas and the Baton Rouge truck legs: leg 0.934496 t vs Certify 1.313184 t, overcharged 0.378688 t
+FINDING 7a.1 Baton Rouge rail Mass of load 77.22857 t carries no +/- (expected 290.28 kg, as the Baton Rouge truck leg has); discount 2.4428820922 -> 2.4429028145 t with it
+FINDING 9.2 Baton Rouge legs use GLEC library factors, not the Standard EF sheet: rail 0.0161 vs sheet 0.0160999600 kg/(km t); truck 0.071 vs sheet 0.0710227273 kg/(km t): truck leg 1.200119 t vs sheet 1.200503 t (-0.000384 t)
+FINDING 9.2 factor rounding: pyrolysis CI 0.13712 vs sheet 0.1371171258 (+0.000769 t); rail embodied 0.03113 kg/mi vs sheet 0.03113067 (-0.000010 t); tanker embodied 0.23756 kg/mi vs sheet 0.2375605888 (-0.000002 t)
+FINDING 3.5 AECN-SOPOR allocated distance: Certify 1111.70083 mi vs attached-sheet Ops L42 1111.729637 mi (Certify follows the Ops method on 107.49722 mi, 1111.70089); effect -0.0000068 t
+FINDING 3.5/9.2 rail embodied basis: W4 doubles the rail leg (round trip) 15102.68824 mi; W1-W3 and the 2026-10-01 Ops copy used one way (7551.34412 mi); W4 charges 0.235078 t more than the September weeks before it; the guidance names the round trip for the tanker leg only
+FINDING 9.6 BCU 19.339 t vs Certify process sum 19.3392476 t (BCU -0.0002476); vs evidence-corrected sum 20.5897707 t (-1.2507707); if only the Opelousas truck mass is corrected the sum is 18.9605596 t and the BCU exceeds it by 0.3784404 t
+FINDING 8.2 loss: Certify 0.145 t follows the example's Opelousas distances for SHPX215053 (0.144996); on its own 2,152 mi rail leg the loss is 0.144574 t (Certify higher by 0.000426 t); the loss datapoint carries no +/-
+FINDING 9.10 attached Ops Notes copies: src_1M3VZCDQF1 (Bio-Oil Mass, rail allocated distance) shows K10 2199.0, L10 42.9, M42 7598.344118, N42 1201.2, no railyard split; src_1M3W1NWED1 (loss) shows M42 7551.344118, N42 1201.2; Certify uses 15102.69 mi, 1946.0 mi, 77228.57392 and 190578.54018 kg from the live sheet only
+FINDING 2.2/8.3 SHPX215079 offloads 3-4 weighed 2026-09-05 09:29 to 2026-09-06 07:50 (W2's Ops window 2026-09-05 to 2026-09-12) and booked here with injection completion 2026-09-25, 19-20 days after weighing; no cell note or guidance text covers the hold
+
+== CORRECTIONS (cumulative; Certify values unchanged)
+FINDING 9.8 corrections A (3.5: Baton Rouge rail on 2,152 mi): activities 85.248950 t; discount 2.442882 t; net 360.438909 t (Certify 362.068; delta -1.629091)
+FINDING 9.8 corrections B (A + 2.7: Opelousas truck on the Opelousas mass +/- 725.7 kg, linked to its Mass of load): activities 84.870262 t; discount 2.442586 t; net 360.817892 t (Certify 362.068; delta -1.250108)
+FINDING 9.8 corrections C (B + 7a.1: Baton Rouge rail +/- 290.28 kg): activities 84.870262 t; discount 2.442640 t; net 360.817839 t (Certify 362.068; delta -1.250161)
+FINDING 9.8 corrections D (C + 8.2: loss on SHPX215053's own rail leg; BCU left at 19.339): activities 84.869836 t; discount 2.442640 t; net 360.818265 t (Certify 362.068; delta -1.249735)
+FINDING 9.8 corrections E (D + 9.6: BCU set to the corrected transport process sum 20.5897707 t, Charm's exact-figure rule): adjustments 23.690191 t; net 362.069035 t (Certify 362.068; delta +0.001035); the BCU draw on certificate 13-47206-50000 rises by 1.2507707 t
+
+== 11. Further checks after the Gate 3 review
+FINDING 3.5 SHPX215079 rail miles across weeks: W2 615.6079326 + 582.0479496 (one way) + W4 1193.813136 + 808.8750995 (round trip) gives 3200.34412 mi, neither one way (2,199) nor round trip (4,398) for the railcar
+FINDING 8.2 rail embodied on lost oil counted twice: the rail allocation gives each FULL railcar its whole trip in M, and the loss figure charges the lost share again: 0.000557 t (conservative); the loss uses one-way rail embodied while the W4 rail embodied component uses round trip
+OK  RP results workbook W4 AECN net vs Certify: recomputed 362.070000 vs 362.070000 t (delta +0.000000)
+OK  RP results workbook W4 AECN process vs Certify AECN activities: recomputed 63.069000 vs 63.069291 t (delta -0.000291)
+OK  RP results workbook W4 AECN reductions vs Certify adjustments: recomputed 22.439000 vs 22.439420 t (delta -0.000420)
+OK  RP results workbook W4 AECN discount vs Certify: recomputed 2.442900 vs 2.442882 t (delta +0.000018)
+OK  RP results workbook reductions total = sum of 11 removals: recomputed 172.657300 vs 172.660000 t (delta -0.002700)
+FINDING 7.4 RP drafts disagree: statement report v1.7 Section E process 384.65 / site 20.48 / reductions 171.95 / net 1744.01 t against the results workbook 385.33 / 20.55 / 172.66 / 1743.96 t; the report's W4 site figure 20.482 t against Certify 20.550448 t; both drafts carry Certify's W4 AECN process figure (63.069 t), not the evidence figure 64.319388 t
+FINDING S.1 EAC tracker September usage 171.9503 t against the results workbook's reductions 172.6573 t (sum of 11 removals): under-logged by 0.7070 t; the corrected W4 BCU adds 1.2507707 t more
+
+0 arithmetic mismatch(es)

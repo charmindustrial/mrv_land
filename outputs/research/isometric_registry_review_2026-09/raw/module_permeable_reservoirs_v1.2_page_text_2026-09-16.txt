@@ -1,0 +1,4081 @@
+Registry
+Projects
+Protocols
+Account
+Certify
+|
+Menu
+Biomass or Bio-oil Storage in Permeable Reservoirs
+v1.2
+Contributors:
+R
+N
+Content
+Referencing protocols
+Changelog
+Contents
+1
+Introduction
+1.1
+Monitoring Requirement Risk Categories
+2
+Permitting and Site Characterization
+2.1
+Permitting
+2.2
+Evidence Reporting
+2.3
+Site Characterization
+2.4
+Site Visits
+2.5
+Well Construction Requirements
+3
+Monitoring
+3.1
+Operational Monitoring Requirements
+3.1.1
+Injection and Injectate Monitoring
+3.1.1.1
+Continuous Gas Monitoring
+3.1.2
+System Integrity Monitoring
+3.1.3
+Migration and Storage Reversal Monitoring
+3.1.3.1
+Surface and Near Surface Monitoring
+3.1.3.2
+Subsurface Monitoring
+3.1.3.3
+Triggered Gas Investigation
+3.1.3.4
+Leaks
+3.2
+Post Injection Monitoring
+4
+Risk of Reversals
+4.1
+Attribution of Reversals
+5
+Calculation of CO2eEmissions
+6
+Closure and Post-closure Requirements
+7
+Recordkeeping
+8
+Acknowledgements
+9
+Contributors
+10
+Definitions and Acronyms
+11
+Appendix 1: Monitoring Plan Requirements
+12
+Appendix 2: Approved Permitting Regimes
+13
+Relevant Works
+Footnotes
+Contributors
+1.0
+Introduction
+Introduction
+
+This Module details durability and monitoring requirements for bio-oil and biomass storage in permeable reservoirs.
+
+This Module is applicable for bio-oil or biomass slurry injection into permeable reservoirs (clastic and carbonate reservoirs i.e., saline aquifers and depleted hydrocarbon fields) that have been approved by the relevant permitting authority. A confining layer with low porosity, low permeability and free of geologic or man-made features that could act as conduits for leaks is required in order to prevent the migration of any buoyant fluids (for example any biogas produced) into overlying formations and act as a barrier for fracture propagation. The storage complex is defined as the storage site which is suitable for the long-term storage of carbon-laden fluids and associated elements and surrounding geological domain which can have an effect on overall storage integrity and security. It comprises a targeted reservoir/reservoir and surrounding low permeability seals which enclose the reservoir(s).
+
+Biomass slurry is expected to be a sludgy organic waste (e.g., manure, food waste, agricultural waste, paper sludge) mixed on-site with available water sources such as brine.  The slurry contains compounds such as carbon, nitrogen, phosphorus, oxygen, hydrogen, sulfur, and trace elements found in the organic waste. The injection and storage of municipal wastewater/sewage effluent has been occurring since the 1960s [^2] and biomass injection and storage has been practiced since 2008 with research development and practice led by Advantek [^1].
+
+Bio-oil is a dark, viscous liquid with a typical pH of between 2-3, consisting of oxygenated hydrocarbon compounds1. Bio-oil can have co-products like biochar mixed into it prior to subsurface injection. The storage of bio-oil in permeable reservoirs for the purpose of carbon storage is relatively new and has not been well studied and documented as of November 2025. Research by Charm Industrial using bench scale experiments suggest that at a viscosity of 6000 cP, bio-oils polymerize and becomes even more viscous2. They suggest this could be reached between 2 and 15 years at reservoir temperatures between 35°C and 60°C respectively reducing the risk of migration2, 3. 
+
+Note: Within this Module, the words ‘bio-oil’, ‘bio-oil with biochar’, ‘biomass slurry’ and ‘injectant’/’injectate’ are used interchangeably.
+
+The durability of biomass and bio-oil stored in geologic formations depends on the operation and monitoring of injection activities, as well as the characteristics of the biomass or bio-oil, the geologic storage complex and  the interactions between the two. To ensure sufficient durability, injectate characteristics and conditions of storage must be well defined, modeled, and monitored as well as updated over time. Subsurface injection of bio-oil/biomass into an appropriate storage complex in line with permitting requirements and this Module, is expected to result in the removal of carbon from the atmosphere and storage on geological timescales.  
+
+Section 2.2 outlines requirements for evaluating biomass and bio-oil injection and storage, with a focus on site characterization, well construction and monitoring. The post-injection monitoring plan detailed in Section 3.2 acts to address and mitigate these potential risks to durability. Section 4.0 addresses accounting for any emissions associated with these risks. 
+
+Monitoring of the injection, operations and project site shall be completed to ensure that any injectate and any biogas formed (such as CO2, CH4, or other volatiles) remains stored within the storage site and does not migrate outside of the storage complex. The injection site shall be monitored in accordance with the permitting requirements as specified in the operating permit for the injection site issued by the relevant regulatory authority. 
+
+R-Y44J-0
+
+The subsurface monitoring approach developed and implemented by the Project Proponent or Operator (when the Project Proponent is not operating the site) shall address, via the permitting process and permit compliance, or by additional efforts and documentation:
+
+Storage Complex and Site Characterization: The storage complex and AOR must be properly characterized and evaluated, including local and regional hydrogeology and identification of any leak pathways. Measurements prior to injection may act as background measurements for models or for comparison with future measurements.
+Injection Site Construction and Performance: the proposed storage site and injection system must be properly designed, including design and specification of wellbore and well materials to ensure proper long term operation of the well when injecting biomass/bio-oil and ensuring it remains within the storage complex. 
+Injection System Operation & Monitoring: the Project Proponent must specify operating conditions and monitoring systems and approaches, such as allowable wellhead pressures, gas detection, and other systems to ensure that the injectate remains in the geologic formation, the formation and confining layer are not negatively impacted by operations, automatic safety precautions are in place to minimize potential for exceeding allowable operating conditions, and conditions can be monitored for compliance or deviation from requirements. Monitoring and reporting of operations will be in accordance with the relevant regulatory body. Any non-compliance must be reported to the Validation and Verification Body (VVB) and addressed with corrective actions (see Section 3.1.3.3 and the relevant Isometric Standard section).
+Closure and Post-Closure Requirements: Requirements for proper closure of the storage complex and injection facility, as well as post closure requirements and post-injection monitoring to ensure the injectate remains sequestered durably in the storage complex, the site is properly monitored and closed when the regulatory authority determines conditions have been met to demonstrate long-term storage.
+
+Specifically, the requirements in this Module must be met to ensure durable storage of biomass and bio-oil in the storage complex.
+
+1.1
+Monitoring Requirement Risk Categories
+Monitoring Requirement Risk Categories
+
+Potential risks to expected durability of biomass and/or bio-oil are site specific and may include:
+
+Risk A: Migration outside of the intended storage complex. 
+The storage complex may not be sufficiently characterized and modeled, resulting in unintended migration. Therefore, site characterization, including identifying and modeling any features or processes that could lead to migration outside of the storage complex is required and underpins project monitoring and reduces the overall risk of migration. 
+Bio-oil may not undergo polymerization post-injection, and remains as a liquid which could migrate out of the intended storage complex. Even if bio-oil does polymerise, migration (of bio-oil or any gasses formed) out of the intended storage complex is a possible risk before this occurs. Bio-oils as a category cover a wide variety of characteristics, with significant variation across bio-oils produced based on the feedstock, biomass conversion process, operating conditions, and processing undertaken4, 5. Specific characteristics of bio-oils such as total acid number (TAN), pH, and oxygen content, can impact stability of bio-oil and likely its tendency to polymerize (solidify).  Biomass slurry could also migrate outside the intended storage complex. Migration and confinement must therefore be monitored and modeled (see Section 3.1.3.1 & Section 3.2. 
+Migration out of the intended formation may also result from a loss of wellbore integrity or abandoned wells within the Area of Review (AOR)6 which penetrate the injection or confining zone. The AOR for the site shall be defined within the permit in accordance with the requirements for the specific well class, formation, and local characteristics.
+Migration out of the intended formation may also result from the migration up an existing or newly opened fault.  Faults should be mapped out prior to injection and fracture propagation should not intersect with active faults (Section 2.2). In addition, the formation of new faults must be monitored over the Project’s monitoring period. 
+Any releases from migration out of the intended storage complex within the storage complex must be deducted from the total CO2 removal claimed by a project (Section 4.0).
+Risk B: Induced fracturing of the confining layer in addition to the storage complex:
+The target reservoir within the storage complex may be purposely fractured to allow for the greatest amount of biomass or bio-oil storage and prevent clogging of the pore spaces. If there is induced fracturing, there is a risk that the overlying confining layer could also become fractured. Fracturing of the confining layer is unlikely to occur as injection pressures must be kept below the fracture gradient of the confining layer7. Any signs of loss of integrity of the confining layer will be monitored as part of the operation and post-injection monitoring plan (see Section 3.1.3.1 & Section 3.2).  Any releases of injectate or biogas from the storage complex must be deducted from the total CO2 removal (see Section 4.0).
+Risk C: Biomass or bio-oil may be converted into bio-gas in the storage complex, such as CO2, CH4, N2, O2 and VOCs (volatile organic compound).
+Biomass or bio-oil could biodegrade to form CO2, CH4, N2, O2 and VOCs. Any signs of gas formation should be modeled and monitored as part of the operational and post-injection monitoring plan (see Section 3.1.3.1 & Section 3.2). Any gasses formed in-situ shall be considered removed due to the presence of one or more confining layers that prevent the vertical migration of buoyant phases (such as biogas) however, if there are any releases of gasses from the storage complex must be deducted from the total CO2 removal (see Section 4.0).
+Risk D: Biomass/bio-oil injection results in leaks in injection, monitoring or legacy wells.
+Biomass/bio-oil can damage integrity of any injection monitoring wells.
+Risk E: Bio-oil may react with surrounding storage complex rocks:
+If low pH bio-oil (typically pH 2-3) is injected, it could induce reactions with or dissolution of surrounding reservoir rocks and confining layer, which could decrease durability by providing conduits for migration out of the storage complex. Research by Charm Industrial has shown that at 7 and 21-day bio-oil exposure to sandstone and dolomite, in bench scale  experiments (at 40oC and 100PSI), result in varying degrees of reactivity with up to < 5% and < 3% weight loss for sandstone and dolomite respectively2. Limestone is expected to have a higher degree of degradation2.
+2.0
+Permitting and Site Characterization
+Permitting and Site Characterization
+R-HS07-0
+
+Projects must submit at least one address and/or specific geo-coordinates for the project. Projects may submit multiple project locations – please specify what role each location plays in the project.
+
+2.1
+Permitting
+Permitting
+R-132T-1
+
+The injection facility and reservoir must have a current well permit issued by the responsible authority for the location of the injection facility and salt cavern, that specifically identify biomass, bio-oil or an equivalent type of injectate, as acceptable injectates is required. In addition, The Project must comply with all applicable local environmental, ecological and social requirements as well as those set out in the relevant Protocol and the Environmental and Social Impacts Section of the Isometric Standard. If there is a possibility that the reservoir could be impacted by enhanced hydrocarbon recovery (EHR or EHR+) or other production operations, storage will not be permitted.
+
+Projects operating with an approved permitting regime (see Appendix 2) should comply with the requirements of this Module and of the permit. Where monitoring parameters in this Module defer to the permit, the permit requirements must be disclosed to Isometric within the Project Design Document (PDD) and followed throughout the Project.
+
+G-PF9S-0
+
+For projects operating in locations outside of these regulatory regimes, the Project Proponent must ensure that they meet the requirements of this Module and are equally as rigorous as the permits listed above. This monitoring plan must be signed off by a licensed geoscience professional (Professional Geologist (PG/P.Geo), Chartered Geologist (CGeol), European Geologist (EurGeol), or equivalent; suitably experienced in subsurface work and/or in salt cavern gas or waste storage. The sign-off is to confirm the plan is sufficient for the site, and the signed report must be submitted to Isometric as part of the PDD. Specifically, the reviewer should sign off on: (1) site characterization report; (2) risk register and mitigation plan; (3) Monitoring/Testing/Reporting plan; (4) well-integrity plan; and (5) demonstration of rigor equivalent to the listed permits. If the signed off permit is from within an approved regulatory regime (see Appendix 2), permit compliance can be used as evidence for requirements that align with this Module and have permit compliance as an evidence option. If a requirement does not allow permit compliance as evidence, the required evidence must be submitted.
+
+G-A45E-0
+
+All projects are required to clearly report the regulations for which are utilized at the site, with any deviations from the relevant national/international standards outlined within the PDD upon submission to the relevant validation & verification body (VVB).
+
+2.2
+Evidence Reporting
+Evidence Reporting
+
+For Projects with an Approved Permitting Regime and in good standing with the permitting authority, monitoring requirements which identify "Approved Permit" under Evidence Reporting (see Monitoring Requirement Tables in Appendix A) may be satisfied through submissions to the permitting authority.
+
+The Storage Operator must maintain copies of all data and evidence submitted to the permitting authority against these requirements and must provide such records to Isometric and the VVB within 30 days of submission to the permitting authority, or upon request.
+
+For monitoring requirements not covered under the Approved Permit, the Project Proponent remains responsible for collecting and reporting all required data directly to Isometric and the VVB according to the frequencies and standard reporting timelines specified in this module.
+
+In the case of changes to the permit requirements, permitting authority, and/or regulatory environment, the Project Proponent must notify Isometric and the VVB immediately of any changes which may impact monitoring requirements. Monitoring plans will be subject to reevaluation following such changes.
+
+2.3
+Site Characterization
+Site Characterization
+R-MQYF-1
+
+The proposed storage complex must be properly characterized to demonstrate site suitability for storage and containment of the injectate including evaluating the local and regional geology, hydrogeology and any potential pathways for leaks. This characterization should also include the following conditions to act as Baseline measurements against which to compare future monitoring and help with modeling. 
+
+The site should be well characterized in accordance with the permit application and approval requirements under the relevant regulating authority. Site characterizations must include evaluation of reservoir chemistry and conditions where required to ensure compatibility of the injectate with the storage complex. The Project Proponent must demonstrate that the geologic system:
+
+includes a sequestration zone of sufficient volume, porosity, permeability, and injectivity to receive and store the total anticipated volume of the injectate stream;
+includes a confining system free of transmissive faults and fractures and of sufficient extent and thickness to contain the injectate stream, displaced formation fluids and any gas generation. The confining system should be composed of a layered interval of low and moderate permeability rocks of sufficient thickness and structural integrity to prevent the migration of injectate or any gasses formed out of the storage complex. The confining system should also allow injection at proposed maximum pressures and volumes without initiating or propagating fractures in the confining zone(s), and the maximum allowable surface injection pressure must be calculated and reported;
+will not be impacted by, or induce as a result of the injection process, seismicity at levels that may inhibit the durability of biomass or bio-oil  storage. The Project Proponent will establish criteria within the relevant regulatory authority permit that require relevant seismic monitoring or preventive limitations on injection.
+where applicable and required by the permit,  a “dissipation interval” with hydrogeological properties sufficient to attenuate pressure created by bio-oil, formation fluid or any gasses formed migration to below the storage complex to limit downward overpressure propagation.
+
+In addition, the Project Proponent must also characterize the following to assess the risk of leaks and for comparison to future measurements:
+
+PARAMETER
+
+	
+
+PURPOSE
+
+
+
+
+Reservoir lithology and mineralogy
+
+	
+
+Input into reservoir and fracture simulation models allowing for prediction on the subsurface behavior and to guide injection and induced fracturing of the storage complex, ensuring there is no leak.
+
+
+
+
+Pre-existing fracture network (including fault/fracture identification, rock lithology and mineralogy, density, and stress directions) and breakdown/fracturing pressures
+
+	
+
+To determine the maximum possible magnitude and expected distribution of the seismicity from induced fracturing of the storage interval to be estimated/modeled in time as well as in space, allowing for the maximum injection rate and duration to be calculated.
+To ensure that induced fracturing will not lead to the release of any methane/hydrocarbons from the reservoir rocks.
+
+
+
+
+Temperature, pH, conductivity, density and fluid saturation of storage reservoir formation fluid/brine
+
+	
+
+For density and reactivity calculations and inputs into reservoir models which will guide injection. Potential interaction of the injectate under these conditions with the storage complex may impact whether any potential products (e.g., biogas) are produced as well as injectant mobility and stability.
+
+
+
+
+Dissolved gas, including of Dissolved Inorganic Carbon -DIC, composition in formation fluids, composition of any hydrocarbons present (if injection into a depleted hydrocarbon field) and composition of any tracers being used (e.g., δ13C signature and/or major and minor ion).
+
+	
+
+To determine the source of any produced biogas and extent of secondary trapping mechanisms or reactions (e.g., dissolution, methanogenesis).
+
+
+
+
+Baseline surface CO2 fluxes, where applicable
+
+	
+
+To determine a baseline for future measurements to identify if CO2 leaks are occurring.
+
+
+
+
+Baseline geophysical surveys, where applicable
+
+	
+
+To determine a baseline for future measurements to allow for changes in the subsurface induced by the injection operation to be assessed.
+
+
+
+
+Geochemical composition of USDWs within the AOR (where required in the permit) this should include but is not limited to pH, temperature, density, conductivity, total dissolved solids and dissolved gas concentrations
+
+	
+
+To determine a baseline for future measurements to identify if CO2 leaks are occurring.
+
+
+
+
+Baseline ecosystem imaging, where applicable
+
+	
+
+To determine a baseline for future measurements to identify if CO2 leaks are occurring.
+
+
+
+
+Baseline surface elevation, where applicable
+
+	
+
+To determine a baseline for future measurements to identify if CO2 leaks are occurring.
+
+
+
+
+Maximum allowable surface injection pressure
+
+	
+
+To determine the injection pressure requirements to prevent fracturing of the formation.
+
+The Project Proponent must demonstrate and justify that the biomass or bio-oil and injection process result in long term stability, limited lateral migration, and limited degradation such that the injectate or any gasses formed do not migrate out of the storage complex and impact fresh drinking water or above-surface environmental conditions. Justification must include reservoir simulation work if required by the relevant regulating authority permit, which considers site and injectant characteristics; alternatively, academic studies and peer-reviewed literature representative of the site and injectant characteristics, mobility studies, or other predictive data and studies completed in conjunction with performance monitoring of the formation, such as pressure front monitoring, to ensure the injectate stays within the AOR. Specific laboratory core analysis experiments with relevant cores should be conducted to confirm suitability for bio-oil sequestration operations, including quantification of bio-oil reactivity with the core. The laboratory experiments may also include quantification of the rate at which bio-oil polymerizes (solidifies), and exploration of bio-oil flow. A relevant core could be a representative rock sample from a sister reservoir, or equivalent, or core directly sampled from the project site. Site specific parameters may also result in baseline characterization of the USDWs to be required.
+
+Site characterizations and analytical modeling shall be reviewed every five years as part of the permit renewal application minimums, at the request of the permitting authority, or when monitoring and operational conditions warrant, as indicated by a significant change in site conditions or injectant characteristics, based on monitoring data. The review shall include a comparison of pre-injection project assumptions to actual measured conditions including size, extent, and migration of the injected material, where possible, and specific operating conditions observed during injection. Estimates revised with any acquired monitoring data should demonstrate that the planned injection volume will remain within the storage complex until the end of the post-injection monitoring period.
+
+2.4
+Site Visits
+Site Visits
+
+Project validation and verification must incorporate site visits to project facilities in accordance with the requirements of ISO 14064-3, 6.1.4.2, including, at minimum, site visits during validation and initial verification, to the capture and storage site. Verifiers (i.e., VVBs) should whenever possible observe operation of the capture and storage processes to ensure full documentation of process inputs and outputs through visual observation and validation of instrumentation, measurements, and required data quality measures.
+
+A site visit must thereafter occur at least once every 2 years at each location.
+
+2.5
+Well Construction Requirements
+Well Construction Requirements
+R-FPHE-1
+
+The Project Proponent must ensure that the injection well is constructed in compliance with the relevant regulating authority's permit or equivalent and documentation and records of well construction are maintained and available for review. 
+
+G-PPGP-0
+
+At a minimum, the Project Proponent must ensure that all injection, observation or monitoring, legacy offset and production wells contained within the delineated AOR and that penetrate the containment or injection zones have been evaluated. Extra caution should be used on wells which penetrate the confining layers. Wells which pose a risk to durability plugged prior to injection in order to:
+
+Prevent the movement of fluids into or between any unauthorized zones
+Prevent the movement of fluid into USDW
+Permit the use of appropriate testing devices and workover tools (for injection and any monitoring wells present)
+Permit continuous monitoring of the injection well pressure in the annulus space between the injection tubing and long string casing.
+G-Y080-0
+
+Casing, cement, tubing, packer, wellhead, valves, piping, or other materials used in the construction of the injection well and any monitoring well associated with The Project must have sufficient structural strength and be designed for the life of The Project.
+
+Q-M039-1
+
+All surface casing will be set below the lowermost USDW and cemented to the surface. All well materials must be compatible with fluids with which the materials may be expected to come into contact, including biomass/bio-oil and formation fluids (e.g., corrosion-resistant well casings) and must meet or exceed standards developed for such materials by API, ASTM International, or comparable standards. The casing and cementing program must be designed to prevent the movement of fluids out of the sequestration zone and above the storage complex. Standards used by projects must be clearly outlined within The Project’s PDD.
+
+3.0
+Monitoring
+Monitoring
+
+Monitoring of injection, system integrity as well as for subsurface migration is required in order to identify and measure potential leaks and/or validate update models as appropriate.
+
+3.1
+Operational Monitoring Requirements
+Operational Monitoring Requirements
+R-Q08R-1
+
+The Project Proponent will ensure that the injection facility complies with the well permit, including the development and implementation of the well operating plan as required by the permit.
+
+This plan should be updated every five years, unless the regulatory body that issues the permit requires this to be updated more often, to take account of changes to the assessed risk of leaks, changes to the assessed risks to the environment and human health, new scientific knowledge, and improvements in best available technology. At a minimum, the Project Proponent must consider the following:
+
+3.1.1
+Injection and Injectate Monitoring
+Injection and Injectate Monitoring
+
+Injection and injectate monitoring is required in order to determine the amount of carbon durably removed from the atmosphere, guide injection, for comparison to durability monitoring data and for input into fracture simulation/migration models for validation. This must include:
+
+Maximum allowable surface injection pressure at the injection wellhead that is allowed during injection operations to prevent fracturing of the confining layer, set according to the relevant regulatory body's permit. Injection operation pressures shall reflect any local regulatory agency requirements for formation fracture pressure as to ensure that the confining layer will not be fractured [B].
+Installation and use of continuous recording devices to monitor injection pressure and the pressure on the annulus between the tubing and the long string casing. Injection pressure may be defined either at the wellhead (i.e., wellhead pressure) or downhole (i.e., bottomhole pressure).
+Monitoring and documentation of operational parameters (injection pressure, rate, and volume, the pressure on the annulus, and the annulus fluid volume) through the use of continuous recording devices, using methods including but not limited to acoustic and nuclear methods and temperature and pressure measurements. Records of these must be maintained for review.
+Maximum injection rate to monitor volumes injected, prevent induced seismicity or return of injectant
+Installation and use of continuous recording devices to monitor injection rate and volume
+Monitoring and documentation of injection rate must be performed and records maintained for review
+Limitations on composition of the injected fluid, including, but not limited to pH, density, temperature or other parameters, if relevant, to ensure injectant does not negatively impact the formation via inducing dissolution, reaction, or other degradation pathways, resulting in increased potential for bio-oil and fluid migration. Injectate density must be greater than that of the formation water [A, E].
+Records of laboratory analyses and relevant permit limitations to demonstrate compliance must be maintained in accordance with the well permit and available for review.
+Injectate density must be greater than that of the formation water. The density of bio-oil samples must be measured prior to each injection and compared to formation fluid values to ensure that bio-oil will sink upon injection. These measurements should be repeated before each new injection of bio-oil. Formation fluid samples will be acquired prior to bio-oil injection and compared to historical production data from the storage complex or nearby representative analogues [A].
+Analysis of the injectate stream with sufficient frequency to yield data representative of its chemical and physical characteristics. In addition, analysis of the injectate must demonstrate compliance with the well permit and be available for review. Injectate analysis should consist of the following parameters using industry standard or indicated methods and quality and properly calibrated equipment [E]:
+Total carbon content (for further details see Section 7.3.3.1 of the Biomass Geological Storage Protocol or Section 7.4.1.1 of the Bio-oil Geological Storage Protocol)
+pH
+Temperature
+Chloride concentration or alternative determination as required by the regulator
+Viscosity
+Average solids concentrations
+Density
+Total acid number (TAN) (bio-oil)
+Bio-oil constituents (bio-oil)
+Oxygen content (bio-oil)
+δ13C of the biomass/bio-oil compounds (if required by the permit)
+
+For all injectate monitoring and analyses, sufficient samples must be analyzed to determine that the composition of the injectate is within specified parameters in the relevant regulatory authority permit, where required.
+
+For samples taken each injection, each individual injectate batch should be analyzed and characterized to ensure composition variation from batch to batch is accounted for. Samples should be well mixed and representative.
+
+For samples measured per feedstock type, a representative value should be used. These measurements should be repeated to find representative values every time there is a material upstream process change like a new biomass feedstock. If a blended feedstock is injected, samples should be taken for each injection batch.
+
+In addition the effects of the injectant on the reservoir rocks for the simulations should be known and records of laboratory analyses and relevant permit limitations to demonstrate compliance must be maintained in accordance with the well permit and available for review.
+
+3.1.1.1
+Continuous Gas Monitoring
+Continuous Gas Monitoring
+
+Wells must have species-specific gas detectors (or equivalent sensors/imaging) capable of detecting, at minimum, CO₂, CH₄ and propane (C3H8), with alarms and injection shut-off systems (e.g., automatic shut-off or procedures in place for manual shut off of injection/operation), including injection pump shutoff when maximum pressure is reached or maximum flow rate is exceeded. Where site-specific risk assessment identifies additional species of concern (e.g., H₂S, VOCs, other hydrocarbons), detection capability for those species must also be provided. The Project Proponent must justify the selected detector type(s) and their suitability for the site conditions in the PDD [C].
+
+Detectors/alarms must be placed on any producing wells (e.g., brine producing wells/tanks) as an alternative to wellhead monitoring.  If gas is detected at the brine location and is attributed to biogas formation, continuous detection must be established at the wellhead and monitoring at the brine location must continue. The determination that detected gas is attributable to biogas formation must be made by the Project Proponent and reported to Isometric and the VVB [C].
+
+If gas detection alarms are activated at any monitored well, a "Triggered Gas Investigation" is initiated (Section 3.1.3.1). The Operator must immediately investigate and identify as expeditiously as possible (or in accordance with permit requirements) the cause of the alarm or shutoff, and report the instance to Isometric. Where a Triggered Gas Investigation (Section 3.1.3.1) is already active, individual alarm events must be logged and reported but do not require a separate investigation unless they indicate a materially different or escalating condition [C].
+
+3.1.2
+System Integrity Monitoring
+System Integrity Monitoring
+
+System Integrity monitoring is required in order to ensure that the wells being used are not currently or likely to become a pathway for leaks. Monitoring must include:
+
+Corrosion monitoring of the wells must be performed and reported annually. This should ensure that well components meet the minimum standards for material strength and performance set by API, ASTM [A,D]. International, or equivalent, and include standard annular pressure tests and investigation for loss of mass, thickness, cracking, pitting, and other signs of corrosion .
+A demonstration of external mechanical integrity annually during operation and on a cadence specified by the relevant regulatory authority permit until the injection well is plugged. This could include but is not limited to: an oxygen activation log, temperature log or sensors (e.g., distributed temperature sensors), or noise log [A, D].
+A pressure fall-off test, conducted every two years for unfractured reservoirs, and annually when the reservoir is being fractured [A, D].
+Continuous annulus pressure monitoring during injection [A, D].
+3.1.3
+Migration and Storage Reversal Monitoring
+Migration and Storage Reversal Monitoring
+
+As applicable based on specific site conditions, formation type, and permit class, monitoring is required to ensure that there is no migration of injectate and any generated gases out of the storage complex. Changes versus baseline conditions and/or modeled behavior/predictions may indicate injection related migration or irregularities. These should be used to assess whether any corrective measurements are taken and used to make an updated assessment of the durability of the storage complex both in the short and long term.
+
+3.1.3.1
+Surface and Near Surface Monitoring
+Surface and Near Surface Monitoring
+
+Near-surface monitoring is required at a site-specific frequency and spatial distribution in order to monitor any CO2 movement out of the storage complex. This includes pressure monitoring of the overlying intervals, especially those directly overlying the caprock, for example by having different sealing intervals on the injection well [A].
+
+As applicable based on specific site conditions, formation type, and permit class, injection the Project Proponent could also include:
+
+Periodic geochemical monitoring of lowest USDWs (if required by the permit, as agreed in the monitoring plan with the regulating authority, or as seen appropriate by the Project Proponent) for groundwater quality and geochemical changes that may result from injectate, generated gases or formation fluid movement through the confining zone(s). It is recommended that at a minimum fluids should be sampled for:
+pH
+Temperature
+Density
+Conductivity or other salinity measurement
+Dissolved gas concentrations (i.e., CO2, DIC)
+Total Dissolved Solids (TDS)
+Surface elevation & displacement which can inform on pressure changes or geomechanical impacts from fluid injection, may be required by regulators. When compared to reservoir models, surface displacement can indicate injection-induced fracturing or changes in reservoir volume. Surface displacement should be monitored using one or more of the following techniques:
+Satellite-based radar (SAR/InSAR). Satellite interferometry (InSAR) has been used to measure small displacements of the ground surface (of up to 2–3 cm) that have been related to the injection of CO2 at depth
+Surface- and subsurface-based tiltmeters
+GPS instruments
+Surface CO2 density and flux measurements to identify large point-source leaks, may be required to ensure compliance with regulations on potential risks to USDWs or by local regulators. Monitoring frequency and spatial distribution shall be determined using baseline data. Monitoring can be completed using one or more of the following methods:
+Optical CO2 sensors, such as airborne Infrared spectroscopy, non-dispersive infrared spectroscopy, cavity ring-down spectroscopy or LIDAR (light detection and ranging)
+Eddy covariance (EC) flux measurement at a specified height above the ground surface
+Portable or stationary carbon dioxide detectors
+Water table levels must be monitored if water from active aquifers is being used as part of the injection process.
+Ecosystem stress monitoring, which can be an early indicator for CO2 leaks. This should be monitored continuously with ad hoc random on-site verification to validate any anomalies. Continuous monitoring could either be done via site based phenocams or medium-to-high resolution remote sensing and compared to baseline images.
+3.1.3.2
+Subsurface Monitoring
+Subsurface Monitoring
+
+Subsurface monitoring is required to monitor the temperature and pressure within the storage complex as well as detect and monitor the lateral extent and boundaries of injectate or biogas migration within the storage complex to ensure that the plume stays within the storage complex. Plume and pressure-front monitoring results also provide necessary data for comparison to and verification of model predictions, if major deviations from the model are observed, operations should be modified and/or the monitoring plan should be updated. A combination of direct (e.g., temperature logging, monitoring, analysis of well returns) and indirect methods (e.g., advanced pressure fall off, simulation studies) are required to confirm containment of the injectate and any byproducts from biodegradation (e.g., CO2, CH4, N2, O2 and VOCs), if any, during operations and during project decommissioning. Monitoring must include both direct (e.g., temperature & pressure logging, analysis of well returns) and indirect (e.g., reservoir imaging, simulation studies) methods[A,B,C]:
+
+Continuous monitoring of formation fluid temperature, pressure of both the reservoir and the overlying formation, and any monitoring wells, if applicable, is required to show vertical containment within the storage complex. Temperature and pressure should be logged continuously, for example temperature could be measured through a fiber-optic distributed temperature sensing system [A].
+Indirect monitoring of plume migration should be conducted every 5 years if required by the approved permit. Indirect methods should include reservoir imaging (e.g., seismic, gravity, and/or electrical methods) which should be chosen based on their response to predictions in reservoir & geological models and storage simulations, and compared against the baseline conditions [A].
+Monitoring of pre-existing fractures and fracture development. Prior to injection step rate tests should be conducted to understand the fracture breakdown and fracturing pressures. During operation, when the reservoir is being fractured, pressure fall-off tests should be done annually to understand how the formation is responding to injection and look at induced fracture stability, including the closure and fracturing pressures that guide injection. Any deviations from simulations (see below) must be reported to Isometric, the VVB and regulating authority. Any major consistent deviations from simulations could result in an AOR re-evaluation, which may be performed based upon injection operations at the UIC Program Director's or equivalent discretion/request. In addition, fracture propagation should not be towards faults that could result in the migration of fluids above the confining layer [B].
+At a minimum, all projects are required to monitor for seismic activity caused by operations using regional seismic data and report any seismic events of magnitude 2.78 or greater [B]. An additional seismic monitoring program may be suggested at the discretion of the regulator or certified geologist for projects with increased risk of induced seismicity (e.g., induced fracturing) or in areas of increased seismic risk, where demonstrated that seismicity may have an impact on the formation and durability of the injectate. This shall include deeper wireline or cemented subsurface geophones for microseismic monitoring and could be combined with at/near ground level stations as part of an integrated strategy. Seismic monitoring can be used to determine the presence or absence of any induced micro-seismic activity associated with all wells and near any discontinuities, faults, or fractures in the subsurface, or any seismic activity in the area within the AOR of the injection facility and the area of the storage reservoir of magnitude 2.7 or greater.
+Reservoir modeling must be performed to estimate and locate the injectate as well as gas generation and migration. This must include pressure and fracture simulations and be done using software with an industry accepted methodology or where no such software is not available, a method of calculation shall be used that is justified and approved by the regulating authority. Fracture simulation modeling and analysis must provide estimates on fracture size and expected distribution including at minimum, fracture width, length and height. This should be compared to data directly collected from the reservoir (e.g., pressure, temperature) and any other nearby relevant subsurface data (i.e., porosity and permeability of our injection horizon and confining layer, injection history, rock mechanical properties, mapped faults, etc) to ensure model validity and confirm the containment of the fractures and injectate within storage complex. Uncertainty analysis is required around key variables in the simulation to ensure durability persists across a variety of scenarios within the realistic range of values. All parameters used within the models, their values and accuracy must be reported and submitted to Isometric and the VVB. Reservoir models must be updated as operation data changes [A, B, C].
+
+As applicable based on project- and site- specific conditions the Project Proponent should also include:
+
+Identifying gaseous degradation products (CO2, CH4, VOCs) in monitoring wells that may indicate biomass/bio-oil degradation and/or migration. Results must be compared to baseline values obtained prior to injection (see Section 2.2) [C].
+Geochemical monitoring of the reservoir fluids to determine the behavior of the injectate and any gases formed and their migration extent if monitoring wells are available [A, C]. These measurements could include but are not limited to:
+pH
+Density
+Conductivity
+Gas/dissolved gas composition including DIC ( to determine fluid saturation states as calculated by thermodynamic principles, to see if these conditions are conducive for mineralization)
+Formation fluid tracers
+Formation fluid composition, including major and minor ion concentrations
+Formation fluid bio-oil constituents
+
+The final list of constituents to be monitored will be determined between the Project Proponent and regulating body on a project-specific basis using site-specific data from site characterization and injectate composition.
+
+3.1.3.3
+Triggered Gas Investigation
+Triggered Gas Investigation
+
+When the continuous gas detection system (Section 3.1.1.1) detects gases from the cavern, or gas is recovered in the displaced brine stream (or from monitoring wells or representative sampling locations when available), a Triggered Gas Investigation must commence. This investigation comprises gas composition analysis and isotope analysis to determine the source and extent of detected gases. Both analyses are initiated concurrently,  isotope analysis is not contingent on results from composition analysis [C].
+
+Monitoring of the composition of any gas recovered in the displaced brine (or monitoring wells or representative sampling locations when available) is required on a monthly basis if gases from the cavern are detected. Gas monitoring must include CO₂, CH₄ and VOCs emissions from the salt cavern via species-specific gas monitors with a resolution of at least 0.01 vol%, or lab analysis, if sampled (e.g., gas chromatography on grab bag or equivalent samples). When concentrations above background atmospheric levels are detected, a sample must be taken to establish the chemical composition of the displaced gases (including CO2, CH4, N2, O2 and VOCs). Results must be compared to baseline values obtained prior to CO2 injection. Wellhead pressure should be monitored continuously, and wellhead gas sampling should be monthly [B,C].
+
+3.1.3.4
+Leaks
+Leaks
+
+The Project Proponent/operators must prepare an emergency response plan which outlines corrective actions which will be taken in case of biomass/biogas leaks. The plan must be submitted and approved by the competent permitting authority.
+
+If any leaks are detected from the storage complex or there are significant irregularities from the used model(s), the Project Proponent/operators must undertake corrective measures as set out in their monitoring plan submitted and approved by the competent authority. For a loss of conformance with models/expected behaviors, the Project Proponent must halt injection whilst they identify the cause of this loss, and then revise the monitoring plan to account for this change of migration. If there is a leak the Project Proponent must halt injection whilst they conduct an assessment to determine if the loss of containment can be repaired prior to injection beginning again. The amount of CO2e lost must also be quantified and subtracted from the overall total stored.
+
+Re-evaluations of the injectate fluid plume extent must also be implemented when warranted based on observational or quantitative changes of the monitoring parameters of the storage complex, including but not limited to:
+
+Observed migration of the plume or of any gasses formed is unexpected and suggests potential movement of injectate outside the intended formation
+Injectate migration into a zone above the storage complex
+Injectate plume or elevated pressure extend beyond analytical model expectation because any of the following has occurred:
+an earthquake of magnitude 2.78 or greater within the AOR;
+a new site characterization data which changes the model inputs to such an extent that the predicted injectate and/or pressure plume extends vertically or horizontally beyond what was originally predicted.
+
+Further information on the risk and attribution of reversals, see Section 4.0.
+
+3.2
+Post Injection Monitoring
+Post Injection Monitoring
+
+The aim of this post-injection monitoring and the closure requirements (Section 6.0) is to put in place scientific and/or operational monitoring practices that prove beyond reasonable doubt that carbon storage will be durable on geologic timescales. Addressing potential risks to durability (Section 1.0) is important for ensuring robust and diligent carbon dioxide removals.
+
+R-Z59B-1
+
+The Project Proponent must follow any post-injection and site decommissioning requirements of the permit for the specified project. Post-injection is defined as monitoring between the end of injection and plugging of the wells. Please note, the requirements in this section should be followed prior to closure of the injection well (see Section 6.0).
+
+Post-injection monitoring must apply the same monitoring strategy as implemented during injection and operation is used (with the exception of injection specific parameters for example injection composition and fracture propagation), with a focus on methods tailored to address the anticipated system changes and risks that may occur. Any migration of fluids in an unexpected manner observed at the surface prior to closure of the site should be sampled and measured for (i) carbon content and density (as above), and any reversals in storage accounted for as outlined in Section 4.0. This monitoring therefore must focus on:
+
+External mechanical integrity tests of the injection well, and any monitoring wells if applicable, occurs annually for the first three years after injection ceasing and every five years until site decommissioning, to ensure they do not become a pathway for leaks [D].
+Corrosion monitoring of the injection well and any monitoring wells if applicable, occurs annually [D].
+Reservoir temperature and pressure [A, B].
+Annulus pressure, measured monthly [D].
+Pressure fall-off tests, every two years. If the reservoir has been fractured, then this test must be conducted annually.
+Indirect imaging or measurements of plume confinement or pressure front migration, if applicable [A].
+Pressure in the overlying formation and of the USDWs (where applicable) to identify and address any pathways for leaks that arise [A].
+Identification of biogas from the degradation of the injectate [C].
+Monitoring seismic activity using regional seismic data. Isometric and the VVB must be notified of any seismic events over magnitude 2.7 [B].
+Reservoir modeling, updated based on monitoring data collected during post-injection monitoring to demonstrate the stability of the injectate and lack of plume or biogas migration in the formation that would present a risk to water sources or a potential reversal in the AOR. Any measured parameters should be compared to modeled predictions to help refine the model or identify possible risks [A, B, C].
+
+At a time period expected between 2-15 years, sampling and/or other monitoring data from the injection well and/or monitoring wells at the time intervals specified here may demonstrate that bio-oil has polymerized (solidified)9 for example by obtaining a core from the reservoir. After the given time period, the following monitoring may be required under certain site conditions:
+
+Periodic biogas monitoring every 6 months (exactly as in Section 3.1.3)
+It is possible that before polymerization there will be separation of a carbon-rich aqueous phase from bio-oil. This is expected to be denser than formation fluids and will therefore remain unable to migrate upwards towards the surface2 10 11. Monitoring of the aqueous phase will be challenging due to it remaining deep in the reservoir and being indistinguishable from formation brines on geophysical logs. Any migration of fluids in an unexpected manner observed at the surface prior to closure of the site should be sampled and measured for (i) carbon content and density (as above), and any reversals in storage accounted for as outlined in Section 4.0.
+
+The frequency of post-injection monitoring may be reduced, determined by specific, risk-based, quantitative criteria detailed as part of the regulating permit. Such criteria could include the reservoir pressure reaching a certain level relative to pre-injection conditions or steady or favorable trends in observed geochemical monitoring results over a predefined period, and agreement with model predictions.
+
+If the plume stabilization can be demonstrated (see Section 6.0), and is independently reviewed and certified by a registered Professional Geologist (i.e. Chartered Geologist or equivalent), the injectate will be considered stabilized and the site decommissioned following requirements in Section 6.0.
+
+4.0
+Risk of Reversals
+Risk of Reversals
+
+The reversal risk shall be determined on a project by project basis. There should be no reversals unless there is a loss of well integrity or migration outside of the storage complex, and this technology does not yet have a documented history of reversals. Based on present levels of scientific knowledge, ++Projects applicable to this Module are typically categorized as having a Low Risk Level of Reversal according to the Isometric Standard Risk Assessment Questionnaire (also found in the relevant Protocol). This results in a 5% buffer pool for Projects using this Storage Module. This reversal risk will be reassessed at the renewal of the Crediting Period++, or when new scientific research and knowledge are produced.
+
+In instances where reversals are determined to be a result of negligence by the storage operator, Project Crediting may be ceased. Reversals will be accounted for by projects and the Isometric Registry as detailed in the Reversal and Buffer Pool Section of the Isometric Standard.
+
+4.1
+Attribution of Reversals
+Attribution of Reversals
+
+When a reversal is detected and quantified, there are multiple considerations that will be taken into account to attribute the reversal to whatever has been injected in the storage complex.
+
+If the Project Proponent was the only entity injecting into a given storage complex, the Project Proponent will take on 100% of the reversal.
+If the Project Proponent was one of multiple entities injecting into that storage complex, the Project Proponent will be allocated a percentage of the reversed CO2 proportional to the mass of injected material. For example:
+A storage complex has a total of 200t of material injected at the time when the reversal is detected (this information should be provided by the Operator).
+The Project Proponent has injected 50t of material in that storage complex.
+The amount of reversed CO2 has been quantified to be 10t.
+The Project Proponent must compensate for 25% (50/200) of 10t CO2 = 2.5t of CO2.
+5.0
+Calculation of CO|2|e|Emissions
+Calculation of CO2eEmissions
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Emissions
+	​
+
+ is the total greenhouse gas emissions associated with a given Reporting Period, 
+𝑅
+𝑃
+RP, or batch, 
+𝑛
+n.
+
+Equations and emissions calculation requirements for 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Emissions
+	​
+
+, including considerations for monitoring activities, are set out in the relevant Protocol and are not repeated in this Module.
+
+6.0
+Closure and Post-closure Requirements
+Closure and Post-closure Requirements
+R-YA02-1
+
+In order to close and decommission a site, the Project Proponent must prove beyond reasonable doubt that injected biomass or bio-oil will stay within the storage complex with no reversals, thus demonstrating storage will be durable for the expected >10,000-year timescales. The Project Proponent shall ensure that all relevant regulatory authority permit requirements associated with planning for, preceding with and monitoring of well or storage complex closure are adhered to and documented as required by the permit. A Site Closure Plan shall be prepared in accordance with the relevant regulatory authority permit requirements.
+
+Closure can occur once an assessment is completed to demonstrate that the injectate plume has stabilized or is trending towards stabilization - eliminating the risk of migration or release of the injectate or its degradation products from the storage formation to the atmosphere. The Project Proponent will actively explore emerging technologies for measuring plume stabilization. The plume stabilization assessment shall be conducted in one of the following ways:
+
+Utilize predictive modeling based on monitoring data collected during post-closure monitoring to demonstrate the stability of the injectate plume and lack of injectate or biogas migration in the formation that would present risk to water sources in the Area of Review.
+Modeling must be validated by comparison to historical monitoring data.
+Models must utilize site specific geochemistry and injectate characteristics from analyses required in Section 3.1.3.1, 3.1.3.2 and 3.2 of this Module.
+Models must assess the potential plume extent after 50 years and demonstrate that the plume will not migrate beyond the AOR and will not impact drinking water sources nor cause other environmental harms.
+Utilize new methods as outlined in subsequent Module versions and as measurement and monitoring technologies advance.
+
+If the plume stabilization can be demonstrated by the above methods, and is independently reviewed and certified by a registered Professional Geologist (i.e. Chartered Geologist or equivalent), the injectate plume will be considered stabilized and additional monitoring post-closure may be discontinued if allowed under the relevant regulatory authority permit.
+
+The timeframe for post injection monitoring and closure should be aligned with regulatory guidance and based on site specific operation and monitoring data, for example whether plume stabilization is demonstrated. If stabilization cannot be proven and if the regulating authority does not have guidance on the minimum timeframe, this is set at a minimum of 50 years in line with the EPA guidelines for geological CO2 storage. The length of ongoing monitoring will be subject to change given subsequent reanalyses.
+
+During decommissioning, the Project Proponent shall ensure flushing of all wells with a buffer fluid, determine bottom hole reservoir pressure, and perform a final external mechanical integrity test to ensure that plugging materials and procedures are selected correctly. All injection and monitoring wells should then be plugged appropriately, for example multiple cement plugs, and to the regulators requirements.
+
+G-F5JF-0
+
+A site report (providing information on the operation, monitoring & modeling and closure procedures) should be created by the Project Proponent and submitted to regulatory bodies and storage agreements with pore space owners will ensure activity in the storage site is prohibited for perpetuity following injection, it will not be subject to pressure disturbances (i.e., injection or production activities) in the storage complex and land owners will be aware. It is also recommended that the Project Proponent notifies other stakeholders, such as nearby drinking water utilities and agencies with primacy for drinking water regulations. A copy of the site decommissioning plan should also be retained by the Project Proponent for a minimum of 10 years (or longer if required by the regulator) following site decommissioning.
+
+7.0
+Recordkeeping
+Recordkeeping
+
+All records associated with the characterization, design, construction, injection operation, monitoring, and site closure must be developed, reported in the project design document, to the VVB's and to proper authorities as required by the permit.
+
+Records of laboratory analyses and relevant permit limitations to demonstrate compliance must be maintained in accordance with the well permit and available for review at any point during the Crediting Period or post closure.
+
+Records of all analyses and injections must be maintained by the storage facility or Project Proponent and provided for verification purposes for a minimum of five years after the end of the monitoring period.
+
+All closure and post-closure monitoring records must be maintained by the Project Proponent for a minimum of 10 years after closure. These records must be available to be consulted by interested parties for future clarifications if needed.
+
+8.0
+Acknowledgements
+Acknowledgements
+
+Isometric would like to thank Chris Holdsworth (University of Edinburgh) and Anhar Karimjee (Kyanite Strategies) for contributing to this Module.
+
+9.0
+Contributors
+Contributors
+
+Rebecca Tyne, Ph.D.
+
+Nicholas Ashmore, Ph.D.
+
+10.0
+Definitions and Acronyms
+Definitions and Acronyms
+Activity
+The steps of a Project Proponent’s Removal or Reduction process that result in carbon fluxes. The carbon flux associated with an activity is a component of the Project Proponent’s Protocol.
+American Society for Testing and Materials (ASTM)
+A standards organization that develops and publishes voluntary consensus international standards.
+Area of Review (AOR)
+The area surrounding an injection well described according to the criteria set forth in the U.S. Code of Federal Regulations § 40 CFR.146.06, which, in some cases, such as Class II wells, the project area plus a circumscribing area the width of which is either 1⁄4 of a mile or a number calculated according to the criteria set forth in § 146.06.
+Baseline
+A set of data describing pre-intervention or control conditions to be used as a reference scenario for comparison.
+Bio-oil
+A mixture of water, organic acids, aldehydes, ketones, sugars, phenols, and other organic compounds derived from the thermal breakdown of biomass. Thermal breakdown of biomass is achieved via thermochemical processes, such as pyrolysis, which heat biomass in low- or no-oxygen environments to high temperatures (~e.g. 350-650°C). Bio-oil is often also referred to as pyrolysis oil or bio-crude.
+Buffer Pool
+A common and recognized insurance mechanism among Registries allowing Credits to be set aside (in this case by Isometric) to compensate for Reversals which may occur in the future.
+Carbon Dioxide Equivalent Emissions (CO₂e)
+The amount of CO₂ emissions that would cause the same integrated radiative forcing or temperature change, over a given time horizon, as an emitted amount of GHG or a mixture of GHGs. One common metric of CO₂e is the 100-year Global Warming Potential.
+Cement
+A chemical substance used for construction that sets, hardens, and adheres to other materials to bind them together. Ordinary Portland Cement (PC) is the most common cement used in modern concrete. Other types of cement include Ground Granulated Blast-furnace Slag (GGBS), Pulverised Fly Ash (PFA) and natural pozzolans.
+Co-product
+Products that have a significant market value and are planned for as part of production.
+Crediting Period
+The period of time over which a Project Design Document is valid, and over which Removals or Reductions may be Verified, resulting in Issued Credits.
+Durability
+The amount of time carbon removed from the atmosphere by an intervention – for example, a CDR project – is expected to reside in a given Reservoir, taking into account both physical risks and socioeconomic constructs (such as contracts) to protect the Reservoir in question.
+Emissions
+The term used to describe greenhouse gas emissions to the atmosphere as a result of Project activities.
+Environmental Protection Agency (EPA)
+A United States Government agency that protects human health and the environment.
+Feedstock
+Raw material which is used for CO₂ Removal or GHG Reduction.
+Geologic Formation
+A body of similar rock type (e.g. color, grain size, mineral composition, texture) and a particular location in the stratigraphic column (vertical rock layers). Formations are large enough to be mappable on Earth's surface or traceable in the subsurface.
+Global Positioning System (GPS)
+A satellite-based navigation system.
+Light Detection and Ranging (LiDAR)
+LiDAR is a remote sensing technology that uses laser pulses to create highly accurate three-dimensional maps of forest structure, enabling measurements of tree height, canopy density, and biomass.
+Losses
+for open systems, biogeochemical and/or physical interactions which occur during the removal process that decrease the CO₂ removal .
+Model
+A calculation, series of calculations or simulations that use input variables in order to generate values for variables of interest that are not directly measured.
+Module
+Independent components of Isometric Certified Protocols which are transferable between and applicable to different Protocols.
+Monitoring Period
+A period during which a Project has any obligations, under the selected Protocol, to submit ongoing Monitoring data to Isometric and the VVB.
+Pathway
+A collection of Removal or Reduction processes that have mechanisms in common.
+Project
+An activity or process or group of activities or processes that alter the condition of a Baseline and leads to Removals or Reductions.
+Project Design Document
+The document, written by a Project Proponent, which records key characteristics of a Project and which forms the basis for Project Validation and evaluation in accordance with the relevant Certified Protocol. (Also known as “PDD”).
+Project Design Document (PDD)
+The document that clearly outlines how a Project will generate rigorously quantifiable Additional high-quality Removals or Reductions.
+Project Proponent
+The organization that develops and/or has overall legal ownership or control of a Removal or Reduction Project.
+Protocol
+A document that describes how to quantitatively assess the net amount of CO₂ removed by a process. To Isometric, a Protocol is specific to a Project Proponent's process and comprised of Modules representing the Carbon Fluxes involved in the CDR process. A Protocol measures the full carbon impact of a process against the Baseline of it not occurring.
+Registry
+A database that holds information on Verified Removals and Reductions, and reviewed EACs, based on Protocols. Registries Issue Certificates, and track their ownership and Retirement.
+Remote Sensing
+The use of satellite, aircraft and terrestrial deployed sensors to detect and measure characteristics of the Earth's surface, as well as the spectral, spatial and temporal analysis of this data to estimate biomass and biomass change.
+Removal
+The term used to represent the CO₂ taken out of the atmosphere as a result of a CDR process.
+Reservoir
+A location where carbon is stored. This can be via physical barriers (such as geological formations) or through partitioning based on chemical or biological processes (such as mineralization or photosynthesis).
+Reversal
+The escape of CO₂ to the atmosphere after it has been stored, and after a Certificate has been Issued. A Reversal is classified as avoidable if a Project Proponent has influence or control over it and it likely could have been averted through application of reasonable risk mitigation measures. Any other Reversals will be classified as unavoidable.
+Stakeholder
+Any person or entity who can potentially affect or be affected by Isometric or an individual Project activity.
+Storage
+Describes the addition of carbon dioxide removed from the atmosphere to a reservoir, which serves as its ultimate destination. This is also referred to as “sequestration”.
+Synthetic Aperture Radar (SAR)
+A remote sensing technology which uses radio waves to create images of the earth’s surface.
+UIC
+Underground Injection Control
+Uncertainty
+A lack of knowledge of the exact amount of CO₂ removed by a particular process, Uncertainty may be quantified using probability distributions, confidence intervals, or variance estimates.
+Validation
+A systematic and independent process for evaluating the reasonableness of the assumptions, limitations and methods that support a Project and assessing whether the Project conforms to the criteria set forth in the Isometric Standard and the Protocol by which the Project is governed. Validation must be completed by an Isometric approved third-party (VVB).
+Validation and Verification Bodies (VVBs)
+Third-party auditing organizations that are experts in their sector and used to determine if a project conforms to the rules, regulations, and standards set out by a governing body. A VVB must be approved by Isometric prior to conducting validation and verification.
+Verification
+A process for evaluating and confirming the net Removals and Reductions for a Project, using data and information collected from the Project and assessing conformity with the criteria set forth in the Isometric Standard and the Protocol by which it is governed. Verification must be completed by an Isometric approved third-party (VVB).
+11.0
+Appendix 1: Monitoring Plan Requirements
+Appendix 1: Monitoring Plan Requirements
+
+This appendix details how the Project Proponent must monitor, document and report all metrics identified within this Module to demonstrate the durability of CO2 removal. Following this guidance will ensure the Project Proponent measures and confirms CO2 removed and long-term storage compliance, and will enable quantification of the emissions removal resulting from the Project activity during the Project Crediting Period, prior to each Verification.
+
+This methodology utilizes a comprehensive monitoring and documentation framework that captures the GHG impact in each stage of a Project. Monitoring and detailed accounting practices must be conducted throughout to ensure the continuous integrity of the net CO2e and Crediting.
+
+The Project Proponent must develop and apply a monitoring plan according to ISO 14064-2 principles of transparency and accuracy that allows the quantification and proof of GHG emissions removals.
+
+G-2TE4-0
+
+Table A.1 Pre-Injection Monitoring Requirements
+
+REQUIREMENT
+
+	
+
+MEASUREMENT DESCRIPTION
+
+	
+
+MEASUREMENT METHOD
+
+	
+
+BASE FREQUENCY
+
+	
+
+REQUIRED BY THE PROTOCOL
+
+	
+
+REQUIREMENT CONDITIONS
+
+	
+
+REQUIRED EVIDENCE
+
+	
+
+EVIDENCE REPORTING
+
+	
+
+SECTION REFERENCE
+
+
+
+
+Porosity & Permeability
+
+	
+
+Porosity & permeability of sequestration zone strata, caprock, and any confining layers
+
+	
+
+Laboratory tests, literature
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Porosity and permeability values
+
+	
+
+Approved Permit, literature or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Subsurface structures and features
+
+	
+
+Baseline assessment of subsurface structure including any faults, fracture networks, or artificial penetrations (e.g., abandoned wells)
+
+	
+
+Seismic, electrical resistivity tomography, ground-penetrating radar, step-rate test
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Testing data - survey results; fracture assessment could be step-rate test results
+
+	
+
+Approved Permit, literature or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Reservoir volume
+
+	
+
+Volume of sequestration zone
+
+		
+
+Once
+
+	
+
+Required
+
+		
+
+Predicted total volume
+
+	
+
+Approved Permit, literature or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Injectivity
+
+	
+
+Capacity of the reservoir to receive injected fluid
+
+		
+
+Once
+
+	
+
+Required
+
+		
+
+Testing data
+
+	
+
+Approved Permit, literature or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Fluid saturation
+
+	
+
+Fraction of pore space of a rock that is occupied by fluid
+
+	
+
+Core sampling, wireline log
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Testing data - saturation values
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Reservoir pressure
+
+	
+
+Pressure of fluids in the reservoir
+
+	
+
+Bottomhole pressure sensor or calculated from wellhead pressure sensors
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Testing data - pressure logs
+
+	
+
+Testing data
+
+	
+
+Section 2.2
+
+
+
+
+Reactivity of biomass
+
+	
+
+Stability and reactivity of biomass in the target formation
+
+	
+
+Core analysis
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Testing data - brine/biomass interactions; calculation from other parameters
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Emergency Response Plan
+
+	
+
+Written emergency response plan and procedure in case significant loss of containment is detected, including operational procedures and procedures to ensure public safety
+
+			
+
+Required
+
+		
+
+Emergency response plan
+
+	
+
+Emergency response plan
+
+	
+
+Section 3.1.3.3
+
+
+
+
+Formation fluid temperature
+
+		
+
+Temperature probe, calculation
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Testing data / calculation temperature log
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Formation fluid pH
+
+		
+
+pH meter
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Testing data - pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Formation fluid conductivity/salinity
+
+		
+
+e.g., conductivity probe or other method
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Testing data - conductivity, salinity or chloride content data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Formation fluid density
+
+		
+
+Standard methodology
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+Protocol dependent; required for reservoirs if required by permit
+
+	
+
+Testing data - fluid density
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Formation fluid tracers
+
+		
+
+Tracer-dependent
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If tracers are being used
+
+		
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Formation fluid dissolved gas concentrations
+
+		
+
+Gas chromatography
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - dissolved gas concentrations
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Composition of residual hydrocarbons
+
+		
+
+e.g., Gas chromatography
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If in a depleted hydrocarbon reservoir
+
+	
+
+Legacy or testing data of the concentration of major hydrocarbon components
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Maximum allowable surface injection pressure
+
+	
+
+Maximum pressure at injection wellhead to prevent fracturing of confining layer
+
+	
+
+In coordination with regulator
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Permit
+
+	
+
+Permit
+
+	
+
+Section 2.2
+
+
+
+
+Surface elevation & displacement
+
+		
+
+e.g., SAR/InSAR, surface or subsurface tiltmeters, GPS instruments
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Baseline surface elevation data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Surface CO2 fluxes
+
+	
+
+Onshore operation CO2 flux monitoring
+
+	
+
+Use one of the following methods: Eddy Covariance, optical sensors, portable/stationary CO2 detectors, chemical tracers
+
+	
+
+Sufficient time period to capture natural variability
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Baseline CO2/chemical tracers flux or pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Offshore operation CO2 flux monitoring
+
+	
+
+Use one of the following methods: pH or chemical tracers
+
+	
+
+Sufficient time period to capture natural variability
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Baseline CO2/chemical tracers flux or pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Ecosystem imaging
+
+		
+
+Site-based phenocam, medium or high resolution remote sensing, visual inspection
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Background ecosystem survey
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Pressure in the overlying formation
+
+	
+
+Pressure above the target reservoir interval
+
+	
+
+Injection well pressure sensors, monitoring wells
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Testing data - pressure logs
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+Reservoir modeling
+
+	
+
+Modeling of plume migration in the reservoir
+
+	
+
+Computational modeling
+
+	
+
+Once
+
+	
+
+Required
+
+		
+
+Simulation outputs biomass plume migration over project lifetime, associated pressure front, pressure dissipation, uncertainty analysis, containment of fractures, pressure in fractures
+
+	
+
+Simulation outputs
+
+	
+
+Section 2.2
+
+
+
+
+Dissipation interval
+
+	
+
+Characterize additional dissipation interval below the storage complex to limit downward overpressure propagation
+
+	
+
+In coordination with regulator
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required in permit
+
+	
+
+Permit
+
+	
+
+Permit
+
+	
+
+Section 2.2
+
+
+
+
+USDW temperature
+
+		
+
+Temperature probe, calculation
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - temperature
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+USDW salinity/conductivity
+
+		
+
+e.g., conductivity probe or other method
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - conductivity, salinity or chloride content data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+USDW dissolved gas concentration
+
+		
+
+Gas chromatography
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - gas concentrations
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+USDW pH
+
+		
+
+pH meter
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+USDW density
+
+		
+
+Standard methodology
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - density
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+
+
+
+USDW TDS
+
+		
+
+TDS meter
+
+	
+
+Once
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - TDS
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 2.2
+
+G-XS13-0
+
+Table A.2 Operational Monitoring Requirements
+
+REQUIREMENT
+
+	
+
+MEASUREMENT DESCRIPTION
+
+	
+
+MEASUREMENT METHOD
+
+	
+
+BASE FREQUENCY
+
+	
+
+REQUIRED BY THE PROTOCOL
+
+	
+
+REQUIREMENT CONDITIONS
+
+	
+
+REQUIRED EVIDENCE
+
+	
+
+EVIDENCE REPORTING
+
+	
+
+SECTION REFERENCE
+
+
+
+
+Injection pressure
+
+	
+
+Surface injection pressure, this should be below the maximum allowable surface pressure
+
+	
+
+Wellhead pressure sensors
+
+	
+
+Continuous
+
+	
+
+Required
+
+		
+
+Testing data - pressure log
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Injection rate and volume
+
+	
+
+The rate and amount of material that is being injected
+
+	
+
+Flow meter
+
+	
+
+Continuous
+
+	
+
+Required
+
+		
+
+Testing data - flow data
+
+	
+
+Testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Injectate stream pH
+
+		
+
+pH meter
+
+	
+
+One sample per injection batch
+
+	
+
+Required under certain circumstances
+
+	
+
+If a biomass slurry is injected
+
+	
+
+Testing data - pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Injectate stream temperature
+
+		
+
+Temperature sensor
+
+	
+
+Daily
+
+	
+
+Required
+
+		
+
+Testing data - temperature log
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+δ13C of C compounds in the injectate stream
+
+		
+
+e.g., IRMS
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Tracer concentration/composition
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Injectate conductivity or other salinity measurement
+
+		
+
+e.g., conductivity probe or other method
+
+	
+
+One sample per production batch
+
+	
+
+Required
+
+		
+
+Testing data - conductivity, salinity or chloride content data
+
+	
+
+Testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Analysis of bio-oil constituents
+
+		
+
+Gas chromatography-Mass Spectrometry
+
+	
+
+Once per injection batch
+
+	
+
+Required under certain circumstances
+
+	
+
+If bio-oil is being injected
+
+	
+
+Testing data - concentrations of bio-oil constituents
+
+	
+
+Testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Average solids concentration of injectate
+
+		
+
+e.g., Weight of total solids
+
+	
+
+One sample per production batch
+
+	
+
+Required under certain circumstances
+
+	
+
+If biomass/ bio-oil with biochar is injected
+
+	
+
+Testing data - average solids content
+
+	
+
+Testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Total Organic Carbon (TOC) of injectate
+
+		
+
+e.g., Weight % TOC
+
+	
+
+One sample per production batch
+
+	
+
+Required
+
+		
+
+Testing data - concentration TOC
+
+	
+
+Testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Total acid number (TAN) of bio-oil
+
+		
+
+Titration (ASTM D664-18e2, ASTM D3339-21, ASTM D974-22)
+
+	
+
+One sample per injection batch
+
+	
+
+Required under certain circumstances
+
+	
+
+If bio-oil is injected
+
+	
+
+Bio-oil characterization - total acid number data
+
+	
+
+Testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Injectate density
+
+	
+
+Density of the biomass/bio-oil being injected
+
+	
+
+Standard methodology
+
+	
+
+One sample per injection batch
+
+	
+
+Required
+
+		
+
+Testing data-density
+
+	
+
+Testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Oxygen content of bio-oil
+
+		
+
+ASTM D5291, NREL Laboratory Analysis Procedure for Determination of Carbon, Hydrogen, and Nitrogen in Bio-oils, or equivalent
+
+	
+
+One sample per injection batch
+
+	
+
+Required under certain circumstances
+
+	
+
+If bio-oil is being injected
+
+	
+
+Oxygen concentration in wt%
+
+	
+
+Testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Viscosity of biomass
+
+		
+
+ASTM D445-12, ASTM D7042-21a, Rheological characterization, or equivalent
+
+	
+
+One sample per injection batch
+
+	
+
+Required
+
+		
+
+Testing data - viscosity
+
+	
+
+Testing data
+
+	
+
+Section 3.1.1
+
+
+
+
+Annulus pressure
+
+	
+
+Pressure within the wellbore annulus
+
+	
+
+Annulus pressure sensor
+
+	
+
+Continuous
+
+	
+
+Required
+
+		
+
+Testing data - pressure log
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.1 & 3.1.2
+
+
+
+
+Corrosion monitoring
+
+	
+
+Monitoring of well casing for corrosion
+
+	
+
+Corrosion coupons, flow loops, multi finger calipers
+
+	
+
+Annually
+
+	
+
+Required
+
+		
+
+Testing data - evidence of no corrosion
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.2
+
+
+
+
+External mechanical integrity tests
+
+	
+
+Monitoring of external integrity (cement) to prevent leaks from the well into surrounding media
+
+	
+
+e.g., oxygen activation log, temperature log/sensor or noise log
+
+	
+
+Annually
+
+	
+
+Required
+
+		
+
+Testing data - no evidence of loss of well conformity
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.2
+
+
+
+
+Pressure fall-off test
+
+	
+
+Periodic test to measure for changes in the near wellbore environment
+
+	
+
+Fall-off test
+
+	
+
+Every two years unless the reservoir is being fractured, in which case annually
+
+	
+
+Required
+
+		
+
+Testing data - disclosure of any changes
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.2
+
+
+
+
+Reservoir pressure
+
+	
+
+Pressure of fluids in the reservoir
+
+	
+
+Bottomhole pressure sensor or calculated from wellhead pressure sensors
+
+	
+
+Continuous
+
+	
+
+Required
+
+		
+
+Testing data - pressure logs
+
+	
+
+Testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Pressure overlying formation
+
+	
+
+Pressure information above sealing interval,either through monitoring well or multiple sealing levels in the injection well. pressure sensor
+
+	
+
+Injection well pressure sensors, monitoring wells
+
+	
+
+Continuous
+
+	
+
+Required
+
+		
+
+Testing data - pressure logs
+
+	
+
+Testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+Reservoir modeling
+
+	
+
+Modeling of plume migration in the reservoir
+
+	
+
+Computational modeling
+
+	
+
+As operational data changes
+
+	
+
+Required
+
+		
+
+Simulation outputs - CO2 plume migration over project lifetime, associated pressure front, pressure dissipation, uncertainty analysis
+
+	
+
+Simulation outputs
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Indirect Plume monitoring
+
+	
+
+Indirect assessment of plume migration using geophysical techniques
+
+	
+
+Geophysical surveys - seismic, electrical resistivity, sonar
+
+	
+
+Every 5 years
+
+	
+
+Required under certain circumstances
+
+	
+
+As required by permit
+
+	
+
+Testing data - survey results
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Wellhead gas composition
+
+		
+
+Species-specific gas monitors (≥0.01 vol% resolution), gas chromatography, or lab analysis if sampled
+
+	
+
+Monthly
+
+	
+
+Required under certain circumstances
+
+	
+
+If Triggered Gas Investigation is ongoing
+
+	
+
+Concentration of gaseous species present
+
+	
+
+Testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Induced seismicity
+
+	
+
+Monitoring for seismic activity caused by operations
+
+	
+
+Monitor regional seismic data for events using existing databases
+
+	
+
+Continuous
+
+	
+
+Required
+
+		
+
+Notification of any events over magnitude 2.7
+
+	
+
+Notification of seismic event
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Surface CO2 fluxes
+
+	
+
+Onshore operation CO2 flux monitoring
+
+	
+
+Use 1 of the following methods: Eddy Covariance, Optical sensors, portable/stationary CO2 detectors, chemical tracers.
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+CO2/chemical tracers flux or pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+Offshore operation CO2 flux monitoring
+
+	
+
+Use 1 of the following methods: pH or chemical tracers.
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+CO2/chemical tracers flux or pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+Ecosystem imaging
+
+		
+
+Site-based phenocam, medium or high resolution remote sensing, visual inspection
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Ecosystem survey results
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+Surface elevation & displacement
+
+		
+
+e.g., SAR/inSAR, surface or subsurface tiltmeters, GPS instruments
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Surface elevation data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+Formation fluid pH
+
+		
+
+pH meter
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Formation fluid conductivity/salinity
+
+		
+
+e.g., conductivity probe or other method
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - conductivity, salinity or chloride content data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Formation fluid temperature
+
+	
+
+Temperature of reservoir formation fluid to help determine characteristics of the biomass in the reservoir.
+
+	
+
+Temperature probe, calculation
+
+	
+
+Continuous unless otherwise stated in permit
+
+	
+
+Required
+
+		
+
+Testing data - temperature log
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Formation fluid density
+
+		
+
+Standard methodology
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - fluid density
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Formation fluid dissolved gas concentrations
+
+		
+
+Gas chromatography
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - dissolved gas concentrations
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+δ13C of C compounds in the formation fluid
+
+		
+
+e.g., IRMS, cavity ring down mass spectrometry- must be agreed with regulator
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+δ13C of C compounds
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Formation fluid composition
+
+	
+
+e.g., major cations and anions of formation fluid, water isotope ratios (δ18O and δD)
+
+	
+
+Ion chromatography
+
+	
+
+Annually
+
+	
+
+Required
+
+		
+
+Testing data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+Formation fluid bio-oil constituents
+
+	
+
+Analysis of formation water for bio-oil constituents
+
+	
+
+Gas chromatography-Mass Spectrometry
+
+	
+
+Annually
+
+	
+
+Required under certain circumstances
+
+	
+
+If groundwater monitoring is required by permit and if bio-oil is being injected
+
+	
+
+Testing data - concentrations of bio-oil constituents in water samples
+
+	
+
+Testing data
+
+	
+
+Section 3.1.3.2
+
+
+
+
+USDW temperature
+
+		
+
+Temperature probe, calculation
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - temperature
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+USDW salinity/conductivity
+
+		
+
+e.g., conductivity probe or other method
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - conductivity, salinity or chloride content data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+USDW dissolved gas concentration
+
+		
+
+Gas chromatography
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - gas concentrations
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+USDWs pH
+
+		
+
+pH meter
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+USDW density
+
+		
+
+Standard methodology
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing Data - density
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+USDW TDS
+
+		
+
+TDS meter
+
+	
+
+as per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data - TDS
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.1.3.1
+
+
+
+
+USDW water table level
+
+	
+
+Depth to water table
+
+	
+
+Depth to water table - monitoring well, piezometer
+
+	
+
+Annual
+
+	
+
+Required under certain circumstances
+
+	
+
+If water is being extracted for use in storage operations
+
+	
+
+Testing data - depth to water table
+
+	
+
+Testing data
+
+	
+
+Section 3.1.3.1
+
+G-HDWR-0
+
+Table A.3 Post-Injection Monitoring Requirements
+
+REQUIREMENT
+
+	
+
+MEASUREMENT DESCRIPTION
+
+	
+
+MEASUREMENT METHOD
+
+	
+
+BASE FREQUENCY
+
+	
+
+REQUIRED BY THE PROTOCOL
+
+	
+
+REQUIREMENT CONDITIONS
+
+	
+
+REQUIRED EVIDENCE
+
+	
+
+EVIDENCE REPORTING
+
+	
+
+SECTION REFERENCE
+
+
+
+
+Annulus pressure
+
+	
+
+Pressure within the wellbore annulus
+
+	
+
+Annulus pressure sensor
+
+	
+
+Initially monthly but can be reduced over time
+
+	
+
+Required
+
+		
+
+Testing data — pressure log
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Corrosion monitoring
+
+	
+
+Monitoring of well casing for corrosion
+
+	
+
+Corrosion coupons, flow loops, multi-finger calipers
+
+	
+
+Annually
+
+	
+
+Required
+
+		
+
+Testing data — evidence of no corrosion
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+External mechanical integrity tests
+
+	
+
+Monitoring of external integrity (cement) to prevent leaks from the well into surrounding media
+
+	
+
+e.g., oxygen activation log, temperature log/sensor, or noise log
+
+	
+
+Initially annually but can be reduced after a minimum of 3 years
+
+	
+
+Required
+
+		
+
+Testing data — no evidence of loss of well conformity
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Pressure fall-off test
+
+	
+
+Periodic test to measure for changes in the near-wellbore environment
+
+	
+
+Fall-off test
+
+	
+
+Every two years unless the reservoir is being fractured (then annually)
+
+	
+
+Required
+
+		
+
+Testing data — disclosure of any changes
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Reservoir pressure
+
+	
+
+Pressure of fluids in the reservoir
+
+	
+
+Bottomhole pressure sensor or calculated from wellhead pressure sensors
+
+	
+
+Continuous
+
+	
+
+Required
+
+		
+
+Testing data — pressure logs
+
+	
+
+Testing data
+
+	
+
+Section 3.2
+
+
+
+
+Pressure overlying formation
+
+	
+
+Pressure information above the sealing interval (via monitoring well or multiple sealing levels in the injection well)
+
+	
+
+Injection well pressure sensors; monitoring wells
+
+	
+
+Continuous
+
+	
+
+Required
+
+		
+
+Testing data — pressure logs
+
+	
+
+Testing data
+
+	
+
+Section 3.2
+
+
+
+
+Reservoir modeling
+
+	
+
+Modeling of plume migration in the reservoir
+
+	
+
+Computational modeling
+
+	
+
+As monitoring data changes
+
+	
+
+Required
+
+		
+
+Simulation outputs — CO2 plume migration over project lifetime, associated pressure front, pressure dissipation, uncertainty analysis
+
+	
+
+Simulation outputs
+
+	
+
+Section 3.2
+
+
+
+
+Wellhead gas composition
+
+		
+
+Species-specific gas monitors (≥0.01 vol% resolution), gas chromatography, or lab analysis if sampled
+
+	
+
+Monthly
+
+	
+
+Required under certain circumstances
+
+	
+
+If wellhead gas is present
+
+	
+
+Concentration of gaseous species present
+
+	
+
+Testing data
+
+	
+
+Section 3.2
+
+
+
+
+Induced seismicity
+
+	
+
+Monitoring for seismic activity caused by operations
+
+	
+
+Monitor regional seismic data for events using existing databases
+
+	
+
+Continuous
+
+	
+
+Required
+
+		
+
+Notification of any events over magnitude 2.7
+
+	
+
+Notification of seismic event
+
+	
+
+Section 3.2
+
+
+
+
+Surface CO2 fluxes
+
+	
+
+Onshore operation CO2 flux monitoring
+
+	
+
+Use one of: Eddy Covariance, optical sensors, portable/stationary CO2 detectors, chemical tracers
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+CO2/chemical tracers flux or pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Offshore operation CO2 flux monitoring
+
+	
+
+Use one of: pH or chemical tracers
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+CO2/chemical tracers flux or pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Ecosystem imaging
+
+		
+
+Site-based phenocam, medium or high resolution remote sensing, visual inspection
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Ecosystem survey results
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Surface elevation & displacement
+
+		
+
+e.g., SAR/InSAR, surface or subsurface tiltmeters, GPS instruments
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Surface elevation data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Formation fluid pH
+
+		
+
+pH meter
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Formation fluid conductivity/salinity
+
+		
+
+e.g., conductivity probe or other method
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — conductivity, salinity or chloride content data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Formation fluid temperature
+
+	
+
+Temperature of reservoir formation fluid to help determine the characteristics of the biomass in the reservoir
+
+	
+
+Temperature probe; calculation
+
+	
+
+Continuous unless otherwise stated in the permit
+
+	
+
+Required
+
+		
+
+Testing data — temperature log
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Formation fluid density
+
+		
+
+Standard methodology
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — fluid density
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Formation fluid dissolved gas concentrations
+
+		
+
+Gas chromatography
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — dissolved gas concentrations
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+δ13C of C compounds in the injectate stream
+
+		
+
+e
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Tracer concentration/composition
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+USDW temperature
+
+		
+
+Temperature probe; calculation
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — temperature
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+USDW salinity/conductivity
+
+		
+
+e.g., conductivity probe or other method
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — conductivity, salinity or chloride content data
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+USDW dissolved gas concentration
+
+		
+
+Gas chromatography
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — gas concentrations
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+USDW pH
+
+		
+
+pH meter
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — pH
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+USDW density
+
+		
+
+Standard methodology
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — density
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+USDW TDS
+
+		
+
+TDS meter
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Testing data — TDS
+
+	
+
+Approved Permit or testing data
+
+	
+
+Section 3.2
+
+
+
+
+Bio-oil solidification
+
+	
+
+Obtain cores of the reservoir to confirm bio-oil solidification
+
+	
+
+Coring
+
+	
+
+As per permit
+
+	
+
+Required under certain circumstances
+
+	
+
+If required by permit
+
+	
+
+Core sample
+
+	
+
+Testing data
+
+	
+
+Section 3.2
+
+12.0
+Appendix 2: Approved Permitting Regimes
+Appendix 2: Approved Permitting Regimes
+
+Here is a list of regulatory regimes, which have strong track records of safe injection and publicly available robust regulations. If a signed off permit is from one of these regulatory regimes, compliance with the permit can be used as evidence for certain requirements (Appendix 1). As new regulatory regimes are developed, this list will be updated.
+
+Current approved regulatory regimes:
+
+U.S. EPA Underground Injection Control (UIC)
+UK Environment Agency
+Saskatchewan Ministry of Energy and Resources.
+Alberta Energy Regulator (AER)
+13.0
+Relevant Works
+Relevant Works
+Footnotes
+
+Christensen, Earl D., Steve Deutch, Cheyenne Paeper, and Jack R. Ferrell III. 2022. Elemental Analysis of Bio-Oils by Inductively Coupled Plasma Optical Emission Spectroscopy (ICP-OES). Laboratory Analytical Procedure (LAP), Issue Date: May 13, 2022. Golden, CO: National Renewable Energy Laboratory. NREL/TP-5100-82586. https://www.nrel.gov/docs/fy22osti/82586.pdf. ↩
+
+Bio-oil Sequestration as a Viable CDR Pathway, Charm Industrial, 2023 ↩ ↩2 ↩3 ↩4 ↩5
+
+https://www.nrel.gov/docs/fy00osti/27613.pdf ↩
+
+Staš, M., Auersvald, M., Kejla, L., Vrtiška, D., Kroufek, J., & Kubička, D. (2020). Quantitative analysis of pyrolysis bio-oils: A review. TrAC Trends in Analytical Chemistry, 126, 115857. ↩
+
+Pollard, A. S., Rover, M. R., & Brown, R. C. (2012). Characterization of bio-oil recovered as stage fractions with unique chemical and physical properties. Journal of Analytical and Applied Pyrolysis, 93, 129-138. ↩
+
+Area of Review (AOR) is the region around an injection well which may be endangered by the injection activity. This endangerment could come from either the increased pressure in the storage complex, or the presence of CO2. It is described according to the criteria set forth in § 40 CFR.146.06 and at minimum will be 1 mile radius. ↩
+
+https://www.osti.gov/servlets/purl/1722957 ↩
+
+Cal. Code Regs., tit. 14, § 1724.14, “Pre-Rulemaking Discussion Draft 04-26-17 Updated Underground Injection Control Regulations,” (2017). Not accesible in the EU, Copy available on request. ↩ ↩2
+
+Even if bio-oil solidification cannot be determined from acquired monitoring data, the legal agreement established with the landowner to conduct bio-oil sequestration will ensure no offset activity (i.e., injection or production) will jeopardize sequestered bio-oil for all perpetuity ↩
+
+https://www.nrel.gov/docs/fy00osti/27613.pdf ↩
+
+https://bioresourcesbioprocessing.springeropen.com/articles/10.1186/s40643-023-00654-3 ↩
+
+Contributors
+R
+Rebecca Tyne
+N
+Nicholas Ashmore
+Xueya Lu, Ph.D.
+Sebastian Green, Ph.D.
+Isometric
+Biomass or Bio-oil Storage in Permeable Reservoirs © 2026 Isometric HQ Ltd is licensed under CC BY-NC-ND 4.0
+
+Isometric is the agentic certification platform for the industrial economy. Its AI agents work alongside human verifiers, reviewing every data point so expert judgment is freed for the calls that matter. Isometric is the largest certifier of carbon removal by contracted volume and is fully accredited by ICVCM, ICROA, and CORSIA.
+
+Go to isometric.com
+Changelog
+Writing
+Careers
+Documentation
+Privacy
+Terms
+Get in touch
+contact@isometric.com
+Press enquiries
+press@isometric.com
+© 2026 Isometric HQ Ltd. All rights reserved.

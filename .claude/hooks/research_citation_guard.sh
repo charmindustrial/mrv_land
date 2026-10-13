@@ -71,13 +71,13 @@ signal_re = re.compile(
     r'|[Tt]able\s+[A-Z]?\d+'                        # Table 5, Table A1
     r'|(?:[Ss]tates?|[Rr]equires?|[Ss]pecifies?'
     r'|[Pp]rovides?|[Mm]andates?|[Ss]tipulates?)'
-    r'\s+(?:that\s+)?[^"\'“”\n]'          # "states that X" without immediate quote
+    r'\s+(?:that\s+)?[^"\x27“”\n]'          # "states that X" without immediate quote
     r')',
     re.MULTILINE
 )
 
 # A valid citation has a quoted string nearby (within 250 chars forward from match)
-quote_chars = {'"', "'", '`', '“', '”', '‘', '’'}
+quote_chars = {'"', "'", chr(96), '“', '”', '‘', '’'}
 blockquote_re = re.compile(r'^\s*>', re.MULTILINE)
 
 violations = []

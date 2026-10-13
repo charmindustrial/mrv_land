@@ -1,0 +1,126 @@
+{
+ "ledger_sha256": "716721e85d8c91ecef928330858574f4e31ed9176102e1afb61784398de9f469",
+ "auditor": "independent ledger auditor (subagent agent-ac96ed04b56a786d9, did not do the QA); re-audit 2026-10-07 ~10:20Z after the three remaining third-review points were applied (checklist sha256 2174118b..., log 7bb64feb...)",
+ "steps": {
+  "P1_knowledge_base": {
+   "verdict": "verified",
+   "checked": "Log preflight.knowledge_base is non-empty. The QA session record shows Read of knowledge-base/Charm_Isometric_Knowledge_Base.md returning lines 1-683 at 14:34:20Z and lines 684-1300 at 14:34:23Z, which covers the whole 1,299-line file, before the first Certify read (14:35:07Z) and the first Drive read (14:36:11Z)."
+  },
+  "P2_lessons_learned": {
+   "verdict": "verified",
+   "checked": "Log preflight.lessons_learned is non-empty. The session record shows references/lessons_learned.md read as lines 1-185 (the whole 184-line file) at 14:34:08Z, before Gate 1, and the categories later printed match its headings FC-C1 to FC-C12 plus the cross-cutting section."
+  },
+  "P3_checklist_structure": {
+   "verdict": "verified",
+   "checked": "Log preflight.checklist_structure is non-empty. The session record shows references/checklist_structure.md read as lines 1-330 (the whole 329-line file) at 14:34:09Z, before Gate 1."
+  },
+  "P4_failure_categories_printed": {
+   "verdict": "verified",
+   "checked": "The assistant chat message at 14:34:42Z lists FC-C1 through FC-C12, each with its one-line lesson, plus the cross-cutting rules, matching the lessons_learned.md headings and the log's preflight.failure_categories_printed list. It was sent before the first Certify read at 14:35:07Z."
+  },
+  "P5_registry_checked": {
+   "verdict": "verified",
+   "checked": "The session record shows qa_active_charm_batches.json read as lines 1-590 and 590-700 (the whole file at that time) at 14:34:11-13Z, with no INJ-09-2026-W4 string in either result. The agent then declared a fresh QA at 14:34:16Z. Log preflight.registry_checked is non-empty."
+  },
+  "T0_stamped_monitor_triggered": {
+   "verdict": "verified",
+   "checked": "date -u ran at 14:34:04Z, 10 seconds after Max's kickoff message (14:33:54Z), and printed 2026-10-06T14:34:05Z. That value was written to batch_timestamps.json as T0_initiation at 14:36:11Z and matches log T0. The performance monitor was triggered as an independent subagent (agent-a5d05ea3efbd62e10) at 14:55:47Z. It wrote row 16 of Claude_QA_Performance_Tracker.xlsx, and I opened that row: C16 INJ-09-2026-W4-QOWV, AB16 2026-10-06 14:34:05. Not blocking: the trigger came 21 min 42 s after T0, later than SKILL.md line 78's 'at this point'. The ledger states the real time, and the T0 the monitor recorded is correct."
+  },
+  "G1_0_vvb_guidance_full": {
+   "verdict": "verified",
+   "checked": "The September VVB Guidance doc (1pib26xToLPFxaOla2p3pv4ummq5ekPpAn65FFuqrlPc) was exported as text to source_exports/VVB_Guidance_Sep_2026.txt (11,181 bytes, mtime 14:39:34Z). The session record shows it printed in full by cat at 14:39:38Z, from the first section (AECN R&D withdrawal) to the last (argon). Log vvb_guidance.sections lists all six sections, and bearing_on_this_batch is non-empty. The doc was read before the Ops Notes export (14:40:07Z), the component detail views (14:41Z), the lab certificate (14:44:25Z) and the tracker. Only the Certify landing page was opened before it (14:35:07-14:36:03Z). That page gives the 19-25 Sep removal window, which is needed to pick the period's guidance doc, and reading Certify first to identify the batch is the routing step that memory requires. No finding was made from it before the guidance read."
+  },
+  "G1_0_cell_comments": {
+   "verdict": "verified",
+   "checked": "Session 14:40:25Z: openpyxl.load_workbook without data_only on source_exports/INJ-09-2026-W4_Ops_Notes.xlsx, looping all 10 tabs, printed exactly two comments: AECN Truck H28 and Kerry D18, both the wellhead pH note. I repeated the formula-mode load and got the same two notes across 10 tabs, matching log vvb_guidance.ops_notes_cell_comments."
+  },
+  "G1_1_batch_folder": {
+   "verdict": "verified",
+   "checked": "batch_folder_listing.txt (written 14:56:28Z, after T0) and log batch_folder_inventory list the W4 folder's 5 top-level items and its subfolder contents. The session shows Drive parentId queries at 14:39:49-14:40:00Z for the W4 folder (two pages, the second empty), Testing (the CoA), Scale Tickets and Kerry Oil. Testing, the Ops Notes and the allocation tab inside the Ops Notes are recorded present. No standalone tracker file or Charm Contents file exists."
+  },
+  "G1_2_totes": {
+   "verdict": "verified",
+   "checked": "SKILL.md Gate 1 step 2 fields are now on all 42 tote rows in log totes. Tag, gross, tare, fraction and period match the Ops Notes QOWV tab. Every tote has weighing_record and weighing_date. 300022 carries Historical Tote Record row 840 (lot 4746 under tag 300020, WO00001655, 2026-02-17 17:13:06, gross 1012.0), which I read in the tracker export. weighing_location says no record states the location and gives Fort Lupton, CO as inferred. Its basis checks out: (a) Historical Tote Record row 2 headings are reported_quantity, reported_on, production_year, order_number, code, gross_weight, sectag, lot_number, with no location; (b) the Q4 tab's column A is headed 'M' and reads BGN, under the title 'BGN Tote Inventory as of October 2025 to August 2026, DC Tote Inventory August to September 2026'; (c) I found both Slack quotes by my own search: #pyro-ops-handover-notes, Leo, 2026-01-08, 'Swapped out quench oil tote on BGN 1 & helped swap quench oil tote on BGN 5', and #injection-ops-la, rachel, 2026-08-07, 'remaining BGN oil coming from CO'; (d) knowledge-base/pdd_full.txt line 450 reads 'Charm produces bio-oil at our pyrolysis facility in Fort Lupton, CO'. Weighing dates run 2026-02-17 to 2026-08-31. Production-period point, as resolved after the second addendum review. Four 'June 2026 PP' totes (301210, 301215, 301223, 301228) have weighing records dated 2026-07-01. Oil_inventory_data shows the same date: production_date at rows 78, 79, 75 and 77 (18:41:13, 18:13:11, 20:37:14, 20:10:20), each with the same order number as its weighing record, and 40 s to 3.5 min before reported_on, so it records the weigh-in. Four 'July 2026 PP' totes were weighed 2026-08-31. I confirmed the records place all eight in their labelled period. The 48 June-labelled QOWV rows on the Q4 tab sum to 46,616.2 kg, the four included, equal to June summary N4 and V2 'CI Calculation' D12. Spray paint reads Blue2606 on the four June totes and Purple2607 on the four July totes (58 and 75 rows overall). Form/tote Date is blank on 421 of 421 rows labelled for 2026. Next-month weigh-ins are routine: my count gives May 10, June 16 and July 20, as checklist 3.5 states. The log keeps the corroboration and no longer carries the -11.008 kg change. 3.5 is a documentation Flag. Location: log tote_weighing_records.location_basis.production_system_location now records Oil_inventory_data site_location/location 'CHARM'/'OPA' on the 37 batch tags present plus lot 4746 (row 360), and row 350 (LOT00004770) reads 'CHARM_LOUISIANA'/'Bio Oil Incoming'. I confirmed all of these. Re-checked after the 22:50:10Z log rebuild. Each totes[*].weighing_location now ends with the production system's site_location/location. For 38 totes I matched every cited Oil_inventory_data row to the tote's own tag (or lot 4746 at row 360 for 300022), and each reads CHARM/OPA. The four totes weighed 2026-08-31 (301305, 301312, 301317, 301331) read 'none', and none of them has a row in Oil_inventory_data."
+  },
+  "G1_3_ops_notes": {
+   "verdict": "verified",
+   "checked": "Log ops_notes_totals gives: B54 =SUM(B11:B52) 42,945; D54 40,525.8; F54 34,179.5; H54 0.1236228553; I54 5,009.915111; J54 47.62716 with per-tote J =2.5*$L$4; standard_loss_applied false; lcs_use_kg null. I re-read those six cells in the export in formula and value modes and all match. lcs_scan.txt (14:54:38Z) shows 10 tabs scanned and 0 hits."
+  },
+  "G1_4_shipment_tracker": {
+   "verdict": "verified",
+   "checked": "Log shipment_tracker and shipment_tracker_cells_are_formulas quote E12:E15 =D/C, F12:F15 =$B$8, G12:G15 =E*F, G17 =SUM(G12:G15) and D6 =COUNTA(QOWV!A11:A52). I loaded the 'QOWV Shipments & EE Allocation' tab of the 14:40Z live export in formula and value modes. It shows the same formulas, typed counts C12:C15 20/6/20/18 and D12:D15 15/5/20/2, G17 3,236.027778 mi, and the A19 COLA-40/41 correction note."
+  },
+  "G1_5_testing": {
+   "verdict": "verified",
+   "checked": "I opened page 3 of Certify_attached_COA_src_1M3VZ8S8W1S013HS.pdf. It shows SR26-05719.003, Client ID 9-2026-W4-QOWV, Carbon 7.9 %, Hydrogen 7.9 %, Nitrogen <0.75, KV 0.9020 cSt, Acid Number 36 and Density 1.039 g/cm3, all as in log testing.qowv_certificate. The session shows pages 1-3 read at 14:44:25Z. The Drive Testing-folder copy, Drive_Testing_COA_1Viar0c3xdOh.pdf (downloaded 18:30:08Z), has the same sha256, 276ccd65...43f6, which I hashed myself, and its page 3 was read at 18:30:16Z."
+  },
+  "G1_6_pp_summaries": {
+   "verdict": "verified",
+   "checked": "Log pp_summary_sources.live holds Aqueous and WODO mass, emissions and CI, plus days in period, for Jan-Jun. These come from six live exports in source_exports/pp_summaries/ (14:51-14:52Z). inventory_master.pp_date_ranges gives 6/1-6/30, 7/1-7/31 and 2/1-2/28. I opened the June and February exports. June: T4 0.1236896674, N4 46,616.2, T2 1.110535564, N2 10,778. February: T4 0.1330497939, N4 37,125.6, T2 0.8498961226, N2 10,966. All match the log. The July 2026 totes use the Jan-Jun blend. The V2 workbook that derives it was exported at 14:51:07Z, and its result is in blended_ci_source.qowv_result (0.1209473832). July 2026 added at 21:30Z. The session record shows the three July Drive files fetched through the Drive connector at 21:23:34-21:25:17Z and decoded from its reply. The files' sha256 match log pp_summary_sources.july_2026. I compared both 'Jul 26 Production Period Summary' files with Jun2026_PP_Summary.xlsx cell by cell: same four tabs (summary tab named 'Jun 26 PP Summary'), 0 differences on 425 non-empty cells in value view and 426 in formula view (N4 46,616.2, T4 0.1236896674, N2 10,778, T2 1.110535564). Jul2026_PP_Output_Summary_1k5le.csv has blank WODO and Aqueous mass cells, #DIV/0! on their calculated cells, and five biochar carbon readings, so it is an unfilled template. The Q4 tab gives July's date range as '7/1-7/31'."
+  },
+  "G1_7_charm_contents": {
+   "verdict": "verified",
+   "checked": "batch_folder_listing.txt shows no Charm Contents file in the W4 folder or its subfolders. Log certify.certify_sources_enumeration lists the six Certify sources, and none is a Charm Contents sheet. Log charm_contents records the absence on both."
+  },
+  "G1_8_certify_four_tabs": {
+   "verdict": "verified",
+   "checked": "The session record shows each of the four tabs opened and read. Components: landing snapshot at 14:35:58Z, saved as certify_initial_snapshot.yml. Calculation view at 14:42:15Z: net 4.076 t = 9.902 + 5.895 - 11.674 - 47 kg. Datapoints at 14:42:21Z: 10 datapoints. Sources at 14:42:24Z: 6 sources, saved as certify_sources_tab.yml at 14:42:32Z. The tool results match log certify.calculation_view, certify.datapoints and certify.certify_sources_enumeration."
+  },
+  "G1_8_sources_tab_total": {
+   "verdict": "verified",
+   "checked": "Log certify.certify_sources_tab_total is 6, and certify_sources_enumeration and attachment_map give all six filenames, source ids and linked datapoints. The Sources tab result at 14:42:25Z reads 'Sources (6)' with the same six names. The '+ 5 more' popover, read at 14:42:37Z, lists the remaining five Ops Notes datapoints."
+  },
+  "G1_registry_updated": {
+   "verdict": "verified",
+   "checked": "skills/qa/batch-qa-charm/qa_active_charm_batches.json holds an INJ-09-2026-W4-QOWV entry with oil type, three production periods, Slack channel C0944NQH1RP, checklist path and Certify URL. The session shows it appended at 14:59:45Z at Gate 1 exit, after a check that no entry existed. The file was modified after T0 (last at 19:02:04Z)."
+  },
+  "G1_injection_record": {
+   "verdict": "verified",
+   "checked": "source_exports/bio_oil_injection_tracker_live_2026-10-06.xlsx (mtime 18:26:54Z) was exported live through the mrv-3 browser after the sign-in. I read its 'Basco Injection -- COBB' tab and found 168 INJ-09-2026-W4_aqueous_fraction rows. They sit in four imports with Import Time 2026-09-29 08:37:20, 2026-09-29 11:54:56, 2026-09-30 11:14:57 and 2026-10-05 12:24:22, 42 rows each. The completion date is 2026-09-25 on all 168, and tag 300020 (lot 4746) stands where the ledger has 300022. This matches log cobb_injection_record.result, tag_300020 and gross_conflicts, and cobb_w4_aqueous_rows_live.json (18:59:41Z). On 2026-10-07 the MRV lead deferred on COBB to operations, whose recorded position is that COBB is not a source of truth. The live tracker read this step requires was still done; its COBB tabs are no longer used for findings (2.3, 3.1). The step entry now cites production_records.gross_conflict_301274 and production_records.tag_300020 (the production-system entries moved out of cobb_injection_record); both keys exist in the log with non-empty values."
+  },
+  "G2_1_tare_measured": {
+   "verdict": "verified",
+   "checked": "The tare is the 57.6 kg standard on all 42 (log inventory_master.tare_distribution_batch {57.6: 42}), nominal and Flagged in 2.2. Post-unload weights run 164.5-442.5 kg, so they are weighings (2.3). In the Historical Tote Record tab of the live tracker export, 41 of the 42 tags have exactly one record under their own tag, and gross matches the ledger on 40 of those 41. 301274 (row 1181) reads 1080.0 against 1036.0. 300022's lot 4746 is at row 840 under tag 300020, gross 1012.0. The injection tab's weighing columns are empty on all 168 W4 rows. Production-period point, as resolved after the second addendum review. Four 'June 2026 PP' totes (301210, 301215, 301223, 301228) have weighing records dated 2026-07-01. Oil_inventory_data shows the same date: production_date at rows 78, 79, 75 and 77 (18:41:13, 18:13:11, 20:37:14, 20:10:20), each with the same order number as its weighing record, and 40 s to 3.5 min before reported_on, so it records the weigh-in. Four 'July 2026 PP' totes were weighed 2026-08-31. I confirmed the records place all eight in their labelled period. The 48 June-labelled QOWV rows on the Q4 tab sum to 46,616.2 kg, the four included, equal to June summary N4 and V2 'CI Calculation' D12. Spray paint reads Blue2606 on the four June totes and Purple2607 on the four July totes (58 and 75 rows overall). Form/tote Date is blank on 421 of 421 rows labelled for 2026. Next-month weigh-ins are routine: my count gives May 10, June 16 and July 20, as checklist 3.5 states. The log keeps the corroboration and no longer carries the -11.008 kg change. 3.5 is a documentation Flag."
+  },
+  "G2_2_tracker_cells_clicked": {
+   "verdict": "verified",
+   "checked": "Log shipment_tracker_cells_are_formulas quotes the formula text of every computed allocation cell (E12:E15, F12:F15, G12:G15, G17, D6). The text was read in formula mode from the sheet exported live at 14:40Z, and I re-read the same formulas from that export. Not blocking: the cells were read in the exported file, not clicked in the browser. The formula text is the same either way."
+  },
+  "G2_3_component_modals": {
+   "verdict": "verified",
+   "checked": "Session results at 14:41:24-14:42:08Z show each of the five component detail views opened on its own, with INPUTS read. Transport Process: 0.1143 kgCO2e/(t mi), 1,201 mi, 42,945 ±47.627 kg. Embodied: 0.23756 kgCO2e/mi, 3,236.03 mi. Pyrolysis: 0.123623 tCO2e/t, 40,525.8 ±47.627 kg. Injection sequestration: 7.9 ±0.03523 %, 34,179.5 ±47.62716 kg. BCU: constant 5,895 kg. All match log certify.component_by_key."
+  },
+  "G2_4_each_pp_summary": {
+   "verdict": "verified",
+   "checked": "June (Ops Notes M18) and February (M14) are the two monthly summaries the batch's CIs link to. Both were exported live at 14:51:25-27Z, and I confirmed their Aqueous CIs (T4) equal Ops Notes L18 and L14 (log constants_match_live is true for all six months). January, March, April and May were also exported at 14:52Z for the blended CI. July 2026, the third period in the batch, was also opened at 21:23-21:25Z. Its two summaries are cell-for-cell copies of June and its output summary is blank (my own comparison, see G1_6), as checklist 7.3 now states."
+  },
+  "G2_5_recompute_pasted": {
+   "verdict": "verified",
+   "checked": "recompute_qowv.py (2026-10-07 10:12:03Z) was run at 10:12:38Z: recompute_output.txt has 30 OK lines and no BAD lines, with FINDING 7.2 on both summary versions computed from the summary workbooks, FINDING 2.3 computed from Oil_inventory_data rows 39-40, and NOTE 2.3 on COBB. The last assistant message containing the output (10:13:33Z) holds a code block byte-identical to recompute_output.txt. I re-ran recompute_qowv.py on the current files into my scratch folder: exit 0, output identical. Package totals: 4,790.2737 kg (-219.6414), weighted CI 0.1182030623. Linked totals: 4,786.3316 kg (-223.5835), weighted CI 0.1181057898. The skill's scripts_recompute_wodo.py cannot run on an Aqueous batch; recompute_qowv.py makes every check it makes."
+  },
+  "G2_lcs_search": {
+   "verdict": "verified",
+   "checked": "lcs_scan.txt (14:54:38Z) shows all 10 Ops Notes tabs scanned for LCS, calcium, caustic, NaOH and buffer, with 0 hits. Log lcs_search_method and lcs_use_kg (null) agree, and checklist 9.1 is graded N/A on that basis."
+  },
+  "G3_reviewer_independent": {
+   "verdict": "verified",
+   "checked": "From the subagent records: agent-ac99f66a38324d37e (15:04:50-15:31:05Z) read adversarial-reviewer/SKILL.md and batch-qa-charm/SKILL.md. Its only writes were to adversarial_review_INJ-09-2026-W4-QOWV.md (mtime 15:29:46Z), which covers all 33 items. agent-aa0b88b3a96005bcc (18:43:15-18:58:13Z) read the same skill and wrote only adversarial_review_addendum_INJ-09-2026-W4-QOWV.md (18:57:15Z), covering 1.1, 2.3, 3.1 and sidebar rows B61-B64. Neither edited the checklist or the log. Log adversarial_review.reviewer is non-empty. Third review: agent-ad0b9845b136e581f (21:42:39-21:58:02Z) loaded the qa-adversarial-reviewer skill and read batch-qa-charm/SKILL.md. Its only writes were to adversarial_review_addendum2_INJ-09-2026-W4-QOWV.md (mtime 21:57:36Z), covering 2.1, 3.5, 7.1, 7.3 and C.1, the rows changed after the first addendum. Log adversarial_review.addendum2 records it. Fourth review: agent-a339b6954cbb8d985 (2026-10-07 08:57:45-09:19:18Z) loaded the qa-adversarial-reviewer skill. Its only writes in the batch folder were to adversarial_review_addendum3_INJ-09-2026-W4-QOWV.md (mtime 09:19:01Z); its scripts and recompute output went to the scratch folder. It covered 2.3, 3.1, 7.2, 7.3, C.1, the sidebar, the recompute, the scan file, the drafts and the new skill text. Log adversarial_review.addendum3 records it."
+  },
+  "G3_challenges_resolved": {
+   "verdict": "verified",
+   "checked": "Applied and confirmed in the files (checklist sha256 2174118b..., saved 10:12:35Z). Max's 2026-10-07 words in log max_rulings match his message in the session record, and Garrett's quotes match his #team-mrv-alerts message of 2026-10-05 08:24:55 BST, which I found by Slack search. 7.2 now gives both consistent versions and corrects the version direction. The package files were saved 2026-08-11 11:28-22:39; the linked-sheet downloads run 07-11 03:14 to 08-11 02:05 and all read I19 =C9*F7. Package T4: June 0.117288728, February 0.1227182507. 7.2 names the March and May C85 drivers, and its fix is limited to L18/L14 and Certify. 2.3 drops the COBB-only 301215 conflict and adds the BGN row shift, which I confirmed: Q4 694 301274 1036.0/978.4 = OID 40 / HTR 1180 for 301277 (OIL260721142141); Q4 693 301277 1070.0/1012.4 = OID 42 / HTR 1178 for 301227. Its conversation citations are replaced by FC-C14, and the 'similar conflict' sentence is gone. 3.1 no longer cites COBB. C.1 gives 4.573 t and 4.57694 t. The sidebar covers 2025 and excludes May. The scan file has a scope header and a 2025 section. The drafts hold Garrett's 7.2 line. FC-C14 quotes Garrett in full. A citation audit on copies of the checklist and current log gives 32 rows, 0 failures, attachment gate PASS. The three third-review points the 09:42Z audit found unapplied are now applied, and I confirmed each in the files. (1) recompute_qowv.py (10:12:03Z) computes each month's after-BCU Aqueous CI as R4 x (I32 - I19 + C11) x 1000 / N4. It reads the linked summaries in source_exports/pp_summaries/ and the package summaries in source_exports/pp_summaries/package/; all six package copies match the ~/Downloads July-package originals by sha256. It also computes both blends (package rebuild 0.1209473831). For 2.3 it reads Oil_inventory_data rows 39 and 40 with asserts on the tags, and computes the effect from the 44.0 kg difference against the Ops Notes row. Its 7.2 figures equal the checklist's to 1e-10 (February 0.1230857483 vs 0.1230857484; linked weighted CI 0.1181057898 vs 0.1181057897). The log has a new production_records key holding gross_conflict_301274 (production_system_gross_kg 1080.0), tag_300020, bgn_row_shift_301274 and source_hierarchy; cobb_injection_record keeps only COBB content (tag_300020_injections). Checklist 2.1, 2.2, 2.3 and 3.1 cite production_records.*. A cell comparison with the previous build shows only those four cells changed, with no status change. (2) checklist_structure.md line 251 and lessons_learned FC-C13 now make C9*F7 a Fail 'whenever the month has BCUs applied to biomass transport (C10 > 0)', and state the C10 = 0 case. FC-C13 adds that the Jul-Dec 2025 summaries use C9*F7, reaching the 2025 QOWV product in W5, W2 and W3 (about 726 kg). The memory file project_bcu_scope_biomass_transport.md matches. (3) 2.3 now reads 'The order among the Ops Notes, the BGN inventory and the production system's records is not yet ruled (batch-qa-charm FC-C14)' and cites production_records.source_hierarchy, which carries operations' quote 'BGN Inv takes precedent over oil inv data'. A citation audit on copies of the current checklist and log gives 32 rows, 0 failures, attachment gate PASS."
+  },
+  "G4_render_in_excel": {
+   "verdict": "verified",
+   "checked": "screenshots/Excel_render_checklist.pdf (6 pages, mtime 2026-10-07 10:13:03Z, 11:13 local) was exported by Microsoft Excel via osascript from a copy of the 10:12:35Z checklist in Excel's container folder; both checksums print as 2174118bcf4f21e8, and osascript exited 0. The QA agent read pages 1-6 at 10:13:06Z. I read pages 1-2, which hold the changed 2.1, 2.2, 2.3 and 3.1. Their text is fully visible, including 2.3's new 'not yet ruled' sentence; the other pages hold text unchanged since my 09:42Z read of the previous export."
+  },
+  "G4_status_counts": {
+   "verdict": "verified",
+   "checked": "status_counts.json (2026-10-07 10:13:04Z) records checklist sha256 2174118bcf4f21e80877c98df471e453df7459abc18f2cbcf7c1add7d7c06092, which matches the checklist on disk, and counts Pass 20 / Flag 5 / Fail 7 / N/A 1 (33). No status changed from the previous build. batch_timestamps.json T4 reads 2026-10-07T10:13:04Z."
+  },
+  "G4_monitor_independent": {
+   "verdict": "verified",
+   "checked": "Subagent agent-a5d05ea3efbd62e10 ('Open performance tracker row W4 QOWV', 14:55:47-14:59:29Z), not the QA agent, checked for Excel locks and wrote row 16 of outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx. It then confirmed rows 1-15 unchanged against a before copy. I opened the tracker: row 16 has C 'INJ-09-2026-W4-QOWV', status 'In Progress (T0 logged)' and AB16 2026-10-06 14:34:05. The file's later change at 18:27:23Z is the Kerry W4 batch's row 17."
+  }
+ }
+}

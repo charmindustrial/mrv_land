@@ -185,10 +185,14 @@ stripped_corpus = re.sub(r'^\d+\t', '', raw_corpus, flags=re.MULTILINE)
 norm_corpus  = re.sub(r'\s+', ' ', stripped_corpus).strip()
 
 # ── Strip code blocks before scanning ────────────────────────────────────────
-def strip_code_blocks(text):
-    text = re.sub(r'```[\s\S]*?```', '', text)
-    text = re.sub(r'`[^`\n]+`', '', text)
-    return text
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from transcript_text import strip_inline_code as strip_code_blocks
+except Exception:
+    def strip_code_blocks(text):
+        text = re.sub(r'```[\s\S]*?```', '', text)
+        text = re.sub(r'`[^`\n]+`', '', text)
+        return text
 
 scannable = strip_code_blocks(doc_content)
 

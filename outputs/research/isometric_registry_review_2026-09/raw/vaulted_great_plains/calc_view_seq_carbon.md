@@ -1,0 +1,213 @@
+- generic [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - navigation [ref=f3e4]:
+      - generic [ref=f3e8]:
+        - generic [ref=f3e9]:
+          - link "Isometric Registry" [ref=f3e11] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f3e26]:
+            - link "Registry" [ref=f3e27] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=f3e28] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f3e29] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f3e31]:
+          - generic [ref=f3e471]:
+            - link "Account" [ref=f3e472] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f3e473] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f3e474]: "|"
+          - button "Current user menu" [ref=f3e475] [cursor=pointer]:
+            - generic [ref=f3e476]: Menu
+    - main [ref=f3e36]:
+      - generic [ref=f3e39]:
+        - generic [ref=f3e40]:
+          - generic [ref=f3e41]:
+            - generic [ref=f3e42]: Certificates issued
+            - generic [ref=f3e46]: 1,000Y+
+          - heading "5.91 tCO₂e removed by Vaulted Deep" [level=1] [ref=f3e52]:
+            - text: 5.91 tCO₂e removed
+            - generic [ref=f3e53]: by Vaulted Deep
+          - generic [ref=f3e54]: rmv_1M0ACG4FJ1S02V0A
+        - generic [ref=f3e56]:
+          - generic [ref=f3e57]:
+            - heading "GHG entry details" [level=2] [ref=f3e59]
+            - generic [ref=f3e60]:
+              - generic [ref=f3e61]: Supplier
+              - link "Vaulted Deep" [ref=f3e64] [cursor=pointer]:
+                - /url: /supplier/spl_1H43SYY631S0Z8YR
+            - generic [ref=f3e69]:
+              - generic [ref=f3e70]: Project
+              - link "Great Plains Organic Waste Sequestration" [ref=f3e72] [cursor=pointer]:
+                - /url: /project/prj_1HHYZFVGW1S044ZY
+            - generic [ref=f3e73]:
+              - generic [ref=f3e74]: Tonnes removed
+              - generic [ref=f3e75]: 5.91 tCO₂e
+            - generic [ref=f3e76]:
+              - generic [ref=f3e77]: Sequestration date
+              - generic [ref=f3e78]: 10 Aug 2026
+            - generic [ref=f3e79]:
+              - generic [ref=f3e80]: Reporting period
+              - generic [ref=f3e81]: 11 Jul 2026 to 10 Aug 2026
+          - generic [ref=f3e82]:
+            - heading "Verification details" [level=2] [ref=f3e84]
+            - generic [ref=f3e85]:
+              - generic [ref=f3e87]:
+                - text: Verification protocol version
+                - img "More info" [ref=f3e88]
+              - link "Biomass Geological Storage v1.1" [ref=f3e92] [cursor=pointer]:
+                - /url: /protocol/biomass-geological-storage/1.1
+            - generic [ref=f3e94]:
+              - generic [ref=f3e96]:
+                - text: Baseline protocol version
+                - img "More info" [ref=f3e97]
+              - link "Biomass Geological Storage v1.0" [ref=f3e101] [cursor=pointer]:
+                - /url: /protocol/biomass-geological-storage/1.0
+            - generic [ref=f3e103]:
+              - generic [ref=f3e104]: Verifier
+              - generic [ref=f3e106]:
+                - link "350Solutions" [ref=f3e107] [cursor=pointer]:
+                  - /url: https://350solutions.com
+                - generic [ref=f3e112]: "->"
+      - generic [ref=f3e113]:
+        - tablist [ref=f3e116]:
+          - tab "Removal method" [ref=f3e479] [cursor=pointer]
+          - tab "Calculation view" [selected] [ref=f3e481] [cursor=pointer]
+          - tab "Datapoints" [ref=f3e483] [cursor=pointer]
+        - tabpanel "Calculation view" [ref=f3e125]:
+          - generic [ref=f3e177]:
+            - generic [ref=f3e181]:
+              - generic [ref=f3e182]:
+                - generic [ref=f3e185]:
+                  - button "Net CO₂e Removed 5.908 tCO₂e" [ref=f3e187]:
+                    - generic [ref=f3e188]:
+                      - generic [ref=f3e189]: Net CO₂e Removed
+                      - generic [ref=f3e190]: 5.908 tCO₂e
+                  - generic [ref=f3e197]:
+                    - generic [ref=f3e198]:
+                      - button "Sequestrations 6.621 tCO₂e" [ref=f3e200]:
+                        - generic [ref=f3e201]:
+                          - generic [ref=f3e202]: Sequestrations
+                          - generic [ref=f3e203]: 6.621 tCO₂e
+                      - generic [ref=f3e492]:
+                        - button "Estimation Biomass Sequestration 6.621 t" [ref=f3e494]:
+                          - generic [ref=f3e495]:
+                            - generic [ref=f3e496]: Estimation Biomass Sequestration
+                            - generic [ref=f3e497]: 6.621 t
+                        - generic [ref=f3e508]:
+                          - generic [ref=f3e510]:
+                            - generic [ref=f3e511]: Mass of waste biomass
+                            - generic [ref=f3e512]: 23.532 t
+                          - generic [ref=f3e513]: ×
+                          - generic [ref=f3e518]:
+                            - button "Estimated discounted carbon content 0.076734" [active] [ref=f3e520]:
+                              - generic [ref=f3e521]:
+                                - generic [ref=f3e522]: Estimated discounted carbon content
+                                - generic [ref=f3e523]: "0.076734"
+                            - generic [ref=f3e542]:
+                              - generic [ref=f3e543]:
+                                - button [ref=f3e545] [cursor=pointer]:
+                                  - generic [ref=f3e546]:
+                                    - text: Winsorized mean
+                                    - img "More info" [ref=f3e548]
+                                - generic [ref=f3e552]:
+                                  - generic [ref=f3e553]: Estimated carbon content of injectant
+                                  - link [ref=f3e555] [cursor=pointer]:
+                                    - /url: "?tab=calculation-view&expression=cmp_1M0ACG4FJ1S0R7DS.carbon_contents&removal=rmv_1M0ACG4FJ1S02V0A"
+                                - generic [ref=f3e559]: ","
+                                - generic [ref=f3e565]:
+                                  - generic [ref=f3e566]: Estimated carbon content of injectant
+                                  - link [ref=f3e568] [cursor=pointer]:
+                                    - /url: "?tab=calculation-view&expression=cmp_1M0ACG4FJ1S0R7DS.carbon_contents&removal=rmv_1M0ACG4FJ1S02V0A"
+                              - generic [ref=f3e572]: "-"
+                              - generic [ref=f3e577]:
+                                - button [ref=f3e579] [cursor=pointer]:
+                                  - generic [ref=f3e580]:
+                                    - text: Winsorized standard error
+                                    - img "More info" [ref=f3e582]
+                                - generic [ref=f3e586]:
+                                  - generic [ref=f3e587]: Estimated carbon content of injectant
+                                  - link [ref=f3e589] [cursor=pointer]:
+                                    - /url: "?tab=calculation-view&expression=cmp_1M0ACG4FJ1S0R7DS.carbon_contents&removal=rmv_1M0ACG4FJ1S02V0A"
+                                - generic [ref=f3e593]: ","
+                                - generic [ref=f3e599]:
+                                  - generic [ref=f3e600]: Estimated carbon content of injectant
+                                  - link [ref=f3e602] [cursor=pointer]:
+                                    - /url: "?tab=calculation-view&expression=cmp_1M0ACG4FJ1S0R7DS.carbon_contents&removal=rmv_1M0ACG4FJ1S02V0A"
+                          - generic [ref=f3e527]: ×
+                          - generic [ref=f3e533]:
+                            - generic [ref=f3e534]: CO2e eq mass of C
+                            - generic [ref=f3e535]: "3.666667"
+                    - generic [ref=f3e207]: "-"
+                    - generic [ref=f3e212]:
+                      - button "Activities 384 kgCO₂e" [ref=f3e215]:
+                        - generic [ref=f3e216]:
+                          - generic [ref=f3e217]: Activities
+                          - generic [ref=f3e218]: 384 kgCO₂e
+                      - generic [ref=f3e222]: +
+                      - button "Counterfactuals 329 kgCO₂e" [ref=f3e229]:
+                        - generic [ref=f3e230]:
+                          - generic [ref=f3e231]: Counterfactuals
+                          - generic [ref=f3e232]: 329 kgCO₂e
+                - generic [ref=f3e237]:
+                  - generic [ref=f3e238]: ⌘ + scroll to zoom
+                  - generic [ref=f3e240]:
+                    - button [ref=f3e242] [cursor=pointer]
+                    - button [ref=f3e247] [cursor=pointer]
+              - button "View full screen" [ref=f3e252] [cursor=pointer]
+            - generic [ref=f3e255]:
+              - heading "Datapoints (1)" [level=2] [ref=f3e606]
+              - grid "Data points" [ref=f3e259]:
+                - rowgroup [ref=f3e260]:
+                  - row [ref=f3e261]:
+                    - columnheader "Name" [ref=f3e262]
+                    - columnheader "Value" [ref=f3e264]
+                    - columnheader "Collection method" [ref=f3e266]
+                    - columnheader "Sources" [ref=f3e268]
+                - rowgroup [ref=f3e270]:
+                  - row [ref=f3e462]:
+                    - rowheader "Estimated carbon content of injectant" [ref=f3e463]
+                    - gridcell "Multiple values" [ref=f3e465]
+                    - gridcell "—" [ref=f3e466]
+                    - gridcell [ref=f3e467]:
+                      - link "18 measurements" [ref=f3e468] [cursor=pointer]:
+                        - /url: "?tab=calculation-view&expression=cmp_1M0ACG4FJ1S0R7DS.carbon_contents&removal=rmv_1M0ACG4FJ1S02V0A"
+  - contentinfo [ref=f3e127]:
+    - generic [ref=f3e129]:
+      - link "Isometric Registry" [ref=f3e130] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f3e144]:
+        - paragraph [ref=f3e146]: Isometric is the agentic certification platform for the industrial economy. Its AI agents work alongside human verifiers, reviewing every data point so expert judgment is freed for the calls that matter. Isometric is the largest certifier of carbon removal by contracted volume and is fully accredited by ICVCM, ICROA, and CORSIA.
+        - generic [ref=f3e147]:
+          - link "Go to isometric.com" [ref=f3e148] [cursor=pointer]:
+            - /url: https://isometric.com
+          - generic [ref=f3e151]:
+            - generic [ref=f3e152]:
+              - link "Changelog" [ref=f3e153] [cursor=pointer]:
+                - /url: https://isometric.com/changelog
+              - link "Writing" [ref=f3e155] [cursor=pointer]:
+                - /url: https://isometric.com/writing
+              - link "Careers" [ref=f3e157] [cursor=pointer]:
+                - /url: https://isometric.com/careers
+            - generic [ref=f3e159]:
+              - link "Documentation" [ref=f3e160] [cursor=pointer]:
+                - /url: https://docs.isometric.com
+              - link "Privacy" [ref=f3e162] [cursor=pointer]:
+                - /url: https://isometric.com/privacy-policy
+              - link "Terms" [ref=f3e164] [cursor=pointer]:
+                - /url: https://isometric.com/terms
+      - generic [ref=f3e166]:
+        - generic [ref=f3e167]:
+          - generic [ref=f3e168]:
+            - generic [ref=f3e169]: Get in touch
+            - link "contact@isometric.com" [ref=f3e171] [cursor=pointer]:
+              - /url: mailto:contact@isometric.com
+          - generic [ref=f3e172]:
+            - generic [ref=f3e173]: Press enquiries
+            - link "press@isometric.com" [ref=f3e175] [cursor=pointer]:
+              - /url: mailto:press@isometric.com
+        - generic [ref=f3e176]: © 2026 Isometric HQ Ltd. All rights reserved.
+  - alert [ref=f3e502]
+  - region "0 notifications."

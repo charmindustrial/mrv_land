@@ -1,0 +1,201 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e4]:
+      - generic [ref=e8]:
+        - generic [ref=e9]:
+          - link "Isometric Registry" [ref=e11] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e26]:
+            - link "Registry" [ref=e27] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=e28] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=e29] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e31]:
+          - generic [ref=e178]:
+            - link "Account" [ref=e179] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=e180] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=e181]: "|"
+          - button "Current user menu" [ref=e182] [cursor=pointer]:
+            - generic [ref=e183]: Menu
+    - main [ref=e36]:
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - generic [ref=e42]: Certificates issued
+            - generic [ref=e46]: 1,000Y+
+          - heading "5.91 tCO₂e removed by Vaulted Deep" [level=1] [ref=e52]:
+            - text: 5.91 tCO₂e removed
+            - generic [ref=e53]: by Vaulted Deep
+          - generic [ref=e54]: rmv_1M0ACG4FJ1S02V0A
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - heading "GHG entry details" [level=2] [ref=e59]
+            - generic [ref=e60]:
+              - generic [ref=e61]: Supplier
+              - link "Vaulted Deep" [ref=e64] [cursor=pointer]:
+                - /url: /supplier/spl_1H43SYY631S0Z8YR
+            - generic [ref=e69]:
+              - generic [ref=e70]: Project
+              - link "Great Plains Organic Waste Sequestration" [ref=e72] [cursor=pointer]:
+                - /url: /project/prj_1HHYZFVGW1S044ZY
+            - generic [ref=e73]:
+              - generic [ref=e74]: Tonnes removed
+              - generic [ref=e75]: 5.91 tCO₂e
+            - generic [ref=e76]:
+              - generic [ref=e77]: Sequestration date
+              - generic [ref=e78]: 10 Aug 2026
+            - generic [ref=e79]:
+              - generic [ref=e80]: Reporting period
+              - generic [ref=e81]: 11 Jul 2026 to 10 Aug 2026
+          - generic [ref=e82]:
+            - heading "Verification details" [level=2] [ref=e84]
+            - generic [ref=e85]:
+              - generic [ref=e87]:
+                - text: Verification protocol version
+                - img "More info" [ref=e88]
+              - link "Biomass Geological Storage v1.1" [ref=e92] [cursor=pointer]:
+                - /url: /protocol/biomass-geological-storage/1.1
+            - generic [ref=e94]:
+              - generic [ref=e96]:
+                - text: Baseline protocol version
+                - img "More info" [ref=e97]
+              - link "Biomass Geological Storage v1.0" [ref=e101] [cursor=pointer]:
+                - /url: /protocol/biomass-geological-storage/1.0
+            - generic [ref=e103]:
+              - generic [ref=e104]: Verifier
+              - generic [ref=e106]:
+                - link "350Solutions" [ref=e107] [cursor=pointer]:
+                  - /url: https://350solutions.com
+                - generic [ref=e112]: "->"
+      - generic [ref=e113]:
+        - tablist [ref=e116]:
+          - tab "Removal method" [ref=e117] [cursor=pointer]
+          - tab "Calculation view" [selected] [ref=e119] [cursor=pointer]
+          - tab "Datapoints" [ref=e121] [cursor=pointer]
+        - tabpanel "Calculation view" [ref=e125]:
+          - generic [ref=e186]:
+            - generic [ref=e190]:
+              - generic [ref=e191]:
+                - generic [ref=e194]:
+                  - button "Net CO₂e Removed 5.908 tCO₂e" [ref=e196]:
+                    - generic [ref=e197]:
+                      - generic [ref=e198]: Net CO₂e Removed
+                      - generic [ref=e199]: 5.908 tCO₂e
+                  - generic [ref=e206]:
+                    - generic [ref=e207]:
+                      - button "Sequestrations 6.621 tCO₂e" [ref=e209]:
+                        - generic [ref=e210]:
+                          - generic [ref=e211]: Sequestrations
+                          - generic [ref=e212]: 6.621 tCO₂e
+                      - generic [ref=e1110]:
+                        - button "Estimation Biomass Sequestration 6.621 t" [ref=e1112]:
+                          - generic [ref=e1113]:
+                            - generic [ref=e1114]: Estimation Biomass Sequestration
+                            - generic [ref=e1115]: 6.621 t
+                        - generic [ref=e1162]:
+                          - generic [ref=e1164]:
+                            - generic [ref=e1165]: Mass of waste biomass
+                            - generic [ref=e1166]: 23.532 t
+                          - generic [ref=e1167]: ×
+                          - button "Estimated discounted carbon content 0.076734" [ref=e1174]:
+                            - generic [ref=e1175]:
+                              - generic [ref=e1176]: Estimated discounted carbon content
+                              - generic [ref=e1177]: "0.076734"
+                          - generic [ref=e1181]: ×
+                          - generic [ref=e1187]:
+                            - generic [ref=e1188]: CO2e eq mass of C
+                            - generic [ref=e1189]: "3.666667"
+                    - generic [ref=e216]: "-"
+                    - generic [ref=e221]:
+                      - button "Activities 384 kgCO₂e" [ref=e224]:
+                        - generic [ref=e225]:
+                          - generic [ref=e226]: Activities
+                          - generic [ref=e227]: 384 kgCO₂e
+                      - generic [ref=e231]: +
+                      - button "Counterfactuals 329 kgCO₂e" [ref=e238]:
+                        - generic [ref=e239]:
+                          - generic [ref=e240]: Counterfactuals
+                          - generic [ref=e241]: 329 kgCO₂e
+                - generic [ref=e246]:
+                  - generic [ref=e247]: ⌘ + scroll to zoom
+                  - generic [ref=e249]:
+                    - button [ref=e251] [cursor=pointer]
+                    - button [ref=e256] [cursor=pointer]
+              - button "View full screen" [ref=e261] [cursor=pointer]
+            - generic [ref=e264]:
+              - heading "Datapoints (3)" [level=2] [ref=e1119]
+              - grid "Data points" [ref=e268]:
+                - rowgroup [ref=e269]:
+                  - row [ref=e270]:
+                    - columnheader "Name" [ref=e271]
+                    - columnheader "Value" [ref=e273]
+                    - columnheader "Collection method" [ref=e275]
+                    - columnheader "Sources" [ref=e277]
+                - rowgroup [ref=e279]:
+                  - row [ref=e1120]:
+                    - rowheader "Mass of waste biomass" [ref=e1121]
+                    - gridcell "23.532 t" [ref=e1123]
+                    - gridcell "Reported" [ref=e1124]
+                    - gridcell "Not Integrated Feed Organic + 2 more" [ref=e1129]:
+                      - generic [ref=e1130]:
+                        - generic [ref=e1131]: Not Integrated Feed Organic
+                        - button "+ 2 more" [expanded] [ref=e1136] [cursor=pointer]
+                  - row [ref=e1137]:
+                    - rowheader "CO2e eq mass of C" [ref=e1138]
+                    - gridcell "3.666667" [ref=e1140]
+                    - gridcell "Constant" [ref=e1141]
+                    - gridcell "—" [ref=e1146]
+                  - row [ref=e1148]:
+                    - rowheader "Estimated carbon content of injectant" [ref=e1149]
+                    - gridcell "Multiple values" [ref=e1151]
+                    - gridcell "—" [ref=e1152]
+                    - gridcell [ref=e1153]:
+                      - link "18 measurements" [ref=e1154] [cursor=pointer]:
+                        - /url: "?tab=calculation-view&expression=cmp_1M0ACG4FJ1S0R7DS.carbon_contents&removal=rmv_1M0ACG4FJ1S02V0A"
+  - contentinfo [ref=e127]:
+    - generic [ref=e129]:
+      - link "Isometric Registry" [ref=e130] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e144]:
+        - paragraph [ref=e146]: Isometric is the agentic certification platform for the industrial economy. Its AI agents work alongside human verifiers, reviewing every data point so expert judgment is freed for the calls that matter. Isometric is the largest certifier of carbon removal by contracted volume and is fully accredited by ICVCM, ICROA, and CORSIA.
+        - generic [ref=e147]:
+          - link "Go to isometric.com" [ref=e148] [cursor=pointer]:
+            - /url: https://isometric.com
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - link "Changelog" [ref=e153] [cursor=pointer]:
+                - /url: https://isometric.com/changelog
+              - link "Writing" [ref=e155] [cursor=pointer]:
+                - /url: https://isometric.com/writing
+              - link "Careers" [ref=e157] [cursor=pointer]:
+                - /url: https://isometric.com/careers
+            - generic [ref=e159]:
+              - link "Documentation" [ref=e160] [cursor=pointer]:
+                - /url: https://docs.isometric.com
+              - link "Privacy" [ref=e162] [cursor=pointer]:
+                - /url: https://isometric.com/privacy-policy
+              - link "Terms" [ref=e164] [cursor=pointer]:
+                - /url: https://isometric.com/terms
+      - generic [ref=e166]:
+        - generic [ref=e167]:
+          - generic [ref=e168]:
+            - generic [ref=e169]: Get in touch
+            - link "contact@isometric.com" [ref=e171] [cursor=pointer]:
+              - /url: mailto:contact@isometric.com
+          - generic [ref=e172]:
+            - generic [ref=e173]: Press enquiries
+            - link "press@isometric.com" [ref=e175] [cursor=pointer]:
+              - /url: mailto:press@isometric.com
+        - generic [ref=e176]: © 2026 Isometric HQ Ltd. All rights reserved.
+  - alert [ref=e177]
+  - region "0 notifications."
+  - dialog [ref=e1192]:
+    - button "Dismiss" [ref=e1194] [cursor=pointer]
+    - menu "+ 2 more" [active] [ref=e1195]:
+      - menuitem "Not Integrated Feed Organic" [disabled] [ref=e1196]
+      - menuitem "Not Integrated Feed Organic" [disabled] [ref=e1202]
+    - button "Dismiss" [ref=e1209] [cursor=pointer]

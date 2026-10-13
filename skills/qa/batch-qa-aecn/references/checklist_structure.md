@@ -15,7 +15,7 @@ Every section below has truck-batch defaults. Where rail batches differ, look fo
 | Delivery legs | 1 (AECN → Basco) | 3 (AECN→SOPOR truck, SOPOR→Opelousas rail, Opelousas→Basco truck) |
 | Transport components in Certify | 2 (process + embodied) | **6** (process + embodied per leg) |
 | BOLs | 1 per shipment | **3 BOLs IN to SOPOR** + scale tickets at offload truck-out |
-| Authoritative mass source | BOL "Qty Shipped" page 3 | **Scale tickets at the offload truck-out** (each delivery truck weighed at Basco) |
+| Authoritative mass source | BOL weighed "Qty shipped" (by field name — KB Section 3 "AECN Bill of Lading Formats") | **Scale tickets at the offload truck-out** (each delivery truck weighed at Basco) |
 | Offload truck count | 1 | Typically **4 trucks OUT** per railcar (varies) |
 | Pyrolysis component names in Certify | `AECN Pyrolysis Process/Embodied Emissions` | `AECN pyrolysis (from rail loads) - process/embodied emissions` (signal to VVB) |
 | Distance evidence | Google Maps (longest route) | **Email/written confirmation from rail logistics provider** (e.g., Watco). No Google Maps for rail. |
@@ -83,7 +83,7 @@ Every section below has truck-batch defaults. Where rail batches differ, look fo
 |------|-------|---------------|----------|----------------|
 | 3.1 | Truck BOL(s) present for each shipment | Drive or Certify Sources | At least 1 BOL per truck shipment | BOL missing from both Drive and Certify |
 | 3.2 | If rail delivery: truck BOLs from AECN present (destination = SOPOR railyard) | Drive or Certify Sources | 3 BOLs per railcar | Wrong destination, missing BOLs |
-| 3.3 | BOL mass matches or exceeds reported injectate mass | BOL page 3 "Qty Shipped" | BOL mass >= injectate mass | BOL mass < reported injectate |
+| 3.3 | BOL mass matches or exceeds reported injectate mass | BOL weighed "Qty shipped" (by field name) | BOL mass >= injectate mass. BOL's own figures tie (see below) | BOL mass < reported injectate. Tank-level estimate used as BOL mass. BOL contradicts itself |
 | 3.4 | Origin and destination correct on BOL | BOL | AECN Quebec -> Basco, or AECN -> SOPOR -> Basco (rail) | Wrong origin/destination |
 | 3.5 | Transportation distance consistent with known AECN route | Certify Datapoints | AECN truck ~2,197mi; AECN rail ~2,199mi | Distance significantly off |
 | 3.6 | Transport mode = tanker truck or railcar (AECN modes) | Certify Datapoints | Tanker truck (direct) or railcar (via SOPOR) | Wrong mode recorded |
@@ -91,7 +91,15 @@ Every section below has truck-batch defaults. Where rail batches differ, look fo
 
 **Verifier references:** VR Appendix 1, VR Sec 3.5, PDD Sec A, Transport Emissions Acctg v1.1
 
-**BOL authoritative mass:** Page 3, "Qty Shipped" field. (Rail: see 🚂 Rail note below — BOLs document the inbound side; offload mass authority is scale tickets.)
+**BOL authoritative mass:** the weighed quantity at 60°F, "Qty shipped". Find it by field name, not page number: page order differs between `-T` and `-R` packages, and AECN proposed a one-page format on 2026-09-29. Field names for both formats: KB Section 3, "AECN Bill of Lading Formats". Record the form number in the source-read log. Never use the tank-level estimate (old format's page-1 quantity block, repeated on the `-T` commercial invoice on 2505-T). (Rail: see 🚂 Rail note below — BOLs document the inbound side; offload mass authority is scale tickets.)
+
+**Item 3.3 — BOL internal ties (either format).** Check each and cite the figures:
+- Full weight − Tare weight = Product delivered (kg)
+- Product delivered (kg) ÷ 1,000 = Qty shipped (MT at 60°F)
+- Weighbridge Masse nette = Product delivered (kg), when the printout is in the package
+- Litres at 60°F × density at 60°F = Product delivered (kg), within the density's printed rounding (litres × 0.0005 — ≈ 11 kg on a 21,625 L load)
+
+A BOL that contradicts itself is a finding on 3.3. Precedent: 2492-T printed 20.17 MT on page 1 and 27.01 MT on page 3 (physically impossible for the truck); Ops recorded its choice in a cell comment → Flag. Grade others by the FAIL vs FLAG decision rule.
 
 **AECN transport modes:**
 - Direct truck: Tanker truck, AECN Quebec → Basco, ~2,197 mi, 1 BOL
@@ -235,6 +243,9 @@ If a railcar instead drew down in FEWER offloads than the BOLs loaded into it (N
 | 8.2 | Any spills/losses documented, unrecovered mass deducted, incident report filed | Ops Notes, batch folder | If spill occurred: documented and deducted | Spill not deducted from mass |
 | 8.3 | If inventory reconciliation: carryover oil documented | Reconciliation spreadsheet | If multi-period allocation: documented | N/A for most single-batch AECN |
 
+**Custody rule (2026-09-29):** upstream emissions of all oil in Charm custody are netted against removals. Production and transport emissions must be charged on the mass that entered custody on each leg, not only on the offloaded or injected mass; any lost mass (railcar loss, spill, standard loss, R&D removal) whose upstream emissions are not charged is a Fail, with the missing tCO2e computed.
+
+
 **Verifier reference:** GHG Stmt Sec C, VR Sec 3.5
 
 **🚂 Rail:**
@@ -257,7 +268,7 @@ If a railcar instead drew down in FEWER offloads than the BOLs loaded into it (N
 | 9.3 | ACTIVITIES — Injection: LCS and sample transport correct | Certify Components | Samples for MRV (<1 kgCO2e typically) | Often N/A for pure AECN (no LCS needed) |
 | 9.4 | ACTIVITIES — Pyrolysis: AECN production process + embodied entries present | Certify Components | "AECN Production Process Emissions" + "AECN Production Embodied Emissions" | Missing one of the two |
 | 9.5 | REDUCTIONS: All applicable BCU categories populated | Certify Components | 5 categories: injection diesel, injection waste, pre-treat diesel, pre-treat waste, transport | Missing BCU category |
-| 9.6 | REDUCTIONS — BCU quantity >= corresponding activity emission | Certify Components + Calculation View | Transport BCU >= transport activity (at minimum) | BCU underfunding a category |
+| 9.6 | REDUCTIONS — BCU quantity = corresponding activity emission (never exceeds) | Certify Components + Calculation View | Transport BCU = transport activity | BCU underfunding a category, or BCU exceeding its emission (any size) |
 | 9.7 | COUNTERFACTUALS: Zero per protocol | Certify Components | 0 | Non-zero counterfactual |
 | 9.8 | Net removal matches internal calculation | Certify Calculation View | Agrees with independent gross-to-net | Discrepancy |
 | 9.9 | All Datapoints have descriptive source names | Certify Datapoints | No "Measurement XXXX" or "IMG_001" | Generic names = FLAG (not FAIL) |
@@ -299,7 +310,7 @@ The audit script (`audit_checklist.py`) enforces this:
 - Item 9.2 (Activities — Transport): expect **6 components**, not 2: AECN→SOPOR Tanker Truck (Process + Embodied), SOPOR→Opelousas Rail (Process + Embodied), Opelousas→Basco Tanker Truck (Process + Embodied). Missing any of the 6 = FAIL.
 - Item 9.4 (Activities — Pyrolysis): naming is `AECN pyrolysis (from rail loads) - process emissions` and `... embodied emissions` for rail batches. Same EFs as truck batches; the naming is a deliberate VVB signal. Accept either form.
 - Item 9.5 (Reductions — BCU categories): for typical AECN batches without site-emission burdens, only `BCU's Transport` category applies. Other categories (injection diesel, injection waste, pre-treat diesel, pre-treat waste) appear only when removals are burdened with site emissions. Don't FAIL on missing categories absent a site-emission allocation.
-- Item 9.6 (BCU ≥ activity): rail batches: BCUs offset transport **process** emissions only. Embodied emissions are NOT BCU-eligible (per protocol). Verify `BCU's Transport` quantity ≥ sum of three transport-process activities (AECN→SOPOR truck process + SOPOR→Opelousas rail process + Opelousas→Basco truck process). For 2-182: 1.594 = 0.264 + 1.225 + 0.105 = 1.594 ✓.
+- Item 9.6 (BCU = activity, never more; see SKILL.md BCU QA Rule): rail batches: BCUs offset transport **process** emissions only. Embodied emissions are NOT BCU-eligible (per protocol). Verify `BCU's Transport` quantity = sum of three transport-process activities, and never more, (AECN→SOPOR truck process + SOPOR→Opelousas rail process + Opelousas→Basco truck process). For 2-182: 1.594 = 0.264 + 1.225 + 0.105 = 1.594 ✓.
 - Rail embodied EF: Standard EFs sheet 2026 value is **0.0000311307 MTCO₂e/mi** (per `2026 Railcar Embodied Emissions` tab: 65.37 MT CTGate ÷ 2.1M mi lifetime). If Certify shows the older 0.0000352240 value instead, that's a stale-EF FAIL on item 9.2 (Activities — Transport). Same shared datapoint feeds rail process components on multiple removals — a fix at the source datapoint propagates.
 - Rail process EF: Standard EFs sheet 2026 value is **0.0000259104 MTCO₂e/(t·mi)** (= 0.0259 kgCO₂e/(t·mi) shown in Certify modal — matches).
 - Item 9.10 (Sources match Drive): rail batches have additional source files vs truck batches — typically the rail logistics provider's email/invoice for distance, the railcar inbound documentation, the offload work order. Cross-reference against the Sources tab enumeration (per Gate 1's SOURCES TAB FIRST RULE).
@@ -349,7 +360,7 @@ Script-computed numbers (e.g., `5805.98 = (41660 - 28860) × 0.453592`) live in 
 See `outputs/qa/batch-2-204/batch_2-204_source_reads.json` and `batch-2-201/batch_2-201_source_reads.json` `_derived_values` blocks for the live convention. High-frequency keys:
 
 - `scale_ticket_net_kg`, `scale_ticket_net_lb` — raw scale-ticket math
-- `bol_<id>_R_masse_nette_kg`, `bol_aggregate_kg_recalc` — per-BOL and summed inbound masses
+- `bol_<id>_R_masse_nette_kg`, `bol_aggregate_kg_recalc` — per-BOL and summed inbound masses. The one-page BOL (form `TR98-012-R01`) has no Masse nette field. For it use `bol_<id>_product_delivered_kg`, and record `bol_<id>_form` on every BOL so the log shows which format was read
 - `allocation_fraction`, `allocation_fraction_recalc`
 - `allocated_truck_distance_km_calc`, `allocated_rail_distance_mi_calc`
 - `gross_co2e_recalc_kg`, `gross_co2e_recalc_t`
@@ -425,5 +436,6 @@ Reconciling a value is NOT the same as confirming its required evidence is **att
 - **Gate 1 capture:** record `certify.attachment_map` in the source-read log = `{ "<datapoint/component name>": ["<attached source filename>", ...] }`, captured from the Certify **Sources tab** (each source row lists its linked datapoint). Ops Notes attached to nothing = it is genuinely not linked.
 - **`scripts/audit_attachments.py`** holds the required-evidence matrix (component → required source categories) and filename patterns per category. It FAILS if (a) `attachment_map` is absent (you cannot skip by not capturing), or (b) any component lacks a required source category among its attached files.
 - **`audit_checklist.py` now runs it** as part of the standard pre-delivery audit and returns non-zero (Gate 4 NOT complete) if the attachment gate fails. So the existing "audit must return 0 before Gate 4" rule now structurally includes evidence-attachment.
+- **Findings rule (2026-09-29):** a gap is a finding for Garrett, not unfinished QA work. Once a Fail row cites `[log:certify.attachment_gate]` and names every open datapoint, `run_gates.py` lets delivery through; it blocks only a gap the checklist has not recorded.
 
 Required-evidence matrix enforced (AECN rail): Mass of Injectant → scale tickets + Ops Notes; Allocated Bio-Oil Mass (pyrolysis + transport basis) → scale tickets + BOLs + Ops Notes; Carbon → lab; Pyrolysis CI → LCA/GHG files; Allocated distances → Ops Notes + Maps; full distances → Maps (rail = Watco); EFs → Standard EF Sheet.

@@ -1,0 +1,134 @@
+##### modal_aecn_sopor_truck_embodied.yml: NO DIALOG FOUND
+##### modal_aecn_sopor_truck_process.yml
+  - dialog "AECN to SOPOR Tanker Truck Transport Process Emissions" [active] [ref=f42e589]:
+          - button "AECN to SOPOR Tanker Truck Transport Process Emissions" [ref=f42e596] [cursor=pointer]
+            - generic [ref=f42e598]: 3.291 tCO₂e
+            - generic [ref=f42e600]: 0.91%
+        - button "Toggle timeline sidebar" [ref=f42e602] [cursor=pointer]
+        - button "Close" [ref=f42e605] [cursor=pointer]
+          - generic [ref=f42e611]: Inputs
+          - grid "Input list" [ref=f42e612]:
+            - row "Emission factor of transport" [ref=f42e613]:
+              - gridcell "Emission factor of transport Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.1143 kgCO₂e/(t⋅mi) 1 source Deselect datapoint" [ref=f42e614]:
+                  - generic [ref=f42e616]: Emission factor of transport
+                    - button "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.1143 kgCO₂e/(t⋅mi) 1 source" [ref=f42e624] [cursor=pointer]:
+                      - generic [ref=f42e625]: Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck
+                        - generic [ref=f42e629]: "0.1143"
+                        - text: kgCO₂e/(t⋅mi)
+                      - button "1 source" [disabled] [ref=f42e631]
+                    - button "Deselect datapoint" [ref=f42e635] [cursor=pointer]
+            - row "Distance traveled" [ref=f42e638]:
+              - gridcell "Distance traveled Distance from AECN to Sopor Quebec (truck) 107.49722 mi 1 source Deselect datapoint" [ref=f42e639]:
+                  - generic [ref=f42e641]: Distance traveled
+                    - button "Distance from AECN to Sopor Quebec (truck) 107.49722 mi 1 source" [ref=f42e649] [cursor=pointer]:
+                      - generic [ref=f42e650]: Distance from AECN to Sopor Quebec (truck)
+                        - generic [ref=f42e654]: "107.49722"
+                        - text: mi
+                      - button "1 source" [disabled] [ref=f42e656]
+                    - button "Deselect datapoint" [ref=f42e660] [cursor=pointer]
+            - row "Mass of load" [ref=f42e663]:
+              - gridcell "Mass of load Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources Deselect datapoint" [ref=f42e664]:
+                  - generic [ref=f42e666]: Mass of load
+                    - button "Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources" [ref=f42e674] [cursor=pointer]:
+                      - generic [ref=f42e675]: Bio-Oil Mass - AECN via Rail
+                          - generic [ref=f42e680]: 267,807.11
+                          - generic [ref=f42e681]: ±1,015.98
+                        - text: kg
+                      - button "32 sources" [disabled] [ref=f42e682]
+                    - button "Deselect datapoint" [ref=f42e686] [cursor=pointer]
+          - button "+ Add" [ref=f42e692] [cursor=pointer]
+          - generic [ref=f42e695]: Blueprint details
+                - link "Transport emissions" [ref=f42e702] [cursor=pointer]:
+              - generic [ref=f42e707]: transport
+              - generic [ref=f42e711]: CO₂e
+                - generic [ref=f42e720]: mass
+                - generic [ref=f42e723]: distance
+                - generic [ref=f42e726]: carbon_intensity
+        - button "Delete" [ref=f42e730] [cursor=pointer]
+        - button "Done" [ref=f42e731] [cursor=pointer]
+##### modal_bcu.yml: NO DIALOG FOUND
+##### modal_pyro_embodied.yml: NO DIALOG FOUND
+##### modal_pyro_process.yml: NO DIALOG FOUND
+##### modal_rail_embodied.yml
+  - dialog "SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions" [active] [ref=f54e589]:
+          - button "SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions" [ref=f54e596] [cursor=pointer]
+            - generic [ref=f54e598]: 0.470 tCO₂e
+            - generic [ref=f54e600]: 0.13%
+        - button "Toggle timeline sidebar" [ref=f54e602] [cursor=pointer]
+        - button "Close" [ref=f54e605] [cursor=pointer]
+          - generic [ref=f54e611]: Inputs
+          - grid "Input list" [ref=f54e612]:
+            - row "Distance emission factor" [ref=f54e613]:
+              - gridcell "Distance emission factor Emissions Factor - Vehicle Embodied Emissions -- Railcar 0.03113 kgCO₂e/mi 1 source Deselect datapoint" [ref=f54e614]:
+                  - generic [ref=f54e616]: Distance emission factor
+                    - button "Emissions Factor - Vehicle Embodied Emissions -- Railcar 0.03113 kgCO₂e/mi 1 source" [ref=f54e624] [cursor=pointer]:
+                      - generic [ref=f54e625]: Emissions Factor - Vehicle Embodied Emissions -- Railcar
+                        - generic [ref=f54e629]: "0.03113"
+                        - text: kgCO₂e/mi
+                      - button "1 source" [disabled] [ref=f54e631]
+                    - button "Deselect datapoint" [ref=f54e635] [cursor=pointer]
+            - row "Distance traveled" [ref=f54e638]:
+              - gridcell "Distance traveled Allocated Distance Sopor Quebec to Opelousas (rail) 15,102.69 mi 2 sources Deselect datapoint" [ref=f54e639]:
+                  - generic [ref=f54e641]: Distance traveled
+                    - button "Allocated Distance Sopor Quebec to Opelousas (rail) 15,102.69 mi 2 sources" [ref=f54e649] [cursor=pointer]:
+                      - generic [ref=f54e650]: Allocated Distance Sopor Quebec to Opelousas (rail)
+                        - generic [ref=f54e654]: 15,102.69
+                        - text: mi
+                      - button "2 sources" [disabled] [ref=f54e656]
+                    - button "Deselect datapoint" [ref=f54e660] [cursor=pointer]
+          - button "+ Add" [ref=f54e666] [cursor=pointer]
+          - generic [ref=f54e669]: Blueprint details
+                - link "Distance-based emissions" [ref=f54e676] [cursor=pointer]:
+              - generic [ref=f54e681]: distance_based_ci_emissions
+              - generic [ref=f54e685]: CO₂e
+                - generic [ref=f54e694]: distance
+                - generic [ref=f54e697]: carbon_intensity
+        - button "Delete" [ref=f54e701] [cursor=pointer]
+        - button "Done" [ref=f54e702] [cursor=pointer]
+##### modal_rail_process_baton_rouge.yml
+  - dialog "SOPOR to Baton Rouge Rail Process Emissions" [active] [ref=f57e589]:
+          - button "SOPOR to Baton Rouge Rail Process Emissions" [ref=f57e596] [cursor=pointer]
+            - generic [ref=f57e598]: 2.677 tCO₂e
+            - generic [ref=f57e600]: 0.74%
+        - button "Toggle timeline sidebar" [ref=f57e602] [cursor=pointer]
+        - button "Close" [ref=f57e605] [cursor=pointer]
+          - generic [ref=f57e611]: Inputs
+          - grid "Input list" [ref=f57e612]:
+            - row "Emission factor of transport" [ref=f57e613]:
+              - gridcell "Emission factor of transport Rail transport, Northern America, WTW 0.0161 kgCO₂e/(km⋅t) 1 source Deselect datapoint" [ref=f57e614]:
+                  - generic [ref=f57e616]: Emission factor of transport
+                    - button "Rail transport, Northern America, WTW 0.0161 kgCO₂e/(km⋅t) 1 source" [ref=f57e625] [cursor=pointer]:
+                      - generic [ref=f57e626]: Rail transport, Northern America, WTW
+                        - generic [ref=f57e630]: "0.0161"
+                        - text: kgCO₂e/(km⋅t)
+                      - button "1 source" [disabled] [ref=f57e632]
+                    - button "Deselect datapoint" [ref=f57e636] [cursor=pointer]
+            - row "Distance traveled" [ref=f57e639]:
+              - gridcell "Distance traveled Distance traveled 2,153 km No sources Deselect datapoint" [ref=f57e640]:
+                  - generic [ref=f57e642]: Distance traveled
+                    - button "Distance traveled 2,153 km No sources" [ref=f57e650] [cursor=pointer]:
+                      - generic [ref=f57e651]: Distance traveled
+                        - generic [ref=f57e655]: 2,153
+                        - text: km
+                      - generic [ref=f57e657]: No sources
+                    - button "Deselect datapoint" [ref=f57e661] [cursor=pointer]
+            - row "Mass of load" [ref=f57e664]:
+              - gridcell "Mass of load Mass of load 77,228.57 kg No sources Deselect datapoint" [ref=f57e665]:
+                  - generic [ref=f57e667]: Mass of load
+                    - button "Mass of load 77,228.57 kg No sources" [ref=f57e675] [cursor=pointer]:
+                      - generic [ref=f57e676]: Mass of load
+                        - generic [ref=f57e680]: 77,228.57
+                        - text: kg
+                      - generic [ref=f57e682]: No sources
+                    - button "Deselect datapoint" [ref=f57e686] [cursor=pointer]
+          - button "+ Add" [ref=f57e692] [cursor=pointer]
+          - generic [ref=f57e695]: Blueprint details
+                - link "Transport emissions" [ref=f57e702] [cursor=pointer]:
+              - generic [ref=f57e707]: transport
+              - generic [ref=f57e711]: CO₂e
+                - generic [ref=f57e720]: mass
+                - generic [ref=f57e723]: distance
+                - generic [ref=f57e726]: carbon_intensity
+        - button "Delete" [ref=f57e730] [cursor=pointer]
+        - button "Done" [ref=f57e731] [cursor=pointer]
+##### modal_rail_process_opelousas.yml: NO DIALOG FOUND

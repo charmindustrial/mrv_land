@@ -1,0 +1,126 @@
+{
+ "batch_id": "INJ-09-2026-W4-QOWV",
+ "note": "QA of 2026-10-06 (T0 14:34:05Z). All 30 entries were first written together at 15:05:50Z, after Gate 2: 24 marked done, and G2_5 plus the five Gate 3 and Gate 4 entries marked not done. G1_injection_record was marked done then on the 2026-09-28 tracker export and re-evidenced after the live read at 18:26Z. The not-done entries were completed as each step finished (15:06Z to 15:36Z), and entries were revised after the independent audits that followed; 21 entries are unchanged since 15:05:50Z. G1_2_totes and G2_1_tare_measured were re-evidenced at 2026-10-06T21:19:07Z when the weighing records were added. The audit then found tote 300022's weighing record and date blank and the weighing location unsourced; G1_2_totes was corrected at 2026-10-06T21:30:41Z, and G1_6_pp_summaries and G2_4_each_pp_summary were extended to the July 2026 summaries at the same time. After the auditor's production-period point, 3.5 became a Flag (checklist saved 21:38:20Z, T4 21:38:56Z, step entries written 21:39:33Z; Pass 20 / Flag 5 / Fail 7 / N/A 1). A second focused adversarial review followed; its points were applied (checklist saved 2026-10-06T22:03:00Z, T4 2026-10-06T22:03:19Z), and G2_5, G3_reviewer_independent, G3_challenges_resolved, G4_render_in_excel and G4_status_counts were updated after the Excel export at 22:43Z. On 2026-10-07 the MRV lead ruled on 7.2 (BCU scope) and 2.3 (COBB); the rulings were applied, a third focused review followed and its points were applied (checklist saved 2026-10-07T09:37:46Z, T4 2026-10-07T09:37:58Z, Excel export 10:37 local), and G2_5, G3_reviewer_independent, G3_challenges_resolved, G4_render_in_excel and G4_status_counts were updated. After the 2026-10-07 audit, the three unapplied third-review points were applied (checklist saved 2026-10-07T10:12:35Z, T4 2026-10-07T10:13:04Z, Excel export 11:13 local); citations to the moved production-system entries now read production_records.*.",
+ "steps": {
+  "P1_knowledge_base": {
+   "done": true,
+   "evidence": "[log:preflight.knowledge_base] read in full before Gate 1"
+  },
+  "P2_lessons_learned": {
+   "done": true,
+   "evidence": "[log:preflight.lessons_learned] FC-C1 to FC-C12 and cross-cutting FCs"
+  },
+  "P3_checklist_structure": {
+   "done": true,
+   "evidence": "[log:preflight.checklist_structure]"
+  },
+  "P4_failure_categories_printed": {
+   "done": true,
+   "evidence": "[log:preflight.failure_categories_printed] printed to chat before the first Certify read for Gate 1"
+  },
+  "P5_registry_checked": {
+   "done": true,
+   "evidence": "[log:preflight.registry_checked] no prior INJ-09-2026-W4 entry"
+  },
+  "T0_stamped_monitor_triggered": {
+   "done": true,
+   "evidence": "T0 stamped at kickoff, 2026-10-06T14:34:05Z, in batch_timestamps.json [log:T0]. The performance monitor was triggered late, at 14:55:47Z (21 minutes after T0, after the Gate 1 reads), as an independent agent; it wrote row 16 of outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx with T0 14:34:05Z."
+  },
+  "G1_0_vvb_guidance_full": {
+   "done": true,
+   "evidence": "[log:vvb_guidance.sections, vvb_guidance.bearing_on_this_batch] source_exports/VVB_Guidance_Sep_2026.txt read in full before the Ops Notes, tracker or lab report"
+  },
+  "G1_0_cell_comments": {
+   "done": true,
+   "evidence": "[log:vvb_guidance.ops_notes_cell_comments] formula-mode load of source_exports/INJ-09-2026-W4_Ops_Notes.xlsx, all 10 tabs"
+  },
+  "G1_1_batch_folder": {
+   "done": true,
+   "evidence": "[log:batch_folder_inventory, batch_folder_listing] batch_folder_listing.txt"
+  },
+  "G1_2_totes": {
+   "done": true,
+   "evidence": "[log:totes, tote_weighing_records.result, tote_weighing_records.location_basis] 42 totes with tag, gross, tare, fraction and production period on every row, and a weighing record and date on all 42 (weighing_record, weighing_date): 41 under their own tag, and 300022 from its lot 4746's record filed under tag 300020 (Historical Tote Record row 840, 2026-02-17 17:13:06). No record read states the weighing location: weighing_location says so and gives Fort Lupton, CO as inferred, with its basis in location_basis."
+  },
+  "G1_3_ops_notes": {
+   "done": true,
+   "evidence": "[log:ops_notes, ops_notes_totals, lcs_search_method] lcs_scan.txt"
+  },
+  "G1_4_shipment_tracker": {
+   "done": true,
+   "evidence": "[log:shipment_tracker, shipment_tracker_cells_are_formulas]"
+  },
+  "G1_5_testing": {
+   "done": true,
+   "evidence": "[log:testing.qowv_certificate] Certify_attached_COA_src_1M3VZ8S8W1S013HS.pdf pages 1-3 read; Drive Testing-folder copy Drive_Testing_COA_1Viar0c3xdOh.pdf downloaded after the sign-in, page 3 read, sha256 identical"
+  },
+  "G1_6_pp_summaries": {
+   "done": true,
+   "evidence": "[log:pp_summary_sources.live, blended_ci_source.qowv_result, pp_summary_sources.july_2026] six live summaries exported (source_exports/pp_summaries/), WODO and Aqueous rows, masses, CIs, days in period; for July 2026 (8 totes) the three July files on Drive were downloaded and read: both 'Jul 26 Production Period Summary' files are copies of June, identical on all 425 cells, and the 'July 26 Production Period Output Summary' is an unfilled template, so no July figures exist (July product takes the Jan-Jun blend)"
+  },
+  "G1_7_charm_contents": {
+   "done": true,
+   "evidence": "[log:charm_contents] absent from batch_folder_listing.txt and the six Certify sources"
+  },
+  "G1_8_certify_four_tabs": {
+   "done": true,
+   "evidence": "[log:certify.component_by_key, certify.calculation_view, certify.datapoints, certify.certify_sources_enumeration] certify_sources_tab.yml"
+  },
+  "G1_8_sources_tab_total": {
+   "done": true,
+   "evidence": "[log:certify.certify_sources_tab_total, certify.certify_sources_enumeration, certify.attachment_map]"
+  },
+  "G1_registry_updated": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/qa_active_charm_batches.json entry INJ-09-2026-W4-QOWV added 2026-10-06T14:59:45Z [log:certify_removal_id]"
+  },
+  "G1_injection_record": {
+   "done": true,
+   "evidence": "[log:cobb_injection_record.result, cobb_injection_record.changes_since_0928, production_records.gross_conflict_301274, production_records.tag_300020] Live export of the Bio-oil Injection Tracker taken 2026-10-06 19:26 BST after the Google sign-in: source_exports/bio_oil_injection_tracker_live_2026-10-06.xlsx; W4 aqueous rows, tags and completion date in cobb_w4_aqueous_rows_live.json, compared by column name with the 2026-09-28 copy; 2.3, 3.1 and the sidebar revised from it"
+  },
+  "G2_1_tare_measured": {
+   "done": true,
+   "evidence": "[log:inventory_master.tare_distribution_batch, totes, tote_weighing_records.result] 57.6 kg standard tare on all 42 (checklist 2.2 Flag); post-unload weights measured, 164.5-442.5 kg (2.3); every tote's production weighing record opened in the tracker's Historical Tote Record: gross matches the ledger on 40 of the 41 tags carried, 301274 differs (2.3), 300022's lot is filed under tag 300020 (3.1)"
+  },
+  "G2_2_tracker_cells_clicked": {
+   "done": true,
+   "evidence": "[log:shipment_tracker_cells_are_formulas] E12:E15, G12:G15, G17, F12:F15, D6 formula text quoted"
+  },
+  "G2_3_component_modals": {
+   "done": true,
+   "evidence": "[log:certify.component_by_key] all five component detail views opened and INPUTS +/- read, 14:41-14:42Z"
+  },
+  "G2_4_each_pp_summary": {
+   "done": true,
+   "evidence": "[log:pp_summary_sources.live, pp_summary_sources.constants_match_live, pp_summary_sources.july_2026] June and February summaries (the two linked periods) plus Jan, Mar, Apr, May for the blended CI; the July 2026 files opened and found to be copies of June or an unfilled template (checklist 7.3)"
+  },
+  "G2_5_recompute_pasted": {
+   "done": true,
+   "evidence": "Final recompute_output.txt (recompute_qowv.py, 30 of 30 OK, exit 0), re-run at 2026-10-07T10:12:38Z after the third review's remaining points (7.2 CIs computed from source_exports/pp_summaries/ and package/, 2.3 from Oil_inventory_data rows 39-40 and the Ops Notes row), pasted verbatim and in full into the chat before delivery [log:certify.net_co2e_removed_t, pp_summary_basis.ruling_2026_10_07, production_records.gross_conflict_301274]"
+  },
+  "G2_lcs_search": {
+   "done": true,
+   "evidence": "[log:lcs_search_method] lcs_scan.txt, zero hits across 10 tabs"
+  },
+  "G3_reviewer_independent": {
+   "done": true,
+   "evidence": "Two independent subagent reviews on files only: the full review of all 33 items (adversarial_review_INJ-09-2026-W4-QOWV.md, 15:29:46Z) and, after the live tracker read changed 1.1, 2.3, 3.1 and the sidebar, a focused review of those items (adversarial_review_addendum_INJ-09-2026-W4-QOWV.md); and, after the weighing-record and 3.5 changes, a second focused review of 2.1, 3.5, 7.1, 7.3 and C.1 (adversarial_review_addendum2_INJ-09-2026-W4-QOWV.md, 2026-10-06T21:57:36Z); and, after the 2026-10-07 rulings, a third focused review of 2.3, 3.1, 7.2, 7.3, C.1, the sidebar, the recompute and the drafts (adversarial_review_addendum3_INJ-09-2026-W4-QOWV.md, 2026-10-07T09:19:01Z) [log:adversarial_review.reviewer, adversarial_review.addendum2, adversarial_review.addendum3]"
+  },
+  "G3_challenges_resolved": {
+   "done": true,
+   "evidence": "[log:adversarial_review.accepted, adversarial_review.verified_by_qa_agent] every challenge in both reviews re-checked in the files and accepted (pp_summary_basis_comparison.json for 7.2; production_records.gross_conflict_301274 and production_records.tag_300020 for the addendum); 1.1 now cites the knowledge base's 1.01 g/cm3; the operations position on the tracker goes to the MRV lead in the delivery message; checklist rebuilt and recompute re-run; final-audit points applied (stacked imports with Import Time stamps in the sidebar, 2.1/2.2 point to 2.3, 2.3 fix names 4.3, offset wording limited to the newest import, 3.4 fallback 2,576.6552 mi); after Gate 4 the independent ledger auditor raised the four June-labelled totes weighed 2026-07-01, which the QA agent verified and added to 3.5 as a Flag; the second addendum review then challenged 2.1, 3.5, 7.3 and C.1, and every point was re-checked in the files and accepted: 3.5 keeps its Flag on the missing fill date, its counterfactual is dropped because the June summary mass and the Jan-Jun blend both count these totes as June output, C.1 says 3.5 does not change the net, 2.1 splits lot 4746's date, the location basis cites the production system's location field, and 7.3 says the July copies show June's CI [log:adversarial_review.accepted, tote_weighing_records.june_totes_weighed_in_july.corroboration, tote_weighing_records.location_basis.production_system_location]; the MRV lead's 2026-10-07 rulings (BCU scope; COBB not a cross-check) were applied to 2.3, 3.1, 7.2, C.1 and the sidebar [log:max_rulings], and every point of the third review was re-checked in the files and accepted: 7.2 now gives both consistent summary versions (package 4,790.2737 kg, linked 4,786.3316 kg) with the version direction corrected, 2.3 carries the BGN row-shift evidence and cites FC-C14 [log:adversarial_review.addendum3, pp_summary_basis.ruling_2026_10_07.version_history, production_records.bgn_row_shift_301274]; after the audit of 2026-10-07 found three third-review points not yet applied, they were applied: the recompute computes the 7.2 CIs from the summary workbooks and 301274's effect from the production record; the production-system entries moved from cobb_injection_record to production_records; the skill rule's Fail condition is BCUs applied (C10 > 0) with the 2025 summaries added; 2.3 states that the order among the three records is not yet ruled [log:production_records, production_records.source_hierarchy, adversarial_review.addendum3]"
+  },
+  "G4_render_in_excel": {
+   "done": true,
+   "evidence": "Final checklist exported to PDF by Microsoft Excel (AppleScript) after the last rebuild, from a byte-identical copy in Excel's container folder (sha256 checked); screenshots/Excel_render_checklist.pdf (6 pages, 2026-10-07 11:13 local) read page by page, every cell fully visible"
+  },
+  "G4_status_counts": {
+   "done": true,
+   "evidence": "status_counts.json counted from the saved checklist cells after the last rebuild: Pass 20, Flag 5, Fail 7, N/A 1 (33), matching the STATUS COUNTS row"
+  },
+  "G4_monitor_independent": {
+   "done": true,
+   "evidence": "Independent monitor agent (not the QA agent) wrote row 16 for INJ-09-2026-W4-QOWV in outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx at T0 trigger, rows 1-15 hash-verified unchanged"
+  }
+ }
+}

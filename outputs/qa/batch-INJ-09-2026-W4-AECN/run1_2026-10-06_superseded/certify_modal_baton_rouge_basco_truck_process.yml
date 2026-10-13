@@ -1,0 +1,83 @@
+- dialog "Baton Rouge to Basco Tanker Truck Process Emissions" [active] [ref=f153e589]:
+  - generic [ref=f153e590]:
+    - generic [ref=f153e591]:
+      - generic [ref=f153e593]:
+        - button "Baton Rouge to Basco Tanker Truck Process Emissions" [ref=f153e596] [cursor=pointer]
+        - generic [ref=f153e597]:
+          - generic [ref=f153e598]: 1.200 tCO₂e
+          - generic [ref=f153e600]: 0.33%
+      - button "Toggle timeline sidebar" [ref=f153e602] [cursor=pointer]
+      - button "Close" [ref=f153e605] [cursor=pointer]
+    - generic [ref=f153e609]:
+      - generic [ref=f153e610]:
+        - generic [ref=f153e611]: Inputs
+        - grid "Input list" [ref=f153e612]:
+          - row "Emission factor of transport" [ref=f153e613]:
+            - gridcell "Emission factor of transport Tanker truck, Northern America, WTW 0.071 kgCO₂e/(km⋅t) 1 source Deselect datapoint" [ref=f153e614]:
+              - generic [ref=f153e615]:
+                - generic [ref=f153e616]: Emission factor of transport
+                - generic [ref=f153e619]:
+                  - button "Tanker truck, Northern America, WTW 0.071 kgCO₂e/(km⋅t) 1 source" [ref=f153e625] [cursor=pointer]:
+                    - generic [ref=f153e626]: Tanker truck, Northern America, WTW
+                    - generic [ref=f153e629]:
+                      - generic [ref=f153e630]: "0.071"
+                      - text: kgCO₂e/(km⋅t)
+                    - button "1 source" [disabled] [ref=f153e632]
+                  - button "Deselect datapoint" [ref=f153e636] [cursor=pointer]
+          - row "Distance traveled" [ref=f153e639]:
+            - gridcell "Distance traveled Distance traveled 136 mi No sources Deselect datapoint" [ref=f153e640]:
+              - generic [ref=f153e641]:
+                - generic [ref=f153e642]: Distance traveled
+                - generic [ref=f153e645]:
+                  - button "Distance traveled 136 mi No sources" [ref=f153e650] [cursor=pointer]:
+                    - generic [ref=f153e651]: Distance traveled
+                    - generic [ref=f153e654]:
+                      - generic [ref=f153e655]: "136"
+                      - text: mi
+                    - generic [ref=f153e657]: No sources
+                  - button "Deselect datapoint" [ref=f153e661] [cursor=pointer]
+          - row "Mass of load" [ref=f153e664]:
+            - gridcell "Mass of load Mass of load 77,228.57 ±290.28 kg No sources Deselect datapoint" [ref=f153e665]:
+              - generic [ref=f153e666]:
+                - generic [ref=f153e667]: Mass of load
+                - generic [ref=f153e670]:
+                  - button "Mass of load 77,228.57 ±290.28 kg No sources" [ref=f153e675] [cursor=pointer]:
+                    - generic [ref=f153e676]: Mass of load
+                    - generic [ref=f153e679]:
+                      - generic [ref=f153e680]:
+                        - generic [ref=f153e681]: 77,228.57
+                        - generic [ref=f153e682]: ±290.28
+                      - text: kg
+                    - generic [ref=f153e683]: No sources
+                  - button "Deselect datapoint" [ref=f153e687] [cursor=pointer]
+      - generic [ref=f153e690]:
+        - generic [ref=f153e691]: Description
+        - button "+ Add" [ref=f153e693] [cursor=pointer]
+      - generic [ref=f153e695]:
+        - generic [ref=f153e696]: Blueprint details
+        - generic [ref=f153e697]:
+          - generic [ref=f153e698]:
+            - generic [ref=f153e699]: Blueprint
+            - generic [ref=f153e702]:
+              - link "Transport emissions" [ref=f153e703] [cursor=pointer]:
+                - /url: https://docs.isometric.com/certify/component-blueprint-library#transport-emissions
+              - generic [ref=f153e704]: "->"
+          - generic [ref=f153e705]:
+            - generic [ref=f153e706]: Key
+            - generic [ref=f153e708]: transport
+          - generic [ref=f153e709]:
+            - generic [ref=f153e710]: Gas type
+            - generic [ref=f153e712]: CO₂e
+          - generic [ref=f153e713]:
+            - generic [ref=f153e714]: Calculation
+            - generic [ref=f153e717]:
+              - generic [ref=f153e718]: output
+              - generic [ref=f153e720]: =
+              - generic [ref=f153e721]: mass
+              - generic [ref=f153e723]: "*"
+              - generic [ref=f153e724]: distance
+              - generic [ref=f153e726]: "*"
+              - generic [ref=f153e727]: carbon_intensity
+    - generic [ref=f153e730]:
+      - button "Delete" [ref=f153e731] [cursor=pointer]
+      - button "Done" [ref=f153e732] [cursor=pointer]

@@ -1,0 +1,3397 @@
+{
+ "batch_id": "INJ-09-2026-W4-QOWV",
+ "oil_type": "Aqueous",
+ "oil_type_label_in_ops_notes": "QOWV",
+ "reporting_period": "September 1 - September 30 2026 RP; Ops Notes injection week 2026-09-18 to 2026-09-25 (QOWV!B3/B4); Certify removal window 19 Sep 2026 to 25 Sep 2026",
+ "certify_removal_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3SG7D701S0HZ1Z/edit",
+ "certify_removal_id": "rmv_1M3SG7D701S0HZ1Z",
+ "drive_folder_url": "https://drive.google.com/drive/u/0/folders/1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0",
+ "T0": "2026-10-06T14:34:05Z",
+ "routing": {
+  "_primary_source_opened": [
+   {
+    "file": "Certify GHG entry rmv_1M3SG7D701S0HZ1Z, Components tab",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3SG7D701S0HZ1Z/edit",
+    "artifact_path": "certify_initial_snapshot.yml"
+   }
+  ],
+  "evidence": "Removal 4.08 tCO2e, 19 Sep 2026 to 25 Sep 2026; components 'CO to LA Flatbed Truck Transport Embodied Emissions - QOWV', 'CO to LA Flatbed Truck Transport Process Emissions - QOWV', 'Pyrolysis - Charm QOWV PP Emissions', 'Injection sequestration', 'BCU - Transport Process' -> Aqueous (QOWV) batch, batch-qa-charm skill"
+ },
+ "preflight": {
+  "knowledge_base": "knowledge-base/Charm_Isometric_Knowledge_Base.md read in full (lines 1-1299) 2026-10-06 ~14:34Z: Sections 0-16 incl. BCU QA Rule (never exceed), uncertainty Layer 1-3, Document Location Rule",
+  "lessons_learned": "skills/qa/batch-qa-charm/references/lessons_learned.md read in full: FC-C1 to FC-C12 plus cross-cutting FCs",
+  "checklist_structure": "skills/qa/batch-qa-charm/references/checklist_structure.md read in full: Sections 1-9, sidebar, citation discipline, custody rule (2026-09-29) under 2.3",
+  "failure_categories_printed": [
+   "FC-C1 Aqueous has no Standard Loss",
+   "FC-C2 a PP omitted entirely is the fail, aggregation passes",
+   "FC-C3 allocation cells must be formulas",
+   "FC-C4 LCS reported needs a component",
+   "FC-C5 roster per-attribute match",
+   "FC-C6 longest Google Maps route",
+   "FC-C7 Mass of Load = gross",
+   "FC-C8 1.134 kg per tote",
+   "FC-C9 PP/PB slash and n=3 are settled",
+   "FC-C10 fraction CI to the right totes",
+   "FC-C11 Max-stated vs invented rules",
+   "FC-C12 dominant input needs uncertainty",
+   "cross-cutting: no cop-outs, no Per Max, missing evidence = Fail, Sources tab is inventory"
+  ],
+  "registry_checked": "skills/qa/batch-qa-charm/qa_active_charm_batches.json read in full (700 lines): no INJ-09-2026-W4 entry -> fresh QA"
+ },
+ "vvb_guidance": {
+  "_primary_source_opened": [
+   {
+    "file": "VVB Guidance September 1 - September 30",
+    "action": "doc_read_in_full",
+    "drive_id": "1pib26xToLPFxaOla2p3pv4ummq5ekPpAn65FFuqrlPc",
+    "live_source_url": "https://docs.google.com/document/d/1pib26xToLPFxaOla2p3pv4ummq5ekPpAn65FFuqrlPc/edit",
+    "artifact_path": "source_exports/VVB_Guidance_Sep_2026.txt",
+    "modified": "2026-10-05T07:16:43Z"
+   }
+  ],
+  "read_in_full": true,
+  "sections": [
+   "AECN Rail - Oil Withdrawn for Research and Development (Week 3, INJ-09-2026-W3)",
+   "AECN Rail - New Rail Destination at Baton Rouge (Railcar SHPX215053, Week 4, INJ-09-2026-W4)",
+   "AECN Rail - Bio-oil Loss",
+   "Site Gasoline - E-85 Fills Quantified at an E-85 Emission Factor",
+   "Site Diesel - Rail-Yard Air Compressor Fuel",
+   "Immateriality of Argon Transport and removal from calculations"
+  ],
+  "verbatim_week4_window": "SHPX215053, offloaded in Week 4 (INJ-09-2026-W4, 18 \u2013 25 September 2026)",
+  "verbatim_loss_principle": "Delivered oil and lost oil together therefore carry the pyrolysis and upstream transport emissions of the full loaded mass.",
+  "bearing_on_this_batch": "No section covers QOWV, totes, tote tare, the QOWV allocation tab or Charm production CI. The Week 4 section is AECN rail routing only. The loss section states the custody principle applied in 2.3/7.4.",
+  "ops_notes_cell_comments": "Formula-mode load of the live export: 2 cell notes in the workbook, AECN Truck!H28 and Kerry!D18, both 'Wellhead pH = weekly median of Ignition PH-1041, gated to StateRun=1; provided by G. Lutz 2026-09-30.' None on the QOWV, QOWV Shipments & EE Allocation or Summary tabs."
+ },
+ "batch_folder_inventory": [
+  {
+   "name": "Testing",
+   "type": "folder",
+   "drive_id": "1sbuy0NI_yqQmXd4e326PCZ5VmaSUHnsM",
+   "present": true,
+   "contents": "SR26-05719 W4 Kerry AECN QOWV COA.pdf (48,654 bytes)"
+  },
+  {
+   "name": "INJ-09-2026-W4 Ops Notes",
+   "type": "google_sheet",
+   "drive_id": "1zgrkVKQsGlzwjiumtn1vkYSaCt5_XTr7UWs3lR3RORQ",
+   "present": true
+  },
+  {
+   "name": "QOWV Shipments & EE Allocation (tab of the Ops Notes)",
+   "type": "sheet_tab",
+   "present": true
+  },
+  {
+   "name": "Scale Tickets",
+   "type": "folder",
+   "present": true,
+   "contents": "4 AECN railcar subfolders, not QOWV"
+  },
+  {
+   "name": "Kerry Oil",
+   "type": "folder",
+   "present": true,
+   "contents": "Kerry scale tickets, not QOWV"
+  },
+  {
+   "name": "RailLogix (Carville LA) to Basco B6 Truck Route - 136 mi.png",
+   "type": "image",
+   "present": true,
+   "contents": "AECN rail leg map, not QOWV"
+  }
+ ],
+ "batch_folder_listing": {
+  "_primary_source_opened": [
+   {
+    "file": "Drive folder 1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0 and subfolders (Drive API parentId listing, all pages)",
+    "action": "folder_listed",
+    "artifact_path": "batch_folder_listing.txt",
+    "negative_check_tokens": [
+     "Charm Contents.xlsx",
+     "Shipment Tracker.xlsx"
+    ],
+    "items_found": []
+   }
+  ],
+  "note": "No standalone Bio-Oil Shipment Tracker file and no Charm Contents sheet in the folder; the allocation tracker is the 'QOWV Shipments & EE Allocation' tab of the Ops Notes workbook."
+ },
+ "n_totes": 42,
+ "production_periods": [
+  "February 2026",
+  "July 2026",
+  "June 2026"
+ ],
+ "production_period_tote_counts": {
+  "June 2026": 32,
+  "July 2026": 8,
+  "February 2026": 2
+ },
+ "production_period_net_produced_kg": {
+  "June 2026": 31300.8,
+  "July 2026": 7358.2,
+  "February 2026": 1866.8
+ },
+ "production_period_emissions_kg": {
+  "June 2026": 3871.58554,
+  "July 2026": 889.952215,
+  "February 2026": 248.377355
+ },
+ "ops_notes": {
+  "_primary_source_opened": [
+   {
+    "file": "INJ-09-2026-W4 Ops Notes",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1zgrkVKQsGlzwjiumtn1vkYSaCt5_XTr7UWs3lR3RORQ/edit",
+    "artifact_path": "source_exports/INJ-09-2026-W4_Ops_Notes.xlsx",
+    "modified": "2026-10-05T15:09:43Z"
+   }
+  ],
+  "tabs": [
+   "Summary",
+   "AECN Rail",
+   "AECN Truck",
+   "Kerry",
+   "WODO",
+   "QOWV",
+   "Whole Oil",
+   "QOWV Shipments & EE Allocation",
+   "WODO Shipments & EE Allocation",
+   "Whole Oil Shipments & EE Alloca"
+  ],
+  "batch_id_cell": "QOWV!B2 = INJ-09-2026-W4",
+  "week": "QOWV!B3 = 2026-09-18 (Friday), B4 = 2026-09-25 (Friday); labels 'Week Start (Sat)' / 'Week End (Sat)'",
+  "section_header": "SECTION 1 - IBC LEDGER  (one row per QOWV tote; tote tag mass is authoritative)",
+  "ledger_rows": "QOWV!A11:A52 - 42 tote rows, every row populated for tag, gross, tote mass, net produced, empty tote weight, net injected, production period, CI, production emissions, scale uncertainty",
+  "constants": {
+   "L3_lbs_per_kg": 2.20462,
+   "L4_kg_per_lb": 0.453592,
+   "L5_sparging_mass_loss": 0.0129,
+   "L6_ph_target": "2.0 - 4.0",
+   "L7_qowv_6mo_ci_jul_dec_2026": 0.120947,
+   "L14_Feb2026": 0.13304979391442986,
+   "L18_Jun2026": 0.1236896673712938,
+   "L19_July2026_and_later": 0.120947,
+   "L11_Nov2025": 0.1392140547840092,
+   "L12_Dec2025": 0.16306166436976688,
+   "L13_Jan2026": 0.15683401691482485,
+   "L15_Mar2026": 0.11852515320294801,
+   "L16_Apr2026": 0.131418453205342,
+   "L17_May2026": 0.1106615762401743
+  },
+  "constants_links": {
+   "M10": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1L167k_JS3mnisFy3VpS-OXgI8U0cK-4nC6A9sxl-ozk/edit\",\"PP Summary\")",
+   "M11": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1W8jWu3sp39WnSuds1Ja0FWDG5UuWN9v5NUmF6yh_WbI/edit\",\"PP Summary\")",
+   "M12": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1-L6m2wYknC3o-yIts9KK7FrYAb5lZIv4AwaizK8FbMc/edit\",\"PP Summary\")",
+   "M13": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1bPZ7pNsR5rv-om-BypF4lK3nczjn4HJNO2dzimwnx7E/edit\",\"PP Summary\")",
+   "M14": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1vH7bborVnc-TCby3wEkpzi7GGMOI5jMJooEW0V-rOQ4/edit\",\"PP Summary\")",
+   "M15": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1O7y30opa_u1_deqFm_w2qgVyxi_75X00xnzKuyVyh6o/edit\",\"PP Summary\")",
+   "M16": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/10Qwx7K6sUcOBrCebGUGVaVeLQnhzvcT8sHQ0Sy3VBBM/edit\",\"PP Summary\")",
+   "M17": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1m66t1jsLGc4e6AWnCFMsFbkSceZ9IYC_-bfTsbP_OYc/edit\",\"PP Summary\")",
+   "M18": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1MUQajDI2a_Cn9xWGPP7z4PhhphZnfl2_CSTnpB07Wgk/edit\",\"PP Summary\")",
+   "M20": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1qPyS0H9Wx8z2vMl_3ANE1YLYahKLeL1Qo8OmZ_ol9aI/edit\",\"PP Summary\")",
+   "M21": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1mojgzK0eWo2N7Lh4Xjc_mGHEtTdqNunHtR_a90ZNk7o/edit\",\"PP Summary\")"
+  },
+  "L7_link": "K7 'QOWV 6-Mo CI (kg CO2e/kg), Jul-Dec 2026', L7 typed 0.120947, M7 empty: no hyperlink to a source; row 19 K19 'July 2026 and later (Jan-Jun 2026 rolling)', L19 '=$L$7', M19 empty",
+  "per_tote_formulas": {
+   "D": "=B11-C11",
+   "F": "=IF(E11=\"\",\"\",B11-E11)",
+   "H_june": "=$L$18",
+   "H_july": "=$L$19",
+   "H_feb": "=$L$14",
+   "I": "=H11*D11",
+   "J": "=2.5*$L$4"
+  },
+  "stray_formulas": "Row 53 and rows 55-74 carry template formulas G=IF(AND(D<>\"\",F<>\"\"),(D-F)*$L$4,\"\") and H=IF(G=\"\",\"\",G*(1-$L$5)) that evaluate blank; no total references them.",
+  "whole_oil_tabs": "'Whole Oil' B2 and 'Whole Oil Shipments & EE Alloca' A1/A6 still read INJ-09-2026-W3 with zero totes (stale template from the W3 workbook)."
+ },
+ "ops_notes_totals": {
+  "total_mass_transported_kg": 42945,
+  "total_mass_transported_formula": "QOWV!B54 = =SUM(B11:B52)",
+  "total_oil_produced_kg": 40525.8,
+  "total_oil_produced_formula": "QOWV!D54 = =SUM(D11:D52); per-tote D = B - C",
+  "total_oil_in_batch_kg": 34179.5,
+  "total_oil_in_batch_formula": "QOWV!F54 = =SUM(F11:F52); per-tote F = =IF(E11=\"\",\"\",B11-E11)",
+  "standard_loss_applied": false,
+  "weighted_avg_ci_kgco2e_per_kg": 0.1236228553,
+  "weighted_avg_ci_formula": "QOWV!H54 = =SUMPRODUCT(D11:D52,H11:H52)/SUM(D11:D52)",
+  "production_emissions_kg": 5009.915111,
+  "production_emissions_formula": "QOWV!I54 = =SUM(I11:I52); per-tote I = H*D",
+  "uncertainty_kg": 47.62716,
+  "uncertainty_formula": "QOWV!J54 = =SUM(J11:J52); per-tote J = 2.5*$L$4",
+  "residue_left_in_totes_kg": 6346.3
+ },
+ "summary_tab": {
+  "B12_qowv_cargo": 42945,
+  "E12_sparging": 0.0,
+  "F12_filtration": 0.0,
+  "G12_mobi": 34179.5,
+  "C20_composite": "SR26-05719.003",
+  "D20_date": "2026-09-25",
+  "E20_qowv_c": 0.079,
+  "G20_c_unc": 0.000316,
+  "H20_testing_unc": 0.004,
+  "G20_formula": "=E20*H20",
+  "F20_link": "=HYPERLINK(\"https://drive.google.com/file/d/1Viar0c3xdOh-pwkpbsNY0buJPDH5AGEJ/view\",\"COA SR26-05719.003\")"
+ },
+ "lcs_use_kg": null,
+ "lcs_search_method": {
+  "_primary_source_opened": [
+   {
+    "file": "INJ-09-2026-W4 Ops Notes (all 10 tabs)",
+    "action": "sheet_grid_read",
+    "artifact_path": "lcs_scan.txt",
+    "negative_check_tokens": [
+     "HIT:"
+    ],
+    "items_found": []
+   }
+  ],
+  "note": "Case-insensitive scan of every string cell for LCS, calcium, caustic, NaOH, buffer: zero hits across 10 tabs. Summary!E12 sparging 0.0 and F12 filtration 0.0 for QOWV."
+ },
+ "totes": [
+  {
+   "row": 11,
+   "tag": "301105",
+   "gross_kg": 1028.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 970.4,
+   "empty_tote_weight_kg": 232.5,
+   "net_oil_injected_kg": 795.5,
+   "production_period_label": "MFO Lot 301105 (LOT00301105), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 120.0284532,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 620,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1028.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1105,
+    "reported_on": "2026-06-09 18:23:22",
+    "order": "OIL260609122210",
+    "gross": 1028.0,
+    "net": 970.4,
+    "lot": "301105"
+   },
+   "weighing_date": "2026-06-09 18:23:22",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 114)"
+  },
+  {
+   "row": 12,
+   "tag": "301106",
+   "gross_kg": 1021.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 963.4,
+   "empty_tote_weight_kg": 167.0,
+   "net_oil_injected_kg": 854,
+   "production_period_label": "MFO Lot 301106 (LOT00301106), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 119.1626255,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 614,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1021.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1099,
+    "reported_on": "2026-06-08 19:02:54",
+    "order": "OIL260608130151",
+    "gross": 1021.0,
+    "net": 963.4,
+    "lot": "301106"
+   },
+   "weighing_date": "2026-06-08 19:02:54",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 120)"
+  },
+  {
+   "row": 13,
+   "tag": "301107",
+   "gross_kg": 1056.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 998.4,
+   "empty_tote_weight_kg": 168.5,
+   "net_oil_injected_kg": 887.5,
+   "production_period_label": "MFO Lot 301107 (LOT00301107), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 123.4917639,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 616,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1056.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1101,
+    "reported_on": "2026-06-09 16:23:03",
+    "order": "OIL260609101448",
+    "gross": 1056.0,
+    "net": 998.4,
+    "lot": "301107"
+   },
+   "weighing_date": "2026-06-09 16:23:03",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 118)"
+  },
+  {
+   "row": 14,
+   "tag": "301136",
+   "gross_kg": 993.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 935.4,
+   "empty_tote_weight_kg": 191.0,
+   "net_oil_injected_kg": 802,
+   "production_period_label": "MFO Lot 301136 (LOT00301136), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 115.6993149,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 621,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 993.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_38",
+   "date_shipped": "2026-09-10",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1106,
+    "reported_on": "2026-06-09 18:49:13",
+    "order": "OIL260609124440",
+    "gross": 993.0,
+    "net": 935.4,
+    "lot": "301136"
+   },
+   "weighing_date": "2026-06-09 18:49:13",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 113)"
+  },
+  {
+   "row": 15,
+   "tag": "301155",
+   "gross_kg": 1049.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 991.4,
+   "empty_tote_weight_kg": 177.5,
+   "net_oil_injected_kg": 871.5,
+   "production_period_label": "MFO Lot 301155 (LOT00301155), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 122.6259362,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 615,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1049.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1100,
+    "reported_on": "2026-06-09 15:58:53",
+    "order": "OIL260609095802",
+    "gross": 1049.0,
+    "net": 991.4,
+    "lot": "301155"
+   },
+   "weighing_date": "2026-06-09 15:58:53",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 119)"
+  },
+  {
+   "row": 16,
+   "tag": "301157",
+   "gross_kg": 925.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 867.4,
+   "empty_tote_weight_kg": 266.5,
+   "net_oil_injected_kg": 658.5,
+   "production_period_label": "MFO Lot 301157 (LOT00301157), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 107.2884175,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 617,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 925.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1102,
+    "reported_on": "2026-06-09 16:39:40",
+    "order": "OIL260609103730",
+    "gross": 925.0,
+    "net": 867.4,
+    "lot": "301157"
+   },
+   "weighing_date": "2026-06-09 16:39:40",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 117)"
+  },
+  {
+   "row": 17,
+   "tag": "301166",
+   "gross_kg": 1094.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1036.4,
+   "empty_tote_weight_kg": 442.5,
+   "net_oil_injected_kg": 651.5,
+   "production_period_label": "MFO Lot 301166 (LOT00301166), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 128.1919713,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 612,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1094.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1097,
+    "reported_on": "2026-06-05 17:04:12",
+    "order": "OIL260605110212",
+    "gross": 1094.0,
+    "net": 1036.4,
+    "lot": "301166"
+   },
+   "weighing_date": "2026-06-05 17:04:12",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 122)"
+  },
+  {
+   "row": 18,
+   "tag": "301186",
+   "gross_kg": 1022.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 964.4,
+   "empty_tote_weight_kg": 164.5,
+   "net_oil_injected_kg": 857.5,
+   "production_period_label": "MFO Lot 301186 (LOT00301186), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 119.2863152,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 619,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1022.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1104,
+    "reported_on": "2026-06-09 17:09:25",
+    "order": "OIL260609110550",
+    "gross": 1022.0,
+    "net": 964.4,
+    "lot": "301186"
+   },
+   "weighing_date": "2026-06-09 17:09:25",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 115)"
+  },
+  {
+   "row": 19,
+   "tag": "301189",
+   "gross_kg": 1022.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 964.4,
+   "empty_tote_weight_kg": 182.0,
+   "net_oil_injected_kg": 840,
+   "production_period_label": "MFO Lot 301189 (LOT00301189), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 119.2863152,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 613,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1022.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1098,
+    "reported_on": "2026-06-08 18:01:56",
+    "order": "OIL260608113002",
+    "gross": 1022.0,
+    "net": 964.4,
+    "lot": "301189"
+   },
+   "weighing_date": "2026-06-08 18:01:56",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 121)"
+  },
+  {
+   "row": 20,
+   "tag": "301191",
+   "gross_kg": 1150.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1092.4,
+   "empty_tote_weight_kg": 182.5,
+   "net_oil_injected_kg": 967.5,
+   "production_period_label": "MFO Lot 301191 (LOT00301191), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 135.1185926,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 611,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1150.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1096,
+    "reported_on": "2026-06-05 16:44:50",
+    "order": "OIL260605104331",
+    "gross": 1150.0,
+    "net": 1092.4,
+    "lot": "301191"
+   },
+   "weighing_date": "2026-06-05 16:44:50",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 123)"
+  },
+  {
+   "row": 21,
+   "tag": "301201",
+   "gross_kg": 1035.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 977.4,
+   "empty_tote_weight_kg": 194.0,
+   "net_oil_injected_kg": 841,
+   "production_period_label": "MFO Lot 301201 (LOT00301201), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 120.8942809,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 635,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1035.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1123,
+    "reported_on": "2026-06-22 21:32:15",
+    "order": "OIL260622153024",
+    "gross": 1035.0,
+    "net": 977.4,
+    "lot": "301201"
+   },
+   "weighing_date": "2026-06-22 21:32:15",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 97)"
+  },
+  {
+   "row": 22,
+   "tag": "301204",
+   "gross_kg": 1018.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 960.4,
+   "empty_tote_weight_kg": 190.0,
+   "net_oil_injected_kg": 828,
+   "production_period_label": "MFO Lot 301204 (LOT00301204), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 118.7915565,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 643,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1018.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1128,
+    "reported_on": "2026-06-29 21:49:18",
+    "order": "OIL260629154832",
+    "gross": 1018.0,
+    "net": 960.4,
+    "lot": "301204"
+   },
+   "weighing_date": "2026-06-29 21:49:18",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 92)"
+  },
+  {
+   "row": 23,
+   "tag": "301210",
+   "gross_kg": 1024.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 966.4,
+   "empty_tote_weight_kg": 164.5,
+   "net_oil_injected_kg": 859.5,
+   "production_period_label": "MFO Lot 301210 (LOT00301210), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 119.5336945,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 660,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1024.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1141,
+    "reported_on": "2026-07-01 18:42:43",
+    "order": "OIL260701124103",
+    "gross": 1024.0,
+    "net": 966.4,
+    "lot": "301210"
+   },
+   "weighing_date": "2026-07-01 18:42:43",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 78)"
+  },
+  {
+   "row": 24,
+   "tag": "301211",
+   "gross_kg": 1038.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 980.4,
+   "empty_tote_weight_kg": 204.0,
+   "net_oil_injected_kg": 834,
+   "production_period_label": "MFO Lot 301211 (LOT00301211), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 121.2653499,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 637,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1038.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1125,
+    "reported_on": "2026-06-22 22:17:37",
+    "order": "OIL260622161416",
+    "gross": 1038.0,
+    "net": 980.4,
+    "lot": "301211"
+   },
+   "weighing_date": "2026-06-22 22:17:37",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 95)"
+  },
+  {
+   "row": 25,
+   "tag": "301212",
+   "gross_kg": 823.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 765.4,
+   "empty_tote_weight_kg": 260.0,
+   "net_oil_injected_kg": 563,
+   "production_period_label": "MFO Lot 301212 (LOT00301212), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 94.67207141,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 642,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 823.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1127,
+    "reported_on": "2026-06-29 21:22:29",
+    "order": "OIL260629152125",
+    "gross": 823.0,
+    "net": 765.4,
+    "lot": "301212"
+   },
+   "weighing_date": "2026-06-29 21:22:29",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 93)"
+  },
+  {
+   "row": 26,
+   "tag": "301215",
+   "gross_kg": 1041.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 983.4,
+   "empty_tote_weight_kg": 442.5,
+   "net_oil_injected_kg": 598.5,
+   "production_period_label": "MFO Lot 301215 (LOT00301215), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 121.6364189,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 659,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1041.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1140,
+    "reported_on": "2026-07-01 18:13:55",
+    "order": "OIL260701121302",
+    "gross": 1041.0,
+    "net": 983.4,
+    "lot": "301215"
+   },
+   "weighing_date": "2026-07-01 18:13:55",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 79)"
+  },
+  {
+   "row": 27,
+   "tag": "301219",
+   "gross_kg": 1063.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1005.4,
+   "empty_tote_weight_kg": 167.5,
+   "net_oil_injected_kg": 895.5,
+   "production_period_label": "MFO Lot 301219 (LOT00301219), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 124.3575916,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 636,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1063.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1124,
+    "reported_on": "2026-06-22 21:55:28",
+    "order": "OIL260622155312",
+    "gross": 1063.0,
+    "net": 1005.4,
+    "lot": "301219"
+   },
+   "weighing_date": "2026-06-22 21:55:28",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 96)"
+  },
+  {
+   "row": 28,
+   "tag": "301220",
+   "gross_kg": 983.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 925.4,
+   "empty_tote_weight_kg": 204.5,
+   "net_oil_injected_kg": 778.5,
+   "production_period_label": "MFO Lot 301220 (LOT00301220), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 114.4624182,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 633,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 983.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1121,
+    "reported_on": "2026-06-16 15:53:03",
+    "order": "OIL260616095218",
+    "gross": 983.0,
+    "net": 925.4,
+    "lot": "301220"
+   },
+   "weighing_date": "2026-06-16 15:53:03",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 99)"
+  },
+  {
+   "row": 29,
+   "tag": "301222",
+   "gross_kg": 1039.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 981.4,
+   "empty_tote_weight_kg": 204.0,
+   "net_oil_injected_kg": 835,
+   "production_period_label": "MFO Lot 301222 (LOT00301222), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 121.3890396,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 634,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1039.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1122,
+    "reported_on": "2026-06-16 16:13:40",
+    "order": "OIL260616101232",
+    "gross": 1039.0,
+    "net": 981.4,
+    "lot": "301222"
+   },
+   "weighing_date": "2026-06-16 16:13:40",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 98)"
+  },
+  {
+   "row": 30,
+   "tag": "301223",
+   "gross_kg": 1063.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1005.4,
+   "empty_tote_weight_kg": 170.0,
+   "net_oil_injected_kg": 893,
+   "production_period_label": "MFO Lot 301223 (LOT00301223), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 124.3575916,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 663,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1063.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1145,
+    "reported_on": "2026-07-01 20:40:44",
+    "order": "OIL260701143701",
+    "gross": 1063.0,
+    "net": 1005.4,
+    "lot": "301223"
+   },
+   "weighing_date": "2026-07-01 20:40:44",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 75)"
+  },
+  {
+   "row": 31,
+   "tag": "301228",
+   "gross_kg": 1116.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1058.4,
+   "empty_tote_weight_kg": 204.5,
+   "net_oil_injected_kg": 911.5,
+   "production_period_label": "MFO Lot 301228 (LOT00301228), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 130.9131439,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 661,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1116.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1143,
+    "reported_on": "2026-07-01 20:11:00",
+    "order": "OIL260701140937",
+    "gross": 1116.0,
+    "net": 1058.4,
+    "lot": "301228"
+   },
+   "weighing_date": "2026-07-01 20:11:00",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 77)"
+  },
+  {
+   "row": 32,
+   "tag": "301232",
+   "gross_kg": 940.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 882.4,
+   "empty_tote_weight_kg": 164.5,
+   "net_oil_injected_kg": 775.5,
+   "production_period_label": "MFO Lot 301232 (LOT00301232), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 109.1437625,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 632,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 940.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1120,
+    "reported_on": "2026-06-16 15:38:32",
+    "order": "OIL260616093717",
+    "gross": 940.0,
+    "net": 882.4,
+    "lot": "301232"
+   },
+   "weighing_date": "2026-06-16 15:38:32",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 100)"
+  },
+  {
+   "row": 33,
+   "tag": "301240",
+   "gross_kg": 1030.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 972.4,
+   "empty_tote_weight_kg": 169.0,
+   "net_oil_injected_kg": 861,
+   "production_period_label": "MFO Lot 301240 (LOT00301240), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 120.2758326,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 641,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1030.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1126,
+    "reported_on": "2026-06-29 21:05:02",
+    "order": "OIL260629150248",
+    "gross": 1030.0,
+    "net": 972.4,
+    "lot": "301240"
+   },
+   "weighing_date": "2026-06-29 21:05:02",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 94)"
+  },
+  {
+   "row": 34,
+   "tag": "301242",
+   "gross_kg": 1052.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 994.4,
+   "empty_tote_weight_kg": 216.0,
+   "net_oil_injected_kg": 836,
+   "production_period_label": "MFO Lot 301242 (LOT00301242), July 2026",
+   "production_period": "July 2026",
+   "ci_kgco2e_per_kg": 0.120947,
+   "ci_formula": "=$L$19",
+   "production_emissions_kg": 120.2696968,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 691,
+   "inventory_pp": "July 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1052.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_40",
+   "date_shipped": "2026-09-17",
+   "spray_paint": "Purple2607",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1176,
+    "reported_on": "2026-07-20 20:23:57",
+    "order": "OIL260720142153",
+    "gross": 1052.0,
+    "net": 994.4,
+    "lot": "301242"
+   },
+   "weighing_date": "2026-07-20 20:23:57",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 44)"
+  },
+  {
+   "row": 35,
+   "tag": "301245",
+   "gross_kg": 1005.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 947.4,
+   "empty_tote_weight_kg": 166.5,
+   "net_oil_injected_kg": 838.5,
+   "production_period_label": "MFO Lot 301245 (LOT00301245), July 2026",
+   "production_period": "July 2026",
+   "ci_kgco2e_per_kg": 0.120947,
+   "ci_formula": "=$L$19",
+   "production_emissions_kg": 114.5851878,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 690,
+   "inventory_pp": "July 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1005.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Purple2607",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1175,
+    "reported_on": "2026-07-20 20:04:07",
+    "order": "OIL260720140319",
+    "gross": 1005.0,
+    "net": 947.4,
+    "lot": "301245"
+   },
+   "weighing_date": "2026-07-20 20:04:07",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 45)"
+  },
+  {
+   "row": 36,
+   "tag": "301249",
+   "gross_kg": 1136.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1078.4,
+   "empty_tote_weight_kg": 197.5,
+   "net_oil_injected_kg": 938.5,
+   "production_period_label": "MFO Lot 301249 (LOT00301249), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 133.3869373,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 629,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1136.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1117,
+    "reported_on": "2026-06-15 15:54:58",
+    "order": "OIL260615095324",
+    "gross": 1136.0,
+    "net": 1078.4,
+    "lot": "301249"
+   },
+   "weighing_date": "2026-06-15 15:54:58",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 103)"
+  },
+  {
+   "row": 37,
+   "tag": "301263",
+   "gross_kg": 1043.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 985.4,
+   "empty_tote_weight_kg": 203.0,
+   "net_oil_injected_kg": 840,
+   "production_period_label": "MFO Lot 301263 (LOT00301263), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 121.8837982,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 625,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1043.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1111,
+    "reported_on": "2026-06-12 14:24:27",
+    "order": "OIL260612082311",
+    "gross": 1043.0,
+    "net": 985.4,
+    "lot": "301263"
+   },
+   "weighing_date": "2026-06-12 14:24:27",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 108)"
+  },
+  {
+   "row": 38,
+   "tag": "301265",
+   "gross_kg": 1068.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1010.4,
+   "empty_tote_weight_kg": 194.0,
+   "net_oil_injected_kg": 874,
+   "production_period_label": "MFO Lot 301265 (LOT00301265), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 124.9760399,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 630,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1068.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1118,
+    "reported_on": "2026-06-15 17:50:58",
+    "order": "OIL260615114943",
+    "gross": 1068.0,
+    "net": 1010.4,
+    "lot": "301265"
+   },
+   "weighing_date": "2026-06-15 17:50:58",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 102)"
+  },
+  {
+   "row": 39,
+   "tag": "301267",
+   "gross_kg": 864.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 806.4,
+   "empty_tote_weight_kg": 179.0,
+   "net_oil_injected_kg": 685,
+   "production_period_label": "MFO Lot 301267 (LOT00301267), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 99.74334777,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 624,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 864.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_38",
+   "date_shipped": "2026-09-10",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1113,
+    "reported_on": "2026-06-12 15:06:00",
+    "order": "OIL260612075557",
+    "gross": 864.0,
+    "net": 806.4,
+    "lot": "301267"
+   },
+   "weighing_date": "2026-06-12 15:06:00",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 109)"
+  },
+  {
+   "row": 40,
+   "tag": "301274",
+   "gross_kg": 1036.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 978.4,
+   "empty_tote_weight_kg": 169.5,
+   "net_oil_injected_kg": 866.5,
+   "production_period_label": "MFO Lot 301274 (LOT00301274), July 2026",
+   "production_period": "July 2026",
+   "ci_kgco2e_per_kg": 0.120947,
+   "ci_formula": "=$L$19",
+   "production_emissions_kg": 118.3345448,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 694,
+   "inventory_pp": "July 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1036.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_40",
+   "date_shipped": "2026-09-17",
+   "spray_paint": "Purple2607",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1181,
+    "reported_on": "2026-07-21 20:35:05",
+    "order": "OIL260721143336",
+    "gross": 1080.0,
+    "net": 1022.4,
+    "lot": "301274"
+   },
+   "weighing_date": "2026-07-21 20:35:05",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 39)"
+  },
+  {
+   "row": 41,
+   "tag": "301279",
+   "gross_kg": 1090.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1032.4,
+   "empty_tote_weight_kg": 172.0,
+   "net_oil_injected_kg": 918,
+   "production_period_label": "MFO Lot 301279 (LOT00301279), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 127.6972126,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 631,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1090.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1119,
+    "reported_on": "2026-06-15 18:07:54",
+    "order": "OIL260615120527",
+    "gross": 1090.0,
+    "net": 1032.4,
+    "lot": "301279"
+   },
+   "weighing_date": "2026-06-15 18:07:54",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 101)"
+  },
+  {
+   "row": 42,
+   "tag": "301281",
+   "gross_kg": 1055.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 997.4,
+   "empty_tote_weight_kg": 212.5,
+   "net_oil_injected_kg": 842.5,
+   "production_period_label": "MFO Lot 301281 (LOT00301281), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 123.3680742,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 623,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1055.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_38",
+   "date_shipped": "2026-09-10",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1108,
+    "reported_on": "2026-06-09 19:36:00",
+    "order": "OIL260609133416",
+    "gross": 1055.0,
+    "net": 997.4,
+    "lot": "301281"
+   },
+   "weighing_date": "2026-06-09 19:36:00",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 111)"
+  },
+  {
+   "row": 43,
+   "tag": "301282",
+   "gross_kg": 1151.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1093.4,
+   "empty_tote_weight_kg": 173.0,
+   "net_oil_injected_kg": 978,
+   "production_period_label": "MFO Lot 301282 (LOT00301282), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 135.2422823,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 626,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1151.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1112,
+    "reported_on": "2026-06-12 14:41:27",
+    "order": "OIL260612084003",
+    "gross": 1151.0,
+    "net": 1093.4,
+    "lot": "301282"
+   },
+   "weighing_date": "2026-06-12 14:41:27",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 107)"
+  },
+  {
+   "row": 44,
+   "tag": "301289",
+   "gross_kg": 1041.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 983.4,
+   "empty_tote_weight_kg": 193.0,
+   "net_oil_injected_kg": 848,
+   "production_period_label": "MFO Lot 301289 (LOT00301289), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 121.6364189,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 628,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1041.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_38",
+   "date_shipped": "2026-09-10",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1115,
+    "reported_on": "2026-06-12 16:27:13",
+    "order": "OIL260612102516",
+    "gross": 1041.0,
+    "net": 983.4,
+    "lot": "301289"
+   },
+   "weighing_date": "2026-06-12 16:27:13",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 105)"
+  },
+  {
+   "row": 45,
+   "tag": "301291",
+   "gross_kg": 1123.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1065.4,
+   "empty_tote_weight_kg": 169.5,
+   "net_oil_injected_kg": 953.5,
+   "production_period_label": "MFO Lot 301291 (LOT00301291), June 2026",
+   "production_period": "June 2026",
+   "ci_kgco2e_per_kg": 0.1236896674,
+   "ci_formula": "=$L$18",
+   "production_emissions_kg": 131.7789716,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 622,
+   "inventory_pp": "June 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1123.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_38",
+   "date_shipped": "2026-09-10",
+   "spray_paint": "Blue2606",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1107,
+    "reported_on": "2026-06-09 19:17:02",
+    "order": "OIL260609131432",
+    "gross": 1123.0,
+    "net": 1065.4,
+    "lot": "301291"
+   },
+   "weighing_date": "2026-06-09 19:17:02",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 112)"
+  },
+  {
+   "row": 46,
+   "tag": "301297",
+   "gross_kg": 609.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 551.4,
+   "empty_tote_weight_kg": 181.0,
+   "net_oil_injected_kg": 428,
+   "production_period_label": "MFO Lot 301297 (LOT00301297), July 2026",
+   "production_period": "July 2026",
+   "ci_kgco2e_per_kg": 0.120947,
+   "ci_formula": "=$L$19",
+   "production_emissions_kg": 66.6901758,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 668,
+   "inventory_pp": "July 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 609.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Purple2607",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1153,
+    "reported_on": "2026-07-08 16:15:05",
+    "order": "OIL260708101415",
+    "gross": 609.0,
+    "net": 551.4,
+    "lot": "301297"
+   },
+   "weighing_date": "2026-07-08 16:15:05",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 67)"
+  },
+  {
+   "row": 47,
+   "tag": "301305",
+   "gross_kg": 1113.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1055.4,
+   "empty_tote_weight_kg": 219.0,
+   "net_oil_injected_kg": 894,
+   "production_period_label": "MFO Lot 301305 (LOT00301305), July 2026",
+   "production_period": "July 2026",
+   "ci_kgco2e_per_kg": 0.120947,
+   "ci_formula": "=$L$19",
+   "production_emissions_kg": 127.6474638,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 731,
+   "inventory_pp": "July 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1113.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Purple2607",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1219,
+    "reported_on": "2026-08-31 16:59:02",
+    "order": "OIL260831105753",
+    "gross": 1113.0,
+    "net": 1055.4,
+    "lot": "301305"
+   },
+   "weighing_date": "2026-08-31 16:59:02",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: none (the Oil_inventory_data pull, 'Last updated 7 weeks ago', has no row for this tag)"
+  },
+  {
+   "row": 48,
+   "tag": "301312",
+   "gross_kg": 1044.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 986.4,
+   "empty_tote_weight_kg": 256.0,
+   "net_oil_injected_kg": 788,
+   "production_period_label": "MFO Lot 301312 (LOT00301312), July 2026",
+   "production_period": "July 2026",
+   "ci_kgco2e_per_kg": 0.120947,
+   "ci_formula": "=$L$19",
+   "production_emissions_kg": 119.3021208,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 733,
+   "inventory_pp": "July 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1044.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Purple2607",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1221,
+    "reported_on": "2026-08-31 18:02:29",
+    "order": "OIL260831120118",
+    "gross": 1044.0,
+    "net": 986.4,
+    "lot": "301312"
+   },
+   "weighing_date": "2026-08-31 18:02:29",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: none (the Oil_inventory_data pull, 'Last updated 7 weeks ago', has no row for this tag)"
+  },
+  {
+   "row": 49,
+   "tag": "301317",
+   "gross_kg": 966.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 908.4,
+   "empty_tote_weight_kg": 182.5,
+   "net_oil_injected_kg": 783.5,
+   "production_period_label": "MFO Lot 301317 (LOT00301317), July 2026",
+   "production_period": "July 2026",
+   "ci_kgco2e_per_kg": 0.120947,
+   "ci_formula": "=$L$19",
+   "production_emissions_kg": 109.8682548,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 741,
+   "inventory_pp": "July 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 966.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Purple2607",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1227,
+    "reported_on": "2026-08-31 20:35:38",
+    "order": "OIL260831143446",
+    "gross": 966.0,
+    "net": 908.4,
+    "lot": "301317"
+   },
+   "weighing_date": "2026-08-31 20:35:38",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: none (the Oil_inventory_data pull, 'Last updated 7 weeks ago', has no row for this tag)"
+  },
+  {
+   "row": 50,
+   "tag": "301331",
+   "gross_kg": 994.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 936.4,
+   "empty_tote_weight_kg": 256.0,
+   "net_oil_injected_kg": 738,
+   "production_period_label": "MFO Lot 301331 (LOT00301331), July 2026",
+   "production_period": "July 2026",
+   "ci_kgco2e_per_kg": 0.120947,
+   "ci_formula": "=$L$19",
+   "production_emissions_kg": 113.2547708,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 732,
+   "inventory_pp": "July 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 994.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_39",
+   "date_shipped": "2026-09-15",
+   "spray_paint": "Purple2607",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 1220,
+    "reported_on": "2026-08-31 17:35:42",
+    "order": "OIL260831112704",
+    "gross": 994.0,
+    "net": 936.4,
+    "lot": "301331"
+   },
+   "weighing_date": "2026-08-31 17:35:42",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: none (the Oil_inventory_data pull, 'Last updated 7 weeks ago', has no row for this tag)"
+  },
+  {
+   "row": 51,
+   "tag": "300022",
+   "gross_kg": 1012.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 954.4,
+   "empty_tote_weight_kg": 288.0,
+   "net_oil_injected_kg": 724,
+   "production_period_label": "MFO Lot 4746 (LOT00004746), February 2026",
+   "production_period": "February 2026",
+   "ci_kgco2e_per_kg": 0.1330497939,
+   "ci_formula": "=$L$14",
+   "production_emissions_kg": 126.9827233,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 410,
+   "inventory_pp": "February 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 1012.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2602",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 840,
+    "reported_on": "2026-02-17 17:13:06",
+    "order": "WO00001655",
+    "gross": 1012.0,
+    "net": 954.4,
+    "lot": "4746",
+    "filed_under_tag": "300020"
+   },
+   "weighing_date": "2026-02-17 17:13:06",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 360, lot 4746)"
+  },
+  {
+   "row": 52,
+   "tag": "300040",
+   "gross_kg": 970.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 912.4,
+   "empty_tote_weight_kg": 224.0,
+   "net_oil_injected_kg": 746,
+   "production_period_label": "MFO Lot 4760 (LOT00004760), February 2026",
+   "production_period": "February 2026",
+   "ci_kgco2e_per_kg": 0.1330497939,
+   "ci_formula": "=$L$14",
+   "production_emissions_kg": 121.394632,
+   "scale_uncertainty_kg": 1.13398,
+   "fraction": "QOWV",
+   "source_doc": "INJ-09-2026-W4 Ops Notes, QOWV tab",
+   "inventory_row": 411,
+   "inventory_pp": "February 2026 PP",
+   "inventory_fraction": "QOWV",
+   "inventory_gross_kg": 970.0,
+   "inventory_tare_kg": 57.6,
+   "ship_status": "COLA_37",
+   "date_shipped": "2026-09-09",
+   "spray_paint": "Blue2602",
+   "weighing_site": "BGN",
+   "weighing_record": {
+    "row": 841,
+    "reported_on": "2026-02-23 17:45:26",
+    "order": "WO00001656",
+    "gross": 970.0,
+    "net": 912.4,
+    "lot": "LOT00004760"
+   },
+   "weighing_date": "2026-02-23 17:45:26",
+   "weighing_location": "not recorded in the weighing record (the Historical Tote Record has no location column); the Q4 production tab's column A (header 'M') reads 'BGN'; inferred: Charm's Fort Lupton, CO pyrolysis facility [log:tote_weighing_records.location_basis]; production system site_location / location at the data pull: CHARM / OPA (Oil_inventory_data row 359)"
+  }
+ ],
+ "tote_weighing_records": {
+  "_primary_source_opened": [
+   {
+    "file": "Bio-oil Injection Tracker, tab 'Historical Tote Record' (live export 2026-10-06), production weighing record per tag: reported_quantity, reported_on, order_number, gross_weight, sectag, lot_number",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit",
+    "artifact_path": "tote_weighing_records.json"
+   }
+  ],
+  "result": "41 of 42 tags carry a production weighing record under their own tag; gross matches the ledger on 40 of the 41. 301274's record (row 1181, OIL260721143336, 2026-07-21) reads 1080.0 kg against 1036.0 in the ledger (checklist 2.3). Tote 300022 has no record under its own tag: its lot 4746 is weighed under tag 300020 (row 840, WO00001655, 2026-02-17 17:13:06, gross 1012.0, matching the ledger) (checklist 3.1); that record is its weighing record and date. The 41 own-tag records run 2026-02-23 to 2026-08-31; with lot 4746's record, all 42 run 2026-02-17 to 2026-08-31. No record read gives a weighing location (see location_basis).",
+  "with_record": 41,
+  "gross_match": 40,
+  "weighing_date_range": [
+   "2026-02-17 17:13:06",
+   "2026-08-31 20:35:38"
+  ],
+  "with_weighing_date": 42,
+  "location_basis": {
+   "recorded": "None. The Historical Tote Record's columns (row 2) are reported_quantity, reported_on, production_year, order_number, code, gross_weight, sectag, lot_number: no location. The Q4 production tab's column A, headed 'M', reads 'BGN' on all 42 rows; the tab title reads 'BGN Tote Inventory as of October 2025 to August 2026, DC Tote Inventory August to September 2026'.",
+   "what_BGN_names": [
+    "Slack #pyro-ops-handover-notes, Leo, 2026-01-08: 'Swapped out quench oil tote on BGN 1 & helped swap quench oil tote on BGN 5' (BGN names pyrolyzer units)",
+    "Slack #injection-ops-la, rachel, 2026-08-07: 'remaining BGN oil coming from CO'"
+   ],
+   "production_site": "knowledge-base/pdd_full.txt line 450: 'Charm produces bio-oil at our pyrolysis facility in Fort Lupton, CO'",
+   "conclusion": "Inferred, not recorded: the totes were weighed at Charm's Fort Lupton, CO pyrolysis facility, where the BGN units produce. No weighing record states it. The production system's own location fields (inventory master 'Oil_inventory_data' site_location / location, see production_system_location) record where a tote sat when the data was pulled, not where it was weighed.",
+   "production_system_location": {
+    "batch_tags_found": 37,
+    "site_location_location_counts": {
+     "CHARM / OPA": 37
+    },
+    "lot_4746": [
+     {
+      "row": 360,
+      "site_location": "CHARM",
+      "location": "OPA"
+     }
+    ],
+    "tab_site_location_counts": {
+     "CHARM": 281,
+     "CHARM_LOUISIANA": 407,
+     "CHARM_KANSAS": 28,
+     "CHARM_TRANSIT": 1
+    },
+    "moves_with_tote_example": {
+     "row": 350,
+     "lot": "LOT00004770",
+     "security_tag": "300020",
+     "site_location": "CHARM_LOUISIANA",
+     "location": "Bio Oil Incoming"
+    },
+    "read": "'Oil_inventory_data' (A1 'Microsoft SQL Server Import / Last updated 7 weeks ago') has site_location and location columns. The batch's tags it carries, plus lot 4746, read 'CHARM' / 'OPA'; already-shipped lot LOT00004770 reads 'CHARM_LOUISIANA' / 'Bio Oil Incoming', so the field follows the tote: it gives where a tote sat at the data pull, not where it was weighed."
+   }
+  },
+  "july_totes_weighed_after_july": {
+   "totes": [
+    {
+     "tag": "301305",
+     "weighing_date": "2026-08-31 16:59:02",
+     "order": "OIL260831105753"
+    },
+    {
+     "tag": "301312",
+     "weighing_date": "2026-08-31 18:02:29",
+     "order": "OIL260831120118"
+    },
+    {
+     "tag": "301317",
+     "weighing_date": "2026-08-31 20:35:38",
+     "order": "OIL260831143446"
+    },
+    {
+     "tag": "301331",
+     "weighing_date": "2026-08-31 17:35:42",
+     "order": "OIL260831112704"
+    }
+   ],
+   "note": "The Q4 production tab labels these four totes 'July 2026 PP' ('7/1-7/31'; Form/tote Date blank), but their production weighing records are dated 2026-08-31. If they are August production, nothing in this batch changes: July and August 2026 product both take the Jan-Jun 2026 blended CI, and production emissions sit in one aggregated component (7.1). Checklist 3.5."
+  },
+  "june_totes_weighed_in_july": {
+   "totes": [
+    {
+     "tag": "301210",
+     "weighing_date": "2026-07-01 18:42:43",
+     "order": "OIL260701124103",
+     "inventory_row": 660,
+     "net_oil_produced_kg": 966.4,
+     "ci_kgco2e_per_kg": 0.1236896674
+    },
+    {
+     "tag": "301215",
+     "weighing_date": "2026-07-01 18:13:55",
+     "order": "OIL260701121302",
+     "inventory_row": 659,
+     "net_oil_produced_kg": 983.4,
+     "ci_kgco2e_per_kg": 0.1236896674
+    },
+    {
+     "tag": "301223",
+     "weighing_date": "2026-07-01 20:40:44",
+     "order": "OIL260701143701",
+     "inventory_row": 663,
+     "net_oil_produced_kg": 1005.4,
+     "ci_kgco2e_per_kg": 0.1236896674
+    },
+    {
+     "tag": "301228",
+     "weighing_date": "2026-07-01 20:11:00",
+     "order": "OIL260701140937",
+     "inventory_row": 661,
+     "net_oil_produced_kg": 1058.4,
+     "ci_kgco2e_per_kg": 0.1236896674
+    }
+   ],
+   "net_oil_produced_kg": 4013.6,
+   "june_ci_L18": 0.1236896673712938,
+   "note": "The Q4 production tab and the Ops Notes label these four totes 'June 2026 PP' ('6/1-6/30') and they carry the June CI; their production weighing records, order numbers (OIL260701...) and the production system's production_date are dated 2026-07-01. Those dates are the weigh-in, not the fill (production_date sits seconds to minutes before reported_on). The records place the totes in June (see corroboration): the June summary's Aqueous mass and the Jan-Jun blend's June mass both count them, and they carry June's spray paint. No change to the removal. Checklist 3.5 (documentation flag: no 2026 tote has a fill date).",
+   "corroboration": {
+    "_primary_source_opened": [
+     {
+      "file": "inventory master tabs 'Q4 2025 -2026 Production Invent' and 'Oil_inventory_data'; Jun 26 PP Summary; V2 Jan-Jun blend workbook",
+      "action": "sheet_grid_read",
+      "artifact_path": "source_exports/inventory_master_export.xlsx"
+     }
+    ],
+    "june_summary_aqueous_mass_N4_kg": 46616.2,
+    "q4_june_qowv_rows": 48,
+    "q4_june_qowv_net_kg": 46616.2,
+    "four_totes_inside_june_qowv_rows": [
+     "301210",
+     "301215",
+     "301223",
+     "301228"
+    ],
+    "v2_blend_june_qowv_mass_D12_kg": 46616.2,
+    "spray_paint_column_S_counts": {
+     "June 2026 PP / Blue2606": 58,
+     "July 2026 PP / Purple2607": 75
+    },
+    "spray_paint_eight_totes": {
+     "301215": "Blue2606",
+     "301210": "Blue2606",
+     "301228": "Blue2606",
+     "301223": "Blue2606",
+     "301305": "Purple2607",
+     "301331": "Purple2607",
+     "301312": "Purple2607",
+     "301317": "Purple2607"
+    },
+    "production_date_four_june_totes": {
+     "301210": {
+      "row": 78,
+      "production_date": "2026-07-01 18:41:13",
+      "produced_on_work_order": "OIL260701124103",
+      "production_period_col_M": "June 2026 PP"
+     },
+     "301215": {
+      "row": 79,
+      "production_date": "2026-07-01 18:13:11",
+      "produced_on_work_order": "OIL260701121302",
+      "production_period_col_M": null
+     },
+     "301223": {
+      "row": 75,
+      "production_date": "2026-07-01 20:37:14",
+      "produced_on_work_order": "OIL260701143701",
+      "production_period_col_M": null
+     },
+     "301228": {
+      "row": 77,
+      "production_date": "2026-07-01 20:10:20",
+      "produced_on_work_order": "OIL260701140937",
+      "production_period_col_M": "June 2026 PP"
+     }
+    },
+    "weighed_in_month_after_label_2026": {
+     "February 2026 PP": {
+      "count": 3,
+      "first": "2026-03-03",
+      "last": "2026-03-03"
+     },
+     "March 2026 PP": {
+      "count": 24,
+      "first": "2026-04-01",
+      "last": "2026-04-02"
+     },
+     "April 2026 PP": {
+      "count": 2,
+      "first": "2026-05-01",
+      "last": "2026-05-01"
+     },
+     "May 2026 PP": {
+      "count": 10,
+      "first": "2026-06-01",
+      "last": "2026-06-01"
+     },
+     "June 2026 PP": {
+      "count": 16,
+      "first": "2026-07-01",
+      "last": "2026-07-03"
+     },
+     "July 2026 PP": {
+      "count": 20,
+      "first": "2026-08-07",
+      "last": "2026-08-31"
+     }
+    },
+    "tags_on_two_q4_labels": {
+     "228478": [
+      "2026 PP#11",
+      "November 2025 PP"
+     ],
+     "301025": [
+      "February 2026 PP",
+      "March 2026 PP"
+     ]
+    },
+    "q4_form_tote_date_blank_2026": "421 of 421 rows labelled January-September 2026",
+    "q4_august_2026_rows_by_fraction": {
+     "Whole Oil": 16
+    }
+   }
+  }
+ },
+ "inventory_master": {
+  "_primary_source_opened": [
+   {
+    "file": "BGN & DC Production Bio-Oil Inventory, tab 'Q4 2025 -2026 Production Invent'",
+    "action": "sheet_grid_read",
+    "drive_id": "1cD9cd_y_SI8GA1Yv8TFtDPqevKKF1Jh42WFRWSSMJ6g",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1cD9cd_y_SI8GA1Yv8TFtDPqevKKF1Jh42WFRWSSMJ6g/edit",
+    "artifact_path": "source_exports/inventory_master_export.xlsx"
+   }
+  ],
+  "attribute_match": {
+   "tag": 42,
+   "fraction": 42,
+   "gross": 42,
+   "production_period": 42
+  },
+  "batch_totes_by_ship_status": {
+   "COLA_39": 20,
+   "COLA_37": 15,
+   "COLA_38": 5,
+   "COLA_40": 2
+  },
+  "truck_totals_all_fractions": {
+   "COLA_37": {
+    "QOWV": 20
+   },
+   "COLA_38": {
+    "QOWV": 6,
+    "Whole Oil": 12
+   },
+   "COLA_39": {
+    "QOWV": 20
+   },
+   "COLA_41": {
+    "QOWV": 20
+   },
+   "COLA_40": {
+    "QOWV": 17
+   }
+  },
+  "truck_totals_count": {
+   "COLA_37": 20,
+   "COLA_38": 18,
+   "COLA_39": 20,
+   "COLA_41": 20,
+   "COLA_40": 17
+  },
+  "tare_distribution_batch": {
+   "57.6": 42
+  },
+  "pp_date_ranges": {
+   "June 2026 PP": "6/1-6/30",
+   "July 2026 PP": "7/1-7/31",
+   "February 2026 PP": "2/1-2/28"
+  },
+  "tote_300022": "Q4 row 410: February 2026 PP, tag 300022, MFO Lot 4746, QOWV, gross 1012.0, tare 57.6, net 954.4, COLA_37, shipped 2026-09-09, spray paint Blue2602",
+  "tote_300020": "Q4 row 420: February 2026 PP, tag 300020, MFO Lot 4770, QOWV, gross 1085.0, tare 57.6, net 1027.4, COLA_25, shipped 2026-07-16",
+  "oil_inventory_data_tab": "Tab 'Oil_inventory_data' A1 reads 'Microsoft SQL Server Import / Last updated 7 weeks ago'; predates the September shipments, so truck membership is read from the Production Inventory tab's Ship Status column (the basis the October Whole Oil allocation tabs cite as 'Tier-1 resolution').",
+  "cola40_correction_note": "Correction (Garrett/David H, 2026-09-23): totes 301347 and 301356 physically rode COLA-41, not COLA-40 as MFO originally listed. Digital counts at the time were COLA-40=20/COLA-41=18; physical counts are COLA-40=18/COLA-41=20. Neither tote is batch-relevant to W4 (not in this week injected set), so only the COLA-40 Total-Totes-on-Truck denominator above uses the physical count (18). COLA-41 is not listed here since it carries zero W4-relevant totes. Live master now shows COLA-40=17/COLA-41=20 -- one short of the stated physical 18/20; flagged for Garrett to reconcile upstream."
+ },
+ "shipment_tracker": {
+  "_primary_source_opened": [
+   {
+    "file": "'QOWV Shipments & EE Allocation' tab, INJ-09-2026-W4 Ops Notes",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1zgrkVKQsGlzwjiumtn1vkYSaCt5_XTr7UWs3lR3RORQ/edit",
+    "artifact_path": "source_exports/INJ-09-2026-W4_Ops_Notes.xlsx"
+   }
+  ],
+  "one_way_distance_mi": 1201.0,
+  "one_way_distance_cell": "B8 = 1201.0, 'Charm CO -> Basco LA distance (one-way, mi)', 'direct route'",
+  "tote_count_cell": "D6 = =COUNTA(QOWV!A11:A52) = 42",
+  "E6_text": "4 shipping orders / trucks - see table A",
+  "trucks": [
+   {
+    "row": 12,
+    "truck": "COLA-37",
+    "ship_date": "2026-09-09",
+    "totes_on_truck": 20.0,
+    "batch_totes": 15.0,
+    "share": 0.75,
+    "share_formula": "=D12/C12",
+    "mileage": 1201,
+    "mileage_formula": "=$B$8",
+    "allocated_miles": 900.75,
+    "allocated_miles_formula": "=E12*F12"
+   },
+   {
+    "row": 13,
+    "truck": "COLA-38",
+    "ship_date": "2026-09-10",
+    "totes_on_truck": 6.0,
+    "batch_totes": 5.0,
+    "share": 0.8333333333,
+    "share_formula": "=D13/C13",
+    "mileage": 1201,
+    "mileage_formula": "=$B$8",
+    "allocated_miles": 1000.833333,
+    "allocated_miles_formula": "=E13*F13"
+   },
+   {
+    "row": 14,
+    "truck": "COLA-39",
+    "ship_date": "2026-09-15",
+    "totes_on_truck": 20.0,
+    "batch_totes": 20.0,
+    "share": 1,
+    "share_formula": "=D14/C14",
+    "mileage": 1201,
+    "mileage_formula": "=$B$8",
+    "allocated_miles": 1201,
+    "allocated_miles_formula": "=E14*F14"
+   },
+   {
+    "row": 15,
+    "truck": "COLA-40",
+    "ship_date": "2026-09-17",
+    "totes_on_truck": 18.0,
+    "batch_totes": 2.0,
+    "share": 0.1111111111,
+    "share_formula": "=D15/C15",
+    "mileage": 1201,
+    "mileage_formula": "=$B$8",
+    "allocated_miles": 133.4444444,
+    "allocated_miles_formula": "=E15*F15"
+   }
+  ],
+  "totals": {
+   "totes_on_trucks": 64,
+   "batch_totes": 42,
+   "allocated_miles_mi": 3236.027778,
+   "formulas": "C17 =SUM(C12:C15), D17 =SUM(D12:D15), G17 =SUM(G12:G15)"
+  },
+  "tote_level_rows": "None: rows 1-19 hold the summary, one-way distance, the four truck rows, totals and the A19 correction note; rows 20-74 are empty. No row ties a tag to a truck, and there is no 'every batch tote is allocated to a truck' check row (the Whole Oil allocation tab carries one at A16).",
+  "inventory_denominators": {
+   "COLA-37": 20,
+   "COLA-38": 18,
+   "COLA-39": 20,
+   "COLA-40": 17
+  },
+  "allocated_miles_on_inventory_denominators": 2576.655229,
+  "allocated_miles_tab_c40_18": 2568.805556,
+  "cola40_documented_count": {
+   "tab_C15": 18,
+   "inventory_master": 17,
+   "annotation": "A19: 'physical counts are COLA-40=18/COLA-41=20' ... 'Live master now shows COLA-40=17/COLA-41=20 -- one short of the stated physical 18/20; flagged for Garrett to reconcile upstream.'"
+  },
+  "allocated_miles_corrected_c38_only": 2568.805556
+ },
+ "shipment_tracker_cells_are_formulas": {
+  "share_E12": "=D12/C12",
+  "share_E13": "=D13/C13",
+  "share_E14": "=D14/C14",
+  "share_E15": "=D15/C15",
+  "allocated_miles_G12": "=E12*F12",
+  "allocated_miles_G13": "=E13*F13",
+  "allocated_miles_G14": "=E14*F14",
+  "allocated_miles_G15": "=E15*F15",
+  "mileage_F12": "=$B$8",
+  "mileage_F13": "=$B$8",
+  "mileage_F14": "=$B$8",
+  "mileage_F15": "=$B$8",
+  "batch_mileage_allocation_G17": "=SUM(G12:G15)",
+  "tote_count_D6": "=COUNTA(QOWV!A11:A52)",
+  "all_are_formulas": true,
+  "typed_inputs": "C12:C15 (totes on truck 20, 6, 20, 18) and D12:D15 (batch totes 15, 5, 20, 2) are typed counts; B8 1201 typed distance",
+  "method": "Formula-mode load of the workbook exported from the live Google Sheet this session (openpyxl without data_only)."
+ },
+ "other_batches_on_shared_trucks": {
+  "_primary_source_opened": [
+   {
+    "file": "INJ-10-2026-W2 Ops Notes, 'Whole Oil Shipments & EE Alloca' rows 6 and 12",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1PAyyKyKrEWMucw6y8Fs5KV9TW4q8AvshhWnC1hCLe68/edit",
+    "artifact_path": "source_exports/prior_weeks/INJ-10-2026-W2_Ops_Notes.xlsx"
+   },
+   {
+    "file": "INJ-10-2026-W3 Ops Notes, 'Whole Oil Shipments & EE Alloca' rows 6 and 12",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/18OucJBh4kSXfKWt8h3ir6098oLjTfC2NDnHRBrOWDVY/edit",
+    "artifact_path": "source_exports/prior_weeks/INJ-10-2026-W3_Ops_Notes.xlsx"
+   }
+  ],
+  "inj10_w2_whole_oil": "COLA_38 | 2026-09-10 | 18.0 | 3 | 0.1666666667 | 1201 | 200.1666667; E6 'COLA_38 = 3 of 18 totes on the truck (12 DC Whole Oil + 6 BGN QOWV; the other 15 are not in this batch). Tier-1 resolution: Ship Status on Q4 2025-2026 Production Inventory Master.'",
+  "inj10_w3_whole_oil": "COLA_38 | 2026-09-10 | 18.0 | 5 | 0.2777777778 | 1201 | 333.6111111; E6 'COLA_38 = 5 of 18 totes on the truck (12 DC Whole Oil + 6 BGN QOWV; the other 13 are not in this batch)'",
+  "cola38_shares_claimed": 1.2777777778
+ },
+ "cross_week_double_count": {
+  "_primary_source_opened": [
+   {
+    "file": "Weekly Ops Notes exported 2026-10-06: INJ-08-2026-W5, INJ-09-2026-W1, W2, W3, INJ-10-2026-W1, W2, W3 (every tab, every cell)",
+    "action": "sheet_grid_read",
+    "artifact_path": "cross_week_tag_scan.json"
+   }
+  ],
+  "result": "None of the 42 tags appears in any other week's workbook (0 hits in each of 7 workbooks). Control: tag 301009 is found 4 times in the W3 workbook (QOWV!A11, G11, allocation A21/B21).",
+  "hits_per_workbook": {
+   "INJ-08-2026-W5_Ops_Notes.xlsx": 0,
+   "INJ-09-2026-W1_Ops_Notes.xlsx": 0,
+   "INJ-09-2026-W2_Ops_Notes.xlsx": 0,
+   "INJ-09-2026-W3_Ops_Notes.xlsx": 0,
+   "INJ-10-2026-W1_Ops_Notes.xlsx": 0,
+   "INJ-10-2026-W2_Ops_Notes.xlsx": 0,
+   "INJ-10-2026-W3_Ops_Notes.xlsx": 0
+  }
+ },
+ "cobb_injection_record": {
+  "_primary_source_opened": [
+   {
+    "file": "Bio-oil Injection Tracker, tab 'Basco Injection -- COBB', live export 2026-10-06 19:26 BST (after the 2026-10-06 Google sign-in), rows 861-3723",
+    "action": "sheet_grid_read",
+    "drive_id": "116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit",
+    "artifact_path": "cobb_w4_aqueous_rows_live.json"
+   },
+   {
+    "file": "Same tab, 2026-09-28 export (history)",
+    "action": "sheet_grid_read",
+    "artifact_path": "cobb_w4_aqueous_rows.json"
+   }
+  ],
+  "live_read_attempts_2026_10_06": "Before the sign-in: (1) export?format=xlsx -> Google 'Verify it's you' page; (2) export retried -> same; (3) gviz/tq CSV of the COBB tab -> same; (4) htmlview -> same; (5) Drive full-text search -> no result; (6) Drive metadata -> modifiedTime 2026-10-05T19:24:28Z and a 'Naming Conventions' snippet; (7) Drive connector download as text/csv -> 'Internal error encountered.'. After the MRV lead's sign-in (login window showed the tracker open), the export was taken at 19:26 BST through the headless browser profile playwright-profile-mrv-3, the main profile being held by another Claude session.",
+  "header_A1": "              Microsoft SQL Server Import\n              Last updated 23 hours ago",
+  "header": [
+   "injection_batch",
+   "injected_product",
+   "consumed_lot",
+   "security_tag",
+   "BOL_number",
+   "quantity_consumed_in_injection",
+   "offloaded_quantity_kg",
+   "origin_quantity_kg",
+   "order_line_completed_on",
+   "purchase_order_link",
+   "offload_order_link",
+   "injection_completion_date",
+   "injection_ph",
+   "tote_gross_weight",
+   "weighing_order",
+   "weighing_date"
+  ],
+  "w4_counts": {
+   "INJ-09-2026-W4_aqueous_fraction": 168,
+   "INJ-09-2026-W4_bio_oil": 56,
+   "INJ-09-2026-W4_whole_oil": 34,
+   "INJ-09-2026-W4_calciner": 3
+  },
+  "result": "168 rows 'INJ-09-2026-W4_aqueous_fraction' in four stacked imports (Import Time column W: 2026-09-29 08:37:20 from row 861, 2026-09-29 11:54:56 from row 1791, 2026-09-30 11:14:57 from row 2719, 2026-10-05 12:24:22 from row 3682): each of the 42 totes appears once per import, and every September batch (W1-W4) is repeated the same way. injection_completion_date 2026-09-25 on all 168. Security tags match the ledger on 41 of 42; every copy of the 42nd reads security_tag 300020 with consumed_lot 4746, quantity 666.4 kg and tote_gross_weight 1012.0 kg, which is the ledger's tote 300022 (lot 4746, gross 1012.0, net injected 724 less 57.6 kg). tote_gross_weight matches the ledger on every other row except 301274.",
+  "quantity_pattern": "quantity_consumed_in_injection = Ops Notes net injected - 57.6 kg on 155 of 168 rows; 301204 reads 1,540.8 (= 2 x 770.4) in the first block and 770.4 in the other three; 301215 821.4 kg and 301274 852.9 kg in all four blocks; the four 300020 rows carry 666.4 kg.",
+  "ph_by_week": {
+   "block_861_1790": {
+    "W1": 2.89,
+    "W2": 2.92,
+    "W3": 2.7,
+    "W4": 2.97
+   },
+   "block_1791_2718": {
+    "W1": 2.89,
+    "W2": 2.92,
+    "W3": 2.7,
+    "W4": 2.97
+   },
+   "block_2719_3681": {
+    "W1": null,
+    "W2": null,
+    "W3": null,
+    "W4": "2.97 on 64 rows, blank on 1"
+   },
+   "block_3682_3805": {
+    "W4": null
+   },
+   "note": "One pH per week, stamped on every product row of that week (aqueous, bio-oil, whole oil, calciner); the W4 value 2.97 equals the Ops Notes AECN Truck!H28 and Kerry!D18 weekly wellhead pH (cell note 'Wellhead pH = weekly median of Ignition PH-1041, gated to StateRun=1'). The newest block carries no pH."
+  },
+  "post_unload_conflicts": {
+   "301215": {
+    "ops_notes_E26_kg": 442.5,
+    "tracker_gross_kg": 1041.0,
+    "tracker_implied_kg": 162.0,
+    "ops_net_injected_kg": 598.5,
+    "tracker_basis_net_injected_kg": 879.0
+   },
+   "301166_same_442_5": "Ops Notes E17 (301166) also reads 442.5 kg; the tracker agrees for 301166 (quantity 593.9 = 651.5 - 57.6)"
+  },
+  "changes_since_0928": "Compared by column name over the columns both exports share: injection_ph added on 126 of the W4 aqueous rows (2.97); 301204's quantity corrected to 770.4 in blocks 2-4. The live tab also carries tote_gross_weight, weighing_order and weighing_date, which the 28 Sep export did not have (it had Proportion of Origin Consumed, Origin Mass, Consumed Origin Mass in those positions), so 301274's tracker gross of 1080.0 is visible for the first time. The W4 rows went from 42 to 168 through the repeated blocks.",
+  "history_0928": {
+   "result": "42 rows (856-897), completion 2026-09-25, injection_ph blank, tote_gross_weight blank; same 300020/lot 4746 row; 301204 1,540.8",
+   "artifact_path": "cobb_w4_aqueous_rows.json"
+  },
+  "ops_notes_unchanged_since_0928": "A 2026-09-28 export of this workbook (outputs/qa/batch-INJ-09-2026-W3-QOWV/source_exports/prior_weeks/INJ-09-2026-W4_Ops_Notes_1zgrkV.xlsx) has 0 cell differences on the QOWV and allocation tabs against today's export.",
+  "tag_300020_injections": "Tracker: tag 300020 / lot LOT00004770, 883.0 kg, batch INJ-20260726_aqueous_fraction, completed 2026-07-31 (rows 455, 1380, 2308, 3271); tag 300020 / lot 4746, 666.4 kg, INJ-09-2026-W4 (rows 901, 1831, 2759, 3722). Lots and weights agree across records, so no mass is counted twice; the metal tag number is shared by two lots in the production system."
+ },
+ "testing": {
+  "_primary_source_opened": [
+   {
+    "file": "Certify source src_1M3VZ8S8W1S013HS 'SR26-05719 W4 Kerry AECN QOWV COA.pdf'",
+    "action": "pdf_read",
+    "artifact_path": "Certify_attached_COA_src_1M3VZ8S8W1S013HS.pdf",
+    "sha256": "276ccd65301889cf4e037a09ee2f397d6e2224f336dbfc0895947baf766943f6",
+    "bytes": 48654,
+    "drive_testing_copy": "Testing/SR26-05719 W4 Kerry AECN QOWV COA.pdf, Drive id 1Viar0c3xdOh-pwkpbsNY0buJPDH5AGEJ"
+   },
+   {
+    "file": "Drive Testing folder copy, 'SR26-05719 W4 Kerry AECN QOWV COA.pdf' (Drive id 1Viar0c3xdOh-pwkpbsNY0buJPDH5AGEJ), downloaded 2026-10-06 after the sign-in",
+    "action": "pdf_read",
+    "artifact_path": "Drive_Testing_COA_1Viar0c3xdOh.pdf",
+    "sha256": "276ccd65301889cf4e037a09ee2f397d6e2224f336dbfc0895947baf766943f6",
+    "evidence": "page 3 read: SR26-05719.003, Client ID 9-2026-W4-QOWV, Carbon 7.9 % (m/m); sha256 identical to the Certify-attached copy"
+   }
+  ],
+  "qowv_certificate": {
+   "page": 3,
+   "certificate_no": "SR26-05719.003",
+   "client_id": "9-2026-W4-QOWV",
+   "location": "FORT LUPTON, CO",
+   "product_description": "Oil",
+   "sampled": "25-Sep-2026 10:00",
+   "received": "28-Sep-2026 11:00",
+   "analysed": "28-Sep-2026 14:29 - 28-Sep-2026 23:23",
+   "carbon_pct": 7.9,
+   "carbon_method": "ASTM D5291 (Method C)",
+   "carbon_out_of_range_flag": "# - Result is outside of test method limits and/or analytical range used in method precision study",
+   "hydrogen_pct": 7.9,
+   "nitrogen_pct": "<0.75",
+   "kinematic_viscosity_40C_cSt": 0.902,
+   "acid_number_mgKOH_g": 36,
+   "density_15C_g_cm3": 1.039
+  },
+  "formation_fluid_density": {
+   "value_g_cm3": 1.01,
+   "source": "knowledge-base/Charm_Isometric_Knowledge_Base.md line 313, section 'Density Requirements'",
+   "quote": "All streams exceed formation fluid density (1.01 g/cm\u00b3) \u2014 confirmed via density analysis for safe injection.",
+   "lab_density_15C_g_cm3": 1.039
+  },
+  "other_pages": "Page 1 SR26-05719.001 Client ID 9-2026-W4-KERRY, C 57.9 %; page 2 SR26-05719.002 Client ID 9-2026-W4-AECN, C 44.0 % - other removals."
+ },
+ "standard_efs_2026": {
+  "_primary_source_opened": [
+   {
+    "file": "Standard Emission Factors + Calculations, 2026 tab",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit?gid=684080705",
+    "artifact_path": "source_exports/Standard_EFs_live_export.xlsx"
+   }
+  ],
+  "tab": "2026",
+  "tanker_process": {
+   "row": 6,
+   "label": "Truck Transport Fuel Use (Well to Wheel) -- Tanker Truck",
+   "unit": "MT CO2e/t-mi",
+   "value": 0.0001143,
+   "source_cited": "GLEC V3.2 2025"
+  },
+  "flatbed_process": {
+   "row": 7,
+   "label": "Truck Transport Fuel Use (Well to Wheel) -- Flatbed Truck",
+   "unit": "MT CO2e/t-mi",
+   "value": 0.0001384,
+   "source_cited": "GLEC V3.2 2025"
+  },
+  "tanker_embodied": {
+   "row": 11,
+   "label": "Vehicle Embodied Emissions --Tanker Truck",
+   "unit": "MT CO2e/mi",
+   "value": 0.0002375605888,
+   "source_cited": "GLEC V3.2 2025"
+  },
+  "non_tanker_embodied": {
+   "row": 12,
+   "label": "Vehicle Embodied Emissions --Non-Tanker Truck",
+   "unit": "MT CO2e/mi",
+   "value": 0.0001927908256,
+   "source_cited": "GLEC V3.2 2025"
+  },
+  "flatbed_km_t_equivalent_kgco2e": 0.0859978,
+  "tanker_km_t_equivalent_kgco2e": 0.0710227,
+  "non_tanker_per_km_kgco2e": 0.1197947,
+  "tanker_embodied_per_km_kgco2e": 0.1476133
+ },
+ "certify_attached_ef_sheet": {
+  "_primary_source_opened": [
+   {
+    "file": "Certify sources src_1KWZ2NVQM1S08AWN and src_1KVJRSYT91S09G2E 'Standard Emission Factors + Calculations (8).xlsx' (byte-identical, sha256 d49871d1...)",
+    "action": "sheet_grid_read",
+    "artifact_path": "source_exports/Certify_attached_StdEFs_src_1KWZ2NVQM1S08AWN.xlsx"
+   }
+  ],
+  "rows": "2026 tab: row 5 'Truck Transport Fuel Use (Well to Wheel) -- Tanker Truck' 0.0001143; row 6 '-- Flatbed Truck' 0.0001384; row 10 'Vehicle Embodied Emissions --Tanker Truck' 0.0002375605888; row 11 '--Non-Tanker Truck' 0.0001927908256 (MT CO2e/t-mi and MT CO2e/mi, GLEC V3.2 2025)"
+ },
+ "google_maps_options": [
+  {
+   "route": "via US-287 S and US-287 S",
+   "time": "17 hr 22 min",
+   "distance_mi": 1132,
+   "label": "Fastest route now, avoids road closures"
+  },
+  {
+   "route": "via US-287 S, US-287 S and I-20 E",
+   "time": "17 hr 32 min",
+   "distance_mi": 1129,
+   "label": "Avoids road closures"
+  },
+  {
+   "route": "via I-70 E",
+   "time": "17 hr 36 min",
+   "distance_mi": 1201,
+   "label": "Avoids road closures; This route has tolls"
+  }
+ ],
+ "google_maps_note": {
+  "_primary_source_opened": [
+   {
+    "file": "Certify source src_1KSTWP2AP1S0QQPF 'CO to Basco Routing Map.png'",
+    "action": "image_read",
+    "artifact_path": "screenshots/CO_to_Basco_Routing_Map_src_1KSTWP2AP1S0QQPF.png",
+    "sha256": "9168453b581f7236bdb7503a6a95c9ac5590009ca5de4dbc8e6f409f07dc5aec"
+   }
+  ],
+  "note": "Read from the pixels: destination '4675 LA-115, St Landry, LA 71367', origin field 'Your location' (pin just north of Denver). Byte-identical to the map attached on INJ-09-2026-W3-QOWV.",
+  "max_ruling": "skills/qa/batch-qa-charm/qa_active_charm_batches.json, INJ-07-2026-W1 max_rulings_2026_08_06: '5.2 -> Pass: routing-map origin confirmed as Fort Lupton, unnamed-origin flag dropped.'"
+ },
+ "retirement_certificate": {
+  "_primary_source_opened": [
+   {
+    "file": "Certify source src_1M1MFJPW11S08KY2 'Charm-RetirementCertificate-RD-EACs-20251218.pdf'",
+    "action": "pdf_read",
+    "artifact_path": "Certify_attached_RetirementCertificate_src_1M1MFJPW11S08KY2.pdf",
+    "sha256": "bd185a8a63236ab0c79165fbd964347603b4dc8880d7230e9453b45de45721c6"
+   }
+  ],
+  "read": "TERC Certificate of Retirement: Retiring Organization Amazon.com Services LLC; On Behalf Of Charm Industrial, Inc; Date of Retirement Dec 18, 2025; Vintage Year 2024; Commodity Type Renewable Diesel TERCS; Number of TERCs Retired 2,795; Verification Body Turner, Mason & Company; Certificate Number TERC1012_2024_DF_RENEWABLE_DIESEL-13-47206-50000; 'Each TERC represents one metric ton of carbon dioxide equivalent (tCO2e) reduced.'",
+  "tercs": 2795
+ },
+ "pp_summary_sources": {
+  "_primary_source_opened": [
+   {
+    "pp": "Jan",
+    "file": "Jan 26 Production Period Summary (live Google Sheet)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1bPZ7pNsR5rv-om-BypF4lK3nczjn4HJNO2dzimwnx7E/edit",
+    "artifact_path": "source_exports/pp_summaries/Jan2026_PP_Summary.xlsx"
+   },
+   {
+    "pp": "Feb",
+    "file": "Feb 26 Production Period Summary (live Google Sheet)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1vH7bborVnc-TCby3wEkpzi7GGMOI5jMJooEW0V-rOQ4/edit",
+    "artifact_path": "source_exports/pp_summaries/Feb2026_PP_Summary.xlsx"
+   },
+   {
+    "pp": "Mar",
+    "file": "Mar 26 Production Period Summary (live Google Sheet)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1O7y30opa_u1_deqFm_w2qgVyxi_75X00xnzKuyVyh6o/edit",
+    "artifact_path": "source_exports/pp_summaries/Mar2026_PP_Summary.xlsx"
+   },
+   {
+    "pp": "Apr",
+    "file": "Apr 26 Production Period Summary (live Google Sheet)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/10Qwx7K6sUcOBrCebGUGVaVeLQnhzvcT8sHQ0Sy3VBBM/edit",
+    "artifact_path": "source_exports/pp_summaries/Apr2026_PP_Summary.xlsx"
+   },
+   {
+    "pp": "May",
+    "file": "May 26 Production Period Summary (live Google Sheet)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1m66t1jsLGc4e6AWnCFMsFbkSceZ9IYC_-bfTsbP_OYc/edit",
+    "artifact_path": "source_exports/pp_summaries/May2026_PP_Summary.xlsx"
+   },
+   {
+    "pp": "Jun",
+    "file": "Jun 26 Production Period Summary (live Google Sheet)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1MUQajDI2a_Cn9xWGPP7z4PhhphZnfl2_CSTnpB07Wgk/edit",
+    "artifact_path": "source_exports/pp_summaries/Jun2026_PP_Summary.xlsx"
+   }
+  ],
+  "live": {
+   "Jan": {
+    "tab": "Jan 26 PP Summary",
+    "aqueous_mass_kg": 30830.4,
+    "aqueous_emissions_mt": 4.835255475,
+    "aqueous_ci": 0.1568340169,
+    "wodo_mass_kg": 8888.2,
+    "wodo_emissions_mt": 8.283753406,
+    "wodo_ci": 0.9319944878,
+    "days_in_period": 31.0
+   },
+   "Feb": {
+    "tab": "Feb 26 PP Summary",
+    "aqueous_mass_kg": 37125.6,
+    "aqueous_emissions_mt": 4.939553429,
+    "aqueous_ci": 0.1330497939,
+    "wodo_mass_kg": 10966.0,
+    "wodo_emissions_mt": 9.31996088,
+    "wodo_ci": 0.8498961226,
+    "days_in_period": 28.0
+   },
+   "Mar": {
+    "tab": "Mar 26 PP Summary",
+    "aqueous_mass_kg": 46683.2,
+    "aqueous_emissions_mt": 5.533133432,
+    "aqueous_ci": 0.1185251532,
+    "wodo_mass_kg": 16307.0,
+    "wodo_emissions_mt": 12.88358234,
+    "wodo_ci": 0.790064533,
+    "days_in_period": 31.0
+   },
+   "Apr": {
+    "tab": "Apr 26 PP Summary",
+    "aqueous_mass_kg": 43912.0,
+    "aqueous_emissions_mt": 5.770847117,
+    "aqueous_ci": 0.1314184532,
+    "wodo_mass_kg": 17580.4,
+    "wodo_emissions_mt": 13.79766647,
+    "wodo_ci": 0.7848323401,
+    "days_in_period": 30.0
+   },
+   "May": {
+    "tab": "May 26 PP Summary",
+    "aqueous_mass_kg": 36523.2,
+    "aqueous_emissions_mt": 4.041714881,
+    "aqueous_ci": 0.1106615762,
+    "wodo_mass_kg": 11130.0,
+    "wodo_emissions_mt": 7.043574746,
+    "wodo_ci": 0.6328458891,
+    "days_in_period": 31.0
+   },
+   "Jun": {
+    "tab": "Jun 26 PP Summary",
+    "aqueous_mass_kg": 46616.2,
+    "aqueous_emissions_mt": 5.765942272,
+    "aqueous_ci": 0.1236896674,
+    "wodo_mass_kg": 10778.0,
+    "wodo_emissions_mt": 11.9693523,
+    "wodo_ci": 1.110535564,
+    "days_in_period": 30.0
+   }
+  },
+  "batch_uses": "June 2026 (L18, M18 link 1MUQajDI2a...) on 32 totes; February 2026 (L14, M14 link 1vH7bbor...) on 2 totes; July 2026 totes use L7 (Jan-Jun 2026 blended).",
+  "july_2026": {
+   "_primary_source_opened": [
+    {
+     "pp": "Jul",
+     "file": "Jul 26 Production Period Summary (Google Sheet, created 2026-09-22)",
+     "action": "sheet_grid_read",
+     "drive_id": "124Yhg_sw5bpdkBSq6gt8IlMj13xNZAAJV5rm9rdTIWE",
+     "live_source_url": "https://docs.google.com/spreadsheets/d/124Yhg_sw5bpdkBSq6gt8IlMj13xNZAAJV5rm9rdTIWE/edit",
+     "artifact_path": "source_exports/pp_summaries/Jul2026_PP_Summary.xlsx",
+     "sha256": "e0424eb38e30028438807af2e535948442bb12eb5898247b998cd124cbeb1bcc"
+    },
+    {
+     "pp": "Jul",
+     "file": "Jul 26 Production Period Summary (Google Sheet, created 2026-09-11)",
+     "action": "sheet_grid_read",
+     "drive_id": "1nIz_QcIeNbNiUu4UyiatlZENkAhIgA8wm0r3mE7plgg",
+     "live_source_url": "https://docs.google.com/spreadsheets/d/1nIz_QcIeNbNiUu4UyiatlZENkAhIgA8wm0r3mE7plgg/edit",
+     "artifact_path": "source_exports/pp_summaries/Jul2026_PP_Summary_1nIz.xlsx",
+     "sha256": "8e2d69767cc67336f606b669c17363a90a7546a5389b697b12725b1550b2c754"
+    },
+    {
+     "pp": "Jul",
+     "file": "July 26 Production Period Output Summary (Google Sheet, owner garrett.lutz@, created 2026-09-11)",
+     "action": "sheet_grid_read",
+     "drive_id": "1k5le7x-EYfdqiSEmad1bA1NliBJm7ryGRw0lE6CrN_I",
+     "live_source_url": "https://docs.google.com/spreadsheets/d/1k5le7x-EYfdqiSEmad1bA1NliBJm7ryGRw0lE6CrN_I/edit",
+     "artifact_path": "source_exports/pp_summaries/Jul2026_PP_Output_Summary_1k5le.csv",
+     "sha256": "65720e9145f3475b79fd6dacd71f9ba83aa5b2ddb5c540d90206e960e0310a02"
+    }
+   ],
+   "read": "Both 'Jul 26 Production Period Summary' files have the same four tabs as June, the summary tab still named 'Jun 26 PP Summary', and match the June summary (source_exports/pp_summaries/Jun2026_PP_Summary.xlsx) on every non-empty cell: 425 stored values and 426 formula cells (the extra one, C89 '=C84', has no stored value), with no differences (Aqueous N4 46616.2 kg, T4 0.1236896674; WODO N2 10778.0 kg, T2 1.110535564): they are copies of June, not July figures. 'July 26 Production Period Output Summary' has one tab, 'Sheet1' (xlsx export, source_exports/pp_summaries/Jul2026_PP_Output_Summary_1k5le.xlsx, sha256 b8e9578df2f94840ad6d977af538315d64bef69386c1dad905c069dc4a3a8f65), and it is an unfilled template: the WODO and Aqueous mass cells are blank and every calculated cell on those rows reads #DIV/0!; only five biochar carbon readings are entered.",
+   "conclusion": "No July 2026 production-period figures (masses, CIs) exist in any summary found. The July totes' CI does not depend on one: July-December 2026 product takes the Jan-Jun 2026 blended CI (7.1-7.3). July date range from the Q4 production tab: '7/1-7/31'."
+  },
+  "constants_match_live": {
+   "Feb": true,
+   "Jun": true,
+   "Jan": true,
+   "Mar": true,
+   "Apr": true,
+   "May": true
+  }
+ },
+ "blended_ci_source": {
+  "_primary_source_opened": [
+   {
+    "file": "V2_Charm_BioOil_Mass_Weighted_CI_Jan-Jun_2026.xlsx (Drive id 1J1_DxRBIbYTa3o65q_zEv_GSB6Ci6Pt8, owner max@, modified 2026-09-08)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://drive.google.com/file/d/1J1_DxRBIbYTa3o65q_zEv_GSB6Ci6Pt8/view",
+    "artifact_path": "source_exports/pp_summaries/V2_Charm_BioOil_Mass_Weighted_CI_Jan-Jun_2026.xlsx"
+   },
+   {
+    "file": "July RP reporting package copies of the six monthly summaries (local, saved 2026-08-11/12)",
+    "action": "sheet_grid_read",
+    "artifact_path": "source_exports/pp_summaries/V2_Charm_BioOil_Mass_Weighted_CI_Jan-Jun_2026.xlsx"
+   }
+  ],
+  "method_text": "Method: sum the emissions allocated to each product across the six monthly Production Period Summaries, divide by that product's total output mass over the same period.",
+  "read_note": "Source values read 2026-08-11 from the Production Period Summary in each month's subfolder of the H1 2026 Charm CI folder. Totals and CI cells are live formulas.",
+  "qowv_result": {
+   "mass_kg": 241690.6,
+   "emissions_mt": 29.2318456,
+   "ci": 0.1209473832
+  },
+  "wodo_result": {
+   "mass_kg": 75649.6,
+   "emissions_mt": 60.15966802,
+   "ci": 0.795241059
+  },
+  "v2_qowv_emissions_by_month_mt": {
+   "Jan 2026": 4.28455461,
+   "Feb 2026": 4.55598869,
+   "Mar 2026": 5.4427961,
+   "Apr 2026": 5.565843396,
+   "May 2026": 3.915108003,
+   "Jun 2026": 5.467554803
+  },
+  "sources_tab": "Sources tab: Jan 'January 2026 Production Period Summary.xlsx' 1D07oKMClJBm0ZEgdsuN_APdGrhzoLw9L; Feb 'Feb 26 Production Period Summary.xlsx' 1wFC1c4DWZZqLXeS422lgThPu23quOJTT; Mar 160LXWi92KCgonrEbY4omp8QmXpQAGXlX; Apr 1pmsqSW2toU5KAxYin82KfaF_BzcKYQ0y; May 1XU3CTs0HKjAOXmo7H6LzJQhPzyYeT1N6; Jun 1c9objRn_ahdCwpHWX8kIYL8PWe1l77Ci - xlsx copies, not the Google Sheets the Ops Notes links",
+  "live_recompute": {
+   "qowv_mass_kg": 241690.6,
+   "qowv_emissions_mt": 30.886446606,
+   "qowv_ci": 0.12779333,
+   "wodo_mass_kg": 75649.6,
+   "wodo_emissions_mt": 63.297890142,
+   "wodo_ci": 0.8367247169
+  },
+  "earlier_use_of_live_monthly_ci": "qa_active_charm_batches.json INJ-07-2026-W1 (T0 2026-08-06): 'Jan 2026 (6 totes, CI 0.931994)' - the live Jan WODO CI (0.9319944878), against 0.8258470104 in the copy V2 read on 2026-08-11",
+  "july_totes": 8,
+  "july_net_produced_kg": 7358.2
+ },
+ "pp_summary_basis": {
+  "_primary_source_opened": [
+   {
+    "file": "Six monthly summaries: the July RP reporting-package copies V2 was built from (Drive mount My Drive/MRV/Removals Reporting/2026/Verified Periods/July 1 - July 31 RP/.../H1 2026 Charm CI/, local copy in Downloads/Final Reporting Package July 1 - July 31 RP) against the live Google Sheets exported 2026-10-06",
+    "action": "sheet_grid_read",
+    "artifact_path": "pp_summary_basis_comparison.json"
+   }
+  ],
+  "by_month": {
+   "Jan": {
+    "copy_I19_formula": "=C11*F7",
+    "live_I19_formula": "=C9*F7",
+    "copy_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_bcus_applied_C10_mt": 2.369484895,
+    "live_aqueous_share": 0.2244836035,
+    "live_aqueous_mt": 4.835255475,
+    "live_aqueous_after_bcu_mt": 4.303344967331581,
+    "copy_aqueous_mt": 4.28455461,
+    "C85_live": 0.0,
+    "C85_copy": 0.0
+   },
+   "Feb": {
+    "copy_I19_formula": "=C11*F7",
+    "live_I19_formula": "=C9*F7",
+    "copy_H18": "Consolidated Emissions Inventory",
+    "live_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_bcus_applied_C10_mt": 1.703110865,
+    "live_aqueous_share": 0.2172032236,
+    "live_aqueous_mt": 4.939553429,
+    "live_aqueous_after_bcu_mt": 4.569632258973815,
+    "copy_aqueous_mt": 4.55598869,
+    "C85_live": 0.0123181057,
+    "C85_copy": 0.0123181057
+   },
+   "Mar": {
+    "copy_I19_formula": "=C11*F7",
+    "live_I19_formula": "=C9*F7",
+    "copy_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_bcus_applied_C10_mt": 2.112208715,
+    "live_aqueous_share": 0.2125735629,
+    "live_aqueous_mt": 5.533133432,
+    "live_aqueous_after_bcu_mt": 5.084133699864019,
+    "copy_aqueous_mt": 5.4427961,
+    "C85_live": 0.03682304769,
+    "C85_copy": 0.03682304769
+   },
+   "Apr": {
+    "copy_I19_formula": "=C11*F7",
+    "live_I19_formula": "=C9*F7",
+    "copy_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_bcus_applied_C10_mt": 0.9139,
+    "live_aqueous_share": 0.2243270523,
+    "live_aqueous_mt": 5.770847117,
+    "live_aqueous_after_bcu_mt": 5.565834623903029,
+    "copy_aqueous_mt": 5.565843396,
+    "C85_live": 0.0,
+    "C85_copy": 0.0
+   },
+   "May": {
+    "copy_I19_formula": "=C9*F7",
+    "live_I19_formula": "=C9*F7",
+    "copy_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_bcus_applied_C10_mt": 0,
+    "live_aqueous_share": 0.1910141882,
+    "live_aqueous_mt": 4.041714881,
+    "live_aqueous_after_bcu_mt": 4.041714881,
+    "copy_aqueous_mt": 3.915108003,
+    "C85_live": 0.73646,
+    "C85_copy": 0.073646
+   },
+   "Jun": {
+    "copy_I19_formula": "=C11*F7",
+    "live_I19_formula": "=C9*F7",
+    "copy_H18": "Consolidated Emissions Inventory",
+    "live_H18": "Consolidated Emissions Inventory (No GHG Neutralization)",
+    "live_bcus_applied_C10_mt": 1.407746656,
+    "live_aqueous_share": 0.2104968588,
+    "live_aqueous_mt": 5.765942272,
+    "live_aqueous_after_bcu_mt": 5.469616022925796,
+    "copy_aqueous_mt": 5.467554803,
+    "C85_live": null,
+    "C85_copy": 0.0
+   }
+  },
+  "result": "Copies: Biomass Transport I19 = C11*F7 ('Remaining Emissions to Allocate', after BCUs) for Jan-Apr and Jun; May I19 = C9*F7 with C9 = 0 (no biomass transport). Live sheets: I19 = C9*F7 ('Total Emissions', before BCUs) under the heading 'Consolidated Emissions Inventory (No GHG Neutralization)'. The inputs differ too (June: tonnes 109.03 in the package copy vs 129.1156462585034 on the linked sheet, miles 354.5 vs 405.5); the package copies are the later versions (pp_summary_basis.ruling_2026_10_07.version_history).",
+  "after_bcu_live_blend": {
+   "qowv": 0.1201299366,
+   "wodo": 0.7870217282,
+   "qowv_mt": 29.034276454,
+   "wodo_mt": 59.53787893
+  },
+  "may_C85": "May summary C85 'Transport Emissions (Embodied)': 0.73646 live vs 0.073646 in the copy (factor of 10).",
+  "after_bcu_ci": {
+   "Jan": 0.139581224,
+   "Feb": 0.1230857484,
+   "Mar": 0.1089071379,
+   "Apr": 0.1267497409,
+   "May": 0.1106615762,
+   "Jun": 0.1173329448
+  },
+  "ruling_2026_10_07": {
+   "ci_by_period": {
+    "June 2026": 0.1173329448,
+    "February 2026": 0.1230857484,
+    "July 2026": 0.120947
+   },
+   "pe_submitted_kg": 5009.9151,
+   "pe_ruling_kg": 4792.3437,
+   "pe_change_kg": -217.5714,
+   "weighted_ci_ruling": 0.1182541425,
+   "june_change_kg": -198.9705,
+   "feb_change_kg": -18.6009,
+   "blend_v2_after_bcu": 0.1209473832,
+   "blend_live_after_bcu": 0.1201299366,
+   "july_change_if_blend_rebuilt_from_live_kg": -6.0121,
+   "month_totals_after_bcu_mt_copy_vs_live": {
+    "Jan": [
+     19.08627,
+     19.169975
+    ],
+    "Feb": [
+     20.975696,
+     21.03851
+    ],
+    "Mar": [
+     25.673791,
+     23.917055
+    ],
+    "Apr": [
+     24.811289,
+     24.81125
+    ],
+    "May": [
+     20.496425,
+     21.159239
+    ],
+    "Jun": [
+     25.97452,
+     25.984312
+    ]
+   },
+   "package_version": {
+    "ci_by_period": {
+     "June 2026": 0.117288728,
+     "February 2026": 0.1227182507,
+     "July 2026": 0.120947
+    },
+    "pe_kg": 4790.2737,
+    "pe_change_kg": -219.6414,
+    "weighted_ci": 0.1182030623
+   },
+   "linked_sheets_version": {
+    "ci_by_period": {
+     "June 2026": 0.1173329448,
+     "February 2026": 0.1230857484,
+     "July 2026": 0.1201299366
+    },
+    "pe_kg": 4786.3316,
+    "pe_change_kg": -223.5835,
+    "weighted_ci": 0.1181057897,
+    "blend_difference_on_july_totes_by_month_kg": {
+     "Jan": 0.5721,
+     "Feb": 0.4154,
+     "Mar": -10.9194,
+     "Apr": -0.0003,
+     "May": 3.8545,
+     "Jun": 0.0628
+    }
+   },
+   "version_history": {
+    "_primary_source_opened": [
+     {
+      "file": "dated local downloads of the linked sheets (~/Downloads/Charm Production Docs/{January,March,April} 2026 Production Period/, ~/Downloads/{Feb,May,Jun} 26 Production Period Summary.xlsx) and the July RP package versions (~/Downloads/July 1 - July 31 RP/Charm BO MRV/H1 2026 Charm CI/*/), plus 'Biomass Transport Emissions.xlsx' in its June folder",
+      "action": "sheet_grid_read"
+     }
+    ],
+    "linked_sheet_downloads": "Jan 07-11 03:15, Mar 07-11 03:14, Apr 07-16 21:47, Feb 08-10 21:17, May 08-11 02:02, Jun 08-11 02:05 (local time): all I19 = C9*F7 and already holding today's biomass-transport values (Jan C9 2.495338746, Feb C9 1.797501254, Jun C13 129.1156462585034 / C14 405.5)",
+    "package_versions": "saved 2026-08-11 11:28 (Feb) to 22:39 (Jun) local, after every download: I19 = C11*F7 in every month with biomass transport (May I19 = C9*F7 with C9 = 0); Jan C9 2.365369654, Feb C9 1.701467837, Jun C13 109.03 / C14 354.5",
+    "evidence_for_package": [
+     "Feb linked sheet C5 1.4172200170521543 and C6 0.09439038819643568 are typed values at the 2026 factors, while its own 'Emission Factors' tab lists E3 0.000135156 and E6 6.44927e-05 and the package's 'Biomass Transport Emissions.xlsx' EmissionFactors D9 reads 'First day the 2026 EFs apply. Feb 2026 and earlier = 2025 EFs.'",
+     "June package C13 109.03 and C14 354.5 match 'Biomass Transport Emissions.xlsx' 'Monthly Totals' row 14 (5 loads, 109.0340136 t, 354.5 mi); no file read derives the linked sheet's 129.1156462585034 t and 405.5 mi"
+    ],
+    "conclusion": "The package versions are the later, reworked ones; the linked sheets were not edited after them (except June J6, which moved its T4 from 0.123429378 in the 08-11 02:05 download to 0.1236896674 today). Which version governs is for the blend owner to confirm."
+   },
+   "note": "On the ruled basis the July blend in use (V2) stands only with the package versions; mixing package July with linked-sheet June/February (pe_ruling_kg) is not a consistent basis. See package_version and linked_sheets_version."
+  }
+ },
+ "certify": {
+  "_primary_source_opened": [
+   {
+    "file": "Certify GHG entry rmv_1M3SG7D701S0HZ1Z (Components, each component detail view, Calculation view, Datapoints, Sources, source detail pages)",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3SG7D701S0HZ1Z/edit",
+    "artifact_path": "certify_initial_snapshot.yml"
+   }
+  ],
+  "removal_window": "19 Sep 2026 to 25 Sep 2026",
+  "net_co2e_removed_t": 4.076,
+  "net_header_display_t": 4.08,
+  "calculation_view": "Net CO2e Removed 4.076 t = Sequestrations 9.902 t + Adjustments 5.895 tCO2e - Activities 11.674 tCO2e - Uncertainty Discount 47 kg",
+  "components_tab_totals": "Mitigated 15.797 tCO2e (Bio-oil transport 5.895 = BCU - Transport Process; CO2 stored 9.902 = Injection sequestration); Emitted 11.674 tCO2e (Bio-oil transport 6.664 = embodied 0.769 + process 5.895; Pyrolysis or other process 5.010); 5 components",
+  "uncertainty_discount_kg": 47,
+  "components_tab_total": 5,
+  "component_by_key": {
+   "injection_sequestration": {
+    "name": "Injection sequestration",
+    "id": "cmp_1M3SG7D701S0E4E9",
+    "value_t": 9.902,
+    "inputs": {
+     "carbon_content_label": "Carbon Content of Bio-oil Injected (per injection)",
+     "carbon_content_pct": 7.9,
+     "carbon_content_uncertainty_pct_abs": 0.03523,
+     "carbon_content_sources": 2,
+     "mass_of_product_label": "Mass of Injectant (per injection)",
+     "mass_of_product_kg": 34179.5,
+     "mass_of_product_uncertainty_kg": 47.62716,
+     "mass_sources": 1
+    },
+    "blueprint": "Carbon rich substance sequestration: output = product_mass * carbon_content * {co2e_of_carbon}"
+   },
+   "transport_process": {
+    "name": "CO to LA Flatbed Truck Transport Process Emissions - QOWV",
+    "id": "cmp_1M3SG7D701S0MXD4",
+    "value_t": 5.895,
+    "share_of_net_pct_display": 144.49,
+    "inputs": {
+     "ef_label": "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck",
+     "ef_kgco2e_per_t_mi": 0.1143,
+     "ef_datapoints_tab_display": "0.07 kgCO2e/(km*t)",
+     "ef_source": "Standard Emission Factors + Calculations (8).xlsx",
+     "distance_label": "Distance from Miniforge CO to Basco",
+     "distance_mi": 1201,
+     "distance_source": "CO to Basco Routing Map.png",
+     "mass_of_load_label": "QOWV Transport Mass (CO to B6) [Certify input]",
+     "mass_of_load_kg": 42945,
+     "mass_of_load_uncertainty_kg_displayed": 47.627,
+     "mass_source": "INJ-09-2026-W4 Ops Notes.xlsx"
+    },
+    "blueprint": "Transport emissions: output = mass * distance * carbon_intensity"
+   },
+   "transport_embodied": {
+    "name": "CO to LA Flatbed Truck Transport Embodied Emissions - QOWV",
+    "id": "cmp_1M3SG7D701S0D2XB",
+    "value_t": 0.769,
+    "share_of_net_pct_display": 18.85,
+    "inputs": {
+     "ef_label": "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck",
+     "ef_kgco2e_per_mi": 0.23756,
+     "ef_datapoints_tab_display": "0.1476 kgCO2e/km",
+     "ef_source": "Standard Emission Factors + Calculations (8).xlsx",
+     "distance_label": "QOWV Embodied Distance (CO to B6) [Certify input]",
+     "distance_mi": 3236.03,
+     "distance_sources": 2
+    },
+    "blueprint": "Distance-based emissions: output = distance * carbon_intensity"
+   },
+   "pyrolysis": {
+    "name": "Pyrolysis - Charm QOWV PP Emissions",
+    "id": "cmp_1M3SG7D701S09318",
+    "value_t": 5.01,
+    "share_of_net_pct_display": 122.79,
+    "inputs": {
+     "ci_label": "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)",
+     "ci_tco2e_per_t": 0.123623,
+     "ci_sources": 1,
+     "mass_label": "QOWV Pyrolysis Mass [Certify input]",
+     "mass_kg": 40525.8,
+     "mass_uncertainty_kg_displayed": 47.627,
+     "mass_sources": 1
+    },
+    "blueprint": "Mass-based CI emissions: output = mass * carbon_intensity"
+   },
+   "bcu": {
+    "name": "BCU - Transport Process",
+    "id": "cmp_1M3SGFS3K1S0BBQP",
+    "value_t": 5.895,
+    "inputs": {
+     "constant_co2_reduction_kg": 5895,
+     "source": "Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+    },
+    "blueprint": "Constant CO2 reduction"
+   }
+  },
+  "counterfactuals": "none present (expected zero for bio-oil geological storage)",
+  "datapoints_tab_total": 10,
+  "datapoints": [
+   "QOWV Embodied Distance (CO to B6) [Certify input] 3,236 mi REPORTED",
+   "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck 0.1476 kgCO2e/km DERIVED",
+   "QOWV Transport Mass (CO to B6) [Certify input] 42.945 t REPORTED",
+   "Distance from Miniforge CO to Basco 1,201 mi DERIVED",
+   "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.07 kgCO2e/(km*t) DERIVED",
+   "QOWV Pyrolysis Mass [Certify input] 40.526 t REPORTED",
+   "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted) 0.12 tCO2e/t REPORTED",
+   "Mass of Injectant (per injection) 34.179 t DERIVED",
+   "Carbon Content of Bio-oil Injected (per injection) 7.90 % DERIVED",
+   "Constant CO2 reduction 5.895 tCO2e REPORTED"
+  ],
+  "certify_sources_tab_total": 6,
+  "certify_sources_enumeration": [
+   {
+    "name": "INJ-09-2026-W4 Ops Notes.xlsx",
+    "source_id": "src_1M3VZCDQF1S0FQ0D",
+    "visibility": "PRIVATE",
+    "datapoints": [
+     "QOWV Embodied Distance (CO to B6) [Certify input]",
+     "QOWV Transport Mass (CO to B6) [Certify input]",
+     "QOWV Pyrolysis Mass [Certify input]",
+     "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)",
+     "Mass of Injectant (per injection)",
+     "Carbon Content of Bio-oil Injected (per injection)"
+    ]
+   },
+   {
+    "name": "SR26-05719 W4 Kerry AECN QOWV COA.pdf",
+    "source_id": "src_1M3VZ8S8W1S013HS",
+    "visibility": "PRIVATE",
+    "datapoints": [
+     "Carbon Content of Bio-oil Injected (per injection)"
+    ]
+   },
+   {
+    "name": "Charm-RetirementCertificate-RD-EACs-20251218.pdf",
+    "source_id": "src_1M1MFJPW11S08KY2",
+    "visibility": "PUBLIC",
+    "datapoints": [
+     "Constant CO2 reduction"
+    ]
+   },
+   {
+    "name": "Standard Emission Factors + Calculations (8).xlsx",
+    "source_id": "src_1KWZ2NVQM1S08AWN",
+    "visibility": "PUBLIC",
+    "datapoints": [
+     "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck"
+    ]
+   },
+   {
+    "name": "Standard Emission Factors + Calculations (8).xlsx",
+    "source_id": "src_1KVJRSYT91S09G2E",
+    "visibility": "PUBLIC",
+    "datapoints": [
+     "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck"
+    ]
+   },
+   {
+    "name": "CO to Basco Routing Map.png",
+    "source_id": "src_1KSTWP2AP1S0QQPF",
+    "visibility": "PUBLIC",
+    "datapoints": [
+     "QOWV Embodied Distance (CO to B6) [Certify input]",
+     "Distance from Miniforge CO to Basco"
+    ]
+   }
+  ],
+  "attachment_map": {
+   "Mass of Injectant (per injection)": [
+    "INJ-09-2026-W4 Ops Notes.xlsx"
+   ],
+   "Carbon Content of Bio-oil Injected (per injection)": [
+    "SR26-05719 W4 Kerry AECN QOWV COA.pdf",
+    "INJ-09-2026-W4 Ops Notes.xlsx"
+   ],
+   "QOWV Transport Mass (CO to B6) [Certify input]": [
+    "INJ-09-2026-W4 Ops Notes.xlsx"
+   ],
+   "QOWV Pyrolysis Mass [Certify input]": [
+    "INJ-09-2026-W4 Ops Notes.xlsx"
+   ],
+   "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)": [
+    "INJ-09-2026-W4 Ops Notes.xlsx"
+   ],
+   "QOWV Embodied Distance (CO to B6) [Certify input]": [
+    "INJ-09-2026-W4 Ops Notes.xlsx",
+    "CO to Basco Routing Map.png"
+   ],
+   "Distance from Miniforge CO to Basco": [
+    "CO to Basco Routing Map.png"
+   ],
+   "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck": [
+    "Standard Emission Factors + Calculations (8).xlsx"
+   ],
+   "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck": [
+    "Standard Emission Factors + Calculations (8).xlsx"
+   ],
+   "Constant CO2 reduction": [
+    "Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+   ]
+  },
+  "attachment_map_note": "Read from the Sources tab; the Ops Notes row's '+ 5 more' popover expanded and read; the routing map's second datapoint read from the Datapoints tab.",
+  "attached_ops_notes_copy": {
+   "_primary_source_opened": [
+    {
+     "file": "Certify source src_1M3VZCDQF1S0FQ0D 'INJ-09-2026-W4 Ops Notes.xlsx'",
+     "action": "sheet_grid_read",
+     "artifact_path": "source_exports/Certify_attached_Ops_Notes_src_1M3VZCDQF1S0FQ0D.xlsx"
+    }
+   ],
+   "comparison": "Cell-for-cell identical to the live export on the QOWV, QOWV Shipments & EE Allocation and Summary tabs in formula mode (0 differences each). In value mode the Summary tab differs only in I8/J8/I13/J13 (AECN rail mileage, 15,102.69 vs 7,598.34 mi and 1,946 vs 1,201.2 mi), outside this batch."
+  }
+ },
+ "charm_contents": {
+  "_primary_source_opened": [
+   {
+    "file": "Drive batch folder listing + Certify Sources tab (6 sources)",
+    "action": "folder_listed",
+    "artifact_path": "batch_folder_listing.txt",
+    "negative_check_tokens": [
+     "Charm Contents.xlsx"
+    ],
+    "items_found": []
+   }
+  ],
+  "status": "No standalone Charm Contents sheet in the Drive batch folder or among the 6 Certify sources. The per-period mass breakdown is the Ops Notes QOWV tab Production Period column, which is attached to the pyrolysis mass datapoint."
+ },
+ "week_window": {
+  "ops_B3": "2026-09-18 (Friday)",
+  "ops_B4": "2026-09-25 (Friday)",
+  "certify": "19 Sep 2026 to 25 Sep 2026",
+  "vvb_guidance": "18 - 25 September 2026",
+  "tracker_completion": "2026-09-25 for all 42 rows (2026-09-28 export)",
+  "lab_sampled": "25-Sep-2026 10:00"
+ },
+ "max_rulings": {
+  "2026-10-07": {
+   "bcu_scope": {
+    "quote": "BCUs should be applied to diesel transport, including biomass transport process emissions and handling (not embodied emissions).",
+    "effect": "Production CIs count biomass transport after its BCUs: process and log handling offset, embodied not (summary I19 = C11*F7, 'Remaining Emissions to Allocate'). The live monthly summaries count it before (I19 = C9*F7); the Jan-Jun blend (V2) was built on the after-BCU basis. Checklist 7.2."
+   },
+   "cobb": {
+    "quote": "On COBB, I defer to Garrett. He works directly with the team that uses COBB and I do not, so if they have changed up he would know that first.",
+    "garrett_positions_read": [
+     "Slack #team-mrv-alerts, Garrett Lutz, 2026-10-05 08:24 BST, Week 2 QOWV: 'COBB is not source of truth heree'; Week 3 QOWV: 'cobb not source of truth here'",
+     "same message, Week 1 WODO: 'These are all acceptable discrepancies-BGN Inv takes precedent over oil inv data, rounding error here, red herring' (source hierarchy; routed to the MRV lead for a ruling the same day, #team-mrv-alerts 2026-10-05 11:16 BST)"
+    ],
+    "effect": "The injection tracker's COBB tabs are not used as a cross-check: 2.3 drops tote 301215 (a COBB-only conflict) and 3.1 drops the COBB injection entries. Tote 301274's gross conflict rests on the production system's own weighing (Oil_inventory_data row 39, Historical Tote Record row 1181), not COBB, and stays in 2.3."
+   }
+  }
+ },
+ "production_records": {
+  "_primary_source_opened": [
+   {
+    "file": "inventory master tabs 'Oil_inventory_data' and 'Q4 2025 -2026 Production Invent'; injection tracker tab 'Historical Tote Record' (SQL import, not COBB)",
+    "action": "sheet_grid_read",
+    "artifact_path": "source_exports/inventory_master_export.xlsx"
+   }
+  ],
+  "gross_conflict_301274": {
+   "ops_notes_B40_kg": 1036.0,
+   "q4_inventory_tab_row694_kg": 1036.0,
+   "production_system_gross_kg": 1080.0,
+   "production_system_net_kg": 1022.4,
+   "production_system_work_order": "OIL260721143336",
+   "production_system_Oil_inventory_data_row39": "aqueous_fraction, lot 301274, tag 301274, produced 2026-07-21 20:34, work order OIL260721143336, net 1022.4, gross 1080.0",
+   "historical_tote_record_row1181": "reported 1022.4, 2026-07-21 20:35, OIL260721143336, gross 1080.0",
+   "ops_notes_E40_kg": 169.5,
+   "if_production_gross": {
+    "mass_gain_kg": 44.0,
+    "seq_gain_kg": 12.746492,
+    "pe_gain_kg": 5.321668,
+    "net_gain_kg": 7.424824
+   }
+  },
+  "tag_300020": {
+   "production_system_Oil_inventory_data": [
+    "row 360: lot 4746, security_tag 300020, gross 1012.0, net 954.4, WO00001655, 2026-02-17",
+    "row 350: lot LOT00004770, security_tag 300020, gross 1085.0, net 144.4, WO00001665, 2026-02-24, shipping order COLA25"
+   ],
+   "historical_tote_record": [
+    "row 840: 300020 / lot 4746, gross 1012.0",
+    "row 850: 300020 / lot LOT00004770, gross 1085.0"
+   ],
+   "claude_c_production_tab": [
+    "row 410: 300020 / 4746 / 1012.0",
+    "row 420: 300020 / 4770 / 1085.0"
+   ],
+   "q4_production_inventory_tab": "row 410: tag 300022 / lot 4746 / 1012.0; row 420: tag 300020 / lot 4770 / 1085.0"
+  },
+  "bgn_row_shift_301274": {
+   "301274": {
+    "bgn_q4_row_gross_net": [
+     [
+      694,
+      1036.0,
+      978.4
+     ]
+    ],
+    "oil_inventory_data_row_order_net_gross": [
+     [
+      39,
+      "OIL260721143336",
+      1022.4,
+      1080.0
+     ]
+    ],
+    "historical_tote_record_row_order_net_gross": [
+     [
+      1181,
+      "OIL260721143336",
+      1022.4,
+      1080.0
+     ]
+    ]
+   },
+   "301277": {
+    "bgn_q4_row_gross_net": [
+     [
+      693,
+      1070.0,
+      1012.4
+     ]
+    ],
+    "oil_inventory_data_row_order_net_gross": [
+     [
+      40,
+      "OIL260721142141",
+      978.4,
+      1036.0
+     ]
+    ],
+    "historical_tote_record_row_order_net_gross": [
+     [
+      1180,
+      "OIL260721142141",
+      978.4,
+      1036.0
+     ]
+    ]
+   },
+   "301227": {
+    "bgn_q4_row_gross_net": [
+     [
+      738,
+      1070.0,
+      1012.4
+     ]
+    ],
+    "oil_inventory_data_row_order_net_gross": [
+     [
+      42,
+      "OIL260721133028",
+      1012.4,
+      1070.0
+     ]
+    ],
+    "historical_tote_record_row_order_net_gross": [
+     [
+      1178,
+      "OIL260721133028",
+      1012.4,
+      1070.0
+     ]
+    ]
+   },
+   "read": "BGN (Q4 tab) gives 301274 1036.0/978.4 kg, which is the production system's weighing of 301277 (OIL260721142141); BGN's 301277 row gives 1070.0/1012.4 kg, which is 301227's weighing (OIL260721133028). Each production record carries its own work order. The BGN rows look shifted, so the production system's 1080.0 kg (OIL260721143336) fits 301274."
+  },
+  "source_hierarchy": "The order among the Ops Notes, the BGN inventory and the production system's records is not yet ruled (batch-qa-charm FC-C14; operations' view, #team-mrv-alerts 2026-10-05: 'BGN Inv takes precedent over oil inv data')."
+ },
+ "adversarial_review": {
+  "artifact_path": "adversarial_review_INJ-09-2026-W4-QOWV.md",
+  "reviewer": "independent subagent, files on disk only",
+  "completed": "2026-10-06T15:29:46Z",
+  "accepted": [
+   "7.2 kept Fail, ground rewritten: the ledger mixes two CI bases (June/February live summaries count biomass transport before BCUs; the July blended CI was built from copies that count it after BCUs). Quantified both ways; basis is a method decision.",
+   "2.3 Flag -> Fail: conflicting post-unload weights between two records (conflicting evidence = Fail). Reason for weighing the two rows differently from the tracker's general offset added to the note: on 39 rows plus halved row 867 the tracker sits exactly 57.6 kg (the standard tote tare) below the ledger, a constant definitional difference, while 301215 breaks it by 280.5 kg (tracker 222.9 kg above the ledger's net injected). The live tracker read (2026-10-06) showed 301274's difference is its gross weight (tracker 1080.0 kg vs 1036.0 kg in the Ops Notes and inventory master), with the post-unload weight agreeing at 169.5 kg; 2.3 was rewritten accordingly. The operations position on the tracker as a record (registry INJ-09-2026-W2-QOWV notes) goes to the MRV lead in the delivery message, not the checklist.",
+   "3.4 COLA-40 18 is the documented physical count (A19 annotation), not an error; COLA-38 alone carries the Fail; corrected allocation 2,568.8056 mi",
+   "C.1 corrected net given as a range across the CI basis choice",
+   "5.1/8.1 fix wording: BCU equals whatever the corrected process component outputs (7,138.434 kg if Certify keeps GLEC 0.086 kg/(km*t) as on W3)",
+   "7.3 wording: the V2 workbook is not among the six Certify sources; link target named",
+   "1.1 wording: file-size wording dropped; Drive id and formation-fluid density threshold cited",
+   "7.4/7.5 per-period figures added; column B questions set to the skill's exact text; sidebar adds the WODO allocation tab's stale W2 header, the basis note on the WODO blended CI, and the May C85 factor-of-ten",
+   "Addendum review after the live tracker read (adversarial_review_addendum_INJ-09-2026-W4-QOWV.md), each point re-checked in the files: 2.3's 301274 reasoning corrected (the production system's own weighing, Oil_inventory_data row 39 and Historical Tote Record row 1181, gives 1080.0 kg, so two production records disagree) and its fix widened to the dependent items; 3.1 Pass -> Flag (security tag 300020 assigned to lots 4746 and LOT00004770 in the production system, recorded as injected in July and in W4); sidebar tracker notes reworded (every September batch repeats across blocks; pH is the weekly wellhead value stamped on all products; residue shares 0.3714 and 0.3914 of each tote's net oil); 1.1 agreed. The operations position on the tracker as a record goes to the MRV lead in the delivery message.",
+   "Final audit points applied: sidebar describes the four blocks as stacked imports with their Import Time stamps and puts 301204's doubled figure in the oldest; 2.1 and 2.2 point to 2.3 for 301274's disputed gross; 2.3's fix names 4.3; 2.3's offset wording is limited to the newest import; 3.4 gives 2,576.6552 mi as the allocation if the master's 17 for COLA-40 proves right.",
+   "Second addendum review (adversarial_review_addendum2_INJ-09-2026-W4-QOWV.md) of 2.1, 3.5, 7.1, 7.3 and C.1, each point re-checked in the files by the QA agent: 3.5 kept Flag but its ground rewritten. The June summary's Aqueous mass (N4 46,616.2 kg) is the sum of the 48 QOWV rows labelled June 2026, these four included, and the Jan-Jun blend's June mass (D12) is the same figure. The totes carry their labelled period's spray paint. Next-month weigh-ins are routine. The production system's production_date is the weigh-in. So the -11.008 kg counterfactual and 'conservative' are dropped, and the flag is the missing fill date (blank on all 421 rows for 2026), with a new fix. C.1's 3.5 phrase replaced with 'does not change the net'. 2.1 date range splits lot 4746's record from the 41 own-tag records. The location basis now cites the production system's site_location/location field. 7.3 says the July copies show June's CI, and the output summary is confirmed one tab. 7.1 upheld."
+  ],
+  "addendum3": {
+   "artifact_path": "adversarial_review_addendum3_INJ-09-2026-W4-QOWV.md",
+   "reviewer": "independent subagent, files on disk only",
+   "completed": "2026-10-07T09:19:01Z",
+   "accepted": "Review of the rows changed by the 2026-10-07 rulings (2.3, 3.1, 7.2, 7.3, C.1, sidebar, recompute, drafts). Each point was re-checked in the files by the QA agent and accepted. 7.2: the mixed figure (linked June/February with the package July blend) was replaced by the two consistent versions, package 4,790.2737 kg and linked 4,786.3316 kg; the version direction was corrected (the package copies are the later, reworked ones, shown by dated downloads); the evidence favoring the package versions was added (February 2025 factors, June per-load workbook); the blend difference was attributed to March and May C85; the fix was limited to Ops Notes L18/L14 and Certify. 2.3: BGN row-shift evidence added (1,036.0 kg is 301277's weighing; 301277's row carries 301227's 1,070.0 kg); conversation citations replaced by FC-C14; 'similar conflict' dropped. Sidebar: 2025 summaries added, the May overstatement removed, the May C85 note corrected. Scan file: scope header added. C.1: nets on both versions. Drafts: stale and backwards wording fixed, Garrett 7.2 held. Skill FC-C13: the Fail condition is BCUs applied (C10 > 0), the version note and the 2025 summaries added; FC-C14 quote given in full. Recompute: the 7.2 CIs are computed from the summary workbooks (source_exports/pp_summaries/ and package/) and the 2.3 effect from Oil_inventory_data row 39 and the Ops Notes row; the production-system entries moved from cobb_injection_record to production_records. 2.3 carries the sentence that the order among the three records is not yet ruled. 3.1 and 7.3 upheld."
+  },
+  "addendum2": {
+   "artifact_path": "adversarial_review_addendum2_INJ-09-2026-W4-QOWV.md",
+   "reviewer": "independent subagent, files on disk only",
+   "completed": "2026-10-06T21:57:36Z"
+  },
+  "rejected": {},
+  "verified_by_qa_agent": "Copy vs live I19 formulas and C10 BCUs re-read for all six months (pp_summary_basis_comparison.json); after-BCU blends recomputed; WODO allocation tab A1 re-read."
+ },
+ "_derived_values_numeric": {
+  "n_totes": 42,
+  "gross_kg": 42945,
+  "produced_kg": 40525.8,
+  "injected_kg": 34179.5,
+  "residue_kg": 6346.3,
+  "pe_kg": 5009.915111,
+  "weighted_ci": 0.1236228553,
+  "unc_kg": 47.62716,
+  "per_tote_unc_kg": 1.13398,
+  "kg_per_lb": 0.453592,
+  "lb_per_tote": 2.5,
+  "june_totes": 32,
+  "july_totes": 8,
+  "feb_totes": 2,
+  "june_mass_kg": 31300.8,
+  "july_mass_kg": 7358.2,
+  "feb_mass_kg": 1866.8,
+  "june_pe_kg": 3871.5855,
+  "july_pe_kg": 889.9522,
+  "feb_pe_kg": 248.3774,
+  "jun_ci": 0.1236896673712938,
+  "feb_ci": 0.13304979391442986,
+  "blend_ci_used": 0.120947,
+  "blend_ci_v2": 0.1209473832,
+  "blend_ci_live": 0.12779333,
+  "blend_ci_diff": 0.00684633,
+  "pe_ok_kg": 5060.2918,
+  "pe_gain_kg": 50.3767,
+  "wci_ok": 0.1248659318,
+  "wci_ok_6dp": 0.124866,
+  "pyro_ok_t": 5.060295,
+  "live_aq_mass_kg": 241690.6,
+  "live_aq_mt": 30.886446606,
+  "v2_aq_mt": 29.2318456,
+  "wodo_blend_used": 0.795241059,
+  "wodo_blend_live": 0.8367247169,
+  "v2_jun_mt": 5.467554803,
+  "live_jun_mt": 5.765942272,
+  "v2_feb_mt": 4.55598869,
+  "live_feb_mt": 4.939553429,
+  "v2_jan_mt": 4.28455461,
+  "live_jan_mt": 4.835255475,
+  "carbon_pct": 7.9,
+  "carbon_unc_cert": 0.03523,
+  "carbon_unc_ok": 0.0316,
+  "carbon_unc_over_pct": 11.4873,
+  "co2_c_ratio": 3.667,
+  "seq_kg": 9901.5619,
+  "seq_t": 9.902,
+  "ef_tanker_proc": 0.0001143,
+  "ef_flatbed_proc": 0.0001384,
+  "ef_tanker_emb": 0.0002375605888,
+  "ef_nontanker_emb": 0.0001927908256,
+  "ef_cert_proc_kg_t_mi": 0.1143,
+  "ef_cert_emb_kg_mi": 0.23756,
+  "proc_cert_kg": 5895.2448,
+  "proc_ok_kg": 7138.2492,
+  "proc_gain_kg": 1243.0044,
+  "proc_t": 5.895,
+  "alloc_tab_mi": 3236.027778,
+  "alloc_tab_2dp": 3236.03,
+  "alloc_inv_mi": 2568.8056,
+  "alloc_over_mi": 667.2222,
+  "c37_share": 0.75,
+  "c37_miles": 900.75,
+  "c39_miles": 1201,
+  "c38_share_tab": 0.8333333333,
+  "c38_miles_tab": 1000.8333,
+  "c38_share_inv": 0.2777777778,
+  "c38_miles_inv": 333.6111,
+  "c40_share_tab": 0.1111111111,
+  "c40_miles_tab": 133.4444,
+  "c40_share_inv": 0.1176470588,
+  "c40_miles_inv": 141.2941,
+  "c38_total_inv": 18,
+  "c38_total_tab": 6.0,
+  "c40_total_inv": 17,
+  "c40_total_tab": 18.0,
+  "c38_claimed": 1.2777777778,
+  "emb_cert_kg": 768.7513,
+  "emb_nt_tab_kg": 623.8765,
+  "emb_ok_kg": 495.2421,
+  "emb_t": 0.769,
+  "pyro_cert_kg": 5009.921,
+  "pyro_t": 5.01,
+  "certify_ci": 0.123623,
+  "bcu_kg": 5895,
+  "bcu_short_cert_kg": 0.2448,
+  "bcu_short_ok_kg": 1243.2492,
+  "net_t": 4.076,
+  "net_cert_t": 4.07555,
+  "net_ok_t": 4.30293,
+  "net_gain_t": 0.22738,
+  "disc_kg": 47,
+  "disc_est_kg": 47.09,
+  "disc_ok_kg": 43.09,
+  "pe_share_of_net_pct": 122.9,
+  "e_min": 164.5,
+  "e_max": 442.5,
+  "gross_min": 609.0,
+  "gross_max": 1151.0,
+  "e_301215_ops": 442.5,
+  "e_301215_trk": 162.0,
+  "g_301215": 1041.0,
+  "inj_301215_ops": 598.5,
+  "inj_301215_trk": 879.0,
+  "g_301274_ops": 1036.0,
+  "g_301274_trk": 1080.0,
+  "g_301274_gap": 44.0,
+  "e_301274_ops": 169.5,
+  "cobb_rows_live": 168,
+  "cobb_ph": 2.97,
+  "cobb_ph_rows": 126,
+  "g274_seq_gain": 12.746492,
+  "g274_pe_gain": 5.321668,
+  "g274_net_gain": 7.424824,
+  "res_kg": 384.9,
+  "res_share_301166": 0.3714,
+  "res_share_301215": 0.3914,
+  "cobb_qty_july_300020": 883.0,
+  "inj_gain_kg": 280.5,
+  "seq_gain_kg": 81.2589,
+  "residue_301215_kg": 384.9,
+  "route1": 1132,
+  "route2": 1129,
+  "route3": 1201,
+  "one_way_mi": 1201,
+  "lab_c": 7.9,
+  "lab_h": 7.9,
+  "lab_density": 1.039,
+  "lab_acid": 36,
+  "lab_kv": 0.902,
+  "tercs": 2795,
+  "sources_total": 6,
+  "datapoints_total": 10,
+  "cobb_first_row": 861,
+  "cobb_last_row": 3723,
+  "cobb_rows": 42,
+  "cobb_qty_301204": 1540.8,
+  "cobb_qty_300020": 666.4,
+  "t300022_net_inj": 724,
+  "tare": 57.6,
+  "net_keep_t": 4.35331,
+  "net_after_t": 4.57694,
+  "net_keep_gain_t": 0.27776,
+  "net_after_gain_t": 0.50138,
+  "blend_ci_after": 0.1201299366,
+  "jun_ci_after": 0.1173329448,
+  "feb_ci_after": 0.1230857484,
+  "pe_after_kg": 4786.3316,
+  "pe_after_drop_kg": 223.5835,
+  "wci_after": 0.1181057897,
+  "wodo_blend_after": 0.7870217282,
+  "glec_bcu_kg": 7138.434,
+  "glec_gap_kg": 0.1849,
+  "unc_june_kg": 36.28736,
+  "unc_july_kg": 9.07184,
+  "unc_feb_kg": 2.26796,
+  "jun_bcu_mt": 1.407746656,
+  "jun_share": 0.2104968588,
+  "dev_301215": 280.5,
+  "may_c85_live": 0.73646,
+  "may_c85_copy": 0.073646,
+  "c40_doc": 18,
+  "pkg_jun_ci": 0.117288728,
+  "pkg_feb_ci": 0.1227182507,
+  "pkg_pe_kg": 4790.2737,
+  "pkg_pe_change_kg": -219.6414,
+  "pkg_wci": 0.1182030623,
+  "lv_pe_kg": 4786.3316,
+  "lv_pe_change_kg": -223.5835,
+  "lv_wci": 0.1181057897,
+  "blend_mar_kg": -10.9194,
+  "blend_may_kg": 3.8545,
+  "net_pkg_t": 4.573,
+  "net_pkg_gain_t": 0.49744,
+  "net_lv_t": 4.57694,
+  "net_lv_gain_t": 0.50138,
+  "g_301277_prod": 1036.0,
+  "g_301227_prod": 1070.0,
+  "jun_late_kg": 4013.6,
+  "jun_n4_kg": 46616.2,
+  "jun_q4_rows": 48
+ }
+}

@@ -1,0 +1,53 @@
+- generic [active] [ref=f60e2]:
+  - alert [ref=f60e1]
+  - region "0 notifications."
+  - generic [ref=f60e3]:
+    - navigation [ref=f60e5]:
+      - generic [ref=f60e9]:
+        - generic [ref=f60e10]:
+          - link "Isometric Registry" [ref=f60e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f60e27]:
+            - link "Certificates" [ref=f60e28] [cursor=pointer]:
+              - /url: /certificates
+            - link "Projects" [ref=f60e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f60e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f60e32]:
+          - generic [ref=f60e33]:
+            - link "Account" [ref=f60e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f60e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f60e36]: "|"
+          - button "Current user menu" [ref=f60e37] [cursor=pointer]:
+            - generic [ref=f60e38]: Menu
+    - main [ref=f60e41]:
+      - generic [ref=f60e43]:
+        - button "Hide sidebar" [ref=f60e45] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=f60e49]:
+          - list [ref=f60e51]:
+            - listitem [ref=f60e52]:
+              - link "All projects" [ref=f60e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [aria-hidden] [ref=f60e54]: /
+            - listitem [ref=f60e55]:
+              - generic [aria-hidden] [ref=f60e58]: /
+            - listitem [ref=f60e61]: rmv_1M3Z5YJN51S0SN1Q
+      - generic [ref=f60e77]:
+        - heading "GHG entry" [level=1] [ref=f60e81]
+        - generic [ref=f60e95]:
+          - tablist [ref=f60e98]:
+            - tab "Settings" [ref=f60e99] [cursor=pointer]
+            - tab "Components" [selected] [ref=f60e101] [cursor=pointer]
+            - tab "Calculation view" [ref=f60e103] [cursor=pointer]
+            - tab "Datapoints" [ref=f60e105] [cursor=pointer]
+            - tab "Sources" [ref=f60e107] [cursor=pointer]
+          - tabpanel "Components" [ref=f60e110]:
+            - generic [ref=f60e112]:
+              - generic [ref=f60e113]:
+                - searchbox "Search components" [ref=f60e117]
+                - button "Display options" [ref=f60e118] [cursor=pointer]
+                - button "Add filters" [ref=f60e121] [cursor=pointer]
+              - button "Add" [ref=f60e125] [cursor=pointer]

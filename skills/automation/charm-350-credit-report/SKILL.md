@@ -6,10 +6,10 @@ description: >
   Slack channel for a NEW announcement that a bio-oil GHG statement has been submitted for
   verification. If there is none, it does nothing. If there is one, it opens the Charm
   Bio-oil project in Isometric Certify (READ-ONLY), finds the GHG statement under verification
-  for the prior calendar month, identifies the removals that are Charm-produced oil (QOWV /
-  WODO / Aqueous — as distinct from AECN), builds a small spreadsheet (removal ID linked,
-  removal date, tCDR, plus a total) saved to Drive, and sends the report to the fixed
-  recipient list. Idempotent: it will not re-report a statement it has already reported.
+  for the prior calendar month, classifies every removal by oil source (Charm-produced QOWV /
+  WODO / Aqueous, AECN, Kerry), builds a spreadsheet (removal ID linked, removal date, oil
+  type, tCDR; one section per source with subtotal, plus a grand total) saved to Drive, and
+  sends the report to the fixed recipient list. Idempotent: it will not re-report a statement it has already reported.
   ALWAYS trigger when: a scheduled run fires this job, Max says "run the 350 credit report",
   "check for a credit submission", "check #ext-proj-charm-350 for a submission", or asks
   about the state of this automation. This skill is READ-ONLY on Certify and any live
@@ -23,7 +23,7 @@ because the trigger (a submission announcement in Slack) and the dedup key (the 
 ID) both live in durable external state, not in timing. Read the ledger first, write it last.
 
 **This is NOT a QA process.** No Pass/Fail, no checklist, no adversarial review. QA knowledge
-is used only to *recognize* which removals are Charm-produced oil versus AECN.
+is used only to *recognize* which removals are Charm-produced oil, AECN, or Kerry.
 
 **Config (read first, fail loud if missing):** `config.json` in this folder holds every
 changeable fact — channel ID, project ID, recipient user IDs, Drive folder, oil-type keywords,
@@ -71,37 +71,59 @@ write ever seems required, stop and surface to Max.
 - If the only matching statement already shows "Certificates issued", note it — a real live
   run should find "under verification". (A backfill/test run against an issued statement is
   fine but must be labeled as such and NOT auto-sent to colleagues without Max's OK.)
+  **Enforced since 2026-10-01:** the report header must state the Certify status verbatim, and
+  the posting hook (`~/.claude/hooks/scoped_automation_slack_send.sh`) refuses any send to a
+  colleague whose message lacks "under verification". Any other status goes to Max only, first
+  line "BACKFILL — needs your OK before forwarding", ledger untouched. (A 2026-10-01 run sent
+  the already-issued August statement to all four recipients after quoting this rule to itself.)
 
-### 3. Read the removals and classify Charm vs AECN
-- Open the statement → **GHG Entries** tab. Note each entry's removal ID, tonnes removed
-  (tCO₂e = the tCDR for that removal), and sequestered date range.
-- For each removal, open it (`certify_removal_url_prefix` + removal_id) and read the component
-  list (`browser_evaluate` → `main` innerText). Classify by the **production/pyrolysis and
-  transport component names**:
-  - **CHARM-PRODUCED (include)** — component names contain a Charm oil keyword
-    (`charm_oil_keywords`: QOWV / WODO / Aqueous) and/or Charm production emissions, e.g.
-    "QOWV Pyrolysis Emissions", "Pyrolysis - Charm WODO PP Emissions",
-    "CO to LA … Transport … - QOWV/WODO".
-  - **AECN (exclude)** — component names contain "AECN", e.g. "AECN pyrolysis (from rail
-    loads)", "AECN to SOPOR Tanker Truck", "SOPOR to Opelousas Rail". AECN is Quebec-sourced,
-    rail-delivered — not Charm-produced.
-- If a removal is ambiguous or looks mixed, **FLAG it to Max and do not guess** which bucket
-  it belongs in. No fabricated classification.
+### 3. Read the removals and classify by oil source (Charm / AECN / Kerry)
+**Every removal on the statement goes in the report** (since 2026-10-09, at JZ's request — the
+earlier Charm-only version made him ask for the AECN and Kerry numbers separately). The
+classification only decides which section a removal lands in.
+- Preferred read: the Isometric MCP server. Call `how_to` with the goal "list all removals in
+  GHG statement <ggs_…> with co2eRemoved, dates and component names", then run the returned
+  query. One call returns every removal with its components. Fall back to the browser (GHG
+  Entries tab, then each removal via `certify_removal_url_prefix` + removal_id,
+  `browser_evaluate` → `main` innerText) only if the MCP server is unavailable.
+- Note each removal's ID, tonnes removed (tCO₂e = the tCDR for that removal), and sequestered
+  date range. Classify by the **production/pyrolysis and transport component names**:
+  - **CHARM** — component names contain a Charm oil keyword (`charm_oil_keywords`:
+    QOWV / WODO / Aqueous) and/or Charm production emissions, e.g. "Pyrolysis - Charm QOWV PP
+    Emissions", "Pyrolysis - Charm WODO Emissions", "CO to LA … Transport … - QOWV/WODO".
+    Set `oil_type` to the specific keyword (QOWV / WODO / Aqueous).
+  - **AECN** — component names contain an `aecn_keywords` term, e.g. "AECN pyrolysis (from
+    rail loads)", "AECN to SOPOR Tanker Truck", "SOPOR to Opelousas Rail". Set `oil_type`
+    to "AECN".
+  - **KERRY** — component names contain a `kerry_keywords` term, e.g. "Kerry to Basco Tanker
+    Truck Transport Process Emissions". Kerry removals have no pyrolysis components (waste
+    scope). Set `oil_type` to "Kerry".
+  - Site-emission components (RECs, diesel, embodied, BCU adjustments) sit on one removal per
+    period and say nothing about oil source — ignore them for classification.
+- If a removal matches none of the keyword sets, or more than one, **FLAG it to Max and do
+  not guess**. No fabricated classification. The report is not sent until every removal has
+  a section.
+- Check: the sum of all removals' tCDR must equal the statement total shown in Certify.
 
 ### 4. Build the spreadsheet
-- Assemble the payload (statement_id, period_label, period_slug like `2026-06`, and the list
-  of Charm-oil removals with removal_id / date / oil_type / tcdr) and run:
+- Assemble the payload (statement_id, period_label, period_slug like `2026-06`, the Certify
+  status string, and ALL removals with removal_id / date / oil_type / tcdr) and run:
   `python3 build_report.py '<json payload>'`
-- It saves `Charm_Bio-oil_Credits_<period_slug>.xlsx` to the Drive folder and prints the path
-  and total. Then find the file via the Drive connector to get its shareable `viewUrl`.
+- It writes `Charm_Bio-oil_Credits_<period_slug>.xlsx` to the Drive folder — three sections
+  (Charm-produced, AECN, Kerry) each with a subtotal, plus a grand total — and prints the path
+  and the per-source totals. If the file already exists it is overwritten in place (never
+  removed and recreated) so the Drive file ID and any shared link survive. Then find the file
+  via the Drive connector to get its shareable `viewUrl`.
 - `open` the saved file locally so Max can see it (per the "open generated docs" rule).
 
 ### 5. Send the report
 - Deliver per `delivery_mode` in config:
   - `dedicated_channel`: post one message to `dedicated_channel_id`.
   - `individual_dms`: send the same message to each recipient `user_id`.
-- Message = a short header + a Markdown table (removal IDs linked to Certify, removal date,
-  tCDR) + the total row + the Drive spreadsheet link. Keep it lossless and scannable.
+- Message = a short header (statement ID, Certify status verbatim, period) + a per-source
+  summary table (Charm-produced / AECN / Kerry: number of removals and tCDR, with a total row)
+  + a Markdown table of every removal (ID linked to Certify, removal date, oil type, tCDR)
+  + the Drive spreadsheet link. Keep it lossless and scannable.
 - **Autonomous send is authorized for this automation** (Max set it up to send directly to the
   fixed recipient list). This is a narrow, standing exception to the general no-autonomous-send
   rule — it applies ONLY to this report, ONLY to the configured recipients. Any change to
@@ -116,7 +138,7 @@ write ever seems required, stop and surface to Max.
 ## Post a completion line for observability
 When run headlessly, write a one-line result to the launchd log (stdout): either
 `NO-ACTION: no new submission announcement` or
-`SENT: <statement_id> — N Charm removals, <total> tCDR`.
+`SENT: <statement_id> — N removals (Charm <x> / AECN <y> / Kerry <z>), <total> tCDR`.
 
 ## Scheduling
 Fired by `~/Library/LaunchAgents/com.charm.charm-350-credit-report.plist` via the runner

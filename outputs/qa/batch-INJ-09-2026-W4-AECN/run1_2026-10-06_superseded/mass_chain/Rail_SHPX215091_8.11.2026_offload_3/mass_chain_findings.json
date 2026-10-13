@@ -1,0 +1,106 @@
+{
+  "batch_id": "INJ-09-2026-W4::Rail_SHPX215091_8.11.2026_offload_3",
+  "computed_at": "2026-10-06T20:01:15",
+  "source_reads_path": "/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/outputs/qa/batch-INJ-09-2026-W4-AECN/mass_chain/Rail_SHPX215091_8.11.2026_offload_3/batch_Rail_SHPX215091_8.11.2026_offload_3_source_reads.json",
+  "checks": [
+    {
+      "check_id": "scale_ticket_subtraction",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "full_lb": 76060,
+        "empty_lb": 28560,
+        "net_lb": 47500,
+        "net_kg": 21545.62
+      },
+      "log_values": {
+        "computed_net_lb": 47500,
+        "computed_net_kg": 21545.62
+      },
+      "note": "Computed: 76060 \u2212 28560 = 47500 lb (21545.62 kg). Log: 47500 lb (21545.62 kg). Match."
+    },
+    {
+      "check_id": "scale_ticket_vs_ops_notes_offload",
+      "materiality": "material",
+      "check_type": "policy",
+      "status": "PASS",
+      "computed": {
+        "scale_ticket_kg": 21545.62,
+        "ops_notes_cargo_kg": 21545.62,
+        "delta_kg": 0.0,
+        "delta_pct": 0.0
+      },
+      "log_values": {
+        "matched_offload_row_id": "Rail_SHPX215091_8.11.2026_offload_3"
+      },
+      "note": "Scale ticket = 21545.62 kg; Ops Notes cargo = 21545.62 kg; delta = 0.0 kg (0.0%). Match."
+    },
+    {
+      "check_id": "bol_list_sum_vs_stated_total",
+      "materiality": "hygiene",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "bol_sum_MT": 77.77,
+        "bol_count": 3
+      },
+      "log_values": {
+        "total_railcar_loaded_MT": 77.77,
+        "individual_BOL_mass_MT": [
+          26.02,
+          25.86,
+          25.89
+        ]
+      },
+      "note": "\u03a3(BOLs) = 77.77 MT; stated total = 77.77 MT. Match."
+    },
+    {
+      "check_id": "railcar_inbound_outbound_balance",
+      "materiality": "mixed",
+      "check_type": "computation",
+      "status": "PASS",
+      "computed": {
+        "inbound_kg": 77770.0,
+        "outbound_kg": 77546.09,
+        "loss_kg": 223.91,
+        "loss_pct": 0.2879
+      },
+      "log_values": {
+        "bol_count": 3,
+        "offload_count": 4
+      },
+      "note": "Inbound = 77770.0 kg; outbound = 77546.09 kg; loss = 223.91 kg (0.2879%). Within \u22645.0%."
+    },
+    {
+      "check_id": "last_offload_derivation",
+      "materiality": "material",
+      "check_type": "computation",
+      "status": "SKIP",
+      "computed": {
+        "this_offload": "offload_3",
+        "last_offload": "offload_4"
+      },
+      "log_values": {},
+      "note": "This batch is offload_3, not the last offload (last = offload_4). Derivation rule does not apply."
+    },
+    {
+      "check_id": "cobb_offload_consistency",
+      "materiality": "hygiene",
+      "check_type": "policy",
+      "status": "PASS",
+      "computed": {
+        "cobb_offloaded_kg": 21545.62,
+        "ops_notes_cargo_kg": 21545.62,
+        "delta_kg": 0.0,
+        "delta_pct": 0.0
+      },
+      "log_values": {
+        "cobb_row_id_at_qa": 3736,
+        "cobb_batch_id_col_a": "INJ-09-2026-W4_bio_oil",
+        "matched_offload_row_id": "Rail_SHPX215091_8.11.2026_offload_3"
+      },
+      "note": "COBB offloaded = 21545.62 kg; Ops Notes cargo = 21545.62 kg; delta = 0.0 kg (0.0%). Tolerance \u22640.5%. Match."
+    }
+  ]
+}

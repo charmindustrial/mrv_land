@@ -21,6 +21,38 @@ drive the reaction), which is the expected completion state, not a failure.
 
 ---
 
+## Manufacturer O&M Guide — the unit's own limits (read in full 2026-10-08)
+
+Intellishare **Operation & Maintenance Guide, ECO300 Electric Catox, N-24-2702A, November 2024**
+(Drive file "2702A O&M..pdf", id `1qqTENyFo7jD_8s78MNC0i4n79xsgafET`, 52 pages). This is the
+"catalytic oxidizer manual" the ISS-110 reply (Certify Log of Issues, Sep 2026) relied on. Quote it:
+
+- §2.2: "Catalyst Ready Temperature: 550˚ F" · "Inlet Temperature Control Set Point: 600˚ F" ·
+  "VOC Destruction Efficiency: >98%" · "Catalyst Inlet High Temperature Safety Set Point: 900˚ F" ·
+  "Temperature High Limit Safety Set Point: 1100˚ F"
+- §6.8: "Once set-point of 550 degrees F is reached on the TE1A an internal PLC 120 second timer is
+  enabled to allow the oxidizer to stabilize. SVE/Oxidizer Ready is Enabled." Then: "Once the
+  oxidizer is up to ready temperature the process inlet valve opens."
+- §6.9: alarms "initiates an immediate shutdown"; inlet "above the alarm set-point of 900 degree F";
+  outlet "above the alarm set-point of 1100 degree F". §6.11: "System temperature was lost for a 10
+  minute period after operating temperature was reached."
+- §8.1 "Heater Setpoint: 600°F", "Process Ready Temp: 500°F" (differs from §2.2's 550) · §8.2
+  "Dilution Valve Setpoint: 800-900°F", "High Limit: 1100°F"
+- §4.3 ¶6b (catalyst warranty): "at no time shall the catalyst outlet temperature be permitted to
+  exceed 1200°F. Normal continuous operating temperature shall not exceed 1150°F for more than 15
+  minutes during any 24 hours period."
+- §2.5: "High Temperature Limit Control: Yokogawa" — a separate controller from the PLC that logs
+  the temperatures, so logged values can sit a few degrees off the limit's own reading.
+- §6.6 trend screen lists "INLET OPN%", "DILUT OPN%", "AIR FLOW", "ALARM REGISTER" — candidate
+  signals for the blower/airflow indicator the verifier asked for in ISS-86 (Aug 2026).
+
+"1,050°F" (used as an "upper limit" in the ISS-110 reply) appears nowhere in the guide except as a
+gridline label on the §6.6 trend-screen picture. The earlier Intellishare proposal N-24-2702R1
+(6/18/24, Drive "CATOX ENGINEERING SPECS.pdf") says "Minimum Catalyst Inlet Temperature: 600
+degrees F." — pre-build; the O&M Guide is the document for the installed unit.
+
+---
+
 ## Catalyst Inlet — Preheat Requirement
 
 The Brief's exact wording is: *"Site SOP requires operators to confirm the catalyst inlet is at
@@ -142,6 +174,26 @@ together at Jul 27 06:41 — 49.2 hours, with the outlets held at 660°F (Train 
 (Train 2), i.e. above setpoint. Site cause was a failed control panel card, corroborated in
 `#injection-ops-la` (cody, 2026-07-25 17:06:33 PDT: *"Yes nothing will run without the card."*).
 Six shorter all-channel blocks totalling ~17 h appeared in the same period.
+
+### One-train holds (added September 2026)
+
+The all-channel check misses a hold on ONE train while the other keeps moving. The script now
+also flags stretches of >=1 h where both sensors of one train repeat together with the outlet
+at/above setpoint, prints the reading that follows, and recomputes the at-temperature share
+without them. The tell is the release: a jump of hundreds of degrees in one 5-minute step is not
+physical cooling (measured tandem declines run −29 to −56°F/h, above), so the held values were
+stale.
+
+September 2026 worked example, all Train 2: Sep 29 11:30–21:15 held 600/694°F, next reading
+326/311°F; Sep 11 20:55–23:40 held 843/1008°F, next 676/729°F, then held again to Sep 12 00:55,
+next 579/615°F; Sep 8 19:50–21:50 held 600/879°F, next 601/708°F. 192 readings (16 h) in total;
+Train 2 at/above setpoint 55.1% as recorded, 54.1% without them. Holds at cold idle (~85–130°F)
+that end in a 0–1°F step are ordinary deadband behaviour, not flagged.
+
+Precedent for explaining these to the verifier: for August's Train 2 gaps and 66.6 h flatline,
+Max asked in #mrv-ops-la whether *"these anomalies are likely the result of a temporary loss of
+communication between the sensors and the PLC which was then identified and resolved by either
+site staff or the ACE team?"* and Evan replied *"ya sure thats fair!"* (2026-09-09).
 
 A frozen block is a **data-completeness** observation, not a compliance finding: compliance rests
 on the sparging-blower interlock, not on the temperature record (see SKILL.md).

@@ -1,0 +1,130 @@
+{
+ "batch_id": "INJ-09-2026-W4-KERRY",
+ "note": "Filled step by step during the QA of 2026-10-06 (T0 18:23:50Z).",
+ "steps": {
+  "P1_knowledge_base": {
+   "done": true,
+   "evidence": "[log:preflight.knowledge_base] read in full before Gate 1"
+  },
+  "P2_lessons_learned": {
+   "done": true,
+   "evidence": "[log:preflight.lessons_learned] FC-K1 to FC-K8, cross-skill FC1/FC3/FC8/FC10, AECN FC12-FC14"
+  },
+  "P3_checklist_structure": {
+   "done": true,
+   "evidence": "[log:preflight.checklist_structure]"
+  },
+  "P4_failure_categories_printed": {
+   "done": true,
+   "evidence": "First pass: the 18:24:26Z list sits only in an internal block, not chat. Redone: list printed to chat at 21:30:40Z; then Gate 1 was re-run in full after it: guidance first (21:30:48Z), then every source logged in Gate 1 re-opened (21:31-21:33Z and 21:46-21:50Z, including the Certify-attached copies, route map, retirement certificate, cross-reference, W2/W3 tickets, Sep W1 and Oct W1 Ops Notes) and compared with the first pass: all identical [log:preflight.failure_categories_printed, preflight.failure_categories_printed_when, gate1_ordered_repass.order, gate1_ordered_repass.result.all_match] repass_comparison.json"
+  },
+  "P5_registry_checked": {
+   "done": true,
+   "evidence": "[log:preflight.registry_checked] no prior INJ-09-2026-W4 entry"
+  },
+  "P6_inputs_confirmed": {
+   "done": true,
+   "evidence": "[log:batch_id, certify_removal_url, drive_folder_url, cross_week_kerry.removal_crossref, certify.component_by_key] batch ID from the September Removal-Batch Cross-Reference; Certify components are Kerry-only (Kerry transport + sequestration + BCU)"
+  },
+  "T0_stamped_monitor_triggered": {
+   "done": true,
+   "evidence": "T0 2026-10-06T18:23:50Z [log:T0]; independent monitor agent wrote row 17 of outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx at kickoff, rows 1-16 verified unchanged"
+  },
+  "G1_0_vvb_guidance_full": {
+   "done": true,
+   "evidence": "First pass: guidance read in full 18:26-18:28Z, after the Certify Components page (18:24:52Z) and Drive listing (18:24:53Z), before every other source [log:vvb_guidance.read_order]. Redone in order: September, August and July guidance re-read in full from the live docs at 21:30:48-53Z before any other source; identical to the first read; then every Gate 1 source re-opened and matched [log:gate1_ordered_repass, vvb_guidance.kerry_method_july_verbatim] source_exports/repass/VVB_Guidance_Sep_2026.txt repass_comparison.json"
+  },
+  "G1_0_cell_comments": {
+   "done": true,
+   "evidence": "[log:vvb_guidance.ops_notes_cell_comments] formula-mode load of source_exports/INJ-09-2026-W4_Ops_Notes_live_20261006T1828Z.xlsx, all 10 tabs; two notes (AECN Truck H28, Kerry D18); Kerry M5 has none [log:ops_notes.constants]"
+  },
+  "G1_delivery_mode": {
+   "done": true,
+   "evidence": "[log:delivery_mode, delivery_mode_basis]"
+  },
+  "G1_1_mass_artifacts": {
+   "done": true,
+   "evidence": "[log:scale_tickets.full_ticket, scale_tickets.empty_ticket] screenshots/Sept_W4_Full_Scale_Ticket_Kerry.jpg and screenshots/Sept_W4_Empty_Scale_Ticket_Kerry.jpg opened as images"
+  },
+  "G1_2_bol": {
+   "done": true,
+   "evidence": "[log:bol.status, bol.searched] Drive folder (batch_folder_listing.txt) and the 8 Certify sources (certify_sources_tab.txt) opened; no BOL exists for the Kerry tanker load"
+  },
+  "G1_3_lab_results": {
+   "done": true,
+   "evidence": "[log:lab_results.certificate, lab_results.carbon_pct, lab_results.density_15C_g_cm3] source_exports/Drive_Testing_SR26-05719_COA_1Viar0c3xdOh.pdf read, page 1 of 3"
+  },
+  "G1_4_ops_notes": {
+   "done": true,
+   "evidence": "[log:ops_notes.kerry_row, ops_notes.rollup, ops_notes.summary, ops_notes.aecn_mass_in_kg_summary_G8, ops_notes.total_mobi_all_oils_kg_summary_G13] Kerry mass in, sparged-AECN mass in (Summary G8), pH, total injectate (G13)"
+  },
+  "G1_5_cobb_row_verified": {
+   "done": true,
+   "evidence": "[log:cobb_row_id_verified, cobb_cell_A_value, cobb_tracker.w4_row, cobb_tracker.consumed_lot_pattern] live COBB read source_exports/COBB_live_calciner_rows_20261006T1842Z.txt; cell A 'INJ-09-2026-W4_calciner' (COBB's name for this Kerry batch) before any value; consumed_lot is WILA004_offload_1 (tanker-era pattern; kc_NNNN was the tote pattern)"
+  },
+  "G1_6_certify_four_tabs": {
+   "done": true,
+   "evidence": "[log:certify.component_by_key, certify.calculation_view, certify.datapoints, certify.certify_sources_enumeration] certify_calculation_view.txt certify_datapoints_tab.txt certify_sources_tab.txt"
+  },
+  "G1_6_sources_tab_total": {
+   "done": true,
+   "evidence": "[log:certify.certify_sources_tab_total, certify.certify_sources_enumeration, certify.attachment_map]"
+  },
+  "G1_registry_updated": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-kerry/qa_active_kerry_batches.json entry INJ-09-2026-W4-KERRY added at T1 [log:certify_removal_id]"
+  },
+  "G2_1_mass_artifacts_opened": {
+   "done": true,
+   "evidence": "[log:scale_tickets.tractor_trailer_match, scale_tickets.certify_copies_identical_to_drive] tractor 07 / trailer 1013 on both; Certify copies source_exports/Certify_attached_src_1M3VZ8VKH1S0MRDE_Sept_W4_Full_Scale_Ticket_Kerry.jpg identical to Drive"
+  },
+  "G2_2_cobb_values": {
+   "done": true,
+   "evidence": "[log:cobb_tracker.w4_row, cobb_tracker.consumed_lot_pattern] offloaded 18007.6024 kg, origin 20000 kg, offload order 2026-09-24, completion 2026-09-23"
+  },
+  "G2_3_component_modals": {
+   "done": true,
+   "evidence": "[log:certify.component_by_key] all four component modals opened and INPUTS read: certify_modal_injection_sequestration.txt certify_modal_transport_process.txt certify_modal_transport_embodied.txt certify_modal_bcu.txt; tickets name CAT Scale, so 72.57 kg applies [log:scale_tickets.scale_type]"
+  },
+  "G2_system_boundary": {
+   "done": true,
+   "evidence": "[log:certify.components_total, certify.no_upstream_production_component, certify.no_counterfactual_component, ops_notes.summary.E11_sparging_loss_kg]"
+  },
+  "G2_transport_mass_basis": {
+   "done": true,
+   "evidence": "[log:certify.component_by_key.transport_process.mass_of_load_t, ops_notes.summary.B11_deliveries_cargo_kg, scale_tickets.net_kg] tanker: oil-only ticket net"
+  },
+  "G2_ef_live_sheet": {
+   "done": true,
+   "evidence": "[log:standard_efs_2026] source_exports/Standard_EFs_live_20261006T1840Z.xlsx 2026 tab rows 6 and 11 read from the live export"
+  },
+  "G2_required_evidence_defined": {
+   "done": true,
+   "evidence": "[log:certify.required_evidence, certify.required_evidence_basis]"
+  },
+  "G2_recompute_pasted": {
+   "done": true,
+   "evidence": "recompute_kerry.py re-run after the re-pass, exit 0, 29 OK, 0 unrouted; recompute_output.txt pasted into the chat unedited, every line, after the re-run (the 21:20Z paste had been condensed; superseded) [log:certify.calculation_view.net_co2e_removed_t] recompute_output.txt"
+  },
+  "G3_reviewer_independent": {
+   "done": true,
+   "evidence": "Independent agent (adversarial-reviewer skill, files on disk only) reviewed all 25 rows + 7 sidebar notes: adversarial_review_INJ-09-2026-W4-KERRY.md [log:adversarial_review.reviewer, adversarial_review.rows_upheld]"
+  },
+  "G3_challenges_resolved": {
+   "done": true,
+   "evidence": "[log:adversarial_review.accepted, adversarial_review.re_checked_by_qa_agent] all 5 challenges accepted after re-opening AECN Rail O7, Aug W5 Kerry O5 note and the W3 Kerry Certify removal; checklist rebuilt (Kerry_Batch_INJ-09-2026-W4_QA_Checklist.xlsx), recompute_output.txt re-run"
+  },
+  "G4_render_in_excel": {
+   "done": true,
+   "evidence": "Final checklist opened in Microsoft Excel by AppleScript and exported to PDF by Excel: screenshots/Excel_render_checklist.pdf (4 landscape pages) read; first render split columns across 18 portrait pages and cut column A labels, fixed with fit-to-width + wider column A, re-rendered clean"
+  },
+  "G4_status_counts": {
+   "done": true,
+   "evidence": "status_counts.json counted from the saved checklist cells after the last rebuild: Pass 23, Fail 1, Flag 1, N/A 0 (25), matching the STATUS COUNTS row"
+  },
+  "G4_monitor_independent": {
+   "done": true,
+   "evidence": "Independent monitor agent (not the QA agent) wrote row 17 for INJ-09-2026-W4-KERRY in outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx at T0; rows 1-16 verified unchanged"
+  }
+ }
+}

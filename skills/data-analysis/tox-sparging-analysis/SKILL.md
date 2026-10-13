@@ -58,18 +58,25 @@ the expected completion state of a sparging campaign — not evidence of uncontr
 So a below-setpoint outlet during a campaign means **no VOCs present to drive the exothermic
 reaction** — not a failure to destroy VOCs. Active destruction shows as an outlet of 850–1000°F.
 
-## Source data format (current — July 2026 onward: ONE FILE PER TRAIN)
+## Source data format
 
 Max provides the period's export or points you to it in Drive (typically the reporting period's
-`Additional Documentation/Oxidizer Data` folder, which is reachable on the local Drive mount —
-faster and cheaper than the Drive connector for files this size).
+`Additional Documentation/Oxidizer Data` folder). Since September 2026 that folder sits in
+Garrett's Drive area and is **not** on Max's local Drive mount — download through the Drive
+connector (the result lands in a saved file; decode it into its own scratchpad folder).
 
-Since July 2026 the export is **two CSVs, one per train**, each `t_stamp, InletTemp, OutletTemp`
-with `YYYY-MM-DD HH:MM:SS.fff` timestamps. Pass **both** to `--input` in either order; the script
-merges them on the timestamp and identifies each train from its column headers. The older single
-combined 5-column file still loads unchanged. 5-minute readings, **`0` marks offline / no
-reading**, columns **correctly labeled (no swap)**.
+**September 2026 onward:** Garrett pulls the data from BigQuery as **one combined CSV**
+(`timestamp_central` + four `train{1,2}_ox{2100,2200}_catalyst_{inlet,outlet}_F` columns,
+`M/D/YYYY H:MM` Central). Pass the single file to `--input`.
+**July–August 2026:** two CSVs, one per train (`t_stamp, InletTemp, OutletTemp`,
+`YYYY-MM-DD HH:MM:SS.fff`). Pass **both** to `--input` in either order; the script merges them on
+the timestamp and identifies each train from its column headers.
+All shapes: 5-minute readings, **`0` marks offline**, **empty cells mark single dropped readings**
+(new in September 2026), columns **correctly labeled (no swap)**.
 Read `references/column_mapping.md` and `references/thresholds.md` before processing.
+
+Run the script with `python3 -P -E` (not `-I`): pandas lives in the user package folder, which
+`-I` hides. `-P` still keeps the script's and current folder out of the import path.
 
 ## Workflow
 
@@ -93,6 +100,10 @@ held last-good values and those rows are not live readings — and if the held o
 setpoint it inflates the at-temperature share. Report the at-temperature figure **both ways** (as
 recorded, and excluding held readings) and say what the site was doing. This is a data-
 completeness note, not a compliance finding. See `references/thresholds.md`.
+
+Also read the **one-train hold** lines (added September 2026): one train frozen above setpoint
+while the other moves. Same treatment — report both ways, and check the reading after each hold
+for a jump too large to be real cooling.
 
 ### Step 3: Optional — Slack context for your understanding
 For any long offline or below-setpoint stretch, you may check `#injection-ops-la` to understand

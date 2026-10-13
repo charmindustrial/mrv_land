@@ -1,0 +1,40 @@
+Ticket pair: full 74,000 lb (#1189526252027, 9-09-26) - empty 34,300 lb (#1319926254821, 9-11-26), tractor 07 / trailer 1013 on both
+OK   Ticket net vs Ops Notes Kerry F10: recomputed 18,007.602400 kg vs Certify/evidence 18,007.602400 kg (diff +0.000000)
+OK   Ticket net vs Ops Notes Summary B11 (cargo): recomputed 18,007.602400 kg vs Certify/evidence 18,007.602400 kg (diff +0.000000)
+OK   Ticket net vs COBB WILA004 quantity (COBB WILA003 carries the same figure, so quantity does not identify the load; see 1.7): recomputed 18,007.602400 kg vs Certify/evidence 18,007.602400 kg (diff +0.000000)
+OK   Ticket net vs Certify Allocated Kerry Oil Gross Mass (4-dp display, t): recomputed 18.007602 t vs Certify/evidence 18.007600 t (diff +0.000002)
+OK   Ops Notes M5 vs CAR-474 MANITOWOC CALCINER PHASE: recomputed 0.000710 vs Certify/evidence 0.000710 (diff +0.000000)
+OK   Filtration loss vs Ops Notes B18: recomputed 12.785398 kg vs Certify/evidence 12.785398 kg (diff +0.000000)
+OK   MOBI vs Ops Notes C18: recomputed 17,994.817002 kg vs Certify/evidence 17,994.817000 kg (diff +0.000002)
+OK   MOBI vs Certify Mass of Injectant: recomputed 17,994.817002 kg vs Certify/evidence 17,994.817000 kg (diff +0.000002)
+OK   Sparging on Kerry (Summary E11) is zero: recomputed 0.000000 kg vs Certify/evidence 0.000000 kg (diff +0.000000)
+OK   CoA SR26-05719.001 carbon vs Certify carbon: recomputed 57.900000 % vs Certify/evidence 57.900000 % (diff +0.000000)
+OK   CoA carbon vs Ops Notes Summary E19: recomputed 0.579000 vs Certify/evidence 0.579000 (diff +0.000000)
+OK   Gross CO2e (MOBI x C x 3.667) vs Certify Injection sequestration: recomputed 38.206469 t vs Certify/evidence 38.206000 t (diff +0.000469)
+OK   Carbon uncertainty 0.4% of 57.9 vs Certify: recomputed 0.231600 % vs Certify/evidence 0.231600 % (diff +0.000000)
+OK   Mass of product uncertainty (one CAT weighing) vs Certify: recomputed 72.570000 kg vs Certify/evidence 72.570000 kg (diff +0.000000)
+OK   Mass of load uncertainty (one CAT weighing) vs Certify: recomputed 0.072570 t vs Certify/evidence 0.072570 t (diff +0.000000)
+OK   Process EF live 2026 row 6 (kg/(t.mi)) vs Certify: recomputed 0.114300 vs Certify/evidence 0.114300 (diff +0.000000)
+OK   Process EF in attached EF workbook vs live: recomputed 0.000114 vs Certify/evidence 0.000114 (diff +0.000000)
+OK   Embodied EF live 2026 row 11 (kg/mi) vs Certify (5 dp shown): recomputed 0.237561 vs Certify/evidence 0.237560 (diff +0.000001)
+OK   Embodied EF in attached EF workbook vs live: recomputed 0.000238 vs Certify/evidence 0.000238 (diff +0.000000)
+OK   Distance: longest Google Maps option vs Certify process: recomputed 1,090.000000 vs Certify/evidence 1,090.000000 (diff +0.000000)
+OK   Distance: longest Google Maps option vs Certify embodied: recomputed 1,090.000000 vs Certify/evidence 1,090.000000 (diff +0.000000)
+OK   Transport process (mass x distance x EF) vs Certify: recomputed 2.243513 t vs Certify/evidence 2.244000 t (diff -0.000487)
+OK   Transport embodied (distance x EF) vs Certify: recomputed 0.258941 t vs Certify/evidence 0.259000 t (diff -0.000059)
+OK   BCU vs recomputed transport process: recomputed 2.243510 t vs Certify/evidence 2.243513 t (diff -0.000003)
+OK   BCU does not exceed process emission (2,243.51 kg vs 2,243.5132 kg)
+OK   Uncertainty discount (1 sigma, sequestration + process mass) vs Certify: recomputed 217.205377 kg vs Certify/evidence 217.000000 kg (diff +0.205377)
+OK   Activities (process + embodied) vs Certify calculation view: recomputed 2.502454 t vs Certify/evidence 2.502000 t (diff +0.000454)
+OK   Net (seq + BCU - activities - discount) vs Certify: recomputed 37.730525 t vs Certify/evidence 37.730000 t (diff +0.000525)
+OK   System boundary: 4 components (Kerry to Basco Tanker Truck Transport Process Emissions; Kerry to Basco Tanker Truck Transport Embodied Emissions; BCUs - Applied to Bio-Oil Transport Process Emissions; Injection sequestration); no upstream Kerry production, biomass or counterfactual component
+INFO Full ticket 2026-09-09 -> Ops Notes row date 2026-09-25: 16 days; -> COBB injection completion 2026-09-23: 14 days
+FINDING 1.7: full ticket dated 2026-09-09 is 16 days before the Ops Notes Kerry row date 2026-09-25 (more than 14)
+FINDING 1.7: COBB WILA004 offload order completed 2026-09-24, 13 days after this pair's post-offload empty ticket (2026-09-11)
+FINDING 1.7: COBB WILA003 offload order completed 2026-09-12, one day after this pair's empty ticket and before WILA003's own credited full ticket (2026-09-16); COBB quantity cannot separate the loads (18,007.6024 kg on WILA003 and WILA004 alike)
+FINDING 1.5: Kerry solids constant 0.00071 is below the AECN constant 0.00196 (AECN Rail O7), against the July guidance 'materially higher'; the Aug W5 note treats a 0.71% Slack figure as a transcription slip pending confirmation with the lab; at 0.71% sequestration would be 37.9622 t (-0.2443 t)
+FINDING 1.5: filtration constant M5 (0.00071) carries no source citation on the Kerry tab and CAR-474 is not linked to Mass of Injectant in Certify; value matches CAR-474 0.071%
+FINDING 1.7: the W3 Kerry removal in Certify credits the 9-16/9-18 pair (Mass of Injectant 19.155 t), a load delivered after this removal's pair; if the pairs belong the other way round this removal's sequestration would be 40.6702 t
+
+Summary: 29 checks OK, 0 unrouted differences
+Recomputed: ticket net 18,007.6024 kg | filtration 12.7854 kg | MOBI 17,994.8170 kg | gross 38.2065 t | process 2.2435 t | embodied 0.2589 t | BCU 2.2435 t | discount 217.2 kg | net 37.7305 t

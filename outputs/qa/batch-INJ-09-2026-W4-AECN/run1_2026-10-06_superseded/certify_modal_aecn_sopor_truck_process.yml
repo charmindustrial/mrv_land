@@ -1,0 +1,83 @@
+- dialog "AECN to SOPOR Tanker Truck Transport Process Emissions" [active] [ref=f135e2]:
+  - generic [ref=f135e3]:
+    - generic [ref=f135e4]:
+      - generic [ref=f135e6]:
+        - button "AECN to SOPOR Tanker Truck Transport Process Emissions" [ref=f135e9] [cursor=pointer]
+        - generic [ref=f135e10]:
+          - generic [ref=f135e11]: 3.291 tCO₂e
+          - generic [ref=f135e13]: 0.91%
+      - button "Toggle timeline sidebar" [ref=f135e15] [cursor=pointer]
+      - button "Close" [ref=f135e18] [cursor=pointer]
+    - generic [ref=f135e22]:
+      - generic [ref=f135e23]:
+        - generic [ref=f135e24]: Inputs
+        - grid "Input list" [ref=f135e25]:
+          - row "Emission factor of transport" [ref=f135e26]:
+            - gridcell "Emission factor of transport Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.1143 kgCO₂e/(t⋅mi) 1 source Deselect datapoint" [ref=f135e27]:
+              - generic [ref=f135e28]:
+                - generic [ref=f135e29]: Emission factor of transport
+                - generic [ref=f135e32]:
+                  - button "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck 0.1143 kgCO₂e/(t⋅mi) 1 source" [ref=f135e37] [cursor=pointer]:
+                    - generic [ref=f135e38]: Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck
+                    - generic [ref=f135e41]:
+                      - generic [ref=f135e42]: "0.1143"
+                      - text: kgCO₂e/(t⋅mi)
+                    - button "1 source" [disabled] [ref=f135e44]
+                  - button "Deselect datapoint" [ref=f135e48] [cursor=pointer]
+          - row "Distance traveled" [ref=f135e51]:
+            - gridcell "Distance traveled Distance from AECN to Sopor Quebec (truck) 107.49722 mi 1 source Deselect datapoint" [ref=f135e52]:
+              - generic [ref=f135e53]:
+                - generic [ref=f135e54]: Distance traveled
+                - generic [ref=f135e57]:
+                  - button "Distance from AECN to Sopor Quebec (truck) 107.49722 mi 1 source" [ref=f135e62] [cursor=pointer]:
+                    - generic [ref=f135e63]: Distance from AECN to Sopor Quebec (truck)
+                    - generic [ref=f135e66]:
+                      - generic [ref=f135e67]: "107.49722"
+                      - text: mi
+                    - button "1 source" [disabled] [ref=f135e69]
+                  - button "Deselect datapoint" [ref=f135e73] [cursor=pointer]
+          - row "Mass of load" [ref=f135e76]:
+            - gridcell "Mass of load Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources Deselect datapoint" [ref=f135e77]:
+              - generic [ref=f135e78]:
+                - generic [ref=f135e79]: Mass of load
+                - generic [ref=f135e82]:
+                  - button "Bio-Oil Mass - AECN via Rail 267,807.11 ±1,015.98 kg 32 sources" [ref=f135e87] [cursor=pointer]:
+                    - generic [ref=f135e88]: Bio-Oil Mass - AECN via Rail
+                    - generic [ref=f135e91]:
+                      - generic [ref=f135e92]:
+                        - generic [ref=f135e93]: 267,807.11
+                        - generic [ref=f135e94]: ±1,015.98
+                      - text: kg
+                    - button "32 sources" [disabled] [ref=f135e95]
+                  - button "Deselect datapoint" [ref=f135e99] [cursor=pointer]
+      - generic [ref=f135e102]:
+        - generic [ref=f135e103]: Description
+        - button "+ Add" [ref=f135e105] [cursor=pointer]
+      - generic [ref=f135e107]:
+        - generic [ref=f135e108]: Blueprint details
+        - generic [ref=f135e109]:
+          - generic [ref=f135e110]:
+            - generic [ref=f135e111]: Blueprint
+            - generic [ref=f135e114]:
+              - link "Transport emissions" [ref=f135e115] [cursor=pointer]:
+                - /url: https://docs.isometric.com/certify/component-blueprint-library#transport-emissions
+              - generic [ref=f135e116]: "->"
+          - generic [ref=f135e117]:
+            - generic [ref=f135e118]: Key
+            - generic [ref=f135e120]: transport
+          - generic [ref=f135e121]:
+            - generic [ref=f135e122]: Gas type
+            - generic [ref=f135e124]: CO₂e
+          - generic [ref=f135e125]:
+            - generic [ref=f135e126]: Calculation
+            - generic [ref=f135e129]:
+              - generic [ref=f135e130]: output
+              - generic [ref=f135e132]: =
+              - generic [ref=f135e133]: mass
+              - generic [ref=f135e135]: "*"
+              - generic [ref=f135e136]: distance
+              - generic [ref=f135e138]: "*"
+              - generic [ref=f135e139]: carbon_intensity
+    - generic [ref=f135e142]:
+      - button "Delete" [ref=f135e143] [cursor=pointer]
+      - button "Done" [ref=f135e144] [cursor=pointer]

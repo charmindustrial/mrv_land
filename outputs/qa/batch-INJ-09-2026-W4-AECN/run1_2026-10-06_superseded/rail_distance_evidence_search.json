@@ -1,0 +1,15 @@
+{
+ "purpose": "Find the rail-distance evidence for SOPOR to Baton Rouge (2,152) that the September VVB guidance says is 'added in drive'",
+ "searched_utc": "2026-10-06T18:41Z",
+ "queries": [
+  {"tool": "Google Drive search_files", "query": "(title contains 'Baton Rouge' or title contains 'RailLogix' or title contains 'Carville' or title contains '2152' or title contains '2,152' or fullText contains 'RailLogix') and modifiedTime > '2026-09-01T00:00:00Z'",
+   "hits": ["RailLogix (Carville LA) to Basco B6 Truck Route - 136 mi.png (truck route, 172SPmOAomsORH6vxAStJEVwo8N2K5fIs)", "Rail Logix Lessons Learned (Google Doc)", "INJ-09-2026-W4 Ops Notes", "meeting notes, weekly ops reports and unrelated Baton Rouge case-study PDFs"],
+   "rail_distance_evidence_found": false},
+  {"tool": "Google Drive search_files", "query": "(title contains 'SOPOR' or title contains 'Rail Route' or title contains 'rail route' or title contains 'Baie' or title contains 'Watco') and modifiedTime > '2026-09-10T00:00:00Z'",
+   "hits": ["RailLogix (Carville LA) to Basco B6 Truck Route - 136 mi.png", "Aug26 GPRX5139 SOPOR Transload Spill photo (x2)"],
+   "rail_distance_evidence_found": false},
+  {"tool": "W4 Drive folder listing (drive_folder_listing.json)", "rail_distance_evidence_found": false, "note": "root holds only the 136 mi truck-route PNG"},
+  {"tool": "Certify Sources tab (72 records) and SOPOR to Baton Rouge Rail Process Emissions component window", "rail_distance_evidence_found": false, "note": "'Distance traveled 2,153 km' shows 'No sources'"}
+ ],
+ "items_found": []
+}

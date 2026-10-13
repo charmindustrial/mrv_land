@@ -130,8 +130,9 @@ def main(argv=None):
     for f in att_failures:
         print(f"    - {f}")
     if not att_ok:
-        print("\nAttachment gate failed — required evidence not attached in Certify (or "
-              "attachment_map not captured). Gate 4 is NOT complete.", file=sys.stderr)
+        print("\nAttachment gate failed — required evidence not attached in Certify (or attachment_map not captured). "
+              "Record each gap as a Fail row citing [log:certify.attachment_gate] and naming the datapoint; "
+              "run_gates.py lets recorded gaps through to Garrett.", file=sys.stderr)
         return 1
 
     return 0

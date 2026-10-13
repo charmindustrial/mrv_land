@@ -67,7 +67,9 @@ The QA workflow is four sequential gates. Each gate must be completed and verifi
 
 1. **Scale tickets** — Open BOTH Full and Empty ticket images in Drive. Extract: gross weight, date, tractor #, trailer #, scale #, location from each ticket. Confirm tractor and trailer numbers match across both.
 
-2. **BOL / Billing documents** — Open BOL (check Certify Sources if not in Drive). Extract: BOL #, origin name+address, destination name+address, ship date, mass in all listed units, carrier name. For AECN truck: 1 BOL per shipment. For AECN rail: 3 truck BOLs per railcar (destination = SOPOR railyard).
+2. **BOL / Billing documents** — Open BOL (check Certify Sources if not in Drive) and read every page of the PDF. Extract: BOL #, form number (printed top-right — it tells you whether this is AECN's old five-page package or the new one-page form), origin name+address, destination name+address, ship date, carrier name, and every mass field with its printed label (tare, full, product delivered, quantity at 60°F in MT and litres, density at 60°F, any weighbridge Masse brute/tare/nette). For AECN truck: 1 BOL per shipment. For AECN rail: 3 truck BOLs per railcar (destination = SOPOR railyard).
+
+   **BOL mass = the weighed "Qty shipped" figure, found by field name, never by page number.** Page order differs between `-T` and `-R` packages and between the two formats. The old format's page-1 quantity block is the tank-level estimate, and the `-T` commercial invoice repeated that estimate on 2505-T — never use either as BOL mass. Field names and locations for both formats, plus a worked same-load comparison, are in the KB, Section 3, "AECN Bill of Lading Formats".
 
 3. **Lab results (CHN PDF)** — Open SGS Certificate of Analysis, navigate to correct page. Extract: Certificate #, batch ID on page, sample date+location, Carbon %, Hydrogen %, Nitrogen %, Viscosity, Acid Number, Density.
 
@@ -254,7 +256,7 @@ A QA session is not "Gate 4 complete" until the audit script returns zero failur
 
 ## Key Formulas & Values (AECN)
 
-- **Conservative mass (truck batches):** MIN(scale ticket net, BOL mass)
+- **Conservative mass (truck batches):** MIN(scale ticket net, BOL mass), where BOL mass is the weighed "Qty shipped" figure (KB Section 3, "AECN Bill of Lading Formats")
 - **Conservative mass (rail batches — LAST offload only):** if `sum(all offloads' raw scale-ticket Cargo (kg))` exceeds `BOL inbound aggregate`, the last offload's Cargo (kg) is back-calculated as `BOL_aggregate − sum(prior offloads' raw scale-ticket Cargo (kg))`. This policy-applied value is what flows into Certify's Allocated Bio-Oil Mass. **Always run the railcar-balance check before flagging any rail-offload mass divergence: if `sum(all offload Cargo (kg) in Ops Notes) == BOL_aggregate`, the divergence is policy-driven, not an error.** See `references/lessons_learned.md` Failure Category 11 for full rationale.
 - **Scale ticket net:** Full gross - Empty gross (lbs), convert to kg (/ 2.20462)
 - **Sparging deduction:** 1.29% of injectate mass (standard for AECN at Basco). Applied to the policy-applied Cargo (kg) on the last offload of a railcar.
@@ -321,8 +323,9 @@ Charm uses Option B (Variance Propagation) per Isometric Standard S3.7.3. Per-co
 **Section 3.5 QA pattern for rail batches:** the distance check must mention BOTH the allocated AECN→SOPOR truck distance AND the allocated rail distance, plus the full Opelousas→Basco truck distance. Missing the truck-leg allocation (mentioning only rail) is incomplete — Max correction on 2-185 review.
 
 **BOL conventions for AECN:**
-- Truck delivery: 1 BOL per shipment, origin = AECN Quebec, destination = Basco
-- Rail delivery: 3 truck BOLs per railcar, destination = SOPOR railyard
+- Truck delivery: 1 BOL per shipment, origin = AECN Quebec, destination = Basco (BOL numbers end `-T`)
+- Rail delivery: 3 truck BOLs per railcar, destination = SOPOR railyard (BOL numbers end `-R`)
+- Format: AECN proposed a one-page BOL on 2026-09-29 that merges the old BOL page and the Shipping Details page. Expect both formats until the final version is in use. Identify each by its form number and read values by field name (KB Section 3, "AECN Bill of Lading Formats"). Checklist item 3.3 lists the internal ties to check on either format.
 
 ## AECN Identification in Certify
 
@@ -399,7 +402,7 @@ The file `skills/qa/batch-qa-aecn/qa_active_batches.json` in the MRV Expert work
 | Batch Drive Folder | Google Drive -> batch folder (e.g., "2-178") | Scale tickets, Ops Notes, testing/CHN results |
 | Ops Notes | Google Sheet within batch folder | Batch composition, injection data, mass calc, pH, consumables |
 | Scale Tickets | Scale Tickets subfolder | Empty/full ticket images with tractor #, trailer #, weights |
-| BOL / Billing | Batch folder or Certify Sources | Origin, destination, shipped mass (page 3 = authoritative) |
+| BOL / Billing | Batch folder or Certify Sources | Origin, destination, weighed shipped mass ("Qty shipped", located by field name — KB Section 3 "AECN Bill of Lading Formats") |
 | CHN Analysis | Testing subfolder | Carbon wt%, hydrogen, nitrogen |
 | COBB Tracker | Live Google Sheet | Lot tracking, BOL numbers, offloaded quantities, dates |
 | Certify Removal | Isometric registry | Components, Datapoints, Sources, Calculation View |

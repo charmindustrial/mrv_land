@@ -1,0 +1,37 @@
+{
+ "batch_id": "INJ-09-2026-W3-QOWV",
+ "checklist_file": "Charm_Aqueous_QOWV_QA_Checklist_INJ-09-2026-W3.xlsx",
+ "checklist_sha256": "82cf437f112e76d6bdb21b0c2c6b0af0bca6a186c0447abe5249082c44640b49",
+ "source_reads_file": "batch_INJ-09-2026-W3-QOWV_source_reads.json",
+ "source_reads_sha256": "ef8887132eec88b5ca42fa2b18429640237a5f77ccdd5ea19a163746a7c173ca",
+ "generated_utc": "2026-09-29T16:55:52Z",
+ "all_gates_green": true,
+ "gates": {
+  "status_casing": {
+   "ok": true,
+   "status_rows": 33,
+   "auditable_rows": 32,
+   "na_rows_cited": 1
+  },
+  "recompute_qowv.py": {
+   "ok": true,
+   "exit": 0,
+   "stdout": "OK  n_totes: recomputed 37 vs certify/log 37\nOK  per_row_formulas_D_F_I_rebuild: recomputed True vs certify/log True\nOK  gross_kg: recomputed 37682.0 vs certify/log 37682\nOK  produced_kg: recomputed 35550.8 vs certify/log 35550.8\nOK  injected_kg: recomputed 30808.5 vs certify/log 30808.5\nOK  production_emissions_kg: recomputed 4977.8507 vs certify/log 4977.8507\nOK  weighted_ci: recomputed 0.1400207787 vs certify/log 0.1400207787\nOK  weighted_ci_vs_certify_6dp: recomputed 0.140021 vs certify/log 0.140021\nOK  uncertainty_kg: recomputed 41.95726 vs certify/log 41.95726\nOK  uncertainty_vs_certify_seq: recomputed 41.95726 vs certify/log 41.95726\nOK  uncertainty_vs_certify_proc_display: recomputed 41.96 vs certify/log 41.96\nOK  uncertainty_vs_certify_pyro_display: recomputed 41.96 vs certify/log 41.96\nOK  carbon_unc_pct_abs: recomputed 0.032 vs certify/log 0.032\nOK  mass_of_product_kg: recomputed 30808.5 vs certify/log 30808.5\nOK  mass_of_load_kg: recomputed 37682.0 vs certify/log 37682\nOK  pyrolysis_mass_kg: recomputed 35550.8 vs certify/log 35550.8\nOK  alloc_miles_rebuilt: recomputed 1716.53 vs certify/log 1716.53\nOK  alloc_miles_vs_tab: recomputed 1716.527288 vs certify/log 1716.527288\nOK  process_ef_display: recomputed 0.086 vs certify/log 0.086\nOK  embodied_ef_display: recomputed 0.19279 vs certify/log 0.19279\nOK  seq_t: recomputed 9.038 vs certify/log 9.038\nOK  proc_t_certify_basis_glec_0.086: recomputed 6.264 vs certify/log 6.264\nOK  proc_t_sheet_basis_within_0.001t: recomputed True vs certify/log True\nOK  emb_t: recomputed 0.331 vs certify/log 0.331\nOK  pyro_t: recomputed 4.978 vs certify/log 4.978\nOK  bcu_matches_process_at_display_precision_t: recomputed 6.264 vs certify/log 6.264\nOK  net_t: recomputed 3.69 vs certify/log 3.69\nOK  net_with_rounded_39kg_within_0.001t: recomputed True vs certify/log True\nOK  discount_estimate_rounds_to_certify: recomputed 39 vs certify/log 39\nOK  standard_loss_not_applied: recomputed False vs certify/log False\nOK  lcs_component_needed: recomputed None vs certify/log None\n\nprocess emission: sheet basis 6263.442 kg, Certify/GLEC basis 6263.604 kg; BCU constant 6264 kg; BCU minus process = +0.558 kg (sheet) / +0.396 kg (Certify)\nBCU <= process emission (the BCU cap, checklist 8.1; not gating here): False on the Certify basis, False on the sheet basis\nnet = 3.69032 t with discount estimate 39.26 kg; 3.69059 t with displayed 39 kg\nnet on the EF sheet's process factor and the Ops Notes H50 CI = 3.69049 t\n\nFINDING 301154: 930.4 kg x (0.1236896673712938 - 0.1106615762401743) = 12.1213 kg CO2e overstated; corrected PE 4965.7294 kg, weighted CI 0.1396798206, net +0.01212 t\nFINDING 120509: tote mass 57.6 vs inventory tare 62.93 -> produced mass +5.33 kg, PE +0.8398 kg CO2e\nFINDING COLA_32: 17 vs 18 totes on truck -> allocated 1716.5273 vs 1704.7528 mi (+11.7745 mi), embodied +2.2700 kg CO2e\nnet on the production record = 3.70517 t (+0.01485 t vs as submitted); pyrolysis 4964.8896 kg on 35545.47 kg, CI 0.1396771; embodied 328.661 kg; BCU 6263.604 kg; discount estimate 39.26 kg\nFINDING shipping orders: Truck 1 / Truck 2 totes rode 20- and 18-tote orders (Oil_inventory_data) -> allocated 2308.5889 mi (+592.0616 mi vs tab), embodied 0.44507 t (+0.11414 t); net on the production record incl. orders = 3.58876 t\nfix values: Certify CI 0.139680 (301154 only) -> pyrolysis 4.966 t; embodied distance 2308.59 mi -> 0.445 t; BCU 6263.604 kg"
+  },
+  "audit_checklist": {
+   "ok": true,
+   "rows": 32,
+   "failures": 0,
+   "stdout": "Audit ran on 32 rows (0 failures).\n\nAttachment gate: PASS (0 gap(s))."
+  },
+  "performance_tracker": {
+   "ok": true,
+   "batch_id": "INJ-09-2026-W3-QOWV"
+  },
+  "charm_required_steps": {
+   "ok": true,
+   "steps": 30,
+   "ledger_sha256": "518ba48690561e17a2cec71abecdfeac585af5ad66d57de97d8b83c0f70e1b6a"
+  }
+ }
+}

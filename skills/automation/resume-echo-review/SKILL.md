@@ -1,7 +1,7 @@
 ---
 name: resume-echo-review
 description: >
-  Recurring applicant-screening check for Charm's open "MRV Analyst" Lever posting.
+  RETIRED 2026-10-01 at Max's request -- do NOT trigger or run; no longer scheduled. Was: recurring applicant-screening check for Charm's open "MRV Analyst" Lever posting.
   Runs roughly twice a day, around 9am and 5pm local -- launchd actually wakes the
   wrapper script every 30 minutes and it only starts a real pass when one is due,
   which is what makes it self-healing if the machine was off or asleep through a
@@ -357,19 +357,27 @@ browser access. So the job is split:
 Append one line to `outputs/automation/resume-echo-review/run-log.jsonl`:
 `{"ts": "<now>", "event": "run_complete", "new_candidates": N, "disqualified": N, "sustainability": N, "no_sustainability": N, "removed": N}`.
 
-Then fire exactly one desktop notification, no candidate names or PII:
+Then fire exactly one desktop notification, no candidate names or PII, with the
+artifact URL in the body so it's readable straight from Notification Center /
+notification history without hunting for it, and immediately open the artifact
+in Max's default browser so the updated report is on his screen without him
+having to go find it:
 
 ```
-osascript -e 'display notification "N new applicant(s) reviewed — X disqualified, Y sustainability match, Z no sustainability bg. See Resume Echo Audit." with title "Resume Echo Review"'
+osascript -e 'display notification "N new applicant(s) reviewed — X disqualified, Y sustainability match, Z no sustainability bg. <ARTIFACT_URL>" with title "Resume Echo Review"'
+open "<ARTIFACT_URL>"
 ```
 
-The artifact link is safe to reference here even though this session didn't publish it
-directly — the cloud routine publishes ~20 minutes later on its own schedule.
+(`<ARTIFACT_URL>` is `artifact_url` from config.json.) Note the cloud routine publishes
+the refreshed artifact ~20 minutes after this local run finishes, so the page `open`
+loads may briefly still show the previous pass's numbers — same URL, it catches up on
+its own; no re-open needed.
 
 If there were zero new candidates and zero removals this pass, still log a
-`no_action` line to run-log.jsonl, but do **not** fire a notification, and still write
-the Drive relay file (the cloud routine no-ops itself if nothing changed, so this is
-harmless, and skipping it risks the two staying out of sync).
+`no_action` line to run-log.jsonl, but do **not** fire a notification and do **not**
+open the artifact — nothing changed for Max to review — and still write the Drive
+relay file (the cloud routine no-ops itself if nothing changed, so this is harmless,
+and skipping it risks the two staying out of sync).
 
 ## End-of-run checklist
 
@@ -378,4 +386,7 @@ harmless, and skipping it risks the two staying out of sync).
       no stale entries for candidates who moved stage
 - [ ] `resume_echo_state.json` in Drive was overwritten with the current registry
 - [ ] `run-log.jsonl` has one new line for this pass
-- [ ] Notification fired only if something actually changed
+- [ ] Notification fired only if something actually changed, and its body includes
+      the artifact URL
+- [ ] Artifact opened in the browser (`open <artifact_url>`) only if something
+      actually changed

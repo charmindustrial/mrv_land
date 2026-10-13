@@ -2,6 +2,7 @@
 # primary_source_guard.sh
 # PreToolUse hook. Matcher (see settings.json):
 #   WebFetch|WebSearch|Agent|mcp__chrome-control__open_url|mcp__chrome-control__get_page_content|mcp__chrome-control__execute_javascript
+#   (Agent is still matched but now ALLOWED -- see the Agent branch below, 2026-09-14.)
 #
 # WHY THIS EXISTS (2026-06-25):
 # Max gave a link to an Isometric module and an EPD and asked Claude to READ them.
@@ -81,20 +82,11 @@ case "$tool" in
     fi
     exit 0
     ;;
+  # Agent: allowed as of 2026-09-14 (Max). Helper sessions inherit this same hook set,
+  # so the primary-source rule is enforced on the helper's own tool calls (WebFetch,
+  # chrome-control) rather than by blocking the spawn. Helpers must write verbatim-
+  # quoted source text to files, not return summaries.
   Agent)
-    blob="$(printf '%s' "$input" | python3 -c '
-import sys, json
-try:
-    ti = json.load(sys.stdin).get("tool_input") or {}
-    print(((ti.get("prompt","") or "") + " " + (ti.get("description","") or "")))
-except Exception:
-    print("")
-' 2>/dev/null || true)"
-    # Deny only if the subagent is being pointed at a primary source to read/extract.
-    if printf '%s' "$blob" | grep -Eiq '(registry|certify)\.isometric\.com|drive\.google\.com|docs\.google\.com|\.(pdf|docx?|xlsx?|pptx?|csv)([^a-z]|$)'; then
-      echo "BLOCKED (Agent): primary-source reading/extraction stays in the main session (subagent extraction is parked). Open the source yourself with the first-party read path and quote verbatim; do not delegate the read to a subagent that returns a summary." >&2
-      exit 2
-    fi
     exit 0
     ;;
   WebSearch)

@@ -1,0 +1,186 @@
+- application [ref=e1]:
+  - iframe [aria-hidden] [ref=e2]
+  - iframe [aria-hidden] [ref=e3]
+  - banner "Menu bar" [ref=e4]:
+    - generic [ref=e7]:
+      - link "Docs home" [ref=e9] [cursor=pointer]:
+        - /url: https://docs.google.com/document/u/0/?authuser=0&usp=docs_web
+      - generic [ref=e16]:
+        - generic "VVB Guidance August 1 - August 31" [ref=e18]:
+          - generic [ref=e19]:
+            - generic: VVB Guidance August 1 - August 31
+            - textbox "Rename" [ref=e21]: VVB Guidance August 1 - August 31
+          - generic [ref=e22]:
+            - button "Shared externally" [ref=e24] [cursor=pointer]
+            - checkbox "Star" [ref=e28] [cursor=pointer]
+            - button "Move" [ref=e32] [cursor=pointer]
+            - 'button "Document status: Saved to Drive." [ref=e36]':
+              - generic [ref=e37] [cursor=pointer]
+        - generic [ref=e43]:
+          - button "Last edit was made 4 hours ago by Garrett Lutz" [ref=e46] [cursor=pointer]
+          - button "Show all comments 0 new comments" [ref=e50] [cursor=pointer]
+          - button "Join a call here or present this tab to the call" [ref=e54] [cursor=pointer]
+          - generic [ref=e59]:
+            - button "Share. Anyone with the link. Anyone who has the link can access. No sign-in required." [ref=e60] [cursor=pointer]: Share
+            - button "Quick sharing actions" [ref=e62] [cursor=pointer]
+          - generic [ref=e65]:
+            - generic:
+              - button "Ask Gemini" [ref=e72] [cursor=pointer]
+              - tooltip [aria-hidden] [ref=e75]: Ask Gemini
+          - 'button "Google Account: Max Lavine (max@charmindustrial.com)" [ref=e78] [cursor=pointer]'
+    - generic [ref=e80]:
+      - menubar [ref=e82]:
+        - menuitem "File" [ref=e83] [cursor=pointer]
+        - menuitem "Edit" [ref=e84] [cursor=pointer]
+        - menuitem "View" [ref=e85] [cursor=pointer]
+        - menuitem "Insert" [ref=e86] [cursor=pointer]
+        - menuitem "Format" [ref=e87] [cursor=pointer]
+        - menuitem "Tools" [ref=e88] [cursor=pointer]
+        - menuitem "Gemini" [ref=e89] [cursor=pointer]
+        - menuitem "Extensions" [ref=e90] [cursor=pointer]
+        - menuitem "Help" [ref=e91] [cursor=pointer]
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - toolbar "Search the menus (Option+/)" [ref=e94]:
+            - combobox "Menus" [ref=e96]
+          - toolbar "Main" [ref=e97]:
+            - button "Undo (⌘Z)" [ref=e98] [cursor=pointer]
+            - button "Redo (⌘Y)" [ref=e103] [cursor=pointer]
+            - button "Print (⌘P)" [ref=e108] [cursor=pointer]
+            - button "Spelling and grammar check (⌘+Option+X)" [ref=e113] [cursor=pointer]
+            - button "Paint format" [ref=e118] [cursor=pointer]
+            - combobox "Zoom" [ref=e123] [cursor=pointer]:
+              - option "Zoom list. 100% selected." [selected] [ref=e126]:
+                - textbox "Zoom" [ref=e127]: 100%
+            - separator [disabled] [ref=e131]
+            - listbox "Styles" [ref=e132] [cursor=pointer]:
+              - option "Styles list. Heading 2 selected." [selected] [ref=e135]: Heading 2
+            - separator [disabled] [ref=e139]
+            - listbox "Font" [ref=e140] [cursor=pointer]:
+              - option "Arial" [selected] [ref=e143]
+            - separator [disabled] [ref=e147]
+            - button "Decrease font size (⌘+Shift+comma)" [ref=e148] [cursor=pointer]
+            - combobox "Font size" [ref=e153] [cursor=pointer]:
+              - option "Font size list. 16 selected." [selected] [ref=e156]:
+                - textbox "Font size" [ref=e157]: "16"
+            - button "Increase font size (⌘+Shift+period)" [ref=e158] [cursor=pointer]
+            - separator [disabled] [ref=e163]
+            - button "Bold (⌘B)" [ref=e164] [cursor=pointer]
+            - button "Italic (⌘I)" [ref=e169] [cursor=pointer]
+            - button "Underline (⌘U)" [ref=e174] [cursor=pointer]
+            - button "Text color" [ref=e179] [cursor=pointer]
+            - button "Highlight color" [ref=e186] [cursor=pointer]
+            - separator [disabled] [ref=e193]
+            - button "Insert link (⌘K)" [ref=e194] [cursor=pointer]
+            - button "Add comment (⌘+Option+M)" [ref=e199] [cursor=pointer]
+            - button "Insert image" [ref=e204] [cursor=pointer]
+            - separator [disabled] [ref=e210]
+            - button "More" [disabled] [ref=e211] [cursor=pointer]
+        - toolbar "Mode and view" [ref=e218]:
+          - button "Listen to this tab" [ref=e219] [cursor=pointer]
+          - button "Editing mode" [ref=e224] [cursor=pointer]:
+            - generic [ref=e225]: Editing
+          - separator [disabled] [ref=e231]
+          - button "Hide the menus (Ctrl+Shift+F)" [ref=e232] [cursor=pointer]
+    - generic [ref=e237]:
+      - complementary "Side panel" [ref=e238]:
+        - tablist [ref=e240]:
+          - tab "Calendar":
+            - generic [ref=e241] [cursor=pointer]
+          - tab "Keep":
+            - generic [ref=e242] [cursor=pointer]
+          - tab "Tasks":
+            - generic [ref=e243] [cursor=pointer]
+          - tab "Contacts":
+            - generic [ref=e244] [cursor=pointer]
+          - tab "Maps":
+            - generic [ref=e245] [cursor=pointer]
+          - separator [disabled] [ref=e246]
+          - tab "Loom":
+            - generic [ref=e247] [cursor=pointer]
+          - tab "Get Add-ons":
+            - generic [ref=e248] [cursor=pointer]
+      - generic:
+        - button "Hide side panel":
+          - generic [ref=e249] [cursor=pointer]
+  - generic [ref=e255]:
+    - generic [ref=e260]:
+      - generic [ref=e261]: "9"
+      - generic [ref=e270]: "8"
+      - generic [ref=e279]: "7"
+      - generic [ref=e288]: "6"
+      - generic [ref=e297]: "5"
+      - generic [ref=e306]: "4"
+      - generic [ref=e315]: "3"
+      - generic [ref=e324]: "2"
+      - generic [ref=e333]: "1"
+      - generic [ref=e350]: "1"
+      - generic [ref=e359]: "2"
+      - generic [ref=e368]: "3"
+      - generic [ref=e377]: "4"
+      - generic [ref=e386]: "5"
+      - generic [ref=e395]: "6"
+      - generic [ref=e404]: "7"
+      - generic [ref=e413]: "8"
+    - generic [ref=e432]:
+      - generic:
+        - generic:
+          - list
+    - generic [ref=e441]:
+      - generic [ref=e442]: "11"
+      - generic [ref=e451]: "10"
+      - generic [ref=e460]: "9"
+      - generic [ref=e469]: "8"
+      - generic [ref=e478]: "7"
+      - generic [ref=e487]: "6"
+      - generic [ref=e496]: "5"
+      - generic [ref=e505]: "4"
+      - generic [ref=e514]: "3"
+      - generic [ref=e523]: "2"
+      - generic [ref=e532]: "1"
+      - generic [ref=e549]: "1"
+      - generic [ref=e558]: "2"
+      - generic [ref=e567]: "3"
+      - generic [ref=e576]: "4"
+      - generic [ref=e585]: "5"
+      - generic [ref=e594]: "6"
+      - generic [ref=e603]: "7"
+      - generic [ref=e612]: "8"
+      - generic [ref=e621]: "9"
+      - generic [ref=e630]: "10"
+    - generic "Document tabs" [ref=e645]:
+      - button "Hide tabs & outlines" [ref=e647] [cursor=pointer]:
+        - button [disabled] [ref=e648]:
+          - button "Back" [disabled] [ref=e652]
+      - generic [ref=e658]:
+        - generic [ref=e660]:
+          - heading "Document tabs" [level=2] [ref=e661]
+          - button "Add tab" [ref=e664]
+        - tree "Document tabs" [ref=e668]:
+          - generic [ref=e670] [cursor=pointer]:
+            - treeitem "Tab 1" [selected] [ref=e671]:
+              - button "Tab options" [ref=e681]
+            - menu [ref=e685]:
+              - menuitem [ref=e686]:
+                - generic "Trailer Standard Empty Weight (AECN Rail Offloads) level 1" [ref=e691]: Trailer Standard Empty Weight (AECN Rail Offloads)
+              - menuitem [ref=e693]:
+                - generic "QOWV Tote Transport — Totes Routed via Kansas (Weeks 3 and 4) level 1" [ref=e698]: QOWV Tote Transport — Totes Routed via Kansas (Weeks 3 and 4)
+              - menuitem [ref=e700]:
+                - generic "AECN Pyrolysis Process Emissions — Updated H2 2026 Emission Factor level 1" [ref=e705]: AECN Pyrolysis Process Emissions — Updated H2 2026 Emission Factor
+              - menuitem [ref=e707]:
+                - generic "Bio-Oil Spill at the SOPOR Rail Transload, Baie-Comeau — GPRX5139 level 1" [ref=e712]: Bio-Oil Spill at the SOPOR Rail Transload, Baie-Comeau — GPRX5139
+              - menuitem [ref=e714]:
+                - generic "Spare Parts and Consumables — Day-Based Scaling and a July 2026 True-Up level 1" [ref=e719]: Spare Parts and Consumables — Day-Based Scaling and a July 2026 True-Up
+              - menuitem [ref=e721]:
+                - generic "Annual Well Work at Basco 6 — Workover and Tracer Survey level 1" [ref=e726]: Annual Well Work at Basco 6 — Workover and Tracer Survey
+              - menuitem [ref=e728]:
+                - generic "Oxidizer Sensor Signal Interruptions level 1" [ref=e733]: Oxidizer Sensor Signal Interruptions
+    - button "Expand Gemini bottom bar" [ref=e735] [cursor=pointer]
+  - iframe [active] [ref=e741]:
+    - textbox "Document content" [active] [ref=f1e1]
+    - group
+  - link "Turn on screen reader support" [ref=e742] [cursor=pointer]:
+    - /url: "#"
+  - region [ref=e743]: To enable screen reader support, press ⌘+Option+Z To learn about keyboard shortcuts, press ⌘slash
+  - generic [ref=e744]: Banner hidden
+  - region

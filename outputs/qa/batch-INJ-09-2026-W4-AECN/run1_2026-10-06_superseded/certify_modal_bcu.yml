@@ -1,0 +1,53 @@
+- dialog "BCU - Transport Process" [active] [ref=f168e589]:
+  - generic [ref=f168e590]:
+    - generic [ref=f168e591]:
+      - generic [ref=f168e593]:
+        - button "BCU - Transport Process" [ref=f168e596] [cursor=pointer]
+        - generic [ref=f168e597]:
+          - generic [ref=f168e598]: 19.339 tCO₂e
+          - generic [ref=f168e600]: 5.34%
+      - button "Toggle timeline sidebar" [ref=f168e602] [cursor=pointer]
+      - button "Close" [ref=f168e605] [cursor=pointer]
+    - generic [ref=f168e609]:
+      - generic [ref=f168e610]:
+        - generic [ref=f168e611]: Inputs
+        - grid "Input list" [ref=f168e612]:
+          - row "Constant CO₂ reduction" [ref=f168e613]:
+            - gridcell "Constant CO₂ reduction Constant CO₂ reduction 19,339 kgCO₂e No sources Deselect datapoint" [ref=f168e614]:
+              - generic [ref=f168e615]:
+                - generic [ref=f168e616]: Constant CO₂ reduction
+                - generic [ref=f168e619]:
+                  - button "Constant CO₂ reduction 19,339 kgCO₂e No sources" [ref=f168e624] [cursor=pointer]:
+                    - generic [ref=f168e625]: Constant CO₂ reduction
+                    - generic [ref=f168e628]:
+                      - generic [ref=f168e629]: 19,339
+                      - text: kgCO₂e
+                    - generic [ref=f168e631]: No sources
+                  - button "Deselect datapoint" [ref=f168e635] [cursor=pointer]
+      - generic [ref=f168e638]:
+        - generic [ref=f168e639]: Description
+        - button "+ Add" [ref=f168e641] [cursor=pointer]
+      - generic [ref=f168e643]:
+        - generic [ref=f168e644]: Blueprint details
+        - generic [ref=f168e645]:
+          - generic [ref=f168e646]:
+            - generic [ref=f168e647]: Blueprint
+            - generic [ref=f168e650]:
+              - link "Constant CO₂ reduction" [ref=f168e651] [cursor=pointer]:
+                - /url: https://docs.isometric.com/certify/component-blueprint-library#constant-co₂-reduction
+              - generic [ref=f168e652]: "->"
+          - generic [ref=f168e653]:
+            - generic [ref=f168e654]: Key
+            - generic [ref=f168e656]: constant_reduction
+          - generic [ref=f168e657]:
+            - generic [ref=f168e658]: Gas type
+            - generic [ref=f168e660]: CO₂e
+          - generic [ref=f168e661]:
+            - generic [ref=f168e662]: Calculation
+            - generic [ref=f168e665]:
+              - generic [ref=f168e666]: constant_reduction
+              - generic [ref=f168e668]: =
+              - generic [ref=f168e669]: constant_reduction
+    - generic [ref=f168e672]:
+      - button "Delete" [ref=f168e673] [cursor=pointer]
+      - button "Done" [ref=f168e674] [cursor=pointer]

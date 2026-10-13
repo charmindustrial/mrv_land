@@ -1,0 +1,1755 @@
+{
+ "batch_id": "INJ-09-2026-W2",
+ "oil_type": "Aqueous",
+ "oil_type_label_in_ops_notes": "QOWV",
+ "reporting_period": "September 1 - September 30 2026 RP; Ops Notes injection week 2026-09-05 to 2026-09-12; Certify removal window 05 Sep 2026 to 11 Sep 2026",
+ "certify_removal_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M2TTAZYD1S0BCCS/edit",
+ "certify_removal_id": "rmv_1M2TTAZYD1S0BCCS",
+ "drive_folder_url": "https://drive.google.com/drive/u/0/folders/1Oz-oUtmLMxrMQe7cfyzcLEE5ZUg8qzRh",
+ "T0": "2026-09-22T19:43:21Z",
+ "vvb_guidance": {
+  "_primary_source_opened": true,
+  "file": "VVB Guidance September 1 - September 30",
+  "drive_id": "1pib26xToLPFxaOla2p3pv4ummq5ekPpAn65FFuqrlPc",
+  "live_source_url": "https://docs.google.com/document/d/1pib26xToLPFxaOla2p3pv4ummq5ekPpAn65FFuqrlPc/edit",
+  "read_in_full": true,
+  "single_section_title": "AECN Rail - Basis for Loaded Mass (Week 3, INJ-09-2026-W3)",
+  "verbatim_scope_quote": "Scope. The basis described here applies to Week 3 of this Reporting Period, INJ-09-2026-W3, covering 11 - 18 September 2026, and to that week alone. For all other weeks in this Reporting Period, the mass loaded at origin is taken from the metric-tons figure stated on the Bill of Lading.",
+  "bearing_on_this_batch": "None. The document's only section is scoped to Week 3 AECN rail; it contains no QOWV, tote, transport-allocation or CI guidance.",
+  "ops_notes_cell_comments": "Checked programmatically across all 10 tabs of the exported workbook (cell.comment on every cell, formula-mode load). Zero comments present."
+ },
+ "batch_folder_inventory": [
+  {
+   "name": "Kerry Oil",
+   "type": "folder",
+   "drive_id": "1fJpZkrpv3vq89vn2KLxMW8bazL3Guskb",
+   "present": true
+  },
+  {
+   "name": "Scale Tickets",
+   "type": "folder",
+   "drive_id": "1eJgbbD_Fp7wmbEr_wCCtRjny4PxA4UYp",
+   "present": true,
+   "note": "AECN rail offload tickets; not used for QOWV (tote tag mass is authoritative)"
+  },
+  {
+   "name": "INJ-09-2026-W2 Ops Notes",
+   "type": "google_sheet",
+   "drive_id": "1OEJvgN5KMPKseQrn--RH9QmqDh68zERpf1IMOZN7tvY",
+   "present": true
+  },
+  {
+   "name": "SR26-05494 W2 QOWV AECN COA.pdf",
+   "type": "pdf",
+   "drive_id": "1E1uy1rtPtWOVK39JiIoe8RyE38Ob0NQo",
+   "present": true
+  }
+ ],
+ "batch_folder_note": "The week folder is shared by all oil types in the week; QOWV lives on its own tabs inside the one Ops Notes workbook. No standalone Testing subfolder and no standalone Bio-Oil Shipment Tracker file - the lab certificate sits at folder root and the allocation tracker is the 'QOWV Shipments & EE Allocation' tab. Same structure as every 2026 weekly QOWV batch.",
+ "n_totes": 38,
+ "production_periods": [
+  "July 2025",
+  "September 2025",
+  "October 2025",
+  "December 2025",
+  "April 2026",
+  "May 2026"
+ ],
+ "production_period_tote_counts": {
+  "May 2026": 14,
+  "September 2025": 10,
+  "April 2026": 6,
+  "December 2025": 5,
+  "October 2025": 2,
+  "July 2025": 1
+ },
+ "ops_notes": {
+  "_primary_source_opened": true,
+  "action": "exported_and_read_all_cells",
+  "live_source_url": "https://docs.google.com/spreadsheets/d/1OEJvgN5KMPKseQrn--RH9QmqDh68zERpf1IMOZN7tvY/edit",
+  "artifact_path": "source_exports/INJ-09-2026-W2_Ops_Notes.xlsx",
+  "tabs": [
+   "Summary",
+   "AECN Rail",
+   "AECN Truck",
+   "WODO",
+   "Kerry",
+   "QOWV",
+   "Whole Oil",
+   "QOWV Shipments & EE Allocation",
+   "WODO Shipments & EE Allocation",
+   "Whole Oil Shipments & EE Alloca"
+  ],
+  "batch_id_cell": "QOWV!B2 = INJ-09-2026-W2",
+  "week": "QOWV!B3 = 2026-09-05 (Sat) to QOWV!B4 = 2026-09-12 (Sat)",
+  "ledger_rows": "QOWV!A11:A48 - 38 tote rows, every row populated for tag, gross, tote mass, net produced, empty tote weight, net injected, production period, CI, production emissions, scale uncertainty"
+ },
+ "ops_notes_totals": {
+  "total_mass_transported_kg": 38830.4,
+  "total_mass_transported_formula": "QOWV!B50 = SUM(B10:B48)",
+  "total_oil_produced_kg": 36641.6,
+  "total_oil_produced_formula": "QOWV!D50 = SUM(D10:D48); per-tote D = B - C (gross - tote mass 57.6 kg)",
+  "total_oil_in_batch_kg": 31250.9,
+  "total_oil_in_batch_formula": "QOWV!F50 = SUM(F9:F48); per-tote F = IF(E=\"\",\"\",B-E) i.e. gross minus MEASURED post-unload empty tote weight",
+  "standard_loss_applied": false,
+  "weighted_avg_ci_kgco2e_per_kg": 0.1269082907,
+  "weighted_avg_ci_formula": "QOWV!H50 = SUMPRODUCT(D11:D48,H11:H48)/SUM(D11:D48)",
+  "production_emissions_kg": 4650.122824,
+  "production_emissions_formula": "QOWV!I50 = sum(I11:I48); per-tote I = H*D",
+  "uncertainty_kg": 43.09124,
+  "uncertainty_formula": "QOWV!J50 = SUM(J9:J48); per-tote J = 2.5*$L$4 where L4 = 0.453592 kg/lb",
+  "recomputed_independently": {
+   "gross": 38830.4,
+   "produced": 36641.6,
+   "injected": 31250.9,
+   "production_emissions_kg": 4650.1228,
+   "weighted_ci": 0.1269082906889983,
+   "uncertainty_kg": 43.09124,
+   "uncertainty_expected_38x1.13398": 43.09124
+  }
+ },
+ "lcs_use_kg": null,
+ "lcs_search_method": "Case-insensitive scan of every cell string in all 10 tabs of the exported workbook for 'lcs', 'calcium', 'buffer'. Zero hits. The only loss constant on the QOWV tab is Sparging Mass Loss L5 = 0.0129, which is not referenced by any QOWV row; Summary!E12 sparging = 0.0 and F12 filtration = 0.0 for QOWV.",
+ "totes_sample_verified": [
+  {
+   "tag": "015162",
+   "gross_kg": 945.6,
+   "tote_mass_kg": 57.6,
+   "net_produced_kg": 888,
+   "empty_tote_weight_kg": 290.0,
+   "net_injected_kg": 655.6,
+   "production_period": "MFO Lot 015162 (LOT00015162), December 2025",
+   "ci": 0.1630616644,
+   "uncertainty_kg": 1.13398
+  },
+  {
+   "tag": "301100",
+   "gross_kg": 987.0,
+   "tote_mass_kg": 57.6,
+   "net_produced_kg": 929.4,
+   "empty_tote_weight_kg": 180.0,
+   "net_injected_kg": 807,
+   "production_period": "MFO Lot 301100 (LOT00301100), May 2026",
+   "ci": 0.1106615762,
+   "uncertainty_kg": 1.13398
+  },
+  {
+   "tag": "228485",
+   "gross_kg": 947.0,
+   "tote_mass_kg": 57.6,
+   "net_produced_kg": 889.4,
+   "empty_tote_weight_kg": 193.0,
+   "net_injected_kg": 754,
+   "production_period": "MFO Lot 3972 (LOT00003972), October 2025",
+   "ci": 0.1110176228550779,
+   "uncertainty_kg": 1.13398
+  }
+ ],
+ "totes_full_enumeration_note": "All 38 rows read cell-by-cell from the export and re-summed; no null mass entries, no blank production periods, every row carries its own CI and 1.13398 kg uncertainty.",
+ "shipment_tracker": {
+  "_primary_source_opened": true,
+  "artifact": "'QOWV Shipments & EE Allocation' tab of the same Ops Notes workbook (no standalone tracker file exists for 2026 weekly batches)",
+  "one_way_distance_mi": 1201.0,
+  "one_way_distance_cell": "B8 = 1201, labelled 'Charm CO -> Basco LA distance (one-way, mi)', 'direct route'",
+  "tote_count_cell": "D6 = COUNTA(QOWV!A11:A48) = 38",
+  "trucks": [
+   {
+    "truck": "Truck 1 (CO_AQUEOUS_12.01.25)",
+    "ship_date": "2025-12-01",
+    "totes_on_truck": 40,
+    "batch_totes": 18,
+    "share_formula": "E12 = D12/C12 = 0.45",
+    "miles_formula": "G12 = E12*F12 = 540.45",
+    "mileage_ref": "F12 = $B$8 = 1201"
+   },
+   {
+    "truck": "COLA_34",
+    "ship_date": "2026-08-26",
+    "totes_on_truck": 20,
+    "batch_totes": 20,
+    "share_formula": "E13 = D13/C13 = 1",
+    "miles_formula": "G13 = E13*F13 = 1201",
+    "mileage_ref": "F13 = $B$8 = 1201"
+   }
+  ],
+  "totals": {
+   "totes_on_trucks": 60,
+   "batch_totes": 38,
+   "allocated_miles_mi": 1741.45,
+   "totals_formulas": "C15 = SUM(C12:C13), D15 = SUM(D12:D13), G15 = SUM(G12:G13)"
+  },
+  "stale_rows": "Rows 56-71 carry a leftover per-tote block headed '--- Shipment 2025-12-10 --- (14 of 35 totes on this truck are W4-relevant)' with 14 tags all assigned to batch INJ-05-2026-W4. They feed no formula on this tab (the totals reference only rows 12-13)."
+ },
+ "shipment_tracker_cells_are_formulas": {
+  "batch_share_of_truck_E12": "=D12/C12",
+  "batch_share_of_truck_E13": "=D13/C13",
+  "allocated_miles_G12": "=E12*F12",
+  "allocated_miles_G13": "=E13*F13",
+  "batch_mileage_allocation_G15": "=SUM(G12:G13)",
+  "tote_count_D6": "=COUNTA(QOWV!A11:A48)",
+  "mileage_inputs_F12_F13": "=$B$8",
+  "all_are_formulas": true,
+  "method": "Formulas read from the formula-mode load of the workbook exported directly from the live Google Sheet this session (openpyxl without data_only). No computed output is a typed constant."
+ },
+ "testing": {
+  "_primary_source_opened": true,
+  "artifact_path": "SR26-05494_W2_QOWV_AECN_COA.pdf",
+  "source": "SGS Certificate of Analysis, downloaded from Drive (file 1E1uy1rtPtWOVK39JiIoe8RyE38Ob0NQo); identical file is the Certify source 'SR26-05494 W2 QOWV AECN COA.pdf'",
+  "qowv_certificate": {
+   "page": 1,
+   "certificate_no": "SR26-05494.001",
+   "client_id": "9-2026-W2-QOWV",
+   "product_description": "Oil - QOWV",
+   "location": "FORT LUPTON, CO",
+   "sampled": "05-Sep-2026 12:00",
+   "analysed": "17-Sep-2026 04:58 - 17-Sep-2026 11:02",
+   "carbon_pct": 8.3,
+   "carbon_method": "ASTM D5291 (Method C)",
+   "carbon_out_of_range_flag": "# - Result is outside of test method limits and/or analytical range used in method precision study",
+   "hydrogen_pct": 9.9,
+   "nitrogen_pct": "<0.75",
+   "kinematic_viscosity_40C_cSt": 0.942,
+   "acid_number_mgKOH_g": 41,
+   "density_15C_g_cm3": 1.047
+  },
+  "aecn_certificate_on_page_2": {
+   "certificate_no": "SR26-05494.002",
+   "client_id": "9-2026-W2-AECN",
+   "carbon_pct": 40.4,
+   "note": "AECN fraction, not in scope for this QOWV removal"
+  }
+ },
+ "pp_summary_sources": {
+  "_primary_source_opened": [
+   {
+    "pp": "July 2025",
+    "file": "Production Period 8 Summary",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1L167k_JS3mnisFy3VpS-OXgI8U0cK-4nC6A9sxl-ozk/edit",
+    "artifact_path": "source_exports/Production-Period-8-Summary.xlsx",
+    "evidence": "'PP8 Summary' row 4: Output Type Aqueous, Mass of Output 77,076 kg, C Content 10.49%, Kg Emissions/Kg Material (col T) = 0.1575553395",
+    "wodo_row": "WODO 22732.0 kg, C 0.4746, 16.20402927 MT, CI 0.7128290192",
+    "aqueous_row_full": "Aqueous 77076.0 kg, C 0.1049, 12.14373535 MT, CI 0.1575553395",
+    "period_length": "Days in Production Period 8 = 31.0",
+    "date_range": "No start or end date in the summary; period named by title and 'Days in Production Period'",
+    "fields_added": "2026-09-29 (late)"
+   },
+   {
+    "pp": "September 2025",
+    "file": "September 2025 Production Period Summary",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1ZSnVAnmV96Ux_GwEJ_1zeATDHlQlHr5rvKAh3NOG2s0/edit",
+    "artifact_path": "source_exports/September-2025-Production-Period-Summary.xlsx",
+    "evidence": "'September PP Summary' row 4: Aqueous, 41,010 kg, C 7.7%, col T = 0.128689567",
+    "wodo_row": "WODO 12630.0 kg, C 0.5204, 10.98482779 MT, CI 0.8697409176",
+    "aqueous_row_full": "Aqueous 41010.0 kg, C 0.077, 5.277559142 MT, CI 0.128689567",
+    "period_length": "Days in Production Period = 30.0",
+    "date_range": "No start or end date in the summary; period named by title and 'Days in Production Period'",
+    "fields_added": "2026-09-29 (late)"
+   },
+   {
+    "pp": "October 2025",
+    "file": "October 2025 Production Period Summary",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1AZymoR1vHkfpH4ZKO5J6CklWiVlCfhVS872y-2LipDw/edit",
+    "artifact_path": "source_exports/October-2025-Production-Period-Summary.xlsx",
+    "evidence": "row 4: Aqueous, 42,860 kg, C 8.64%, col T = 0.1110176229",
+    "tab_name_note": "The October-titled file's tab is still named 'September PP Summary'; its numbers differ from the September file (WODO 14,227 vs 12,630 kg), so the file holds October data under a stale tab name",
+    "wodo_row": "WODO 14227.0 kg, C 0.5797, 10.59728986 MT, CI 0.7448717126",
+    "aqueous_row_full": "Aqueous 42860.0 kg, C 0.0864, 4.758215316 MT, CI 0.1110176229",
+    "period_length": "Days in Production Period = 31.0",
+    "date_range": "No start or end date in the summary; period named by title and 'Days in Production Period'",
+    "fields_added": "2026-09-29 (late)"
+   },
+   {
+    "pp": "December 2025",
+    "file": "December 2025 Production Period Summary",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1-L6m2wYknC3o-yIts9KK7FrYAb5lZIv4AwaizK8FbMc/edit",
+    "artifact_path": "source_exports/December-2025-Production-Period-Summary.xlsx",
+    "evidence": "'December PP Summary' row 4: Aqueous, 19,161 kg, C 8.17%, col T = 0.1630616644",
+    "wodo_row": "WODO 6481.0 kg, C 0.4871, 6.300716882 MT, CI 0.9721828239",
+    "aqueous_row_full": "Aqueous 19161.0 kg, C 0.0817, 3.124424551 MT, CI 0.1630616644",
+    "period_length": "Days in Production Period = 31.0",
+    "date_range": "No start or end date in the summary; period named by title and 'Days in Production Period'",
+    "fields_added": "2026-09-29 (late)"
+   },
+   {
+    "pp": "April 2026",
+    "file": "Apr 26 Production Period Summary",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/10Qwx7K6sUcOBrCebGUGVaVeLQnhzvcT8sHQ0Sy3VBBM/edit",
+    "artifact_path": "source_exports/Apr-26-Production-Period-Summary.xlsx",
+    "evidence": "'Apr 26 PP Summary' row 4: Aqueous, 43,912 kg, C 7.86%, col T = 0.1314184532",
+    "wodo_row": "WODO 17580.4 kg, C 0.4694, 13.79766647 MT, CI 0.7848323401",
+    "aqueous_row_full": "Aqueous 43912.0 kg, C 0.0786, 5.770847117 MT, CI 0.1314184532",
+    "period_length": "Days in Production Period = 30.0",
+    "date_range": "No start or end date in the summary; period named by title and 'Days in Production Period'",
+    "fields_added": "2026-09-29 (late)"
+   },
+   {
+    "pp": "May 2026",
+    "file": "May 26 Production Period Summary",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1m66t1jsLGc4e6AWnCFMsFbkSceZ9IYC_-bfTsbP_OYc/edit",
+    "artifact_path": "source_exports/May-26-Production-Period-Summary.xlsx",
+    "evidence": "'May 26 PP Summary' row 4: Aqueous, 36,523.2 kg, C 8.0%, col T = 0.1106615762",
+    "wodo_row": "WODO 11130.0 kg, C 0.4575, 7.043574746 MT, CI 0.6328458891",
+    "aqueous_row_full": "Aqueous 36523.2 kg, C 0.08, 4.041714881 MT, CI 0.1106615762",
+    "period_length": "Days in Production Period = 31.0",
+    "date_range": "No start or end date in the summary; period named by title and 'Days in Production Period'",
+    "fields_added": "2026-09-29 (late)"
+   }
+  ],
+  "ci_link_coverage": "The QOWV tab's constants block (K10:M20) hyperlinks a PP Summary for PP#8 and for each month Nov 2025 through Jun 2026 plus PP#7. The September 2025 and October 2025 CIs used by 12 of the 38 totes are typed constants in column H with no link in the constants block; both were traced to and confirmed against their own PP Summaries above."
+ },
+ "standard_efs_2026": {
+  "_primary_source_opened": [
+   {
+    "file": "Standard Emission Factors + Calculations, 2026 tab",
+    "action": "exported_and_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit",
+    "artifact_path": "source_exports/Standard_EFs_export.xlsx",
+    "evidence": "2026 tab row 7 'Truck Transport Fuel Use (Well to Wheel) -- Flatbed Truck' = 0.0001384 MT CO2e/t-mi (GLEC V3.2 2025); row 12 'Vehicle Embodied Emissions --Non-Tanker Truck' = 0.0001927908256 MT CO2e/mi (GLEC V3.2 2025)"
+   }
+  ],
+  "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit",
+  "artifact_path": "source_exports/Standard_EFs_export.xlsx",
+  "tab": "2026",
+  "flatbed_process": {
+   "row": 7,
+   "label": "Truck Transport Fuel Use (Well to Wheel) -- Flatbed Truck",
+   "value": 0.0001384,
+   "unit": "MT CO2e/t-mi",
+   "source_cited": "GLEC V3.2 2025",
+   "km_t_equivalent_kgco2e": 0.086
+  },
+  "non_tanker_embodied": {
+   "row": 12,
+   "label": "Vehicle Embodied Emissions --Non-Tanker Truck",
+   "value": 0.0001927908256,
+   "unit": "MT CO2e/mi",
+   "source_cited": "GLEC V3.2 2025",
+   "per_km_equivalent_kgco2e": 0.1197821
+  }
+ },
+ "google_maps_options": [
+  {
+   "route": "via US-287 S and US-287 S",
+   "time": "17 hr 22 min",
+   "distance_mi": 1132,
+   "label": "Fastest route now, avoids road closures"
+  },
+  {
+   "route": "via US-287 S, US-287 S and I-20 E",
+   "time": "17 hr 32 min",
+   "distance_mi": 1129,
+   "label": "Avoids road closures"
+  },
+  {
+   "route": "via I-70 E",
+   "time": "17 hr 36 min",
+   "distance_mi": 1201,
+   "label": "Avoids road closures; This route has tolls"
+  }
+ ],
+ "google_maps_note": "Read from the pixels of this removal's own attached 'CO to Basco Routing Map.png' (src_1KSTWP2AP1S0QQPF), downloaded this session to screenshots/CO_to_Basco_Routing_Map_src_1KSTWP2AP1S0QQPF.png. Destination field reads '4675 LA-115, St Landry, LA 71367'; origin field reads 'Your location' (map pin sits at Denver/Fort Lupton). Longest of the three displayed options = 1,201 mi (via I-70 E), which is the value Certify uses.",
+ "certify": {
+  "_primary_source_opened": true,
+  "removal_window": "05 Sep 2026 to 11 Sep 2026",
+  "net_co2e_removed_t": 4.484,
+  "calculation_view": "Sequestrations 9.512 t + Adjustments 6.454 t - Activities 11.440 t - Uncertainty Discount 41 kg = 4.484 t",
+  "uncertainty_discount_kg": 41,
+  "components_tab_total": 5,
+  "components": [
+   {
+    "name": "Injection sequestration",
+    "id": "cmp_1M2TTAZYD1S07HS3",
+    "bucket": "Sequestrations",
+    "value_t": 9.512,
+    "inputs": {
+     "carbon_content_pct": 8.3,
+     "carbon_content_uncertainty_pct_abs": 0.0332,
+     "carbon_content_sources": 2,
+     "mass_of_product_kg": 31250.9,
+     "mass_of_product_uncertainty_kg": 43.09124,
+     "mass_of_product_sources": 1
+    },
+    "calc": "output = product_mass * carbon_content * {co2e_of_carbon}"
+   },
+   {
+    "name": "CO to LA Flatbed Truck Transport Process Emissions - QOWV",
+    "id": "cmp_1M2TTAZYD1S0EAQY",
+    "bucket": "Activities",
+    "value_t": 6.454,
+    "inputs": {
+     "ef_label": "Flatbed, Northern America, WTW",
+     "ef_kgco2e_per_km_t": 0.086,
+     "ef_sources": 1,
+     "distance_label": "Distance from Miniforge CO to Basco",
+     "distance_mi": 1201,
+     "distance_sources": 1,
+     "mass_of_load_kg": 38830.4,
+     "mass_of_load_uncertainty_kg_displayed": 43.09,
+     "mass_of_load_sources": 1
+    },
+    "calc": "output = mass * distance * carbon_intensity"
+   },
+   {
+    "name": "CO to LA Flatbed Truck Transport Embodied Emissions - QOWV",
+    "id": "cmp_1M2TTAZYD1S01ZKK",
+    "bucket": "Activities",
+    "value_t": 0.336,
+    "inputs": {
+     "ef_label": "Emissions Factor - Vehicle Embodied Emissions - Flatbed Truck",
+     "ef_kgco2e_per_mi": 0.19279,
+     "ef_sources": 1,
+     "distance_label": "QOWV Embodied Distance (CO to B6) [Certify input]",
+     "distance_mi": 1741.45,
+     "distance_sources": 2
+    },
+    "calc": "output = distance * carbon_intensity"
+   },
+   {
+    "name": "Pyrolysis - Charm QOWV PP Emissions",
+    "id": "cmp_1M2TTAZYD1S02GC2",
+    "bucket": "Activities",
+    "value_t": 4.65,
+    "inputs": {
+     "ci_label": "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)",
+     "ci_tco2e_per_t": 0.126908,
+     "ci_sources": 1,
+     "mass_kg": 36641.6,
+     "mass_uncertainty_kg_displayed": 43.09,
+     "mass_sources": 1
+    },
+    "calc": "output = mass * carbon_intensity"
+   },
+   {
+    "name": "BCU - Transport Process",
+    "id": "cmp_1M2TTDK8P1S04MSB",
+    "bucket": "Adjustments",
+    "value_t": 6.454,
+    "inputs": {
+     "constant_co2_reduction_kg": 6454,
+     "sources": 1
+    },
+    "calc": "constant_reduction = constant_reduction"
+   }
+  ],
+  "counterfactuals": "none present (expected zero for bio-oil geological storage)",
+  "datapoints_tab_total": 10,
+  "certify_sources_tab_total": 6,
+  "certify_sources_enumeration": [
+   {
+    "name": "SR26-05494 W2 QOWV AECN COA.pdf",
+    "type": "Document",
+    "visibility": "PRIVATE",
+    "datapoints": [
+     "Carbon Content of Bio-oil Injected (per injection)"
+    ]
+   },
+   {
+    "name": "INJ-09-2026-W2 Ops Notes.xlsx",
+    "type": "Document",
+    "visibility": "PRIVATE",
+    "datapoints": [
+     "Mass of Injectant (per injection)",
+     "Carbon Content of Bio-oil Injected (per injection)",
+     "QOWV Pyrolysis Mass [Certify input]",
+     "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)",
+     "QOWV Transport Mass (CO to B6) [Certify input]",
+     "QOWV Embodied Distance (CO to B6) [Certify input]"
+    ]
+   },
+   {
+    "name": "Charm-RetirementCertificate-RD-EACs-20251218.pdf",
+    "type": "Document",
+    "visibility": "PUBLIC",
+    "datapoints": [
+     "Constant CO2 reduction"
+    ]
+   },
+   {
+    "name": "Standard Emission Factors + Calculations (8).xlsx",
+    "type": "Document",
+    "visibility": "PUBLIC",
+    "datapoints": [
+     "Emissions Factor - Vehicle Embodied Emissions - Flatbed Truck"
+    ]
+   },
+   {
+    "name": "CO to Basco Routing Map.png",
+    "type": "Document",
+    "visibility": "PUBLIC",
+    "datapoints": [
+     "QOWV Embodied Distance (CO to B6) [Certify input]",
+     "Distance from Miniforge CO to Basco"
+    ]
+   },
+   {
+    "name": "GLEC V3.2",
+    "type": "Website",
+    "visibility": "PUBLIC",
+    "datapoints": [
+     "Flatbed, Northern America, WTW"
+    ]
+   }
+  ],
+  "attachment_map": {
+   "Mass of Injectant (per injection)": [
+    "INJ-09-2026-W2 Ops Notes.xlsx"
+   ],
+   "Carbon Content of Bio-oil Injected (per injection)": [
+    "INJ-09-2026-W2 Ops Notes.xlsx",
+    "SR26-05494 W2 QOWV AECN COA.pdf"
+   ],
+   "QOWV Transport Mass (CO to B6) [Certify input]": [
+    "INJ-09-2026-W2 Ops Notes.xlsx"
+   ],
+   "QOWV Pyrolysis Mass [Certify input]": [
+    "INJ-09-2026-W2 Ops Notes.xlsx"
+   ],
+   "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)": [
+    "INJ-09-2026-W2 Ops Notes.xlsx"
+   ],
+   "QOWV Embodied Distance (CO to B6) [Certify input]": [
+    "INJ-09-2026-W2 Ops Notes.xlsx",
+    "CO to Basco Routing Map.png"
+   ],
+   "Distance from Miniforge CO to Basco": [
+    "CO to Basco Routing Map.png"
+   ],
+   "Flatbed, Northern America, WTW": [
+    "GLEC V3.2"
+   ],
+   "Emissions Factor - Vehicle Embodied Emissions - Flatbed Truck": [
+    "Standard Emission Factors + Calculations (8).xlsx"
+   ],
+   "Constant CO2 reduction": [
+    "Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+   ]
+  },
+  "required_evidence": {
+   "Mass of Injectant": [
+    "ops_notes"
+   ],
+   "Carbon Content of Bio-oil Injected": [
+    "lab",
+    "ops_notes"
+   ],
+   "QOWV Transport Mass": [
+    "ops_notes"
+   ],
+   "QOWV Pyrolysis Mass": [
+    "ops_notes"
+   ],
+   "QOWV Pyrolysis Emissions - Carbon Intensity": [
+    "ops_notes"
+   ],
+   "QOWV Embodied Distance": [
+    "ops_notes",
+    "map_or_watco"
+   ],
+   "Distance from": [
+    "map_or_watco"
+   ],
+   "Emissions Factor - Vehicle Embodied": [
+    "ef_sheet"
+   ],
+   "Constant CO2 reduction": [
+    "eac_cert"
+   ]
+  },
+  "attachment_map_note": "Filenames as printed on the Certify Sources tab this session; each source row's linked datapoints were read from that tab.",
+  "component_by_key": {
+   "injection_sequestration": {
+    "name": "Injection sequestration",
+    "id": "cmp_1M2TTAZYD1S07HS3",
+    "bucket": "Sequestrations",
+    "value_t": 9.512,
+    "inputs": {
+     "carbon_content_pct": 8.3,
+     "carbon_content_uncertainty_pct_abs": 0.0332,
+     "carbon_content_sources": 2,
+     "mass_of_product_kg": 31250.9,
+     "mass_of_product_uncertainty_kg": 43.09124,
+     "mass_of_product_sources": 1
+    },
+    "calc": "output = product_mass * carbon_content * {co2e_of_carbon}"
+   },
+   "transport_process": {
+    "name": "CO to LA Flatbed Truck Transport Process Emissions - QOWV",
+    "id": "cmp_1M2TTAZYD1S0EAQY",
+    "bucket": "Activities",
+    "value_t": 6.454,
+    "inputs": {
+     "ef_label": "Flatbed, Northern America, WTW",
+     "ef_kgco2e_per_km_t": 0.086,
+     "ef_sources": 1,
+     "distance_label": "Distance from Miniforge CO to Basco",
+     "distance_mi": 1201,
+     "distance_sources": 1,
+     "mass_of_load_kg": 38830.4,
+     "mass_of_load_uncertainty_kg_displayed": 43.09,
+     "mass_of_load_sources": 1
+    },
+    "calc": "output = mass * distance * carbon_intensity"
+   },
+   "transport_embodied": {
+    "name": "CO to LA Flatbed Truck Transport Embodied Emissions - QOWV",
+    "id": "cmp_1M2TTAZYD1S01ZKK",
+    "bucket": "Activities",
+    "value_t": 0.336,
+    "inputs": {
+     "ef_label": "Emissions Factor - Vehicle Embodied Emissions - Flatbed Truck",
+     "ef_kgco2e_per_mi": 0.19279,
+     "ef_sources": 1,
+     "distance_label": "QOWV Embodied Distance (CO to B6) [Certify input]",
+     "distance_mi": 1741.45,
+     "distance_sources": 2
+    },
+    "calc": "output = distance * carbon_intensity"
+   },
+   "pyrolysis": {
+    "name": "Pyrolysis - Charm QOWV PP Emissions",
+    "id": "cmp_1M2TTAZYD1S02GC2",
+    "bucket": "Activities",
+    "value_t": 4.65,
+    "inputs": {
+     "ci_label": "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)",
+     "ci_tco2e_per_t": 0.126908,
+     "ci_sources": 1,
+     "mass_kg": 36641.6,
+     "mass_uncertainty_kg_displayed": 43.09,
+     "mass_sources": 1
+    },
+    "calc": "output = mass * carbon_intensity"
+   },
+   "bcu": {
+    "name": "BCU - Transport Process",
+    "id": "cmp_1M2TTDK8P1S04MSB",
+    "bucket": "Adjustments",
+    "value_t": 6.454,
+    "inputs": {
+     "constant_co2_reduction_kg": 6454,
+     "sources": 1
+    },
+    "calc": "constant_reduction = constant_reduction"
+   }
+  },
+  "datapoints_tab_read_2026_09_29": {
+   "_primary_source_opened": [
+    {
+     "file": "Certify rmv_1M2TTAZYD1S0BCCS Datapoints tab",
+     "action": "tab_read",
+     "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M2TTAZYD1S0BCCS/edit?tab=data-points",
+     "read": "2026-09-29T15:58Z (late; not opened on 2026-09-22)"
+    }
+   ],
+   "datapoints": [
+    "QOWV Embodied Distance (CO to B6) [Certify input] 1,741 mi",
+    "Emissions Factor - Vehicle Embodied Emissions - Flatbed Truck 0.1198 kgCO2e/km",
+    "QOWV Transport Mass (CO to B6) [Certify input] 38.830 t",
+    "Distance from Miniforge CO to Basco 1,201 mi",
+    "Flatbed, Northern America, WTW 0.09 kgCO2e/(km*t)",
+    "QOWV Pyrolysis Mass [Certify input] 36.642 t",
+    "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted) 0.12 tCO2e/t",
+    "Mass of Injectant (per injection) 31.251 t",
+    "Carbon Content of Bio-oil Injected (per injection) 8.30 %",
+    "Constant CO2 reduction 6.454 tCO2e"
+   ],
+   "total": 10
+  },
+  "live_change_since_qa": {
+   "read": "2026-09-29T15:58Z",
+   "net_t": 4.643,
+   "activities_t": 11.282,
+   "pyrolysis_t": 4.491,
+   "sequestrations_t": 9.512,
+   "bcu_t": 6.454,
+   "discount_kg": 41,
+   "qa_state_2026_09_22": {
+    "net_t": 4.484,
+    "activities_t": 11.44,
+    "pyrolysis_t": 4.65
+   },
+   "ops_notes_modifiedTime": "2026-09-29T15:13:08Z",
+   "note": "Pyrolysis changed 4.650 -> 4.491 t with no reply in the Garrett thread (1790109172.975159). The 2026-09-29 findings are against the 2026-09-22 Ops Notes export; re-check against the live Ops Notes before sending them."
+  }
+ },
+ "retirement_certificate": {
+  "_primary_source_opened": true,
+  "artifact_path": "Certify_attached_RetirementCertificate_src_1M1MFJPW11S08KY2.pdf",
+  "read": "TERC Certificate of Retirement: Retiring Organization Amazon.com Services LLC, On Behalf Of Charm Industrial, Inc; Date of Retirement Dec 18, 2025; Vintage Year 2024; Commodity Type Renewable Diesel TERCS; Number of TERCs Retired 2,795; Verification Body Turner, Mason & Company; Certificate Number TERC1012_2024_DF_RENEWABLE_DIESEL-13-47206-50000; 'Each TERC represents one metric ton of carbon dioxide equivalent (tCO2e) reduced.'"
+ },
+ "_derived_values": {
+  "seq_recomputed_t": "31250.9 kg * 0.083 * 3.667 / 1000 = 9.5116 t vs Certify 9.512 t",
+  "transport_process_recomputed_t": "38.8304 t * 1201 mi * 0.0001384 MT/(t*mi) = 6.45433 t vs Certify 6.454 t",
+  "transport_embodied_recomputed_t": "1741.45 mi * 0.0001927908256 MT/mi = 0.33574 t vs Certify 0.336 t",
+  "pyrolysis_recomputed_t": "36.6416 t * 0.126908 = 4.65011 t vs Certify 4.650 t",
+  "net_recomputed_t": "9.5116 + 6.454 - (6.45433 + 0.33574 + 4.65011) - 0.041 = 4.4844 t vs Certify 4.484 t",
+  "bcu_vs_process": "BCU 6,454 kg vs recomputed process 6,454.33 kg - shortfall 0.33 kg (0.00033 tCO2e), inside the 0.001 tCO2e tolerance and a consequence of the constant being entered in whole kg"
+ },
+ "_derived_values_numeric": {
+  "seq_t": 9.512,
+  "transport_process_t": 6.454,
+  "transport_process_kg": 6454.32696,
+  "transport_embodied_t": 0.336,
+  "pyrolysis_t": 4.65,
+  "net_t": 4.484,
+  "bcu_constant_kg": 6454,
+  "bcu_shortfall_kg": 0.32696,
+  "bcu_shortfall_t": 0.00033,
+  "truck1_allocated_mi": 540.45,
+  "truck2_allocated_mi": 1201,
+  "allocated_miles_total_mi": 1741.45,
+  "one_way_distance_mi": 1201,
+  "truck1_share": 0.45,
+  "truck2_share": 1,
+  "sept_2025_pe_kg": 1254.5946,
+  "oct_2025_pe_kg": 217.7944,
+  "sept_oct_pe_kg": 1472.389,
+  "pyrolysis_pe_kg_total": 4650.122824,
+  "carbon_rel_uncertainty": 0.004,
+  "mass_rel_uncertainty": 0.00138,
+  "combined_rel_uncertainty": 0.00423,
+  "uncertainty_discount_recomputed_t": 0.0402,
+  "uncertainty_discount_certify_kg": 41,
+  "sept_2025_ci": 0.128689567,
+  "oct_2025_ci": 0.1110176229,
+  "pp_sept_wodo_mass_kg": 12630,
+  "pp_oct_wodo_mass_kg": 14227,
+  "n_totes": 38,
+  "totes_2025_vintage": 18,
+  "totes_2026_vintage": 20,
+  "gross_kg": 38830.4,
+  "produced_kg": 36641.6,
+  "injected_kg": 31250.9,
+  "uncertainty_kg": 43.09124,
+  "uncertainty_displayed_kg": 43.09,
+  "per_tote_uncertainty_kg": 1.13398,
+  "carbon_pct": 8.3,
+  "carbon_uncertainty_pct_abs": 0.0332,
+  "weighted_ci": 0.1269082907,
+  "tote_mass_kg": 57.6,
+  "empty_tote_min_kg": 144.0,
+  "empty_tote_max_kg": 368.0,
+  "gross_min_kg": 944.0,
+  "gross_max_kg": 1130.0,
+  "ef_flatbed_process": 0.0001384,
+  "ef_embodied_per_mi": 0.0001927908256,
+  "ef_flatbed_process_display_km_t": 0.086,
+  "ef_embodied_display_per_mi": 0.19279,
+  "density_g_cm3": 1.047,
+  "co2_c_ratio": 3.667,
+  "route_opt_1_mi": 1132,
+  "route_opt_2_mi": 1129,
+  "route_opt_3_mi": 1201,
+  "kg_per_lb": 0.453592,
+  "sparging_constant": 0.0129,
+  "transport_process_t_full_precision": 6.45432696,
+  "ci_corrected": 0.1240842287,
+  "ci_corrected_6dp": 0.124084,
+  "pe_corrected_kg": 4546.6447,
+  "pe_overstated_kg": 103.4781,
+  "net_understated_t": 0.10348,
+  "pp9_ci": 0.11057,
+  "pp9_mass_kg": 59157,
+  "pp9_mt": 6.541,
+  "bcu_kg": 6454,
+  "proc_certify_kg": 6454.494,
+  "proc_sheet_kg": 6454.327,
+  "bcu_short_certify_kg": 0.494,
+  "bcu_short_sheet_kg": 0.327,
+  "inv_tare_576_qowv": 566,
+  "inv_tare_6293_qowv": 73,
+  "dec_summary_kg": 19161.0,
+  "dec_inventory_kg": 19161.0,
+  "dec_inventory_totes": 20,
+  "oct_summary_kg": 42860,
+  "oct_inventory_kg": 42860.2,
+  "oct_inventory_totes": 43,
+  "gross_diff_total_kg": 1.6,
+  "cobb_rows": 38,
+  "cobb_first_row": 760,
+  "cobb_last_row": 797,
+  "pe_dec_overstated_kg": 158.6842,
+  "ci_live": 0.1225775798,
+  "i50_live_kg": 4491.438649,
+  "pe_three_contested_kg": 55.2061,
+  "alloc_order_mi": 2281.9,
+  "emb_order_t": 0.44,
+  "emb_increase_t": 0.104,
+  "emb_increase_kg": 104.194,
+  "net_live_t": 4.643,
+  "pyro_live_t": 4.491,
+  "disc_est_kg": 41.24,
+  "cobb_rows_ok": 34,
+  "gross_prod_015162": 946.0,
+  "gross_recv_015162": 945.6
+ },
+ "totes": [
+  {
+   "row": 11,
+   "tag": "015162",
+   "gross_kg": 945.6,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 888,
+   "empty_tote_weight_kg": 290.0,
+   "net_oil_injected_kg": 655.6,
+   "production_period_label": "MFO Lot 015162 (LOT00015162), December 2025",
+   "ci": 0.1630616644,
+   "ci_formula": "=$L$12",
+   "inventory_row": 111,
+   "inventory_pp": "2025 PP#8",
+   "inventory_date_range": "7/1-7/31",
+   "inventory_gross_kg": 946.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 888.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Purple257"
+  },
+  {
+   "row": 12,
+   "tag": "228490",
+   "gross_kg": 1044.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 986.4,
+   "empty_tote_weight_kg": 368.0,
+   "net_oil_injected_kg": 676,
+   "production_period_label": "MFO Lot 228490 (LOT00228490), December 2025",
+   "ci": 0.1630616644,
+   "ci_formula": "=$L$12",
+   "inventory_row": 207,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1044.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 986.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 13,
+   "tag": "245103",
+   "gross_kg": 1071.6,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1014,
+   "empty_tote_weight_kg": 229.0,
+   "net_oil_injected_kg": 842.6,
+   "production_period_label": "MFO Lot 245103 (LOT00245103), December 2025",
+   "ci": 0.1630616644,
+   "ci_formula": "=$L$12",
+   "inventory_row": 194,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1072.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 1014.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 14,
+   "tag": "245140",
+   "gross_kg": 1051.6,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 994,
+   "empty_tote_weight_kg": 151.0,
+   "net_oil_injected_kg": 900.6,
+   "production_period_label": "MFO Lot 245140 (LOT00245140), December 2025",
+   "ci": 0.1630616644,
+   "ci_formula": "=$L$12",
+   "inventory_row": 179,
+   "inventory_pp": "2025 PP#9",
+   "inventory_date_range": "8/1-8/31",
+   "inventory_gross_kg": 1052.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 994.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Red258"
+  },
+  {
+   "row": 15,
+   "tag": "245142",
+   "gross_kg": 1013.6,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 956,
+   "empty_tote_weight_kg": 357.0,
+   "net_oil_injected_kg": 656.6,
+   "production_period_label": "MFO Lot 245142 (LOT00245142), December 2025",
+   "ci": 0.1630616644,
+   "ci_formula": "=$L$12",
+   "inventory_row": 191,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1014.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 956.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 16,
+   "tag": "301100",
+   "gross_kg": 987.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 929.4,
+   "empty_tote_weight_kg": 180.0,
+   "net_oil_injected_kg": 807,
+   "production_period_label": "MFO Lot 301100 (LOT00301100), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 562,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 987.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 929.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 17,
+   "tag": "301101",
+   "gross_kg": 1035.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 977.4,
+   "empty_tote_weight_kg": 168.0,
+   "net_oil_injected_kg": 867,
+   "production_period_label": "MFO Lot 301101 (LOT00301101), April 2026",
+   "ci": 0.1314184532,
+   "ci_formula": "=$L$16",
+   "inventory_row": 554,
+   "inventory_pp": "April 2026 PP",
+   "inventory_date_range": "4/1-4/30",
+   "inventory_gross_kg": 1035.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 977.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Red2604"
+  },
+  {
+   "row": 18,
+   "tag": "301102",
+   "gross_kg": 979.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 921.4,
+   "empty_tote_weight_kg": 152.5,
+   "net_oil_injected_kg": 826.5,
+   "production_period_label": "MFO Lot 301102 (LOT00301102), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 561,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 979.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 921.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 19,
+   "tag": "301108",
+   "gross_kg": 1047.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 989.4,
+   "empty_tote_weight_kg": 205.0,
+   "net_oil_injected_kg": 842,
+   "production_period_label": "MFO Lot 301108 (LOT00301108), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 557,
+   "inventory_pp": "April 2026 PP",
+   "inventory_date_range": "4/1-4/30",
+   "inventory_gross_kg": 1047.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 989.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Red2604"
+  },
+  {
+   "row": 20,
+   "tag": "301110",
+   "gross_kg": 1010.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 952.4,
+   "empty_tote_weight_kg": 150.0,
+   "net_oil_injected_kg": 860,
+   "production_period_label": "MFO Lot 301110 (LOT00301110), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 566,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 1010.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 952.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 21,
+   "tag": "301116",
+   "gross_kg": 1034.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 976.4,
+   "empty_tote_weight_kg": 161.5,
+   "net_oil_injected_kg": 872.5,
+   "production_period_label": "MFO Lot 301116 (LOT00301116), April 2026",
+   "ci": 0.1314184532,
+   "ci_formula": "=$L$16",
+   "inventory_row": 555,
+   "inventory_pp": "April 2026 PP",
+   "inventory_date_range": "4/1-4/30",
+   "inventory_gross_kg": 1034.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 976.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Red2604"
+  },
+  {
+   "row": 22,
+   "tag": "301117",
+   "gross_kg": 976.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 918.4,
+   "empty_tote_weight_kg": 157.0,
+   "net_oil_injected_kg": 819,
+   "production_period_label": "MFO Lot 301117 (LOT00301117), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 565,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 976.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 918.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 23,
+   "tag": "301118",
+   "gross_kg": 1056.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 998.4,
+   "empty_tote_weight_kg": 151.0,
+   "net_oil_injected_kg": 905,
+   "production_period_label": "MFO Lot 301118 (LOT00301118), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 564,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 1056.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 998.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 24,
+   "tag": "301119",
+   "gross_kg": 990.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 932.4,
+   "empty_tote_weight_kg": 169.0,
+   "net_oil_injected_kg": 821,
+   "production_period_label": "MFO Lot 301119 (LOT00301119), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 568,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 990.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 932.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 25,
+   "tag": "301120",
+   "gross_kg": 1039.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 981.4,
+   "empty_tote_weight_kg": 158.5,
+   "net_oil_injected_kg": 880.5,
+   "production_period_label": "MFO Lot 301120 (LOT00301120), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 563,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 1039.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 981.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 26,
+   "tag": "301129",
+   "gross_kg": 1074.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1016.4,
+   "empty_tote_weight_kg": 147.0,
+   "net_oil_injected_kg": 927,
+   "production_period_label": "MFO Lot 301129 (LOT00301129), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 570,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 1074.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 1016.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 27,
+   "tag": "301132",
+   "gross_kg": 960.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 902.4,
+   "empty_tote_weight_kg": 192.0,
+   "net_oil_injected_kg": 768,
+   "production_period_label": "MFO Lot 301132 (LOT00301132), April 2026",
+   "ci": 0.1314184532,
+   "ci_formula": "=$L$16",
+   "inventory_row": 546,
+   "inventory_pp": "April 2026 PP",
+   "inventory_date_range": "4/1-4/30",
+   "inventory_gross_kg": 960.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 902.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Red2604"
+  },
+  {
+   "row": 28,
+   "tag": "301133",
+   "gross_kg": 1054.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 996.4,
+   "empty_tote_weight_kg": 157.0,
+   "net_oil_injected_kg": 897,
+   "production_period_label": "MFO Lot 301133 (LOT00301133), April 2026",
+   "ci": 0.1314184532,
+   "ci_formula": "=$L$16",
+   "inventory_row": 544,
+   "inventory_pp": "April 2026 PP",
+   "inventory_date_range": "4/1-4/30",
+   "inventory_gross_kg": 1054.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 996.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Red2604"
+  },
+  {
+   "row": 29,
+   "tag": "301148",
+   "gross_kg": 1039.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 981.4,
+   "empty_tote_weight_kg": 156.0,
+   "net_oil_injected_kg": 883,
+   "production_period_label": "MFO Lot 301148 (LOT00301148), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 569,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 1039.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 981.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 30,
+   "tag": "301153",
+   "gross_kg": 945.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 887.4,
+   "empty_tote_weight_kg": 146.0,
+   "net_oil_injected_kg": 799,
+   "production_period_label": "MFO Lot 301153 (LOT00301153), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 567,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 945.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 887.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 31,
+   "tag": "301156",
+   "gross_kg": 1041.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 983.4,
+   "empty_tote_weight_kg": 160.0,
+   "net_oil_injected_kg": 881,
+   "production_period_label": "MFO Lot 301156 (LOT00301156), April 2026",
+   "ci": 0.1314184532,
+   "ci_formula": "=$L$16",
+   "inventory_row": 542,
+   "inventory_pp": "April 2026 PP",
+   "inventory_date_range": "4/1-4/30",
+   "inventory_gross_kg": 1041.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 983.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Red2604"
+  },
+  {
+   "row": 32,
+   "tag": "301173",
+   "gross_kg": 1033.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 975.4,
+   "empty_tote_weight_kg": 144.0,
+   "net_oil_injected_kg": 889,
+   "production_period_label": "MFO Lot 301173 (LOT00301173), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 580,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 1033.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 975.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 33,
+   "tag": "301180",
+   "gross_kg": 1017.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 959.4,
+   "empty_tote_weight_kg": 149.0,
+   "net_oil_injected_kg": 868,
+   "production_period_label": "MFO Lot 301180 (LOT00301180), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 575,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 1017.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 959.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 34,
+   "tag": "301194",
+   "gross_kg": 944.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 886.4,
+   "empty_tote_weight_kg": 162.0,
+   "net_oil_injected_kg": 782,
+   "production_period_label": "MFO Lot 301194 (LOT00301194), May 2026",
+   "ci": 0.1106615762,
+   "ci_formula": "=$L$17",
+   "inventory_row": 573,
+   "inventory_pp": "May 2026 PP",
+   "inventory_date_range": "5/1-5/31",
+   "inventory_gross_kg": 944.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 886.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Pink2605"
+  },
+  {
+   "row": 35,
+   "tag": "301195",
+   "gross_kg": 1030.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 972.4,
+   "empty_tote_weight_kg": 154.5,
+   "net_oil_injected_kg": 875.5,
+   "production_period_label": "MFO Lot 301195 (LOT00301195), April 2026",
+   "ci": 0.1314184532,
+   "ci_formula": "=$L$16",
+   "inventory_row": 541,
+   "inventory_pp": "April 2026 PP",
+   "inventory_date_range": "4/1-4/30",
+   "inventory_gross_kg": 1030.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 972.4,
+   "inventory_ship_status": "COLA_34",
+   "inventory_spray_paint": "Red2604"
+  },
+  {
+   "row": 36,
+   "tag": "015170",
+   "gross_kg": 1012.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 954.4,
+   "empty_tote_weight_kg": 215.0,
+   "net_oil_injected_kg": 797,
+   "production_period_label": "MFO Lot 3255 (LOT00003255), July 2025",
+   "ci": 0.1575553394801048,
+   "ci_formula": "0.1575553394801048",
+   "inventory_row": 112,
+   "inventory_pp": "2025 PP#8",
+   "inventory_date_range": "7/1-7/31",
+   "inventory_gross_kg": 1012.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 954.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Purple257"
+  },
+  {
+   "row": 37,
+   "tag": "245144",
+   "gross_kg": 1018.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 960.4,
+   "empty_tote_weight_kg": 181.5,
+   "net_oil_injected_kg": 836.5,
+   "production_period_label": "MFO Lot 3696 (LOT00003696), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 186,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1018.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 960.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 38,
+   "tag": "245164",
+   "gross_kg": 1020.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 962.4,
+   "empty_tote_weight_kg": 314.0,
+   "net_oil_injected_kg": 706,
+   "production_period_label": "MFO Lot 3702 (LOT00003702), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 188,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1020.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 962.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 39,
+   "tag": "245121",
+   "gross_kg": 1003.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 945.4,
+   "empty_tote_weight_kg": 190.0,
+   "net_oil_injected_kg": 813,
+   "production_period_label": "MFO Lot 3746 (LOT00003746), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 189,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1003.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 945.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 40,
+   "tag": "245112",
+   "gross_kg": 1051.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 993.4,
+   "empty_tote_weight_kg": 210.0,
+   "net_oil_injected_kg": 841,
+   "production_period_label": "MFO Lot 3748 (LOT00003748), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 190,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1051.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 993.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 41,
+   "tag": "245172",
+   "gross_kg": 1043.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 985.4,
+   "empty_tote_weight_kg": 239.0,
+   "net_oil_injected_kg": 804,
+   "production_period_label": "MFO Lot 3770 (LOT00003770), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 195,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1043.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 985.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 42,
+   "tag": "245165",
+   "gross_kg": 1095.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1037.4,
+   "empty_tote_weight_kg": 162.0,
+   "net_oil_injected_kg": 933,
+   "production_period_label": "MFO Lot 3772 (LOT00003772), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 196,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1095.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 1037.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 43,
+   "tag": "245107",
+   "gross_kg": 1047.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 989.4,
+   "empty_tote_weight_kg": 156.0,
+   "net_oil_injected_kg": 891,
+   "production_period_label": "MFO Lot 3812 (LOT00003812), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 202,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1047.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 989.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 44,
+   "tag": "245157",
+   "gross_kg": 1034.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 976.4,
+   "empty_tote_weight_kg": 329.5,
+   "net_oil_injected_kg": 704.5,
+   "production_period_label": "MFO Lot 3818 (LOT00003818), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 204,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1034.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 976.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 45,
+   "tag": "228410",
+   "gross_kg": 1006.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 948.4,
+   "empty_tote_weight_kg": 195.0,
+   "net_oil_injected_kg": 811,
+   "production_period_label": "MFO Lot 3870 (LOT00003870), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 208,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1006.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 948.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 46,
+   "tag": "228432",
+   "gross_kg": 1008.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 950.4,
+   "empty_tote_weight_kg": 312.0,
+   "net_oil_injected_kg": 696,
+   "production_period_label": "MFO Lot 3872 (LOT00003872), September 2025",
+   "ci": 0.12868956697570233,
+   "ci_formula": "0.12868956697570233",
+   "inventory_row": 209,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1008.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 950.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 47,
+   "tag": "228470",
+   "gross_kg": 1130.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 1072.4,
+   "empty_tote_weight_kg": 267.5,
+   "net_oil_injected_kg": 862.5,
+   "production_period_label": "MFO Lot 3968 (LOT00003968), October 2025",
+   "ci": 0.1110176228550779,
+   "ci_formula": "0.1110176228550779",
+   "inventory_row": 228,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 1130.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 1072.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  },
+  {
+   "row": 48,
+   "tag": "228485",
+   "gross_kg": 947.0,
+   "tote_mass_kg": 57.6,
+   "net_oil_produced_kg": 889.4,
+   "empty_tote_weight_kg": 193.0,
+   "net_oil_injected_kg": 754,
+   "production_period_label": "MFO Lot 3972 (LOT00003972), October 2025",
+   "ci": 0.1110176228550779,
+   "ci_formula": "0.1110176228550779",
+   "inventory_row": 230,
+   "inventory_pp": "2025 PP#10",
+   "inventory_date_range": "9/1-9/30",
+   "inventory_gross_kg": 947.0,
+   "inventory_tare_kg": 57.6,
+   "inventory_net_kg": 889.4,
+   "inventory_ship_status": "Shipped",
+   "inventory_spray_paint": "Pink259"
+  }
+ ],
+ "tote_inventory_crosscheck": {
+  "artifact_path": "/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/outputs/qa/batch-INJ-09-2026-W3-QOWV/source_exports/inventory_master_export.xlsx",
+  "read": "2026-09-29 (late; the 2026-09-22 session compared the ledger with itself, not with the inventory master)",
+  "tag": "38 of 38",
+  "fraction": "QOWV 38 of 38",
+  "gross": "34 of 38 (015162 945.6 vs 946.0; 245103 1071.6 vs 1072.0; 245140 1051.6 vs 1052.0; 245142 1013.6 vs 1014.0; ledger 1.6 kg lower in total)",
+  "production_period": "30 of 38",
+  "period_mismatches": [
+   {
+    "tag": "015162",
+    "ledger": "December 2025 ($L$12 0.1630616644)",
+    "inventory": "row 111, 2025 PP#8, 7/1-7/31, Purple257",
+    "effect_kg": 4.8896
+   },
+   {
+    "tag": "228490",
+    "ledger": "December 2025 ($L$12)",
+    "inventory": "row 207, 2025 PP#10, 9/1-9/30, Pink259",
+    "effect_kg": 33.9046
+   },
+   {
+    "tag": "245103",
+    "ledger": "December 2025 ($L$12)",
+    "inventory": "row 194, 2025 PP#10, 9/1-9/30, Pink259",
+    "effect_kg": 34.8533
+   },
+   {
+    "tag": "245140",
+    "ledger": "December 2025 ($L$12)",
+    "inventory": "row 179, 2025 PP#9, 8/1-8/31, Red258",
+    "effect_kg": 52.1765
+   },
+   {
+    "tag": "245142",
+    "ledger": "December 2025 ($L$12)",
+    "inventory": "row 191, 2025 PP#10, 9/1-9/30, Pink259",
+    "effect_kg": 32.8597
+   },
+   {
+    "tag": "301108",
+    "ledger": "May 2026 ($L$17 0.1106615762)",
+    "inventory": "row 557, April 2026 PP, 4/1-4/30, Red2604",
+    "effect_kg": -20.5369
+   },
+   {
+    "tag": "228470",
+    "ledger": "October 2025 (typed 0.1110176229)",
+    "inventory": "row 228, 2025 PP#10, 9/1-9/30, Pink259",
+    "effect_kg": -18.9514
+   },
+   {
+    "tag": "228485",
+    "ledger": "October 2025 (typed 0.1110176229)",
+    "inventory": "row 230, 2025 PP#10, 9/1-9/30, Pink259",
+    "effect_kg": -15.7174
+   }
+  ],
+  "cis_used_for_correction": {
+   "PP#8": 0.1575553395,
+   "PP#9 (6,541 kg / 59,157 kg, August 2025 summary)": 0.11057,
+   "PP#10": 0.128689567,
+   "April 2026": 0.1314184532
+  },
+  "total_effect_kg": 103.4781,
+  "pe_sheet_kg": 4650.1228,
+  "pe_corrected_kg": 4546.6447,
+  "ci_sheet": 0.1269082907,
+  "ci_corrected": 0.1240842287,
+  "ci_corrected_6dp": 0.124084,
+  "net_understated_t": 0.10348,
+  "summary_tie_tests": {
+   "December 2025": "summary Aqueous 19,161.0 kg = inventory December 2025 PP QOWV 19,161.0 kg (20 totes), without the 5 ledger-December totes",
+   "October 2025": "summary Aqueous 42,860 kg vs inventory 2026 PP#11 (10/1-10/31) 42,860.2 kg (43 totes), without the 2 ledger-October totes"
+  },
+  "historical_tote_record": {
+   "015162": "Historical Tote Record row 469: WO00001147, 2025-07-28, aqueous_fraction, 946.0",
+   "228490": "row 590: WO00001371, 2025-09-19, aqueous_fraction, 1044.0"
+  }
+ },
+ "pp9_summary": {
+  "_primary_source_opened": [
+   {
+    "file": "August 2025 Production Period Summary",
+    "drive_id": "1Kt3H_bffKPxvyBHqOAdrhnGxRzwfAQXFnsLBczb9EKE",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1Kt3H_bffKPxvyBHqOAdrhnGxRzwfAQXFnsLBczb9EKE/edit",
+    "action": "csv_export_read"
+   }
+  ],
+  "wodo_row": "WODO, 20,928 kg, C 49.47%, 14.168 MT, 0.6770",
+  "aqueous_row": "Aqueous, 59,157 kg, C 8.08%, 6.541 MT, 0.1106"
+ },
+ "cobb_injection_record": {
+  "_primary_source_opened": [
+   {
+    "file": "Bio-oil Injection Tracker, tab 'Basco Injection -- COBB'",
+    "action": "sheet_grid_read",
+    "artifact_path": "/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/outputs/qa/batch-INJ-09-2026-W3-QOWV/source_exports/bio_oil_injection_tracker_export.xlsx",
+    "read": "2026-09-29 (late)"
+   }
+  ],
+  "result": "38 rows (760-797) under 'INJ-09-2026-W2_aqueous_fraction'; ledger tags matched 38 of 38; rows 760-764 (015162, 228490, 245103, 245140, 245142) carry the tag in consumed_lot with security_tag blank; injection_completion_date 2026-09-05, inside the Certify window 05-11 Sep 2026",
+  "quantity_note": "quantity_consumed_in_injection = Ops Notes net injected minus 57.6 kg on 34 of 38 rows; doubled on rows 776, 777, 780, 784; not a Certify input"
+ },
+ "inventory_master": {
+  "tare_distribution": {
+   "artifact_path": "/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/outputs/qa/batch-INJ-09-2026-W3-QOWV/source_exports/inventory_master_export.xlsx",
+   "QOWV": {
+    "57.6": 566,
+    "62.93": 73
+   },
+   "result": "Tare is a standard figure (57.6 kg on 566 QOWV totes, 62.93 kg on 73, same on steel and plastic pallets), not a per-tote weighing; W2 column C is 57.6 on all 38 rows"
+  }
+ },
+ "bcu_vs_process": {
+  "bcu_kg": 6454,
+  "process_certify_basis_kg": 6454.494,
+  "process_sheet_basis_kg": 6454.327,
+  "rebuttal_of_flag_recommendation": "checklist_structure.md 8.1 Fail mode: 'BCU < transport process activity (under-reduction)'; no tolerance in the item-specific rule, so Fail is kept"
+ },
+ "live_ops_notes_2026_09_29": {
+  "_primary_source_opened": [
+   {
+    "file": "INJ-09-2026-W2 Ops Notes (live, modifiedTime 2026-09-29T15:13:08Z)",
+    "action": "xlsx_export_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1OEJvgN5KMPKseQrn--RH9QmqDh68zERpf1IMOZN7tvY/edit",
+    "artifact_path": "source_exports/INJ-09-2026-W2_Ops_Notes_live_2026-09-29.xlsx"
+   }
+  ],
+  "H50": "' ' (blank)",
+  "I50": 4491.438649,
+  "D50": 36641.6,
+  "ci_live": 0.1225775798,
+  "pe_change_from_submitted_kg": 158.6842,
+  "relabelled": {
+   "015162": "July 2025",
+   "228490": "September 2025",
+   "245103": "September 2025",
+   "245140": "August 2025",
+   "245142": "September 2025"
+  },
+  "typed_ci_constants": "H11:H15, H47, H48 typed numbers; PP#9 (0.11056982394624702) has no entry in K10:M20",
+  "unchanged": {
+   "301108": "May 2026 ($L$17)",
+   "228470": "October 2025 (typed)",
+   "228485": "October 2025 (typed)"
+  },
+  "allocation_row_12": "Truck 1 (CO_AQUEOUS_12.01.25), 2025-12-01, 40 totes, 18 batch totes (unchanged)"
+ },
+ "work_orders": {
+  "_primary_source_opened": [
+   {
+    "file": "Bio-oil Injection Tracker, tab Historical Tote Record; inventory master tab Oil_inventory_data",
+    "action": "sheet_grid_read",
+    "artifact_path": "/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/outputs/qa/batch-INJ-09-2026-W3-QOWV/source_exports/bio_oil_injection_tracker_export.xlsx"
+   }
+  ],
+  "015162": "HTR row 469 WO00001147 2025-07-28; Oil_inventory_data row 603 production 2025-07-28 gross 946.0 net 888.4, and row 451 Louisiana receiving 2025-12-01 gross 945.6 net 888.0",
+  "228490": "HTR row 590 WO00001371 2025-09-19",
+  "228470": "HTR row 611 WO00001397 2025-10-08; Oil_inventory_data row 505 production_date 2025-10-08, order CO_AQUEOUS_12.01.25",
+  "228485": "HTR row 613 WO00001399 2025-10-08; Oil_inventory_data row 503 production_date 2025-10-08",
+  "301108": "HTR row 1042 OIL260501101214 2026-05-01; Oil_inventory_data row 174 production_date 2026-05-01 but Production Period 'April 2026 PP'"
+ },
+ "shipping_orders_2025_12": {
+  "_primary_source_opened": [
+   {
+    "file": "inventory master tab Oil_inventory_data, column shipping_order_number",
+    "action": "sheet_grid_read",
+    "artifact_path": "/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/outputs/qa/batch-INJ-09-2026-W3-QOWV/source_exports/inventory_master_export.xlsx"
+   }
+  ],
+  "orders_on_2025_12_01": {
+   "CO_AQUEOUS_12.01.25": 20,
+   "CO_AQUEOUS_12.1.25_T2": 20
+  },
+  "batch_totes_by_order": {
+   "CO_AQUEOUS_12.1.25_T2": [
+    "228490",
+    "015162",
+    "245103",
+    "228432",
+    "228410",
+    "245157",
+    "245107",
+    "245172",
+    "015170"
+   ],
+   "CO_AQUEOUS_12.01.25": [
+    "245140",
+    "245142",
+    "228485",
+    "228470",
+    "245165",
+    "245112",
+    "245121",
+    "245164",
+    "245144"
+   ]
+  },
+  "allocation_by_order_mi": 2281.9,
+  "allocation_submitted_mi": 1741.45,
+  "embodied_by_order_t": 0.43993,
+  "embodied_increase_t": 0.10419
+ },
+ "discount_check": {
+  "estimate_kg": 41.24,
+  "basis": "sequestration (carbon 0.004 relative, mass 43.09124/31,250.9), transport process and pyrolysis masses (43.09124 kg), combined in quadrature; rounds to Certify's 41 kg"
+ }
+}

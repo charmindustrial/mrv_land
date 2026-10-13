@@ -1,0 +1,126 @@
+{
+ "batch_id": "INJ-09-2026-W3-QOWV",
+ "note": "Written 2026-09-28 after Max caught eight skipped steps; entries marked 'late' were completed after first delivery.",
+ "steps": {
+  "P1_knowledge_base": {
+   "done": true,
+   "evidence": "knowledge-base/Charm_Isometric_Knowledge_Base.md read 2026-09-28T21:28:00Z"
+  },
+  "P2_lessons_learned": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/references/lessons_learned.md read at pre-flight, 2026-09-28T21:28Z"
+  },
+  "P3_checklist_structure": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/references/checklist_structure.md read at pre-flight, 2026-09-28T21:28Z"
+  },
+  "P4_failure_categories_printed": {
+   "done": true,
+   "evidence": "FC-C1 to FC-C12 printed to chat 2026-09-28T21:28:34Z, before Gate 1"
+  },
+  "P5_registry_checked": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/qa_active_charm_batches.json checked at pre-flight; no prior W3 entry"
+  },
+  "T0_stamped_monitor_triggered": {
+   "done": true,
+   "evidence": "T0 2026-09-28T21:27:50Z in batch_timestamps.json; performance-monitor skill triggered at T0"
+  },
+  "G1_0_vvb_guidance_full": {
+   "done": true,
+   "evidence": "[log:vvb_guidance] read in full"
+  },
+  "G1_0_cell_comments": {
+   "done": true,
+   "evidence": "No cell comments on any of the 10 tabs of source_exports/INJ-09-2026-W3_Ops_Notes.xlsx [log:ops_notes]"
+  },
+  "G1_1_batch_folder": {
+   "done": true,
+   "evidence": "[log:batch_folder_inventory, batch_folder_listing] batch_folder_listing.txt"
+  },
+  "G1_2_totes": {
+   "done": true,
+   "evidence": "[log:totes] 37 totes, no null fields"
+  },
+  "G1_3_ops_notes": {
+   "done": true,
+   "evidence": "[log:ops_notes, ops_notes_totals, lcs_use_kg]"
+  },
+  "G1_4_shipment_tracker": {
+   "done": true,
+   "evidence": "[log:shipment_tracker, shipment_tracker_cells_are_formulas]"
+  },
+  "G1_5_testing": {
+   "done": true,
+   "evidence": "[log:testing] SR26-05599_W3_QOWV_AECN_COA.pdf"
+  },
+  "G1_6_pp_summaries": {
+   "done": true,
+   "evidence": "late: WODO rows, period lengths and date-range finding added from full CSV exports before 2026-09-28T23:32:44Z [log:pp_summary_sources]"
+  },
+  "G1_7_charm_contents": {
+   "done": true,
+   "evidence": "[log:charm_contents] absent from folder listing and the six Certify sources"
+  },
+  "G1_8_certify_four_tabs": {
+   "done": true,
+   "evidence": "[log:certify.component_by_key, certify.calculation_view, certify.datapoints_tab_total, certify.certify_sources_enumeration]"
+  },
+  "G1_8_sources_tab_total": {
+   "done": true,
+   "evidence": "[log:certify.certify_sources_tab_total, certify.certify_sources_enumeration]"
+  },
+  "G1_registry_updated": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/qa_active_charm_batches.json entry added after Gate 1, 2026-09-28T21:52Z"
+  },
+  "G1_injection_record": {
+   "done": true,
+   "evidence": "late: opened after the adversarial review (T1 was stamped 2026-09-28T21:52:40Z before it) [log:cobb_injection_record] source_exports/bio_oil_injection_tracker_export.xlsx"
+  },
+  "G2_1_tare_measured": {
+   "done": true,
+   "evidence": "late: 57.6 kg is a standard figure, not a weighing; added to 2.2 Flag and posted in Garrett's thread 2026-09-28T23:32:44Z [log:inventory_master.tare_distribution]"
+  },
+  "G2_2_tracker_cells_clicked": {
+   "done": true,
+   "evidence": "[log:shipment_tracker_cells_are_formulas] E12:E15, G12:G15, G17, D6, F12:F15 formula text quoted"
+  },
+  "G2_3_component_modals": {
+   "done": true,
+   "evidence": "All five component detail views opened between T0 2026-09-28T21:27:50Z and T1 21:52:40Z [log:certify._primary_source_opened, certify.component_by_key]"
+  },
+  "G2_4_each_pp_summary": {
+   "done": true,
+   "evidence": "Five summaries exported and read [log:pp_summary_sources] source_exports/pp_summaries/May2026_full.csv"
+  },
+  "G2_5_recompute_pasted": {
+   "done": true,
+   "evidence": "late: recompute_qowv.py exit 0, output saved to recompute_output.txt and pasted in chat 2026-09-28T23:43:08Z (plain-English table 2026-09-28T23:49:07Z)"
+  },
+  "G2_lcs_search": {
+   "done": true,
+   "evidence": "[log:lcs_search_method, lcs_use_kg] lcs_scan.txt, zero hits across all 10 tabs"
+  },
+  "G3_reviewer_independent": {
+   "done": true,
+   "evidence": "Independent subagent review completed 2026-09-28T22:28:09Z: adversarial_review_INJ-09-2026-W3-QOWV.md"
+  },
+  "G3_challenges_resolved": {
+   "done": true,
+   "evidence": "[log:adversarial_review] 7 challenges + sidebar accepted/rejected with evidence; observation 4 (nominal tare) resolved late 2026-09-28T23:32:44Z"
+  },
+  "G4_render_in_excel": {
+   "done": true,
+   "evidence": "late: opened in Excel and Excel PDF export read 2026-09-28T23:31:37Z; sidebar rows were cut to one line and fixed"
+  },
+  "G4_status_counts": {
+   "done": true,
+   "evidence": "Pass 24 / Flag 3 / Fail 5 / N/A 1 counted by build_checklist.py on the rebuild that recorded [log:shipping_orders_2025_12]"
+  },
+  "G4_monitor_independent": {
+   "done": true,
+   "evidence": "late: independent monitor agent rewrote row 13 of outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx, finished 2026-09-28T23:42:19Z; updated for the rework 2026-09-29T16:53:29Z"
+  }
+ }
+}

@@ -1,0 +1,67 @@
+- dialog "SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions" [active] [ref=f162e589]:
+  - generic [ref=f162e590]:
+    - generic [ref=f162e591]:
+      - generic [ref=f162e593]:
+        - button "SOPOR to Opelousas/Baton Rouge Rail Transport Embodied Emissions" [ref=f162e596] [cursor=pointer]
+        - generic [ref=f162e597]:
+          - generic [ref=f162e598]: 0.470 tCO₂e
+          - generic [ref=f162e600]: 0.13%
+      - button "Toggle timeline sidebar" [ref=f162e602] [cursor=pointer]
+      - button "Close" [ref=f162e605] [cursor=pointer]
+    - generic [ref=f162e609]:
+      - generic [ref=f162e610]:
+        - generic [ref=f162e611]: Inputs
+        - grid "Input list" [ref=f162e612]:
+          - row "Distance emission factor" [ref=f162e613]:
+            - gridcell "Distance emission factor Emissions Factor - Vehicle Embodied Emissions -- Railcar 0.03113 kgCO₂e/mi 1 source Deselect datapoint" [ref=f162e614]:
+              - generic [ref=f162e615]:
+                - generic [ref=f162e616]: Distance emission factor
+                - generic [ref=f162e619]:
+                  - button "Emissions Factor - Vehicle Embodied Emissions -- Railcar 0.03113 kgCO₂e/mi 1 source" [ref=f162e624] [cursor=pointer]:
+                    - generic [ref=f162e625]: Emissions Factor - Vehicle Embodied Emissions -- Railcar
+                    - generic [ref=f162e628]:
+                      - generic [ref=f162e629]: "0.03113"
+                      - text: kgCO₂e/mi
+                    - button "1 source" [disabled] [ref=f162e631]
+                  - button "Deselect datapoint" [ref=f162e635] [cursor=pointer]
+          - row "Distance traveled" [ref=f162e638]:
+            - gridcell "Distance traveled Allocated Distance Sopor Quebec to Opelousas (rail) 15,102.69 mi 2 sources Deselect datapoint" [ref=f162e639]:
+              - generic [ref=f162e640]:
+                - generic [ref=f162e641]: Distance traveled
+                - generic [ref=f162e644]:
+                  - button "Allocated Distance Sopor Quebec to Opelousas (rail) 15,102.69 mi 2 sources" [ref=f162e649] [cursor=pointer]:
+                    - generic [ref=f162e650]: Allocated Distance Sopor Quebec to Opelousas (rail)
+                    - generic [ref=f162e653]:
+                      - generic [ref=f162e654]: 15,102.69
+                      - text: mi
+                    - button "2 sources" [disabled] [ref=f162e656]
+                  - button "Deselect datapoint" [ref=f162e660] [cursor=pointer]
+      - generic [ref=f162e663]:
+        - generic [ref=f162e664]: Description
+        - button "+ Add" [ref=f162e666] [cursor=pointer]
+      - generic [ref=f162e668]:
+        - generic [ref=f162e669]: Blueprint details
+        - generic [ref=f162e670]:
+          - generic [ref=f162e671]:
+            - generic [ref=f162e672]: Blueprint
+            - generic [ref=f162e675]:
+              - link "Distance-based emissions" [ref=f162e676] [cursor=pointer]:
+                - /url: https://docs.isometric.com/certify/component-blueprint-library#distance-based-emissions
+              - generic [ref=f162e677]: "->"
+          - generic [ref=f162e678]:
+            - generic [ref=f162e679]: Key
+            - generic [ref=f162e681]: distance_based_ci_emissions
+          - generic [ref=f162e682]:
+            - generic [ref=f162e683]: Gas type
+            - generic [ref=f162e685]: CO₂e
+          - generic [ref=f162e686]:
+            - generic [ref=f162e687]: Calculation
+            - generic [ref=f162e690]:
+              - generic [ref=f162e691]: output
+              - generic [ref=f162e693]: =
+              - generic [ref=f162e694]: distance
+              - generic [ref=f162e696]: "*"
+              - generic [ref=f162e697]: carbon_intensity
+    - generic [ref=f162e700]:
+      - button "Delete" [ref=f162e701] [cursor=pointer]
+      - button "Done" [ref=f162e702] [cursor=pointer]

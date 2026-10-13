@@ -1,0 +1,510 @@
+=== SHEET Summary dims A1:N25
+A1: 'BATCH SUMMARY'
+A2: 'Batch ID'
+B2: 'INJ-09-2026-W2'
+A3: 'Week Start (Sat)'
+B3: datetime.datetime(2026, 9, 5, 0, 0)
+A4: 'Week End (Sat)'
+B4: datetime.datetime(2026, 9, 12, 0, 0)
+A6: 'SECTION 1 - PER-TAB SUMMARY  (each row pulls from its mode tab)'
+A7: 'Source Tab'
+B7: 'Σ Deliveries / Cargo (kg)'
+C7: 'Σ Uncertainty Adj (kg)'
+D7: 'Mass Used (kg)'
+E7: 'Sparging Loss (kg)'
+F7: 'Filtration Loss (kg)'
+G7: 'MOBI (kg)'
+H7: 'AECN→SOPOR EE (mi)'
+I7: 'Rail EE (mi)'
+J7: 'Opel→Basco EE (mi)'
+A8: 'AECN Rail'
+B8: "='AECN Rail'!A44"  -> 155863.283
+C8: "='AECN Rail'!B44"  -> 0
+D8: "='AECN Rail'!C44"  -> 155863.283
+E8: "='AECN Rail'!D44"  -> 2010.636351
+F8: "='AECN Rail'!E44"  -> 301.5511875
+G8: "='AECN Rail'!F44"  -> 153551.0955
+H8: "='AECN Rail'!L36"  -> 644.7583867
+I8: "='AECN Rail'!M36"  -> 4405.917936
+J8: "='AECN Rail'!N36"  -> 686.4
+A9: 'AECN Truck'
+B9: "='AECN Truck'!A28"  -> 58570
+C9: "='AECN Truck'!F28"  -> 0
+D9: "='AECN Truck'!C28"  -> 58570
+E9: "='AECN Truck'!D28"  -> 755.553
+F9: "='AECN Truck'!E28"  -> 113.3163161
+G9: "='AECN Truck'!G28"  -> 57701.13068
+A10: 'Charm WODO'
+B10: '=WODO!A29'  -> 0
+C10: '=WODO!A29-WODO!B29'  -> 0
+D10: '=WODO!B29'  -> 0
+E10: '=WODO!C29'  -> None
+F10: 0.0
+G10: '=WODO!D29'  -> 0
+A11: 'Kerry'
+B11: '=Kerry!A18'  -> 18007.6024
+C11: 0.0
+D11: '=Kerry!A18'  -> 18007.6024
+E11: 0.0
+F11: '=Kerry!B18'  -> 35.2949007
+G11: '=Kerry!C18'  -> 17972.3075
+A12: 'QOWV'
+B12: '=QOWV!B50'  -> 38830.4
+C12: 0.0
+D12: '=QOWV!D50'  -> 36641.6
+E12: 0.0
+F12: 0.0
+G12: '=QOWV!F50'  -> 31250.9
+A13: 'Whole Oil'
+B13: "='Whole Oil'!A33"  -> 3457
+C13: "='Whole Oil'!A33-'Whole Oil'!B33"  -> 172.8
+D13: "='Whole Oil'!B33"  -> 3284.2
+E13: "='Whole Oil'!C33"  -> 25.2
+F13: 0.0
+G13: "='Whole Oil'!D33"  -> 3259
+A14: 'TOTAL'
+B14: '=SUM(B8:B13)'  -> 274728.2854
+C14: '=SUM(C8:C13)'  -> 172.8
+D14: '=SUM(D8:D13)'  -> 272366.6854
+E14: '=SUM(E8:E13)'  -> 2791.389351
+F14: '=SUM(F8:F13)'  -> 450.1624043
+G14: '=SUM(G8:G13)'  -> 263734.4337
+H14: '=SUM(H8:H13)'  -> 644.7583867
+I14: '=SUM(I8:I13)'  -> 4405.917936
+J14: '=SUM(J8:J13)'  -> 686.4
+A16: 'SECTION 2 - PER-OIL-TYPE ROLLUP  (composite C% per oil type per week)'
+A17: 'Oil Type'
+B17: 'MOBI (kg)'
+C17: 'Composite Sample ID'
+D17: 'Date Composited'
+E17: 'C %'
+F17: 'Lab COA Link'
+G17: 'C Content Uncertainty'
+H17: 'Testing Uncertainty'
+A18: 'AECN'
+B18: '=G8+G9'  -> 211252.2262
+C18: 'SR26-05494.002'
+D18: datetime.datetime(2026, 9, 12, 0, 0)
+E18: 0.404
+F18: '=HYPERLINK("https://drive.google.com/file/d/1E1uy1rtPtWOVK39JiIoe8RyE38Ob0NQo/view","COA SR26-05494.002")'  -> 'COA SR26-05494.002'
+G18: '=E18*H18'  -> 0.001616
+H18: 0.004
+A19: 'WODO'
+B19: '=G10'  -> 0
+A20: 'Kerry'
+B20: '=G11'  -> 17972.3075
+A21: 'QOWV'
+B21: '=G12'  -> 31250.9
+C21: 'SR26-05494.001'
+D21: datetime.datetime(2026, 9, 5, 0, 0)
+E21: 0.083
+F21: '=HYPERLINK("https://drive.google.com/file/d/1E1uy1rtPtWOVK39JiIoe8RyE38Ob0NQo/view","COA SR26-05494.001")'  -> 'COA SR26-05494.001'
+G21: '=E21*H21'  -> 0.000332
+H21: 0.004
+A22: 'Whole Oil'
+B22: '=G13'  -> 3259
+G22: '=E22*H22'  -> 0
+H22: 0.004
+A23: 'TOTAL'
+B23: '=SUM(B18:B22)'  -> 263734.4337
+G25: ' '
+=== SHEET AECN Rail dims A1:R48
+A1: 'BATCH HEADER — AECN Rail'
+A2: 'Batch ID (INJ-YYYY-WXX)'
+B2: 'INJ-09-2026-W2'
+N2: 'Constants'
+A3: 'Week Start (Sat)'
+B3: datetime.datetime(2026, 9, 5, 0, 0)
+N3: 'Lbs/Kg'
+O3: 2.20462
+A4: 'Week End (Sat)'
+B4: datetime.datetime(2026, 9, 12, 0, 0)
+N4: 'Kg/Lbs'
+O4: 0.453592
+N5: 'Sparging Mass Loss'
+O5: 0.0129
+N6: 'pH range (target)'
+O6: '2.0 - 4.0'
+N7: 'Filtration Solids Content'
+O7: '=HYPERLINK("https://docs.google.com/spreadsheets/d/1XhIwfVwGTl2T04CAlA-qee03gfqxNWwBmSCAeiSW548/edit?usp=sharing", 0.00196)'  -> 0.00196
+A8: 'SECTION 1 - RAILCARS RECEIVED THIS WEEK  (entity-level)'
+N8: 'BOL Trips (AECN→SOPOR)'
+O8: 3.0
+A9: 'Railcar #'
+B9: 'Arrival Date at Opelousas'
+C9: 'Loading BOLs (comma-sep)'
+D9: 'Total Loaded (MT)'
+E9: 'Total Loaded (kg)'
+F9: 'Total Offloaded (kg, auto)'
+G9: 'Loss (kg)'
+H9: 'Previously Claimed (kg)'
+I9: 'Prior-RP Claimed (kg)'
+J9: 'AECN→SOPOR (mi)'
+K9: 'Rail (mi)'
+L9: 'Opel→Basco (mi)'
+M9: 'Notes'
+N9: 'Round Trip (Opel→Basco)'
+O9: 2.0
+P9: 'Full Railcar This Week?'
+A10: 'TIMX201060'
+B10: datetime.datetime(2026, 7, 31, 0, 0)
+C10: '2450-R, 2451-R, 2452-R'
+D10: 78.14
+E10: 78140.0
+F10: '=SUMIF($C$28:$C$41,A10,$F$28:$F$41)+H10'  -> 77800.09984
+G10: '=IF(AND(E10<>"",F10<>"",F10>=0.95*E10),E10-F10,"")'  -> 339.90016
+H10: 0.0
+I10: 0.0
+J10: 107.5
+K10: 2199.0
+L10: 42.9
+M10: 'New arrival this RP (7.31.2026 load). Loaded 7/29-7/30/2026 at SOPOR (BOLs 2450-R/2451-R/2452-R, 78,140 kg). All 4 offloads logged this week, CAT scale-ticket confirmed (delta 0.00 kg vs COBB on all 4). Prior-RP claimed: 0 kg.'
+P10: '=IF(OR($E10="",$F10=""),"",IF(AND($H10=0,$F10>=0.95*$E10),"FULL","PARTIAL"))'  -> 'FULL'
+A11: 'SHPX215079'
+B11: datetime.datetime(2026, 8, 4, 0, 0)
+C11: '2453-R, 2454-R, 2455-R'
+D11: 77.87
+E11: 77870.0
+F11: '=SUMIF($C$28:$C$41,A11,$F$28:$F$41)+H11'  -> 42410.852
+G11: '=IF(AND(E11<>"",F11<>"",F11>=0.95*E11),E11-F11,"")'  -> None
+H11: 0.0
+I11: 0.0
+J11: 107.5
+K11: 2199.0
+L11: 42.9
+M11: 'New arrival this RP (8.4.2026 load). Loaded 7/30 and 8/3/2026 at SOPOR (BOLs 2453-R/2454-R/2455-R, 77,870 kg). Offloads 1-2 logged this week, CAT scale-ticket confirmed (delta 0.00 kg vs COBB on both). Prior-RP claimed: 0 kg. Note: this physical railcar had an earlier, separate 6.18.2026 loading/offload cycle already closed in a prior RP -- not part of this arrival mass balance.'
+P11: '=IF(OR($E11="",$F11=""),"",IF(AND($H11=0,$F11>=0.95*$E11),"FULL","PARTIAL"))'  -> 'PARTIAL'
+A12: 'SHPX215046'
+B12: datetime.datetime(2026, 8, 7, 0, 0)
+C12: '2462-R, 2463-R, 2464-R'
+D12: 77.68
+E12: 77680.0
+F12: '=SUMIF($C$28:$C$41,A12,$F$28:$F$41)+H12'  -> 35652.3312
+G12: '=IF(AND(E12<>"",F12<>"",F12>=0.95*E12),E12-F12,"")'  -> None
+H12: 0.0
+I12: 0.0
+J12: 107.5
+K12: 2199.0
+L12: 42.9
+M12: 'Loaded 8/5-8/6/2026 at SOPOR (BOLs 2462-R/2463-R/2464-R, 77,680 kg). COBB contains ONLY offload_3 (20,810.80 kg) and offload_4 (14,821.22 kg) for this arrival -- offload_1 and offload_2 do not exist in COBB; status pending confirmation, not assumed lost. LD3 only candidate CAT ticket (1124426250545, 74,320 lb, 9-07-26) is confirmed mislabeled (printed SHPX215046OFFLOAD3, actually belongs to another car per Garrett); its next-best mass-fit alternative is itself a ticket labeled GPRX5107 (a different, W1 railcar) -- not treated as genuine. LD4 has no resolvable ticket after a wide Gmail harvest. Both LD3 and LD4 Full/Empty left blank pending real tickets. 45.9 pct of loaded mass currently documented (35,632.02 / 77,680 kg) -- Loss suppressed by design (>=95pct closure guard) until resolved. Prior-RP claimed: 0 kg.'
+P12: '=IF(OR($E12="",$F12=""),"",IF(AND($H12=0,$F12>=0.95*$E12),"FULL","PARTIAL"))'  -> 'PARTIAL'
+G13: '=IF(AND(E13<>"",F13<>"",F13>=0.95*E13),E13-F13,"")'  -> None
+P13: '=IF(OR($E13="",$F13=""),"",IF(AND($H13=0,$F13>=0.95*$E13),"FULL","PARTIAL"))'  -> None
+G14: '=IF(AND(E14<>"",F14<>"",F14>=0.95*E14),E14-F14,"")'  -> None
+P14: '=IF(OR($E14="",$F14=""),"",IF(AND($H14=0,$F14>=0.95*$E14),"FULL","PARTIAL"))'  -> None
+A15: 'SECTION 2 - ORIGINS LEDGER  (loading BOLs at SOPOR)'
+A16: 'Date'
+B16: 'BOL #'
+C16: 'Railcar #'
+D16: 'BOL Mass (MT)'
+E16: 'BOL Mass (kg)'
+A17: datetime.datetime(2026, 7, 29, 0, 0)
+B17: '=HYPERLINK("https://drive.google.com/file/d/1ZuURgQe3U1js-r_7RIKM4d-Jr6-F3zSs/view","2450-R")'  -> '2450-R'
+C17: 'TIMX201060'
+D17: 26.06
+E17: 26060.0
+A18: datetime.datetime(2026, 7, 29, 0, 0)
+B18: '=HYPERLINK("https://drive.google.com/file/d/1k0djKC95Um_AqEAfJcyq2WU9rV9x6Eec/view","2451-R")'  -> '2451-R'
+C18: 'TIMX201060'
+D18: 26.02
+E18: 26020.0
+A19: datetime.datetime(2026, 7, 30, 0, 0)
+B19: '=HYPERLINK("https://drive.google.com/file/d/1mVN2I6OeEMIGpFBE9wpZJC3yF2INqi7H/view","2452-R")'  -> '2452-R'
+C19: 'TIMX201060'
+D19: 26.06
+E19: 26060.0
+A20: datetime.datetime(2026, 7, 30, 0, 0)
+B20: '=HYPERLINK("https://drive.google.com/file/d/1uf-uIbIK-w263t44Z7hPxz4V6TcOwkuj/view","2453-R")'  -> '2453-R'
+C20: 'SHPX215079'
+D20: 25.99
+E20: 25990.0
+A21: datetime.datetime(2026, 8, 3, 0, 0)
+B21: '=HYPERLINK("https://drive.google.com/file/d/19tEV6CHDlw4IHdGf0eTcvgchBT5619z2/view","2454-R")'  -> '2454-R'
+C21: 'SHPX215079'
+D21: 25.91
+E21: 25910.0
+A22: datetime.datetime(2026, 8, 3, 0, 0)
+B22: '=HYPERLINK("https://drive.google.com/file/d/1Ew57sSdaj0k_89WfzfXFYvHmdga4A3Yt/view","2455-R")'  -> '2455-R'
+C22: 'SHPX215079'
+D22: 25.97
+E22: 25970.0
+A23: datetime.datetime(2026, 8, 5, 0, 0)
+B23: '=HYPERLINK("https://drive.google.com/file/d/1dCSXmu7dtsVXb1lm03NoB703GWhQ4SoL/view","2462-R")'  -> '2462-R'
+C23: 'SHPX215046'
+D23: 25.94
+E23: 25940.0
+A24: datetime.datetime(2026, 8, 6, 0, 0)
+B24: '=HYPERLINK("https://drive.google.com/file/d/1dnRbhH5-6l1akkr2TOene6LVg_vIcbqy/view","2463-R")'  -> '2463-R'
+C24: 'SHPX215046'
+D24: 25.9
+E24: 25900.0
+A25: datetime.datetime(2026, 8, 6, 0, 0)
+B25: '=HYPERLINK("https://drive.google.com/file/d/1K229IOTPDOAGAckmNGMoLtQr9BUJo-tu/view","2464-R")'  -> '2464-R'
+C25: 'SHPX215046'
+D25: 25.84
+E25: 25840.0
+A26: 'SECTION 3 - SCALE TICKTS + OFFLOAD WEIGHTS'
+D27: 'Full Scale Ticket (lb)'
+E27: 'Empty Scale Ticket (lb)'
+F27: 'Net Scaled Mass (kg)'
+G27: 'pH'
+H27: 'Sparging Loss (kg)'
+I27: 'Filtration Loss (kg)'
+J27: 'Uncertainty Adjustment (kg)'
+K27: 'MOBI (kg)'
+L27: 'AECN→SOPOR (mi, allocated ×3)'
+M27: 'Rail (mi, allocated)'
+N27: 'Opel→Basco (mi, full ×2)'
+O27: 'C Content'
+A28: datetime.datetime(2026, 9, 11, 0, 0)
+B28: 'Rail_SHPX215046_8.7.2026_offload_3'
+C28: 'SHPX215046'
+D28: '=HYPERLINK("https://drive.google.com/file/d/1GisAZh42UfUeqGGvXLAVvExtnXfKTUs8/view",74320)'  -> 74320
+E28: '=HYPERLINK("https://drive.google.com/file/d/1VZTOOgPaWtrG_CFLtozthC_v89fI-t5c/view",28440)'  -> 28440
+F28: '=IF(OR(D28="",E28=""),"",(D28-E28)*$O$4)'  -> 20810.80096
+H28: '=IF(F28="","",(F28-J28)*$O$5)'  -> 268.4593324
+I28: '=IF(F28="","",(F28-J28)*(1-$O$5)*$O$7)'  -> 40.26298959
+J28: <openpyxl.worksheet.formula.ArrayFormula object at 0x110085400>
+K28: '=IF(F28="","",F28-H28-I28-J28)'  -> 20502.07864
+L28: '=IF(F28="","",(F28-J28)/VLOOKUP(C28,$A$10:$L$14,5,FALSE)*VLOOKUP(C28,$A$10:$L$14,10,FALSE)*$O$8)'  -> 86.39911573
+M28: <openpyxl.worksheet.formula.ArrayFormula object at 0x110083110>
+N28: '=IF(F28="","",IFERROR(VLOOKUP(C28,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> 85.8
+A29: datetime.datetime(2026, 9, 11, 0, 0)
+B29: 'Rail_SHPX215046_8.7.2026_offload_4'
+C29: 'SHPX215046'
+D29: '=HYPERLINK("https://drive.google.com/file/d/1Ey8e0SGZWEeLyB3tSyfzmlK_x0MvYBgN/view",61980)'  -> 61980
+E29: '=HYPERLINK("https://drive.google.com/file/d/1mx7n-RIuGDT5LdH69PYAfmmYKxB144P_/view",29260)'  -> 29260
+F29: '=IF(OR(D29="",E29=""),"",(D29-E29)*$O$4)'  -> 14841.53024
+H29: '=IF(F29="","",(F29-J29)*$O$5)'  -> 191.4557401
+I29: '=IF(F29="","",(F29-J29)*(1-$O$5)*$O$7)'  -> 28.71414602
+J29: <openpyxl.worksheet.formula.ArrayFormula object at 0x110083c50>
+K29: '=IF(F29="","",F29-H29-I29-J29)'  -> 14621.36035
+L29: '=IF(F29="","",(F29-J29)/VLOOKUP(C29,$A$10:$L$14,5,FALSE)*VLOOKUP(C29,$A$10:$L$14,10,FALSE)*$O$8)'  -> 61.61680616
+M29: <openpyxl.worksheet.formula.ArrayFormula object at 0x107a43950>
+N29: '=IF(F29="","",IFERROR(VLOOKUP(C29,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> 85.8
+A30: datetime.datetime(2026, 9, 11, 0, 0)
+B30: 'Rail_SHPX215079_8.4.2026_offload_1'
+C30: 'SHPX215079'
+D30: '=HYPERLINK("https://drive.google.com/file/d/1XqCArIC7PnSrQ6kqwkAhpxNbBI05eBPP/view",76720)'  -> 76720
+E30: '=HYPERLINK("https://drive.google.com/file/d/11t6R_4Gs-duPIqzwEQIX2N55hmOsPrGD/view",28660)'  -> 28660
+F30: '=IF(OR(D30="",E30=""),"",(D30-E30)*$O$4)'  -> 21799.63152
+H30: '=IF(F30="","",(F30-J30)*$O$5)'  -> 281.2152466
+I30: '=IF(F30="","",(F30-J30)*(1-$O$5)*$O$7)'  -> 42.1760959
+J30: <openpyxl.worksheet.formula.ArrayFormula object at 0x107a43a80>
+K30: '=IF(F30="","",F30-H30-I30-J30)'  -> 21476.24018
+L30: '=IF(F30="","",(F30-J30)/VLOOKUP(C30,$A$10:$L$14,5,FALSE)*VLOOKUP(C30,$A$10:$L$14,10,FALSE)*$O$8)'  -> 90.28356447
+M30: <openpyxl.worksheet.formula.ArrayFormula object at 0x110098710>
+N30: '=IF(F30="","",IFERROR(VLOOKUP(C30,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> 85.8
+A31: datetime.datetime(2026, 9, 11, 0, 0)
+B31: 'Rail_SHPX215079_8.4.2026_offload_2'
+C31: 'SHPX215079'
+D31: '=HYPERLINK("https://drive.google.com/file/d/1KFfyPOYLciZ2vsYZMviViwIHQM2cyEoP/view",73860)'  -> 73860
+E31: '=HYPERLINK("https://drive.google.com/file/d/12MMZsVKKYdE0J4hgJTknIIsqHMAA9nQe/view",28420)'  -> 28420
+F31: '=IF(OR(D31="",E31=""),"",(D31-E31)*$O$4)'  -> 20611.22048
+H31: '=IF(F31="","",(F31-J31)*$O$5)'  -> 265.8847442
+I31: '=IF(F31="","",(F31-J31)*(1-$O$5)*$O$7)'  -> 39.87685804
+J31: <openpyxl.worksheet.formula.ArrayFormula object at 0x11000e470>
+K31: '=IF(F31="","",F31-H31-I31-J31)'  -> 20305.45888
+L31: '=IF(F31="","",(F31-J31)/VLOOKUP(C31,$A$10:$L$14,5,FALSE)*VLOOKUP(C31,$A$10:$L$14,10,FALSE)*$O$8)'  -> 85.36173886
+M31: <openpyxl.worksheet.formula.ArrayFormula object at 0x11000e580>
+N31: '=IF(F31="","",IFERROR(VLOOKUP(C31,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> 85.8
+A32: datetime.datetime(2026, 9, 11, 0, 0)
+B32: 'Rail_TIMX201060_7.31.2026_offload_1'
+C32: 'TIMX201060'
+D32: '=HYPERLINK("https://drive.google.com/file/d/1iih6baWdgvbgqhjYWEaIk9LdrDGBeRby/view",85100)'  -> 85100
+E32: '=HYPERLINK("https://drive.google.com/file/d/181-3ASFhsekj8JYrjpVem8DW4rNxVpdA/view",29480)'  -> 29480
+F32: '=IF(OR(D32="",E32=""),"",(D32-E32)*$O$4)'  -> 25228.78704
+H32: '=IF(F32="","",(F32-J32)*$O$5)'  -> 325.4513528
+I32: '=IF(F32="","",(F32-J32)*(1-$O$5)*$O$7)'  -> 48.81053795
+J32: <openpyxl.worksheet.formula.ArrayFormula object at 0x110049850>
+K32: '=IF(F32="","",F32-H32-I32-J32)'  -> 24854.52515
+L32: '=IF(F32="","",(F32-J32)/VLOOKUP(C32,$A$10:$L$14,5,FALSE)*VLOOKUP(C32,$A$10:$L$14,10,FALSE)*$O$8)'  -> 104.124441
+M32: <openpyxl.worksheet.formula.ArrayFormula object at 0x110049950>
+N32: '=IF(F32="","",IFERROR(VLOOKUP(C32,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> 85.8
+A33: datetime.datetime(2026, 9, 11, 0, 0)
+B33: 'Rail_TIMX201060_7.31.2026_offload_2'
+C33: 'TIMX201060'
+D33: 74140.0
+E33: 28480.0
+F33: '=IF(OR(D33="",E33=""),"",(D33-E33)*$O$4)'  -> 20711.01072
+H33: '=IF(F33="","",(F33-J33)*$O$5)'  -> 267.1720383
+I33: '=IF(F33="","",(F33-J33)*(1-$O$5)*$O$7)'  -> 40.06992382
+J33: <openpyxl.worksheet.formula.ArrayFormula object at 0x1100065d0>
+K33: '=IF(F33="","",F33-H33-I33-J33)'  -> 20403.76876
+L33: '=IF(F33="","",(F33-J33)/VLOOKUP(C33,$A$10:$L$14,5,FALSE)*VLOOKUP(C33,$A$10:$L$14,10,FALSE)*$O$8)'  -> 85.47864035
+M33: <openpyxl.worksheet.formula.ArrayFormula object at 0x1100066c0>
+N33: '=IF(F33="","",IFERROR(VLOOKUP(C33,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> 85.8
+A34: datetime.datetime(2026, 9, 11, 0, 0)
+B34: 'Rail_TIMX201060_7.31.2026_offload_3'
+C34: 'TIMX201060'
+D34: '=HYPERLINK("https://drive.google.com/file/d/15-txlOW4h4ZFEpOyYV_6TWeYMiEedZMX/view",73220)'  -> 73220
+E34: '=HYPERLINK("https://drive.google.com/file/d/1s_Mn6t0K6XdPCX1WaNgq9YzQ2nyLyS9_/view",29860)'  -> 29860
+F34: '=IF(OR(D34="",E34=""),"",(D34-E34)*$O$4)'  -> 19667.74912
+H34: '=IF(F34="","",(F34-J34)*$O$5)'  -> 253.7139636
+I34: '=IF(F34="","",(F34-J34)*(1-$O$5)*$O$7)'  -> 38.05150891
+J34: <openpyxl.worksheet.formula.ArrayFormula object at 0x107a33690>
+K34: '=IF(F34="","",F34-H34-I34-J34)'  -> 19375.98365
+L34: '=IF(F34="","",(F34-J34)/VLOOKUP(C34,$A$10:$L$14,5,FALSE)*VLOOKUP(C34,$A$10:$L$14,10,FALSE)*$O$8)'  -> 81.17288317
+M34: <openpyxl.worksheet.formula.ArrayFormula object at 0x107a33770>
+N34: '=IF(F34="","",IFERROR(VLOOKUP(C34,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> 85.8
+A35: datetime.datetime(2026, 9, 11, 0, 0)
+B35: 'Rail_TIMX201060_7.31.2026_offload_4'
+C35: 'TIMX201060'
+D35: '=HYPERLINK("https://drive.google.com/file/d/10Rb7609pMhTK_nP5ptKDTzeOGvKrXlES/view",55660)'  -> 55660
+E35: '=HYPERLINK("https://drive.google.com/file/d/1871HmRK7JHwcDzpA8J71aKcgWjWogfG7/view",28780)'  -> 28780
+F35: '=IF(OR(D35="",E35=""),"",(D35-E35)*$O$4)'  -> 12192.55296
+H35: '=IF(F35="","",(F35-J35)*$O$5)'  -> 157.2839332
+I35: '=IF(F35="","",(F35-J35)*(1-$O$5)*$O$7)'  -> 23.58912729
+J35: <openpyxl.worksheet.formula.ArrayFormula object at 0x11005af70>
+K35: '=IF(F35="","",F35-H35-I35-J35)'  -> 12011.6799
+L35: '=IF(F35="","",(F35-J35)/VLOOKUP(C35,$A$10:$L$14,5,FALSE)*VLOOKUP(C35,$A$10:$L$14,10,FALSE)*$O$8)'  -> 50.32119695
+M35: <openpyxl.worksheet.formula.ArrayFormula object at 0x10797f410>
+N35: '=IF(F35="","",IFERROR(VLOOKUP(C35,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> 85.8
+L36: '=SUM(L28:L35)'  -> 644.7583867
+M36: '=SUM(M28:M35)'  -> 4405.917936
+N36: '=SUM(N28:N35)'  -> 686.4
+L37: '=IF(F37="","",(F37-J37)/VLOOKUP(C37,$A$10:$L$14,5,FALSE)*VLOOKUP(C37,$A$10:$L$14,10,FALSE)*$O$8)'  -> None
+M37: '=IF(F37="","",(F37-J37)/VLOOKUP(C37,$A$10:$L$14,5,FALSE)*VLOOKUP(C37,$A$10:$L$14,11,FALSE))'  -> None
+N37: '=IF(F37="","",IFERROR(VLOOKUP(C37,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> None
+L38: '=IF(F38="","",(F38-J38)/VLOOKUP(C38,$A$10:$L$14,5,FALSE)*VLOOKUP(C38,$A$10:$L$14,10,FALSE)*$O$8)'  -> None
+M38: '=IF(F38="","",(F38-J38)/VLOOKUP(C38,$A$10:$L$14,5,FALSE)*VLOOKUP(C38,$A$10:$L$14,11,FALSE))'  -> None
+N38: '=IF(F38="","",IFERROR(VLOOKUP(C38,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> None
+L39: '=IF(F39="","",(F39-J39)/VLOOKUP(C39,$A$10:$L$14,5,FALSE)*VLOOKUP(C39,$A$10:$L$14,10,FALSE)*$O$8)'  -> None
+M39: '=IF(F39="","",(F39-J39)/VLOOKUP(C39,$A$10:$L$14,5,FALSE)*VLOOKUP(C39,$A$10:$L$14,11,FALSE))'  -> None
+N39: '=IF(F39="","",IFERROR(VLOOKUP(C39,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> None
+L40: '=IF(F40="","",(F40-J40)/VLOOKUP(C40,$A$10:$L$14,5,FALSE)*VLOOKUP(C40,$A$10:$L$14,10,FALSE)*$O$8)'  -> None
+M40: '=IF(F40="","",(F40-J40)/VLOOKUP(C40,$A$10:$L$14,5,FALSE)*VLOOKUP(C40,$A$10:$L$14,11,FALSE))'  -> None
+N40: '=IF(F40="","",IFERROR(VLOOKUP(C40,$A$10:$L$14,12,FALSE),0)*$O$9)'  -> None
+A42: 'SECTION 4 - ROLLUP  (Mass Used = Σ Deliveries – Uncertainty Adj)'
+A43: 'Σ Deliveries raw (kg)'
+B43: 'Σ Uncertainty Adj (kg)'
+C43: 'Mass Used (post-adj) (kg)'
+D43: 'Sparging Loss (kg)'
+E43: 'Filtration Loss (kg)'
+F43: 'MOBI (kg)'
+G43: 'pH'
+H43: 'C Content (composite - see Summary)'
+M43: 'Origins list (BOLs)'
+A44: '=SUM(F28:F40)'  -> 155863.283
+B44: '=SUM(J28:J40)'  -> 0
+C44: '=A44-B44'  -> 155863.283
+D44: '=SUM(H28:H40)'  -> 2010.636351
+E44: '=SUM(I28:I40)'  -> 301.5511875
+F44: '=C44-D44-E44'  -> 153551.0955
+G44: '=IFERROR(AVERAGE(G28:G40),"")'  -> None
+M44: '=IFERROR(__xludf.DUMMYFUNCTION("TRIM(TEXTJOIN("", "",TRUE,IFERROR(FILTER(B17:B25,B17:B25<>""""),"""")))"),"2450-R, 2451-R, 2452-R, 2453-R, 2454-R, 2455-R, 2462-R, 2463-R, 2464-R")'  -> '2450-R, 2451-R, 2452-R, 2453-R, 2454-R, 2455-R, 2462-R, 2463-R, 2464-R'
+=== SHEET AECN Truck dims A1:N30
+A1: 'BATCH HEADER — AECN Truck (Direct from Fort Lupton)'
+A2: 'Batch ID (INJ-YYYY-WXX)'
+B2: 'INJ-09-2026-W2'
+K2: 'Constants'
+A3: 'Week Start (Sat)'
+B3: datetime.datetime(2026, 9, 5, 0, 0)
+K3: 'Lbs/Kg'
+L3: 2.20462
+A4: 'Week End (Sat)'
+B4: datetime.datetime(2026, 9, 12, 0, 0)
+K4: 'Kg/Lbs'
+L4: 0.453592
+K5: 'Sparging Mass Loss'
+L5: 0.0129
+K6: 'pH range (target)'
+L6: '2.0 - 4.0'
+K7: 'Filtration Solids Content'
+L7: 0.00196
+A8: 'SECTION 1 - DELIVERIES LEDGER  (one row per direct truck; BOL & scale ticket on same row)'
+A9: 'Date'
+B9: 'BOL # / SO #'
+C9: 'BOL Mass (MT)'
+D9: 'BOL Mass (kg)'
+E9: 'Scale Full (lb)'
+F9: 'Scale Empty (lb)'
+G9: 'Cargo (kg)'
+H9: 'pH'
+I9: 'Notes'
+J9: 'Sparging Loss (kg)'
+K9: 'Filtration Loss (kg)'
+L9: 'MOBI (kg)'
+M9: 'C Content'
+N9: 'EE Miles'
+A10: datetime.datetime(2026, 8, 31, 0, 0)
+B10: '=HYPERLINK("https://drive.google.com/file/d/1e95euZUq0c64g0eo7Ehk8faLJSn-233w/view","2499-T")'  -> '2499-T'
+C10: 19.71
+D10: '=IF(C10="","",C10*1000)'  -> 19710
+J10: '=IF(D10="","",D10*$L$5)'  -> 254.259
+K10: '=IF(D10="","",(D10-J10)*$L$7)'  -> 38.13325236
+L10: '=IF(D10="","",D10-J10-K10)'  -> 19417.60775
+N10: 2197.0
+A11: datetime.datetime(2026, 9, 1, 0, 0)
+B11: '=HYPERLINK("https://drive.google.com/file/d/1CG0ivzPlRELU1eR3benSKenshvwQrFZB/view","2503-T")'  -> '2503-T'
+C11: 19.19
+D11: '=IF(C11="","",C11*1000)'  -> 19190
+J11: '=IF(D11="","",D11*$L$5)'  -> 247.551
+K11: '=IF(D11="","",(D11-J11)*$L$7)'  -> 37.12720004
+L11: '=IF(D11="","",D11-J11-K11)'  -> 18905.3218
+N11: 2197.0
+A12: datetime.datetime(2026, 9, 2, 0, 0)
+B12: '=HYPERLINK("https://drive.google.com/file/d/1XywE-kIo12ZeU7rw1v8BHbJk3CVE_o6E/view","2505-T")'  -> '2505-T'
+C12: 19.67
+D12: '=IF(C12="","",C12*1000)'  -> 19670
+J12: '=IF(D12="","",D12*$L$5)'  -> 253.743
+K12: '=IF(D12="","",(D12-J12)*$L$7)'  -> 38.05586372
+L12: '=IF(D12="","",D12-J12-K12)'  -> 19378.20114
+N12: 2197.0
+J13: '=IF(D13="","",D13*$L$5)'  -> None
+K13: '=IF(D13="","",(D13-J13)*$L$7)'  -> None
+L13: '=IF(D13="","",D13-J13-K13)'  -> None
+J14: '=IF(D14="","",D14*$L$5)'  -> None
+K14: '=IF(D14="","",(D14-J14)*$L$7)'  -> None
+L14: '=IF(D14="","",D14-J14-K14)'  -> None
+J15: '=IF(D15="","",D15*$L$5)'  -> None
+K15: '=IF(D15="","",(D15-J15)*$L$7)'  -> None
+L15: '=IF(D15="","",D15-J15-K15)'  -> None
+J16: '=IF(D16="","",D16*$L$5)'  -> None
+K16: '=IF(D16="","",(D16-J16)*$L$7)'  -> None
+L16: '=IF(D16="","",D16-J16-K16)'  -> None
+J17: '=IF(D17="","",D17*$L$5)'  -> None
+K17: '=IF(D17="","",(D17-J17)*$L$7)'  -> None
+L17: '=IF(D17="","",D17-J17-K17)'  -> None
+J18: '=IF(D18="","",D18*$L$5)'  -> None
+K18: '=IF(D18="","",(D18-J18)*$L$7)'  -> None
+L18: '=IF(D18="","",D18-J18-K18)'  -> None
+J19: '=IF(D19="","",D19*$L$5)'  -> None
+K19: '=IF(D19="","",(D19-J19)*$L$7)'  -> None
+L19: '=IF(D19="","",D19-J19-K19)'  -> None
+J20: '=IF(D20="","",D20*$L$5)'  -> None
+K20: '=IF(D20="","",(D20-J20)*$L$7)'  -> None
+L20: '=IF(D20="","",D20-J20-K20)'  -> None
+J21: '=IF(D21="","",D21*$L$5)'  -> None
+K21: '=IF(D21="","",(D21-J21)*$L$7)'  -> None
+L21: '=IF(D21="","",D21-J21-K21)'  -> None
+J22: '=IF(D22="","",D22*$L$5)'  -> None
+K22: '=IF(D22="","",(D22-J22)*$L$7)'  -> None
+L22: '=IF(D22="","",D22-J22-K22)'  -> None
+J23: '=IF(D23="","",D23*$L$5)'  -> None
+K23: '=IF(D23="","",(D23-J23)*$L$7)'  -> None
+L23: '=IF(D23="","",D23-J23-K23)'  -> None
+J24: '=IF(D24="","",D24*$L$5)'  -> None
+K24: '=IF(D24="","",(D24-J24)*$L$7)'  -> None
+L24: '=IF(D24="","",D24-J24-K24)'  -> None
+N25: '=sum(N10:N23)'  -> 6591
+A26: 'SECTION 2 - ROLLUP  (Mass Used = Σ BOL kg; scale tickets no longer required for direct trucks per 2026-05-26)'
+A27: 'Σ BOL (kg)'
+B27: 'Σ Cargo (kg)'
+C27: 'Mass Used (kg)'
+D27: 'Sparging Loss (kg)'
+E27: 'Filtration Loss (kg)'
+F27: 'Uncertainty Adjustment (kg)'
+G27: 'MOBI (kg)'
+H27: 'pH'
+I27: 'C Content '
+K27: 'Origins list (BOLs)'
+A28: '=SUMIFS(D10:D24,B10:B24,"<>")'  -> 58570
+B28: '=SUMIFS(G10:G24,B10:B24,"<>")'  -> 0
+C28: '=A28'  -> 58570
+D28: '=C28*$L$5'  -> 755.553
+E28: '=(C28-D28)*$L$7'  -> 113.3163161
+F28: 0.0
+G28: '=C28-D28-E28-F28'  -> 57701.13068
+H28: '=IFERROR(AVERAGE(H10:H24),"")'  -> None
+K28: '=IFERROR(__xludf.DUMMYFUNCTION("TRIM(TEXTJOIN("", "",TRUE,IFERROR(FILTER(B10:B24,B10:B24<>""""),"""")))"),"2499-T, 2503-T, 2505-T")'  -> '2499-T, 2503-T, 2505-T'

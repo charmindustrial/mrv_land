@@ -1,0 +1,126 @@
+{
+ "batch_id": "INJ-09-2026-W1-WODO",
+ "note": "Written 2026-09-29; entries marked 'late' were completed after first delivery.",
+ "steps": {
+  "P1_knowledge_base": {
+   "done": true,
+   "evidence": "knowledge-base/Charm_Isometric_Knowledge_Base.md read 2026-09-21T22:56:26Z"
+  },
+  "P2_lessons_learned": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/references/lessons_learned.md read 2026-09-21T22:56:17Z"
+  },
+  "P3_checklist_structure": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/references/checklist_structure.md read 2026-09-21T22:56:18Z"
+  },
+  "P4_failure_categories_printed": {
+   "done": true,
+   "evidence": "late: not printed before Gate 1 on 2026-09-21; review of every FC against the checklist written 2026-09-29T00:03:22Z and revised 2026-09-29T16:18:33Z in failure_category_review_late.md"
+  },
+  "P5_registry_checked": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/qa_active_charm_batches.json read 2026-09-21T22:56:18Z"
+  },
+  "T0_stamped_monitor_triggered": {
+   "done": true,
+   "evidence": "T0 2026-09-21T22:56:13Z in batch_timestamps.json; monitor not triggered then; independent monitor wrote tracker row 14 2026-09-29T16:53:29Z"
+  },
+  "G1_0_vvb_guidance_full": {
+   "done": true,
+   "evidence": "[log:vvb_guidance] vvb_guidance_sept_2026.txt"
+  },
+  "G1_0_cell_comments": {
+   "done": true,
+   "evidence": "Cell comments read with openpyxl (no data_only) 2026-09-21T22:58:29Z; none on WODO-bearing tabs [log:ops_notes_totals]"
+  },
+  "G1_1_batch_folder": {
+   "done": true,
+   "evidence": "[log:batch_folder_inventory]"
+  },
+  "G1_2_totes": {
+   "done": true,
+   "evidence": "[log:totes] 13 totes, no null fields"
+  },
+  "G1_3_ops_notes": {
+   "done": true,
+   "evidence": "[log:ops_notes_totals, ops_notes_formulas]"
+  },
+  "G1_4_shipment_tracker": {
+   "done": true,
+   "evidence": "[log:shipment_allocation] formulas quoted"
+  },
+  "G1_5_testing": {
+   "done": true,
+   "evidence": "[log:testing] SR26-05444_09-2026-W1_WODO.pdf"
+  },
+  "G1_6_pp_summaries": {
+   "done": true,
+   "evidence": "late: WODO and Aqueous rows and period lengths added 2026-09-29T00:03:08Z [log:pp_summary_sources]"
+  },
+  "G1_7_charm_contents": {
+   "done": true,
+   "evidence": "[log:certify.charm_contents_present, certify.charm_contents_note]"
+  },
+  "G1_8_certify_four_tabs": {
+   "done": true,
+   "evidence": "Components, Calculation view, Datapoints, Sources read 2026-09-21T23:00:40Z [log:certify.components, certify.calculation_view, certify.datapoints, certify.certify_sources_enumeration]"
+  },
+  "G1_8_sources_tab_total": {
+   "done": true,
+   "evidence": "[log:certify.certify_sources_tab_total, certify.certify_sources_enumeration]"
+  },
+  "G1_registry_updated": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/qa_active_charm_batches.json entry written 2026-09-21T23:19:19Z"
+  },
+  "G1_injection_record": {
+   "done": true,
+   "evidence": "late: opened 2026-09-29T00:03:08Z [log:cobb_injection_record]"
+  },
+  "G2_1_tare_measured": {
+   "done": true,
+   "evidence": "[log:tote_tare_methodology, tote_tare_methodology.tare_distribution, tote_tare_methodology.tote_loss_dataset_basis] graded 2.2 Flag 2026-09-29"
+  },
+  "G2_2_tracker_cells_clicked": {
+   "done": true,
+   "evidence": "[log:shipment_allocation] D12, E12, F12, G14, B16 formulas quoted"
+  },
+  "G2_3_component_modals": {
+   "done": true,
+   "evidence": "All five component detail views read 2026-09-21T23:00:40Z [log:certify.components]"
+  },
+  "G2_4_each_pp_summary": {
+   "done": true,
+   "evidence": "[log:pp_summary_sources] source_exports/pp_feb.xlsx source_exports/pp_mar.xlsx source_exports/pp_may.xlsx"
+  },
+  "G2_5_recompute_pasted": {
+   "done": true,
+   "evidence": "late: recompute_wodo.py exit 0, output in recompute_output.txt, pasted in chat with the 2026-09-29 delivery"
+  },
+  "G2_lcs_search": {
+   "done": "n/a",
+   "evidence": "WODO batch: LCS is an Aqueous-only buffer; checklist 9.1 N/A"
+  },
+  "G3_reviewer_independent": {
+   "done": true,
+   "evidence": "Independent subagent review 2026-09-21T23:12:09Z; revised rows independently reviewed 2026-09-29: adversarial_review_INJ-09-2026-W1-WODO_2026-09-29.md"
+  },
+  "G3_challenges_resolved": {
+   "done": true,
+   "evidence": "2026-09-29 review applied: 2.1 Fail (301257 gross conflict) [log:gross_conflict_301257], 2.2 wording, 8.1 figures, summary, 2.3/7.4 cross-references, log citations, FC review (adversarial_review_INJ-09-2026-W1-WODO_2026-09-29.md)"
+  },
+  "G4_render_in_excel": {
+   "done": true,
+   "evidence": "late: opened in Excel and Excel PDF export read 2026-09-29T00:04:19Z (summary row found cut off, fixed) and after the final rebuild 2026-09-29T16:22:30Z"
+  },
+  "G4_status_counts": {
+   "done": true,
+   "evidence": "Pass 26 / Flag 3 / Fail 2 / N/A 1 counted from the rebuilt checklist 2026-09-29T16:18:33Z; Charm_WODO_QA_Checklist_INJ-09-2026-W1.xlsx"
+  },
+  "G4_monitor_independent": {
+   "done": true,
+   "evidence": "late: independent monitor agent wrote row 14 of outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx, finished 2026-09-29T16:53:29Z"
+  }
+ }
+}

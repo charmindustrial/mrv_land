@@ -1,0 +1,139 @@
+{
+ "ledger_sha256": "16ba298a6d0786ac38181b1a36d8e55a196973906165f4175b471ce48a695d54",
+ "auditor": "independent step auditor (subagent)",
+ "audited_utc": "2026-09-30T00:26:18Z",
+ "steps": {
+  "P1_knowledge_base": {
+   "verdict": "verified",
+   "checked": "Opened the QA session's conversation record (a332c7c2-2d69-441a-9d5a-4591ee9e2d51.jsonl): the knowledge base was read in two reads at 20:15:32Z (lines 1-709) and 20:15:41Z (lines 710-1252, ending 'End of Knowledge Base'), so the whole file was read. The fingerprint in log preflight.knowledge_base (d4532cbc0949af50) matches the file on disk now, and each noted fact (Basco buffer 5%, sparging 1.29%, 'Basco Injection -- COBB' tab, rail embodied 0.0000311307 MT/mi, tanker embodied 0.00023756059 MT/mi) is in the file. One error in the log: read_utc says 20:17Z, but that entry was written at 20:16:46Z and the reads happened at 20:15Z."
+  },
+  "P2_lessons_learned": {
+   "verdict": "verified",
+   "checked": "Conversation record shows lessons_learned.md read in one read at 20:16:04Z returning lines 1-313, the whole file. The fingerprint in log preflight.lessons_learned (01e1ad8fedd4de58) matches the file now. The file has Failure Categories 1 to 14, the same 14 the log lists (FC1-FC14)."
+  },
+  "P3_checklist_structure": {
+   "verdict": "verified",
+   "checked": "Conversation record shows checklist_structure.md read at 20:16:05Z, lines 1-430, the whole file. The fingerprint in log preflight.checklist_structure (84e1db284842e5c7) matches the file now, and the file holds the rail notes, the density item and the attachment-gate text the log names."
+  },
+  "P4_failure_categories_printed": {
+   "verdict": "not_verified",
+   "checked": "The ledger entry reads done: false, with evidence stating 'NOT done before Gate 1 ... The ordering the step requires was not met.' The files agree. Log preflight.failure_categories_printed_utc is null, and preflight.failure_categories_printed_correction records that the earlier 20:19Z print claim was false. The conversation record shows the 14-category list first posted as chat text at 22:52:31Z, after Gate 4; Gate 1 began at 20:16:49Z, and no chat message before then lists the categories. The step requires the list before Gate 1 begins, so it was not done. Noted, not judged: delivery_exceptions.json lists this step as an exception with an authorized_by entry, and the conversation record shows a yes answer at 23:23:26Z to the question 'Yes or no: send the checklist with the miss recorded?' delivery_exceptions.json now lists only this step."
+  },
+  "P5_registry_checked": {
+   "verdict": "verified",
+   "checked": "Conversation record shows a check at 20:16:26Z that loaded skills/qa/batch-qa-aecn/qa_active_batches.json and printed 'W3 Sept entries: []' plus the W2 entry. Log registry_check records 'none found (fresh batch)'. This came before Gate 1 started (20:16:49Z)."
+  },
+  "P6_inputs_confirmed": {
+   "verdict": "verified",
+   "checked": "Log inputs_confirmed holds batch ID INJ-09-2026-W3-AECN, the Certify removal link (rmv_1M3MMSA7X1S0R377), the Drive folder link (1PYKFLRdkZtiQ8sWRgHt8GPb4av7tSNaK) and period 2026-09-12 to 2026-09-18. The period matches 'started 2026-09-12' and 'completed 2026-09-18' in source_exports/certify_graphql_ghgEntry_parsed.json. AECN-only: certify_components_tab.yml lists exactly 10 components, all AECN rail pyrolysis, transport legs, BCU and sequestration, and COBB rows 1776-1785 are all Rail_ AECN lots. The entry itself was written at 21:10Z, late in Gate 1, though the links were in hand from the start."
+  },
+  "T0_stamped_monitor_triggered": {
+   "verdict": "verified",
+   "checked": "batch_timestamps.json T0_initiation is 2026-09-29T20:15:00Z, and the conversation record shows 'date -u' run at 20:14:50Z. A separate monitor agent was launched at 20:15:47Z (an attempt at 20:15:31Z was stopped by a guard) and reported at 20:18:10Z that it wrote tracker row 15. Row 15 of outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx now holds C15 'INJ-09-2026-W3-AECN' and AB15 2026-09-29 20:15:00."
+  },
+  "G1_0_vvb_guidance_full": {
+   "verdict": "verified",
+   "checked": "Conversation record: the Google Doc 'VVB Guidance September 1 - September 30' (1pib26xToLPFxaOla2p3pv4ummq5ekPpAn65FFuqrlPc) was exported whole at 20:17:15Z and printed in full at 20:17:45Z. That was the first source opened after pre-flight; the folder listing, tickets and every other source came after 20:18:10Z. The saved text, source_exports/VVB_Guidance_September_1-30_fetched_2026-09-29.txt (1,569 bytes, five paragraphs), matches what was printed. Four of the five logged quotes (quote_scope, quote_volume_source, quote_offloaded, quote_multi_week) appear word for word; quote_method differs only by a line break written as a space. Minor: the log calls the read 'pdf_read' though it was a text export."
+  },
+  "G1_1_scale_tickets": {
+   "verdict": "verified",
+   "checked": "Conversation record shows 20 reads of tickets/*.pdf between 20:22:52Z and 20:23:59Z, each returning the page image. Log scale_tickets.offloads holds, for all 10 offloads, the full and empty ticket number, date, time, scale number, location, axle weights, gross, tractor and trailer, with no field missing. I opened four tickets myself: TILX200231 offload 2 full and empty, GPRX5102 offload 2 full, and SHPX215046 offload 2 empty. Every logged value matched the image, for example 1124426254565 gross 72,640 lb, CH1/KL720, scale 1244 The Quarters TS, and 1312226255533 gross 29,640 lb, CH2/KL720, scale 3122 Pilot, Bunkie."
+  },
+  "G1_2_bols": {
+   "verdict": "verified",
+   "checked": "Conversation record shows all nine PDFs in bols/ read between 20:27:40Z and 20:28:57Z, five page images each. Log bols.per_bol has, for every BOL: number, date, ship-from (BioEnergie AE Cote-Nord, Port-Cartier), ship-to (CHARM/WATCO, SOPOR Baie-Comeau), carrier (Transport Baie-Comeau), gallons, pounds, litres, kg, metric tons, litres and tons at 60F, and weigh-ticket net. I opened BOL 2470-R pages 1-3: 5,714 gal, 56,509 lb, 21,628 L, 25,629 kg, 25.63 MT, 21,476 L and 25.70 MT at 60F, net 25,700 kg, dated 2026-08-11. All match the log."
+  },
+  "G1_3_lab_results": {
+   "verdict": "verified",
+   "checked": "SR26-05599_W3_QOWV_AECN_COA.pdf was read at 20:30:08Z. I opened it. Page 2 is certificate SR26-05599.002, client ID '9-2026-w3-AECN', location FORT LUPTON, CO, sampled 18-Sep-2026 17:00, carbon 39.7 %, hydrogen 7.0 %, nitrogen <0.75 %, viscosity 11.73 cSt, acid number 47 mg KOH/g, density 1.192 g/cm3. Every value matches log lab_results, and page 1 (the QOWV sample) is correctly set aside. The Certify copy has identical file contents."
+  },
+  "G1_4_ops_notes": {
+   "verdict": "verified",
+   "checked": "Opened source_exports/INJ-09-2026-W3_Ops_Notes.xlsx. 'AECN Rail'!B2 reads 'INJ-09-2026-W3'. Rows 28-37 are dated 2026-09-18 and carry lot IDs Rail_<railcar>_<date>_offload_N; the full and empty lb, net kg, sparging, filtration and injected mass on each row match log ops_notes.offload_table exactly. Sparging rate O5 is 0.0129 and loss D46 is 2,545.448535 kg; pH G28:G37 and G46 are blank (logged as null); total injected F46 is 193,491.9399 kg. BOL origins (M46) and railcar loaded masses are logged under ops_notes.rollup and ops_notes.railcars."
+  },
+  "G1_4_cell_comments": {
+   "verdict": "verified",
+   "checked": "Conversation record shows the workbook loaded with openpyxl without data_only at 20:24:55Z and a second check of the file's inner parts at 20:25:21Z. I repeated both: there are no cell comments on any of the 10 tabs and no comment, note or thread parts inside the file, matching log ops_notes.cell_comments_check. With no comments there was nothing to dump."
+  },
+  "G1_5_cobb_row_verified": {
+   "verdict": "verified",
+   "checked": "Opened the COBB export. Tab 'Basco Injection -- COBB', header row 2; rows 1776-1785 all have column A 'INJ-09-2026-W3_bio_oil' (as does the older block, rows 848-857). Conversation record: the first read at 20:31:22Z printed column A at the start of each matching row, a column-by-column read of both blocks followed at 20:32:07Z, and values went into the log (cobb.batch_id_col_a, batch_id_col_a_matches_target true) at 20:33:20Z. Column A was printed in the same pass that found the rows, not in a separate earlier step, but no value was logged until column A had been confirmed."
+  },
+  "G1_6_certify_four_tabs": {
+   "verdict": "verified",
+   "checked": "Four page snapshots of removal rmv_1M3MMSA7X1S0R377, each with a different tab marked selected: certify_components_tab.yml 'Components', certify_calculation_view.yml 'Calculation view', certify_datapoints_tab.yml 'Datapoints', certify_sources_tab.yml 'Sources'. Log certify._primary_source_opened names all four tabs, and certify.calc_view holds the net calculation."
+  },
+  "G1_6_sources_tab_total": {
+   "verdict": "verified",
+   "checked": "certify_sources_tab.yml shows the heading 'Sources (43)'. Log certify.certify_sources_tab_total is 43, and certify.certify_sources_enumeration has 43 entries, each with a filename and at least one linked datapoint. The 43 source IDs are the same 43 found in source_exports/certify_graphql_GetGhgEntryQAData_2026-09-29.json. The log note explains why there are 42 distinct filenames: one Standard EF file is uploaded twice."
+  },
+  "G1_mass_chain_script": {
+   "verdict": "verified",
+   "checked": "Judged against the step's new wording, 'every computation FAIL either traced to a log transcription error and fixed, or confirmed against the primary source and carried as a Fail or Flag row in the checklist'. That wording is now in skills/qa/batch-qa-charm/batch_step_ledger.py (and the .claude/skills copy), saved 00:23:10Z, and matches the Gate 1 exit 4 text in skills/qa/batch-qa-aecn/SKILL.md; the QA agent made the change after being told in chat at 00:20:20Z to fix a delivery lock that held findings back. The script was run: mass_chain/summary.json holds 60 results (computation 30 PASS, 8 SKIP, 2 FAIL; policy 20 PASS), and my earlier rerun on copies gave the same. Both FAILs are the SHPX215046 railcar balance, 'outbound (77700.31 kg) > inbound (77680.0 kg) by 20.31 kg'. Confirmed against the primary sources: the W3 offloads come from ticket images read this session (scale_ticket_subtraction PASS, and I opened SHPX215046 offload 2's empty ticket myself); the loaded 77,680 kg comes from BOLs 2462-R/2463-R/2464-R read this session; and the W2 offloads 3-4 were checked by the independent reviewer against the W2 ticket photos ('74320 LB'/'28440 LB' and '61980 LB'/'29260 LB', adversarial_review.md). The QA agent's own check on W2 used W2's source-read log and the W2 live Ops Notes export (log mass_chain.shpx215046_balance.log_verified_against_primary). Carried in the checklist: row 2.5 (Flag, fix on W2 offload 4 per log policy.last_load_ruling, with W2's own caveat that its offload 3 ticket 'is confirmed mislabeled') and row 8.3 (Fail), both citing [log:mass_chain.shpx215046_balance]. compute_mass_chain.py was edited during this QA (saved 21:07:44Z, unchanged since); log mass_chain.script_fix_this_session gives the reason."
+  },
+  "G1_registry_updated": {
+   "verdict": "verified",
+   "checked": "skills/qa/batch-qa-aecn/qa_active_batches.json holds entry INJ-09-2026-W3 (added_utc 21:11:48Z) with the checklist path, source-read log path, Certify link, Drive link, railcars, message channel, counts 31/13/13/5 and status 'awaiting_garrett'. Its gate field still reads 'delivery lock red: ...', which predates the delivery."
+  },
+  "G2_0_findings_routed": {
+   "verdict": "verified",
+   "checked": "mass_chain/summary.json and the ten mass_chain_findings.json files are recorded in log mass_chain.counts (computation 30 PASS, 8 SKIP, 2 FAIL; policy 20 PASS, no FLAGs). In the rebuilt checklist, 2.4 still cites scale_ticket_subtraction 10 of 10 PASS, 5.4 cites cobb_offload_consistency 10 of 10 PASS, and the SHPX215046 balance FAIL is carried with the script's figures (77,700.3096 kg against 77,680 kg loaded, 20.3096 kg over) in 2.5 and in 8.3, both citing [log:mass_chain.shpx215046_balance]. After the ruling logged at policy.last_load_ruling (given in chat at 23:08:36Z: the cut goes on the last load, W2's offload 4), 2.5 is now a Flag pointing the fix to W2, while 8.3 stays a Fail. The skill's routing text says 'A FAIL goes to the checklist as a FAIL'; this FAIL still appears in a Fail row (8.3) with the computed figures, and its arithmetic is not questioned anywhere. Re-checked after the custody rebuild: 2.4 Pass, 2.5 Flag, 5.4 Flag and 8.3 Fail are unchanged in how they carry the mass-chain results."
+  },
+  "G2_1_ticket_pairs_compared": {
+   "verdict": "verified",
+   "checked": "certify_sources/tickets/ holds 20 ticket PDFs downloaded from Certify Sources (21:13-21:15Z). I compared each with its copy in tickets/: all 20 have identical file contents, so the images read in G1_1 are the Certify files. Log scale_tickets.pair_comparison compares tractor and trailer for all 10 pairs: 9 match, and TILX200231 offload 2 does not (full CH1/KL720, empty CH2/KL720), which I confirmed on both images. The Certify copies were matched by file contents, not viewed a second time."
+  },
+  "G2_2_cobb_values": {
+   "verdict": "verified",
+   "checked": "Log cobb.tab is 'Basco Injection -- COBB' and cobb.row_id_at_qa is '1776-1785'. cobb.offloaded_quantity_kg covers all 10 lots (sum 197,321.59184 kg), cobb.origin_quantity_kg gives 77,950 / 77,680 / 77,520 kg for the three railcars, and cobb.injection_completion_date is 2026-09-18. I read rows 1776-1785 of the export and every value matches."
+  },
+  "G2_3_component_modals": {
+   "verdict": "verified",
+   "checked": "Ten window snapshots, each titled with one of the 10 components and showing an Inputs section. Plus-or-minus values found: sequestration '39.7 ±0.15883 %' and '194,394.38206 ±725.7 kg'; both pyrolysis components and the three transport-process legs '197,321.59 ±725.7 kg'; the three embodied legs and the BCU carry none. All are in log certify.modal_reads and are compared with the skill's reference (72.57 kg per weighing x 10 = 725.7 kg; 0.004 x 39.7 = 0.1588 %) in _derived_values.unc_calc and checklist row 7a.2."
+  },
+  "G2_ef_live_sheet": {
+   "verdict": "verified",
+   "checked": "Conversation record shows the live Google Sheet 1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4 exported at 20:31:07Z to source_exports/Standard_Emission_Factors_export_2026-09-29.xlsx. Its '2026' tab rows 3-13 hold exactly the logged values: F4 0.1371171258 (AECN process, H2 2026), F5 0.02116, F6 0.0001143, F10 2.5910374e-05, F11 0.0002375605888, F13 3.113066508e-05. Log standard_efs.vs_certify compares each with Certify at full precision."
+  },
+  "G2_carbon_range_source": {
+   "verdict": "verified",
+   "checked": "source_exports/MRV_AECN_Analysis.xlsx (Drive file 1bDw821dD2Dq-qz7amEql5qBZBSGPlnEi, saved 21:00Z this session), tab 'Summary Statistics': B5 mean 39.420350877193, B6 standard deviation 6.09332409018271, B7 count 285. These equal log carbon_range mean_C_pct, sd_C_pct and n; the two-deviation band is 27.23-51.61 % and the batch's 39.7 % falls inside."
+  },
+  "G2_bcu_sources": {
+   "verdict": "verified",
+   "checked": "The Certify copy of the BCU certificate was read from a full-page view at 20:41Z (screenshots/certify_bcu_retirement_certificate_full.png), and the real PDF was saved at 20:45Z. I opened certify_sources/Charm-RetirementCertificate-RD-EACs-20251218.pdf: 2,795 Renewable Diesel TERCs, retired Dec 18 2025, vintage 2024, certificate TERC1012_2024_DF_RENEWABLE_DIESEL-13-47206-50000, 'Each TERC represents one metric ton of carbon dioxide equivalent (“tCO2e”) reduced.' Coverage: log bcu_sources.inventory_row16 shows 2,350.433744 t remaining against 14.635 t used here. Protocol: the Transportation Emissions Accounting v1.1 PDF, pages 1-13, was read at 21:01Z. I confirmed on page 9 the logged section 4.0 wording 'the use of Book and Claim Units (BCUs) for low-carbon fuels to substitute for some, or all, of project fuel usage is permitted'."
+  },
+  "G2_route_map": {
+   "verdict": "verified",
+   "checked": "certify_sources/AECN_to_SOPOR_Baie_Comeau_2.png, Opelousas_Railyard_to_Basco.png and image_44.png were downloaded from Certify Sources and read at 20:42Z. I opened both maps: Port-Cartier to SOPOR via QC-138, 173 km; Opelousas railyard to 4687 LA-115, routes of 42.9, 42.9 and 40.9 miles. These match log route_evidence. The rail distance source is an email screenshot reading 'The total milage for this move was 2199.'"
+  },
+  "G2_rail_allocation": {
+   "verdict": "verified",
+   "checked": "The recompute changed at 23:25:22Z, but sections 3 and 5 are identical to the earlier version; my fresh run exits 0 and matches recompute_output.txt. Section 5 recomputes the AECN-SOPOR allocation from each offload's cargo divided by its railcar's loaded mass, x 107.5 x 3, giving 818.795718 mi (equals Ops L38), and the rail allocation 2,199 + 2,199 + 2,199 x SHPX215046's W3 share, giving 5,588.31288 mi (equals Ops M38). Section 3 runs the balance for GPRX5102 and TILX200231, and the FINDINGS block runs it for SHPX215046 across W2 and W3 (77,700.3096 kg against 77,680 kg loaded)."
+  },
+  "G2_recompute_pasted": {
+   "verdict": "verified",
+   "checked": "recompute_INJ-09-2026-W3-AECN.py and recompute_output.txt were last changed at 23:25:22Z; my fresh run exits 0 with output identical to the file, ending '0 arithmetic mismatch(es)'. The conversation record shows a chat message at 23:30:03Z ('Current full recompute output (exit 0):') whose text block is identical to the current recompute_output.txt, including the 'FINDING 8.2 custody losses ... = 0.042411 t' line. Delivery came after that: gate_receipt.json was written at 23:43:53Z, the results went to the requester's Slack DM at 23:44:24Z, and the Fail and Flag list went to #team-mrv-alerts at 00:06:22Z after approval in chat at 00:05:25Z. So the current output was in chat before delivery. The earlier 21:34Z, 22:52Z and 23:18Z outputs are superseded."
+  },
+  "G3_reviewer_independent": {
+   "verdict": "verified",
+   "checked": "Conversation record: a separate agent was launched at 21:35:20Z with the batch folder, told to follow skills/qa/adversarial-reviewer/SKILL.md and that it did not build the checklist; it finished at 22:11:53Z after 153 tool uses. adversarial_review.md reviews 62 status rows (9 challenged, 53 confirmed), lists the primary files it opened itself, and puts its own arithmetic in adversarial_review_recompute.py and adversarial_review_recompute_output.txt."
+  },
+  "G3_challenges_resolved": {
+   "verdict": "verified",
+   "checked": "adversarial_resolution.md (saved 23:29:01Z) answers every challenged row (2.3, 2.5, 3.3, 8.3, 9.6, 7.3/7a.3/9.8, 8.1) and all 8 observations, with two addenda. The 23:11:50Z addendum records the last-load ruling (log policy.last_load_ruling). The 23:29:01Z addendum records the custody ruling (log policy.custody_rule, given in chat at 23:23:26Z): 'The 186.38656 kg railcar losses carry 0.042411 t uncharged ... 6.6, 7.2, 8.2 and 9.2 now Fail; S.2 removed; 9.6 BCU ceiling 14,647.560 kgCO2e once charged; 9.8 net 248.297628 t.' The rebuilt checklist matches: 6.6, 7.2, 8.2 and 9.2 are Fail and state the 0.042411 t, S.2 is gone (its content now sits in 8.2), 2.5 and 3.3 Flag pointing to W2, 8.3 Fail, and the earlier changes (2.3 KL720 method, 8.1 empty ticket, 1.5 and 5.1 Flag) are still in place. Observation 2 (railcar losses carry no upstream emissions) is now resolved as Fails instead of a sidebar Flag."
+  },
+  "G4_render_in_excel": {
+   "verdict": "verified",
+   "checked": "Re-checked against the custody rebuild. Batch_INJ-09-2026-W3-AECN_QA_Checklist.xlsx was saved at 23:26:49Z (file time and its own modified stamp) and not changed since. render_check/Excel_export_Batch_INJ-09-2026-W3-AECN_QA_Checklist.pdf records Creator 'Excel' and a creation time of 23:28:35Z, after that save, and has 8 pages. The conversation record shows all 8 pages of this export read at 23:28:44Z. I opened page 6: rows 7.2 (Fail, with the 0.042411 t) through 8.2 (Fail, custody-loss text) render whole."
+  },
+  "G4_status_counts": {
+   "verdict": "verified",
+   "checked": "I counted column C of the rebuilt Batch_INJ-09-2026-W3-AECN_QA_Checklist.xlsx (saved 23:26:49Z): Pass 31, Fail 13, Flag 13, N/A 5, 62 rows (S.2 removed). This matches the ledger, tracker row 15 (Y15 31, Z15 13, AA15 13, M15 5) and the registry entry's counts."
+  },
+  "G4_monitor_independent": {
+   "verdict": "verified",
+   "checked": "The monitor agent's own session record shows it saving the tracker after the custody rebuild (first save call 23:31:50Z, finished 23:41:08Z) and once more at 23:44:52Z to restate one note sentence; the tracker file was last saved at 23:44:54Z. Row 15 holds C15 'INJ-09-2026-W3-AECN', Y15/Z15/AA15/M15 31/13/13/5 and AF15 2026-09-29 23:29:01, matching batch_timestamps.json T4_checklist_finalized 2026-09-29T23:29:01Z; L15 and X15 read alike. None of the QA agent's own commands write the tracker. E15 still reads 'not yet delivered for review' although delivery has since happened (batch_timestamps.json records the final delivery at 23:45:04Z)."
+  }
+ }
+}

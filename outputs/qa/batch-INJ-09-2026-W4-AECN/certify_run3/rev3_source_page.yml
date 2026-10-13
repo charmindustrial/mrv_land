@@ -1,0 +1,61 @@
+- generic [ref=f3e2]:
+  - alert [ref=f3e1]
+  - region "0 notifications."
+  - generic [ref=f3e3]:
+    - navigation [ref=f3e5]:
+      - generic [ref=f3e9]:
+        - generic [ref=f3e10]:
+          - link "Isometric Registry" [ref=f3e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f3e27]:
+            - link "Certificates" [ref=f3e28] [cursor=pointer]:
+              - /url: /certificates
+            - link "Projects" [ref=f3e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=f3e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=f3e32]:
+          - generic [ref=f3e33]:
+            - link "Account" [ref=f3e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=f3e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=f3e36]: "|"
+          - button "Current user menu" [ref=f3e37] [cursor=pointer]:
+            - generic [ref=f3e38]: Menu
+    - main [ref=f3e41]:
+      - navigation "Breadcrumbs" [ref=f3e44]:
+        - list [ref=f3e46]:
+          - listitem [ref=f3e47]:
+            - link "All projects" [ref=f3e48] [cursor=pointer]:
+              - /url: /account/certify
+      - generic [ref=f3e50]:
+        - generic [ref=f3e51]:
+          - generic [ref=f3e52]: Private
+          - heading "INJ-09-2026-W4 Ops Notes - 2026-10-07 rev3.xlsx" [level=2] [ref=f3e57]
+          - generic [ref=f3e58]: Document
+        - generic [ref=f3e64]:
+          - generic [ref=f3e68]:
+            - generic [ref=f3e69]: Limited preview
+            - generic [ref=f3e70]: To view the complete version of the spreadsheet, please download the file and open it in Microsoft Excel.
+          - generic [ref=f3e71]:
+            - generic [ref=f3e73]:
+              - generic [ref=f3e74]:
+                - complementary
+                - complementary:
+                  - complementary "Sidebar panel":
+                    - button "Close sidebar" [ref=f3e80] [cursor=pointer]
+              - tablist "Sheet tabs" [ref=f3e88]:
+                - tab "Summary" [selected] [ref=f3e89] [cursor=pointer]
+                - tab "AECN Rail" [ref=f3e92] [cursor=pointer]
+                - tab "Kerry" [ref=f3e95] [cursor=pointer]
+                - tab "QOWV" [ref=f3e98] [cursor=pointer]
+                - tab "QOWV Shipments & EE Allocation" [ref=f3e101] [cursor=pointer]
+                - tab "(hidden) AECN Truck" [ref=f3e104] [cursor=pointer]
+                - tab "(hidden) WODO" [ref=f3e107] [cursor=pointer]
+                - tab "(hidden) Whole Oil" [ref=f3e110] [cursor=pointer]
+                - tab "(hidden) WODO Shipments & EE Allocation" [ref=f3e113] [cursor=pointer]
+                - tab "(hidden) Whole Oil Shipments & EE Alloca" [ref=f3e116] [cursor=pointer]
+            - generic:
+              - region "Notifications alt+T"
+              - region "Notifications alt+T"

@@ -1,0 +1,5101 @@
+Registry
+Projects
+Protocols
+Account
+Certify
+|
+Menu
+GHG Accounting
+v1.1
+Content
+Referencing protocols
+Changelog
+Contents
+1
+Introduction
+2
+Key GHG Accounting Principles
+2.1
+Consequential Analysis
+2.2
+Overarching GHG Accounting Principles
+2.3
+Reporting Requirements
+2.4
+System Boundary
+2.4.1
+Project Emissions
+2.4.2
+Leakage
+3
+Data Requirements
+3.1
+Data Quality Overview
+3.2
+Types of Data
+3.3
+Emission Factors
+3.4
+Data Quality Principles and Hierarchy
+3.5
+Data Collection
+4
+Activity-Specific Accounting Requirements
+4.1
+Embodied Emissions
+4.2
+Transportation Emissions
+4.2.1
+Energy Usage Method
+4.2.2
+Distance-Based Method
+4.3
+Energy Use
+5
+Materiality
+5.1
+Calculating CO2e SSR Estimated
+5.2
+Calculating CO2e Removal Estimated
+6
+Emissions Allocation
+6.1
+Co-product Emissions Allocation
+6.2
+Emissions Accounting When CO2 is Stored in a Product
+6.3
+Emissions Accounting for Waste Inputs
+6.4
+Emissions Accounting for Inputs that are By-products
+7
+Emissions Amortization
+8
+Acknowledgements
+9
+Definitions and Acronyms
+10
+Appendix 1: Data quality
+10.1
+Detailed data quality hierarchy descriptions
+10.2
+Data Quality Considerations for Specific Activity Types
+10.2.1
+Embodied Emissions
+10.2.2
+Transportation Emissions
+10.2.2.1
+Transportation Emissions - Required Records & Documentation
+10.2.2.2
+Transportation Emissions - Additional guidelines
+11
+Appendix 2: Materiality example
+12
+Appendix 3: Isometric’s Approach to Project-level Consequential Analysis
+13
+Appendix 4: Co-product Emissions Allocation Examples
+13.1
+Procedure 1: Allocate All Emissions to CDR
+13.2
+Procedure 2: Divide the Process into Sub-processes
+13.3
+Procedure 3: Substitution Method
+13.4
+Procedure 4: Carbon Mass Balance When the Co-product Leads to Crediting
+14
+Relevant works
+Footnotes
+1.0
+Introduction
+Introduction
+
+This Module describes greenhouse gas (GHG) accounting requirements for all Carbon Dioxide Removal (CDR) Projects. Credits issued under the Isometric Standard are contingent on the conservative accounting of all GHG emissions related to project activities, including leakages.
+
+This Module applies to all CDR pathways, ensuring a consistently rigorous standard in how GHG emissions are quantified and reported between different CDR Projects and approaches.
+
+This Module will be adapted as science evolves and will be reviewed at a minimum every 2 years.
+
+2.0
+Key GHG Accounting Principles
+Key GHG Accounting Principles
+2.1
+Consequential Analysis
+Consequential Analysis
+
+Projects credited under the Isometric Standard must use project-level consequential analysis to determine net CO2e removals associated with project activities. Project emissions and removals must be assessed against a baseline scenario of The Project not taking place. When submitting Claimed Removals, The Project's emissions (
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Emissions
+	​
+
+), removals (
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+Stored
+	​
+
+) and counterfactual (
+𝐶
+𝑂
+2
+𝑒
+𝐶
+𝑜
+𝑢
+𝑛
+𝑡
+𝑒
+𝑟
+𝑓
+𝑎
+𝑐
+𝑡
+𝑢
+𝑎
+𝑙
+CO
+2
+	​
+
+e
+Counterfactual
+	​
+
+) must be presented together in net metric tonnes of CO2e as part of a GHG Statement.
+
+All Projects must follow GHG accounting requirements as set out by the relevant Protocol. Protocols set out the system boundary to be followed, which details the GHG Sources, Sinks and Reservoirs (SSRs) that must be considered by Projects as part of the GHG Statement.
+
+GHG SSRs are grouped into three categories: Controlled, Related and Affected. Controlled GHG SSRs relate to operations that are under the direction and influence of the GHG Project Proponent, and typically include removals and emissions that directly occur at the project site. Related GHG SSRs typically occur upstream or downstream of the project site. Controlled and Related GHG SSRs collectively cover emissions associated with Project Establishment, Operations, and End-of-Life and are referred to as Project emissions in Section 2.4.1. Affected GHG SSRs include increases in GHG emissions as a result of the project displacing emissions or causing a secondary effect that increases emissions elsewhere and are referred to as leakage in this Module (See Section 2.4.2). This Module is applicable to the quantification of emissions sources, whereas the quantification of removals (
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+Stored
+	​
+
+) is outlined in the relevant Protocol.
+
+In some instances, project activities may be integrated into existing activities, such as biochar spreading while tilling agricultural lands. Activities that were already occurring and would continue to occur without the project may be omitted from the system boundary, if evidence that the activity was already occurring and would have continued to occur in the absence of the project can be provided.
+
+Note that while project-level consequential analysis is the overarching methodology adopted in Isometric Protocols, elements of attributional analysis are also widely used for GHG accounting. See Appendix C for more information on Isometric’s approach to project-level consequential analysis.
+
+2.2
+Overarching GHG Accounting Principles
+Overarching GHG Accounting Principles
+
+This Module aligns with the six overarching principles proposed in ISO (International Organization for Standardization) 14064-2: 2019 that underpin all aspects of the accounting, quantification and reporting of CDR projects. These are repeated below:
+
+Relevance: Select the GHG SSRs, data and methodologies that are appropriate to the needs of the intended user.
+Completeness: Include all relevant GHG SSRs. Include all relevant information to support criteria and procedures.
+Consistency: Enable meaningful comparisons in GHG-related information.
+Accuracy: Reduce bias and uncertainties as far as is practical.
+Transparency: Disclose sufficient and appropriate GHG-related information to allow intended users to make decisions with reasonable confidence.
+Conservativeness: Use conservative assumptions, values and procedures to ensure that GHG emission reductions or removal enhancements are not over-estimated.
+2.3
+Reporting Requirements
+Reporting Requirements
+
+The following information must be submitted as part of the verification of every Claimed Removal:
+
+A GHG Statement: Calculations for The Project's emissions, removals and counterfactuals, presented together in net metric tonnes of CO2e.
+GHG Statement Report: qualitative information relating to the GHG Statement.
+Supporting information including copies of raw data used. Where data used for emission calculations is not high quality (as defined in Section 3.4), justification for using medium or low-quality data must be provided either within the GHG Statement, or as part of the GHG Statement Report (at the verification stage) or the Project Design Document (PDD) (at the validation stage).
+
+Project Proponents are responsible for collecting sufficient documentation to support the above information.
+
+2.4
+System Boundary
+System Boundary
+R-2VKW-1
+
+Project Proponents must include all relevant GHG Sources, Sinks and Reservoirs (SSRs) in the system boundary, including but not limited to the SSRs set out in the relevant Protocol. These can be categorized into Project emissions (Controlled and Related SSRs) and Leakage (Affected SSRs).
+
+The Project Proponent must consider all GHGs associated with SSRs, in alignment with the United States Environmental Protection Agency’s definition of GHGs, which includes: carbon dioxide (CO2), methane (CH4), nitrous oxide (N2O) and fluorinated gasses such as hydrofluorocarbons (HFCs), perfluorocarbons (PFCs), sulfur hexafluoride (SF6) and nitrogen trifluoride (NF3). For CO2 stored, only CO2 shall be included as part of the quantification. For all other activities all GHGs must be considered. For example, the release of CO2, CH4, and N2O is expected during diesel consumption.
+
+All GHGs must be quantified and converted to CO2e in the GHG Statement using the 100-year Global Warming Potential (GWP) for the GHG of interest, based on the most recent volume of the IPCC Assessment Report (currently the Sixth Assessment Report).
+
+2.4.1
+Project Emissions
+Project Emissions
+
+Project emissions can occur on the project site, as well as upstream and downstream from the project site. For SSRs happening on the project site, the Project Proponent typically has direct control over the GHG emissions or removals that occur. For SSRs happening upstream or downstream from the GHG Project, these can occur either on or off the project site, and the Project Proponent typically has less control over the generation of these GHG emissions.
+
+G-N5JP-0
+
+Project Proponents must include all SSRs set out in the relevant Protocol in the system boundary, across the Project Establishment, Operations and End-of-Life Phases of a project.
+
+Ancillary activities are GHG Sources that do not have a direct relationship with the generation of Credits, but are instead required to keep the business operational, or for research and development purposes. These can include activities such as research and development, or corporate activities associated with organizational processes. It is recommended that Project Proponents track and manage these emissions, but they may be excluded from the system boundary.
+
+2.4.2
+Leakage
+Leakage
+
+Leakage includes increases in GHG emissions as a result of the project displacing emissions or causing a secondary negative effect that increases emissions elsewhere.
+
+R-HF2G-0
+
+Project Proponents must evaluate leakage by providing a robust assessment of the potential increases in GHG emissions outside the system boundary that occur as a result of the Project activity.
+
+Projects may generate positive impacts on GHG emissions that extend beyond the system boundary defined in the relevant Protocol. For instance, secondary sequestrations may occur when reforestation practices foster ecological benefits outside the project area, or when biochar application enhances soil carbon storage. Under this conservative accounting framework, secondary reductions in GHG emissions or secondary sequestrations are not accounted for. The only exception is through the “substitution method” which allows for the consideration of multifunctionality in emissions accounting, for which conservative guardrails are in place (See Section 6.1). Multifunctionality in this instance refers to Projects which produce co-products as well as CDR.
+
+G-8TEB-0
+
+Project Proponents must quantify and deduct Leakage that results in increases in GHG emissions, in accordance with the relevant Protocol (addressed under 
+𝐶
+𝑂
+2
+𝑒
+𝐿
+𝑒
+𝑎
+𝑘
+𝑎
+𝑔
+𝑒
+CO
+2
+	​
+
+e
+Leakage
+	​
+
+).
+
+3.0
+Data Requirements
+Data Requirements
+
+This section sets out the data quality hierarchy and the data quality principles that must be considered for every input parameter.
+
+3.1
+Data Quality Overview
+Data Quality Overview
+R-MF57-0
+
+Project Proponents must use data that best represents the activity included in the GHG Statement and is aligned to data quality hierarchy and principles as outlined in Section 3.4.
+
+The quality of data used in GHG accounting underpins the accuracy of results. GHG accounting as a practice is inherently uncertain as it is based on estimated data, unless emissions are measured directly (such as in flue gas measurements). Emissions that are not measured directly are quantified using activity data multiplied by emission factors as set out in Equation 1:
+
+𝐴
+𝑐
+𝑡
+𝑖
+𝑣
+𝑖
+𝑡
+𝑦
+  
+𝐺
+𝐻
+𝐺
+  
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+  
+=
+  
+𝐴
+𝑐
+𝑡
+𝑖
+𝑣
+𝑖
+𝑡
+𝑦
+  
+∗
+  
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+  
+𝐹
+𝑎
+𝑐
+𝑡
+𝑜
+𝑟
+ActivityGHGEmissions=Activity∗EmissionFactor
+
+(Equation 1)
+
+where:
+
+𝐴
+𝑐
+𝑡
+𝑖
+𝑣
+𝑖
+𝑡
+𝑦
+  
+𝐺
+𝐻
+𝐺
+  
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+ActivityGHGEmissions is the emissions associated with an activity, presented in tonnes CO2e
+𝐴
+𝑐
+𝑡
+𝑖
+𝑣
+𝑖
+𝑡
+𝑦
+Activity is the activity that took place, presented in appropriate units; and
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+  
+𝐹
+𝑎
+𝑐
+𝑡
+𝑜
+𝑟
+EmissionFactor is the emissions intensity per unit for the activity, presented in tonnes CO2e / unit.
+
+Emission factors are an estimate of emissions associated with a given activity, not a direct measurement of emissions that occurred.
+
+3.2
+Types of Data
+Types of Data
+
+This Module defines three types of data:
+
+Direct CO2e measurements: Direct measurement of CO2 removals or GHG emissions via apparatus that detects concentration of C, CO2, or other GHGs within a sample, or output flow. This type of data is provided by the Project owners, operators or supply chain members. Removals or emissions are determined from direct measurements, for example direct measurement of C content of biomass, or direct measurement of GHGs in flue gas.
+Primary data: Activity data that is specific to project activities and it is directly measured, but is not a direct measurement of CO2e. Examples are electricity and natural gas data from automatic meter readings; fuel quantity data from invoices; number of units or quantity in tonnes of materials and resources from a bill of quantity (BoQ). This type of data is provided by the Project owners, operators or supply chain members.
+Secondary data: Data that is not specific to project activities. This type of data is publicly available, for example from a database or publication. This type of data may be specific to a similar activity to that is being quantified, or it may be an average, for example a regional, sectoral or global average. Examples include benchmarks related to the energy consumption of specific assets, such as the average kWh/sqm for offices, or estimating fuel quantities from expenditure data, e.g. using the average price per litre of diesel within a specific geography. Emission factors and proxies for activity data are examples of secondary data. Expenditure data is also considered a type of secondary data.
+
+Requirements for direct CO2e measurements are set out in Protocols. For all other data points, primary data must always be used over secondary data when collecting activity data, as secondary data carries more uncertainty than primary data. This is especially important for emission sources which are likely to be material for the GHG Statement.
+
+Section 3.4 provides guidance on the data quality hierarchy to be followed for both activity data and emission factors.
+
+3.3
+Emission Factors
+Emission Factors
+
+As mentioned above, emission factors are considered secondary data as they are derived from existing studies, databases, or industry averages.
+
+Emission factors used by Project Proponents must:
+
+G-WFA0-0Account for total GHG emissions as CO2e. Separate emissions factors for each GHG may be utilized, and the calculated emissions should be converted to CO2e using the 100-yr Global Warming Potential (GWP) for the relevant GHG, based on the most recent volume of the IPCC Assessment Report (presently the Sixth Assessment Report).
+G-G45N-0Reflect the most recently published values from the original source, and should be reviewed and updated, where possible, on at least an annual basis.
+G-QDWZ-0Be appropriately cited, and, where available, be from a Reputable Source in accordance with the Isometric Standard. A Reputable Source is defined as a source that would be widely considered trustworthy based on the process undertaken (e.g., peer reviewed) or origin of the information (e.g., government body).
+
+Examples of Reputable Source for emission factors include: Argonne National Laboratory GREET Model1, California Air Resources Board modified GREET model (CA-GREET)2, Department for Energy and Net Zero Conversion factors for company reporting of GHGs3, Ecoinvent database4, US Federal Life Cycle Inventory database or LCA Commons5, and similar databases used in common life cycle analysis practices or tools (such as OpenLCA, SimaPro, or GaBi).
+Further requirements for emission factors for embodied and transportation emissions are set out in Appendix 1. Further requirements for emission factors for energy use are set out in the Energy Use Accounting Module v1.3.
+
+3.4
+Data Quality Principles and Hierarchy
+Data Quality Principles and Hierarchy
+
+Data must follow the requirements set out in the relevant Protocols and Modules. Whenever specific data quality requirements are included in a Protocol or relevant Module(s), for example storage Modules or emissions accounting Modules, they must be followed.
+
+Where direct measurements are not available for the SSRs relevant to the system boundary, the Project Proponent must gather the highest quality data available to estimate emissions, following the principles and quality hierarchies outlined in this section.
+
+Each data should be selected considering the following data quality criteria: Reliability, Completeness, Age, Geography, and Technology. A brief description of these criteria is provided in Table 1, while Table 2 and Table 3 provide high level descriptions of what constitutes high, medium, and low quality for each criteria for both activity data and emission factors, respectively. Detailed descriptions of these criteria are provided in Appendix 1.
+
+The data quality hierarchy serves as a guide for Project Proponents to distinguish between high and low-quality data, enhance the transparency of the GHG Statement, and encourage the continuous pursuit of the best available data. Project Proponents who must use data that is not ideal (e.g., global instead of geography-specific, or older than eight years) will not be penalized if no better alternatives are available.
+
+G-9B6T-0
+
+Where high quality data is not available, the use of medium- or low-quality data must be justified. Project Proponents must provide this justification within the GHG Statement, the GHG Statement Report (at the verification stage) or the Project Design Document (PDD) (at the validation stage).
+
+Justification must include:
+
+A statement that higher quality data was not available at the time of the assessment
+
+Justification should also include:
+
+Evidence that an attempt was made to gather higher quality data
+Commitments to continually improve data quality for subsequent Reporting Periods
+
+Justification must be assessed during every verification event, though it may remain unchanged if circumstances have not evolved. For one-time emissions, typically related to Project Establishment and End-of-Life activities, that can be amortized over multiple Reporting Periods, justifications provided and accepted  at the first verification event do not require any further action. The ongoing acceptance of medium or low-quality data will be determined by the verifier, based on conservatism, scope, materiality, as well as project-specific factors.
+
+G-X02F-0
+
+Where an emission source is < 1% of net CO2e removals, Materiality may be used as a justification for applying lower-quality data (See Section 5). Emission sources relying on  this justification must collectively represent  < 1% of net removals. Where  the cumulative total of these SSRs exceeds 1%, Project Proponents should seek higher-quality data, starting with the SSRs that have the highest contribution.
+
+Table 1. Data quality criteria descriptions6. Refer to Appendix 1 for further detail.
+
+CRITERIA
+
+	
+
+DESCRIPTION
+
+
+
+
+Reliability
+
+	
+
+The proficiency of the entities that gathered, calculated, and or reviewed the data and whether the process of generating the data is reproducible.
+
+
+
+
+Completeness
+
+	
+
+The degree to which the data are statistically representative of the relevant activity. Completeness includes the percentage of locations for which data is available and used out of the total number that relate to a specific activity. Completeness also addresses seasonal and other normal fluctuations in data.
+
+
+
+
+Age
+
+	
+
+The degree to which the data reflects the actual time (e.g., year) or age of the activity.
+
+
+
+
+Geography
+
+	
+
+The degree to which the data reflects the actual geographic location of the activity (e.g., country or site).
+
+
+
+
+Technology
+
+	
+
+The degree to which the data reflects the actual technology(ies) used.
+
+Table 2. Data quality hierarchy for activity data6 . Refer to Appendix 1 for further detail.
+
+CRITERIA
+
+	
+
+HIGH QUALITY
+
+	
+
+MEDIUM QUALITY
+
+	
+
+LOW QUALITY
+
+
+
+
+Reliability
+
+	
+
+Data is measured and verified.
+
+	
+
+Activity data are inferred from high quality benchmarks/proxies, such as internal proxies, or benchmarks from official sources.
+
+	
+
+Activity data are inferred from low quality benchmarks, proxies from non qualified sources, or spend data is used.
+
+
+
+
+Completeness
+
+	
+
+Data is complete (or with minimal extrapolations) for the Reporting Period.
+
+	
+
+Data is mostly complete, with some estimates, however is still a good representation.
+
+	
+
+Data is mostly incomplete, and significant proxy estimations are required.
+
+
+
+
+Age
+
+	
+
+Data is fully representative of the Reporting Period.
+
+	
+
+Some activity data are from previous time periods, but are a good representation of the Reporting Period.
+
+	
+
+Some activity data are from previous time periods and are a poor representation of the Reporting Period.
+
+
+
+
+Geography
+
+	
+
+Data is fully representative of the location where the activity took place.
+
+	
+
+Data is representative at a minimum of the country where the activity took place.
+
+	
+
+Data is either regional (e.g. Europe) or global.
+
+
+
+
+Technology
+
+	
+
+Data description is highly specific, broken down by all (or for the most relevant) key factors.
+
+	
+
+Data is well described at a high level.
+
+	
+
+Data description is generic.
+
+Table 3. Data quality hierarchy for emission factors. Refer to Appendix 1 for further detail
+
+CRITERIA
+
+	
+
+HIGH QUALITY
+
+	
+
+MEDIUM QUALITY
+
+	
+
+LOW QUALITY
+
+
+
+
+Reliability
+
+	
+
+Emission factors are from the most authorative source available for that activity, which is a Reputable Source.
+
+	
+
+Generic emission factors (excl. expenditure-based emission factors) are provided by a database which is a Reputable Source.
+
+	
+
+Emission factors are extrapolated from non-official sources, or from an expenditure based database (even if this is a reputable source, e.g. USEPA or EXIOBASE).
+
+
+
+
+Completeness
+
+	
+
+The emission factor represents the whole life cycle of the activity.
+
+	
+
+The emission factor is mostly complete, but is missing some life cycle stages.
+
+	
+
+The emission factor is an approximation, or no information is provided for life cycle stages.
+
+
+
+
+Age
+
+	
+
+Emission factor is updated and published for the same year as the Reporting Period, or is the most up to date available.
+
+	
+
+Emission factors are a maximum of six years old.
+
+	
+
+Emission factors are more than six years old.
+
+
+
+
+Geography
+
+	
+
+The emission factor used is representative of the activity location.
+
+	
+
+The emission factor is an acceptable representation of the activity location.
+
+	
+
+The emission factor is a poor representation of the activity location.
+
+
+
+
+Technology
+
+	
+
+The emission factor is specified by all or at least the most relevant components.
+
+	
+
+The emission factor is well described at a high level.
+
+	
+
+The emission factor is generic.
+
+Once the highest quality data have been identified based on the above criteria, the Project Proponent must also consider Scope and Conservativeness (Table 4). Scope refers to the degree to which the data is representative of the relevant activity. Conservativeness refers to the degree to which the data is conservative.
+
+Table 4. Scope and Conservativeness
+
+CRITERIA
+
+	
+
+DESCRIPTION
+
+
+
+
+Scope
+
+	
+
+How well the emission factor represents the activity data, plus the suitability of any proxy data used.
+
+In some cases, highly specific and recent emission factors may be less appropriate than older less specific emission factors if they better match the activity data.
+
+
+
+
+Conservativeness
+
+	
+
+The most conservative value must always be chosen when selected between multiple input parameters equal in all other aspects of data quality . Further information on the principle of conservativeness is provided below.
+
+Conservative values and assumptions are those that are more likely to underestimate than overestimate net CO2e removals.
+
+G-T6ZQ-0
+
+Project Proponents must select the most conservative input parameter where multiple options are equal in all other aspects of data quality - except where a less conservative parameter is more representative, in which case it should be selected. This applies to all data types.
+
+Project Proponents must document in the PDD how each selected input parameter (including emission factors and activity-data assumptions) is conservative.
+
+Improving the quality of activity data used by moving up the activity data quality hierarchy typically will reduce the number of conservative assumptions required in GHG accounting, therefore likely leading to an increase in net CO2e removals.
+
+3.5
+Data Collection
+Data Collection
+
+It is advisable for the Project Proponents to create a data collection tracker that can be shared internally and with third parties to record data requests, dates when raw data is received, data format, data limitations, and links to where data is stored. Keeping track of data in this way increases traceability and transparency of reporting and can be used as evidence as part of validation and verification. In some cases, it may be necessary to have a discussion with third parties to understand what might be available in the absence of measured primary data and to build assumptions together. Those carrying out the activity will have a better understanding of the processes and associated emissions that take place as part of the activity.
+
+4.0
+Activity-Specific Accounting Requirements
+Activity-Specific Accounting Requirements
+
+The following sections outline GHG accounting considerations for specific categories of emission sources that commonly occur in relation to CDR projects. These categories of emission sources are not mutually exclusive to project phases and may occur as part of 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑠
+𝑡
+𝑎
+𝑏
+𝑙
+𝑖
+𝑠
+ℎ
+𝑚
+𝑒
+𝑛
+𝑡
+CO
+2
+	​
+
+e
+Establishment
+	​
+
+ , 
+𝐶
+𝑂
+2
+𝑒
+𝑂
+𝑝
+𝑒
+𝑟
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Operations
+	​
+
+ , 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑑
+−
+𝑂
+𝑓
+−
+𝐿
+𝑖
+𝑓
+𝑒
+CO
+2
+	​
+
+e
+End−Of−Life
+	​
+
+ or 
+𝐶
+𝑂
+2
+𝑒
+𝐿
+𝑒
+𝑎
+𝑘
+𝑎
+𝑔
+𝑒
+CO
+2
+	​
+
+e
+Leakage
+	​
+
+.
+
+4.1
+Embodied Emissions
+Embodied Emissions
+
+Embodied emissions refer to the life cycle GHG impacts associated with the production of materials, consumables, equipment, buildings and infrastructure related to the Project. Full life cycle emissions from raw materials extraction through to product end-of-life must be considered for all embodied emissions. Embodied emissions must be considered as part of the assessment for all GHG SSRs relevant to the project, as set out in the relevant Protocol.
+
+Equipment, infrastructure and vehicles that must be included in the life cycle GHG emissions calculations includes all equipment produced, constructed, utilized and disposed of for the CDR project. Where appropriate, this includes all equipment and support systems related to storage monitoring (see the relevant Protocol's Storage Module for further details). Where equipment, infrastructure or vehicles are not utilized exclusively for the CO2 removal process, a proportional approach to emissions accounting can be taken.
+
+Where available, embodied emissions calculations must include the following life cycle stages of the product, consumable, building or infrastructure asset, as defined by ISO 21930 7 and EN15804 and as referenced in the GHG Protocol supplement 8, including:
+
+A1-A3 - Product Stage: includes raw material sourcing, transport to manufacturing facility and manufacturing
+A4 - Transport to Project Site
+A5 - Construction Stage: includes fuel and energy use, as well as waste generated during installation at site
+C1-C4 - End of Life Stage: includes demolition, transport, waste processing and final disposal
+
+Life cycle stages B1-B5 & B7 (Use Stage emissions: includes use, maintenance, repair, replacement, refurbishment and water consumption) are excluded from the above list because they are monitored and reported in each reporting period as they occur.
+
+When reporting emissions of materials and products procured, for example, concrete and steel used in construction, Project Proponents must report at a minimum emissions related to modules A1-A3. Emissions related to A4, A5 and C1-C4 may be captured separately by Project Proponents where primary activity data flows for these stages are captured separately.
+
+Embodied emissions accounting for shared infrastructure must be undertaken in alignment with Section 7.
+
+The data quality requirements in Section 3 and supplementary information in Appendix 1, Section 10.1.1: Embodied emissions must be considered for embodied emissions.
+
+4.2
+Transportation Emissions
+Transportation Emissions
+
+The emissions associated with the transportation of goods must be calculated when any mode of transportation is used to move goods between sites as part of project operations. This includes transportation by trucks, rail, ships, pipeline and aircraft. For a CDR project, the transportation of goods includes, but is not limited to, the transportation of CO2, feedstocks, consumables and waste.
+
+At minimum, GHG emissions from the direct combustion of fuels in vehicles, as well as the upstream emissions associated with the production and distribution of the fuel and/or electricity must be accounted for. Furthermore, a full cradle-to-grave GHG assessment is required for vehicles and infrastructure produced, constructed, and utilized for the CO2 removal project, in line with Section 4.1.
+
+Project must calculate transportation emissions using the highest-ranked method for which data are available:
+
+Energy Usage Method: uses direct measurement of fuel or energy usage and associated emissions factors (preferred), see Equation (2);
+Distance-Based Method: uses the distance traveled, transport mode, and load weight with associated emissions factors (acceptable if data unavailable for (1) ), see Equation (3).
+
+Other approaches may be allowable on a case-by-case basis in agreement with Isometric.
+
+The Data Quality requirements in Section 3 and supplementary information in Appendix 1, Section 10.1.2: Transportation emissions must be considered for transportation emissions.
+
+Staff transport, for example via air or road, may be quantified by either the energy usage method or by another suitable method such as per passenger km or distance travelled, depending on the transport mode and data availability.
+
+4.2.1
+Energy Usage Method
+Energy Usage Method
+
+Emissions are calculated as follows:
+
+𝐶
+𝑂
+2
+𝑒
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+ 
+𝑗
+ 
+=
+ 
+𝐹
+𝑗
+ 
+×
+ 
+𝐸
+𝐹
+𝐹
+𝑢
+𝑒
+𝑙
+,
+ 
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+ 
+𝑗
+CO
+2
+	​
+
+e
+Transportation, j
+	​
+
+ = F
+j
+	​
+
+ × EF
+Fuel, Transportation, j
+	​
+
+
+(Equation 2)
+
+Where:
+
+𝐶
+𝑂
+2
+𝑒
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+ 
+𝑗
+CO
+2
+	​
+
+e
+Transportation, j
+	​
+
+ = the total GHG emissions associated with the transportation journey of a product, 
+𝑗
+j, in tonnes of CO2e
+𝐹
+𝑗
+F
+j
+	​
+
+ = the quantity of fuel or electricity consumed during the transportation journey, 
+𝑗
+j, from one location to another including other induced transportation, in appropriate units e.g. litres
+𝐸
+𝐹
+𝐹
+𝑢
+𝑒
+𝑙
+,
+ 
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+ 
+𝑗
+EF
+Fuel, Transportation, j
+	​
+
+ = the relevant fuel or electricity-based full life cycle emission factor, in appropriate units e.g. kg CO2e/litre
+
+Equation 2 is analogous to Equation 6 in Section 6.0 of the Energy Use Accounting Module v1.3 when considered at a Removal level.
+
+4.2.2
+Distance-Based Method
+Distance-Based Method
+
+Emissions are calculated as follows:
+
+𝐶
+𝑂
+2
+𝑒
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+ 
+𝑗
+ 
+=
+ 
+𝐷
+𝑗
+ 
+×
+ 
+𝑊
+𝑗
+ 
+×
+ 
+𝐸
+𝐹
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+ 
+𝑗
+CO
+2
+	​
+
+e
+Transportation, j
+	​
+
+ = D
+j
+	​
+
+ × W
+j
+	​
+
+ × EF
+Transportation, j
+	​
+
+
+(Equation 3)
+
+Where:
+
+𝐷
+𝑗
+D
+j
+	​
+
+ = the distance traveled for the transportation journey, 
+𝑗
+j, from one location to another, in appropriate units e.g. km
+𝑊
+𝑗
+W
+j
+	​
+
+ = the mass of material transported as part of the transportation journey, 
+𝑗
+j, from one location to another, in appropriate units e.g. tonnes
+𝐸
+𝐹
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+ 
+𝑗
+EF
+Transportation, j
+	​
+
+ = the weight- and distance-based emission factor for transportation for a specific vehicle type, or infrastructure asset where available, provided in appropriate units e.g. kg CO2e/tonne-km
+4.3
+Energy Use
+Energy Use
+
+The Energy Use Accounting Module v1.39 describes how energy-related emissions must be calculated for CDR projects, including the use of both electricity and stationary fuel. The Energy Use Accounting Module v1.3 sets out the calculation methods to follow, as well as eligibility criteria for low-carbon power procurement of Book-and-Claim Unit procurement.
+
+Refer to Energy Use Accounting Module v1.39 for the calculation guidelines.
+
+5.0
+Materiality
+Materiality
+
+SSRs that are not applicable to the project (i.e, not part of project emissions or leakage), or not relevant to the Reporting Period, may be excluded from the system boundary.
+
+Project Proponents may also exclude SSRs where the total emissions for that SSR, and all excluded SSRs collectively, are expected to be negligible. Negligible SSRs are those which fall below a Materiality threshold based on environmental significance of < 1% of net CO2e removals. The purpose of the Materiality threshold is to save resources being expended on GHG accounting for negligible SSRs, in a manner that is proportional to the principle of scientific rigor and evaluation of uncertainty that underpins the Isometric Standard.
+
+A Materiality Assessment should be undertaken for any SSRs that are suspected to be negligible. The Materiality Assessment is a comparison between estimated total net CO2e removal for a Reporting Period or batch, and estimated emissions for the SSR suspected to be negligible for a Reporting Period or batch.
+
+The Materiality assessment should be undertaken as follows:
+
+𝑀
+𝑆
+𝑆
+𝑅
+=
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑆
+𝑅
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+,
+  
+𝑅
+𝑃
+𝐶
+𝑂
+2
+𝑒
+𝑅
+𝑒
+𝑚
+𝑜
+𝑣
+𝑎
+𝑙
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+,
+  
+𝑅
+𝑃
+∗
+100
+M
+SSR
+	​
+
+=
+CO
+2
+	​
+
+e
+RemovalEstimated,RP
+	​
+
+CO
+2
+	​
+
+e
+SSREstimated,RP
+	​
+
+	​
+
+∗100
+
+(Equation 4)
+
+Where:
+
+𝑀
+𝑆
+𝑆
+𝑅
+M
+SSR
+	​
+
+ is the Materiality of the SSR, expressed as a percentage
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑆
+𝑅
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+SSREstimated
+	​
+
+ is the estimated emissions for the SSR suspected to be negligible for a Reporting Period, in tonnes CO2e
+𝐶
+𝑂
+2
+𝑒
+𝑅
+𝑒
+𝑚
+𝑜
+𝑣
+𝑎
+𝑙
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+RemovalEstimated
+	​
+
+ is the estimated net CO2e removal for a Reporting Period, including consideration of emissions for all estimated SSRs, in tonnes CO2e. The calculation of 
+𝐶
+𝑂
+2
+𝑒
+𝑅
+𝑒
+𝑚
+𝑜
+𝑣
+𝑎
+𝑙
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+RemovalEstimated
+	​
+
+ should follow the procedure set out for the calculation of 
+𝐶
+𝑂
+2
+𝑒
+𝑅
+𝑒
+𝑚
+𝑜
+𝑣
+𝑎
+𝑙
+CO
+2
+	​
+
+e
+Removal
+	​
+
+ in the relevant Protocol for SSRs that are deemed to be material. For SSRs that are expected to be negligible, emissions for the SSR should be estimated, as with the term 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑆
+𝑅
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+SSREstimated
+	​
+
+.
+G-B2RM-0
+
+An SSR may be excluded from the system boundary only where 
+𝑀
+𝑆
+𝑆
+𝑅
+M
+SSR
+	​
+
+ is < 1% individually and all excluded SSRs remain <1% collectively.  Where the collective total exceeds 1%, the SSRs with the highest Materiality must be reinstated  in the system boundary, in descending order, until the sum of SSRs becomes < 1%. It is not necessary to recalculate emissions  for SSRs that are < 1% using more accurate data if the emission calculations for the Materiality assessment were conducted using a high-level approach, e.g., using expenditure data (see below).
+
+The Materiality assessment should be undertaken for complete categories of SSRs, as defined in the relevant Protocol and set out in the system boundary, as they relate to a Reporting Period. A complete category of SSRs refers to a grouping of all related activities and described at the Protocol level. Examples of such categories include:
+
+Equipment and materials manufacture: all activities related to the production of project components, such as concrete, steel, and other key materials;
+Construction and installation: all on-site activities, including the fuel consumed and waste generated during the build phase;
+Feedstock transport: the end-to-end transportation of feedstock, covering all modes of transport used (e.g., road, rail, sea).
+
+Buffer pools should not be considered when performing the Materiality assessment (see Section 5.6.2 of the Isometric Standard for more information on Buffer Pools).
+
+G-GMY4-0
+
+Project Proponents should provide full details of the Materiality Assessment as part of the GHG Statement.
+
+G-QYNE-0
+
+Project Proponents must repeat the Materiality Assessment when any of the following occur:
+
+The previous assessment was conducted one year or more prior to the current verification;
+There has been a significant change in the Net Removal estimate;
+There has been a change in activities associated with any of the relevant SSRs.
+5.1
+Calculating CO|2|e SSR Estimated
+Calculating CO2e SSR Estimated
+
+Project Proponents should estimate 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑆
+𝑅
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+SSREstimated
+	​
+
+ using a high level, conservative assessment of the emissions associated with the SSR. The estimation basis must be selected as follows:
+
+Readily available project data (e.g. emails, plot areas, mapping, testimonials) must be used where it exists, regardless of the SSR's expected Materiality. Information is considered readily available where limited steps are required to obtain it (e.g. the Project Proponent owns the data, or a third party can share it without intermediate steps).
+Expenditure data combined with an Environmentally-Extended Input-Output (EEIO) emission-factor model (e.g. US EPA10, EXIOBASE11) or physical benchmarks from life cycle inventory databases, literature, or similar Reputable Sources (e.g. kgCO₂e/m² of facility area, tCO₂e/tonne of throughput).
+
+These approaches should be used as screening tools to efficiently assess emission sources that are expected to be negligible, thereby avoiding disproportionate effort in data collection for low-impact categories.
+
+5.2
+Calculating CO|2|e Removal Estimated
+Calculating CO2e Removal Estimated
+
+Project Proponents must calculate the net CO2e Removal, 
+𝐶
+𝑂
+2
+𝑒
+𝑅
+𝑒
+𝑚
+𝑜
+𝑣
+𝑎
+𝑙
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+RemovalEstimated
+	​
+
+, using actual data and following all required methodologies for SSRs considered to be material. Estimated data, following the calculation criteria set out for calculating 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑆
+𝑅
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+SSREstimated
+	​
+
+ should be used for any SSRs which have the potential to be negligible. Calculation of 
+𝐶
+𝑂
+2
+𝑒
+𝑅
+𝑒
+𝑚
+𝑜
+𝑣
+𝑎
+𝑙
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+RemovalEstimated
+	​
+
+ must include all SSRs applicable to The Project.
+
+An example of how the Materiality Assessment should be applied is set out in Appendix 2.
+
+6.0
+Emissions Allocation
+Emissions Allocation
+6.1
+Co-product Emissions Allocation
+Co-product Emissions Allocation
+
+The CDR process may result in the production of co-products, either as a direct result of the CDR process, or because the CDR process is integrated into a wider system. Co-products are products that are produced intentionally and in a controlled manner alongside the main product in a production process, and have a significant market value. By-products are products that are produced as a secondary or unintended result of the production process, and typically have lower market value than the main product. Co-products and by-products that are outputs of the Project’s processes are treated the same under the allocation rules outlined in the procedures in this section.
+
+Emissions accounting for by-products that are inputs to the CDR system are considered in Section 6.4. These may be physical products or energy outputs, such as electricity and heat.
+
+R-3MBJ-0
+
+Project Proponents must declare all co-products and by-products produced by the Project, and state whether they will allocate all Project emissions to CDR (Procedure 1) or apply one of the co-product allocation rules (Procedure 2, Procedure 3, or Procedure 4).
+
+Project Proponents may allocate Project emissions between CDR and the co-product  using one of the four procedures outlined below, subject to the following combination rules: 
+
+The subdivision method (Procedure 2) and the substitution method (Procedure 3) are mutually exclusive and cannot be combined within the same assessment. For example, if shared processes exist up to a certain stage of the Project, but later the CDR and the co-product can be tracked separately, it is not permitted to allocate emissions separately to the divided processes (Procedure 2) and apply the substitution method (Procedure 3) to the shared processes.  Project Proponents must select one method only. 
+The carbon mass balance method (Procedure 4) can be used in combination with either Procedure 1, 2 or 3, provided the Project leads to the production of multiple CDR products where the co-product also leads to crediting.
+
+Figure 1 outlines the stepwise process for co-products emissions allocation. Examples for each procedure are provided in Appendix 4.
+
+Figure 1. Flowchart for co-product allocation
+
+G-YQM9-0
+
+Where Procedure 3 or 4 are implemented, the following must be made available at every verification event in which the procedure has been used:
+
+Calculations for the Project's emissions, removals and counterfactuals, presented together in net metric tonnes of CO2e, prior to allocation. This must include all calculations and evidence;
+Details of the allocation procedure used including calculations and supporting evidence;
+All eligibility criteria documentation requirements for the relevant allocation method;
+Procedure 4 only: Details of tracking procedures in place, corrective mechanisms applied and remaining timeframe, where applicable.
+
+Procedure 1: Allocate all emissions to CDR
+
+Projects may opt to allocate all Project emissions to CDR. The co-product(s) must still comply with all relevant emission accounting regulations and requirements, for example if emissions accounting for the co-product are regulated under construction product regulations or as part of an emissions trading scheme. This may mean emissions are double counted. Removals must not be double counted. This is the most conservative approach to take.
+
+G-JCFY-0
+
+Procedure 2: Divide the process into sub-processes
+
+Where processes, or aspects of processes, are physically separable and dedicated exclusively to either the CDR product or the co-product, the process may be divided into sub-processes. This means that only sub-processes that can be clearly separated and are physically distinct in their entirety can undergo division. Only sub-processes that are physically separable and do not contribute to CDR may be excluded from the GHG Statement boundary.
+
+Where the CDR process is a retrofit o an existing facility that was operational prior to the introduction of the CDR process, the CDR process may be considered a new sub-process of the facility. In this case, only the emissions directly associated with the CDR process should be allocated to it.
+
+Eligibility criteria, evidence requirements and system boundary considerations for dividing the process into sub-processes are set out in Table 5. At least one of EC1 or EC2 must be satisfied in order to divide the process into sub-processes.
+
+Table 5. Procedure 2 Eligibility Criteria, EC1 and EC2
+
+ELIGIBILITY CRITERIA
+
+	
+
+DESCRIPTION
+
+	
+
+DOCUMENTATION REQUIRED
+
+
+
+
+EC1
+
+	
+
+The CDR process is a retrofit to an existing facility that was operable prior to the introduction of the CDR process. Prior to the retrofit the existing facility must have been operational for purposes other than CDR.
+
+	
+
+Records of existing facility activities dating back three years prior to the CDR Project start date must be provided for infrastructure projects where a planning application was required. For all other projects, records of the existing facility activities dating back one year is required. The distinction for infrastructure projects that require a planning application is to ensure that the CDR process is indeed a retrofit, given that major infrastructure project construction may be staged over many years.
+
+The system boundary in this case is limited to materials and processes necessary for the retrofit and processes that directly contribute to the CDR process. This includes existing processes at the facility that are operated at increased capacity to provide for the CDR process as well as any additional load bearing structures. Evidence of fractional differences in inputs, for example the step-change in energy requirements for the CDR process as a retrofit to an existing facility, must be evidenced in full. Any reduction in efficiency of energy production as a result of the CDR process must be included in the system boundary as part of the assessment of leakage.
+
+
+
+
+EC2
+
+	
+
+The process has components and operations that are physically separate from one another.
+
+	
+
+Evidence of separation should be provided, for example engineering diagrams showing separate equipment or electricity metering systems for separate components of the process. Sub-processes that can be isolated from the CDR process and do not contribute to CDR may be excluded from the system boundary.
+
+G-61BK-0
+
+Procedure 3: "Substitution method"
+
+Project Proponents may use the "substitution method" to account for the avoided emissions associated with the production of a co-product where it is not possible to divide processes. This approach expands the system boundary to include the co-product, allowing emissions avoided through market displacement of another product to be subtracted from certain project emissions. This is sometimes referred to as the "expanding the system boundary" or "avoided burden" approach12.
+
+When undertaking this approach, the full facility GHG emissions must be included within the system boundary before applying the substitution method.
+
+The application of the substitution method is subject to eligibility and implementation criteria to ensure its use is conservative, transparent, and does not disincentivise the decarbonisation of project activities.
+
+Eligibility criteria for application of the substitution method are set out in Table 6. Both EC3 or EC4 must be satisfied in order to apply the substitution method.
+
+Eligibility Criteria
+
+Table 6. Procedure 3 Eligibility Criteria, EC3 and EC4
+
+ELIGIBILITY CRITERIA
+
+	
+
+DESCRIPTION
+
+	
+
+DOCUMENTATION REQUIRED
+
+
+
+
+EC3
+
+	
+
+**Demonstrated net negativity**: The Project must demonstrate net negative CO₂e removals before the application of the substitution method. This ensures that the substitution method does not enable the crediting of net emitting processes.
+
+	
+
+GHG Statement calculations prior to application of the substitution method.
+
+
+
+
+EC4
+
+	
+
+**No double counting of environmental attributes**: In line with Section 5.7 the Isometric Standard, the environmental attributes which are included as part of the CDR Credit, including 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+Stored
+	​
+
+ and the avoided burden (the substituted emissions) must not be double counted. This includes as part of the carbon accounting for the co-product, for example in the development of an Environmental Product Declaration, and in any marketing claims associated with the co-product. The environmental attribute of carbon removal and durable storage, and the substituted emissions that are considered as part of this, belong to the Credit owner. The co-product should still comply with all relevant emission accounting regulations and requirements, which may mean 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Emissions
+	​
+
+ are double counted (once for CDR and once for product accounting compliance where required).
+
+	
+
+Statement confirming that the environmental attributes which are included as part of the CDR Credit, including 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+Stored
+	​
+
+ and the avoided burden (the substituted emissions) have not been double counted.
+
+Implementation Criteria
+
+When using the substitution method, the following implementation procedure must be followed.
+
+Identification of the Substituted Product
+G-Z8CR-0
+
+The Project Proponent must report the quantity and type for all marketed co-products. The substitution method may only be applied to one co-product. The quantity and type of substituted product may be informed by the following hierarchy:
+
+a) Confirmation from the co-product purchaser regarding application of the co-product and that the alternative product (the substituted product) would have been used in its absence. Evidence provided to support this will depend on the Project and context, but may include:
+
+Historical purchase records to demonstrate alternative product procurement
+Affidavits attesting to counterfactual
+
+b) If information from the co-product purchaser is unavailable, a default conservative assumption for the substituted product may be used, whereby the substituted product is a highly similar product to the co-product. For example:
+
+If the co-product is electricity generation which is supplied to the grid, then the counterfactual may be the average grid intensity of the region;
+If the co-product is pyrolysis gas sold as fuel, then the counterfactual may be the production of an alternative pyrolysis gas product.
+Calculation of Substituted Emissions
+G-JX8D-0
+
+Substituted emissions must be calculated via the following process:
+
+a) Determine differences in efficiencies between the co-product and the substituted product through the identification of a substitution ratio.
+
+b) Determine the emission intensity of the substituted product, 
+𝐸
+𝐹
+𝑆
+𝑢
+𝑏
+𝑠
+𝑡
+𝑖
+𝑡
+𝑢
+𝑡
+𝑒
+𝑑
+EF
+Substituted
+	​
+
+. The emission intensity of the substituted product must be conservative (meaning the emissions intensity of the displaced product is underestimated), from a Reputable Source and approved by Isometric. Specifically:
+
+For physical products that are displaced, 
+𝐸
+𝐹
+𝑆
+𝑢
+𝑏
+𝑠
+𝑡
+𝑖
+𝑡
+𝑢
+𝑡
+𝑒
+𝑑
+EF
+Substituted
+	​
+
+ should consider cradle-to-gate emissions only, i.e., life cycle Modules A1-A5.
+For electricity production that is displaced, 
+𝐸
+𝐹
+𝑆
+𝑢
+𝑏
+𝑠
+𝑡
+𝑖
+𝑡
+𝑢
+𝑡
+𝑒
+𝑑
+EF
+Substituted
+	​
+
+ should represent the average carbon intensity of electricity production within the national boundary.
+For stationary fuels that are displaced, 
+𝐸
+𝐹
+𝑆
+𝑢
+𝑏
+𝑠
+𝑡
+𝑖
+𝑡
+𝑢
+𝑡
+𝑒
+𝑑
+EF
+Substituted
+	​
+
+ should consider emissions associated with combustion only.
+
+c) Multiply the quantity of the substituted product by the emission intensity of the substituted product to determine the Substituted Emissions.
+
+d) Apply a conservative uncertainty discount to the Substituted Emissions. The default value for the uncertainty factor is 50%. Projects may propose a lower discount, which must be justified with supporting evidence, such as verified product displacement data or binding statements from co-product buyers.
+
+e) Downstream emissions associated with the co-product (for example emissions associated with transportation of the co-product to the end-user, or emissions associated with use of the co-product by the end-user) must be quantified and subtracted from Substituted Emissions if they are anticipated to be higher than those of the substituted product. These downstream emissions may be excluded from the deduction if the Project Proponent can reasonably demonstrate that transport distances and use-phase emissions for the co-product are equal to or lower than those of the counterfactual product.
+
+Applicability to Project Emissions - residual vs residual
+G-6J42-0
+
+Substituted Emissions may be subtracted from residual emissions only. Residual emissions are defined as hard-to-abate emissions for which no technically or economically feasible decarbonisation options are available to the Project at the time of assessment. To support the identification of project emissions as residual, projects must submit a Decarbonisation Statement that:
+
+Identifies all feasible decarbonisation opportunities considered (e.g., technical upgrades, behavioural changes, market-based mechanisms like RECs).
+Provides evidence of reasonable efforts to implement these feasible options.
+Outlines a forward-looking plan to decarbonise the remaining residual emissions over time.
+This statement should reference best practice guidance and must be updated annually.
+
+Substituted Emissions cannot be subtracted from leakage emissions (
+𝐶
+𝑂
+2
+𝑒
+𝐿
+𝑒
+𝑎
+𝑘
+𝑎
+𝑔
+𝑒
+CO
+2
+	​
+
+e
+Leakage
+	​
+
+).
+
+Equation 5 sets out the calculation procedure to be followed to apply the substitution method.
+
+𝐶
+𝑂
+2
+𝑒
+,
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+=
+max
+⁡
+(
+0
+,
+  
+[
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑠
+𝑡
+𝑎
+𝑏
+𝑙
+𝑖
+𝑠
+ℎ
+𝑚
+𝑒
+𝑛
+𝑡
+𝑅
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
++
+𝐶
+𝑂
+2
+𝑒
+𝑂
+𝑝
+𝑒
+𝑟
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+𝑠
+𝑅
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
++
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑑
+𝑂
+𝑓
+𝐿
+𝑖
+𝑓
+𝑒
+𝑅
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
+]
+−
+[
+𝑄
+𝐶
+𝑜
+𝑃
+𝑟
+𝑜
+𝑑
+𝑢
+𝑐
+𝑡
+∗
+𝐸
+𝐹
+𝑆
+𝑢
+𝑏
+𝑠
+𝑡
+𝑖
+𝑡
+𝑢
+𝑡
+𝑒
+𝑑
+∗
+𝑆
+𝑅
+∗
+𝑈
+−
+𝐶
+𝑂
+2
+𝑒
+𝐶
+𝑜
+𝑃
+𝑟
+𝑜
+𝑑
+𝑢
+𝑐
+𝑡
+]
+)
++
+[
+𝐶
+𝑂
+2
+𝑒
+,
+𝐸
+𝑠
+𝑡
+𝑎
+𝑏
+𝑙
+𝑖
+𝑠
+ℎ
+𝑚
+𝑒
+𝑛
+𝑡
+𝑁
+𝑜
+𝑛
+−
+𝑅
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
++
+𝐶
+𝑂
+2
+𝑒
+𝑂
+𝑝
+𝑒
+𝑟
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+𝑠
+𝑁
+𝑜
+𝑛
+−
+𝑅
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
++
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑑
+𝑂
+𝑓
+𝐿
+𝑖
+𝑓
+𝑒
+𝑁
+𝑜
+𝑛
+−
+𝑅
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
++
+𝐶
+𝑂
+2
+𝑒
+𝐿
+𝑒
+𝑎
+𝑘
+𝑎
+𝑔
+𝑒
+]
+CO
+2e,Emissions
+	​
+
+=max(0,[CO
+2
+	​
+
+e
+Establishment
+Residual
+	​
+
++CO
+2
+	​
+
+e
+Operations
+Residual
+	​
+
++CO
+2
+	​
+
+e
+EndOfLife
+Residual
+	​
+
+]−[Q
+CoProduct
+	​
+
+∗EF
+Substituted
+	​
+
+∗SR∗U−CO
+2
+	​
+
+e
+CoProduct
+	​
+
+])+[CO
+2e,Establishment
+Non−Residual
+	​
+
++CO
+2
+	​
+
+e
+Operations
+Non−Residual
+	​
+
++CO
+2
+	​
+
+e
+EndOfLife
+Non−Residual
+	​
+
++CO
+2
+	​
+
+e
+Leakage
+	​
+
+]
+
+(Equation 5)
+
+Where:
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑠
+𝑡
+𝑎
+𝑏
+𝑙
+𝑖
+𝑠
+ℎ
+𝑚
+𝑒
+𝑛
+𝑡
+CO
+2
+	​
+
+e
+Establishment
+	​
+
+ , 
+𝐶
+𝑂
+2
+𝑒
+𝑂
+𝑝
+𝑒
+𝑟
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Operations
+	​
+
+ , 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑑
+−
+𝑂
+𝑓
+−
+𝐿
+𝑖
+𝑓
+𝑒
+CO
+2
+	​
+
+e
+End−Of−Life
+	​
+
+ and 
+𝐶
+𝑂
+2
+𝑒
+𝐿
+𝑒
+𝑎
+𝑘
+𝑎
+𝑔
+𝑒
+CO
+2
+	​
+
+e
+Leakage
+	​
+
+ are as defined in the relevant Protocol. Where identified in the equation, these terms reflect residual emissions, or non-residual emissions
+𝑄
+𝐶
+𝑜
+−
+𝑝
+𝑟
+𝑜
+𝑑
+𝑢
+𝑐
+𝑡
+Q
+Co−product
+	​
+
+ is the quantity of the co-product produced, in appropriate units
+𝐸
+𝐹
+𝑆
+𝑢
+𝑏
+𝑠
+𝑡
+𝑖
+𝑡
+𝑢
+𝑡
+𝑒
+𝑑
+EF
+Substituted
+	​
+
+ is the emission factor for the substituted product, in tonnes CO2e per unit
+𝑆
+𝑅
+SR is the conversion ratio for the substituted product to account for efficiency differences between the co-product and the substituted product
+𝑈
+U is the Uncertainty Factor. The default for this value is 0.5
+
+Equation 5 requires an adjustment to the equations for 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Emissions
+	​
+
+ as they are set out in the requisite Protocol. When allocation procedures are undertaken, Equation 5 supersedes the relevant equation in the requisite Protocol.
+
+The assumptions underpinning the Substituted Emissions value, the Decarbonisation Statement and all supporting evidence must be updated and revalidated annually to account for changes in market conditions.
+
+It is anticipated that the fate of the co-product and the subsequent calculation of the Substituted Emissions value will be known at the point of crediting the CDR product. If this is not the case, alternative arrangements may be permitted at the discretion of Isometric on a case-by-case basis.
+
+G-SP78-0
+
+Procedure 4: Carbon mass balance if the co-product leads to Crediting
+
+Physical allocation based on carbon mass balance shall be used in instances where the co-product leads to Crediting for CDR with Isometric, for example if the process produces both biochar and bio-oil that is injected underground, and the CDR co-products have different durability. This is so that emissions are distributed according to the CO2 balance output of the system. The requirement for Crediting to be with an Isometric Project ensures that co-product allocation can be traced and verified appropriately and according to the same set of allocation and emissions accounting requirements. The co-product allocation between CDR products can be made after process subdivision and substitution has taken place.
+
+Eligibility Criteria
+
+Eligibility criteria for application of the carbon mass balance method are set out in Table 7. Both EC5 and EC6 must be satisfied in order to apply this procedure.
+
+Table 7. Procedure 4 Eligibility Criteria, EC5 and EC6.
+
+ELIGIBILITY CRITERIA
+
+	
+
+DESCRIPTION
+
+	
+
+DOCUMENTATION REQUIRED
+
+
+
+
+EC5
+
+	
+
+**Credible pathway to co-product crediting**: The co-product must be reasonably expected to lead to Crediting for CDR with Isometric.
+
+The Project Proponent must demonstrate a credible pathway to co-product crediting at the point at which the first CDR product is credited.
+
+	
+
+A signed affidavit from the Project Proponent attesting to the clear intention to credit the co-product for CDR with Isometric, accompanied by supporting evidence demonstrating a credible pathway to co-product crediting, which may include:
+
+an executed or advanced-stage offtake agreement for the co-product as CDR;
+evidence of active engagement with prospective CDR buyers;
+a documented plan for co-product deployment as CDR, including anticipated timelines.
+
+The affidavit and supporting evidence must be updated at each crediting event.
+
+
+
+
+EC6
+
+	
+
+**Confirmation of co-product crediting**: The co-product must be credited for CDR with Isometric within 12 months of the primary product crediting date.
+
+If this condition is not met, the Project Proponent must apply the corrective mechanism set out below.
+
+The Project Proponent must maintain a batch tracking system to enable verification of this criterion on an ongoing basis.
+
+	
+
+Evidence that CDR Credits have been issued for the co-product on the Isometric Registry. To support ongoing verification, the Project Proponent must maintain and provide a batch tracking system that:
+
+links each co-product batch to the corresponding primary product Reporting Period;
+records the status of each co-product batch (credited, committed to a crediting pathway, pending, or diverted to alternative use);
+is updated at each verification event and made available in full to the Project Validation and Verification Body's (VVB) for review.
+
+Batches with a status of "pending" that exceed the 12 month confirmation timeframe automatically trigger the corrective mechanism below.
+
+The tracking system must be audited by the Project VVB as part of project Validation, or the Verification event where carbon mass balance is implemented.
+
+G-DB2X-0
+
+Where the co-product has not been credited for CDR with Isometric within the timeframe specified in EC6, the Project Proponent must take one of the following corrective actions:
+
+Reallocate the full emissions burden to the primary product. Any resulting emissions deficit (i.e., the difference between the credits issued under carbon mass balance and the credits that would have been issued with the full emissions burden allocated to the primary product) must be carried forward and deducted from subsequent Reporting Periods until the deficit is fully accounted for.
+Retrospectively apply an alternative allocation method (e.g., Procedure 3) to the affected Reporting Period(s), subject to the eligibility and implementation requirements of that procedure. Any resulting emissions deficit must be carried forward and deducted from subsequent Reporting Periods until the deficit is fully accounted for.
+
+The corrective action taken, including the quantification of any emissions deficit, evidence to support this and the plan for absorbing emissions debt, must be documented and made available to the Project VVB at the next verification event.
+
+Implementation Criteria
+
+The calculation process to be followed is provided in Equation 6.
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+=
+𝐹
+𝐴
+𝑙
+𝑙
+𝑜
+𝑐
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+  
+∗
+  
+(
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑠
+𝑡
+𝑎
+𝑏
+𝑙
+𝑖
+𝑠
+ℎ
+𝑚
+𝑒
+𝑛
+𝑡
+  
++
+  
+𝐶
+𝑂
+2
+𝑒
+𝑂
+𝑝
+𝑒
+𝑟
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+𝑠
+  
++
+  
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑑
+−
+𝑂
+𝑓
+−
+𝐿
+𝑖
+𝑓
+𝑒
+  
++
+  
+𝐶
+𝑂
+2
+𝑒
+𝐿
+𝑒
+𝑎
+𝑘
+𝑎
+𝑔
+𝑒
+)
+CO
+2
+	​
+
+e
+Emissions
+	​
+
+=F
+Allocation
+	​
+
+∗(CO
+2
+	​
+
+e
+Establishment
+	​
+
++CO
+2
+	​
+
+e
+Operations
+	​
+
++CO
+2
+	​
+
+e
+End−Of−Life
+	​
+
++CO
+2
+	​
+
+e
+Leakage
+	​
+
+)
+
+(Equation 6)
+
+Where:
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑠
+𝑡
+𝑎
+𝑏
+𝑙
+𝑖
+𝑠
+ℎ
+𝑚
+𝑒
+𝑛
+𝑡
+CO
+2
+	​
+
+e
+Establishment
+	​
+
+ , 
+𝐶
+𝑂
+2
+𝑒
+𝑂
+𝑝
+𝑒
+𝑟
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Operations
+	​
+
+ , 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑑
+−
+𝑂
+𝑓
+−
+𝐿
+𝑖
+𝑓
+𝑒
+CO
+2
+	​
+
+e
+End−Of−Life
+	​
+
+ and 
+𝐶
+𝑂
+2
+𝑒
+𝐿
+𝑒
+𝑎
+𝑘
+𝑎
+𝑔
+𝑒
+CO
+2
+	​
+
+e
+Leakage
+	​
+
+ are as defined in the relevant Protocol.
+𝐹
+𝐴
+𝑙
+𝑙
+𝑜
+𝑐
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+F
+Allocation
+	​
+
+ is the fraction of emissions assigned to the CDR product, represented as:
+𝐹
+𝐴
+𝑙
+𝑙
+𝑜
+𝑐
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+=
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+  
+[
+𝐶
+𝐷
+𝑅
+𝑝
+𝑟
+𝑜
+𝑑
+𝑢
+𝑐
+𝑡
+]
+,
+  
+𝑅
+𝑃
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+  
+[
+𝑇
+𝑜
+𝑡
+𝑎
+𝑙
+]
+,
+  
+𝑅
+𝑃
+F
+Allocation
+	​
+
+=
+CO
+2
+	​
+
+e
+Stored[Total],RP
+	​
+
+CO
+2
+	​
+
+e
+Stored[CDRproduct],RP
+	​
+
+	​
+
+
+(Equation 7)
+
+Where:
+
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+  
+[
+𝐶
+𝐷
+𝑅
+  
+𝑝
+𝑟
+𝑜
+𝑑
+𝑢
+𝑐
+𝑡
+]
+,
+  
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Stored[CDRproduct],RP
+	​
+
+ is the total CO2 stored over a Reporting Period for the CDR Project in question, as calculated in the relevant Protocol, in tonnes CO2e
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+  
+[
+𝑇
+𝑜
+𝑡
+𝑎
+𝑙
+]
+,
+  
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Stored[Total],RP
+	​
+
+ is the total CO2 stored across all CDR methods over the same representative Reporting Period, as calculated by requisite Protocols, in tonnes CO2e
+
+Equation 6 requires an adjustment to the equations for 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Emissions
+	​
+
+ as they are set out in the requisite Protocol. When allocation procedures are undertaken, Equation 6 supersedes the relevant equation in the requisite Protocol.
+
+It is noted that calculation of 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+  
+[
+𝑇
+𝑜
+𝑡
+𝑎
+𝑙
+]
+,
+  
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Stored[Total],RP
+	​
+
+ may require adjustments where the Reporting Period for different Projects do not align. Adjustments may be made where necessary, provided that total 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+Stored
+	​
+
+ reported is still the equivalent of the sum of 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+Stored
+	​
+
+ reported under different Projects.
+
+6.2
+Emissions Accounting When CO|2| is Stored in a Product
+Emissions Accounting When CO2 is Stored in a Product
+
+In some cases CO₂ may be stored in a product, for example when CO2 is stored in concrete via carbonation.
+
+G-0ZYJ-0
+
+Project Proponents must follow the co-product allocation requirements in Section 6.1. 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+Stored
+	​
+
+ must not be double counted, regardless of the production of Environmental Product Declarations(EPD)13. The product should still comply with all relevant emission accounting regulations and requirements, which may mean 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Emissions
+	​
+
+ are double counted (once for CDR and once for EPD compliance where required), however removals (
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+Stored
+	​
+
+) must not be double counted in the EPD and may only be reported as part of Crediting for CDR. This is the most conservative approach to take. Crediting claims must be transparently reported and must not form part of marketing for a separate product. The product must not be marketed as carbon negative if it is used as a storage mechanism for the generation of Credits. This practice ensures that a single carbon removal is not counted twice (e.g., once for the Credit and again as a product attribute), in alignment with the prohibition against double counting in Section 5.7 of the Isometric Standard.
+
+6.3
+Emissions Accounting for Waste Inputs
+Emissions Accounting for Waste Inputs
+R-AY2W-0
+
+Project Proponents must comply with the applicable eligibility criteria in order to exclude the embodied and leakage emissions of an input considered a waste product from the system boundary. A waste product is as an output of a process that has no intended value to the producer.
+
+For waste energy inputs, including the use of waste heat, refer to the Energy Use Accounting Module v1.3. Eligibility criteria described in the Energy Use Accounting Module v1.3 must be satisfied in order to exclude GHG emissions associated with production of the heat. Any activities specifically developed inside the Project gate to handle and utilize waste heat must be accounted for in the life cycle analysis.
+
+For waste biomass feedstocks, refer to the Biomass Feedstock Accounting Module v1.3. Eligibility criteria described in the Biomass Feedstock Accounting Module v1.3 must be satisfied in order to exclude biomass sourcing emissions from the system boundary. Emissions relating to any processing and transport of biomass feedstock for the CDR process must be included in the system boundary.
+
+For all other waste products used as inputs, the following criteria must be considered.
+
+G-MMT7-0
+
+Embodied and leakage emissions associated with a waste input that is not waste energy or waste biomass may be excluded from the system boundary only where EC7 is satisfied, or both EC8 and EC9 are satisfied. Inputs that do not meet these criteria must have their production emissions included in the LCA (see Section 6.4), including leakage emissions as appropriate.
+
+Where EC7 in Table 8 is satisfied, embodied emissions associated with the waste product used as input can be excluded from the system boundary. Market leakage emissions associated with waste inputs may also be excluded from the system boundary, as compliance with EC7 implies in no change to the waste producer behavior (i.e., no market leakage) and indicates there are no alternative users of the waste product (i.e., no replacement emissions).
+
+Table 8. Waste input emissions exclusion criteria, EC7
+
+CRITERIA
+
+	
+
+DESCRIPTION
+
+	
+
+DOCUMENTATION REQUIRED
+
+
+
+
+EC7
+
+	
+
+No payment was made for the material, or only a “tipping fee” 14 is paid.
+
+	
+Purchase or removal records between Project Proponent and material supplier demonstrating price paid, amount, Buyer, seller and date.
+Affidavit that no in-kind compensation was made.
+Not applicable if the material was produced by the Project Proponent.
+
+Where both EC8 and EC9 in Table 9 are satisfied, embodied emissions associated with the waste product input can be excluded from the system boundary. Market leakage emissions associated with waste inputs may also be excluded from the system boundary, as compliance with EC8 and EC9 would result in no significant change to the waste producer behavior (i.e., no market leakage) and there are no alternative use cases for the waste product (i.e., no replacement emissions).
+
+Table 9. Waste input emissions exclusion criteria, EC8 and EC9
+
+CRITERIA
+
+	
+
+DESCRIPTION
+
+	
+
+DOCUMENTATION REQUIRED
+
+
+
+
+EC8
+
+	
+
+The amount of the waste product used by the CDR Project was not already being utilized as a valuable product by another party for non-CDR uses. Therefore, the producer of the waste product has no alternative use case for the waste product.
+
+	
+Purchase or removal records between Project Proponent and material supplier demonstrating price paid, amount, Buyer, seller and date.
+Plus an affidavit from the waste supplier identifying that there are no alternative use cases for the waste product.
+
+
+
+EC9
+
+	
+
+Payments received for the waste product must not exceed 5% of the total annual revenue generated from the waste producer’s upstream operations15.
+
+	
+Purchase or removal records between Project Proponent and material supplier demonstrating price paid, amount, Buyer, seller and date.
+Plus an affidavit from the waste supplier that documents that payments from the Project do not constitute a large share of upstream operations revenue.
+
+Projects utilizing waste inputs must validate and demonstrate compliance with eligibility requirements according to the following rules.
+
+G-DVVC-0
+
+Where a waste input is used once within the scope of a project (for example, enhanced weathering feedstocks, or construction materials), validation and compliance with eligibility requirements demonstrated at the time of initial use is sufficient. The Project Proponent must document and retain evidence demonstrating that the waste input met eligibility requirements at the time of its use.
+
+G-1GQ1-0
+
+Where a waste input is used on an ongoing basis throughout the Project:
+
+Waste input compliance must be revalidated whenever a material change occurs, and
+At a minimum, revalidation must occur at least once every ten years.
+
+Material changes that trigger revalidation include, but are not limited to:
+
+A change in the waste provider
+A change in the price paid for the waste material
+Amendments to the contract between The Project and the waste provider
+Significant changes to the upstream production or handling of the waste input (e.g., if the waste provider no longer produces the waste internally and instead procures it from third parties).
+
+Projects should consider revalidating waste input eligibility at their discretion in response to broader market developments that could affect the characterization of the input as waste (e.g., increased media scrutiny, emerging regulatory changes, or shifts in market dynamics).
+
+6.4
+Emissions Accounting for Inputs that are By-products
+Emissions Accounting for Inputs that are By-products
+
+Inputs to a CDR process, such as feedstocks, may be by-products or co-products under a separate system. Where a life cycle analysis specific to the sub-process is not available, Projects may seek to undergo emissions allocation to determine an appropriate emissions factor for the input material, following a stepwise process. Allocation refers to the partitioning of the inputs or outputs of a process or product system between the product system under study and one or more other product systems.
+
+R-JRJN-0
+
+Projects must follow best practice guidance to undertake allocation of other product systems, such as:
+
+ISO 14044: 2006
+GHG Protocol Product Life Cycle Accounting and Reporting Standard
+Product Category Rules
+Government Standards
+
+Where it is possible to undertake more than one emission allocation approach, the results of all approaches must be documented. Evidence must be provided to determine why the selected approach is acceptable and how it is conservative in line with Isometric uncertainty requirements.
+
+7.0
+Emissions Amortization
+Emissions Amortization
+
+Emissions amortization refers to the process of allocating project emissions to removals on a temporal or per product output basis. As set out in the relevant Protocol, Project 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑠
+𝑡
+𝑎
+𝑏
+𝑙
+𝑖
+𝑠
+ℎ
+𝑚
+𝑒
+𝑛
+𝑡
+CO
+2
+	​
+
+e
+Establishment
+	​
+
+ and 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑑
+−
+𝑜
+𝑓
+−
+𝐿
+𝑖
+𝑓
+𝑒
+CO
+2
+	​
+
+e
+End−of−Life
+	​
+
+ emissions, which are estimated upfront during the initial project assessment, may be amortized.
+
+R-J7T6-0
+
+Project Proponents must declare the amortization approach applied to the Project's Establishment and End-of-Life emissions. Unless set out otherwise in the relevant Protocol16, emission amortization may be undertaken:
+
+As a single deduction from the first removal(s) verified.
+Over the anticipated Project lifetime as annual emissions, calculated as the total emissions to be amortized divided by the Project lifetime. Temporal allocations must include the replacement of any equipment or materials if expected component lifetime is shorter than the Project lifetime.
+Per tonne of CO2 sequestered, based on estimated total gross CO2 sequestration over the Project lifetime. This approach enables amortization of emissions for Projects that account for total CO2e removals on a batch basis. Project Proponents selecting this method must choose an amortization rate that, based on projected performance, can reasonably be expected to result in full allocation of all outstanding amortized emissions within the amortization cap.
+G-89NW-0
+
+Project Proponents must not amortize emissions over a period exceeding the amortization cap of 20 years or the anticipated project lifetime, whichever is shorter.
+
+G-FKD6-0
+
+Project Proponents choosing to amortize emissions must report the residual emission debt at every verification.
+
+Projects that initially choose to amortize emissions (options 2 or 3) may later elect to deduct the remaining unamortized emissions in full from a subsequent removal verification, thereby transitioning to a one-time deduction approach (option 1). This provides flexibility for projects that wish to simplify reporting or consolidate emissions accounting at a later stage.
+
+The anticipated Project lifetime or total gross CO2 sequestration should be justified as part of The Project Design Document (PDD), to be assessed as part of Project validation.
+
+G-388V-0
+
+Project Proponents must provide justification to support the chosen Project lifetime or total gross CO2 sequestered, which should be evidenced appropriately with Project specific documentation. The anticipated design life of equipment must be based on manufacturer information or best practice industry guidance.
+
+Any additional requirements related to amortization, anticipated Project lifetime, or total gross CO2 sequestrations are set out in the relevant Protocols.
+
+G-PX4G-0
+
+Where emissions are amortized over the Project lifetime (option 2) or tonne of CO2 sequestered (option 3), this must be reviewed as part of verification at the end of year 1, year 3, year 5, and at each subsequent Crediting Period renewal. These reviews must include assessment of whether, based on actual and projected performance, full allocation of all amortized emissions within the amortization cap remains reasonably expected. Where necessary, the Project VVB may require adjustments to the amortization schedule to restore reasonable expectation of full allocation within the amortization cap.
+
+Where initial estimates prove to be unattainable or unlikely, adjustments to the emissions allocation schedule are permitted. Emissions must be adjusted to subtract the amount already covered by Credits from earlier Reporting Periods, and the remaining emissions should be reassigned to future verifications. If significant changes occur in the emissions amortization schedule (for example, if the emission allocation to each Reporting Period was greatly underestimated) the acceptance of an updated emissions amortization schedule will be down to the Project VVB's discretion. The adjustment mechanism theexists to maintain alignment between emissions allocation and actual project performance, ensuring accuracy and integrity in reporting.
+
+G-AJ05-0
+
+In addition to the review schedule set out above, if the Project Proponent is not able to comply with the allocation schedule described in the PDD, for example due to changes in delivered volume or anticipated Project lifetime, the Project Proponent must notify Isometric as soon as the change is identified in order to adjust the allocation schedule for future removals.
+
+The Project Proponent should allocate emissions to the Project proportionally in situations where infrastructure or activities are shared among multiple entities. For example, in the case of shared transport and storage infrastructure, the Project Proponent should proportionally allocate emissions based on the mass of stored or transported material for The Project relative to the total infrastructure capacity. The amortization schedule should follow options 1, 2 or 3. If new information becomes available, such as an updated capacity of the shared infrastructure, this should be taken into account and the amortization schedule adjusted as needed if this results in an increase to allocated emissions.
+
+8.0
+Acknowledgements
+Acknowledgements
+
+Isometric would like to thank the following reviewer of this Module:
+
+Matthew Brander (University of Edinburgh)
+9.0
+Definitions and Acronyms
+Definitions and Acronyms
+Activity
+The steps of a Project Proponent’s Removal or Reduction process that result in carbon fluxes. The carbon flux associated with an activity is a component of the Project Proponent’s Protocol.
+Activity
+An activity or process or group of activities or processes that alter the condition of a Baseline and leads to Removals or Reductions.
+Affected GHG Sources, Sinks and Reservoirs
+Sources, Sinks and Reservoirs that are affected by the Project activities through changes in market demand or supply for associated products or services, or through physical displacement. Also referred to as leakage.
+Amortization
+The term used to describe allocation of Project emissions to multiple Removals or Reductions.
+Asset
+Any tangible or intangible property that has value and can be owned, controlled or utilized by an individual or organization. In the context of this module, an asset refers to a physical structure.
+Attributional Analysis
+Analysis aiming to describe the environmentally relevant physical flows to and from a life cycle and its subsystems.
+Baseline
+A set of data describing pre-intervention or control conditions to be used as a reference scenario for comparison.
+Bio-oil
+A mixture of water, organic acids, aldehydes, ketones, sugars, phenols, and other organic compounds derived from the thermal breakdown of biomass. Thermal breakdown of biomass is achieved via thermochemical processes, such as pyrolysis, which heat biomass in low- or no-oxygen environments to high temperatures (~e.g. 350-650°C). Bio-oil is often also referred to as pyrolysis oil or bio-crude.
+Buffer Pool
+A common and recognized insurance mechanism among Registries allowing Credits to be set aside (in this case by Isometric) to compensate for Reversals which may occur in the future.
+Buyer
+An entity that purchases Removals or Reductions, often with the purpose of Retiring Credits to make a Removal or Reduction claim.
+By-product
+Materials of value that are produced incidentally or as a residual of the production process.
+Carbon Dioxide Equivalent Emissions (CO₂e)
+The amount of CO₂ emissions that would cause the same integrated radiative forcing or temperature change, over a given time horizon, as an emitted amount of GHG or a mixture of GHGs. One common metric of CO₂e is the 100-year Global Warming Potential.
+Carbon Dioxide Removal (CDR)
+Activities that remove carbon dioxide (CO₂) from the atmosphere and store it in products or geological, terrestrial, and oceanic Reservoirs. CDR includes the enhancement of biological or geochemical sinks and direct air capture (DAC) and storage, but excludes natural CO₂ uptake not directly caused by human intervention.
+Claimed Removal
+A Removal which has been submitted by a Project Proponent, but which has not yet been Verified.
+Co-product
+Products that have a significant market value and are planned for as part of production.
+Consequential Analysis
+The analysis of specific Uncertainties, hazards and scenarios inherent in complex systems such as the natural and engineered environment, aiming to describe how systems-level environmentally relevant flows will change in response to possible decisions.
+Conservative
+Purposefully erring on the side of caution under conditions of Uncertainty by choosing input parameter values that will result in a lower net CO₂ Removal or GHG Reduction than if using the median input values. This is done to increase the likelihood that a given Removal or Reduction calculation is an underestimation rather than an overestimation.
+Controlled GHG Sources, Sinks and Reservoirs
+Sources, Sinks and Reservoirs that are under the direction and influence of the Project Proponent. Typically includes removals, reductions and emissions that occur at the project site.
+Counterfactual
+An assessment of what would have happened in the absence of a particular intervention – i.e., assuming the Baseline scenario.
+Cradle-to-Grave
+​​Considering impacts at each stage of a product's life cycle, from the time natural resources are extracted from the ground and processed through each subsequent stage of manufacturing, transportation, product use, and ultimately, disposal.
+Credit
+A publicly visible uniquely identifiable Credit Certificate Issued by a Registry that gives the owner of the Credit the right to account for one net metric tonne of Verified CO₂e Removal or Reduction. In the case of this Standard, the net tonne of CO₂e Removal or Reduction comes from a Project Validated against a Certified Protocol.
+Crediting Period
+The period of time over which a Project Design Document is valid, and over which Removals or Reductions may be Verified, resulting in Issued Credits.
+Durability
+The amount of time carbon removed from the atmosphere by an intervention – for example, a CDR project – is expected to reside in a given Reservoir, taking into account both physical risks and socioeconomic constructs (such as contracts) to protect the Reservoir in question.
+Emission Factor
+An estimate of the emissions intensity per unit of an activity.
+Emission Reductions
+Lowering future GHG releases from a specific entity.
+Emissions
+The term used to describe greenhouse gas emissions to the atmosphere as a result of Project activities.
+Environmental Product Declaration
+A public document that transparently reports objective, comparable and third-party verified data about products and services' environmental performances from a lifecycle perspective. The EPD is supported by an underlying Life Cycle Assessment (LCA) report, a systematic and comprehensive summary of the LCA project to support the third-party verifier when verifying the EPD.
+Feedstock
+Raw material which is used for CO₂ Removal or GHG Reduction.
+GHG Assessment
+The process by which all emissions associated with a Project's Removal or Reduction process, including leakages, are accounted for.
+GHG Statement
+A document submitted alongside Claimed Removals and/or Reductions that details the calculations associated with a Removal or Reduction, including the Project's emissions, Removals, Reductions and Leakages, presented together in net metric tonnes of CO₂e per Removal or Reduction.
+GHG Statement Report
+Document submitted alongside a GHG Statement to provide supporting information and justification.
+Global Warming Potential
+A measure of how much energy the emissions of 1 tonne of a GHG will absorb over a given period of time, relative to the emissions of 1 ton of CO₂.
+Greenhouse Gas (GHG)
+Those gaseous constituents of the atmosphere, both natural and anthropogenic (human-caused), that absorb and emit radiation at specific wavelengths within the spectrum of terrestrial radiation emitted by the Earth’s surface, by the atmosphere itself, and by clouds. This property causes the greenhouse effect, whereby heat is trapped in Earth’s atmosphere (CDR Primer, 2022).
+International Standards Organization (ISO)
+A worldwide federation (NGO) of national standards bodies from more than 160 countries, one from each member country.
+Leakage
+The increase in GHG emissions outside the geographic or temporal boundary of a project that results from that project's activities.
+Life Cycle Analysis (LCA)
+An analysis of the balance of positive and negative emissions associated with a certain process, which includes all of the flows of CO₂ and other GHGs, along with other environmental or social impacts of concern.
+Module
+Independent components of Isometric Certified Protocols which are transferable between and applicable to different Protocols.
+Pathway
+A collection of Removal or Reduction processes that have mechanisms in common.
+Project
+An activity or process or group of activities or processes that alter the condition of a Baseline and leads to Removals or Reductions.
+Project Design Document (PDD)
+The document that clearly outlines how a Project will generate rigorously quantifiable Additional high-quality Removals or Reductions.
+Project Proponent
+The organization that develops and/or has overall legal ownership or control of a Removal or Reduction Project.
+Project boundary
+The defined temporal and geographical boundary of a Project.
+Protocol
+A document that describes how to quantitatively assess the net amount of CO₂ removed by a process. To Isometric, a Protocol is specific to a Project Proponent's process and comprised of Modules representing the Carbon Fluxes involved in the CDR process. A Protocol measures the full carbon impact of a process against the Baseline of it not occurring.
+Proxy
+A measurement which correlates with but is not a direct measurement of the variable of interest.
+Related GHG Sources, Sinks and Reservoirs
+Sources, Sinks, and Reservoirs that are not under the direction and influence of the Project Proponent. Typically occur upstream or downstream of the project site.
+Removal
+The term used to represent the CO₂ taken out of the atmosphere as a result of a CDR process.
+Reputable Source
+A source that would be widely considered trustworthy based on the process undertaken (e.g., peer review) or origin of the information (e.g., government body).
+Reservoir
+A location where carbon is stored. This can be via physical barriers (such as geological formations) or through partitioning based on chemical or biological processes (such as mineralization or photosynthesis).
+Retrofit
+The introduction of new materials, products or technologies to an existing process or facility.
+Sink
+Any process, activity, or mechanism that removes a greenhouse gas, a precursor to a greenhouse gas, or an aerosol from the atmosphere.
+Source
+Any process or activity that releases a greenhouse gas, an aerosol, or a precursor of a greenhouse gas into the atmosphere.
+Storage
+Describes the addition of carbon dioxide removed from the atmosphere to a reservoir, which serves as its ultimate destination. This is also referred to as “sequestration”.
+System Boundary
+GHG sources, sinks and reservoirs (SSRs) associated with the project boundary and included in the GHG Statement.
+Uncertainty
+A lack of knowledge of the exact amount of CO₂ removed by a particular process, Uncertainty may be quantified using probability distributions, confidence intervals, or variance estimates.
+Validation
+A systematic and independent process for evaluating the reasonableness of the assumptions, limitations and methods that support a Project and assessing whether the Project conforms to the criteria set forth in the Isometric Standard and the Protocol by which the Project is governed. Validation must be completed by an Isometric approved third-party (VVB).
+Validation and Verification Bodies (VVBs)
+Third-party auditing organizations that are experts in their sector and used to determine if a project conforms to the rules, regulations, and standards set out by a governing body. A VVB must be approved by Isometric prior to conducting validation and verification.
+Verification
+A process for evaluating and confirming the net Removals and Reductions for a Project, using data and information collected from the Project and assessing conformity with the criteria set forth in the Isometric Standard and the Protocol by which it is governed. Verification must be completed by an Isometric approved third-party (VVB).
+Waste product
+An output of a process that has no intended value to the producer.
+10.0
+Appendix 1: Data quality
+Appendix 1: Data quality
+10.1
+Detailed data quality hierarchy descriptions
+Detailed data quality hierarchy descriptions
+
+Tables A1 (Activity data) and Table A2 (Emission factors) provide examples for what constitutes high, medium, and low quality data under each criteria. The data and assumptions used in the GHG Statement will ultimately be dependent on The Project, and the tables below are meant to serve as guidance only.
+
+Table A1: Detailed data quality hierarchy for activity data
+
+CRITERIA
+
+	
+
+HIGH QUALITY
+
+	
+
+MEDIUM QUALITY
+
+	
+
+LOW QUALITY
+
+
+
+
+Reliability
+
+	
+
+Data are based on measurements and have been verified; they represent high-quality direct consumption data.
+
+Examples:
+
+Transport
+
+Actual fuel quantities from invoices
+
+Embodied
+
+Actual mass or quantity of goods purchased, as shown on supplier invoices, bill of quantities, equipment specifications or purchase agreements.
+
+Energy
+
+Energy consumption data from meter readings
+	
+
+Activity data are inferred from high-quality benchmarks or proxies, such as internal proxies or benchmarks from official sources.
+
+Examples:
+
+Transport
+
+Fuel usage estimated based on distance travelled and the specific efficiencies of vehicles that covered the distance
+
+Embodied
+
+Mass or quantity of materials estimated using dimensions of actual equipment on site and manufacturing specifications of similar equipment showing material weights and build up.
+
+Energy
+
+Energy usage based on manufacturer details of energy efficiency of equipment
+Fuel consumption expenditure data converted into fuel quantities using average price per litre from governmental sources
+	
+
+Activity data are inferred from low-quality benchmarks and proxies from non-qualified sources, or expenditure data is used for emissions calculations.
+
+Examples:
+
+Transport
+
+Expenditure data related to travel converted into fuel usage using non-official sources
+
+Embodied
+
+Expenditure data used as the primary basis for estimating emissions
+
+Energy
+
+Expenditure data used as the primary basis for estimating emissions
+
+
+
+Completeness
+
+	
+
+Data is complete for the Reporting Period; there is no missing data or extrapolation, or if present, these gaps are very minor.
+
+Examples:
+
+Transport
+
+Data is complete for all trips that took place within the
+Reporting Period
+
+Embodied
+
+Data is complete for all materials and equipment used
+
+Energy
+
+Data is complete for electricity consumed by The Project
+	
+
+Some data is missing, and estimates have been used; however, it still provides an acceptable representation of the Reporting Period.
+
+Examples:
+
+Transport
+
+Data for one trip in the Reporting Period is missing from transportation logs. A conservative estimate is used for the missing trip based on the data available for other similar trips.
+
+Embodied
+
+Data for some minor pieces of equipment and materials are missing. Conservative estimates are used based on typical equipment requirements for the process.
+
+Energy
+
+Electricity consumption data is missing for one month out of 12 in non-intensive facilities, with activities remaining consistent across the Reporting Period. In this case, an average of the other months is used to estimate the missing consumption.
+	
+
+Data is mostly incomplete, requiring proxy estimations, and the result is likely to be a poor representation of the Reporting Period.
+
+Examples:
+
+Transport
+
+Data for multiple trips in the Reporting Period are missing from transportation logs. A conservative estimate is used for the missing trip based on the data available for other similar trips.
+
+Embodied
+
+Data for major equipment and materials are missing. Expenditure data is used to estimate embodied emissions.
+
+Energy
+
+Natural gas data is missing for three months out of 12, with no data available from previous years. An average of the other months is used, which is not a good representation as gas consumption fluctuates throughout the year.
+
+
+
+Age
+
+(If using a benchmark to estimate quantities for a specific activity, the benchmark must be assessed instead of the activity data)
+
+	
+
+Data are fully representative, or are up to one year out, but are still an excellent representation of the Reporting Period.
+
+Examples:
+
+Transport
+
+Assumptions used for transportation are based on data published within the last year
+
+Embodied
+
+Assumptions used for embodied emissions are based on data published within the last year
+
+Energy
+
+A benchmark for electricity consumption associated with an activity is sourced from an industry report published within the last year.
+	
+
+Some activity data are from previous years (max three years out), but are a good representation of the Reporting Period.
+
+Examples:
+
+Transport
+
+Assumptions used for transportation are based on data published within the last three years
+
+Embodied
+
+Assumptions used for embodied emissions are based on data published within the last three years
+
+Energy
+
+A benchmark for electricity consumption associated with an activity is sourced from an industry report published within the last three years.
+	
+
+Some activity data are from previous years, and are a poor representation of the reporting year.
+
+Examples:
+
+Transport
+
+Assumptions used for transportation are based on data published within the last six years
+
+Embodied
+
+Assumptions used for embodied emissions are based on data published within the last six years
+
+Energy
+
+A benchmark for electricity consumption associated with an activity is sourced from an industry report published over three years ago.
+
+
+
+Geography
+
+(If using a benchmark to estimate quantities for a specific activity, the benchmark must be assessed instead of the activity data)
+
+	
+
+Data is representative exactly of the location where the activity took place. The minimum boundary is the same region within a country (e.g. Southeast England).
+
+Examples:
+
+Transport
+
+Typical freight transport mode is assumed based on regional data.
+
+Embodied
+
+Assumptions for waste management are based on regional estimates.
+
+Energy
+
+Electricity usage at third party sites is estimated based on regional averages for electricity consumption for the activity type.
+	
+
+Data is representative at a minimum of the country where the activity took place (e.g. UK)
+
+Examples:
+
+Transport
+
+Typical freight transport mode is assumed based on regional data.
+
+Embodied
+
+Assumptions for waste management are based on national estimates.
+
+Energy
+
+Electricity usage at third party sites is estimated based on national averages for electricity consumption for the activity type.
+	
+
+Data is either regional (e.g. Europe) or global.
+
+Examples:
+
+Transport
+
+Typical freight transport mode is assumed based on global data.
+
+Embodied
+
+Assumptions for waste management are based on global estimates.
+
+Energy
+
+If no better data is available, electricity usage at third party sites is estimated based on global averages for electricity consumption for the activity type.
+
+
+
+Technology
+
+	
+
+The description of activity data is highly specific and is broken down by all relevant components.
+
+Examples:
+
+Transport
+
+The fuel efficiency of the vehicle used is known for each trip for both outbound and return legs.
+The type of vehicle is described e.g. HGV (diesel) Articulated (>3.5 - 33t).
+
+Embodied
+
+Quantities of exact product with manufacturing specification is available, with an accompanying Environmental Product Declaration from the manufacturer.
+At a minimum, the goods or materials should be well described (e.g., hot rolled steel, Portland cement).
+
+Energy
+
+The type of fuel used is well-described e.g. Diesel (average biofuel blend)
+	
+
+Data is well described at a high level.
+
+Examples:
+
+Transport
+
+The type of vehicle is described at a high level e.g. HGV.
+
+Embodied
+
+Goods or materials are described at a high level e.g. steel, cement
+
+Energy
+
+The type of fuel used is described at a high level e.g. Diesel
+	
+
+Data is generic; activities have been grouped into generic descriptions.
+
+Examples:
+
+Transport
+
+The mode of transport is not known, e.g. land transport
+The mode of transport is known (road), but the type of vehicle is unknown.
+
+Embodied
+
+Goods or materials descriptions are generic e.g. metals, construction materials
+
+Energy
+
+The type of fuel used is not known.
+
+Table A2: Detailed data quality hierarchy for emission factors
+
+CRITERIA
+
+	
+
+HIGH QUALITY
+
+	
+
+MEDIUM QUALITY
+
+	
+
+LOW QUALITY
+
+
+
+
+Reliability
+
+	
+
+Emission factors are provided by the best source available for that activity.
+
+Examples:
+
+Transport
+Emission factor is from a recognised database such as GLEC, US EPA, DESNZ.
+
+Embodied
+
+Independently veriﬁed life cycle analysis for the material or product completed in accordance with ISO 14040 or similar guidelines.
+An environmental product declaration (EPD) for a material or product completed and independently veriﬁed in accordance with ISO 14025, ISO 2193 0, EN 15804 or equivalent standards
+Emission factor for materials are from peer-reviewed databases such as ecoinvent, ICE
+
+Energy
+
+Emission factor is from a reliable source such as Green-e, AIB (for residual mix), DESNZ (for average EF)
+Diesel emission factor is from a recognised database such as DESNZ, US EPA
+	
+
+Emission factors are provided by a database considered generic for certain emission sources and are taken from an approved list.
+
+Examples:
+
+Transport
+
+Emission factor is taken from an industry report.
+
+Embodied
+
+Emission factor is taken from an industry report.
+
+Energy
+
+Emission factor is taken from an industry report.
+	
+
+Emission factors are extrapolated from non official sources, or from an expenditure based database.
+
+Examples:
+
+Transport
+
+Emission factors are extrapolated from an academic research paper.
+Emission factor from EXIOBASE.
+
+Embodied
+
+Emission factors are extrapolated from an academic research paper.
+Emission factor from EXIOBASE.
+
+Energy
+
+Emission factors are extrapolated from an academic research paper.
+Emission factor from EXIOBASE.
+
+
+
+Completeness
+
+	
+
+The emission factor represents the whole life cycle of the activity.
+
+Examples:
+
+Transport
+
+Emission factor covers Combustion + WTT + embodied vehicle
+
+Embodied
+
+Independently veriﬁed life cycle analysis or environmental product declaration (EPD) prepared for the specific material or product covering all life cycle stages
+
+Energy
+
+Emission factor represents Generation + T&D Losses + WTT
+	
+
+The emission factor is mostly complete, but is missing some life cycle stages.
+
+Examples:
+
+Transport
+
+Combustion only (No WTT)
+
+Embodied
+
+Only emissions related to life cycle modules A1-A3 is available from LCA / EPD
+
+Energy
+
+Emission factor represents Generation + T&D Losses (no WTT)
+	
+
+The emission factor is an approximation.
+
+Examples:
+
+Transport
+
+Life cycle stages covered are not declared.
+
+Embodied
+
+Life cycle stages covered are not declared.
+
+Energy
+
+Life cycle stages covered are not declared.
+
+
+
+Age
+
+	
+
+The emission factor is updated and published in the Reporting Period year or is, at minimum, the most up-to-date available database (e.g., Green-e factors reflect the grid from two years prior).
+
+	
+
+The emission factors are max 6 years older than the Reporting Period year.
+
+	
+
+The emission factors are more than 6 years older than the Reporting Period year.
+
+
+
+
+Geography
+
+	
+
+The emission factor used is a great representation of the location.
+
+	
+
+The emission factor is at a minimum representative of the country where the activity takes place.
+
+	
+
+The emission factor is a poor representation of the location.
+
+The emission factor is global.
+
+
+
+
+Technology
+
+	
+
+The emission factor is specified by all or at least the most relevant components.
+
+	
+
+The emission factor is well described at the high level.
+
+	
+
+The emission factor is generic.
+
+10.2
+Data Quality Considerations for Specific Activity Types
+Data Quality Considerations for Specific Activity Types
+10.2.1
+Embodied Emissions
+Embodied Emissions
+
+Embodied emissions should be calculated based on quantities of materials, equipment or products and representative embodied emission factors for the specific components.
+
+Examples of high quality activity data are:
+
+A project inventory that details the number/ weight of products, materials or equipment used for The Project, such as a cost plan or bill of quantities.
+Purchase records with product quantities and manufacturer specifications which have a corresponding EPD.
+
+Examples of high quality emission factors are:
+
+Independently veriﬁed life cycle analysis for the material or product completed in accordance with ISO 14040 or similar guidelines
+An environmental product declaration (EPD) for a material or product completed and independently veriﬁed in accordance with ISO 14025, ISO 2193 0, EN 15804 or equivalent standards.
+
+The calculations should utilize approaches outlined in the Sector Supplement for Measuring and Accounting for Embodied Emissions in the Built Environment: A Guide for measuring and reporting embodied emissions using the Greenhouse Gas Protocol version 1.1 - November 2021, speciﬁcally:
+
+Chapter 7: Identifying Products within Project Boundary in determining the list and inventory of equipment, products, and materials used in the manufacturing, construction, and installation of the project facility and equipment; and
+Chapter 8: Identifying Data Sources and Collecting Data for selecting and utilizing appropriate emission factors for such products and equipment. In line with Chapter 8, when gathering emission factors for embodied emissions, the following should be extracted and transparently reported:
+Data source
+Speciﬁc emission factor used
+EPD product name which matches the product inventory
+EPD Expiration Date
+Veriﬁcation record of LCA or EPD (external third party or other)
+Functional Unit
+Global Warming Potential (GWP)
+LCA Modules included
+10.2.2
+Transportation Emissions
+Transportation Emissions
+
+For the Energy Usage Method, emission factors must:
+
+Be for the speciﬁc type of fuel utilized in the vehicle (e.g. on-road diesel, biodiesel, gasoline, E-85, electricity)
+Include all emissions associated with the fuel-cycle, such as direct combustion of fuel as well as indirect upstream emissions, including production and distribution of fuel or electricity
+
+For the Distance-Based Method, emissions factors must:
+
+Be selected for the speciﬁc vehicle type and age being utilized (e.g., Class 8 heavy-duty long-haul truck, Class 6 medium-duty truck, etc.)
+account for vehicle loading/capacity utilization (e.g., 50% capacity)
+Include all emissions associated with the fuel-cycle such as direct combustion of fuel as well as indirect upstream emissions, including production and distribution of fuel or electricity
+
+GHG emissions from transportation sources must be evaluated for all transportation completed between facilities, from the gate of one facility to the gate of the next facility, including return journeys. Primary measurements considered in calculation of emissions are:
+
+𝐹
+𝑗
+F
+j
+	​
+
+ (fuel/ electricity consumed)
+𝐷
+𝑗
+D
+j
+	​
+
+ (distance traveled)
+𝑊
+𝑗
+W
+j
+	​
+
+ (weight of vehicle load)
+
+The fuel consumed, 
+𝐹
+𝑗
+F
+j
+	​
+
+ , can be determined by one of the following methods:
+
+Fuel/ electricity metering for vehicles, including data from calibrated on-board flow meters
+Fuel/ electricity receipts
+Fuel/ electricity metering for pipeline transport
+Fuel/ electricity usage data from fleet monitoring systems or software
+Fuel/ electricity usage values provided by outputs of on-board vehicle diagnostic systems (OBD)
+Fuel/ electricity efficiency (e.g. miles/gallon) data for transport vehicles used and distance travelled, to estimate fuel/ electricity use
+
+The distance traveled, 
+𝐷
+𝑗
+D
+j
+	​
+
+, can be determined by one of the following methods:
+
+Recording of vehicle odometer reading before and after completion of trip
+Recording of travel distance by vehicle fleet management system
+Online mapping of route traveled using common mapping platforms (e.g., Google Maps) and exact start and end trip locations
+Other justifiable methods that account for actual route traveled for each shipment
+
+Distance traveled and fuel usage must consider:
+
+Full round trip distance of vehicle traveled when vehicle returns to origination site unloaded, or if next destination is unknown; or
+Full distance of one-way trip plus distance of trip to the next destination
+
+Evidence must be provided showing the distance of every trip to the next destination if the second option is used. When no onwards journey information is available, the full round trip must be assumed in calculations.
+
+Calculations shall be completed separately for each leg of the trip associated with a removal, with total emissions calculated by the sum of emissions from each leg.
+
+Weight of the material being shipped, 
+𝑊
+𝑗
+W
+j
+	​
+
+, should be determined as loaded gross vehicle weight measured at facility gate of departure minus vehicle gross weight upon facility entry, as determined by calibrated a weigh scale.
+
+10.2.2.1
+Transportation Emissions - Required Records & Documentation
+Transportation Emissions - Required Records & Documentation
+
+Required records for each transportation leg calculated using the Energy Usage Method include:
+
+Documentation of fuel consumed
+Citation and description of emission factors used
+
+Required records for each transportation leg calculated using the Distance-Based Method include:
+
+Weigh scale tickets or similar documentation at each location to document load weight transported
+Weigh scale calibration record
+Bill of lading or similar transportation documentation indicating load type/contents, quantity, and pickup and delivery location
+Documentation of vehicle destination after drop off, to account for determination of inclusion of return trip
+Documentation of vehicle type and class used, including, whenever possible, vehicle (i.e., truck) class and model year
+
+Any use of book and claim mechanisms to reduce reported transportation emissions should be transparently disclosed, in line with the Energy Use Accounting Module v1.3. Any meters used must be calibrated for the fuel being used both initially and at regular intervals in accordance with manufacturer specifications.
+
+10.2.2.2
+Transportation Emissions - Additional guidelines
+Transportation Emissions - Additional guidelines
+
+Recommendations for additional considerations for four common modes of transportation (road, rail, ship, and pipeline) are included below.
+
+Road:
+
+Resolution: The payload of the truck should be considered. Different emissions factors take payload into consideration differently. In general, higher payload utilizations translate to lower emissions on a per-metric-tonne-kilometer basis despite the increased fuel burn from transporting more mass.
+Timing: Due to relatively rapid changes in road transportation emissions regulation and technologies, utilized emissions factors should not be more than three years old. The most recent emissions factors available must be used.
+
+Rail:
+
+Resolution: An emissions factor considering the source of the fuel should be used, with minimum resolution covering the use of diesel or electricity.
+Timing: Due to slower innovation in the locomotive space, utilized emissions factors should not be more than seven years old.
+
+Ship:
+
+Resolution: Emissions factors matching the general type of ship (bulk carrier, tanker, barge, and cargo/container ship) and the general type of fuel (HFO, MDO, MGO, LNG, biodiesel, ammonia, hydrogen, or methanol) should be used.
+Timing: Utilized emissions factors should not be more than five years old.
+
+Pipeline:
+
+Resolution: Most pipeline emissions factors are for natural gas and petroleum products and should be assigned accordingly. For transport of other products, direct energy needs for pipeline transportation should be calculated and multiplied by corresponding fuel-cycle emissions factors to estimate transportation impacts. If this is not possible, a petroleum product pipeline transportation emissions factor should be used. The natural gas factor is inflated due to consideration of methane leakage, which would not apply to most other products.
+Timing: Due to slower innovation in the pipeline space, utilized emissions factors should not be more than seven years old.
+
+Aircraft:
+
+Resolution: Emissions factors for transportation via aviation should consider non-CO2 impacts generated during combustion. Such impacts can arise from more than solely non-CO2 GHGs due to the complex dynamics occurring during high-altitude combustion. The full impact can be determined using an appropriate radiative forcing multiplier. The UK Department for Energy Security and Net Zero recommends a multiplier of 1.7.17
+Timing: Utilized emissions factors should not be more than five years old.
+11.0
+Appendix 2: Materiality example
+Appendix 2: Materiality example
+
+A Project Proponent for a Biomass Geological Storage Project collects data based on the system boundary defined in the Protocol. To estimate staff travel emissions, the Proponent gathers high-level information via email, learning that five local staff members commute approximately 5–10 km each way to the Project site daily.
+
+Meanwhile, the Proponent identifies biomass transport (>100 km daily) as a major emission source, and suspects staff travel emissions are negligible. Rather than obtaining detailed travel data, the Proponent conservatively assumes:
+
+Each staff member drives individually by car.
+Each trip covers a 20 km round trip daily.
+
+An average car emission factor from the GLEC Framework is applied to calculate 
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑆
+𝑅
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+,
+  
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+SSREstimated,RP
+	​
+
+.
+
+Using estimated staff travel emissions and the total estimated net CO2e removals for the Reporting Period (
+𝐶
+𝑂
+2
+𝑒
+𝑅
+𝑒
+𝑚
+𝑜
+𝑣
+𝑎
+𝑙
+  
+𝐸
+𝑠
+𝑡
+𝑖
+𝑚
+𝑎
+𝑡
+𝑒
+𝑑
+,
+  
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+RemovalEstimated,RP
+	​
+
+), the Proponent calculates the materiality of the emission source (
+𝑀
+𝑆
+𝑆
+𝑅
+M
+SSR
+	​
+
+). The result shows staff travel emissions are < 1% of net removals.
+
+Because the staff travel emissions, and all other excluded SSRs, remain collectively < 1%, staff travel is excluded from the system boundary.
+
+The Proponent documents:
+
+Email evidence;
+Assumptions used;
+Emission factor sources, and;
+𝑀
+𝑆
+𝑆
+𝑅
+M
+SSR
+	​
+
+ calculation in The Project Design Document (PDD).
+12.0
+Appendix 3: Isometric’s Approach to Project-level Consequential Analysis
+Appendix 3: Isometric’s Approach to Project-level Consequential Analysis
+
+Projects credited under Isometric must use project-level consequential analysis to determine net CO2e removals associated with project activities. Project emissions and removals must be assessed against a baseline scenario of The Project not taking place. When submitting Claimed Removals, The Project's emissions (
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2
+	​
+
+e
+Emissions
+	​
+
+), removals (
+𝐶
+𝑂
+2
+𝑒
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+CO
+2
+	​
+
+e
+Stored
+	​
+
+) and counterfactual (
+𝐶
+𝑂
+2
+𝑒
+𝐶
+𝑜
+𝑢
+𝑛
+𝑡
+𝑒
+𝑟
+𝑓
+𝑎
+𝑐
+𝑡
+𝑢
+𝑎
+𝑙
+CO
+2
+	​
+
+e
+Counterfactual
+	​
+
+) must be presented together in net metric tonnes of CO2e as part of a GHG Statement. Isometric follows the terminology outlined in ISO 14064-2 to describe GHG Sources, Sinks and Reservoirs that are relevant to The Project including those that are Controlled, Related and Affected.
+
+The distinctions between attributional and consequential analysis are often unclear18. Some elements of Isometric’s approach are not wholly aligned with consequential analysis principles. This is as a result of conservatism and the way in which carbon markets operate, and is described in more detail below:
+
+Allocation between CDR products: When Projects produce more than one CDR product, for example if a pyrolysis function produces both bio-oil and biochar, emissions associated with the shared processes may be allocated between CDR products on a carbon mass balance basis (See Section 6.1). This is a diversion from a fully consequential approach, however is a requirement to fit within established carbon market practices, for example for the consideration of durability.
+Use of attributional emission factors as a proxy: Marginal emission factors are used in consequential analysis as they represent the change in GHG emissions resulting from a marginal increase or decrease in activity, reflecting the most responsive sources rather than the average. However, databases providing marginal emission factors are still limited and often based on modelling approaches that are challenging to validate. While Ecoinvent offers marginal emission factors for various products and processes, they are unsuitable for project-level accounting which additionally considers leakage as they already incorporate market substitution effects. Project Proponents are therefore encouraged to use emission factors under the cut-off system model, as it aligns with the methodology adopted by other recognised emission factor libraries. Isometric is proactively researching appropriate sources for marginal emission factors and will update its guidance accordingly. In the meantime, attributional emission factors are accepted as a proxy for marginal emission factors.
+Quantifying inputs to a system, as well as leakage: In a true consequential analysis, only the emissions associated with the marginal product19—produced as a result of using a constrained product—are considered. However, this approach does not incentivise sustainable choices, such as utilizing by-products instead of primary products. To address this, Isometric requires emissions associated with inputs to be quantified based on both the emissions of the input used and the marginal impact (i.e., replacement emissions or market effects) as part of the leakage assessment. This methodology is more conservative than standard consequential accounting, ensuring a more comprehensive and rigorous approach to emissions attribution.
+“Positive” leakage is not considered: In consequential analysis, all system-wide impacts—including increases and reductions in both emissions and removals—are considered. However, under Isometric’s conservative framework, “positive” leakage (emissions reductions occurring as an indirect effect of project activities) are not accounted for. The only exception is through the substitution method which allows for the consideration of multifunctionality in emissions accounting, for which conservative guardrails are in place.
+
+Currently a standard for applying project-level consequential analysis for CDR Projects does not exist. Isometric will continue to revise the approach outlined for project-level consequential analysis in line with literature and best practice.
+
+13.0
+Appendix 4: Co-product Emissions Allocation Examples
+Appendix 4: Co-product Emissions Allocation Examples
+
+The following examples illustrate how the co-product allocation rules can be applied. All processes and values are purely illustrative and are not intended to reflect real-world data or to enable direct comparison between procedures
+
+13.1
+Procedure 1: Allocate All Emissions to CDR
+Procedure 1: Allocate All Emissions to CDR
+
+Scenario: A Project Proponent operates a direct air capture (DAC) facility where the CDR activity is the capture of CO₂ from ambient air and its durable storage via ex-situ mineralization. The process generates a marketable co-product (heat), which is sold to a nearby greenhouse for space heating.
+
+GHG Statement: The DAC facility consumes 500,000 kWh of electricity per year, resulting in 200 tCO₂e. The Project Proponent has elected to follow the emissions allocation method outlined in Procedure 1. Under this procedure, all Project emissions are allocated to the CDR activity.
+
+Result: The total value for 
+𝐶
+𝑂
+2
+𝑒
+,
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2e,Emissions
+	​
+
+ is 200 tCO₂e. The co-product (heat) is treated as having a zero-emissions burden within the GHG Statement. This approach is the most conservative as it ensures emissions associated with the CDR activity are not underestimated.
+
+Note: The greenhouse must still comply with its own emissions accounting requirements where they apply, which may result in the double counting of these emissions in its own reporting.
+
+13.2
+Procedure 2: Divide the Process into Sub-processes
+Procedure 2: Divide the Process into Sub-processes
+
+Scenario: A Project Proponent retrofits a bioenergy facility, which has been operational since 2017, with a CO₂ capture and storage unit in 2025. The CDR activity is the capture and subsequent storage of CO₂, while the co-product is electricity.
+
+GHG Statement: The Project Proponent has elected to follow the emissions allocation method outlined in Procedure 2. This procedure is applicable as the CDR process is a retrofit to an existing, operational facility, satisfying Eligibility Criteria 1 (EC1). The GHG Statement boundary for the CDR activity is limited to the materials and processes necessary for the retrofit. In this case, the electricity consumption of the CO₂ capture unit is physically separable and separately metered at 100,000 kWh/year, which corresponds to 40 tCO₂e. Emissions associated with the pre-existing combustion and power generation processes are excluded from the GHG Statement boundary.
+
+Result: The total value for 
+𝐶
+𝑂
+2
+𝑒
+,
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2e,Emissions
+	​
+
+ allocated to the CDR activity is 40 tCO₂e. The electricity co-product is subject to its own life cycle GHG accounting, separate from the CDR Project.
+
+13.3
+Procedure 3: Substitution Method
+Procedure 3: Substitution Method
+
+Scenario: A Project Proponent operates a biochar facility that produces a CDR product (biochar) and a co-product (electricity), which is sold to the grid. The Project is demonstrably net-negative before the application of substitution.
+
+GHG Statement: The Project Proponent has elected to follow Procedure 3: "Substitution method". The total facility emissions are 200 tCO₂e. In line with the implementation criteria, the Proponent submits a Decarbonisation Statement, justifying the split of these emissions into:
+
+Residual emissions (
+𝐶
+𝑂
+2
+𝑒
+,
+𝑅
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
+CO
+2e,Residual
+	​
+
+): 150 tCO₂e
+Non-residual emissions (
+𝐶
+𝑂
+2
+𝑒
+,
+𝑁
+𝑜
+𝑛
+−
+𝑅
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
+CO
+2e,Non−Residual
+	​
+
+): 50 tCO₂e
+The following values are used to calculate the Substituted Emissions:
+Quantity of the co-product (
+𝑄
+𝐶
+𝑜
+−
+𝑝
+𝑟
+𝑜
+𝑑
+𝑢
+𝑐
+𝑡
+Q
+Co−product
+	​
+
+): 500 MWh/year
+Emission factor for the substituted product (
+𝐸
+𝐹
+𝑆
+𝑢
+𝑏
+𝑠
+𝑡
+𝑖
+𝑡
+𝑢
+𝑡
+𝑒
+𝑑
+EF
+Substituted
+	​
+
+): 0.3 tCO₂e/MWh (representing the conservative, average grid intensity from a Reputable Source)
+Substitution Ratio (
+𝑆
+𝑅
+SR): 1
+Uncertainty Factor (
+𝑈
+U): 0.5 (the default 50% discount20)
+
+Downstream emissions of the co-product (
+𝐶
+𝑂
+2
+𝑒
+,
+𝐶
+𝑜
+𝑃
+𝑟
+𝑜
+𝑑
+𝑢
+𝑐
+𝑡
+CO
+2e,CoProduct
+	​
+
+): 0 (The Proponent has demonstrated that use-phase emissions are equal to or lower than the substituted product)
+
+Applying Equation 5: The total emissions are calculated by subtracting the discounted substituted emissions from the residual emissions only, and then adding back the non-residual emissions.
+
+𝐶
+𝑂
+2
+𝑒
+,
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+=
+max
+⁡
+(
+0
+,
+  
+[
+𝐶
+𝑂
+2
+𝑒
+𝑅
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
+]
+−
+[
+𝑄
+𝐶
+𝑜
+𝑃
+𝑟
+𝑜
+𝑑
+𝑢
+𝑐
+𝑡
+∗
+𝐸
+𝐹
+𝑆
+𝑢
+𝑏
+𝑠
+𝑡
+𝑖
+𝑡
+𝑢
+𝑡
+𝑒
+𝑑
+∗
+𝑆
+𝑅
+∗
+𝑈
+−
+𝐶
+𝑂
+2
+𝑒
+𝐶
+𝑜
+𝑃
+𝑟
+𝑜
+𝑑
+𝑢
+𝑐
+𝑡
+]
+)
++
+[
+𝐶
+𝑂
+2
+𝑒
+𝑁
+𝑜
+𝑛
+−
+𝑟
+𝑒
+𝑠
+𝑖
+𝑑
+𝑢
+𝑎
+𝑙
+]
+CO
+2e,Emissions
+	​
+
+=max(0,[CO
+2
+	​
+
+e
+Residual
+	​
+
+]−[Q
+CoProduct
+	​
+
+∗EF
+Substituted
+	​
+
+∗SR∗U−CO
+2
+	​
+
+e
+CoProduct
+	​
+
+])+[CO
+2eNon−residual
+	​
+
+]
+𝐶
+𝑂
+2
+𝑒
+,
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+=
+𝑚
+𝑎
+𝑥
+(
+0
+,
+[
+150
+−
+(
+500
+×
+0.3
+×
+1
+×
+0.5
+−
+0
+)
+]
+)
++
+50
+=
+𝑚
+𝑎
+𝑥
+(
+0
+,
+[
+150
+−
+75
+]
+)
++
+50
+=
+75
++
+50
+=
+125
+𝑡
+𝐶
+𝑂
+2
+𝑒
+CO
+2e,Emissions
+	​
+
+=max(0,[150−(500×0.3×1×0.5−0)])+50=max(0,[150−75])+50=75+50=125tCO
+2
+	​
+
+e
+
+Result: After applying the substitution method, the net facility emissions allocated to the CDR activity (
+𝐶
+𝑂
+2
+𝑒
+,
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2e,Emissions
+	​
+
+) are reduced from 200 tCO₂e to 125 tCO₂e. The avoided emissions from the electricity co-product are used exclusively to offset the facility's residual emissions, and a conservative 50% uncertainty discount is applied. Non-residual emissions remain fully accounted for, ensuring the method does not disincentivise decarbonisation efforts.
+
+13.4
+Procedure 4: Carbon Mass Balance When the Co-product Leads to Crediting
+Procedure 4: Carbon Mass Balance When the Co-product Leads to Crediting
+
+Scenario: A Project Proponent operates a pyrolysis plant that produces two distinct CDR products: biochar and bio-oil. Both products lead to crediting with Isometric.
+
+GHG Statement: The Project Proponent has elected to follow the emissions allocation method outlined in Procedure 4.
+
+The total project emissions are 10,000 tCO₂e. The quantity of CO₂ stored by each CDR product is:
+
+𝐶
+𝑂
+2
+𝑒
+,
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+[
+𝐵
+𝑖
+𝑜
+𝑐
+ℎ
+𝑎
+𝑟
+]
+,
+𝑅
+𝑃
+CO
+2e,Stored[Biochar],RP
+	​
+
+ = 80,000 tCO₂e
+𝐶
+𝑂
+2
+𝑒
+,
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+[
+𝐵
+𝑖
+𝑜
+−
+𝑜
+𝑖
+𝑙
+]
+,
+𝑅
+𝑃
+CO
+2e,Stored[Bio−oil],RP
+	​
+
+ = 20,000 tCO₂e
+𝐶
+𝑂
+2
+𝑒
+,
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+[
+𝑇
+𝑜
+𝑡
+𝑎
+𝑙
+]
+,
+𝑅
+𝑃
+CO
+2e,Stored[Total],RP
+	​
+
+ = 100,000 tCO₂e
+
+The fraction of emissions assigned to the biochar CDR product (
+𝐹
+𝐴
+𝑙
+𝑙
+𝑜
+𝑐
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+F
+Allocation
+	​
+
+) is calculated using Equation 7:
+
+𝐹
+𝐴
+𝑙
+𝑙
+𝑜
+𝑐
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+=
+𝐶
+𝑂
+2
+𝑒
+,
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+[
+𝐵
+𝑖
+𝑜
+𝑐
+ℎ
+𝑎
+𝑟
+]
+,
+𝑅
+𝑃
+/
+𝐶
+𝑂
+2
+𝑒
+,
+𝑆
+𝑡
+𝑜
+𝑟
+𝑒
+𝑑
+[
+𝑇
+𝑜
+𝑡
+𝑎
+𝑙
+]
+,
+𝑅
+𝑃
+=
+80
+,
+000
+𝑡
+𝐶
+𝑂
+2
+𝑒
+/
+100
+,
+000
+𝑡
+𝐶
+𝑂
+2
+𝑒
+=
+0.8
+F
+Allocation
+	​
+
+=CO
+2e,Stored[Biochar],RP
+	​
+
+/CO
+2e,Stored[Total],RP
+	​
+
+=80,000tCO
+2
+	​
+
+e/100,000tCO
+2
+	​
+
+e=0.8
+
+The emissions allocated to the biochar project are then calculated using Equation 6:
+
+𝐶
+𝑂
+2
+𝑒
+,
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+(
+𝑏
+𝑖
+𝑜
+𝑐
+ℎ
+𝑎
+𝑟
+)
+=
+𝐹
+𝐴
+𝑙
+𝑙
+𝑜
+𝑐
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+×
+(
+𝑇
+𝑜
+𝑡
+𝑎
+𝑙
+𝑃
+𝑟
+𝑜
+𝑗
+𝑒
+𝑐
+𝑡
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+)
+=
+0.8
+×
+10
+,
+000
+𝑡
+𝐶
+𝑂
+2
+𝑒
+=
+8
+,
+000
+𝑡
+𝐶
+𝑂
+2
+𝑒
+CO
+2e,Emissions
+	​
+
+(biochar)=F
+Allocation
+	​
+
+×(TotalProjectEmissions)=0.8×10,000tCO
+2
+	​
+
+e=8,000tCO
+2
+	​
+
+e
+
+Result: The total value for 
+𝐶
+𝑂
+2
+𝑒
+,
+𝐸
+𝑚
+𝑖
+𝑠
+𝑠
+𝑖
+𝑜
+𝑛
+𝑠
+CO
+2e,Emissions
+	​
+
+ allocated to the biochar project is 8,000 tCO₂e, with the remaining 2,000 tCO₂e allocated to the bio-oil project. This method ensures that emissions are distributed proportionally based on the mass of CO₂ stored by each CDR product.
+
+14.0
+Relevant works
+Relevant works
+Footnotes
+
+https://greet.es.anl.gov/ ↩
+
+https://ww2.arb.ca.gov/resources/documents/lcfs-life-cycle-analysis-models-and-documentation ↩
+
+https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting ↩
+
+https://ecoinvent.org/ ↩
+
+https://www.lcacommons.gov/ ↩
+
+Adapted from https://ghgprotocol.org/sites/default/files/standards/Product-Life-Cycle-Accounting-Reporting-Standard_041613.pdf ↩ ↩2
+
+[https://www.iso.org/standard/61694.html (https://www.iso.org/standard/61694.html) ↩
+
+Referenced in the Sector Supplement for Measuring and Accounting for Embodied Emissions in the Built Environment A Guide for measuring and reporting embodied emissions using the Greenhouse Gas Protocol version 1.1 - November 2021. ↩
+
+Some Protocol versions may reference the GHG Accounting Module v1.0 alongside a previous version of the Energy Use Accounting Module - v1.2. This is permitted if the Protocol references the GHG Accounting Module v1.0 only for GHG accounting requirements not related to energy use. ↩ ↩2
+
+https://catalog.data.gov/dataset/supply-chain-greenhouse-gas-emission-factors-v1-3-by-naics-6 ↩
+
+https://www.exiobase.eu/ ↩
+
+https://www.tandfonline.com/doi/pdf/10.1080/20430779.2011.637670 ↩
+
+Buchenau, N. et al. (2023) Allocation of carbon dioxide emissions to the by-products of combined heat and power plants: A methodological guidance. Available at: https://www.sciencedirect.com/science/article/pii/S2667095X23000259 ↩
+
+A tipping fee refers to an amount paid by the Project Proponent to the producer of the waste to collect the waste. A tipping fee should only cover transportation and collection costs. ↩
+
+The 5% threshold is drawn from the SEC Staff Accounting Bulletin No. 99, an investor-focused standard for significance This is a widely recognized benchmark for assessing materiality in financial reporting and provides a basis for determining when payments are immaterial. https://www.sec.gov/interps/account/sab99.htm ↩
+
+For example, the Enhanced Weathering in Agriculture Protocol v1.1 requires that emissions must be amortized over the first half of the anticipated project lifetime (meaning the point at which 50% of the feedstock weathering potential is realized) as annual emissions, or per output of product (i.e., per tonne CO2 removed) so long as establishment emissions are fully accounted by the time 50% of the weathering potential has been realized. ↩
+
+https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2025 ↩
+
+Brander, M., (2021). The most important GHG accounting concept you have never heard of: the attributional-consequential distinction. Seattle, WA. Greenhouse Gas Management Institute, April 2021. https://ghginstitute.org/wp-content/uploads/2021/04/Consequential-and-AttributionalAccounting-April-2021.pdf ↩
+
+Marginal product in consequential analysis refers to the product or service whose production or use changes as a direct consequence of an intervention in a system. For example, if a new project purchases renewable electricity from the grid, but that electricity is already being generated by existing renewable sources, The Project creates additional demand on the system. In many grid systems, this extra demand is initially met by fossil fuel-based power generation, which serves as the marginal supplier. In a true consequential analysis, The Project would only account for the emissions associated with the marginal electricity source in the assessment — in this case, fossil-based generation — because that is the actual system change induced by The Project. The same principle applies to goods like sustainable concrete: even if a project chooses a "green" option, the market response to increased demand may result in production from less sustainable sources. Thus, under consequential analysis, projects would only account for emissions associated with the marginal (often least sustainable) product that fills the new demand. ↩
+
+The default value for the uncertainty factor is 50%. Projects may propose a lower discount, which must be justified with supporting evidence, such as verified product displacement data or binding statements from co-product buyers. ↩
+
+GHG Accounting © 2026 Isometric HQ Ltd is licensed under CC BY-NC-ND 4.0
+
+Isometric is the agentic certification platform for the industrial economy. Its AI agents work alongside human verifiers, reviewing every data point so expert judgment is freed for the calls that matter. Isometric is the largest certifier of carbon removal by contracted volume and is fully accredited by ICVCM, ICROA, and CORSIA.
+
+Go to isometric.com
+Changelog
+Writing
+Careers
+Documentation
+Privacy
+Terms
+Get in touch
+contact@isometric.com
+Press enquiries
+press@isometric.com
+© 2026 Isometric HQ Ltd. All rights reserved.

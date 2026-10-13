@@ -1,0 +1,126 @@
+{
+ "batch_id": "INJ-09-2026-W2-QOWV",
+ "note": "Written 2026-09-29; entries marked 'late' were completed after first delivery.",
+ "steps": {
+  "P1_knowledge_base": {
+   "done": true,
+   "evidence": "knowledge-base/Charm_Isometric_Knowledge_Base.md read 2026-09-22T19:43:40Z"
+  },
+  "P2_lessons_learned": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/references/lessons_learned.md read 2026-09-22T19:43:23Z"
+  },
+  "P3_checklist_structure": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/references/checklist_structure.md read 2026-09-22T19:43:23Z"
+  },
+  "P4_failure_categories_printed": {
+   "done": true,
+   "evidence": "FC-C1 to FC-C13 printed to chat 2026-09-22T19:43:59Z, before Gate 1"
+  },
+  "P5_registry_checked": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/qa_active_charm_batches.json read 2026-09-22T19:43:29Z"
+  },
+  "T0_stamped_monitor_triggered": {
+   "done": true,
+   "evidence": "T0 2026-09-22T19:43:21Z; independent monitor updated tracker row 12 2026-09-29T16:53:29Z"
+  },
+  "G1_0_vvb_guidance_full": {
+   "done": true,
+   "evidence": "[log:vvb_guidance]"
+  },
+  "G1_0_cell_comments": {
+   "done": true,
+   "evidence": "Ops Notes exported and read 2026-09-22T19:46:51Z, no cell comments [log:ops_notes]"
+  },
+  "G1_1_batch_folder": {
+   "done": true,
+   "evidence": "[log:batch_folder_inventory]"
+  },
+  "G1_2_totes": {
+   "done": true,
+   "evidence": "late: all 38 totes logged with inventory fields 2026-09-29T15:53:32Z [log:totes]"
+  },
+  "G1_3_ops_notes": {
+   "done": true,
+   "evidence": "[log:ops_notes, ops_notes_totals, live_ops_notes_2026_09_29]"
+  },
+  "G1_4_shipment_tracker": {
+   "done": true,
+   "evidence": "[log:shipment_tracker, shipment_tracker_cells_are_formulas]"
+  },
+  "G1_5_testing": {
+   "done": true,
+   "evidence": "[log:testing] SR26-05494_W2_QOWV_AECN_COA.pdf"
+  },
+  "G1_6_pp_summaries": {
+   "done": true,
+   "evidence": "late: WODO rows, period lengths and August 2025 summary added 2026-09-29 [log:pp_summary_sources, pp9_summary]"
+  },
+  "G1_7_charm_contents": {
+   "done": true,
+   "evidence": "[log:batch_folder_inventory, certify.certify_sources_enumeration] no Charm Contents sheet"
+  },
+  "G1_8_certify_four_tabs": {
+   "done": true,
+   "evidence": "Components modals, Calculation view (with its datapoint table) and Sources read 2026-09-22T19:47:04Z-19:48:51Z; Datapoints tab read 2026-09-29T15:59:31Z [log:certify.component_by_key, certify.calculation_view, certify.datapoints_tab_read_2026_09_29]"
+  },
+  "G1_8_sources_tab_total": {
+   "done": true,
+   "evidence": "[log:certify.certify_sources_tab_total, certify.certify_sources_enumeration]"
+  },
+  "G1_registry_updated": {
+   "done": true,
+   "evidence": "skills/qa/batch-qa-charm/qa_active_charm_batches.json entry INJ-09-2026-W2-QOWV, Garrett notified 2026-09-22T20:32:58Z"
+  },
+  "G1_injection_record": {
+   "done": true,
+   "evidence": "late: opened 2026-09-29T15:53:32Z [log:cobb_injection_record]"
+  },
+  "G2_1_tare_measured": {
+   "done": true,
+   "evidence": "late: standard tare established 2026-09-29T15:53:32Z [log:inventory_master.tare_distribution]; 2.2 Flag"
+  },
+  "G2_2_tracker_cells_clicked": {
+   "done": true,
+   "evidence": "[log:shipment_tracker_cells_are_formulas]"
+  },
+  "G2_3_component_modals": {
+   "done": true,
+   "evidence": "All five component detail views opened 2026-09-22T19:47:04Z-19:48:22Z [log:certify.component_by_key]"
+  },
+  "G2_4_each_pp_summary": {
+   "done": true,
+   "evidence": "[log:pp_summary_sources] six summaries exported 2026-09-22T19:51Z; August 2025 read 2026-09-29 [log:pp9_summary]"
+  },
+  "G2_5_recompute_pasted": {
+   "done": true,
+   "evidence": "late: recompute_qowv.py exit 0, output in recompute_output.txt, pasted in chat with the 2026-09-29 delivery"
+  },
+  "G2_lcs_search": {
+   "done": true,
+   "evidence": "[log:lcs_search_method, lcs_use_kg]"
+  },
+  "G3_reviewer_independent": {
+   "done": true,
+   "evidence": "late: the 2026-09-22 review was self-conducted; independent subagent review 2026-09-29: adversarial_review_INJ-09-2026-W2-QOWV.md"
+  },
+  "G3_challenges_resolved": {
+   "done": true,
+   "evidence": "2026-09-29 review applied: 3.2/3.5 rewritten on work orders [log:work_orders], 7.2 rebased on live sheet [log:live_ops_notes_2026_09_29], 3.4 Fail [log:shipping_orders_2025_12], 1.2 Fail, C.1 wording, sidebar; 8.1 Flag recommendation rebutted [log:bcu_vs_process.rebuttal_of_flag_recommendation]"
+  },
+  "G4_render_in_excel": {
+   "done": true,
+   "evidence": "late: Excel PDF export read, column A widened and cells top-aligned, then re-exported and read 2026-09-29T16:37:47Z"
+  },
+  "G4_status_counts": {
+   "done": true,
+   "evidence": "Pass 24 / Flag 2 / Fail 6 / N/A 1 counted from the rebuilt checklist 2026-09-29T16:36:23Z; Charm_Aqueous_QOWV_QA_Checklist_INJ-09-2026-W2.xlsx"
+  },
+  "G4_monitor_independent": {
+   "done": true,
+   "evidence": "late: independent monitor agent updated row 12 of outputs/qa/performance-monitor/Claude_QA_Performance_Tracker.xlsx, finished 2026-09-29T16:53:29Z"
+  }
+ }
+}

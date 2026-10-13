@@ -1,0 +1,2606 @@
+Registry
+Projects
+Protocols
+Account
+Certify
+|
+Menu
+Energy Use Accounting
+v1.3
+Contributors:
+Content
+Referencing protocols
+Changelog
+Contents
+1
+Introduction
+2
+Future Versions
+3
+System Boundaries
+4
+Calculation of CO2eEnergy,RP
+5
+Calculation of CO2eElectricity, RP
+5.1
+Calculation of CO2eElectricity, RP With Behind-The-Meter Electricity Provision
+5.2
+Calculation of CO2eElectricity, RP With Grid-Based Electricity Provision
+5.3
+Calculation of CO2eElectricity, RP With Electricity Environmental Attribute Certificate Procurement
+5.4
+Definition of Non-Intensive and Intensive Facilities
+5.4.1
+200 GWh Threshold
+5.4.2
+Eligibility Criteria for Electricity Environmental Attribute Certificates
+5.4.2.1
+Definition of Grid Regions
+5.4.3
+Calculation Approach
+5.4.3.1
+Non-Intensive Facilities
+5.4.3.2
+Intensive Facilities
+5.4.3.2.1
+Exemptions to EC5: Hourly Matching
+5.4.3.2.2
+Emission Screen
+5.5
+Acceptable Emissions Factors - CO2eElectricity, RP
+5.6
+Measurements - CO2eElectricity, RP
+5.7
+Required Records and Documentation - CO2eElectricity, RP
+6
+Calculation of CO2eFuel, RP
+6.1
+Waste Heat Eligibility Criteria
+6.2
+Calculation of CO2eFuel, RP With Fuel Environmental Attribute Certificate Procurement
+6.2.1
+Fuel Environmental Attribute Certificate Eligibility Criteria
+6.2.2
+Calculation Approach
+6.2.2.1
+Calculation of Fuel Emissions Using Fuel Environmental Attribute Certificates
+6.2.2.2
+Calculation of Transportation Emissions Using Fuel Environmental Attribute Certificates With the Distance-Based Method
+6.3
+Acceptable Emissions Factors - CO2eFuel, RP
+6.4
+Measurements - CO2eFuel, RP
+6.5
+Required Records and Documentation - CO2eFuel, RP
+7
+Acknowledgements
+8
+Definitions and Acronyms
+9
+Appendix A - Companion Documentation
+9.1
+Why Does the Module Use Average Emissions Factors for Grid-Based Electricity Use?
+10
+Appendix B - Energytag's "configuration 3"
+11
+Relevant Works
+Footnotes
+Contributors
+1.0
+Introduction
+Introduction
+
+This Module describes how to calculate emissions related to energy use for Carbon Dioxide Removal (CDR) projects as part of project greenhouse gas (GHG) accounting. This Module applies to all CDR pathways, ensuring a consistently rigorous standard in how energy-related emissions are quantified and reported between different projects and approaches.
+
+2.0
+Future Versions
+Future Versions
+
+This Module was developed based on the current state of the art, publicly available science regarding energy emissions accounting. This Module will be updated in future versions as the underlying science evolves and the availability of high-quality data and documentation in the energy market increases, for example regarding emission factors, temporal matching and power purchase agreements.
+
+This Module will be reviewed at least annually when substantial changes of data availability in the energy market occur, or when there are substantial advances in understanding of scientific concepts relevant to emissions accounting for energy usage.
+
+Isometric recognizes that best practices for supplying energy to CDR projects are still evolving. Isometric will continue to engage with stakeholders and the scientific community to assess the rigor and operability of accounting approaches, including temporal matching and emissions matching. Any future changes to the approach outlined in this Module will be conducted in consultation with a range of stakeholders and the scientific community to ensure a robust transition to the best available approaches, while maintaining operational integrity for existing projects which are continuing to be established under an evolving governance landscape.
+
+Isometric is committed to progressively increasing the rigor of energy emissions accounting requirements, and will introduce more robust approaches as soon as they are supported by the evolving science and demonstrably operable under prevailing market conditions.
+
+3.0
+System Boundaries
+System Boundaries
+
+The emissions associated with energy use must account for all operations that consume electricity and fuel as part of CDR project processes. Emissions associated with Energy Use are denoted 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑒
+𝑟
+𝑔
+𝑦
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Energy,RP
+	​
+
+.
+
+Sources included in this Module’s scope are:
+
+Non-mobile machinery;
+Primary non-road/rail/air/maritime mobile sources, such as fork trucks and loaders used for material handling, and small personal transport modes used to move staff around project sites; and
+Fuels combusted to provide heat, steam, startup energy, or to power eligible mobile sources.
+
+Refer to the GHG Accounting Module v1.1 for the calculation guidelines for transportation (including road, rail, air and maritime mobile emission sources) and embodied emissions accounting (including the production of products/ feedstocks).
+
+GHG Accounting v1.1
+
+Refer to the GHG Accounting Module for calculation guidelines.
+
+4.0
+Calculation of CO|2|e|Energy,RP
+Calculation of CO2eEnergy,RP
+
+Emissions associated with energy usage include the use of both electricity and fuel. The following calculation approach must be followed for the calculation of 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑒
+𝑟
+𝑔
+𝑦
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Energy,RP
+	​
+
+:
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑒
+𝑟
+𝑔
+𝑦
+,
+𝑅
+𝑃
+=
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+𝑅
+𝑃
++
+𝐶
+𝑂
+2
+𝑒
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Energy,RP
+	​
+
+=CO
+2
+	​
+
+e
+Electricity,RP
+	​
+
++CO
+2
+	​
+
+e
+Fuel,RP
+	​
+
+
+(Equation 1)
+
+Where:
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑛
+𝑒
+𝑟
+𝑔
+𝑦
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Energy,RP
+	​
+
+: the total GHG emissions associated with energy consumption for a Reporting Period, 
+𝑅
+𝑃
+RP, in tonnes of CO2e.
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Electricity,RP
+	​
+
+: the total GHG emissions associated with electricity usage for a Reporting Period, 
+𝑅
+𝑃
+RP, in tonnes of CO2e.
+𝐶
+𝑂
+2
+𝑒
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Fuel,RP
+	​
+
+: the total GHG emissions associated with fuel usage for a Reporting Period, 
+𝑅
+𝑃
+RP, in tonnes of CO2e.
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Electricity,RP
+	​
+
+ and 
+𝐶
+𝑂
+2
+𝑒
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Fuel,RP
+	​
+
+ must account for all operations and support systems that consume electricity or fuel within the CDR process. This may be calculated on an individual or combined basis, provided that all operations within the process are accounted for.
+
+5.0
+Calculation of CO|2|e|Electricity, RP
+Calculation of CO2eElectricity, RP
+
+This Module provides accounting requirements for the following types of electricity:
+
+Behind-the-meter provision: Projects may establish generation “behind-the-meter”. Project Proponents must follow the quantification requirements in Section 5.1.
+Grid-based electricity: electricity which is obtained from the electricity grid to which The Project is connected. Projects must follow the quantification requirements in Section 5.2.
+Electricity Environmental Attribute Certificates (EACs): electricity procured by contract purchase from renewable power sources for the exclusive use of The Project. The Project Proponent must meet Eligibility Criteria in Section 5.4.2 and follow calculation requirements in Section 5.4.3. This Module distinguishes between intensive and non-intensive facilities to align accounting requirements for projects using Electricity EACs with the scale of electricity use (See Section 5.4).
+5.1
+Calculation of CO|2|e|Electricity, RP| With Behind-The-Meter Electricity Provision
+Calculation of CO2eElectricity, RP With Behind-The-Meter Electricity Provision
+
+Project Proponents may elect to establish power generation "behind-the-meter". Behind-the-meter electricity provision refers to generation that supplies electricity directly to The Project without passing through the local transmission grid. This may occur either via a direct physical connection or because the CDR process is integrated into the electricity generation process itself. Behind-the-meter generators may be owned and operated by The Project Proponent or by a third party. Additionally, they may be existing assets, or assets built at the same time as the CDR project.
+
+Life cycle emissions associated with electricity produced by behind-the-meter generators and used by The Project must be quantified. If the electricity produced by the generator is used solely by The Project, the generator must be fully considered as part of The Project's system boundary. If the electricity supply produced by the generator is delivered to the grid or other facilities as well as The Project, emissions associated with electricity provision to The Project must be quantified in line with the requirements for 
+𝑓
+𝑝
+f
+p
+	​
+
+ in Section 5.5 and proportionally allocated to The Project.
+
+Projects utilizing electricity from generators that meet both of the following criteria must also account for Energy leakage if the following are true:
+
+Generator was in operation for more than 36 months before The Project was initiated; and
+The generator supplies electricity to the local electricity grid.
+
+Energy leakage represents the indirect greenhouse gas emissions arising when a Project consumes electricity that would otherwise have been supplied to the grid, or when a Project creates a parasitic load that reduces the net electricity supplied to the grid. Energy leakage is quantified by determining the total reduction in electricity supplied to the grid resulting from the CDR process and multiplying this by the average grid intensity factor (
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+f
+grid
+	​
+
+).
+
+Project electricity demand may be supplied entirely by behind-the-meter generation or partially supplied. The accounting requirements for each are set out below:
+
+Full Supply: No additional electricity emissions accounting is required beyond the life cycle emissions of the generator and Energy Leakage (if applicable) described above.
+Partial Supply: When demand is partially supplied, the remaining electricity requirement must be quantified in accordance with Section 5.3 and Section 5.4. For the purpose of these calculations, the facility’s net grid import is equal to the total electricity demand minus the behind-the-meter generation supplied to The Project.
+
+For the determination of a facility as intensive or non-intensive, the facility's relevant electricity consumption is equal to the total electricity demand minus the behind-the-meter generation supplied to The Project. Consequently, electricity supplied by behind-the-meter generation is excluded from the consumption total used to determine if the 200 GWh threshold is met.
+
+5.2
+Calculation of CO|2|e|Electricity, RP| With Grid-Based Electricity Provision
+Calculation of CO2eElectricity, RP With Grid-Based Electricity Provision
+
+Equation 2 must be followed for emissions associated with provision of electricity from the grid.
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+ 
+𝑅
+𝑃
+=
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+∑
+𝑖
+=
+1
+𝑁
+𝐸
+𝑖
+CO
+2
+	​
+
+e
+Electricity, RP
+	​
+
+=f
+grid
+	​
+
+i=1
+∑
+N
+	​
+
+E
+i
+	​
+
+
+(Equation 2)
+
+Where:
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Electricity,RP
+	​
+
+: the total GHG emissions associated with electricity usage for a Reporting Period, 
+𝑅
+𝑃
+RP, in tonnes of CO2e.
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+f
+grid
+	​
+
+: grid average emissions factor, in tonnes of CO2e/kWh. Details of requirements for acceptable emissions factors can be found in Section 5.5.
+𝐸
+𝑖
+E
+i
+	​
+
+: electricity usage in hour 
+𝑖
+i, in kWh.
+𝑁
+N: total number of calendar hours for Reporting Period, 
+𝑅
+𝑃
+RP.
+
+Projects may reduce electricity emissions through procurement of low-carbon power (See Section 5.4).
+
+5.3
+Calculation of CO|2|e|Electricity, RP| With Electricity Environmental Attribute Certificate Procurement
+Calculation of CO2eElectricity, RP With Electricity Environmental Attribute Certificate Procurement
+R-4ACE-0
+
+A Project may reduce its energy emissions by procuring Electricity EACs, where electricity is procured by contract purchase from renewable sources for the exclusive use of The Project. Electricity EACs are known by different names depending on the jurisdiction, including Renewable Energy Certificates (RECs) and Guarantees of Origin (GOOs). In this Module, the term Electricity EAC is used as an umbrella term covering all such instruments.
+
+To use Electricity EACs, Project Proponents must account for the emissions associated with the electricity generation following the requirements for 
+𝑓
+𝑝
+f
+p
+	​
+
+ set out in Section 5.5, and comply with the Eligibility Criteria in Table 1.
+
+5.4
+Definition of Non-Intensive and Intensive Facilities
+Definition of Non-Intensive and Intensive Facilities
+G-Y6VT-0
+
+Intensive facilities are defined as those which consume more than 200 GWh of electricity per year (See Section 5.1.1).
+
+Intensive and non-intensive facilities are subject to different electricity emission accounting rule when procuring Electricity EACs:
+
+Non-intensive facilities should follow the non-intensive Eligibility Criteria in Section 5.4.2 and the calculation approach in Section 5.4.2.1.
+Intensive facilities should follow the intensive Eligibility Criteria in Section 5.4.2 and the calculation approach in Section 5.4.2.2.
+
+In exceptional circumstances, Projects operating intensive facilities may apply for a temporary exemption from the requirement to obtain a Power Purchase Agreement (PPA). To be granted an exemption, The Project Proponent must demonstrate reasonable efforts to comply with the requirements of this Module, which will be assessed by Isometric on a case-by-case basis. To demonstrate reasonable efforts, The Project Proponent must provide:
+
+evidence of systematic outreach to potential PPA counterparties in the relevant grid region, including a record of entities approached and the RFI or RFP issued specifying delivery region, start date, term, and volume requirements;
+documentation of responses received, including any formal rejections citing credit or financial concerns, or terms offered that The Project Proponent was unable to accept, with an explanation for the refusal;
+The Project Proponent's current credit rating, or, where no formal rating exists, a statement from a financial institution or independent advisor regarding The Project Proponent's creditworthiness and capacity to enter into a long-term offtake agreement; and
+evidence that alternative procurement structures were explored (such as sleeved PPAs or aggregated purchasing arrangements), along with available credit enhancement mechanisms and government support programmes in the jurisdiction of project operations, with an explanation of why these were insufficient to secure a compliant arrangement.
+
+Temporary exemptions are valid for five years. The total duration of temporary exemptions granted to a single Project must not exceed 15 years from the date of the initial exemption. Upon expiry, The Project must meet the intensive facility requirements against which it was validated. It is anticipated that fifteen years represent a time period over which project bankability will reach levels required for necessary procurement structures. Isometric will review the continued appropriateness of the 15-year timeframe in future Module revisions, informed by evidence from project delivery and developments in financing availability.
+
+5.4.1
+200 GWh Threshold
+200 GWh Threshold
+
+An intensive facility is defined as a facility which consumes more than 200 GWh of electricity per year.
+
+To provide operational flexibility, a 25% buffer on the 200GWh threshold is applied. A facility validated as non-intensive will enter a ‘monitored state’ if its annual electricity consumption over one calendar year is 200-250 GWh. Upon entering the monitored state, Isometric will issue a formal notice to the Project Proponent describing the potential reclassification and the need to prepare to comply with the intensive facility rules.
+
+A facility in the monitored state will be reclassified as an intensive facility if its annual electricity consumption remains between 200 GWh and 250 GWh for three consecutive calendar years. This grace period is intended to allow sufficient time for operators to secure a PPA or make other necessary operational adjustments. Once a facility is reclassified as intensive, it must comply with all accounting rules for intensive facilities in all subsequent Reporting Periods.
+
+If a facility's electricity consumption exceeds 250 GWh over the course of one calendar year, it will be reclassified as an intensive facility starting the following calendar year.
+
+5.4.2
+Eligibility Criteria for Electricity Environmental Attribute Certificates
+Eligibility Criteria for Electricity Environmental Attribute Certificates
+
+Electricity EACs must meet all Eligibility Criteria EC1-EC5 in Table 1.
+
+Table 1: Eligibility Criteria for Electrcity EACs
+
+CRITERIA
+
+	
+
+DESCRIPTION
+
+	
+
+DOCUMENTATION REQUIRED (NON-INTENSIVE FACILITIES)
+
+	
+
+DOCUMENTATION REQUIRED (INTENSIVE FACILITIES)
+
+
+
+
+G-RMPA-0EC1
+
+	
+
+Contract Purchase
+
+The electricity utilized is obtained via contract purchase. It should be noted that "sleeved" contract purchases, where a third party (such as a utility provider) procures low-carbon electricity supply on behalf of The Project Proponent, is allowable provided that all EACs for verification are under sole ownership of The Project Proponent at the point of verification.
+
+	
+
+Documentation of EAC purchase, including copy of contract and EAC retirement certificates.
+
+	
+
+Copy of Power Purchase Agreement (PPA), or other direct long-term offtake agreement, which identifies:
+
+Physical source and type of electricity generation;
+Location and grid region of generating facility;
+Date of commissioning of electricity source; and
+Date of PPA or offtake agreement.
+
+
+
+G-C9HZ-0EC2
+
+	
+
+Exclusive Issuance
+
+The Project must obtain and retire all EACs tied to the electricity it is claiming, and provide adequate evidence that this has been done—except where some of those EACs must be transferred to The Project’s load-serving entity (LSE) to comply with a jurisdictional clean electricity standard (CES) or similar government policy.
+
+If a CES (or similar policy) requires the LSE to retire EACs for a specified share of The Project’s total electricity use, The Project may transfer that required amount of EACs to the LSE and still count the associated electricity as qualifying under this Module. However, the transferred amount must not exceed the increase in the LSE’s legally required EAC retirements that is attributable to The Project’s electricity consumption.
+
+	
+
+Documentation of EAC retirement certificates. Documentation must also be provided of any relevant CES requirements and applicability to The Project energy usage.
+
+	
+
+Documentation of EAC retirement certificates. Documentation must also be provided of any relevant CES requirements and applicability to The Project energy usage.
+
+
+
+
+G-ZYDM-0EC3
+
+	
+
+Additional
+
+The generating facility from which the claimed electricity is sourced entered service no more than 36 months before The Project was initiated. Note that the expansion of existing assets to increase power generation capacity (e.g. "repower" projects), where the expansion occurred no more than 36 months before The Project entered service, is eligible as qualified power under this Module. In this case, only capacity at the contracted generating site which entered service no more than 36 months before The Project is eligible, with older existing capacity being ineligible. The use of existing assets which entered service more than 36 months before The Project are permitted in cases where the asset is considered "stranded" and would otherwise be entirely or partially non-operational in the absence of contract purchase by The Project.
+
+	
+
+Evidence that the generating facilities identified in the EACs entered service no more than 36 months before The Project was initiated.
+
+	
+
+One of the following:
+
+Provide a PPA associated with “existing assets”, and evidence that the generating facilities identified in the PPA entered service no more than 36 months before The Project was initiated; or
+Provide a PPA associated with "existing assets" and evidence that the generating facilities identified in the PPA would otherwise be entirely or partially non-operational in the absence of contract purchase by The Project. In this case, the volume of power procured by The Project from such generators may not exceed the volume by which the generating assets were under-utilized in the absence of contract purchase by The Project; or
+Provide a PPA associated with “new-to-earth” assets.
+
+
+
+G-KK99-0EC4
+
+	
+
+Physically Deliverable
+
+The electricity must be physically deliverable to The Project. Electricity is considered to be physically deliverable to The Project if either of the following conditions are met:
+
+The Project is directly connected to the generating facility; or
+Both The Project and the generating facility are located within the same grid region. See Section 5.3.1 for acceptable grid region definitions.
+	
+
+Provide the l ocation of the generating facilities identified in the submitted RECs/EACs, and documentation from government or grid operators to justify that the generators are located within the same grid region as The Project.
+
+	
+
+One of the following:
+
+Provide an indirect PPA, specifying the location of the generating facilities identified in the submitted PPA, and documentation from government or grid operators to justify that the generators are located within the same grid region as The Project; or
+Provide a direct PPA.
+
+
+
+G-784Y-0EC5
+
+	
+
+Temporal Matching
+
+If the facility is classified as a non-intensive facility (see Section 5.1), the electricity must be generated no more than 12 months prior to the point of consumption by The Project. If The Project is classified as an intensive facility (see Section 5.1), wherever possible, the electricity must be generated in the same hour for which it is claimed.
+
+Under specific conditions it will be permitted for projects classified as an intensive facility to use electricity which was generated no more than 12 months prior to the point of consumption by The Project.
+
+	
+
+Provide documentation of power procurement proving that generation of the claimed electricity occurred no more than 12 months prior to the point of consumption by The Project.
+
+	
+
+One of the following:
+
+Provide documentation of power procurement featuring timestamps with hourly granularity; or
+If FID is reached prior to 2030 and EC6 is met (see Table 2), provide documentation of power procurement proving that generation of the claimed electricity occurred no more than 12 months prior to the point of consumption by The Project.
+
+In cases where documented market constraints are in place, non-intensive facilities or intensive facilties that are permitted to use electricity which was generated no more than 12 months prior to the point of consumption by The Project, may use electricity which was generated no more than 18 months prior to the point of consumption by The Project, if the following is evidenced:
+
+The REC vintage is no more than 18 months prior to the point of consumption; and
+The Project Proponent provides sufficient evidence at verification demonstrating that compliance with the 12-month requirement was not feasible as a result of market constraints.
+
+In addition to the Eligibility Criteria in Table 1, EACs from bioenergy production will be subject to review by Isometric on a case-by-case basis to account for biomass sourcing and GHG accounting considerations.
+
+5.4.2.1
+Definition of Grid Regions
+Definition of Grid Regions
+
+Acceptable grid region definitions should be utilized in-line with those defined by a local regulatory authority. For projects operating in the United States, Project Proponents should use the definitions of grid regions established in the Department of Energy National Transmission Needs Study1 (i.e. the definition adopted in the United States 45V tax credit for production of clean hydrogen), or definitions of grid regions corresponding to Independent System Operator (ISO) regions. Projects operating in the United States should provide a brief justification in the PDD for the choice of grid region definition with respect to the deliverability of procured power. We note that The Project Proponent must adopt a consistent definition of grid regions in the United States for all projects registered with Isometric operating within the United States, whenever technically feasible. For projects operating in the European Union, Project Proponents should use the European Network of Transmission System Operators (ENTSO) definitions of grid regions (referred to as "power regions"). Projects operating within all other global regions will agree with Isometric, at the point of submission of the PDD, appropriate grid region boundaries to use for the purposes of applying the requirements established in this Module. It should be noted that the definition of a grid region within this Module may change over time as regional frameworks and definitions develop further. However, generators which are certified as deliverable to a Project at the point of initial project validation will retain this certification for the duration of The Project lifetime, regardless of future updates to this Module.
+
+5.4.3
+Calculation Approach
+Calculation Approach
+
+Projects that procure Electricity EACs to reduce their energy emissions should follow the calculation approach for 
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Electricity,RP
+	​
+
+ described in this Section. Non-intensive facilities should follow the approach described in Section 5.4.3.1. Intensive facilities should follow the approach described in Section 5.4.3.2.
+
+5.4.3.1
+Non-Intensive Facilities
+Non-Intensive Facilities
+
+The following calculation approach must be used for non-intensive facilities:
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+𝑅
+𝑃
+=
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+[
+(
+∑
+𝑖
+=
+1
+𝑁
+𝐸
+𝑖
+)
+−
+(
+∑
+𝑝
+𝐺
+𝑝
+)
+]
++
+∑
+𝑝
+𝑓
+𝑝
+𝐺
+𝑝
+CO
+2
+	​
+
+e
+Electricity,RP
+	​
+
+=f
+grid
+	​
+
+[(
+i=1
+∑
+N
+	​
+
+E
+i
+	​
+
+)−(
+p
+∑
+	​
+
+G
+p
+	​
+
+)]+
+p
+∑
+	​
+
+f
+p
+	​
+
+G
+p
+	​
+
+
+(Equation 3)
+
+Where:
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Electricity,RP
+	​
+
+: the total GHG emissions associated with electricity usage for a Reporting Period, 
+𝑅
+𝑃
+RP, in tonnes of CO2e.
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+f
+grid
+	​
+
+: grid average emissions factor, in tonnes of CO2e/kWh. Details of requirements for acceptable emissions factors can be found in Section 5.5.
+𝐸
+𝑖
+E
+i
+	​
+
+: electricity usage in hour 
+𝑖
+i, in kWh.
+𝑁
+N: total number of calendar hours for Reporting Period, 
+𝑅
+𝑃
+RP.
+𝐺
+𝑝
+G
+p
+	​
+
+: total amount of energy procured for Reporting Period 
+𝑅
+𝑃
+RP by generator type 
+𝑝
+p, in kWh. Note that in the calculation outlined above, the amount of procured electricity may not exceed the amount of electricity consumption by The Project for the Reporting Period, 
+𝑅
+𝑃
+RP.
+𝑓
+𝑝
+f
+p
+	​
+
+: emissions factor for generation by generator type 
+𝑝
+p, in tonnes of CO2e/kWh.
+
+For non-intensive facilities, documentation proving the direct procurement of low-carbon power should be time-stamped within 12 months of the point of consumption by The Project. In some regions power procurement market dynamics can pose challenges to Projects in meeting the 12 month limit. Where documented regional market constraints prevent a non-intensive facility from meeting the 12-month requirement, EAC vintages of up to 18 months prior to the point of consumption are allowable. Project Proponent's must provide sufficient evidence at verification demonstrating that compliance with the 12-month requirement was not feasible as a result of market constraints.
+
+Projects with non-intensive facilities may choose to procure Electricity EACs featuring timestamps with hourly granularity. In such instances, Projects must follow the calculation details in Equation 4. It is not permissable for projects to combine Electricity EACs featuring timestamps with hourly granularity and annual granularity within the same Reporting Period.
+
+5.4.3.2
+Intensive Facilities
+Intensive Facilities
+
+The following calculation approach must be used for intensive facilities:
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+𝑅
+𝑃
+=
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+∑
+𝑖
+=
+1
+𝑁
+(
+𝐸
+𝑖
+−
+∑
+𝑝
+𝐺
+𝑝
+,
+𝑖
+)
++
+∑
+𝑝
+(
+𝑓
+𝑝
+∑
+𝑖
+=
+1
+𝑁
+𝐺
+𝑝
+,
+𝑖
+)
+CO
+2
+	​
+
+e
+Electricity,RP
+	​
+
+=f
+grid
+	​
+
+i=1
+∑
+N
+	​
+
+(E
+i
+	​
+
+−
+p
+∑
+	​
+
+G
+p,i
+	​
+
+)+
+p
+∑
+	​
+
+(f
+p
+	​
+
+i=1
+∑
+N
+	​
+
+G
+p,i
+	​
+
+)
+
+(Equation 4)
+
+Where:
+
+𝐶
+𝑂
+2
+𝑒
+𝐸
+𝑙
+𝑒
+𝑐
+𝑡
+𝑟
+𝑖
+𝑐
+𝑖
+𝑡
+𝑦
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Electricity,RP
+	​
+
+: the total GHG emissions associated with electricity usage for a Reporting Period, 
+𝑅
+𝑃
+RP, in tonnes of CO2e.
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+f
+grid
+	​
+
+: grid average emissions factor, in tonnes of CO2e/kWh. Details of requirements for acceptable emissions factors can be found in Section 5.5.
+𝐸
+𝑖
+E
+i
+	​
+
+: electricity usage in hour 
+𝑖
+i, in kWh.
+𝑁
+N: total number of calendar hours for Reporting Period, 
+𝑅
+𝑃
+RP.
+𝐺
+𝑝
+,
+𝑖
+G
+p,i
+	​
+
+: amount of energy procured in hour 
+𝑖
+i by generator type 
+𝑝
+p, in kWh. Note that in the calculation outlined above, the amount of procured energy in hour 
+𝑖
+i may not exceed the amount of electricity consumption by The Project in hour 
+𝑖
+i.
+𝑓
+𝑝
+f
+p
+	​
+
+: emissions factor for generation by generator type 
+𝑝
+p, in tonnes of CO2e/kWh.
+
+For intensive facilities, documentation proving the direct procurement of low-carbon power should be time-stamped with an hourly time granularity and accordingly matched to project energy usage on an hourly basis. Project Proponents must obtain documentation time-stamped with an hourly time granularity when available in the region of operation. We note that as an alternative approach, Project Proponents are permitted to operationalize Configuration 3 of the EnergyTag Granular Certificate Scheme Standard2. Further details of this approach, and limitations to it's application in the context of this Module, are provided in Appendix B.
+
+5.4.3.2.1
+Exemptions to EC5: Hourly Matching
+Exemptions to EC5: Hourly Matching
+G-PCC1-0
+
+Under some operational circumstances, it may not be feasible to procure low-carbon power featuring hourly time stamps in the region of project operations. In this case, intensive facilities may follow the calculation approach described in Section 5.4.3.1 (Equation 3), provided the EC6 is met.
+
+Table 2: EC6 Exemption to hourly matching
+
+ELIGIBILITY CRITERIA
+
+	
+
+DESCRIPTION
+
+	
+
+DOCUMENTATION REQUIRED
+
+
+
+
+EC6
+
+	
+
+The Project must have reached Final Investment Decision (FID) before the year 2030.
+
+	
+
+Evidence that The Project reached FID and is due to commence construction before 2030, including documentation of the FID date. This should demonstrate a final and irrevocable commitment to proceed with project construction prior to 2030. Examples of documentation include:
+• A formal signed record of the decision to proceed
+• Signed Engineering, Procurement and Construction contract
+• Evidence that project financing has been secured
+
+This exemption reflects Isometric's assessment that low-carbon power procurement featuring hourly time stamps is unlikely to be widely available at economically feasible terms before 2030. This position is aligned with the approach adopted by the the EU CRCF delegated act methodologies for permanent carbon removals reference Delegated Regulation (EU) 2023/11843. Isometric will monitor market developments as part of the Module update process and will adjust these requirements as necessary.
+
+Projects that utilize the exemption described above will be permitted to utilize the exemption for the full duration of the obtained PPA, regardless of any future updates to this Module. Upon expiration of the obtained PPA, if this occurs at such a time that this exemption has been revoked from this Module, then compliance with the hourly matching scheme described above will be mandatory. If The Project has an existing PPA in place at the time of validation that was negotiated under a prior version of this Module, The Project Proponent must provide a copy of the final signed and executed PPA and demonstrate that it was negotiated in accordance with the rules in effect at the time of execution. Such PPAs will be assessed against the version of this Module that was in force at the time the PPA was signed.
+
+It should be noted that all energy intensive projects should procure low-carbon power according to an hourly matching scheme (i.e., Equation 4) whenever possible, as this represents the most credible approach towards accurate characterization of the emissions associated with the provision of electricity to CDR projects. At such a time that contracts featuring hourly time stamps are widely available in the energy market, the exception for energy intensive facilities described above will be revoked and compliance with the hourly matching scheme will be mandatory for all projects relying on an intensive facility.
+
+Information regarding the low-carbon power procurement approach used by The Project Proponent will be transparently reported in the public PDD, which will be available for download from the registry page associated with each credited removal.
+
+5.4.3.2.2
+Emission Screen
+Emission Screen
+
+Where an intensive facility utilizes the exemption described above and follows the calculation approach described in Section 5.4.3.1 (Equation 3), low-carbon power procurement is not matched to consumption on an hourly basis. In practice, the generation profile of procured low-carbon power may not correspond to the electricity consumption profile of The Project. For example, procured solar generation may occur during daytime hours while The Project consumes electricity during periods when that generation is unavailable. This introduces the potential for the emissions impact of electricity consumption by The Project to be underestimated.
+
+To mitigate this risk, Project Proponents utilizing the exemption are encouraged to conduct an Emission Screen. The purpose of the Emission Screen is to verify that The Project's procurement of low-carbon power is sufficient to neutralize the emissions impact it would have otherwise had on the local electricity grid. Specifically, the Emission Screen is passed if the total avoided emissions attributed to the procured low-carbon power are greater than or equal to the emissions that would have resulted from consuming an equivalent amount of electricity from the grid. While the Emission Screen is not mandatory for projects, conducting it provides an additional layer of assurance that the use of annual matching does not result in a material underestimation of The Project's electricity-related emissions.
+
+The Emission Screen calculation may be conducted as set out in Equation 5, or Equation 6 where generation data for procured power is available or can be derived.
+
+(
+∑
+𝑖
+=
+1
+𝑁
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+,
+𝑖
+⋅
+𝐸
+𝑖
+)
+−
+(
+∑
+𝑝
+(
+𝑓
+ˉ
+𝑔
+𝑟
+𝑖
+𝑑
+−
+𝑓
+𝑝
+)
+ 
+𝐺
+𝑝
+)
+≤
+0
+(
+i=1
+∑
+N
+	​
+
+f
+grid,i
+	​
+
+⋅E
+i
+	​
+
+)−(
+p
+∑
+	​
+
+(
+f
+ˉ
+	​
+
+grid
+	​
+
+−f
+p
+	​
+
+)G
+p
+	​
+
+)≤0
+
+(Equation 5)
+
+Where:
+
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+,
+𝑖
+f
+grid,i
+	​
+
+: grid average emissions factor in hour 
+𝑖
+i, in tonnes of CO2e/kWh. Details of requirements for acceptable emissions factors can be found in Section 5.5.
+𝐸
+𝑖
+E
+i
+	​
+
+: The total amount of electricity The Project consumed in hour 
+𝑖
+i, in kWh.
+𝑁
+N: total number of calendar hours for Reporting Period, 
+𝑅
+𝑃
+RP. Note that in some cases, satisfying this criteria may require that a larger amount of EACs are retired than the amount claimed for discounting project energy usage according to Equation 3.
+𝑓
+𝑝
+f
+p
+	​
+
+: emissions factor for generation by generator type 
+𝑝
+p, in tonnes of CO2e/kWh.
+𝐺
+𝑝
+G
+p
+	​
+
+: total amount of energy procured for removal R by generator type p, in kWh.
+(
+∑
+𝑖
+=
+1
+𝑁
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+,
+𝑖
+⋅
+𝐸
+𝑖
+)
+−
+(
+∑
+𝑝
+∑
+𝑖
+=
+1
+𝑁
+(
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+,
+𝑖
+−
+𝑓
+𝑝
+,
+𝑖
+)
+ 
+𝐺
+𝑝
+,
+𝑖
+)
+≤
+0
+(
+i=1
+∑
+N
+	​
+
+f
+grid,i
+	​
+
+⋅E
+i
+	​
+
+)−(
+p
+∑
+	​
+
+i=1
+∑
+N
+	​
+
+(f
+grid,i
+	​
+
+−f
+p,i
+	​
+
+)G
+p,i
+	​
+
+)≤0
+
+(Equation 6)
+
+Where:
+
+𝑓
+𝑝
+,
+𝑖
+f
+p,i
+	​
+
+: emissions factor for generation by generator type 
+𝑝
+p in hour 
+𝑖
+i, in tonnes of CO2e/kWh.
+𝐺
+𝑝
+,
+𝑖
+G
+p,i
+	​
+
+: amount of energy procured for removal R by generator type p in hour 
+𝑖
+i, in kWh.
+
+Alternative approaches may be implemented (for example using marginal and hourly emission factors) to demonstrate that The Project's low-carbon power procurement sufficiently mitigates the emissions impact of its electricity consumption.
+
+Whether an intensive Project implements the Emission Screen, or not, must be transparently reported in the PDD.
+
+5.5
+Acceptable Emissions Factors - CO|2|e|Electricity, RP
+Acceptable Emissions Factors - CO2eElectricity, RP
+
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+f
+grid
+	​
+
+ - emissions factors used must:
+
+Be technology-specific to the mix of electricity generation methods in the connected electric grid;
+Wherever available, represent hourly average emission factors when used in Equations 2 and 3, and in the project electricity consumption term (left-hand side) of Equations 5 and 6. Hourly average emission factors must only be used in Equation 4 if low-carbon power features hourly time stamps, otherwise annual average emission factors must be used. In the procurement term (right-hand side) of Equations 5 and 6, hourly average emission factors must only be used in Equation 6, where hourly generation data for procured power is available or can be derived. Where hourly generation data is not available (Equation 5), annual average grid emission factors must be used in the procurement term.
+Wherever available, be reported on a residual-mix basis, meaning that any generators within a grid region which are subject to contract purchase (e.g., through RECs/PPAs) are excluded from the average emissions calculation. Project Proponents must declare whether such data is available in the region of operation, and utilize such data wherever possible. Where residual mix factors are not available, national grid average factors are considered acceptable.
+Be reported on a consumption basis, meaning that all net physical energy imports/exports across the grid boundary should be reflected;
+Account for the full life cycle emissions associated with electricity generation, including direct emissions from power generation, transmission and distribution losses, and upstream life cycle emissions associated with extraction, refining and transportation of primary fuels (i.e., from cradle-to-gate);
+Be for the specific region (nation, state, locality) where the electricity consumption is occurring, with the most granular or site-specific data source preferred;
+Be for the most recent published year. Wherever possible, the utilized emissions factors must correspond to those most recently published by the relevant authority in the region of project operations; and
+Account for total GHG emissions as CO2e. Separate emissions factors for each GHG may be utilized, and the calculated emissions should be converted to CO2e using the 100-yr Global Warming Potential (GWP) for the relevant GHG, based on the most recent volume of the IPCC Assessment Report (presently the Sixth Assessment Report).
+
+𝑓
+𝑝
+f
+p
+	​
+
+ - emissions factors used must:
+
+Be technology-specific to the method of electricity generation;
+Account for all embodied emissions associated with the establishment of procured generators by amortizing on a per unit electricity generation basis. If embodied emissions are not included within the used emissions factor, then they must be calculated separately and allocated to The Project on a proportional basis relative to the usage of the generating asset over its anticipated lifetime and generation capacity;
+Account for the full life cycle emissions associated with electricity generation and include direct emissions from power generation (i.e., fuel combustion), upstream emissions associated with fuel production, equipment manufacture, and equipment decommissioning and disposal at a minimum;
+Account for any necessary derating factors associated with energy loss during transmission between the generating facility and The Project. Where derating factors are not applied in the utilized emissions factors, The Project Proponent must additionally account for these. For example, derating factors for transmission losses may be estimated using the approach of Sadovskaia et al. (2019)4, or any other suitably justified method; and
+Account for total GHG emissions as CO2e. Separate emissions factors for each GHG may be utilized, and the calculated emissions should be converted to CO2e using the 100-yr Global Warming Potential (GWP) for the relevant GHG, based on the most recent volume of the IPCC Assessment Report (presently the Sixth Assessment Report).
+
+Regional or subnational location-based grid average emissions factors must be used where available for the calculation of 
+𝑓
+𝑔
+𝑟
+𝑖
+𝑑
+f
+grid
+	​
+
+. These must represent net physical energy imports and exports across the grid boundary and all electricity production occurring in a defined grid distribution region that approximates a geographically precise energy distribution and use area.
+
+Applicable life cycle emission factors include those utilized in the Argonne National Laboratory GREET Model^2, California Air Resources Board modified GREET model (CA-GREET)^3, Ecoinvent database^4, US Federal Life Cycle Inventory database or LCA Commons^5, and similar databases used in common life cycle assessment (LCA) practices or tools (such as OpenLCA, SimaPro, or GaBi).
+
+Emission factors may be used that do not incorporate the full life cycle emissions associated with power generation if these additional life cycle emissions are accounted for separately. Power generation emission factors based on fuel combustion from sources such as EIA or US EPA (i.e., AP-42) may also be utilized if the additional upstream and downstream life cycle considerations are addressed.
+
+5.6
+Measurements - CO|2|e|Electricity, RP
+Measurements - CO2eElectricity, RP
+
+The primary measurement considered in calculation of electricity emissions is:
+
+𝐸
+𝑖
+E
+i
+	​
+
+: total amount of electricity used by The Project in hour 
+𝑖
+i.
+
+Measurements must be made using a utility grade power meter, or an independent power meter installed by The Project Proponent, with hourly reporting frequency at minimum. Preference is for meters with an accuracy of better than 2% of reading for total electricity consumption, as reported in units of kWh. However, meters with accuracy of worse than 2% of reading for total electricity consumption are acceptable provided that the accuracy of the meter is reported and an appropriate discount is applied to The Project net-CDR calculation. Meters must be calibrated initially and at regular intervals in accordance with manufacturer specifications to ensure accuracy.
+
+5.7
+Required Records and Documentation - CO|2|e|Electricity, RP
+Required Records and Documentation - CO2eElectricity, RP
+
+Electricity usage must be monitored for all operations within the gate at each location of utilization relevant to project operation. The Project Proponent must maintain records of any electricity use for any operation or support system within the gate of a removal that consumes electricity. This is in addition to documentation listed in Section 5.4.2), if applicable to The Project.
+
+Allowable electricity records include, but are not limited to:
+
+On-site electricity meter readings (i.e. utility electric meter), whether owned by the site owner or by the electric utility, either electronic or manually logged; or
+Independent power meter readings for metering equipment installed by The Project Proponent to measure power consumption of the process.
+
+If other equipment or processes not related to the removal process are included in meter readings or utility bills, electricity usage may be allocated to such processes based on sub-metering data, equipment maximum electricity consumption ratings and operating hours for each sub-system, or by other justifiable allocation methods which must be reviewed and accepted during third party verification.
+
+All records of electricity usage, including meter specification and calibration records, must be maintained by The Project Proponent for a period of at least five years.
+
+6.0
+Calculation of CO|2|e|Fuel, RP
+Calculation of CO2eFuel, RP
+
+Process emissions may result from combustion of fuels to provide thermal energy to support equipment startup and operations, to supply steam or other thermal energy sources for operations, or to power primary non-road/rail/air/maritime mobile sources. Fuels for the provision of heat to The Project can be supplied from outside sources, or may be produced as a result of activities within The Project gate.
+
+The calculation approach in Equation 7 must be followed for calculation of 
+𝐶
+𝑂
+2
+𝑒
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Fuel,RP
+	​
+
+.
+
+𝐶
+𝑂
+2
+𝑒
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+=
+∑
+𝑘
+=
+1
+𝐾
+𝑚
+𝑓
+𝑢
+𝑒
+𝑙
+,
+𝑘
+𝑓
+𝑓
+𝑢
+𝑒
+𝑙
+,
+𝑘
+CO
+2
+	​
+
+e
+Fuel,RP
+	​
+
+=
+k=1
+∑
+K
+	​
+
+m
+fuel,k
+	​
+
+f
+fuel,k
+	​
+
+
+(Equation 7)
+
+Where:
+
+𝐶
+𝑂
+2
+𝑒
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+CO
+2
+	​
+
+e
+Fuel,RP
+	​
+
+: total GHG emissions resulting from fuel combustion for a Reporting Period, 
+𝑅
+𝑃
+RP, in tonnes of CO2e.
+𝑚
+𝑓
+𝑢
+𝑒
+𝑙
+,
+𝑘
+m
+fuel,k
+	​
+
+: total mass, volume, or heating value of fuel 
+𝑘
+k used for a Reporting Period, 
+𝑅
+𝑃
+RP in appropriate units e.g. kg, gal, ft3, therms.
+𝑓
+𝑓
+𝑢
+𝑒
+𝑙
+,
+𝑘
+f
+fuel,k
+	​
+
+: emissions factor for fuel 
+𝑘
+k in tonnes of CO2e/unit.
+𝐾
+K: total number of distinct fuels, 
+𝑘
+k, used for a Reporting Period, 
+𝑅
+𝑃
+RP.
+
+Project Proponents may consider the use of waste heat to reduce emissions associated with heat provision for a project. Waste heat utilization must meet the criteria described in Section 6.1 to be eligible for discounting against project heat usage.
+
+Project Proponents may consider procurement of Fuel EACs to reduce emissions associated with the use of liquid fuels. Fuel EACs must meet Eligibility Criteria set out in Section 6.2.1 and must follow the calculation procedures outlined in Section 6.2.2.
+
+6.1
+Waste Heat Eligibility Criteria
+Waste Heat Eligibility Criteria
+R-QZ83-0
+
+Project Proponents may consider the use of waste heat to reduce the emissions associated with fuel usage of a project. Waste heat sources do not require accounting of GHG emissions associated with production of the utilized thermal energy. Waste heat utilization must meet the criteria described in Table 3 to be eligible for discounting against project heat usage.
+
+Waste heat must meet all of the criteria in Table 3 to be considered exempt from GHG emissions accounting. For projects using heat that do not meet these criteria, emissions associated with the heat production shall be considered in the LCA, including leakage emissions as appropriate.
+
+G-XP3B-0
+
+Any activities specifically developed inside The Project gate to handle and utilize waste heat must be accounted for in the life cycle analysis. These potentially include, but are not limited to:
+
+Waste heat distribution systems, including pumps, piping, or other equipment;
+Waste heat upgrading processes, such as heat pumps, booster pumps, other other equipment; and
+Waste heat conversion processes, such as heat-to-power technologies (e.g. organic Rankine cycle generators).
+
+Equipment and energy usage associated with waste heat utilization must be accounted for in accordance with the requirements of this Module and the Section 4.1 of the GHG Accounting Module v1.1.
+
+GHG Accounting v1.1
+
+Refer to Section 4.1 of the GHG Accounting Module for the calculation guidelines.
+
+Table 3: Eligibility Criteria for Waste heat
+
+CRITERIA
+
+	
+
+DESCRIPTION
+
+	
+
+DOCUMENTATION REQUIRED
+
+
+
+
+G-HAZ0-0EC7
+
+	
+
+The waste heat is “unavoidable and unutilized waste heat”, requiring that the delivered thermal energy cannot:
+
+Be economically recovered inside the same process or project where it is produced;
+Be economically reduced through the use of more efficient equipment or other energy efficiency measures, if the waste heat is produced from an off-site source;
+Be feasibly supplied to another co-located non-CDR industrial process with a thermal energy deficiency which could utilize the waste heat;
+Be the intended output of a process, such as in a combined heat and power facility; and
+Result in an increase in the rate of production of the process from which the heat is sourced.
+	
+
+Affidavit from waste heat supplier, confirming that all of the following are true and the waste heat cannot:
+
+Be economically recovered inside the same process or project where it is produced;
+Economically be reduced through the use of more efficient equipment or other energy efficiency measures, if the waste heat is provided from an off-site source;
+Be feasibly supplied to another co-located non-CDR industrial process with a thermal energy deficiency which could utilize the waste heat;
+Be the intended output of a process, such as in a combined heat and power facility; and
+Result in an increase in the rate of production of the process from which the heat is sourced.
+
+
+
+G-4ZTN-0EC8
+
+	
+
+The heat-generating process is financially viable without revenue from the CDR project.
+
+If the facility producing the waste heat is owned by The Project Proponent, the facility or process that generates the waste heat must be financially viable without revenue from the CDR project.
+If heat is sourced from a third party provider, one of the following must be true: a. The end-user does not pay for the heat, or only pays for the costs associated with its delivery (e.g., pipeline construction, pump operation); or b. The end-user pays for the heat, but the facility or process that generates the waste heat is financially viable without revenue from the CDR project.
+	
+If the waste heat source is owned by The Project Proponent, provide financial evidence demonstrating that the facility supplying the waste heat is viable without the CDR project. This evidence must clearly show that the continued operation of the heat-generating process does not rely on revenue or cost savings from the CDR project.
+If the waste heat is sourced from a third party provider: a. If the end-user does not pay for the heat, provide the contract for waste heat provision, which indicates: contract dates; contracted heat source, location, and amount; and a cost structure for the contract purchase price. The cost structure may be a breakdown of contract price by heat provider, or may be an estimate of the waste heat delivery costs based on the specific contract, equipment, and heat source. b. If the end-user pays for the waste heat, provide: purchase records between Project Proponent and waste heat supplier demonstrating price paid, amount, buyer, seller and date. Furthermore, provide either: i. Financial evidence demonstrating that the facility generating the waste heat remains viable without revenue from selling waste heat to the CDR project; or ii. An affidavit from the waste heat generating facility that demonstrates that the facility or process is financially viable without payments from the CDR project for waste heat and would continue to operate in the absence of payments from the CDR project for waste heat.
+6.2
+Calculation of CO|2|e|Fuel, RP| With Fuel Environmental Attribute Certificate Procurement
+Calculation of CO2eFuel, RP With Fuel Environmental Attribute Certificate Procurement
+6.2.1
+Fuel Environmental Attribute Certificate Eligibility Criteria
+Fuel Environmental Attribute Certificate Eligibility Criteria
+
+Under this Module, Projects are permitted to use Fuel EACs for low-carbon liquid fuels to substitute for some, or all, of project fuel usage is permitted. Fuel EACs are an instrument which Project Proponents can purchase to ﬁnance the use of low-carbon fuels by a third party in situations where the third party would otherwise have used conventional fuel. The net effect of the Fuel EAC purchase attempts to yield the same outcome as if The Project Proponent had used low-carbon fuel within their own supply chain. Fuel EACs can offer additional ﬂexibility to Projects where constraints may limit availability of low-carbon fuels in the region of project operations. In the context of this Module “low-carbon fuels” refers to alternative liquid fuels with a lower carbon intensity than a conventional equivalent, for example biodiesel as a substitute for conventional diesel.
+
+R-BM3R-0
+
+Fuel EACs may only be used to discount Related project emissions. Related emissions are indirect emissions from SSRs not controlled by The Project Proponent (typically occurring upstream or downstream of the project site). Fuel EACs transfer the environmental attribute of low-carbon fuel, but do not change the physical fuel combusted as a Controlled emission (i.e., direct emissions equivalent to Scope 1). This restriction preserves quantification integrity and avoids double claiming for organisational claims (e.g. under ICAO CORSIA5).
+
+Isometric evaluates Fuel EAC programs, registries and methodologies against high-level integrity and issuance and claiming principles that are aligned with ICAO’s CORSIA5 framework. Methodologies and registries that are considered acceptable under this Module are those that meet CORSIA-aligned requirements. Best practices for Fuel EACs are still evolving and therefore Isometric will continue to engage with stakeholders and the scientific community to assess the rigor and operability of Fuel EAC Eligibility Criteria and accounting approaches.
+
+EACs used to substitute for project fuel usage must meet all of the eligibility criteria in Table 4.
+
+Table 4: Fuel EAC Eligibility Criteria
+
+CRITERIA
+
+	
+
+DESCRIPTION
+
+	
+
+DOCUMENTATION REQUIRED
+
+
+
+
+G-TX0K-0EC9
+
+	
+
+EACs must be purchased and retired by The Project Proponent in a volume equivalent to the volume of fuel substitution claimed.
+
+	
+
+Documentation of EAC retirement certificates. Volume of fuel represented by the EACs must be equivalent to the volume of fuel substitution claimed.
+
+Purchased EACs must specify:
+
+Feedstock and production process for the low-carbon fuel;
+The location of low-carbon fuel production facility; and
+GHG emissions associated with low-carbon fuel production in an appropriate and usable set of units.
+
+
+
+G-EHW8-0EC10
+
+	
+
+EACs must be verified in accordance with an acceptable regulatory or voluntary methodology which appropriately considers:
+
+GHG emission associated with low-carbon fuel production
+Exclusive issuance of the attribute for the activity that occurred
+Traceable chain-of-custody
+Sustainability of Feedstock sourcing
+	
+
+Provide proof of verification of the EAC associated with low-carbon fuel production according to an acceptable methodology.
+
+Acceptable methodologies include:
+
+Aviation: ISCC CORSIA and RSB CORSIA
+Road and marine: ISCC EU and RSB EU RED
+
+Other voluntary low carbon fuel certification programmes will be accepted by Isometric at the point of project verification on a case-by-case basis. Isometric reserves the right to disallow EACs generated from specific feedstocks or to require adjustments to the low-carbon fuel carbon intensity to align with Isometric's GHG Accounting principles, if deemed appropriate.
+
+
+
+
+G-26QX-0EC11
+
+	
+
+Production and use of low-carbon fuels represented by EACs must be demonstrably additional.
+
+	
+
+Provide either of the following:
+
+Proof that the production facility associated with the low-carbon fuels represented in the EAC entered into service no more than 36 months before initiation of The Project. Note that the expansion of existing assets to increase fuel production capacity, where the expansion occurred no more than 36 months before The Project entered service, is eligible under this Module. In this case, only capacity at the contracted production site which entered service no more than 36 months before The Project is eligible, with older existing capacity being ineligible. The use of existing assets which entered service more than 36 months before The Project are permitted in cases where the asset is considered "stranded" and would otherwise be entirely or partially non-operational in the absence of contract purchase by The Project; or
+Proof that revenue from EAC purchase by The Project is required for financial viability of production facility operations. For example, this could be satisfied by providing:
+Production site financials demonstrating that EAC purchases are required to yield financial viability; or
+A signed affidavit from the fuel producer stating that EAC purchases are required to yield financial viability.
+
+And the following:
+
+Proof that production and use of the low carbon fuel meets regulatory additionality, meaning that either:
+Production, sale, or use is not influenced by any government policy, mandate, or incentive, demonstrated with a signed affidavit from the fuel producer declaring that the production, sale, and use of the specified fuel volume was not subject to or influenced by any government mandate, financial incentive, or policy support scheme; or
+If the fuel has benefited from a government incentive (e.g., a tax credit), but it has not been used to meet a renewable fuel volume - or emissions target-based regulatory compliance obligation, provide a signed attestation of non-compliance use or national registry cancellation records confirming the specific batch ID was not claimed against a government target.
+
+
+
+G-NVKJ-0EC12
+
+	
+
+The chain of ownership of all EACs, from generation to retirement, is recorded in a suitable registry, or other suitable record keeping system. The registry or record keeping system must be secure and must ensure exclusive issuance of the attribute itself and transparent public disclosure of issuances, transfers, redemptions, and retirements.
+
+	
+
+Provide proof that EAC ownership, transfer, and retirement is managed by a registry aligned with the principles established in the Book and Claim Communities "Best Practices for Book and Claim Systems in Heavy Transport" and "CORSIA Emissions Unit Eligibility Criteria".
+
+Where suitable registries have not yet been established, Project Proponents must maintain high quality record keeping to ensure traceability of ownership of the EACs, and to support validation of verification of the fuel supply chain in accordance with the relevant methodology (see EC2). Record keeping must comply with Book and Claim Communities "Best Practices for Book and Claim Systems in Heavy Transport" (Principle 3) and "CORSIA Emissions Unit Eligibility Criteria".
+
+Where EACs are used off-registry, Project Proponents must provide a signed affidavit stating that the claimed EACs will not be sold or otherwise used by any third party, or by The Project Proponent, in any other context.
+
+
+
+
+G-9GF7-0EC13 (not applicable to SAF)
+
+	
+
+Demonstration that alternative low-carbon alternatives were not accessible, for example due to activities being early-stage solutions that are not yet commercially viable, or due to availability being constrained.
+
+	
+
+Provide a statement that summarizes alternative decarbonization options considered by The Project in relation to project fuel usage and the reasons they were not accessible. Reasons could be either because of:
+
+Technical feasibility: demonstrate that alternatives do not exist, or their availability in the region is low.
+Economic feasibility: demonstrate that low carbon alternatives are too costly, and would compromise the financial viability of The Project.
+
+The statement must include a plan for future decarbonization of activities. Examples of low-carbon alternatives include:
+
+Reducing number of trips or transport distances;
+Switching to less carbon intensive modes of transportation, for example rail instead of road;
+Switching to electric, hybrid or hydrogen fueled transport alternatives; and
+Purchasing low-carbon fuel for use in combustion engines.
+6.2.2
+Calculation Approach
+Calculation Approach
+
+When using EACs to substitute for some, or all, of project fuel usage, the calculation approach described in the following subsections must be followed for the calculation of 
+𝐹
+𝐹
+𝑢
+𝑒
+𝑙
+F
+Fuel
+	​
+
+ emissions.
+
+Projects that intend to use EACs for transportation fuel usage and are applying the energy based emission quantification method as in Section 4.2.1 of the GHG Accounting Module) should follow the calculation approach described in Section 6.2.2.1 when using EACs.
+
+Project that intend to use EACs for transportation fuel usage and are applying the distance-based emissions quantification method as in Section 4.2.2 of the GHG Accounting Module should follow the calculation approach described in Section 6.2.2.2 when using EACs.
+
+6.2.2.1
+Calculation of Fuel Emissions Using Fuel Environmental Attribute Certificates
+Calculation of Fuel Emissions Using Fuel Environmental Attribute Certificates
+
+When using EACs to substitute for some, or all, of project fuel usage and calculating transportation emissions using the energy usage method, 
+𝐶
+𝑂
+2
+𝑒
+𝐹
+𝑢
+𝑒
+𝑙
+CO
+2
+	​
+
+e
+Fuel
+	​
+
+, must be calculated in accordance with Equation 8.
+
+𝐶
+𝑂
+2
+𝑒
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+=
+∑
+𝑗
+[
+𝑓
+𝐹
+𝑢
+𝑒
+𝑙
+×
+(
+𝑚
+𝑗
+−
+𝑚
+𝐸
+𝐴
+𝐶
+,
+𝑅
+𝑃
+𝐸
+𝐷
+𝐸
+𝐴
+𝐶
+,
+𝑅
+𝑃
+𝐸
+𝐷
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+)
++
+(
+𝑓
+𝐸
+𝐴
+𝐶
+,
+𝑅
+𝑃
+×
+𝑚
+𝐸
+𝐴
+𝐶
+,
+𝑅
+𝑃
+)
+]
+CO
+2
+	​
+
+e
+Fuel,RP
+	​
+
+=
+j
+∑
+	​
+
+[f
+Fuel
+	​
+
+×(m
+j
+	​
+
+−m
+EAC,RP
+	​
+
+ED
+Fuel,RP
+	​
+
+ED
+EAC,RP
+	​
+
+	​
+
+)+(f
+EAC,RP
+	​
+
+×m
+EAC,RP
+	​
+
+)]
+
+(Equation 8)
+
+Where:
+
+𝑚
+𝑗
+m
+j
+	​
+
+ = the quantity of fuel consumed, 
+𝑗
+j, in appropriate units, e.g. litres.
+𝑚
+𝐸
+𝐴
+𝐶
+,
+𝑅
+𝑃
+m
+EAC,RP
+	​
+
+ = the quantity of fuel represented in EACs used for a Reporting Period, 
+𝑅
+𝑃
+RP, in appropriate units e.g. liters.
+𝑓
+𝐸
+𝐴
+𝐶
+,
+𝑅
+𝑃
+f
+EAC,RP
+	​
+
+ = emissions factor of low-carbon fuel represented in EACs used for a Reporting Period, 
+𝑅
+𝑃
+RP, in appropriate units e.g. tonnes of CO2e/liter.
+𝐸
+𝐷
+𝐸
+𝐴
+𝐶
+,
+𝑅
+𝑃
+ED
+EAC,RP
+	​
+
+ = energy density of low-carbon fuel represented in EACs used for a Reporting Period, 
+𝑅
+𝑃
+RP, in appropriate units e.g. MJ/liter.
+𝐸
+𝐷
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+ED
+Fuel,RP
+	​
+
+ = energy density of fuel consumed a Reporting Period, 
+𝑅
+𝑃
+RP, in appropriate units e.g. MJ/liter.
+
+Note, in Equation 8, the term 
+𝐶
+𝑂
+2
+𝑒
+𝐹
+𝑢
+𝑒
+𝑙
+CO
+2
+	​
+
+e
+Fuel
+	​
+
+ is analogous to the term 
+𝐶
+𝑂
+2
+𝑒
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+CO
+2
+	​
+
+e
+Transportation
+	​
+
+ when quantifying transportation emissions using the energy based emission quantification method as in Section 4.2.1 of the GHG Accounting Module.
+
+When applying Equation 8, at maximum, an amount of EACs may be used for a Reporting Period, RP, such that:
+
+(
+𝑚
+𝑗
+−
+𝑚
+𝐸
+𝐴
+𝐶
+,
+𝑅
+𝑃
+𝐸
+𝐷
+𝐸
+𝐴
+𝐶
+,
+𝑅
+𝑃
+𝐸
+𝐷
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑅
+𝑃
+)
+≥
+0
+(m
+j
+	​
+
+−m
+EAC,RP
+	​
+
+ED
+Fuel,RP
+	​
+
+ED
+EAC,RP
+	​
+
+	​
+
+)≥0
+
+(Equation 9)
+
+6.2.2.2
+Calculation of Transportation Emissions Using Fuel Environmental Attribute Certificates With the Distance-Based Method
+Calculation of Transportation Emissions Using Fuel Environmental Attribute Certificates With the Distance-Based Method
+
+Transportation emissions may be calculated using the Distance-Based Method, as set out in Section 4.2.2 of the GHG Accounting Module. When using EACs to substitute for some, or all, of transportation fuel usage and calculating transportation emissions using the distance-based method, the amount of fuel required for each transportation journey, j, must be calculated as:
+
+𝑚
+𝑗
+=
+𝐷
+𝑗
+×
+𝑊
+𝑗
+×
+𝑓
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+𝑗
+𝑓
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+𝑗
+m
+j
+	​
+
+=D
+j
+	​
+
+×W
+j
+	​
+
+×
+f
+Fuel,Transportation,j
+	​
+
+f
+Transportation,j
+	​
+
+	​
+
+
+(Equation 10)
+
+𝐷
+𝑗
+D
+j
+	​
+
+ = the distance traveled for the transportation journey, 
+𝑗
+j, from one location to another, in appropriate units e.g. km.
+W_j = the mass of material transported as part of the transportation journey, 
+𝑗
+j, from one location to another, in appropriate units e.g. tonnes.
+𝑓
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+𝑗
+f
+Transportation,j
+	​
+
+ = the weight- and distance -base d emission factor for transportation for a specific vehicle type , or infrastructure asset where available, provided in appropriate units e.g. tonnes of CO2e/tonne-km.
+𝑓
+𝐹
+𝑢
+𝑒
+𝑙
+,
+𝑇
+𝑟
+𝑎
+𝑛
+𝑠
+𝑝
+𝑜
+𝑟
+𝑡
+𝑎
+𝑡
+𝑖
+𝑜
+𝑛
+,
+𝑗
+f
+Fuel,Transportation,j
+	​
+
+ = emission factor of fuel assumed to be used for journey j, in appropriate units e.g. tonnes of CO2e/liter. Assumption of fuel type used for journey j as a basis for this calculation must be based either (i) on information provided to The Project Proponent by the transport provider, or (ii) by prevailing fuel type used for the transport mode for journey j in the region of project ope rations, where the most granular or regionally-speciﬁc data possible is preferable.
+6.3
+Acceptable Emissions Factors - CO|2|e|Fuel, RP
+Acceptable Emissions Factors - CO2eFuel, RP
+
+𝑓
+𝑓
+𝑢
+𝑒
+𝑙
+,
+𝑘
+f
+fuel,k
+	​
+
+ - emissions factors used must:
+
+Be selected based on the specific fuel type being used and the type of combustion process;
+Be for the specific region (nation, state, locality) where the fuel consumption is occurring, with the most granular or site-specific data source preferred;
+Account for the full life cycle emissions (well-to-wheel) associated with fuel combustion and include direct emissions from fuel combustion, as well as upstream emissions associated with fuel production and equipment manufacture, at a minimum. Where waste heat is used, the full life cycle emissions factor shall also include transmission and distribution (T&D) losses, where applicable; and
+Account for total GHG emissions as CO2e. Separate emissions factors for each GHG may be utilized and calculated emissions converted to CO2e using the 100-yr Global Warming Potential (GWP) for the relevant GHG, based on the most recent volume of the IPCC Assessment Report (presently the Sixth Assessment Report).
+
+Acceptable emission factors include those utilized in the Argonne National Laboratory GREET Model^2, California Air Resources Board modified GREET model (CA-GREET)^3, Ecoinvent database^4, US Federal Life Cycle Inventory database or LCA Commons^5, and similar databases used in common LCA practices or tools (such as OpenLCA, SimaPro, or GaBi (LCA for Experts) ).
+
+Other emission factors may also be used that do not incorporate the full life cycle emissions associated with fuel combustion if the additional life cycle emissions are accounted for separately. For example, data sources such as the US EPA - Direct Emissions from Stationary Combustion6, US EPA AP-427, or US EPA MOVES Model8 (mobile sources) may be utilized as long as additional factors for full life cycle emissions are included in analyses.
+
+Note that heat supply to projects from sources other than fuel combustion is allowable under this Module (e.g. geothermal steam). In these cases, bespoke emissions factors are likely necessary on a case-by-case basis, as emissions from such sources can vary significantly by site. Therefore, the exact emissions allocation procedure will be reviewed and agreed by Isometric at the point of project verification.
+
+6.4
+Measurements - CO|2|e|Fuel, RP
+Measurements - CO2eFuel, RP
+
+The primary measurement considered in calculation of fuel emissions is:
+
+𝑚
+𝑓
+𝑢
+𝑒
+𝑙
+,
+𝑘
+m
+fuel,k
+	​
+
+: total mass, volume, or heating value of fuel 
+𝑘
+k used for a Reporting Period, 
+𝑅
+𝑃
+RP in appropriate units e.g. kg, gal, ft3, therms.
+6.5
+Required Records and Documentation - CO|2|e|Fuel, RP
+Required Records and Documentation - CO2eFuel, RP
+
+Fuel usage must be monitored for all operations within the gate at each location of their utilization relevant to project operation. The Project Proponent must maintain records of any fuel use for any operation or support system within the gate of a removal process that consumes fuel.
+
+Allowable fuel records include, but are not limited to:
+
+On-site fuel meter readings (e.g. natural gas utility meter, fuel flow meters), either electronic or manually logged; or
+Weight of fuel container readings, either electronic or manually logged; or
+Monthly utility bills, if they indicate total fuel consumption for the month by the process, and/or a justifiable allocation procedure is used to determine fuel consumption by the process; or
+Fuel usage for handling equipment may also be determined by any of the above methods, or, if necessary, by documentation of total time of use of each equipment item for a Reporting Period, RP, and calculation of the fuel consumption based on manufacturer fuel consumption ratings. Data obtained from equipment manufacturer on-board-diagnostics or on board data systems is also acceptable.
+
+If other equipment or processes not related to the removal process are included in meter readings or utility bills, fuel usage may be allocated to such processes based on sub-metering data, equipment maximum fuel consumption ratings and operating hours for each sub-system, or by other justifiable allocation methods which must be reviewed and accepted during third party verification.
+
+Meters must be calibrated initially and at regular intervals in accordance with manufacturer specifications to ensure accuracy. All records of fuel usage, including meter specification and calibration records, must be maintained by The Project Proponent for a period of at least five years.
+
+7.0
+Acknowledgements
+Acknowledgements
+
+Isometric would like to thank following contributors to this Module:
+
+Tim Hansen (350 Solutions).
+Wilson Ricks (Princeton University)
+8.0
+Definitions and Acronyms
+Definitions and Acronyms
+Additionality
+An evaluation of the likelihood that an intervention—for example, a CDR Project—causes a climate benefit above and beyond what would have happened in a no-intervention Baseline scenario.
+Carbon Dioxide Equivalent Emissions (CO₂e)
+The amount of CO₂ emissions that would cause the same integrated radiative forcing or temperature change, over a given time horizon, as an emitted amount of GHG or a mixture of GHGs. One common metric of CO₂e is the 100-year Global Warming Potential.
+Carbon Dioxide Removal (CDR)
+Activities that remove carbon dioxide (CO₂) from the atmosphere and store it in products or geological, terrestrial, and oceanic Reservoirs. CDR includes the enhancement of biological or geochemical sinks and direct air capture (DAC) and storage, but excludes natural CO₂ uptake not directly caused by human intervention.
+Credit
+A publicly visible uniquely identifiable Credit Certificate Issued by a Registry that gives the owner of the Credit the right to account for one net metric tonne of Verified CO₂e Removal or Reduction. In the case of this Standard, the net tonne of CO₂e Removal or Reduction comes from a Project Validated against a Certified Protocol.
+Embodied Emissions
+Life cycle GHG emissions associated with production of materials, transportation, and construction or other processes for goods or buildings.
+Emission Factor
+An estimate of the emissions intensity per unit of an activity.
+Emissions
+The term used to describe greenhouse gas emissions to the atmosphere as a result of Project activities.
+Environmental Protection Agency (EPA)
+A United States Government agency that protects human health and the environment.
+Feedstock
+Raw material which is used for CO₂ Removal or GHG Reduction.
+Global Warming Potential
+A measure of how much energy the emissions of 1 tonne of a GHG will absorb over a given period of time, relative to the emissions of 1 ton of CO₂.
+Greenhouse Gas (GHG)
+Those gaseous constituents of the atmosphere, both natural and anthropogenic (human-caused), that absorb and emit radiation at specific wavelengths within the spectrum of terrestrial radiation emitted by the Earth’s surface, by the atmosphere itself, and by clouds. This property causes the greenhouse effect, whereby heat is trapped in Earth’s atmosphere (CDR Primer, 2022).
+Grid Region
+A geographically precise and internally well-connected energy distribution and use area representing a subsection or the entirety of a synchronized electricity grid. The assignment of a project to a grid region should be based on the location of the project’s point of interconnection within the topology of the electricity system, rather than the physical location of the project itself.
+Leakage
+The increase in GHG emissions outside the geographic or temporal boundary of a project that results from that project's activities.
+Life Cycle Analysis (LCA)
+An analysis of the balance of positive and negative emissions associated with a certain process, which includes all of the flows of CO₂ and other GHGs, along with other environmental or social impacts of concern.
+Module
+Independent components of Isometric Certified Protocols which are transferable between and applicable to different Protocols.
+Offtake
+A contract in which a Buyer agrees to purchase a set Removal and/or Reduction at a set price.
+Pathway
+A collection of Removal or Reduction processes that have mechanisms in common.
+Project
+An activity or process or group of activities or processes that alter the condition of a Baseline and leads to Removals or Reductions.
+Project Design Document (PDD)
+The document that clearly outlines how a Project will generate rigorously quantifiable Additional high-quality Removals or Reductions.
+Project Proponent
+The organization that develops and/or has overall legal ownership or control of a Removal or Reduction Project.
+SSRs
+Sources, Sinks and Reservoirs
+Source
+Any process or activity that releases a greenhouse gas, an aerosol, or a precursor of a greenhouse gas into the atmosphere.
+Stakeholder
+Any person or entity who can potentially affect or be affected by Isometric or an individual Project activity.
+System Boundary
+GHG sources, sinks and reservoirs (SSRs) associated with the project boundary and included in the GHG Statement.
+Validation
+A systematic and independent process for evaluating the reasonableness of the assumptions, limitations and methods that support a Project and assessing whether the Project conforms to the criteria set forth in the Isometric Standard and the Protocol by which the Project is governed. Validation must be completed by an Isometric approved third-party (VVB).
+Verification
+A process for evaluating and confirming the net Removals and Reductions for a Project, using data and information collected from the Project and assessing conformity with the criteria set forth in the Isometric Standard and the Protocol by which it is governed. Verification must be completed by an Isometric approved third-party (VVB).
+9.0
+Appendix A - Companion Documentation
+Appendix A - Companion Documentation
+
+This appendix is a companion to the Energy Use Accounting Module, providing supporting information regarding the rationale and factors considered when determining the requirements of the Module. This appendix should be read in conjunction with the Module and is provided as guidance. Should there be any discrepancy or inconsistency between this appendix and the Module itself, the requirements of the Module will prevail.
+
+9.1
+Why Does the Module Use Average Emissions Factors for Grid-Based Electricity Use?
+Why Does the Module Use Average Emissions Factors for Grid-Based Electricity Use?
+
+The emissions accounting approach adopted in this Module for electricity consumption from the grid requires the use of grid-average emissions factors. An alternative approach supported by some published studies relies on the use of marginal emissions factors when accounting for emissions from electricity consumption from the grid.
+
+Marginal emission factors represent the change in emissions resulting from a marginal change in electricity demand or supply on the grid. Marginal emission factors vary by time horizon and scope and include Short-run marginal emissions (SRME) factors and Long-run marginal emission (LRME). Isometric acknowledges that marginal emission factors are the most conceptually aligned approach with a consequential emissions accounting framework for CDR projects; however, the implementation of marginal emission factors (SRME, LRME, or both) has not reached a consensus in CDR project accounting.
+
+Brander et al. (2025)9 caution that SRME factors, which are the most commonly available marginal metrics, should not be used as a proxy for the change in emissions caused by decisions that affect longer-term generation capacity. As CDR projects typically involve long-term infrastructure investment and capacity implications, the application of SRME factors is methodologically unsuitable. Conversely, while LRME factors account for capacity changes, they currently lack standardized methodologies and rely on significant assumptions about the future regarding policy and market evolution.
+
+The status quo at a policy level remains grid average emission factors; for example, the EU CRCF delegated act methodologies for permanent carbon removals reference Delegated Regulation (EU) 2023/11853, under which the most broadly accessible default is a country or bidding-zone-level average emission factor. Furthermore, data availability for marginal emission factors is limited at a global scale, particularly for LRME factors, where dedicated public data sources are currently available only for limited geographies.
+
+Isometric will continue to monitor developments in the scientific literature, as well as data availability in the energy market, and will make future amendments to this Module as needed.
+
+10.0
+Appendix B - Energytag's "configuration 3"
+Appendix B - Energytag's "configuration 3"
+
+The EnergyTag Granular Certificate Scheme Standard (Version 2)2, published March 2024, establishes guidence ("Configuration 3"), which can be operationalized in the absence of the availability of documentation proving the procurement of low-carbon power for provision to The Project time stamped with an hourly granularity, which can emulate the same outcomes as hourly time matching under limited circumstances.
+
+The basis of this approach is that where the EACs produced by a generator are not explicitly time stamped with hourly granularity, generation side metering of electricity production with hourly measurement frequency can be used to map a time stamp onto the EACs purchased from that generator. Under this approach, EACs produced by the generator are allocated time stamps corresponding to particular hours in proportion to the observed generating output from the generator in each hour of interest.
+
+We note that the currently published guidence by EnergyTag in Version 2 of the Granular Certificate Scheme Standard does not provide protections against duplicate claims to generation at a partricular time under contractual purchasing structures where two (or more) buyers receive EACs generated by a single generator. Therefore, at this time, operationalization of Configuration 3 for emulation of hourly time matching will only be permitted under the Module in circumstances where The Project Proponent is the sole buyer of EACs produced by a generator.
+
+11.0
+Relevant Works
+Relevant Works
+
+EcoInvent. (2013). Overview and methodology Data quality guideline for the ecoinvent database version 3. https://ecoinvent.org/wp-content/uploads/2020/10/dataqualityguideline_ecoinvent_3_20130506_.pdf
+
+Intergovernmental Panel on Climate Change (IPCC). (2023). IPCC Sixth Assessment Report. https://www.ipcc.ch/assessment-report/ar6/
+
+International Organization for Standardization. (2006). ISO 14040:2006 Environmental management — Life cycle assessment — Principles and framework. https://www.iso.org/standard/37456.html
+
+International Organization for Standardization. (2006). ISO 14044:2006 Environmental management — Life cycle assessment — Requirements and guidelines. https://www.iso.org/standard/38498.html
+
+International Organization for Standardization. (2008). Evaluation of measurement data — Guide to the expression of uncertainty in measurement (ISO JGCM GUM). https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461
+
+International Organization for Standardization. (2011). ISO 14066:2011 Greenhouse gases — Competence requirements for greenhouse gas vion teams and verification teams. https://www.iso.org/standard/43277.html
+
+International Organization for Standardization. (2017). ISO 21930:2017 Sustainability in buildings and civil engineering works — Core rules for environmental product declarations of construction products and services. https://www.iso.org/standard/61694.html
+
+International Organization for Standardization. (2017). ISO/IEC 17025:2017 General requirements for the competence of testing and calibration laboratories. https://www.iso.org/standard/66912.html
+
+International Organization for Standardization. (2019). ISO 14064-2:2019. Greenhouse Gases - Part 2: Specification With Guidance At The Project Level For Quantification, Monitoring And Reporting Of Greenhouse Gas Emission Reductions Or Removal Enhancements. ISO. https://www.iso.org/standard/66454.html
+
+International Organization for Standardization. (2019). ISO 14064-3:2019. Greenhouse gases — Part 3: Specification with guidance for the verification and validation of greenhouse gas statements. ISO. https://www.iso.org/standard/66455.html
+
+Isometric. (n.d.). Isometric — Glossary: Defining the terms that appear regularly in our work. Isometric. https://isometric.com/glossary
+
+Matthews, J.B.R. (Ed.). (2018). IPCC, 2018: Annex I: Glossary [Matthews, J.B.R. (ed.)]. In: Global Warming of 1.5°C. An IPCC Special Report on the impacts of global warming of 1.5°C above pre-industrial levels and related global greenhouse gas emission pathways, in the context of... Cambridge University Press. https://doi.org/10.1017/9781009157940.008
+
+U.S. Environmental Protection Agency. (2023, April 18). Understanding Global Warming Potentials | US EPA. Environmental Protection Agency. Retrieved June 14, 2023, from https://www.epa.gov/ghgemissions/understanding-global-warming-potentials
+
+Footnotes
+
+https://www.energy.gov/sites/default/files/2023-10/National_Transmission_Needs_Study_2023.pdf ↩
+
+https://energytag.org/wp-content/uploads/2023/09/Granular-Certificate-Scheme-Standard-V2.pdf ↩ ↩2
+
+https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1184 ↩ ↩2
+
+https:doi.org/10.1016/j.ijepes.2018.11.012 ↩
+
+https://www.icao.int/sites/default/files/sp-files/environmental-protection/CORSIA/Documents/ICAO_Document_09.pdf ↩ ↩2
+
+https://www.epa.gov/sites/default/files/2016-03/documents/stationaryemissions_3_2016.pdf ↩
+
+https://www.epa.gov/air-emissions-factors-and-quantification/ap-42-compilation-air-emissions-factors ↩
+
+https://www.epa.gov/moves ↩
+
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5212648 ↩
+
+Contributors
+Emma Marsland
+Jasmin Kazazi
+Isometric
+Michael Shell
+Energy Use Accounting © 2026 Isometric HQ Ltd is licensed under CC BY-NC-ND 4.0
+
+Isometric is the agentic certification platform for the industrial economy. Its AI agents work alongside human verifiers, reviewing every data point so expert judgment is freed for the calls that matter. Isometric is the largest certifier of carbon removal by contracted volume and is fully accredited by ICVCM, ICROA, and CORSIA.
+
+Go to isometric.com
+Changelog
+Writing
+Careers
+Documentation
+Privacy
+Terms
+Get in touch
+contact@isometric.com
+Press enquiries
+press@isometric.com
+© 2026 Isometric HQ Ltd. All rights reserved.

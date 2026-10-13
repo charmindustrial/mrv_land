@@ -77,6 +77,7 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 - **What to extract:** Standard Loss value per tote, formula in the per-tote Net-in-injection-batch column
 - **Pass criteria:** formula = Net-in-tote − Standard_Loss; delta ≤ 1 kg
 - **Fail mode:** Standard Loss not applied; delta > 1 kg; constant value substituted for formula
+- **Custody rule (2026-09-29):** upstream emissions of all oil in Charm custody are netted against removals. Production and transport emissions must be charged on the mass that entered custody on each leg, not only on the offloaded or injected mass; any lost mass (railcar loss, spill, standard loss, R&D removal) whose upstream emissions are not charged is a Fail, with the missing tCO2e computed.
 
 **Aqueous branch:**
 - **Math:** Total Oil in Batch =? Σ (Measured Pre-Unload − Measured Post-Unload) across all per-tote rows. **Standard Loss does NOT apply.**
@@ -247,8 +248,10 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 - **Evidence standard (Max-stated, 2026-06-30):** The production CI is **no longer necessarily evidenced by a PP Summary.** The **Ops Notes** is used to show the production-mass-weighted average CI across all totes in the injection (e.g. WODO tab `H26 = I26/D26 = ΣPE / Σ net produced`). A standalone PP Summary doc is NOT required.
 - **Primary source:** Ops Notes (per-tote CI column + weighted-average cell) + Certify Production Emissions component → INPUTS → CI
 - **Math:** Certify PE CI =? Ops Notes weighted-average CI across the batch's totes (an aggregated component's blended CI must reconcile to Σ(per-tote net produced × per-tote CI) / Σ net produced). Per-fraction/per-PP CIs (WODO vs Aqueous, month-to-month) must each be applied to the correct totes.
-- **Pass criteria:** Certify CI = Ops Notes weighted average (reconciles to the per-tote sum)
-- **Fail mode:** mismatch; wrong fraction's CI applied to the wrong totes (WODO CI on Aqueous totes, or vice versa)
+- **CI basis (Max-stated, 2026-10-07):** "BCUs should be applied to diesel transport, including biomass transport process emissions and handling (not embodied emissions)." Every CI used must count biomass transport after its BCUs: in each monthly summary, read the consolidated-inventory biomass transport cell (I19); `=C11*F7` is right; `=C9*F7` counts BCU-offset emissions and is a Fail whenever the month has BCUs applied to biomass transport (C10 > 0). See lessons_learned FC-C13.
+- **No re-valuing verified CIs (Max-stated, 2026-10-07):** the CI-basis check above never asks to recalculate a production-period CI that has already been used in a verified GHG statement. Those CIs stand as verified. Raising one means re-valuing statements already verified earlier in the year, which Max has ruled out (INJ-09-2026-W4-QOWV 7.2, dropped). Apply the C9/C11 check only to a production period whose CI has not yet been used in any verified statement. If you cannot tell, ask Max in one sentence that names the consequence ("this would re-value the [month] statements already verified: yes or no?"), never as a general method question.
+- **Pass criteria:** Certify CI = Ops Notes weighted average (reconciles to the per-tote sum), and every CI behind it that has not yet been used in a verified statement counts biomass transport after its BCUs
+- **Fail mode:** mismatch; wrong fraction's CI applied to the wrong totes (WODO CI on Aqueous totes, or vice versa); a monthly or blended CI that counts biomass transport before its BCUs
 
 ### 7.3 Is the CI evidenced (Ops Notes weighted-average across totes)?
 
@@ -274,21 +277,21 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 ### 7.6 Is the mass evidenced with a copy of the Charm Contents sheet for the batch?
 
 - **Primary source:** Certify PE component → Sources tab
-- **Pass criteria:** Charm Contents (PDF or screenshot) attached
-- **Fail mode:** Charm Contents missing; only Ops Notes attached without Charm Contents
+- **Pass criteria:** Charm Contents (PDF or screenshot) attached, OR — for 2026 weekly time-block batches, where no standalone Charm Contents sheet exists — the batch Ops Notes attached to the production-mass datapoint, with its Production Period column carrying the per-period mass breakdown. Confirm Charm Contents is absent from BOTH the Drive batch folder and the Certify Sources tab before relying on the Ops Notes. This basis has been accepted on every 2026 weekly WODO/Aqueous batch.
+- **Fail mode:** neither Charm Contents nor an Ops Notes carrying the per-period masses is attached to the mass datapoint
 
 ---
 
 ## SECTION 8 — Other (1 item)
 
-### 8.1 Are all diesel transport-process emissions offset by BCUs, and does the BCU total ≥ the transport-process sum?
+### 8.1 Are all diesel transport-process emissions offset by BCUs, and does the BCU total equal (never exceed) the transport-process sum?
 
 **Hard rule (Max-stated, authoritative):** ALL diesel transport-process emissions must be offset with BCUs. A diesel transport-process emission with NO BCU offset is a **FAIL** (required reduction missing) — NOT N/A. (Confirmed on INJ-06-2026-W1 WODO 2026-06-25: 1.954 t diesel flatbed process with empty Reductions → FAIL.)
 
 - **Primary source:** Certify Reductions → BCU components + Certify Activities → Transport Process emissions
-- **Math:** Σ BCU tCO2e (transport-related) ≥? Σ Transport Process activity tCO2e
-- **Pass criteria:** every diesel transport-process emission is BCU-offset AND Σ BCU ≥ Σ transport process activity (BCU may exceed; never less)
-- **Fail mode:** a diesel transport-process emission has no BCU (Reductions empty for that lane), OR BCU < transport process activity (under-reduction). Material — the missing BCU changes net.
+- **Math:** Σ BCU tCO2e (transport-related) =? Σ Transport Process activity tCO2e
+- **Pass criteria:** every diesel transport-process emission is BCU-offset AND Σ BCU = Σ transport process activity (BCU never exceeds the emission it offsets) (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.)
+- **Fail mode:** a diesel transport-process emission has no BCU (Reductions empty for that lane), OR BCU < transport process activity (under-reduction), OR BCU > transport process activity (over-coverage, any size). Material — a missing or excess BCU changes net.
 - **N/A:** only if the batch has NO diesel transport-process emissions at all (e.g., no transport leg). Absence of a BCU when a diesel transport-process emission EXISTS is a FAIL, not N/A.
 
 ---

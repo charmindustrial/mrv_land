@@ -1,7 +1,23 @@
 MRV EXPERT WORKSPACE — README
 ==============================
 
-Last updated: 2026-09-03 (added automation/resume-echo-review — twice-daily
+Last updated: 2026-10-01 (RETIRED automation/resume-echo-review at Max's
+              request: launchd job unloaded, plist moved to
+              ~/.claude/scheduled/plist-backups/retired/, cloud routine
+              resume-echo-artifact-publish disabled, .claude/skills
+              symlink removed. Skill folder, registry and audit trail
+              kept in place as a record. All scheduled jobs now run
+              through ~/.claude/scheduled/ -- see its README.md)
+
+Previously: 2026-09-13 (added skills/orchestrator-mode — turns a Claude Code
+              window into a "boss" that plans/delegates/unblocks other
+              windows ("workers") without editing anything itself. NOT a
+              scheduled automation; an interactive mode Max invokes at
+              session start. Boss window must be switched to the Fable
+              model at low effort via /model first. See the skill's
+              SKILL.md for the full delegation procedure)
+
+Previously: 2026-09-03 (added automation/resume-echo-review — twice-daily
               applicant screen for the open MRV Analyst Lever posting. Fired
               9am/5pm by launchd; also runs ad-hoc. STRICTLY READ-ONLY on
               Lever and LinkedIn. Persistent state in
@@ -86,6 +102,23 @@ SKILLS/  --  WHAT EACH SKILL DOES
         EIA-860M + 45VH2-GREET Table 5), fills the checklist, and hands it
         to Max for review. Read-only on Certify.
 
+    skills/orchestrator-mode/
+        Interactive "boss" mode for coordinating multiple Claude Code
+        sessions on one task. NOT a scheduled automation -- Max invokes it
+        by hand in whichever window he wants to run as coordinator. The
+        boss window plans, spawns and delegates pieces of work directly to
+        "teammate" sessions (via ListAgents/SendMessage), or to in-session
+        helpers (via the Agent tool), and unblocks them when they're stuck
+        -- it never edits files or changes state itself. Winds a teammate
+        down (TaskStop) the moment its piece is done, fully automatically.
+        Boss window must first be switched to the Fable model at low
+        reasoning effort via /model. Depends on a one-time global setting
+        (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 in ~/.claude/settings.json,
+        added 2026-09-13). Teammate count is task-dependent, decided fresh
+        each time, never fixed in advance. Session resume does not bring
+        teammates back. Origin: 2026-09-11 Slack conversation with Brian
+        Jamieson.
+
     skills/charm-isometric-expert/
         Knowledge-base librarian / expert. Also contains:
         research/  -- internal citation-methodology sub-skill.
@@ -167,7 +200,7 @@ SKILLS/  --  WHAT EACH SKILL DOES
                                    NEVER sends autonomously.
 
     skills/automation/                           --- Automation cluster ---
-        resume-echo-review/        Twice-daily applicant screen for the open
+        resume-echo-review/        RETIRED 2026-10-01 (no longer scheduled). Was: twice-daily applicant screen for the open
                                    "MRV Analyst" Lever posting, building on the
                                    one-time manual "Resume Echo Audit"
                                    (2026-09-03). Reads every candidate in
@@ -241,10 +274,11 @@ SKILLS/  --  WHAT EACH SKILL DOES
                                    isometric for a NEW "GHG statement submitted"
                                    announcement; if none, do nothing. If there is
                                    one, read the under-verification GHG statement
-                                   in Certify (READ-ONLY), identify the Charm-
-                                   produced oil removals (QOWV/WODO/Aqueous, not
-                                   AECN), build a linked spreadsheet (removal ID,
-                                   date, tCDR, total) to Drive, and send it as
+                                   in Certify (READ-ONLY), classify every removal
+                                   by oil source (Charm-produced QOWV/WODO/Aqueous,
+                                   AECN, Kerry), build a linked spreadsheet (one
+                                   section per source with subtotal, grand total)
+                                   to Drive, and send it as
                                    individual Slack DMs to Max, Garrett, Harris
                                    Cohn, John Zalewski. Idempotent (dedups on GHG
                                    statement ID). Changeable facts live in the
@@ -363,6 +397,7 @@ OUTPUTS/  --  WHERE EACH SKILL'S WORK GOES
                                                    methodology — no single named party;
                                                    covers prospective buyers, 123 Carbon,
                                                    and prospective methodology developers
+        outputs/deliverables/relae-diligence/  Charm's response to Relae's MMRV diligence questions for the Salesforce bio-oil offtake (October 2026)
     outputs/mrv-operational-documents/     FINALIZED INTERNAL CHARM DOCUMENTS
                                            Feedstock onboarding, conference reportbacks,
                                            internal SOPs and checklists.
@@ -564,6 +599,7 @@ outputs/deliverables/  is for finalized EXTERNAL documents only:
     - saf-diligence/         External diligence on Charm's SAF methodology — no
                              single named party; prospective buyers, 123 Carbon,
                              prospective methodology developers
+    - relae-diligence/       Charm's response to Relae's MMRV diligence questions for the Salesforce bio-oil offtake (October 2026)
     - (add new audiences as needed: regulators, conferences, other verifiers)
 
 outputs/mrv-operational-documents/  is for finalized INTERNAL Charm documents:

@@ -88,7 +88,7 @@ KERRY_TOTE_STRUCTURE = [
 
 # Tanker-mode variant. Same item IDs and same substance as the tote framework —
 # only the wording that presumes multiple totes is restated for a single
-# shipment. Kerry moved to flatbed-haul tankers with INJ-07-2026-W4 (first
+# shipment. Kerry moved from flatbed totes to tanker trucks with INJ-07-2026-W4 (first
 # tanker batch: one weighing pair, one composite sample, no per-tote ledger).
 KERRY_TANKER_STRUCTURE = [
     {

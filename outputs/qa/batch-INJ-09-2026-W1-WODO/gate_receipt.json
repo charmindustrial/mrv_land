@@ -1,0 +1,37 @@
+{
+ "batch_id": "INJ-09-2026-W1",
+ "checklist_file": "Charm_WODO_QA_Checklist_INJ-09-2026-W1.xlsx",
+ "checklist_sha256": "46424e5cd617903e8276fa86f0ac2c60134fc2dc32ffc8e196963480521d0ffb",
+ "source_reads_file": "batch_INJ-09-2026-W1-WODO_source_reads.json",
+ "source_reads_sha256": "4da67f861490bf0ee125ad7dd214ef52b8b3fa403d3e45810be0efe553aa98c6",
+ "generated_utc": "2026-09-29T16:55:31Z",
+ "all_gates_green": true,
+ "gates": {
+  "status_casing": {
+   "ok": true,
+   "status_rows": 32,
+   "auditable_rows": 31,
+   "na_rows_cited": 1
+  },
+  "recompute_wodo.py": {
+   "ok": true,
+   "exit": 0,
+   "stdout": "OK  n_totes: recomputed 13 vs certify/log 13\nOK  gross: recomputed 14926.0 vs certify/log 14926.0\nOK  net_produced: recomputed 14177.2 vs certify/log 14177.2\nOK  net_injected: recomputed 14075.28 vs certify/log 14075.28\nOK  weighted_ci: recomputed 0.720889 vs certify/log 0.720889\nOK  uncertainty: recomputed 14.74174 vs certify/log 14.74174\nOK  c_unc: recomputed 0.2292 vs certify/log 0.2292\nOK  mass_of_load: recomputed 14926.0 vs certify/log 14926\nOK  seq_t: recomputed 29.575 vs certify/log 29.575\nOK  proc_t: recomputed 2.481 vs certify/log 2.481\nOK  emb_t: recomputed 0.151 vs certify/log 0.151\nOK  pyro_t: recomputed 10.22 vs certify/log 10.22\nOK  pyro_mass: recomputed 14177.2 vs certify/log 14177.2\nOK  bcu_matches_proc_at_display_precision: recomputed 2.481 vs certify/log 2.481\nOK  net_t: recomputed 19.081 vs certify/log 19.081\nBCU 2481 kg vs process emission 2480.9758 kg: BCU minus process = +0.0242 kg; BCU <= process (BCU QA Rule, checklist 8.1): False"
+  },
+  "audit_checklist": {
+   "ok": true,
+   "rows": 31,
+   "failures": 0,
+   "stdout": "Audit ran on 31 rows (0 failures).\n\nAttachment gate: PASS (0 gap(s))."
+  },
+  "performance_tracker": {
+   "ok": true,
+   "batch_id": "INJ-09-2026-W1"
+  },
+  "charm_required_steps": {
+   "ok": true,
+   "steps": 30,
+   "ledger_sha256": "96f815dc6b3995edd16de2ecb5cf543328bfcbeedb9af2d5d69080a2f863c346"
+  }
+ }
+}

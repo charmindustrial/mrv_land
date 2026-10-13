@@ -34,11 +34,20 @@ CATEGORY_PATTERNS = {
     # (e.g. "SHPX215076_LD1_FULL_1124426227412.pdf") on batches where scale
     # tickets are uploaded to Certify Sources directly rather than only
     # Ops-Notes-hyperlinked.
-    "scale_ticket": r"Ticket_Rail|Ticket Rail|Scale Ticket|Weigh|_LD\d+_(FULL|EMPTY)_",
+    # Added 2026-09-17 from INJ-09-2026-W1: that week's Certify uploads are named
+    # "Full_<RAILCAR>_offload_<N>.pdf" / "Empty_<RAILCAR>_offload_<N>.pdf" rather
+    # than the "<RAILCAR>_LD<N>_FULL_<ticket#>.pdf" form used in August, so the
+    # gate reported 16 attached tickets as missing.
+    # Added 2026-10-06 from INJ-09-2026-W4-KERRY: Kerry tanker tickets are uploaded
+    # as "Sept_W4_Full_Scale_Ticket_Kerry.jpg" (underscores), which "Scale Ticket"
+    # (space) did not match, so the attached pair read as missing.
+    "scale_ticket": r"Ticket_Rail|Ticket Rail|Scale[ _]Ticket|Weigh|_LD\d+_(FULL|EMPTY)_|^(Full|Empty)_[A-Za-z]+\d+_offload_\d+",
     # AECN inbound BOLs are filed either as "documents 2386-R.pdf" or bare
     # "2386-R.pdf" (the bare form is what INJ-07-2026-W1 uses), so match the
     # 4-digit + "-R" invoice number with or without a leading word.
-    "bol":          r"[Cc]amion|\b\d{4}-R\b|Bill of Lading|BOL",
+    # Added 2026-09-30: direct-truck AECN BOLs are numbered "-T" and filed as
+    # "Billing Documents 2505-T.pdf", which none of the other patterns matched.
+    "bol":          r"[Cc]amion|\b\d{4}-[RT]\b|Bill of Lading|BOL",
     "ops_notes":    r"Ops Notes|INJ-\d{2}-\d{4}-W",
     "lab":          r"W1 AECN\.pdf|CoA|Certificate of Analysis|SR\d{2}-\d|SGS|CHARM INDUSTRIAL|WODO\.pdf|Aqueous\.pdf|QOWV\.pdf",
     "ef_sheet":     r"Standard Emission Factors|GLEC",
@@ -99,7 +108,12 @@ MATRICES = {
     # lab CoA + Ops Notes copy on Carbon Content. Differs from WODO only in the
     # datapoint names (QOWV-prefixed) and in carrying a BCU reduction datapoint,
     # which is evidenced by the EAC retirement certificate.
-    "Aqueous": {
+    # Key must be UPPER CASE: the resolver at ~line 160 upper-cases log['oil_type']
+    # before the lookup. Registered 2026-08-06 as "Aqueous", which never matched, so
+    # every Aqueous batch silently fell through to its per-batch required_evidence.
+    # Re-keyed to "AQUEOUS" 2026-09-22 on INJ-09-2026-W2-QOWV and re-validated against
+    # that batch's live Certify sources.
+    "AQUEOUS": {
         "Mass of Injectant":                           ["ops_notes"],
         "Carbon Content of Bio-oil Injected":          ["lab", "ops_notes"],
         "QOWV Transport Mass":                         ["ops_notes"],
@@ -137,6 +151,12 @@ MATRICES = {
         "Emissions Factor - Flatbed":         ["ef_sheet"],
         "Distance emission factor":           ["ef_sheet"],
         "Constant CO":                        ["eac_cert"],
+        # Added 2026-10-06 from INJ-09-2026-W4-KERRY: Certify now names the EF and
+        # BCU datapoints as below, which none of the three keys above matched, so
+        # those datapoints went unchecked.
+        "Emissions Factor - Truck Transport Fuel Use": ["ef_sheet"],
+        "Emissions Factor - Vehicle Embodied Emissions": ["ef_sheet"],
+        "BCUs Applied":                       ["eac_cert"],
     },
 }
 

@@ -1,0 +1,202 @@
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - region "0 notifications."
+  - generic [ref=e3]:
+    - navigation [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - link "Isometric Registry" [ref=e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e27]:
+            - link "Certificates" [ref=e28] [cursor=pointer]:
+              - /url: /certificates
+            - link "Projects" [ref=e29] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=e30] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - link "Account" [ref=e34] [cursor=pointer]:
+              - /url: /account
+            - link "Certify" [ref=e35] [cursor=pointer]:
+              - /url: /account/certify
+          - generic [ref=e36]: "|"
+          - button "Current user menu" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]: Menu
+    - main [ref=e41]:
+      - generic [ref=e43]:
+        - button "Hide sidebar" [ref=e45] [cursor=pointer]
+        - navigation "Breadcrumbs" [ref=e49]:
+          - list [ref=e51]:
+            - listitem [ref=e52]:
+              - link "All projects" [ref=e53] [cursor=pointer]:
+                - /url: /account/certify
+              - generic [aria-hidden] [ref=e54]: /
+            - listitem [ref=e55]:
+              - link "Charm Bio-oil Geologic Storage" [ref=e56] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83
+              - generic [aria-hidden] [ref=e57]: /
+            - listitem [ref=e58]:
+              - link "GHG Entries" [ref=e59] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+              - generic [aria-hidden] [ref=e60]: /
+            - listitem [ref=e61]: rmv_1M3SG7D701S0HZ1Z
+      - generic [ref=e62]:
+        - navigation [ref=e66]:
+          - generic [ref=e68]:
+            - link "Overview" [ref=e69] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/overview
+            - link "Log of issues" [ref=e70] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/log-of-issues
+            - link "Evidence" [ref=e71] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/evidence
+          - generic [ref=e72]:
+            - generic [ref=e73]: Project setup
+            - generic [ref=e74]:
+              - link "General" [ref=e75] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/general
+              - link "Project design" [ref=e76] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-design
+              - link "Feedstocks" [ref=e77] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/feedstocks
+              - link "Sites" [ref=e78] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/sites
+          - generic [ref=e79]:
+            - generic [ref=e80]: GHG accounting
+            - generic [ref=e81]:
+              - link "LCA" [ref=e82] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/lca
+              - link "Project emissions" [ref=e83] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/project-emissions
+              - link "GHG statements" [ref=e84] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-statements
+              - link "GHG entry data" [ref=e85] [cursor=pointer]:
+                - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entries
+          - generic [ref=e87]:
+            - link "Templates" [ref=e88] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/templates
+            - link "Processes" [ref=e89] [cursor=pointer]:
+              - /url: /account/certify/project/prj_1HZSSWBQM1S08H83/processes
+        - generic [ref=e93]:
+          - generic [ref=e96]:
+            - heading "GHG entry" [level=1] [ref=e98]
+            - generic [ref=e99]:
+              - generic [ref=e100]:
+                - generic [ref=e101]: Removal
+                - generic [ref=e105]: 4.08 tCO₂e
+                - generic [ref=e107]:
+                  - generic [aria-hidden] [ref=e108]: •
+                  - generic [ref=e109]: 19 Sep 2026 to 25 Sep 2026
+                - generic [ref=e110]:
+                  - generic [aria-hidden] [ref=e111]: •
+                  - generic [ref=e112]: rmv_1M3SG7D701S0HZ1Z
+              - generic [ref=e113]:
+                - button "More actions" [ref=e114] [cursor=pointer]
+                - button "Projected credit allocation" [ref=e117] [cursor=pointer]
+                - button "Toggle timeline sidebar" [ref=e121] [cursor=pointer]
+          - generic [ref=e124]:
+            - tablist [ref=e127]:
+              - tab "Components" [selected] [ref=e128] [cursor=pointer]
+              - tab "Calculation view" [ref=e130] [cursor=pointer]
+              - tab "Datapoints" [ref=e132] [cursor=pointer]
+              - tab "Sources" [ref=e134] [cursor=pointer]
+            - tabpanel "Components" [ref=e137]:
+              - generic [ref=e138]:
+                - generic [ref=e139]:
+                  - generic [ref=e140]:
+                    - searchbox "Search components" [ref=e144]
+                    - button "Display options" [ref=e145] [cursor=pointer]
+                    - button "Add filters" [ref=e148] [cursor=pointer]
+                  - generic [ref=e151]:
+                    - button "Convert into a new template" [ref=e152] [cursor=pointer]
+                    - button "Add" [ref=e157] [cursor=pointer]
+                - generic [ref=e160]:
+                  - treegrid "Components" [ref=e162]:
+                    - row "Mitigated" [expanded] [level=1] [ref=e163] [cursor=pointer]:
+                      - gridcell "Collapse Mitigated Add component to Mitigated 15.797 tCO₂e" [ref=e164]:
+                        - button "Collapse Mitigated" [ref=e165]:
+                          - generic [ref=e168]: Mitigated
+                          - generic [ref=e169]: (2)
+                        - generic [ref=e170]:
+                          - button "Add component to Mitigated" [ref=e171]
+                          - generic [ref=e174]: 15.797 tCO₂e
+                    - row "Bio-oil transport" [expanded] [level=2] [ref=e176] [cursor=pointer]:
+                      - gridcell "Collapse Bio-oil transport Add component to Bio-oil transport 5.895 tCO₂e" [ref=e177]:
+                        - button "Collapse Bio-oil transport" [ref=e178]:
+                          - generic [ref=e181]: Bio-oil transport
+                          - generic [ref=e182]: (1)
+                        - generic [ref=e184]:
+                          - button "Add component to Bio-oil transport" [ref=e185]
+                          - generic [ref=e188]: 5.895 tCO₂e
+                    - row "BCU - Transport Process" [level=3] [ref=e190] [cursor=pointer]:
+                      - gridcell "BCU - Transport Process Adjustments GHG Entry 144.49% 5.895 tCO₂e" [ref=e191]:
+                        - button "BCU - Transport Process" [ref=e192]
+                        - generic [ref=e193]:
+                          - generic [ref=e194]: Adjustments
+                          - generic [ref=e196]: GHG Entry
+                          - generic [ref=e198]: 144.49%
+                          - generic [ref=e200]: 5.895 tCO₂e
+                    - row "CO₂ stored" [expanded] [level=2] [ref=e202] [cursor=pointer]:
+                      - gridcell "Collapse CO₂ stored Add component to CO₂ stored 9.902 tCO₂e" [ref=e203]:
+                        - button "Collapse CO₂ stored" [ref=e204]:
+                          - generic [ref=e207]: CO₂ stored
+                          - generic [ref=e208]: (1)
+                        - generic [ref=e210]:
+                          - button "Add component to CO₂ stored" [ref=e211]
+                          - generic [ref=e214]: 9.902 tCO₂e
+                    - row "Injection sequestration" [level=3] [ref=e216] [cursor=pointer]:
+                      - gridcell "Injection sequestration Sequestrations GHG Entry 9.902 tCO₂e" [ref=e217]:
+                        - button "Injection sequestration" [ref=e218]
+                        - generic [ref=e219]:
+                          - generic [ref=e220]: Sequestrations
+                          - generic [ref=e222]: GHG Entry
+                          - generic [ref=e224]: 9.902 tCO₂e
+                    - row "Emitted" [expanded] [level=1] [ref=e226] [cursor=pointer]:
+                      - gridcell "Collapse Emitted Add component to Emitted 11.674 tCO₂e" [ref=e227]:
+                        - button "Collapse Emitted" [ref=e228]:
+                          - generic [ref=e231]: Emitted
+                          - generic [ref=e232]: (3)
+                        - generic [ref=e233]:
+                          - button "Add component to Emitted" [ref=e234]
+                          - generic [ref=e237]: 11.674 tCO₂e
+                    - row "Bio-oil transport" [expanded] [level=2] [ref=e239] [cursor=pointer]:
+                      - gridcell "Collapse Bio-oil transport Add component to Bio-oil transport 6.664 tCO₂e" [ref=e240]:
+                        - button "Collapse Bio-oil transport" [ref=e241]:
+                          - generic [ref=e244]: Bio-oil transport
+                          - generic [ref=e245]: (2)
+                        - generic [ref=e247]:
+                          - button "Add component to Bio-oil transport" [ref=e248]
+                          - generic [ref=e251]: 6.664 tCO₂e
+                    - row "CO to LA Flatbed Truck Transport Embodied Emissions - QOWV" [level=3] [ref=e253] [cursor=pointer]:
+                      - gridcell "CO to LA Flatbed Truck Transport Embodied Emissions - QOWV Activities GHG Entry 18.85% 0.769 tCO₂e" [ref=e254]:
+                        - button "CO to LA Flatbed Truck Transport Embodied Emissions - QOWV" [ref=e255]
+                        - generic [ref=e256]:
+                          - generic [ref=e257]: Activities
+                          - generic [ref=e259]: GHG Entry
+                          - generic [ref=e261]: 18.85%
+                          - generic [ref=e263]: 0.769 tCO₂e
+                    - row "CO to LA Flatbed Truck Transport Process Emissions - QOWV" [level=3] [ref=e265] [cursor=pointer]:
+                      - gridcell "CO to LA Flatbed Truck Transport Process Emissions - QOWV Activities GHG Entry 144.49% 5.895 tCO₂e" [ref=e266]:
+                        - button "CO to LA Flatbed Truck Transport Process Emissions - QOWV" [ref=e267]
+                        - generic [ref=e268]:
+                          - generic [ref=e269]: Activities
+                          - generic [ref=e271]: GHG Entry
+                          - generic [ref=e273]: 144.49%
+                          - generic [ref=e275]: 5.895 tCO₂e
+                    - row "Pyrolysis or other process" [expanded] [level=2] [ref=e277] [cursor=pointer]:
+                      - gridcell "Collapse Pyrolysis or other process Add component to Pyrolysis or other process 5.010 tCO₂e" [ref=e278]:
+                        - button "Collapse Pyrolysis or other process" [ref=e279]:
+                          - generic [ref=e282]: Pyrolysis or other process
+                          - generic [ref=e283]: (1)
+                        - generic [ref=e285]:
+                          - button "Add component to Pyrolysis or other process" [ref=e286]
+                          - generic [ref=e289]: 5.010 tCO₂e
+                    - row "Pyrolysis - Charm QOWV PP Emissions" [level=3] [ref=e291] [cursor=pointer]:
+                      - gridcell "Pyrolysis - Charm QOWV PP Emissions Activities GHG Entry 122.79% 5.010 tCO₂e" [ref=e292]:
+                        - button "Pyrolysis - Charm QOWV PP Emissions" [ref=e293]
+                        - generic [ref=e294]:
+                          - generic [ref=e295]: Activities
+                          - generic [ref=e297]: GHG Entry
+                          - generic [ref=e299]: 122.79%
+                          - generic [ref=e301]: 5.010 tCO₂e
+                  - generic [ref=e303]: 5 components

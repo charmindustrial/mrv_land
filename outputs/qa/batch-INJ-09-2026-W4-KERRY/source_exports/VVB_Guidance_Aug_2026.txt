@@ -1,0 +1,210 @@
+VVB Guidance August 1 - August 31
+Trailer Standard Empty Weight (AECN Rail Offloads)
+
+Purpose. For AECN rail offloads, net bio-oil mass injected is the Full scale weight minus the Empty scale weight of the same tractor + trailer. When an offload’s empty scale ticket is missing, or its trailer/tractor does not match the Full ticket (a rig mismatch), the recorded empty weight cannot be used directly. In these cases a conservative per-trailer standard empty weight is substituted.
+
+Method. Unchanged from the July 1 – July 31 RP. For each trailer, empty (tare) weights were compiled from all available CAT Scale empty tickets across the April–July 2026 rail offloads (n = 48 valid weighings). The conservative standard empty weight is defined as the per-trailer mean plus one standard deviation. Because a heavier empty weight yields a lower net injected mass, mean + 1σ ensures the substitution is conservative (under-crediting) — consistent with the treatment of WODO standard mass loss.
+
+Standard empty weights applied this RP — carried forward unchanged from the July 2026 table:
+
+Trailer        n        Mean (lb)        σ (lb)        Standard empty = mean + 1σ (lb)
+
+KL192        22        29,321        189        29,510
+
+KL188        14        28,997        309        29,307
+
+KL720        8        29,515        130        29,645
+
+KL510        4        28,985        493        29,478
+
+Excludes non-standard tickets (two third-party “Honorable Transport” weighings and tickets with mis-entered tractor/trailer fields). KL510 is based on n = 4 and will be refined as additional tickets accrue. The standards were deliberately not recomputed with August 2026 tickets for this RP, so that the figures applied here are the same published values the July 2026 RP was verified against.
+
+Trailer identification on the tickets. Trailer 192 appears on CAT Scale tickets in several spellings — “KL192”, “RL192” and “KL 192”. These are one physical trailer recorded with data-entry variation in the leading letter and spacing, not separate units.
+
+Trigger and application. For a given offload, substitute the standard empty weight for the trailer recorded on the Full ticket when either (a) the empty scale ticket is missing, or (b) the empty ticket’s tractor and/or trailer do not match the Full ticket. Substituted values are annotated in the ops-notes Empty Scale Ticket cell.
+
+Application — August 1 – August 31 RP (Week 1, INJ-08-2026-W1):
+
+• GPRX5240 offload 1 — empty scale ticket unavailable (trigger (a)). KL188 standard 29,307 lb applied. The Full ticket is on file and hyperlinked in the ops notes.
+
+   
+
+• TILX200228 offload 2 — rig mismatch (trigger (b)). The empty ticket recorded against this offload was taken on tractor CH2 with trailer KL188, whereas the Full ticket was taken on tractor CH1 with trailer 192 — a different rig, two days apart, so the pair does not give a valid net. The Full ticket is valid and is retained; only the tare is substituted, at the trailer 192 standard of 29,510 lb. Both tickets are on file and hyperlinked in the ops notes. Trailer 192 is printed “RL192” on the Full ticket; RL and KL are a data-entry variant of the same trailer, not a second unit, so trailer 192’s standard applies.
+
+.28 kg of the 77,980 kg loaded per the origin BOLs has been claimed — within the BOL bound.
+
+Application — August 1 – August 31 RP (Week 3, INJ-08-2026-W3):
+
+• GPRX5139 offload 1 — rig mismatch (trigger (b)). The full weigh was taken on tractor CH1 with trailer KL510; the empty recorded against the offload was taken on the same tractor but with trailer KL192 — a trailer swap between the two weighs, so the pair does not give a valid net. The full weigh is valid and is retained; only the tare is substituted, at the KL510 standard of 29,478 lb. KL510 carries the smallest sample in the table (n = 4) and no KL510 tare was weighed during this week; the published standard is used precisely so that a within-week tare is not required.
+
+ 
+
+QOWV Tote Transport — Totes Routed via Kansas (Weeks 3 and 4)
+
+Purpose. QOWV is Charm’s aqueous bio-oil fraction, shipped from the Colorado production site to the Basco 6 injection site in Louisiana in intermediate bulk containers (IBC totes). Four totes injected in Week 3 (INJ-08-2026-W3) and one injected in Week 4 did not travel that route directly: they were trucked from Colorado to Charm’s Kansas site on 2025-10-21, stored there, and later repositioned from Kansas to Louisiana. Their transport emissions are calculated over the route actually travelled rather than over the standard Colorado to Louisiana route.
+
+Method. Truck transport is calculated as two terms. Vehicle embodied emissions are expressed per mile driven and are independent of load, so the miles of any given truck are apportioned between the batches sharing it, by each batch’s share of the totes on board. Fuel use is expressed per tonne-mile and therefore needs no apportionment: each batch is charged its own cargo mass over the distance that cargo travelled. For the Kansas-routed totes this means an apportioned share of two separate trucks on the embodied term, and their own mass over 1,221 miles on the fuel-use term.
+
+AECN Pyrolysis Process Emissions — Updated H2 2026 Emission Factor
+
+Pyrolysis process emissions for bio-oil produced by Bioénergie AE Côte-Nord (AECN) are calculated from a carbon intensity supplied by AECN's own life-cycle assessment. AECN reissues that assessment each half-year. The assessment built on January to June 2026 operating data became available during this reporting period and supersedes the one applied through the July 1 – July 31 RP. It governs every AECN removal in this period and in subsequent H2 2026 periods. The associated evidence has been attached as supporting documentation in all AECN pyrolysis process components in Certify.
+
+Bio-Oil Spill at the SOPOR Rail Transload, Baie-Comeau — GPRX5139
+
+Purpose. During transloading of bio-oil from tanker truck into railcar GPRX5139 at the SOPOR rail transload in Baie-Comeau, Québec, a third-party contractor spilled bio-oil. This section discloses the event, its effect on the mass balance for that railcar, the basis on which the resulting disposal emissions have been estimated, and the limits of the record Charm holds.
+
+Where this sits in the supply chain. Bio-oil is produced by BioEnergie AE Côte-Nord at Port-Cartier, Québec, trucked 107.5 miles to the SOPOR rail transload at 18 Route Maritime, Baie-Comeau, railed 2,199 miles to Opelousas, Louisiana, and trucked a further 42.9 miles to the Basco injection site. The loading Bills of Lading are raised on the truck leg into SOPOR and are weighed at Port-Cartier. The spill occurred at the Baie-Comeau transload, that is after the BOL weighing and before the railcar departed.
+
+What the data shows. GPRX5139 was loaded with BOLs 2406-R, 2407-R and 2408-R for a total of 77,800 kg, and 74,380.92 kg was recorded across its four offloads at Opelousas, leaving a gap of 3,419.08 kg. Every other railcar offloaded in the same week falls between −101.75 kg and +480.59 kg. GPRX5139 is approximately seven times the next largest loss. Because the BOL is weighed on the truck at Port-Cartier and the offload is weighed on the trucks at Opelousas, a loss at the intervening transload is precisely where such a gap would appear.
+
+Railcar        Loaded (kg)        Offloaded (kg)        Loss (kg)
+
+SHPX215068        77,780        77,881.75        −101.75
+
+SHPX215078        77,690        77,736.60        −46.60
+
+GPRX5082        77,840        77,654.95        +185.05
+
+GPRX5098        77,310        76,829.41        +480.59
+
+GPRX5139        77,800        74,380.92        +3,419.08
+
+SHPX215082        78,130        78,081.33        +48.67
+
+Why the disposal is reported in this Reporting Period. The loading BOLs for GPRX5139 are dated 29 June, 30 June and 1 July 2026. The railcar did not reach Opelousas until 15 August 2026, and its mass is claimed in this Reporting Period. The disposal emissions are reported here, alongside all upstream emissions.
+Chain of custody and the limits of the record. The SOPOR transload is operated by a third party. The spill was carried out and handled by that contractor and were not under Charm’s custody or direct observation. Charm was consequently not supplied with the level of documentation it would hold for an event under its own control: there is no waste manifest, no weighbridge ticket and no disposal facility receipt for the contaminated soil. What Charm holds is an email from the contractor estimating the mass of contaminated soil recovered, and a photograph of that soil held in two open-top IBC totes.
+
+How each mass is treated. The three masses in this chain are known to different standards and are treated accordingly. The mass of oil produced is measured, from the BOL weighings at Port-Cartier. The mass of oil transported is measured, and the truck and rail legs are charged on the full loaded mass of 77,800 kg. The mass of oil disposed is estimated, and is the only quantity in the chain resting on the contractor’s figure. Only the 74,380.92 kg recorded at offload is credited as injected.
+
+Direction of the conservatism. The full 77,800 kg carries its upstream burden — pyrolysis, truck to SOPOR, rail, and truck to Basco — while only the 74,380.92 kg that reached the wellhead earns a removal. The 3,419.08 kg lost to the spill therefore receives no credit, and its share of the upstream emissions remains allocated across the mass that was credited. The treatment reduces net CDR for this railcar and cannot inflate it.
+
+Containment. There are parameters in place for these spills, and there is a container below the port where the spill occurred that captured the majority of spilled oil.
+
+Estimated disposal emissions. The contractor reported two IBC totes of oil-contaminated soil at approximately 850 kg each, or 1,700 kg. Because the figure is an estimate rather than a weighing, an estimate uncertainty of 20 per cent has been added rather than the scale allowance applied to weighed loads, giving 2,040 kg. The material takes the Bio-Oil Contaminated Gravel, Landfilling [Open Dump] factor of 0.000259 MT CO₂e per kg. Disposal emissions are 0.5284 MT CO₂e, transport adds 0.0074 MT CO₂e, and the line totals 0.5357 MT CO₂e. It appears as row 11 of the Waste Disposal Emissions Calc Sheet, flagged as estimated, and is reported on a separate total line so that it can be read apart from the nine weighed and manifested Louisiana loads.
+
+Basis of the transport distance. No destination was documented, so a proxy route has been applied. The nearest authorized landfill to the SOPOR transload is the lieu d’enfouissement technique operated by the Régie de gestion des matières résiduelles de Manicouagan at 5101 chemin de la Scierie, Ragueneau, authorized under decree 89-2002, which accepts industrial, commercial and institutional waste and clients from outside the Manicouagan region. Ragueneau lies approximately 25 km, or 15.5 miles, from Baie-Comeau. That distance has been applied.
+
+Spare Parts and Consumables — Day-Based Scaling and a July 2026 True-Up
+
+Purpose. Emissions from the spare parts and consumables used to operate the Basco 6 injection site are estimated on a spend basis. The way that estimate is scaled to the length of the Reporting Period was corrected during this period, and an understatement carried by the July 1 – July 31 RP is recovered here. Both the change of basis and the correction are set out below.
+
+Method. The inventory lists each maintenance part consumed at the injection site together with its purchase cost in 2024 United States dollars and the EPA NAICS Supply Chain Emission Factor for the corresponding product class, expressed in kilograms of CO₂e per 2024 dollar of purchaser price. For each part a forecast consumption rate is obtained by dividing the quantity consumed by its replacement interval in weeks; the product of that rate, the unit cost and the emission factor gives the emissions attributable to that part per week. Summed across the sixty-seven parts in the inventory, the rate applied in this period is 120.6710 kg CO₂e per week. The inventory, the unit costs and the emission factors are unchanged from the July 1 – July 31 RP.
+
+The change. Until this period the weekly rate was multiplied by four to give a Reporting Period total. Four weeks is twenty-eight days, so in any period of thirty or thirty-one days that multiplier omitted two or three days of consumption. From this period the weekly rate is divided by seven and multiplied by the number of calendar days in the Reporting Period, which for August is thirty-one. The scaling basis is the only thing that changes; the underlying consumption model is untouched.
+
+Values applied.
+
+Scaling basis        Days counted        Total (kg CO₂e)
+
+Four weeks (superseded)        28        482.68
+
+Calendar days (applied)        31        534.40
+
+July 2026 true-up. The July 1 – July 31 RP was reported on the superseded basis at 482.68 kg CO₂e, against a correct day-scaled figure of 534.40 kg CO₂e for that thirty-one-day period. The resulting shortfall of 51.72 kg CO₂e is added to the present period rather than recovered by restating July, so no figure previously reported for July is withdrawn. The total reported for this period is accordingly the sum of two components. Because July and August are both thirty-one-day months, the true-up is numerically equal to the effect of the change of basis itself.
+
+Component        Total (kg CO₂e)
+
+August 1 – August 31 RP, day-scaled        534.40
+
+July 1 – July 31 RP true-up        51.72
+
+Total reported this period        586.12
+
+Annual Well Work at Basco 6 — Workover and Tracer Survey
+
+Purpose. Annual well work was carried out on Basco 6 EW 001, the injection well itself, during June - August 2026. This section sets out what the work consisted of, why its emissions are reported in this Reporting Period, how fuel consumption has been quantified in the absence of metered fuel data, and which quantities rest on measurement rather than estimate. The work is disclosed separately because it is not a recurring Reporting Period activity and produces classes of emission that appear nowhere else in the period.
+
+What the work consisted of. A workover was performed starting in June and the existing packer was released, 106 joints of 3-1/2 inch tubing were pulled and laid down, the wellbore was washed to total depth at 3,685 feet removing 1,507 feet of accumulated sand and oil sludge, cased-hole logging was run, a new packer was set on wireline at 3,456 feet, and the tubing string was run back and latched with a new wellhead landed and pressure tested to 5,000 psi. A radioactive tracer survey and a pump-fall-off test followed on 5 August 2026. The work involved a workover rig, wireline units, a trailer-mounted power swivel, water trucks and crew vehicles, supplied by eight separate contractors.
+
+Why it is reported in this Reporting Period. The workover took place in June and the tracer survey in August, spanning multiple Reporting Periods. All of the work is reported here, in the August period, because that is the period in which the programme concluded and in which complete vendor documentation became available. Reporting the entire campaign together keeps a single physical programme of work in a single period rather than splitting it across a boundary that has no operational meaning.
+
+How on-site fuel consumption is quantified. No contractor metered fuel at the wellsite, so consumption is derived from equipment hours. Charm applies a load-factored consumption rate across every hour each engine was present on location, and does not divide those hours into idling and working time. A load-factored rate is by definition a duty-cycle average that already blends idling, standby and working periods within a shift, so subdividing the daily narrative would add no accuracy while introducing a subjective judgement on every line. These emission factors have been used and verified in previous reporting periods during other site work. The rates applied are as follows.
+
+Equipment class
+
+	
+
+Rate (gal/hr)
+
+	
+
+Rate source
+
+
+
+
+Moncla workover rig #93
+
+	
+
+4.2
+
+	
+
+Caterpillar Performance Handbook Ed. 46, Sec. 25-16 (CAT 320, medium load)
+
+
+
+
+Power swivel, 6-cylinder Isuzu diesel
+
+	
+
+4.2
+
+	
+
+Same Caterpillar proxy
+
+
+
+
+Pumping and wireline unit, 5 August
+
+	
+
+4.2
+
+	
+
+Same Caterpillar proxy
+
+
+
+
+Crew vehicles, idling
+
+	
+
+0.49
+
+	
+
+US DOE EERE Fact #861, 23 February 2015
+
+Consumption is converted to fuel mass at a diesel density of 3.21725 kg per gallon and then to emissions at the Total Well-to-Wheel diesel combustion factor of 3.87 kgCO2e per kg of fuel (GLEC V3.2 2025), the standard values Charm uses for all such conversions. The idle rate and the density are the same values applied to Louisiana sitework in earlier Reporting Periods. Hours, gallons and resulting emissions are set out per day on the Well Work Diesel tab of the workbook.
+
+Crew vehicles. The number of crew vehicles is derived as the crew size divided by three, rounded up, and every vehicle is assumed to idle for one hundred per cent of the hours its crew was on location. Field crew-cab trucks seat between three and six; three is adopted because fewer occupants per vehicle yields more vehicles and therefore higher emissions. Both elements of this treatment overstate emissions: crews in practice carry more than three per vehicle and shut engines down for part of a shift.
+
+Rig hours. Rig hours are taken from the on-site day length recorded in the daily workover report rather than from the contractor's billed hours. Moncla Workover and Drilling invoiced 85.5 rig hours across the two invoices covering the job; the figure Charm has applied is higher, so that the calculation cannot understate engine running time. Both figures are shown on the Well Work Diesel tab. Moncla separately bills an hourly fuel charge at the same quantity, which corroborates that rig fuel consumption scales with operating hours.
+
+Vendor mobilisation and the basis of road distance. Two of the vendor invoices state road mileage explicitly: Halliburton billed 760 miles each for a pickup and a cased-hole service unit dispatched from Victoria, Texas, and Valve and Wellhead Specialists billed 280 miles as 140 miles round trip on two trips from Scott, Louisiana. Where an invoice does not state mileage, distance is derived from the vendor invoices. Transport fuel is treated as a process emission; vehicle embodied emissions are treated as non-diesel and carried to the amortisation schedule, consistent with the treatment of contractor transport in earlier sitework periods.
+
+Tubing returned to the well carries no embodied emission as no tubing was needing replacement.
+
+Permanently installed equipment. Two items remain permanently in the well and are carried as embodied emissions rather than expensed to the period: the packer set at 3,456 feet and the wellhead tree assembly both are included in the EE inventory.
+
+Waste disposal from the wellbore cleanout. The wash to total depth displaced sand from the formation which was hauled to Timberlane Landfill at Oakdale, Louisiana. Two tickets, 195086 on 22 June and 195131 on 23 June, are reported in this Reporting Period. A third ticket, 197027 of 17 July, was weighed, manifested and already reported in the July Reporting Period and is not restated here. The quantity for the two June tickets is taken exactly as billed in gallons; no scale ticket or manifest was obtained for either, so mass is derived based on standard densities for AECN bio-oil on the one hand and sand on the other.. Because these two loads are estimated rather than weighed, an estimate uncertainty of 20 per cent is applied in place of the scale allowance used for weighed loads.
+
+The majority of the material displaced by the wash was and from the formation. However, a small amount of entrained sludge, likely bio-oil, was pushed out of the formation. We have taken several steps to ensure this bio-oil does not result in overcrediting, which are detailed in the “oil contaminated sand” tab of the calc sheet and summarized below:
+
+There is no way to directly measure the quantity of bio-oil in the sand, aside from the observation that it is present but minimal. So we are using 25% contamination as a conservative assumption that certainly overstates the actual level of bio-oil residue present
+The measured volume provided by the manifest is converted into mass based on the historical average density of AECN bio-oil and a cited constant for sand
+The mass attributed to bio-oil is then multiplied by the same ratio of tCO2e/tBO as was directly measured in the most recent Reporting Period
+The mass attributed to bio-oil is multiplied by that ratio to conservatively estimate the affected quantity of stored CO2e
+
+Inspection Reporting Reports from the inspection activities are provided in the Basco 6 MRV folder – All of the reports have been received except for the Pressure Fall Off Test (PFOT). The lab has confirmed that it is in process but not yet complete at the time of submission. We will provide the PFOT once received.
+
+Oxidizer Sensor Signal Interruptions
+
+There were three interruptions in oxidizer signal communications on Train 2 during this reporting period. These do not reflect physical oxidizer conditions. They are a result of a temporary communication failure between the sensors and the onsite PLC. Once identified, these issues were resolved by either site staff or, where more specialized attention is required, our automation controls engineering (ACE) team.

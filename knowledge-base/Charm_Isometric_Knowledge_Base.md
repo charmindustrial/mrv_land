@@ -1,6 +1,6 @@
 # Charm Industrial Isometric Verification Knowledge Base
 
-**Last Updated:** June 29, 2026
+**Last Updated:** September 30, 2026
 **Owner:** Max Lavine, Carbon Protocol and Verification Lead
 **Email:** max@charmindustrial.com
 **Organization:** Charm Industrial
@@ -25,7 +25,7 @@ The QA workflow is structured as **four sequential gates**. Each gate MUST be co
 
 **Required reads (in this order):**
 1. **Scale tickets** — Open BOTH Full and Empty ticket images in Drive. Extract: gross weight, date, tractor #, trailer #, scale #, location from each ticket. Confirm tractor and trailer numbers match across both.
-2. **BOL / Billing documents** — Open BOL (check Certify Sources if not in Drive). Extract: BOL #, origin name+address, destination name+address, ship date, mass in all listed units, carrier name.
+2. **BOL / Billing documents** — Open BOL (check Certify Sources if not in Drive) and read every page. Extract: BOL #, form number (old vs new AECN format), origin name+address, destination name+address, ship date, carrier name, and every mass field with its label. BOL mass is the weighed "Qty shipped" figure, located by field name per "AECN Bill of Lading Formats" (Section 3), never by page number and never the tank-level estimate.
 3. **Lab results (CHN PDF)** — Open SGS Certificate of Analysis, navigate to correct page. Extract: Certificate #, batch ID on page, sample date+location, Carbon %, Hydrogen %, Nitrogen %, Viscosity, Acid Number, Density.
 4. **Ops Notes** — Open Google Sheet. Extract: batch ID, completion date, origin lot, all mass values (origin mass, truck full/empty/net for each truck), sparging rate+loss, pH, total injectate mass.
 5. **COBB tracker** — Navigate to correct row. Extract: injection_batch, consumed_lot, BOL_number, origin_quantity_kg, order_line_completed_on.
@@ -52,7 +52,7 @@ The QA workflow is structured as **four sequential gates**. Each gate MUST be co
 - Carbon content: lab value matches Certify datapoint, used correctly in gross calculation
 - Gross-to-net: independent recalculation (injectate × carbon% × 3.667), verified against Certify
 - EFs: all emission factors match current KB values (Section 6)
-- BCUs: transport process BCU ≥ transport process activity
+- BCUs: transport process BCU = transport process activity, never more
 - Document presence: all required docs confirmed in Drive OR Certify Sources (not just one)
 
 **Mandatory Verification Sub-Tasks (non-skippable):** These items have failed across multiple batches due to the QA agent not opening the primary source. They MUST be completed during Gate 2 with evidence extracted directly from the source. A checklist cannot exit Gate 2 without all of these done:
@@ -224,7 +224,7 @@ Rail-delivered AECN batches differ structurally from truck-delivered AECN batche
 
 **Pyrolysis component naming.** Rail batches use `AECN pyrolysis (from rail loads) - process emissions` and `... embodied emissions`, vs. the truck-batch convention `AECN Pyrolysis Process/Embodied Emissions`. Same EFs, different label. Per Max: the rail-specific label is a signal to the VVB to expect **scale tickets as the authoritative mass source**, not the BOL.
 
-**Authoritative mass source.** Truck batches: BOL is authoritative for mass. **Rail batches: scale tickets at the offload truck-out are authoritative.** BOLs document the input side (3 BOLs into the railcar at SOPOR), but offload mass at Basco comes from the truck-out scale tickets.
+**Authoritative mass source.** Truck batches: BOL is authoritative for mass (the weighed "Qty shipped" figure — see "AECN Bill of Lading Formats" below). **Rail batches: scale tickets at the offload truck-out are authoritative.** BOLs document the input side (3 BOLs into the railcar at SOPOR), but offload mass at Basco comes from the truck-out scale tickets.
 
 **Distance evidence — no Google Maps for rail.** Email or written confirmation from the rail logistics provider (Watco, in current operations) is the authoritative distance evidence. This is a deliberate exception to the "use longest Google Maps distance" convention used for truck legs. Filename hygiene still matters — generic names like `image (44).png` are FLAG-level findings.
 
@@ -239,10 +239,57 @@ Rail-delivered AECN batches differ structurally from truck-delivered AECN batche
 
 **COBB tracker.** Rail batches go in the **`Basco Injection -- COBB`** tab (same as truck batches), NOT `COBB (with offload info)`. See Section 11A. For rail batches, `consumed_lot` follows `Rail_<RAILCAR>_<DATE>_offload_N`, `BOL_number` lists all 3 input BOLs, `origin_quantity_kg` is the full railcar mass, `offloaded_quantity_kg` is this batch's truck-out share. The Loads tab in the same workbook contains the railcar inbound record (carrier, asset ID, receive/dwell dates, total MT).
 
+### AECN Bill of Lading Formats (added September 30, 2026)
+
+This is the single field map for AECN BOLs. The QA skill files point here and do not repeat it.
+
+AECN (BioEnergie AE Côte-Nord, Port-Cartier QC) sends one PDF per truck. BOL number suffix: **`-R`** = truck into the railcar, Ship To "Société du port ferroviaire de Baie-Comeau" (SOPOR). **`-T`** = direct truck, Ship To "CHARM Industrial Inc., 4687 LA-115, St Landry, LA" (Basco). Filenames seen: `documents 2529-R.pdf`, `Documents camion 2532-R.pdf`, `2395-R.pdf`, `Billing Documents 2505-T.pdf`, `BOL 2532-R.pdf`.
+
+**Two formats are in circulation. Tell them apart by the form number printed top-right, and locate every value by field name, never by page number.**
+
+**Status of the new format.** AECN proposed it on 2026-09-29 (Marie-Michèle Corbey, email "New BOL / Nouveau BOL"): "We are planning to update the appearance and format of our BOLs and would like to get your approval before making the change official." John Jurkovich, forwarding it: "Here's the new BOL format proposed by AECN. I'll shoot the final version when I have it." The only example is `BOL 2532-R.pdf`. The package actually shipped for that load (`Documents camion 2532-R.pdf`) is still in the old format. Replace the proposal wording here once the final version arrives.
+
+**Old format — BOL form `TR95-012-R00`, five-page package.** Page order differs by package: Shipping Details is page 3 in `-T` packages (2505-T) and page 2 in `-R` packages (2529-R, 2532-R).
+- **Straight Bill of Lading** (`TR95-012-R00`): BOL #, date, Ship To, From, Ctrl Room Op, customer PO, production period, tariff code, truck ID, tanker ID, seals, CofA number, tank number, start/end tank litres, "Scale Weight tare(empty)", carrier, driver, handwritten signatures. Its quantity block (Gallons, Liters, (Kg), M.Ton.) is the **tank-level estimate**, not a weight. It repeats the Shipping Details "Estimated Quantity loaded" block (tank level change in litres × density factor, printed "(B x 1.185)"). 2532-R: page 1 "25.77" M.Ton / "(25 767)" Kg against a weighed 26.08 MT.
+- **Shipping Details** (`TR95-010-R01`): the "Product Shipment Summary" block carries the weighed figures — "Tanker Tare wt(empty) (Kg)", "Tanker Full wt (Kg)", "Product delivered (Kg)", "Product delivered in Met. Tons", "Quantity sent in litres at 60°F", "Quantity send in M.Tons at 60°F" (red arrow labelled "Qty shipped"). Also "Density of sample (g/ml) at 60F", viscosity at 40C, loading arrival and departure times.
+- **Weighbridge printout** ("NO DE PESEE", "Informations sur la transaction"): "Masse brute", "Masse tare", "Masse nette" (kg), entry and exit times. Masse nette = Shipping Details "Product delivered (Kg)".
+- **TSCA Import Certification Form** (`TR95-008-R01`): in the `-R` packages read.
+- **Charm Purchase Order**.
+- **Commercial Invoice** (`TR95-009-R00`): in the `-T` package read, not in the `-R` packages. Its "Quantity (Metric Ton)" repeats the page-1 estimate (2505-T: 19.72) rather than the weighed figure (2505-T "Qty shipped": 19.67).
+
+**New format — form `TR98-012-R01`, "BILL OF LADING (BOL)", one page.** AECN: "We are going to merge the current BOL and the 'Shipping Details' page into a single document. This will also reduce misunderstandings/misinterpretations of the numbers on these pages." Fields:
+- Header: "BOL / INVOICE #", "DATE", "CUSTOMER / CLIENT PO #"
+- "SHIP TO / EXPÉDIÉ À", "FROM / DE" (with "Ctrl Room Op")
+- Hazardous goods: proper shipping name, DOT and TDG status, UN / Class / Packing Group
+- Carrier: carrier name, "Truck ID #", "Tanker ID #", "SEAL 1", "SEAL 2", driver, dispatch, "PAPS", "Boarder crossing"
+- "PRODUCT SHIPMENT SUMMARY": "CofA", "Tank and batch" (tank number + production period), "Tare Weight (empty) / poids vide (Kg)", "Full Weight / poids plein (Kg)", "Product Delivered / Quantité livrée (Kg)", "Viscosity / Viscosité (cSt) at 40°C", "Density / Densité a 60°F", "Quantity sent in liters at 60°F", "Quantity sent in metric tons at 60°F" (highlighted), "Loading temp."
+- "SIGNATURES": shipper and carrier printed names and dates. On the 2532-R example the signature lines are blank.
+
+Dropped from the BOL itself: the tank-level estimate (old page-1 quantity block and "Estimated Quantity loaded"), start/end tank litres, tariff code, loading arrival and departure times. AECN's email covers only the BOL and Shipping Details pages. It does not say whether the weighbridge printout, TSCA form, purchase order or commercial invoice stay in the package, so read every page of whatever arrives.
+
+**BOL mass (both formats) = the weighed quantity at 60°F, "Qty shipped":** old = Shipping Details "Quantity send in M.Tons at 60°F". New = "Quantity sent in metric tons at 60°F". Either equals "Product delivered (Kg)" ÷ 1,000. Never the tank-level estimate.
+
+**Same load, both formats (2532-R, 29-09-2026):**
+
+| Value | Old package | New form |
+|---|---|---|
+| Qty shipped (MT at 60°F) | Shipping Details 26.08 | 26.08 |
+| Product delivered (kg) | Shipping Details 26 080; weighbridge Masse nette 26 080 | 26 080 |
+| Tare (kg) | 18 850 (page 1, Shipping Details, weighbridge) | 18 850 |
+| Full (kg) | Shipping Details 44 930; weighbridge Masse brute 44 930 | 44 930 |
+| Litres at 60°F | 21 625 | 21 625 |
+| Density at 60°F | 1.2060 | 1.206 |
+| Viscosity at 40°C | 25.1 | 25.1 |
+| Tank / production period | tank 2, #09-2026 | 2, #09-2026 |
+| CofA | RS2-260924-1 | RS2-260924-1 |
+| Tank-level estimate | page 1: 25.77 M.Ton, (25 767) Kg, 21 744 Liters | not printed |
+
+**Internal ties (hold on all three packages read):** Full − Tare = Product delivered (2532-R: 44 930 − 18 850 = 26 080). Litres at 60°F × density at 60°F ≈ Product delivered (2532-R: 21 625 × 1.206 = 26 079.75. 2529-R: 21 468 × 1.2046 = 25 860.35 vs 25 860. 2505-T: 16 400 × 1.1994 = 19 670.16 vs 19 670). The new form prints density to 3 decimals, so this tie can miss by up to litres × 0.0005 (≈ 11 kg on 21 625 L) from rounding alone.
+
 ### Charm WODO (Wood-Derived Oil)
 - **Source:** Charm Fort Lupton, CO pyrolysis facility (operational from August 2024). **Fort Lupton is the only Charm-owned production facility; it produces WODO, Aqueous fraction, AND Charm biochar from the same pyrolysis operation.**
 - **Feedstock:** Wood chips → high-temperature pressurized reactor
-- **Transport:** Flatbed truck in totes (Fort Lupton → El Dorado KS → injection site)
+- **Transport:** Flatbed truck in totes (Fort Lupton → Basco 6, Evangeline Parish LA, where the oil is both pre-processed and injected; the El Dorado KS pre-processing site no longer exists — Max, 2026-10-01)
 - **Density:** Same as bio-oil (>1.01 g/cm³)
 - **Certify Recording:** Tracked by Production Period (not by component name)
 - **CI Calculation:** Spreadsheet-based (dMRV integration pending as of March 2026)
@@ -259,7 +306,7 @@ Rail-delivered AECN batches differ structurally from truck-delivered AECN batche
 - **Status:** Verified from October 2025 onward (Statement 11)
 
 ### Kerry Oil
-- **Status:** New supplier, arrives in totes
+- **Status:** Third-party calciner oil (waste-derived; Manitowoc WI origin, 1,090 mi to Basco). Arrived in IBC totes on flatbeds through mid-2026; since July 2026 (INJ-07-2026-W4) it arrives in bulk tanker trailers, weighed by a CAT Scale full + empty ticket pair. Tanker deliveries take the Tanker Truck transport factors (ruling 2026-10-06).
 - **Verification Status:** Not yet verified as of March 2026
 
 ### Density Requirements
@@ -320,7 +367,7 @@ All streams exceed formation fluid density (1.01 g/cm³) — confirmed via densi
   - Pre-treatment waste
   - Bio-oil transport
 - Rail transport separately tracked
-- **BCU QA Rule:** BCUs are avoided CO₂e applied against emitted CO₂e. The BCU quantity (in tCO₂e) in Reductions MUST equal or exceed the corresponding diesel emission (in tCO₂e) in Activities. At minimum, all transport process emissions for trucking and rail must be fully offset by BCUs every removal. Other diesel emissions (e.g., injection diesel) must also be offset when applicable. Verify this match on EVERY removal.
+- **BCU QA Rule:** BCUs are avoided CO₂e applied against emitted CO₂e. The BCU quantity (in tCO₂e) in Reductions must equal, and never exceed, the corresponding diesel emission (in tCO₂e) in Activities; over-coverage of any size is a FAIL (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.). At minimum, all transport process emissions for trucking and rail must be fully offset by BCUs every removal. Other diesel emissions (e.g., injection diesel) must also be offset when applicable. Verify this match on EVERY removal.
 - **Note:** Mangrove/dMRV integration underway; Charm oil CI still calculated via spreadsheet
 
 ---
@@ -418,6 +465,7 @@ Worked through with Tom Sellers and Seb Green:
 ### Mass Accounting
 - **Conservative Injectate Mass:** MIN(scale ticket net, originating BOL mass)
 - Ensures accurate accounting when tickets and BOL may differ
+- BOL mass = the weighed "Qty shipped" figure (Section 3, "AECN Bill of Lading Formats")
 
 ### Basco 6 Operations
 - **Standard Sparging Deduction:** 1.29% of injectate mass
@@ -495,10 +543,10 @@ Used per-batch to verify every injection event before submission to Certify/veri
 **3. Bills of Lading (BOL) & Transportation**
 - Truck BOL(s) present for each shipment [VR Appendix 1]
 - If rail delivery: truck BOLs from AECN present (destination = railyard); standard practice is 3 BOLs per railcar [VR Appendix 1]
-- BOL mass matches or exceeds reported injectate mass [VR Sec 3.5]
+- BOL mass (weighed "Qty shipped", Section 3 "AECN Bill of Lading Formats") matches or exceeds reported injectate mass [VR Sec 3.5]
 - Origin and destination correct (AECN→Basco, Charm→Basco, or AECN→SOPOR→Basco for rail) [PDD Sec A]
 - Transportation distance consistent with known route. AECN truck route ~2,197 mi (AECN→Basco direct). AECN rail route is THREE legs, not one: AECN→SOPOR (107.5 mi single-truck × 3 trucks = 322.5 mi total trucking) + SOPOR→Opelousas rail leg ~2,199 mi + Opelousas→Basco short-haul truck ~42.9 mi. The 2,199 figure is JUST the SOPOR→Opelousas rail leg, not the full rail route. [Transport Emissions Acctg v1.1]
-- Transport mode matches oil type: tanker=AECN truck, railcar=AECN rail, flatbed=Charm/Kerry totes [Certify Datapoints]
+- Transport mode matches oil type: tanker=AECN truck and Kerry tanker deliveries, railcar=AECN rail, flatbed=Charm totes and earlier Kerry totes [Certify Datapoints]
 - Billing documents present and consistent with BOL shipment details [VR Appendix 1]
 
 **4. Bio-Oil Composition & Testing (CHN / Lab Results)**
@@ -587,7 +635,7 @@ Charm uses Option B (Variance Propagation) per Isometric Standard §3.7.3. Charm
 - REMOVAL ACTIVITIES — Injection: LCS and sample transport emissions correct [Certify Components]
 - REMOVAL ACTIVITIES — Pyrolysis: Each oil type has corresponding entry (AECN = "AECN Pyrolysis/Production"; Charm = "(Production Period X)" prefix) [Certify Components]
 - REDUCTIONS: All applicable BCU categories populated (5 categories: injection diesel, injection waste, pre-treat diesel, pre-treat waste, transport process) [Certify Components]
-- **REDUCTIONS — BCU Quantity Verification:** BCU quantity (tCO₂e) in Reductions MUST equal or exceed the corresponding diesel/process emission (tCO₂e) in Activities. At minimum: transport process BCU (tCO₂e) ≥ transport process activity emission (tCO₂e) for all trucking and rail. Other diesel BCU categories must similarly match or exceed their corresponding activity emissions when present. Check EVERY removal. [Certify Components / Calculation View]
+- **REDUCTIONS — BCU Quantity Verification:** BCU quantity (tCO₂e) in Reductions must equal, and never exceed, the corresponding diesel/process emission (tCO₂e) in Activities. Transport process BCU (tCO₂e) = transport process activity emission (tCO₂e) for all trucking and rail. Other diesel BCU categories must similarly match, never exceed, their corresponding activity emissions when present. Over-coverage of any size is a FAIL (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.). Check EVERY removal. [Certify Components / Calculation View]
 - COUNTERFACTUALS: Baseline correctly computed or zero per protocol [Certify Components]
 - Net removal (tCO2e) in Certify matches internal net calculation [Certify Calculation View]
 - All Datapoints have corresponding source documents linked with descriptive names (no "Measurement XXXX" or "IMG_001") [Certify Datapoints] — **Generic or non-descriptive filenames are a FLAG, not a FAIL.** This is a process hygiene issue, not a reporting error. Flag the row yellow and note the filename that should be renamed.

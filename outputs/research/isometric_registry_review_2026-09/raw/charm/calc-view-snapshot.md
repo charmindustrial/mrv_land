@@ -1,0 +1,434 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e4]:
+      - generic [ref=e8]:
+        - generic [ref=e9]:
+          - link "Isometric Registry" [ref=e11] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e26]:
+            - link "Registry" [ref=e27] [cursor=pointer]:
+              - /url: /
+            - link "Projects" [ref=e28] [cursor=pointer]:
+              - /url: /projects
+            - link "Protocols" [ref=e29] [cursor=pointer]:
+              - /url: /protocols
+        - generic [ref=e31]:
+          - link "Log in" [ref=e32] [cursor=pointer]:
+            - /url: /signin?redirectTo=%2Fghg-entry%2Frmv_1KZBJBN9C1S0M5R5%3Ftab%3Dcalculation-view
+          - link "Get started" [ref=e33] [cursor=pointer]:
+            - /url: /get-started
+    - main [ref=e36]:
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - generic [ref=e42]: Certificates issued
+            - generic [ref=e46]: 1,000Y+
+          - heading "159.49 tCO₂e removed by Charm Industrial" [level=1] [ref=e52]:
+            - text: 159.49 tCO₂e removed
+            - generic [ref=e53]: by Charm Industrial
+          - generic [ref=e54]: rmv_1KZBJBN9C1S0M5R5
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - heading "GHG entry details" [level=2] [ref=e59]
+            - generic [ref=e60]:
+              - generic [ref=e61]: Supplier
+              - link "Charm Industrial" [ref=e64] [cursor=pointer]:
+                - /url: /supplier/spl_1H31MW3T81S0R67B
+            - generic [ref=e69]:
+              - generic [ref=e70]: Project
+              - link "Charm Bio-oil Geologic Storage" [ref=e72] [cursor=pointer]:
+                - /url: /project/prj_1HZSSWBQM1S08H83
+            - generic [ref=e73]:
+              - generic [ref=e74]: Tonnes removed
+              - generic [ref=e75]: 159.49 tCO₂e
+            - generic [ref=e76]:
+              - generic [ref=e77]: Sequestration date
+              - generic [ref=e78]: 19 Jul 2026 to 25 Jul 2026
+            - generic [ref=e79]:
+              - generic [ref=e80]: Reporting period
+              - generic [ref=e81]: 01 Jul 2026 to 31 Jul 2026
+          - generic [ref=e82]:
+            - heading "Verification details" [level=2] [ref=e84]
+            - generic [ref=e85]:
+              - generic [ref=e87]:
+                - text: Verification protocol version
+                - img "More info" [ref=e88]
+              - link "Bio-oil Geological Storage v1.2" [ref=e92] [cursor=pointer]:
+                - /url: /protocol/bio-oil-geological-storage/1.2
+            - generic [ref=e94]:
+              - generic [ref=e96]:
+                - text: Baseline protocol version
+                - img "More info" [ref=e97]
+              - link "Bio-oil Geological Storage v1.0" [ref=e101] [cursor=pointer]:
+                - /url: /protocol/bio-oil-geological-storage/1.0
+            - generic [ref=e103]:
+              - generic [ref=e104]: Verifier
+              - generic [ref=e106]:
+                - link "350Solutions" [ref=e107] [cursor=pointer]:
+                  - /url: https://350solutions.com
+                - generic [ref=e112]: "->"
+      - generic [ref=e113]:
+        - tablist [ref=e116]:
+          - tab "Removal method" [ref=e177] [cursor=pointer]
+          - tab "Calculation view" [selected] [ref=e179] [cursor=pointer]
+          - tab "Datapoints" [ref=e181] [cursor=pointer]
+        - tabpanel "Calculation view" [ref=e125]:
+          - generic [ref=e183]:
+            - generic [ref=e187]:
+              - generic [ref=e188]:
+                - generic [ref=e191]:
+                  - button "Net CO₂e Removed 159.491 t" [ref=e193]:
+                    - generic [ref=e194]:
+                      - generic [ref=e195]: Net CO₂e Removed
+                      - generic [ref=e196]: 159.491 t
+                  - generic [ref=e203]:
+                    - button "Sequestrations 193.725 t" [ref=e206]:
+                      - generic [ref=e207]:
+                        - generic [ref=e208]: Sequestrations
+                        - generic [ref=e209]: 193.725 t
+                    - generic [ref=e213]: +
+                    - button "Adjustments 20.929 tCO₂e" [ref=e220]:
+                      - generic [ref=e221]:
+                        - generic [ref=e222]: Adjustments
+                        - generic [ref=e223]: 20.929 tCO₂e
+                    - generic [ref=e227]: "-"
+                    - button "Activities 54.091 tCO₂e" [ref=e234]:
+                      - generic [ref=e235]:
+                        - generic [ref=e236]: Activities
+                        - generic [ref=e237]: 54.091 tCO₂e
+                    - generic [ref=e241]: "-"
+                    - generic [ref=e247]:
+                      - generic [ref=e248]: Uncertainty Discount
+                      - generic [ref=e249]: 1.072 t
+                - generic [ref=e251]:
+                  - generic [ref=e252]: ⌘ + scroll to zoom
+                  - generic [ref=e254]:
+                    - button [ref=e256] [cursor=pointer]
+                    - button [ref=e261] [cursor=pointer]
+              - button "View full screen" [ref=e266] [cursor=pointer]
+            - generic [ref=e269]:
+              - heading "Datapoints (46)" [level=2] [ref=e270]
+              - grid "Data points" [ref=e273]:
+                - rowgroup [ref=e274]:
+                  - row "Name Value Collection method Sources" [ref=e275]:
+                    - columnheader "Name" [ref=e276]
+                    - columnheader "Value" [ref=e278]
+                    - columnheader "Collection method" [ref=e280]
+                    - columnheader "Sources" [ref=e282]
+                - rowgroup [ref=e284]:
+                  - row "Mass of Injectant (per injection)" [ref=e285]:
+                    - rowheader "Mass of Injectant (per injection)" [ref=e286]
+                    - gridcell "134.084 t" [ref=e288]
+                    - gridcell "Reported" [ref=e289]
+                    - gridcell "2396-R.pdf + 19 more" [ref=e294]:
+                      - generic [ref=e295]:
+                        - generic [ref=e296]: 2396-R.pdf
+                        - button "+ 19 more" [ref=e301] [cursor=pointer]
+                  - row "Carbon Content of Bio-oil Injected (per injection)" [ref=e302]:
+                    - rowheader "Carbon Content of Bio-oil Injected (per injection)" [ref=e303]
+                    - gridcell "39.40 %" [ref=e305]
+                    - gridcell "Reported" [ref=e306]
+                    - gridcell "W4 Kerry-AECN SGS COA.pdf + 1 more" [ref=e311]:
+                      - generic [ref=e312]:
+                        - generic [ref=e313]: W4 Kerry-AECN SGS COA.pdf
+                        - button "+ 1 more" [ref=e318] [cursor=pointer]
+                  - row "Constant CO₂ reduction" [ref=e319]:
+                    - rowheader "Constant CO₂ reduction" [ref=e320]
+                    - gridcell "10.115 tCO₂e" [ref=e322]
+                    - gridcell "Reported" [ref=e323]
+                    - gridcell "Charm-RetirementCertificate-RD-EACs-20251218.pdf" [ref=e328]
+                  - row "Constant CO₂ reduction" [ref=e335]:
+                    - rowheader "Constant CO₂ reduction" [ref=e336]
+                    - gridcell "10.002 tCO₂e" [ref=e338]
+                    - gridcell "Reported" [ref=e339]
+                    - gridcell "Charm-RetirementCertificate-RD-EACs-20251218.pdf" [ref=e344]
+                  - row "Constant CO₂ reduction" [ref=e351]:
+                    - rowheader "Constant CO₂ reduction" [ref=e352]
+                    - gridcell "80 kgCO₂e" [ref=e354]
+                    - gridcell "Reported" [ref=e355]
+                    - gridcell "Charm-RetirementCertificate-RD-EACs-20251218.pdf" [ref=e360]
+                  - row "Constant CO₂ reduction" [ref=e367]:
+                    - rowheader "Constant CO₂ reduction" [ref=e368]
+                    - gridcell "732 kgCO₂e" [ref=e370]
+                    - gridcell "Reported" [ref=e371]
+                    - gridcell "Charm-RetirementCertificate-RD-EACs-20251218.pdf" [ref=e376]
+                  - row "Bio-Oil Mass - AECN via Rail" [ref=e383]:
+                    - rowheader "Bio-Oil Mass - AECN via Rail" [ref=e384]
+                    - gridcell "136.377 t" [ref=e386]
+                    - gridcell "Reported" [ref=e387]
+                    - gridcell "2396-R.pdf + 19 more" [ref=e392]:
+                      - generic [ref=e393]:
+                        - generic [ref=e394]: 2396-R.pdf
+                        - button "+ 19 more" [ref=e399] [cursor=pointer]
+                  - row "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)" [ref=e400]:
+                    - rowheader "Carbon Intensity - AECN Pyrolysis Process Emissions (via Rail)" [ref=e401]
+                    - gridcell "0.10 tCO₂e/t" [ref=e403]
+                    - gridcell "Derived" [ref=e404]
+                    - gridcell "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx + 3 more" [ref=e409]:
+                      - generic [ref=e410]:
+                        - button "Bioenergy AE Cote-Nord Canada - LCA CI calculation - 1Jul2025 to 31Dec2025 S.xlsx" [ref=e411] [cursor=pointer]
+                        - button "+ 3 more" [ref=e416] [cursor=pointer]
+                  - row "Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail)" [ref=e417]:
+                    - rowheader "Carbon Intensity - AECN Pyrolysis Embodied Emissions (via Rail)" [ref=e418]
+                    - gridcell "0.02 tCO₂e/t" [ref=e420]
+                    - gridcell "Derived" [ref=e421]
+                    - gridcell "AECN Embodied Emissions Calc Sheet (1).pdf" [ref=e426]:
+                      - button "AECN Embodied Emissions Calc Sheet (1).pdf" [ref=e428] [cursor=pointer]
+                  - row "Distance from AECN to Sopor Quebec (truck)" [ref=e433]:
+                    - rowheader "Distance from AECN to Sopor Quebec (truck)" [ref=e434]
+                    - gridcell "107 mi" [ref=e436]
+                    - gridcell "Derived" [ref=e437]
+                    - gridcell "AECN to SOPOR (Baie Comeau) (2).png" [ref=e442]:
+                      - button "AECN to SOPOR (Baie Comeau) (2).png" [ref=e444] [cursor=pointer]
+                  - row "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck" [ref=e449]:
+                    - rowheader "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck" [ref=e450]
+                    - gridcell "0.07 kgCO₂e/(km⋅t)" [ref=e452]
+                    - gridcell "Derived" [ref=e453]
+                    - gridcell "Standard Emission Factors + Calculations (8).xlsx" [ref=e458]:
+                      - button "Standard Emission Factors + Calculations (8).xlsx" [ref=e460] [cursor=pointer]
+                  - row "Distance from Sopor Quebec to Opelousas (rail)" [ref=e465]:
+                    - rowheader "Distance from Sopor Quebec to Opelousas (rail)" [ref=e466]
+                    - gridcell "2,199 mi" [ref=e468]
+                    - gridcell "Derived" [ref=e469]
+                    - gridcell "image (44).png" [ref=e474]:
+                      - button "image (44).png" [ref=e476] [cursor=pointer]
+                  - row "Emission Factors - Rail Transport Fuel Use (Well to Wheel)" [ref=e481]:
+                    - rowheader "Emission Factors - Rail Transport Fuel Use (Well to Wheel)" [ref=e482]
+                    - gridcell "0.02 kgCO₂e/(km⋅t)" [ref=e484]
+                    - gridcell "Derived" [ref=e485]
+                    - gridcell "GLEC_FRAMEWORK_v3_UPDATED_04_12_24.pdf" [ref=e490]:
+                      - button "GLEC_FRAMEWORK_v3_UPDATED_04_12_24.pdf" [ref=e492] [cursor=pointer]
+                  - row "Mass of load" [ref=e497]:
+                    - rowheader "Mass of load" [ref=e498]
+                    - gridcell "136.377 t" [ref=e500]
+                    - gridcell "Reported" [ref=e501]
+                    - gridcell "Full_Ticket_Rail_TILX200231_6.25.2026_offload_4_CAT1124426203267.pdf + 19 more" [ref=e506]:
+                      - generic [ref=e507]:
+                        - generic [ref=e508]: Full_Ticket_Rail_TILX200231_6.25.2026_offload_4_CAT1124426203267.pdf
+                        - button "+ 19 more" [ref=e513] [cursor=pointer]
+                  - row "Distance from Opelousas to B6 (truck)" [ref=e514]:
+                    - rowheader "Distance from Opelousas to B6 (truck)" [ref=e515]
+                    - gridcell "43 mi" [ref=e517]
+                    - gridcell "Derived" [ref=e518]
+                    - gridcell "Opelousas Railyard to Basco.png" [ref=e523]:
+                      - button "Opelousas Railyard to Basco.png" [ref=e525] [cursor=pointer]
+                  - row "Allocated Distance Opelousas to B6 (truck)" [ref=e530]:
+                    - rowheader "Allocated Distance Opelousas to B6 (truck)" [ref=e531]
+                    - gridcell "601 mi" [ref=e533]
+                    - gridcell "Derived" [ref=e534]
+                    - gridcell "Jul-18-2026-distance-route_map.png + 2 more" [ref=e539]:
+                      - generic [ref=e540]:
+                        - button "Jul-18-2026-distance-route_map.png" [ref=e541] [cursor=pointer]
+                        - button "+ 2 more" [ref=e546] [cursor=pointer]
+                  - row "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck" [ref=e547]:
+                    - rowheader "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck" [ref=e548]
+                    - gridcell "0.1476 kgCO₂e/km" [ref=e550]
+                    - gridcell "Derived" [ref=e551]
+                    - gridcell "Standard Emission Factors + Calculations (8).xlsx" [ref=e556]:
+                      - button "Standard Emission Factors + Calculations (8).xlsx" [ref=e558] [cursor=pointer]
+                  - row "Allocated Distance Sopor Quebec to Opelousas (rail)" [ref=e563]:
+                    - rowheader "Allocated Distance Sopor Quebec to Opelousas (rail)" [ref=e564]
+                    - gridcell "3,844 mi" [ref=e566]
+                    - gridcell "Reported" [ref=e567]
+                    - gridcell "image (44).png" [ref=e572]:
+                      - button "image (44).png" [ref=e574] [cursor=pointer]
+                  - row "Emissions Factor - Vehicle Embodied Emissions -- Railcar" [ref=e579]:
+                    - rowheader "Emissions Factor - Vehicle Embodied Emissions -- Railcar" [ref=e580]
+                    - gridcell "0.0193 kgCO₂e/km" [ref=e582]
+                    - gridcell "Derived" [ref=e583]
+                    - gridcell "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e588]:
+                      - button "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e590] [cursor=pointer]
+                  - row "Aggregate Distance AECN to Sopor Quebec (truck)" [ref=e595]:
+                    - rowheader "Aggregate Distance AECN to Sopor Quebec (truck)" [ref=e596]
+                    - gridcell "564 mi" [ref=e598]
+                    - gridcell "Reported" [ref=e599]
+                    - gridcell "AECN to SOPOR (Baie Comeau) (2).png" [ref=e604]:
+                      - button "AECN to SOPOR (Baie Comeau) (2).png" [ref=e606] [cursor=pointer]
+                  - row "Basco Injection Electricity Usage (Grid)" [ref=e611]:
+                    - rowheader "Basco Injection Electricity Usage (Grid)" [ref=e612]
+                    - gridcell "50,484.34 kWh" [ref=e614]
+                    - gridcell "Derived" [ref=e615]
+                    - gridcell "July 26 Louisiana Electricity.xlsx" [ref=e620]:
+                      - button "July 26 Louisiana Electricity.xlsx" [ref=e622] [cursor=pointer]
+                  - row "Basco Injection REC Applied" [ref=e627]:
+                    - rowheader "Basco Injection REC Applied" [ref=e628]
+                    - gridcell "50,484.34 kWh" [ref=e630]
+                    - gridcell "Derived" [ref=e631]
+                    - gridcell "retirement-2026-07-22T09_16_04.pdf" [ref=e636]:
+                      - button "retirement-2026-07-22T09_16_04.pdf" [ref=e638] [cursor=pointer]
+                  - row "Louisiana Grid" [ref=e643]:
+                    - rowheader "Louisiana Grid" [ref=e644]
+                    - gridcell "0.46 kgCO₂e/kWh" [ref=e646]
+                    - gridcell "Reported" [ref=e647]
+                    - gridcell "Standard Emission Factors + Calculations - 2026 SPSO Electricity EFs_src_1KNMFRD6N1S0BZQ2.pdf" [ref=e652]
+                  - row "Louisiana RECS" [ref=e659]:
+                    - rowheader "Louisiana RECS" [ref=e660]
+                    - gridcell "0.04 kgCO₂e/kWh" [ref=e662]
+                    - gridcell "Reported" [ref=e663]
+                    - gridcell "Standard Emission Factors + Calculations - 2026 SPSO Electricity EFs_src_1KNMFRD6N1S0BZQ2.pdf" [ref=e668]
+                  - row "Basco Diesel Used (Mass)" [ref=e675]:
+                    - rowheader "Basco Diesel Used (Mass)" [ref=e676]
+                    - gridcell "2.590 t" [ref=e678]
+                    - gridcell "Reported" [ref=e679]
+                    - gridcell "7.28.26.LA.Diesel.pdf + 15 more" [ref=e684]:
+                      - generic [ref=e685]:
+                        - generic [ref=e686]: 7.28.26.LA.Diesel.pdf
+                        - button "+ 15 more" [ref=e691] [cursor=pointer]
+                  - row "Diesel emission factor" [ref=e692]:
+                    - rowheader "Diesel emission factor" [ref=e693]
+                    - gridcell "3.87 kgCO₂e/kg" [ref=e695]
+                    - gridcell "Reported" [ref=e696]
+                    - gridcell "GLEC NA Fuel:Energy.png" [ref=e701]:
+                      - button "GLEC NA Fuel:Energy.png" [ref=e703] [cursor=pointer]
+                  - row "Basco Injection Gasoline Usage (kg)" [ref=e708]:
+                    - rowheader "Basco Injection Gasoline Usage (kg)" [ref=e709]
+                    - gridcell "157 kg" [ref=e711]
+                    - gridcell "Derived" [ref=e712]
+                    - gridcell "7-1- 7-31 Gasoline Tracker LA.xlsx + 4 more" [ref=e717]:
+                      - generic [ref=e718]:
+                        - generic [ref=e719]: 7-1- 7-31 Gasoline Tracker LA.xlsx
+                        - button "+ 4 more" [ref=e724] [cursor=pointer]
+                  - row "Emissions Factor - Gasoline - Combustion" [ref=e725]:
+                    - rowheader "Emissions Factor - Gasoline - Combustion" [ref=e726]
+                    - gridcell "3.74 kgCO₂e/kg" [ref=e728]
+                    - gridcell "Reported" [ref=e729]
+                    - gridcell "GLEC NA Fuel:Energy.png" [ref=e734]:
+                      - button "GLEC NA Fuel:Energy.png" [ref=e736] [cursor=pointer]
+                  - row "Basco Support Travel Emissions" [ref=e741]:
+                    - rowheader "Basco Support Travel Emissions" [ref=e742]
+                    - gridcell "6.781 tCO₂e" [ref=e744]
+                    - gridcell "Derived" [ref=e745]
+                    - gridcell "Basco Support Travel Calc Sheet July 1 - July 31.xlsx" [ref=e750]
+                  - row "Basco Injection Embodied Emissions" [ref=e757]:
+                    - rowheader "Basco Injection Embodied Emissions" [ref=e758]
+                    - gridcell "1.426 tCO₂e" [ref=e760]
+                    - gridcell "Reported" [ref=e761]
+                    - gridcell "Basco 6 Capital and Sitework Embodied Emissions Inventory July 1 - July 31.xlsx" [ref=e766]
+                  - row "Basco SP&C Emissions" [ref=e773]:
+                    - rowheader "Basco SP&C Emissions" [ref=e774]
+                    - gridcell "483 kgCO₂e" [ref=e776]
+                    - gridcell "Derived" [ref=e777]
+                    - gridcell "Basco Inj Operations SP+C Inventory July 1 - July 31.xlsx" [ref=e782]
+                  - row "Distance traveled" [ref=e789]:
+                    - rowheader "Distance traveled" [ref=e790]
+                    - gridcell "1,656 mi" [ref=e792]
+                    - gridcell "Reported" [ref=e793]
+                    - gridcell "V2 July 2026 Additional Transport Emissions Calc Sheet.xlsx + 1 more" [ref=e798]:
+                      - generic [ref=e799]:
+                        - generic [ref=e800]: V2 July 2026 Additional Transport Emissions Calc Sheet.xlsx
+                        - button "+ 1 more" [ref=e805] [cursor=pointer]
+                  - row "Emissions Factor - Vehicle Embodied Emissions -- Railcar" [ref=e806]:
+                    - rowheader "Emissions Factor - Vehicle Embodied Emissions -- Railcar" [ref=e807]
+                    - gridcell "0.0193 kgCO₂e/km" [ref=e809]
+                    - gridcell "Derived" [ref=e810]
+                    - gridcell "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e815]:
+                      - button "Standard Emission Factors + Calculations - 2026 Railcar Embodied Emissions.pdf" [ref=e817] [cursor=pointer]
+                  - row "Distance traveled" [ref=e822]:
+                    - rowheader "Distance traveled" [ref=e823]
+                    - gridcell "2,180 mi" [ref=e825]
+                    - gridcell "Reported" [ref=e826]
+                    - gridcell "V2 July 2026 Additional Transport Emissions Calc Sheet.xlsx" [ref=e831]
+                  - row "Emissions Factor - Vehicle Embodied Emissions - Non-Tanker Truck" [ref=e838]:
+                    - rowheader "Emissions Factor - Vehicle Embodied Emissions - Non-Tanker Truck" [ref=e839]
+                    - gridcell "0.1198 kgCO₂e/km" [ref=e841]
+                    - gridcell "Derived" [ref=e842]
+                    - gridcell "Standard Emission Factors + Calculations (8).xlsx" [ref=e847]:
+                      - button "Standard Emission Factors + Calculations (8).xlsx" [ref=e849] [cursor=pointer]
+                  - row "Mass of load" [ref=e854]:
+                    - rowheader "Mass of load" [ref=e855]
+                    - gridcell "1,000 kg" [ref=e857]
+                    - gridcell "Reported" [ref=e858]
+                    - gridcell "—" [ref=e863]
+                  - row "Distance traveled" [ref=e865]:
+                    - rowheader "Distance traveled" [ref=e866]
+                    - gridcell "1,656 mi" [ref=e868]
+                    - gridcell "Reported" [ref=e869]
+                    - gridcell "V2 July 2026 Additional Transport Emissions Calc Sheet.xlsx" [ref=e874]
+                  - row "Emission Factors - Rail Transport Fuel Use (Well to Wheel)" [ref=e881]:
+                    - rowheader "Emission Factors - Rail Transport Fuel Use (Well to Wheel)" [ref=e882]
+                    - gridcell "0.02 kgCO₂e/(km⋅t)" [ref=e884]
+                    - gridcell "Derived" [ref=e885]
+                    - gridcell "GLEC_FRAMEWORK_v3_UPDATED_04_12_24.pdf" [ref=e890]:
+                      - button "GLEC_FRAMEWORK_v3_UPDATED_04_12_24.pdf" [ref=e892] [cursor=pointer]
+                  - row "Mass of load" [ref=e897]:
+                    - rowheader "Mass of load" [ref=e898]
+                    - gridcell "4.147 t" [ref=e900]
+                    - gridcell "Reported" [ref=e901]
+                    - gridcell "V2 July 2026 Additional Transport Emissions Calc Sheet.xlsx" [ref=e906]
+                  - row "Distance from Miniforge CO to Basco" [ref=e913]:
+                    - rowheader "Distance from Miniforge CO to Basco" [ref=e914]
+                    - gridcell "1,201 mi" [ref=e916]
+                    - gridcell "Derived" [ref=e917]
+                    - gridcell "CO to Basco Routing Map.png" [ref=e922]:
+                      - button "CO to Basco Routing Map.png" [ref=e924] [cursor=pointer]
+                  - row "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck" [ref=e929]:
+                    - rowheader "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Flatbed Truck" [ref=e930]
+                    - gridcell "0.09 kgCO₂e/(km⋅t)" [ref=e932]
+                    - gridcell "Reported" [ref=e933]
+                    - gridcell "Standard Emission Factors + Calculations (8).xlsx" [ref=e938]:
+                      - button "Standard Emission Factors + Calculations (8).xlsx" [ref=e940] [cursor=pointer]
+                  - row "Distance traveled" [ref=e945]:
+                    - rowheader "Distance traveled" [ref=e946]
+                    - gridcell "40 mi" [ref=e948]
+                    - gridcell "Reported" [ref=e949]
+                    - gridcell "Screenshot 2026-08-10 at 11.38.11 AM.png" [ref=e954]
+                  - row "Mass of load" [ref=e961]:
+                    - rowheader "Mass of load" [ref=e962]
+                    - gridcell "15.694 t" [ref=e964]
+                    - gridcell "Reported" [ref=e965]
+                    - gridcell "V2Waste Disposal Emissions Calc Sheet - 7_26.xlsx" [ref=e970]
+                  - row "Distance traveled" [ref=e977]:
+                    - rowheader "Distance traveled" [ref=e978]
+                    - gridcell "40 mi" [ref=e980]
+                    - gridcell "Reported" [ref=e981]
+                    - gridcell "Screenshot 2026-08-10 at 11.38.11 AM.png" [ref=e986]
+                  - row "Mass" [ref=e993]:
+                    - rowheader "Mass" [ref=e994]
+                    - gridcell "15.694 t" [ref=e996]
+                    - gridcell "Reported" [ref=e997]
+                    - gridcell "V2Waste Disposal Emissions Calc Sheet - 7_26.xlsx + 1 more" [ref=e1002]:
+                      - generic [ref=e1003]:
+                        - generic [ref=e1004]: V2Waste Disposal Emissions Calc Sheet - 7_26.xlsx
+                        - button "+ 1 more" [ref=e1009] [cursor=pointer]
+                  - row "Landfilling Bio-Oil Contaminated Gravel" [ref=e1010]:
+                    - rowheader "Landfilling Bio-Oil Contaminated Gravel" [ref=e1011]
+                    - gridcell "0.26 kgCO₂e/kg" [ref=e1013]
+                    - gridcell "Reported" [ref=e1014]
+                    - gridcell "Standard Emission Factors + Calculations (5).xlsx" [ref=e1019]
+  - contentinfo [ref=e127]:
+    - generic [ref=e129]:
+      - link "Isometric Registry" [ref=e130] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e144]:
+        - paragraph [ref=e146]: Isometric is the agentic certification platform for the industrial economy. Its AI agents work alongside human verifiers, reviewing every data point so expert judgment is freed for the calls that matter. Isometric is the largest certifier of carbon removal by contracted volume and is fully accredited by ICVCM, ICROA, and CORSIA.
+        - generic [ref=e147]:
+          - link "Go to isometric.com" [ref=e148] [cursor=pointer]:
+            - /url: https://isometric.com
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - link "Changelog" [ref=e153] [cursor=pointer]:
+                - /url: https://isometric.com/changelog
+              - link "Writing" [ref=e155] [cursor=pointer]:
+                - /url: https://isometric.com/writing
+              - link "Careers" [ref=e157] [cursor=pointer]:
+                - /url: https://isometric.com/careers
+            - generic [ref=e159]:
+              - link "Documentation" [ref=e160] [cursor=pointer]:
+                - /url: https://docs.isometric.com
+              - link "Privacy" [ref=e162] [cursor=pointer]:
+                - /url: https://isometric.com/privacy-policy
+              - link "Terms" [ref=e164] [cursor=pointer]:
+                - /url: https://isometric.com/terms
+      - generic [ref=e166]:
+        - generic [ref=e167]:
+          - generic [ref=e168]:
+            - generic [ref=e169]: Get in touch
+            - link "contact@isometric.com" [ref=e171] [cursor=pointer]:
+              - /url: mailto:contact@isometric.com
+          - generic [ref=e172]:
+            - generic [ref=e173]: Press enquiries
+            - link "press@isometric.com" [ref=e175] [cursor=pointer]:
+              - /url: mailto:press@isometric.com
+        - generic [ref=e176]: © 2026 Isometric HQ Ltd. All rights reserved.
+  - alert [ref=e1026]
+  - region "0 notifications."

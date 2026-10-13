@@ -1,0 +1,168 @@
+{
+  "batch_id": "INJ-08-2026-W5-QOWV",
+  "oil_type": "Aqueous",
+  "reporting_period": "23 Aug 2026 to 29 Aug 2026",
+  "week_dates_ops_notes": "8/22/2026 to 8/29/2026",
+  "certify_removal_id": "rmv_1M1SYARQ31S0ARQJ",
+  "certify_removal_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M1SYARQ31S0ARQJ/edit",
+  "certify_net_tco2e": 15.001,
+  "drive_folder_url": "https://drive.google.com/drive/folders/1G-pf4fn5qfs-iPMRCscWsANa7tQp_ira",
+  "production_periods": ["PP#7", "PP#8", "PP#9 (=August 2025 PP Summary)", "PP#10 (=September 2025 PP Summary)", "November 2025", "January 2026", "March 2026", "April 2026", "May 2026"],
+  "pp_numbering_reconciliation": "Verified by opening 'August 2025 Production Period Summary' (Aqueous row: mass 59,157 kg, C%=8.08%, allocated emissions 6.541 MT CO2e, kgCO2e/kg=0.1106) and 'September 2025 Production Period Summary' (Aqueous row: mass 41,010 kg, C%=7.70%, allocated emissions 5.278 MT CO2e, kgCO2e/kg=0.1287). These exactly match Ops Notes lookup table PP#9=0.1105698239 and PP#10=0.128689567 respectively. Confirms PP#9=August 2025, PP#10=September 2025 in Charm's internal numbering -- initial concern about a naming mismatch is resolved, not a finding.",
+  "vvb_guidance": {
+    "searched": true,
+    "search_method": "Drive search query title contains 'VVB Guidance', scoped to period covering 23 Aug - 29 Aug 2026",
+    "found": false,
+    "note": "No VVB Guidance doc located for this period via title search. Recording as searched-and-not-found per Gate 1 requirement; a broader search (owner garrett.lutz@, date-range filename variants) was not separately exhausted -- flag as open item for Gate 2/Max rather than asserting definitive absence."
+  },
+  "batch_folder_inventory": [
+    {"name": "INJ-08-2026-W5 Ops Notes", "type": "Google Sheet", "present": true, "id": "1o6xz3GjWJSkmMNnjZV30U4-HNzZyJCSAp-XgsCJqbEY", "note": "Multi-oil-type workbook covering AECN Rail, AECN Truck, Charm WODO, Kerry, and QOWV tabs for the same reporting week; contains QOWV tab (per-tote ledger) and QOWV Shipments & EE Allocation tab (mileage allocation, functions as this batch's Shipment Tracker)."},
+    {"name": "Scale Tickets", "type": "folder", "present": true, "note": "Shared week-level folder; primarily populated for AECN rail/truck offloads, not QOWV (IBC tote batches don't use scale tickets)."},
+    {"name": "Testing", "type": "folder", "present": true, "note": "Contains 4 PDFs: AECN,QOWV,SR26-05208.pdf (original, 21.9% C for QOWV, superseded); AECN,QOWV,SR26-05208 (REISSUED 2026-09-04).pdf (12.4% C for QOWV, current); 08-2026-W5 QOWV aqueous layer SR26-05208.003 (24hr settle).pdf; 8-2026-W5 WODO SR26-05246.pdf."},
+    {"name": "Completed QA Checklists", "type": "folder", "present": true, "note": "Empty -- confirms this batch has not been previously QA'd."}
+  ],
+  "lab_results": {
+    "certify_attached_source_verified": true,
+    "verification_method": "Downloaded the actual PDF attached to Certify source src_1M26SPR5R1S0T0K6 (button 'AECN, QOWV, SR26-05208.pdf' on Sources tab) rather than trusting the filename. Content confirmed: Date 04-Sep-2026, signed Tiffany Scott, Certificate of Analysis SR26-05208.002, Client ID '08-2026-W5 QOWV', Carbon 12.4% (m/m), Hydrogen 9.6%, Nitrogen <0.75%, Kinematic Viscosity 0.9384 cSt, Acid Number 32 mg KOH/g, Density 1.047 g/cm3. This IS the reissued/correct version despite the Certify display filename lacking '(REISSUED)' in its name -- matches Ops Notes (COA SR26-05208.002 (reissued 2026-09-04)) and Certify's entered Carbon Content datapoint (12.4% +/-0.0496%) exactly. NOT a mismatch -- initial concern from Drive filename ambiguity (two similarly-named Drive files, one pre-reissue at 21.9% C) is resolved after opening the actual attached file.",
+    "qowv_reissued_cert": {"filename_drive": "AECN, QOWV, SR26-05208 (REISSUED 2026-09-04).pdf", "date": "2026-09-04", "carbon_pct": 12.4, "hydrogen_pct": 9.6, "nitrogen_pct": "<0.75", "viscosity_cst": 0.9384, "acid_number": 32, "density_g_cm3": 1.047},
+    "qowv_original_superseded_cert": {"filename_drive": "AECN, QOWV, SR26-05208.pdf", "date": "2026-09-02", "carbon_pct": 21.9, "note": "Superseded by reissue; NOT what is attached in Certify (verified). Still present in Drive Testing folder alongside the reissued version -- filename hygiene point only, not a data error."}
+  },
+  "totes": {
+    "n_totes": 79,
+    "source": "INJ-08-2026-W5 Ops Notes, QOWV tab, Section 1 IBC Ledger, rows 11-89",
+    "columns": "Tag, Gross Mass (kg), Tote Mass (kg) [=empty IBC container tare, uniform 57.60 or 62.90 kg], Net Oil Produced (kg) [=Gross-Tote Mass], Empty Tote Weight (kg) [=measured post-unload weight, container+residue], Net Oil Injected (kg) [=Gross Mass - Empty Tote Weight, i.e. measured pre-unload minus measured post-unload -- NO Standard Loss], Production Period, Carbon Intensity (per-tote, from PP lookup), Production Emissions (per-tote, kg CO2e), Scale Uncertainty (1.13398 kg per tote, uniform)",
+    "totals": {
+      "total_mass_transported_kg": 81961.00,
+      "tote_mass_sum_kg": 4651.10,
+      "total_oil_produced_kg": 77309.90,
+      "empty_tote_weight_sum_kg": 14933.32,
+      "net_oil_injected_total_kg": 66060.68,
+      "weighted_avg_ci_tco2e_per_t": 0.1497340287,
+      "production_emissions_sum_kg": 11575.92,
+      "uncertainty_sum_kg": 89.58442
+    },
+    "standard_loss_check": "No 'Standard Loss' column present in QOWV tab; Net Oil Injected computed as Gross Mass - Empty Tote Weight (measured pre/post-unload), matching Aqueous convention. Standard Loss correctly NOT applied.",
+    "ph": {"value": 3, "target_range": "2.0-4.0", "in_range": true},
+    "sidebar_note": "Row 96: 'Sludge removed from tank' = 967 kg -- noted, not part of core mass chain, no anomaly indicated."
+  },
+  "lcs_use_kg": null,
+  "lcs_search_method": "Reviewed all QOWV tab columns and header constants; only 'Sparging Mass Loss 0.0129' appears as a general workbook constant (this is the AECN-only sparging deduction, confirmed not applied to QOWV rows). No LCS / Liquid Calcium Sulfate column or value found anywhere in the QOWV tab.",
+  "shipment_tracker": {
+    "location": "Embedded as 'QOWV Shipments & EE Allocation' tab within the same Ops Notes workbook (not a separate file) -- functionally equivalent to the Bio-Oil Shipment Tracker for this batch.",
+    "one_way_distance_mi": 1201,
+    "n_shipping_orders": 12,
+    "table": "EE ALLOCATION TABLE A - Direct Charm CO -> Basco LA (no Table B / Kansas-routed totes this week)",
+    "per_row_data": [
+      {"truck": "Shipped 12/2/2025", "total_totes_on_truck": 36, "batch_relevant_totes": 23, "share_pct": 63.9, "allocated_miles": 767.3},
+      {"truck": "COLA23", "total_totes_on_truck": 20, "batch_relevant_totes": 20, "share_pct": 100.0, "allocated_miles": 1201.0},
+      {"truck": "Shipped 12/3/2025", "total_totes_on_truck": 18, "batch_relevant_totes": 16, "share_pct": 88.9, "allocated_miles": 1067.6},
+      {"truck": "COLA_32", "total_totes_on_truck": 18, "batch_relevant_totes": 5, "share_pct": 27.8, "allocated_miles": 333.6},
+      {"truck": "Shipped 12/1/2025", "total_totes_on_truck": 40, "batch_relevant_totes": 3, "share_pct": 7.5, "allocated_miles": 90.1},
+      {"truck": "COLA21", "total_totes_on_truck": 20, "batch_relevant_totes": 3, "share_pct": 15.0, "allocated_miles": 180.2},
+      {"truck": "Shipped 12/5/2025", "total_totes_on_truck": 36, "batch_relevant_totes": 2, "share_pct": 5.6, "allocated_miles": 66.7},
+      {"truck": "COLA20", "total_totes_on_truck": 19, "batch_relevant_totes": 2, "share_pct": 10.5, "allocated_miles": 126.4},
+      {"truck": "COLA-31", "total_totes_on_truck": 20, "batch_relevant_totes": 2, "share_pct": 10.0, "allocated_miles": 120.1},
+      {"truck": "Shipped 12/9/2025", "total_totes_on_truck": 36, "batch_relevant_totes": 1, "share_pct": 2.8, "allocated_miles": 33.4},
+      {"truck": "Shipped 12/16/2025", "total_totes_on_truck": 1, "batch_relevant_totes": 1, "share_pct": 100.0, "allocated_miles": 1201.0},
+      {"truck": "COLA_27", "total_totes_on_truck": 20, "batch_relevant_totes": 1, "share_pct": 5.0, "allocated_miles": 60.1}
+    ],
+    "subtotal_allocated_miles": 5247.4,
+    "subtotal_totes": 79,
+    "shipment_tracker_cells_are_formulas": {
+      "batch_share_of_truck_E12": "=IFERROR(D12/C12,\"\")",
+      "allocated_miles_G12": "=IFERROR(E12*F12,\"\")",
+      "subtotal_G24": "=SUM(G12:G23)",
+      "verified_live": true,
+      "verification_method": "Navigated to each cell via Name Box in the live Google Sheet and read the formula bar directly (approved for this session per Max)."
+    }
+  },
+  "certify_components": [
+    {
+      "name": "Injection sequestration",
+      "category": "Sequestrations",
+      "value_tco2e": 30.038,
+      "inputs": {
+        "carbon_content_pct": {"value": 12.4, "uncertainty": 0.0496, "datapoint_name": "Carbon Content of Bio-oil Injected (per injection)", "n_sources": 2},
+        "mass_of_product_kg": {"value": 66060.68, "uncertainty": 89.58442, "datapoint_name": "Mass of Injectant (per injection)", "n_sources": 1}
+      }
+    },
+    {
+      "name": "CO to LA Flatbed Truck Transport Process Emissions - QOWV",
+      "category": "Activities (Emitted)",
+      "value_tco2e": 13.624,
+      "inputs": {
+        "emission_factor": {"value": 0.086, "unit": "kgCO2e/(km*t)", "datapoint_name": "Flatbed, Northern America, WTW", "n_sources": 1, "source": "GLEC V3.2"},
+        "distance_mi": {"value": 1201, "datapoint_name": "Distance from Miniforge CO to Basco", "n_sources": 1, "source": "CO to Basco Routing Map.png", "collection_method": "Derived"},
+        "mass_of_load_kg": {"value": 81961, "uncertainty": 89.58, "datapoint_name": "QOWV Transport Mass (CO to B6) [Certify input]", "n_sources": 1}
+      }
+    },
+    {
+      "name": "Flatbed Truck Transport Embodied Emissions - QOWV",
+      "category": "Activities (Emitted)",
+      "value_tco2e": 1.012,
+      "inputs": {
+        "emission_factor": {"value": 0.1928, "unit": "kgCO2e/mi", "value_alt_km": 0.1198, "unit_alt": "kgCO2e/km", "datapoint_name": "Emissions Factor - Vehicle Embodied Emissions - Flatbed Truck", "n_sources": 1, "source": "Standard Emission Factors + Calculations (8).xlsx", "note": "0.1198 kg/km x 1.60934 = 0.1928 kg/mi -- same value, different unit display between Calc View and Component modal, not an error. Label correctly says 'Flatbed Truck' (no tanker mislabel this batch, unlike several prior QOWV batches)."},
+        "distance_mi": {"value": 5247.4, "datapoint_name": "QOWV Embodied Distance", "n_sources": 2, "sources": ["CO to Basco Routing Map.png", "INJ-08-2026-W5 Ops Notes.xlsx"]}
+      }
+    },
+    {
+      "name": "Pyrolysis - Charm QOWV PP Emissions",
+      "category": "Activities (Emitted)",
+      "value_tco2e": 11.527,
+      "inputs": {
+        "carbon_emission_factor": {"value": 0.1491, "unit": "tCO2e/t", "datapoint_name": "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)", "n_sources": 10, "sources": ["September 2025 PP Summary", "August 2025 PP Summary", "May 26 PP Summary", "Apr 26 PP Summary", "Mar 26 PP Summary", "Jan 26 PP Summary", "Production Period 8 Summary", "Production Period 7 Summary", "November 2025 PP Summary", "INJ-08-2026-W5 Ops Notes.xlsx"]},
+        "mass_kg": {"value": 77309.9, "uncertainty": 89.58, "datapoint_name": "QOWV Pyrolysis Mass [Certify input]", "n_sources": 1}
+      },
+      "ci_cross_check": "Certify applies CI=0.1491 tCO2e/t. Ops Notes' own weighted-average CI (H91 = I91/D91 = 11,575.92 kg / 77,309.90 kg) = 0.1497340287 tCO2e/t. Relative delta = (0.1497340287-0.1491)/0.1497340287 = 0.42%, absolute delta in the component total = 77.3099t x (0.1497340287-0.1491) = ~0.049 tCO2e (~49 kg CO2e). This exceeds the ~0.001 tCO2e no-rounding-tolerance threshold -- flagged as a real mismatch for Gate 2, not a rounding artifact."
+    },
+    {
+      "name": "BCUs - Applied to Bio-Oil Transport Process Emissions",
+      "category": "Adjustments (Mitigated/Reductions)",
+      "value_tco2e": 13.624,
+      "inputs": {
+        "constant_reduction_kgco2e": {"value": 13624, "datapoint_name": "BCUs Applied - Bio-Oil Transport Process [Certify input]", "n_sources": 1, "source": "Charm-RetirementCertificate-RD-EACs-20251218.pdf"}
+      },
+      "bcu_offset_check": "LIVE UPDATE during adversarial review (2026-09-10 ~17:14 PDT): while re-verifying this component, the removal total changed live from 15.00 to 17.37 tCO2e and BCU changed live from 11,254 to 13,624 kgCO2e. Garrett Lutz was concurrently present in the linked Ops Notes Google Sheet ('Garrett Lutz has joined the document'). Re-opened the BCU component modal after the change and confirmed: Constant CO2 reduction = 13,624 kgCO2e = 13.624 tCO2e, now EXACTLY matching Transport Process activity emission (13.624 tCO2e). Originally found as a FAIL (11.254 < 13.624, shortfall 2.370 tCO2e); now independently re-verified live as fixed, not just claimed-fixed. Status updated to PASS."
+    }
+  ],
+  "certify_calculation_view": {
+    "net_co2e_removed_t_original": 15.001,
+    "net_co2e_removed_t_after_live_bcu_fix": 17.37,
+    "sequestrations_t": 30.038,
+    "adjustments_t_after_fix": 13.624,
+    "activities_t": 26.162,
+    "uncertainty_discount_kg": 128,
+    "datapoints_total": 10,
+    "note": "Net value changed live during this QA session when Garrett corrected the BCU shortfall (item 8.1). All other components unchanged."
+  },
+  "certify_sources_tab_total": 15,
+  "certify_sources_enumeration": [
+    {"name": "AECN, QOWV, SR26-05208.pdf", "linked_datapoints": ["Carbon Content of Bio-oil Injected (per injection)"], "type": "Document", "visibility": "Private"},
+    {"name": "September 2025 Production Period Summary.xlsx", "linked_datapoints": ["QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)"], "type": "Document", "visibility": "Private"},
+    {"name": "August 2025 Production Period Summary.xlsx", "linked_datapoints": ["QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)"], "type": "Document", "visibility": "Private"},
+    {"name": "May 26 Production Period Summary.xlsx", "linked_datapoints": ["QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)"], "type": "Document", "visibility": "Private"},
+    {"name": "Apr 26 Production Period Summary.xlsx", "linked_datapoints": ["QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)"], "type": "Document", "visibility": "Private"},
+    {"name": "Mar 26 Production Period Summary.xlsx", "linked_datapoints": ["QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)"], "type": "Document", "visibility": "Private"},
+    {"name": "Jan 26 Production Period Summary.xlsx", "linked_datapoints": ["QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)"], "type": "Document", "visibility": "Private"},
+    {"name": "Production Period 8 Summary.xlsx", "linked_datapoints": ["QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)"], "type": "Document", "visibility": "Private"},
+    {"name": "Production Period 7 Summary.xlsx", "linked_datapoints": ["QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)"], "type": "Document", "visibility": "Private"},
+    {"name": "INJ-08-2026-W5 Ops Notes.xlsx", "linked_datapoints": ["QOWV Embodied Distance", "QOWV Transport Mass (CO to B6) [Certify input]", "QOWV Pyrolysis Mass [Certify input]", "QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)", "Mass of Injectant (per injection)", "Carbon Content of Bio-oil Injected (per injection)"], "type": "Document", "visibility": "Private"},
+    {"name": "Charm-RetirementCertificate-RD-EACs-20251218.pdf", "linked_datapoints": ["BCUs Applied - Bio-Oil Transport Process [Certify input]"], "type": "Document", "visibility": "Public"},
+    {"name": "Standard Emission Factors + Calculations (8).xlsx", "linked_datapoints": ["Emissions Factor - Vehicle Embodied Emissions - Flatbed Truck"], "type": "Document", "visibility": "Public"},
+    {"name": "November 2025 Production Period Summary.xlsx", "linked_datapoints": ["QOWV Pyrolysis Emissions - Carbon Intensity (Weighted)"], "type": "Document", "visibility": "Public"},
+    {"name": "CO to Basco Routing Map.png", "linked_datapoints": ["QOWV Embodied Distance", "Distance from Miniforge CO to Basco"], "type": "Document", "visibility": "Public"},
+    {"name": "GLEC V3.2", "linked_datapoints": ["Flatbed, Northern America, WTW"], "type": "Website", "visibility": "Public"}
+  ],
+  "charm_contents_sheet": {
+    "present_in_drive": false,
+    "present_in_certify_sources": false,
+    "note": "Confirmed absent from both locations, consistent with established precedent that this artifact does not exist for 2026 weekly batches (per prior QOWV batch QA notes, e.g. INJ-08-2026-W3-QOWV, W4-QOWV). Per-PP mass breakdown is instead evidenced via the Ops Notes QOWV tab per-tote Production Period column plus the PP Summary xlsx files."
+  },
+  "pp_summary_lookup_table_from_ops_notes": {
+    "PP#7": 0.1373671128, "PP#8": 0.1575553395, "PP#9": 0.1105698239, "PP#10": 0.128689567,
+    "November 2025": 0.1392140548, "December 2025": 0.1630616644, "January 2026": 0.1568340169,
+    "February 2026": 0.1330497939, "March 2026": 0.1185251532, "April 2026": 0.1314184532,
+    "May 2026": 0.1106615762, "June 2026": 0.1236896674,
+    "July 2026 and later (Jan-Jun 2026 rolling)": 0.120947
+  }
+}

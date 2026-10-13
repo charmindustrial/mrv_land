@@ -1,0 +1,1128 @@
+{
+ "batch_id": "INJ-09-2026-W4-KERRY",
+ "oil_type": "Kerry",
+ "delivery_mode": "tanker",
+ "delivery_mode_basis": "Drive 'Kerry Oil' subfolder holds one Full + one Empty CAT Scale ticket pair (Sept_W4_Full_Scale_Ticket_Kerry.jpg, Sept_W4_Empty_Scale_Ticket_Kerry.jpg), commodity 'TANKER' on both; Ops Notes Kerry tab header 'BATCH HEADER — Kerry (Calciner Waste Oil, Tankers)'; no tote ledger and no multi-tote BOL",
+ "reporting_period": "2026-09-01 to 2026-09-30 (Certify removal period 19 Sep 2026 to 25 Sep 2026)",
+ "certify_removal_id": "rmv_1M3T2J3V51S0NCHH",
+ "certify_project_id": "prj_1HZSSWBQM1S08H83",
+ "certify_removal_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit",
+ "drive_folder_url": "https://drive.google.com/drive/folders/1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0",
+ "T0": "2026-10-06T18:23:50Z",
+ "preflight": {
+  "knowledge_base": "knowledge-base/Charm_Isometric_Knowledge_Base.md read in full (lines 1-1300) at 2026-10-06 ~18:24Z: Sections 0-16, incl. BCU QA Rule (never exceed), uncertainty Layers 1-3, Document Location Rule, Kerry oil entry",
+  "lessons_learned": "skills/qa/batch-qa-kerry/references/lessons_learned.md read in full: FC-K1 to FC-K8 and cross-skill FC1/FC3/FC8/FC10; AECN FC12-FC14 read in skills/qa/batch-qa-aecn/references/lessons_learned.md lines 219-313",
+  "checklist_structure": "skills/qa/batch-qa-kerry/references/checklist_structure.md read in full: tote vs tanker table, Sections 1-8, custody rule (2026-09-29), tanker uncertainty 72.57 kg",
+  "failure_categories_printed": [
+   "FC-K2 process transport mass is gross mass hauled; tanker = oil-only ticket net",
+   "FC-K4 no 1.29% sparging on Kerry",
+   "FC-K5 no upstream Kerry production or biomass component",
+   "FC-K6 counterfactual = 0",
+   "FC-K7 detect tote vs tanker from the artifacts and record it",
+   "FC-K8 follow any changed finding through every dependent row",
+   "FC1 Sources tab is the document truth; COBB cell A before values",
+   "FC3 open both ticket images; open every component modal",
+   "FC8 vehicle embodied EF per mile",
+   "FC10 every note cites [log:KEY]; blocked needs 3 attempts",
+   "FC14 read VVB guidance and Ops Notes cell comments first",
+   "FC12 / FC13 fix every dependent row; no Pass row narrates a cross-batch inconsistency",
+   "not applicable (tote only): FC-K1, FC-K3"
+  ],
+  "failure_categories_printed_when": "21:30:40Z as a chat message (the 18:24Z first-pass list was not shown in chat), before the ordered Gate 1 re-pass",
+  "registry_checked": "skills/qa/batch-qa-kerry/qa_active_kerry_batches.json read in full: entries INJ-08-2026-W3-KERRY, K-002, INJ-07-2026-W4-KERRY; no INJ-09-2026-W4 entry, fresh QA"
+ },
+ "vvb_guidance": {
+  "_primary_source_opened": [
+   {
+    "file": "VVB Guidance September 1 - September 30",
+    "action": "pdf_read",
+    "drive_id": "1pib26xToLPFxaOla2p3pv4ummq5ekPpAn65FFuqrlPc",
+    "live_source_url": "https://docs.google.com/document/d/1pib26xToLPFxaOla2p3pv4ummq5ekPpAn65FFuqrlPc/edit",
+    "artifact_path": "source_exports/VVB_Guidance_Sep_2026.txt",
+    "modified": "2026-10-05T07:16:43Z"
+   },
+   {
+    "file": "VVB Guidance August 1 - August 31",
+    "action": "pdf_read",
+    "drive_id": "1_dYfx8sZERQI5fMPAtIaOsYNE5aQupm7AYHoIFsEH7Y",
+    "live_source_url": "https://docs.google.com/document/d/1_dYfx8sZERQI5fMPAtIaOsYNE5aQupm7AYHoIFsEH7Y/edit",
+    "artifact_path": "source_exports/VVB_Guidance_Aug_2026.txt"
+   },
+   {
+    "file": "VVB Guidance July 1 - July 31",
+    "action": "pdf_read",
+    "drive_id": "1IQS3Aeqg3MISVjXqzRtYcYmCvEfRo7LNxQgilqdlF0U",
+    "live_source_url": "https://docs.google.com/document/d/1IQS3Aeqg3MISVjXqzRtYcYmCvEfRo7LNxQgilqdlF0U/edit",
+    "artifact_path": "source_exports/VVB_Guidance_Jul_2026.txt"
+   }
+  ],
+  "read_in_full": true,
+  "read_order": "First pass: Certify Components page (18:24:52Z) and Drive folder listing (18:24:53Z) were opened before the September guidance (18:26:00Z); the guidance preceded the Ops Notes, tickets, lab report, COBB and every Certify modal and source. Gate 1 was re-run in order at 21:30Z (see gate1_ordered_repass).",
+  "sections_sep": [
+   "AECN Rail — Oil Withdrawn for Research and Development (Week 3, INJ-09-2026-W3)",
+   "AECN Rail — New Rail Destination at Baton Rouge (Railcar SHPX215053, Week 4, INJ-09-2026-W4)",
+   "AECN Rail — Bio-oil Loss",
+   "Site Gasoline — E-85 Fills Quantified at an E-85 Emission Factor",
+   "Site Diesel — Rail-Yard Air Compressor Fuel",
+   "Immateriality of Argon Transport and removal from calculations"
+  ],
+  "sep_week4_window_verbatim": "SHPX215053, offloaded in Week 4 (INJ-09-2026-W4, 18 – 25 September 2026)",
+  "sep_kerry_content": "September and August docs carry no Kerry section; the Kerry tanker method is the July section quoted below",
+  "kerry_method_july_verbatim": {
+   "delivery_vehicle": "In this Reporting Period, Kerry calciner oil is delivered to the Basco injection site in bulk tanker trailers rather than in IBC totes as in prior Periods.",
+   "delivery_form": "Delivered mass is therefore established from CAT Scale tickets — the full weight less the post-offload empty (tare) weight of the same tractor and trailer — rather than from per-tote tag weights. There is no per-tote record for a tanker load; the scale tickets are the primary mass evidence.",
+   "filtered_mass": "For Kerry, that subtraction uses the measured solids content of Kerry calciner oil itself, not the AECN-derived solids content that Charm applies to its other third-party oil.",
+   "testing_location": "Testing is in the Additional Documentation folder.",
+   "constants_block_citation": "The Kerry solids value and its source analysis are cited on the constants block of the Kerry tab in the weekly ops notes",
+   "loss_treatment": "Kerry takes a filtration deduction only. No sparging loss is applied to Kerry oil (because Kerry is not sparged)",
+   "tank_hold": "The oil that is unloaded from the truck is held in a dedicated tank and progressively injected in combination with AECN injections as the high viscosity of the oil precludes independent injection.",
+   "removal_completion": "trucked Kerry oil is progressively co-injected with AECN over the course of the month and the associated removal is not considered complete until the tank is empty.",
+   "ph": "we do not have an independent pH value that is specific to Kerry. Rather, the pH measured over the course of the month’s AECN injections is net of Kerry oil as well."
+  },
+  "bearing_on_this_batch": "July Kerry section governs: ticket pair is the mass evidence, Kerry-specific filtration only, no sparging, tank hold until empty, pH shared with AECN. No section in any of the three docs addresses holding one Kerry tanker load across weeks while a later load is credited first, or the 14-day ticket-to-injection gap.",
+  "ops_notes_cell_comments": [
+   {
+    "tab": "AECN Truck",
+    "cell": "H28",
+    "text": "Wellhead pH = weekly median of Ignition PH-1041, gated to StateRun=1; provided by G. Lutz 2026-09-30."
+   },
+   {
+    "tab": "Kerry",
+    "cell": "D18",
+    "text": "Wellhead pH = weekly median of Ignition PH-1041, gated to StateRun=1; provided by G. Lutz 2026-09-30."
+   }
+  ]
+ },
+ "batch_folder_inventory": {
+  "_primary_source_opened": [
+   {
+    "file": "Drive folder W4 (1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0) listing, all pages + subfolders",
+    "action": "csv_exported",
+    "live_source_url": "https://drive.google.com/drive/folders/1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0",
+    "artifact_path": "batch_folder_listing.txt"
+   }
+  ],
+  "items": [
+   "INJ-09-2026-W4 Ops Notes (Google Sheet 1zgrkVKQsGlzwjiumtn1vkYSaCt5_XTr7UWs3lR3RORQ, modified 2026-10-05T15:09:43Z)",
+   "Kerry Oil/ (2 files: Sept_W4_Full_Scale_Ticket_Kerry.jpg 1GGBPvhyFDrD6GT-kC86Vx7tbiQ9iTjl4; Sept_W4_Empty_Scale_Ticket_Kerry.jpg 1LwkjfYLg37l7whJyCG5mU5Z7bsKD3IKi)",
+   "Testing/ (1 file: SR26-05719 W4 Kerry AECN QOWV COA.pdf 1Viar0c3xdOh-pwkpbsNY0buJPDH5AGEJ)",
+   "Scale Tickets/ (AECN railcar subfolders SHPX215079, SHPX215091, SHPX215053, SHPX215039)",
+   "RailLogix (Carville LA) to Basco B6 Truck Route - 136 mi.png (AECN route map)"
+  ],
+  "kerry_mass_subfolder": "Kerry Oil/",
+  "testing_subfolder_files": 1
+ },
+ "scale_tickets": {
+  "_primary_source_opened": [
+   {
+    "file": "Sept_W4_Full_Scale_Ticket_Kerry.jpg",
+    "action": "image_read",
+    "live_source_url": "https://drive.google.com/file/d/1GGBPvhyFDrD6GT-kC86Vx7tbiQ9iTjl4/view",
+    "artifact_path": "screenshots/Sept_W4_Full_Scale_Ticket_Kerry.jpg",
+    "sha256": "f96cc79a8c9e2a59297aa5780d44690a9ca5b8e7d990eabaf5a266e76799879f"
+   },
+   {
+    "file": "Sept_W4_Empty_Scale_Ticket_Kerry.jpg",
+    "action": "image_read",
+    "live_source_url": "https://drive.google.com/file/d/1LwkjfYLg37l7whJyCG5mU5Z7bsKD3IKi/view",
+    "artifact_path": "screenshots/Sept_W4_Empty_Scale_Ticket_Kerry.jpg",
+    "sha256": "fa21223886b293fde823f34499a841df1100bbbacebbccb78d8eab037bf31ce8"
+   }
+  ],
+  "full_ticket": {
+   "ticket_number": "1189526252027",
+   "date": "9-09-26",
+   "time": "09:27",
+   "scale": "1895",
+   "location": "LOVES COUNTRY STORES, I43 S BUISNESS DR EX 120, WILSON TOWNSHIP WI",
+   "steer_lb": 12280,
+   "drive_lb": 31920,
+   "trailer_axle_lb": 29800,
+   "gross_weight_lb": 74000,
+   "commodity": "TANKER",
+   "company": "FREIBURGER",
+   "tractor": "07",
+   "trailer": "1013",
+   "weigh_number": "2027",
+   "delivery_site": "CHARM",
+   "drive_file_created": "2026-09-30T17:02:38Z"
+  },
+  "empty_ticket": {
+   "ticket_number": "1319926254821",
+   "date": "9-11-26",
+   "time": "13:20",
+   "scale": "3199",
+   "location": "LOVES COUNTRY STORE, HWY 82 HWY 65, LAKE VILLAGE AR",
+   "steer_lb": 11780,
+   "drive_lb": 13840,
+   "trailer_axle_lb": 8680,
+   "gross_weight_lb": 34300,
+   "commodity": "TANKER",
+   "company": "FREIBURGER",
+   "tractor": "07",
+   "trailer": "1013",
+   "weigh_number": "4821",
+   "delivery_site": "CHARM",
+   "drive_file_created": "2026-09-14T19:13:59Z"
+  },
+  "tractor_trailer_match": true,
+  "scale_type": "CAT Scale (Certified Automated Truck Scale) on both tickets — commercial truck scale",
+  "net_lb": 39700,
+  "net_kg": 18007.6024,
+  "days_full_ticket_to_ops_row_date_20260925": 16,
+  "days_empty_ticket_to_ops_row_date_20260925": 14,
+  "days_full_ticket_to_cobb_completion_20260923": 14,
+  "certify_copies_identical_to_drive": true
+ },
+ "bol": {
+  "status": "absent",
+  "_primary_source_opened": [
+   {
+    "file": "Drive W4 folder listing + Certify Sources tab (8 sources)",
+    "action": "csv_exported",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit?tab=sources",
+    "artifact_path": "certify_sources_tab.txt",
+    "negative_check_tokens": [
+     "Bill of Lading",
+     "BOL"
+    ],
+    "items_found": []
+   }
+  ],
+  "searched": [
+   "Drive W4 batch folder and all four subfolders",
+   "Certify Sources tab (8 sources)",
+   "COBB BOL_number field holds the tanker UID 'WILA004', not a BOL document"
+  ]
+ },
+ "lab_results": {
+  "_primary_source_opened": [
+   {
+    "file": "SR26-05719 W4 Kerry AECN QOWV COA.pdf (page 1 of 3, SR26-05719.001)",
+    "action": "pdf_read",
+    "live_source_url": "https://drive.google.com/file/d/1Viar0c3xdOh-pwkpbsNY0buJPDH5AGEJ/view",
+    "artifact_path": "source_exports/Drive_Testing_SR26-05719_COA_1Viar0c3xdOh.pdf"
+   }
+  ],
+  "certificate": "SR26-05719.001",
+  "sgs_order": "5506143",
+  "client_id": "9-2026-W4-KERRY",
+  "location_on_coa": "FORT LUPTON, CO",
+  "sample_source": "Submitted Sample",
+  "sampled_by": "Client",
+  "sampled": "25-Sep-2026 07:00",
+  "received": "28-Sep-2026 11:00",
+  "analysed": "28-Sep-2026 14:29 - 28-Sep-2026 23:23",
+  "report_date": "28-Sep-2026",
+  "carbon_pct": 57.9,
+  "hydrogen_pct": 6.4,
+  "nitrogen": "<0.75",
+  "kinematic_viscosity_cst_40C": 545.2,
+  "acid_number_mgKOH_g": 154,
+  "density_15C_g_cm3": 1.201,
+  "lab_flags": "Carbon, Hydrogen and Acid Number marked '#' (outside test method limits / precision study range)",
+  "aecn_sample_same_report": {
+   "certificate": "SR26-05719.002",
+   "location_on_coa": "FORT LUPTON, CO",
+   "carbon_pct": 44.0,
+   "hydrogen_pct": 6.6
+  },
+  "certify_copy_sha256": "276ccd65301889cf4e037a09ee2f397d6e2224f336dbfc0895947baf766943f6",
+  "drive_copy_sha256": "276ccd65301889cf4e037a09ee2f397d6e2224f336dbfc0895947baf766943f6"
+ },
+ "ops_notes": {
+  "_primary_source_opened": [
+   {
+    "file": "INJ-09-2026-W4 Ops Notes (live export 2026-10-06 18:28Z, formulas and values)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1zgrkVKQsGlzwjiumtn1vkYSaCt5_XTr7UWs3lR3RORQ/edit",
+    "artifact_path": "source_exports/INJ-09-2026-W4_Ops_Notes_live_20261006T1828Z.xlsx"
+   }
+  ],
+  "tabs": [
+   "Summary",
+   "AECN Rail",
+   "AECN Truck",
+   "Kerry",
+   "WODO",
+   "QOWV",
+   "Whole Oil",
+   "QOWV Shipments & EE Allocation",
+   "WODO Shipments & EE Allocation",
+   "Whole Oil Shipments & EE Alloca"
+  ],
+  "kerry_row": {
+   "A10_date": "2026-09-25",
+   "B10_uid": "WILA004",
+   "C10_full_ticket_lb": 74000,
+   "C10_formula": "=HYPERLINK(\"https://drive.google.com/file/d/1GGBPvhyFDrD6GT-kC86Vx7tbiQ9iTjl4/view\", 74000)",
+   "D10_empty_ticket_lb": 34300,
+   "D10_formula": "=HYPERLINK(\"https://drive.google.com/file/d/1LwkjfYLg37l7whJyCG5mU5Z7bsKD3IKi/view\", 34300)",
+   "E10_net_oil_lb": 39700,
+   "F10_net_kg": 18007.6024,
+   "F10_formula": "=E10*M4",
+   "G10_ph": 2.97,
+   "I10_c_content": null,
+   "J10_c_uncertainty": null,
+   "K10_mass_uncertainty": null
+  },
+  "rollup": {
+   "A18_sum_net_kg": 18007.6024,
+   "B18_filtration_loss_kg": 12.7853977,
+   "B18_formula": "=A18*$M$5",
+   "C18_mobi_kg": 17994.817,
+   "C18_formula": "=A18-B18",
+   "D18_ph": 2.97,
+   "G18_origins": "WILA004"
+  },
+  "constants": {
+   "M3_lbs_per_kg": 2.20462,
+   "M4_kg_per_lb": 0.453592,
+   "M5_filtration_solids": 0.00071,
+   "M6_ph_target": "2.0 - 4.0",
+   "M7_testing_uncertainty": 0.004
+  },
+  "constants_M5_comment": null,
+  "constants_M5_hyperlink": null,
+  "headers": {
+   "A": "Date",
+   "B": "UID",
+   "C": "Gross Mass (lb) — transport",
+   "D": "Empty Weight (lb)",
+   "E": "Net Oil (lb)",
+   "F": "Net Injected (kg) — MOBI",
+   "G": "pH",
+   "H": "Notes",
+   "I": "C Content",
+   "J": "C Content Uncertainty",
+   "K": "Mass Uncertainty (Scaling)",
+   "A8": "SECTION 1 - TANKER LEDGER  (one row per Kerry tanker; scale mass is authoritative)",
+   "A1": "BATCH HEADER — Kerry (Calciner Waste Oil, Tankers)",
+   "A17": "Σ Net Injected (kg)",
+   "B17": "Filtration Loss (kg)",
+   "C17": "MOBI (kg)",
+   "D17": "pH"
+  },
+  "summary": {
+   "B11_deliveries_cargo_kg": 18007.6024,
+   "D11_mass_used_kg": 18007.6024,
+   "E11_sparging_loss_kg": 0.0,
+   "F11_filtration_loss_kg": 12.7853977,
+   "G11_mobi_kg": 17994.817,
+   "B19_kerry_mobi_kg": 17994.817,
+   "C19_composite_sample_id": "SR26-05719.001",
+   "D19_date_composited": "2026-09-25",
+   "E19_c_fraction": 0.579,
+   "F19_coa_link": "=HYPERLINK(\"https://drive.google.com/file/d/1Viar0c3xdOh-pwkpbsNY0buJPDH5AGEJ/view\",\"COA SR26-05719.001\")",
+   "G19_c_uncertainty_fraction": 0.002316,
+   "H19_testing_uncertainty": 0.004
+  },
+  "aecn_mass_in_kg_summary_G8": 263834.2716,
+  "total_mobi_all_oils_kg_summary_G13": 316008.5886,
+  "certify_attached_copy": {
+   "file": "INJ-09-2026-W4 Ops Notes - 2026-10-01 (src_1M3W1NWED1S0K0MP)",
+   "artifact_path": "source_exports/Certify_attached_Ops_Notes_src_1M3W1NWED1S0K0MP.xlsx",
+   "kerry_tab_value_diffs_vs_live": [],
+   "kerry_tab_formula_diffs_vs_live": [
+    "C10: plain 74000 in the attached copy, HYPERLINK to the Full ticket in live",
+    "D10: plain 34300 in the attached copy, HYPERLINK to the Empty ticket in live"
+   ]
+  }
+ },
+ "filtration_constant_source": {
+  "_primary_source_opened": [
+   {
+    "file": "CAR-474 Solids Loading in Kerry-AECN-WODO oils (2026-05-28) - source for Kerry Calciner 0.071%.xlsx",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://drive.google.com/file/d/1twIf0H9Ma4crVsPgD0Iq6eFDwxQIC-ni/view",
+    "artifact_path": "source_exports/CAR-474_Solids_Loading_Kerry_source_0.071pct.xlsx"
+   }
+  ],
+  "rows": [
+   [
+    "Sample",
+    "% Solids",
+    "Lab"
+   ],
+   [
+    "WODO",
+    0.3,
+    "Charm"
+   ],
+   [
+    "GPRX 5254 TANKER LOAD",
+    0.33,
+    "SGS"
+   ],
+   [
+    "GPRX 5254 RAILCAR PRELOAD",
+    0.076,
+    "SGS"
+   ],
+   [
+    "MANITOWOC CALCINER PHASE",
+    0.071,
+    "SGS"
+   ],
+   [
+    "RHINELANDERRTP TAR",
+    2.5,
+    "SGS"
+   ]
+  ],
+  "manitowoc_calciner_pct_solids": 0.071,
+  "lab": "SGS",
+  "attached_in_certify": false
+ },
+ "cobb_row_id_verified": true,
+ "cobb_cell_A_value": "INJ-09-2026-W4_calciner",
+ "cobb_tracker": {
+  "_primary_source_opened": [
+   {
+    "file": "Bio-oil Injection Tracker, tab 'Basco Injection -- COBB', live query of every row whose injection_batch contains 'calciner' (gviz HTML view, 2026-10-06 18:42Z)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit",
+    "artifact_path": "source_exports/COBB_live_calciner_rows_20261006T1842Z.txt"
+   },
+   {
+    "file": "Same tracker, full workbook export taken 2026-10-06 18:26:54Z (row numbers)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit",
+    "artifact_path": "source_exports/COBB_tracker_export_20261006T1826Z_from_QOWV_session.xlsx"
+   }
+  ],
+  "tab": "Basco Injection -- COBB",
+  "cobb_row_id_verified": true,
+  "cobb_cell_A_value": "INJ-09-2026-W4_calciner",
+  "row_numbers_in_export": [
+   1790,
+   2718,
+   3681
+  ],
+  "row_numbers_note": "The tab repeats its dataset in three blocks; all three W4 calciner rows carry identical values except injection_ph is blank in the third block",
+  "w4_row": {
+   "injection_batch": "INJ-09-2026-W4_calciner",
+   "injected_product": "Kerry Calciner",
+   "consumed_lot": "WILA004_offload_1",
+   "BOL_number": "WILA004",
+   "quantity_consumed_in_injection": 18007.6024,
+   "offloaded_quantity_kg": 18007.6024,
+   "origin_quantity_kg": 20000,
+   "order_line_completed_on": "2026-09-24 18:04:36",
+   "injection_completion_date": "2026-09-23",
+   "injection_ph": 2.97
+  },
+  "w3_row": {
+   "injection_batch": "INJ-09-2026-W3_calciner",
+   "consumed_lot": "WILA003_offload_1",
+   "quantity_consumed_in_injection": 18007.6024,
+   "origin_quantity_kg": 20000,
+   "order_line_completed_on": "2026-09-12 14:17:56",
+   "injection_completion_date": "2026-09-18",
+   "injection_ph": 2.7
+  },
+  "w2_row": {
+   "injection_batch": "INJ-09-2026-W2_calciner",
+   "consumed_lot": "WILA002_offload_1",
+   "quantity_consumed_in_injection": 17000,
+   "origin_quantity_kg": 17000,
+   "order_line_completed_on": "2026-09-02 19:41:31",
+   "injection_completion_date": "2026-09-17",
+   "injection_ph": 2.92
+  },
+  "consumed_lot_pattern": "WILA00N_offload_1 (tanker era); the kc_NNNN pattern in the skill reference belongs to the tote batches K-001/K-002",
+  "export_matches_live": true
+ },
+ "cross_week_kerry": {
+  "_primary_source_opened": [
+   {
+    "file": "Sept_W3_Full_Scale_Ticket_Kerry.pdf",
+    "action": "pdf_read",
+    "live_source_url": "https://drive.google.com/file/d/1GAqZF0tspn69yxEu9qeh335noEtt4cIH/view",
+    "artifact_path": "source_exports/w3_kerry_cross_check/Sept-W3-Full-Scale-Ticket-Kerry.pdf"
+   },
+   {
+    "file": "Sept_W3_Empty_Scale_Ticket_Kerry.pdf",
+    "action": "pdf_read",
+    "live_source_url": "https://drive.google.com/file/d/1yIF3Xk4gf5-KAlQWOgEdsFtLL17r7eJz/view",
+    "artifact_path": "source_exports/w3_kerry_cross_check/Sept-W3-Empty-Scale-Ticket-Kerry.pdf"
+   },
+   {
+    "file": "Sept_W2_Full_Scale_Ticket_Kerry.jpg",
+    "action": "image_read",
+    "live_source_url": "https://drive.google.com/file/d/1btCtnc1rbtqxocWXm7n2UE64uul98WHY/view",
+    "artifact_path": "source_exports/w3_kerry_cross_check/Sept_W2_Full_Scale_Ticket_Kerry.jpg"
+   },
+   {
+    "file": "Sept_W2_Empty_Scale_Ticket_Kerry.pdf",
+    "action": "pdf_read",
+    "live_source_url": "https://drive.google.com/file/d/1USAs0YoRNzymMk56RZBa70pYdhca1Sbc/view",
+    "artifact_path": "source_exports/w3_kerry_cross_check/Sept-W2-Empty-Scale-Ticket-Kerry.pdf"
+   }
+  ],
+  "ops_notes_kerry_rows": {
+   "INJ-08-2026-W5": {
+    "kerry_tab": true,
+    "header_A1": "BATCH HEADER — Kerry (Calciner Waste Oil, IBC Totes)",
+    "rows": [],
+    "artifact_path": "source_exports/w3_kerry_cross_check/INJ-08-2026-W5_Ops_Notes_live_20261006T1831Z.xlsx"
+   },
+   "INJ-09-2026-W1": {
+    "kerry_tab": true,
+    "header_A1": "BATCH HEADER — Kerry (Calciner Waste Oil, IBC Totes)",
+    "rows": [],
+    "artifact_path": "source_exports/w3_kerry_cross_check/INJ-09-2026-W1_Ops_Notes_live_20261006T1831Z.xlsx"
+   },
+   "INJ-09-2026-W2": {
+    "kerry_tab": true,
+    "header_A1": "BATCH HEADER — Kerry (Calciner Waste Oil, Tankers)",
+    "rows": [
+     {
+      "row": 10,
+      "date": "2026-09-09",
+      "uid": "WILA002",
+      "full_lb": 75520,
+      "empty_lb": 35320,
+      "net_kg": 18234.3984,
+      "full_link": "=HYPERLINK(\"https://drive.google.com/file/d/1btCtnc1rbtqxocWXm7n2UE64uul98WHY/view\", 75520)",
+      "empty_link": "=HYPERLINK(\"https://drive.google.com/file/d/1USAs0YoRNzymMk56RZBa70pYdhca1Sbc/view\", 35320)"
+     }
+    ],
+    "artifact_path": "source_exports/w3_kerry_cross_check/INJ-09-2026-W2_Ops_Notes_live_20261006T1830Z.xlsx"
+   },
+   "INJ-09-2026-W3": {
+    "kerry_tab": true,
+    "header_A1": "BATCH HEADER — Kerry (Calciner Waste Oil, Tankers)",
+    "rows": [
+     {
+      "row": 10,
+      "date": "2026-09-18",
+      "uid": "WILA003",
+      "full_lb": 76680,
+      "empty_lb": 34420,
+      "net_kg": 19168.79792,
+      "full_link": "=HYPERLINK(\"https://drive.google.com/file/d/1GAqZF0tspn69yxEu9qeh335noEtt4cIH/view\", 76680)",
+      "empty_link": "=HYPERLINK(\"https://drive.google.com/file/d/1yIF3Xk4gf5-KAlQWOgEdsFtLL17r7eJz/view\", 34420)"
+     }
+    ],
+    "artifact_path": "source_exports/w3_kerry_cross_check/INJ-09-2026-W3_Ops_Notes_live_20261006T1830Z.xlsx"
+   },
+   "INJ-10-2026-W1": {
+    "kerry_tab": false,
+    "artifact_path": "source_exports/w3_kerry_cross_check/INJ-10-2026-W1_Ops_Notes_live_20261006T1831Z.xlsx"
+   }
+  },
+  "w2_tickets": {
+   "full": {
+    "ticket_number": "1189526243756",
+    "date": "8-31-26",
+    "time": "15:29",
+    "location": "WILSON TOWNSHIP WI",
+    "gross_weight_lb": 75520,
+    "tractor": "07",
+    "trailer": "1013"
+   },
+   "empty": {
+    "ticket_number": "1186426245724",
+    "date": "9-02-26",
+    "time": "10:47",
+    "location": "PORT BARRE LA",
+    "gross_weight_lb": 35320,
+    "tractor": "07",
+    "trailer": "1013"
+   }
+  },
+  "w3_tickets": {
+   "full": {
+    "ticket_number": "1189526259282",
+    "date": "9-16-26",
+    "time": "09:59",
+    "location": "WILSON TOWNSHIP WI",
+    "gross_weight_lb": 76680,
+    "tractor": "07",
+    "trailer": "1013"
+   },
+   "empty": {
+    "ticket_number": "1319926261935",
+    "date": "9-18-26",
+    "time": "22:06",
+    "location": "LAKE VILLAGE AR",
+    "gross_weight_lb": 34420,
+    "tractor": "07",
+    "trailer": "1013"
+   }
+  },
+  "w4_ticket_pair_reused_elsewhere": false,
+  "w3_ops_notes_net_kg": 19168.79792,
+  "w2_ops_notes_net_kg": 18234.3984,
+  "trip_order_by_ticket_date": [
+   "WILA002: 8-31 full / 9-02 empty (credited W2)",
+   "WILA004: 9-09 full / 9-11 empty (credited W4, this removal)",
+   "WILA003: 9-16 full / 9-18 empty (credited W3)"
+  ],
+  "removal_crossref": {
+   "_primary_source_opened": [
+    {
+     "file": "Removal–Batch Cross-Reference — September 1 - September 30 RP",
+     "action": "sheet_grid_read",
+     "live_source_url": "https://docs.google.com/spreadsheets/d/1JcbdFHeAyjeqcCKESwDzJpmUii_FKgK6NH7BWFmi7VI/edit",
+     "artifact_path": "source_exports/Removal_Batch_CrossRef_Sep2026_live_20261006T1834Z.xlsx"
+    }
+   ],
+   "w4_kerry": "rmv_1M3T2J3V51S0NCHH, INJ-09-2026-W4-KERRY, 2026-09-25",
+   "w3_kerry": "rmv_1M3SWNGK51S0GH00, INJ-09-2026-W3-KERRY, 2026-09-18",
+   "w2_kerry": "rmv_1M3SW77M41S0RNME, INJ-09-2026-W2-KERRY, 2026-09-11"
+  },
+  "attribution_sensitivity": {
+   "w3_ops_notes_C17_mobi_kg": 19155.18807,
+   "this_removal_sequestration_t": 38.2065,
+   "sequestration_if_16_18_sep_pair_t": 40.6702,
+   "difference_t": 2.4637,
+   "difference_pct_of_this_removal": 6.45,
+   "transport_process_if_16_18_sep_pair_t": 2.38818,
+   "transport_process_difference_t": 0.14467
+  },
+  "w3_summary_row19": {
+   "composite_sample_id": "SR26-05599.003",
+   "date_composited": "2026-09-16",
+   "c_fraction": 0.579
+  },
+  "w3_certify": {
+   "_primary_source_opened": [
+    {
+     "file": "Certify GHG entry rmv_1M3SWNGK51S0GH00 (W3 Kerry), Sources tab",
+     "action": "modal_opened",
+     "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3SWNGK51S0GH00/edit?tab=sources",
+     "artifact_path": "source_exports/w3_kerry_cross_check/certify_W3_kerry_sources_tab.txt"
+    },
+    {
+     "file": "Certify GHG entry rmv_1M3SWNGK51S0GH00 (W3 Kerry), Datapoints tab",
+     "action": "modal_opened",
+     "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3SWNGK51S0GH00/edit?tab=data-points",
+     "artifact_path": "source_exports/w3_kerry_cross_check/certify_W3_kerry_datapoints_tab.txt"
+    }
+   ],
+   "header": "Removal 40.19 tCO₂e, 12 Sep 2026 to 18 Sep 2026",
+   "ticket_sources": [
+    "Sept_W3_Full_Scale_Ticket_Kerry.pdf",
+    "Sept_W3_Empty_Scale_Ticket_Kerry.pdf"
+   ],
+   "mass_of_injectant_t": 19.155,
+   "allocated_gross_mass_t": 19.169,
+   "carbon_pct": 57.9,
+   "carbon_source": "SR26-05599.003 W3 Kerry COA.pdf",
+   "bcu_t": 2.388
+  }
+ },
+ "standard_efs_2026": {
+  "_primary_source_opened": [
+   {
+    "file": "Standard Emission Factors + Calculations, tab 2026 (live export 18:40Z)",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1RPm-t6EyKIk_MQicbTitx1JLjj2rBkH7kz7Nx0N1ug4/edit?gid=684080705",
+    "artifact_path": "source_exports/Standard_EFs_live_20261006T1840Z.xlsx"
+   }
+  ],
+  "tab": "2026",
+  "row6_label": "Truck Transport Fuel Use (Well to Wheel) -- Tanker Truck",
+  "row6_tanker_fuel_use_mt_per_t_mi": 0.0001143,
+  "row6_source": "GLEC V3.2 2025",
+  "row11_label": "Vehicle Embodied Emissions --Tanker Truck",
+  "row11_tanker_embodied_mt_per_mi": 0.0002375605888,
+  "row11_formula_D": "='Truck and Trailer EE 2026'!B17",
+  "row7_flatbed_fuel_use_mt_per_t_mi": 0.0001384,
+  "certify_attached_copy": {
+   "sources": [
+    "src_1KWZ2NVQM1S08AWN",
+    "src_1KVJRSYT91S09G2E"
+   ],
+   "identical_files": true,
+   "row5_tanker_fuel_use": 0.0001143,
+   "row10_tanker_embodied": 0.0002375605888,
+   "artifact_path": "source_exports/Certify_attached_StdEFs_src_1KWZ2NVQM1S08AWN.xlsx"
+  }
+ },
+ "route_map": {
+  "_primary_source_opened": [
+   {
+    "file": "Kerry to Basco Distance.png (Certify src_1KT1W9XED1S08J0H)",
+    "action": "image_read",
+    "live_source_url": "https://registry.isometric.com/account/certify/source/src_1KT1W9XED1S08J0H",
+    "artifact_path": "source_exports/Certify_attached_src_1KT1W9XED1S08J0H_Kerry_to_Basco_Distance.png"
+   }
+  ],
+  "origin": "4343 Expo Dr, Manitowoc, WI 54220",
+  "destination": "4687 LA-115, St Landry, LA 71367",
+  "options_mi": [
+   1059,
+   1071,
+   1090
+  ],
+  "longest_mi": 1090,
+  "longest_route": "via I-55 S (has tolls), 16 hr 49 min"
+ },
+ "retirement_certificate": {
+  "_primary_source_opened": [
+   {
+    "file": "Charm-RetirementCertificate-RD-EACs-20251218.pdf (Certify src_1M1MFJPW11S08KY2)",
+    "action": "pdf_read",
+    "live_source_url": "https://registry.isometric.com/account/certify/source/src_1M1MFJPW11S08KY2",
+    "artifact_path": "source_exports/Certify_attached_src_1M1MFJPW11S08KY2_Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+   }
+  ],
+  "retiring_org": "Amazon.com Services LLC",
+  "on_behalf_of": "Charm Industrial, Inc",
+  "date": "Dec 18, 2025",
+  "vintage": 2024,
+  "commodity": "Renewable Diesel TERCS",
+  "number_retired": 2795,
+  "verification_body": "Turner, Mason & Company",
+  "certificate": "TERC1012_2024_DF_RENEWABLE_DIESEL-13-47206-50000"
+ },
+ "certify": {
+  "_primary_source_opened": [
+   {
+    "file": "Certify GHG entry rmv_1M3T2J3V51S0NCHH, Components tab",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit",
+    "artifact_path": "certify_initial_snapshot.yml"
+   },
+   {
+    "file": "Injection sequestration modal",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit?component=cmp_1M3T2J3V51S056SG",
+    "artifact_path": "certify_modal_injection_sequestration.txt"
+   },
+   {
+    "file": "Process transport modal",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit?component=cmp_1M3T2J3V51S0J2PA",
+    "artifact_path": "certify_modal_transport_process.txt"
+   },
+   {
+    "file": "Embodied transport modal",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit?component=cmp_1M3T2J3V51S0YDTN",
+    "artifact_path": "certify_modal_transport_embodied.txt"
+   },
+   {
+    "file": "BCU modal",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit?component=cmp_1M3T2J3V51S05QHZ",
+    "artifact_path": "certify_modal_bcu.txt"
+   },
+   {
+    "file": "Calculation view tab",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit?tab=calculation-view",
+    "artifact_path": "certify_calculation_view.txt"
+   },
+   {
+    "file": "Datapoints tab",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit?tab=data-points",
+    "artifact_path": "certify_datapoints_tab.txt"
+   },
+   {
+    "file": "Sources tab",
+    "action": "modal_opened",
+    "live_source_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/ghg-entry/rmv_1M3T2J3V51S0NCHH/edit?tab=sources",
+    "artifact_path": "certify_sources_tab.txt"
+   }
+  ],
+  "removal_header": "Removal 37.73 tCO₂e, 19 Sep 2026 to 25 Sep 2026",
+  "components_total": 4,
+  "component_by_key": {
+   "injection_sequestration": {
+    "value_tCO2e": 38.206,
+    "carbon_content_pct": 57.9,
+    "carbon_content_pm": 0.2316,
+    "carbon_sources": 2,
+    "mass_of_product_kg": 17994.817,
+    "mass_pm_kg": 72.57,
+    "mass_sources": 3,
+    "formula": "product_mass * carbon_content * {co2e_of_carbon}"
+   },
+   "transport_process": {
+    "name": "Kerry to Basco Tanker Truck Transport Process Emissions",
+    "value_tCO2e": 2.244,
+    "pct": "5.95%",
+    "ef_kg_per_t_mi": 0.1143,
+    "ef_label": "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck",
+    "distance_mi": 1090,
+    "mass_of_load_t": 18.0076,
+    "mass_of_load_pm_t": 0.07257,
+    "mass_sources": 3,
+    "formula": "mass * distance * carbon_intensity"
+   },
+   "transport_embodied": {
+    "name": "Kerry to Basco Tanker Truck Transport Embodied Emissions",
+    "value_tCO2e": 0.259,
+    "pct": "0.69%",
+    "ef_kg_per_mi": 0.23756,
+    "ef_label": "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck",
+    "ef_sources": 1,
+    "distance_mi": 1090,
+    "distance_sources": 1,
+    "formula": "distance * carbon_intensity"
+   },
+   "bcu": {
+    "name": "BCUs - Applied to Bio-Oil Transport Process Emissions",
+    "category": "Mitigated / Bio-oil transport (Adjustments)",
+    "value_tCO2e": 2.244,
+    "constant_reduction_kg": 2243.51,
+    "sources": 1
+   }
+  },
+  "component_tree": {
+   "Mitigated": 40.45,
+   "Mitigated/Bio-oil transport": 2.244,
+   "Mitigated/CO2 stored": 38.206,
+   "Emitted": 2.503,
+   "Emitted/Bio-oil transport": 2.503
+  },
+  "no_upstream_production_component": true,
+  "no_counterfactual_component": true,
+  "no_sparging_deduction_on_kerry": true,
+  "calculation_view": {
+   "net_co2e_removed_t": 37.73,
+   "sequestrations_t": 38.206,
+   "adjustments_tCO2e": 2.244,
+   "activities_tCO2e": 2.502,
+   "uncertainty_discount_kg": 217
+  },
+  "datapoints_total": 7,
+  "datapoints": [
+   {
+    "name": "Route Distance Kerry to Basco",
+    "value": "1,090 mi",
+    "collection": "DERIVED",
+    "sources": [
+     "Kerry to Basco Distance.png"
+    ]
+   },
+   {
+    "name": "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck",
+    "value": "0.1476 kgCO₂e/km",
+    "collection": "DERIVED",
+    "sources": [
+     "Standard Emission Factors + Calculations (8).xlsx"
+    ]
+   },
+   {
+    "name": "Allocated Kerry Oil Gross Mass",
+    "value": "18.008 t",
+    "collection": "REPORTED",
+    "sources": [
+     "INJ-09-2026-W4 Ops Notes - 2026-10-01",
+     "Sept_W4_Empty_Scale_Ticket_Kerry.jpg",
+     "Sept_W4_Full_Scale_Ticket_Kerry.jpg"
+    ]
+   },
+   {
+    "name": "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck",
+    "value": "0.07 kgCO₂e/(km⋅t)",
+    "collection": "DERIVED",
+    "sources": [
+     "Standard Emission Factors + Calculations (8).xlsx"
+    ]
+   },
+   {
+    "name": "Mass of Injectant (per injection)",
+    "value": "17.995 t",
+    "collection": "REPORTED",
+    "sources": [
+     "INJ-09-2026-W4 Ops Notes - 2026-10-01",
+     "Sept_W4_Empty_Scale_Ticket_Kerry.jpg",
+     "Sept_W4_Full_Scale_Ticket_Kerry.jpg"
+    ]
+   },
+   {
+    "name": "Carbon Content of Bio-oil Injected (per injection)",
+    "value": "57.90 %",
+    "collection": "REPORTED",
+    "sources": [
+     "SR26-05719 W4 Kerry AECN QOWV COA.pdf",
+     "INJ-09-2026-W4 Ops Notes - 2026-10-01"
+    ]
+   },
+   {
+    "name": "BCUs Applied - Bio-Oil Transport Process [Certify input]",
+    "value": "2.244 tCO₂e",
+    "collection": "DERIVED",
+    "sources": [
+     "Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+    ]
+   }
+  ],
+  "certify_sources_tab_total": 8,
+  "certify_sources_enumeration": [
+   {
+    "name": "INJ-09-2026-W4 Ops Notes - 2026-10-01",
+    "source_id": "src_1M3W1NWED1S0K0MP",
+    "linked": [
+     "Allocated Kerry Oil Gross Mass",
+     "Mass of Injectant (per injection)",
+     "Carbon Content of Bio-oil Injected (per injection)"
+    ],
+    "visibility": "PRIVATE"
+   },
+   {
+    "name": "Sept_W4_Empty_Scale_Ticket_Kerry.jpg",
+    "source_id": "src_1M3VZ8XVN1S0W24R",
+    "linked": [
+     "Allocated Kerry Oil Gross Mass",
+     "Mass of Injectant (per injection)"
+    ],
+    "visibility": "PRIVATE"
+   },
+   {
+    "name": "Sept_W4_Full_Scale_Ticket_Kerry.jpg",
+    "source_id": "src_1M3VZ8VKH1S0MRDE",
+    "linked": [
+     "Allocated Kerry Oil Gross Mass",
+     "Mass of Injectant (per injection)"
+    ],
+    "visibility": "PRIVATE"
+   },
+   {
+    "name": "SR26-05719 W4 Kerry AECN QOWV COA.pdf",
+    "source_id": "src_1M3VZ8S8W1S013HS",
+    "linked": [
+     "Carbon Content of Bio-oil Injected (per injection)"
+    ],
+    "visibility": "PRIVATE"
+   },
+   {
+    "name": "Charm-RetirementCertificate-RD-EACs-20251218.pdf",
+    "source_id": "src_1M1MFJPW11S08KY2",
+    "linked": [
+     "BCUs Applied - Bio-Oil Transport Process [Certify input]"
+    ],
+    "visibility": "PUBLIC"
+   },
+   {
+    "name": "Standard Emission Factors + Calculations (8).xlsx",
+    "source_id": "src_1KWZ2NVQM1S08AWN",
+    "linked": [
+     "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck"
+    ],
+    "visibility": "PUBLIC"
+   },
+   {
+    "name": "Standard Emission Factors + Calculations (8).xlsx",
+    "source_id": "src_1KVJRSYT91S09G2E",
+    "linked": [
+     "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck"
+    ],
+    "visibility": "PUBLIC"
+   },
+   {
+    "name": "Kerry to Basco Distance.png",
+    "source_id": "src_1KT1W9XED1S08J0H",
+    "linked": [
+     "Route Distance Kerry to Basco"
+    ],
+    "visibility": "PUBLIC"
+   }
+  ],
+  "attachment_map": {
+   "Mass of Injectant (per injection)": [
+    "INJ-09-2026-W4 Ops Notes - 2026-10-01",
+    "Sept_W4_Empty_Scale_Ticket_Kerry.jpg",
+    "Sept_W4_Full_Scale_Ticket_Kerry.jpg"
+   ],
+   "Allocated Kerry Oil Gross Mass": [
+    "INJ-09-2026-W4 Ops Notes - 2026-10-01",
+    "Sept_W4_Empty_Scale_Ticket_Kerry.jpg",
+    "Sept_W4_Full_Scale_Ticket_Kerry.jpg"
+   ],
+   "Carbon Content of Bio-oil Injected (per injection)": [
+    "SR26-05719 W4 Kerry AECN QOWV COA.pdf",
+    "INJ-09-2026-W4 Ops Notes - 2026-10-01"
+   ],
+   "Route Distance Kerry to Basco": [
+    "Kerry to Basco Distance.png"
+   ],
+   "Emissions Factor - Truck Transport Fuel Use (Well to Wheel) - Tanker Truck": [
+    "Standard Emission Factors + Calculations (8).xlsx"
+   ],
+   "Emissions Factor - Vehicle Embodied Emissions - Tanker Truck": [
+    "Standard Emission Factors + Calculations (8).xlsx"
+   ],
+   "BCUs Applied - Bio-Oil Transport Process [Certify input]": [
+    "Charm-RetirementCertificate-RD-EACs-20251218.pdf"
+   ]
+  },
+  "required_evidence": {
+   "Mass of Injectant": [
+    "scale_ticket",
+    "ops_notes"
+   ],
+   "Allocated Kerry Oil Gross Mass": [
+    "scale_ticket"
+   ],
+   "Carbon Content of Bio-oil Injected": [
+    "lab"
+   ],
+   "Route Distance": [
+    "map_or_watco"
+   ],
+   "Emissions Factor - Truck Transport Fuel Use": [
+    "ef_sheet"
+   ],
+   "Emissions Factor - Vehicle Embodied Emissions": [
+    "ef_sheet"
+   ],
+   "BCUs Applied": [
+    "eac_cert"
+   ]
+  },
+  "required_evidence_basis": "Built from this removal's seven datapoints as read on the Datapoints and Sources tabs; categories follow MATRICES['KERRY'] (tanker, validated INJ-07-2026-W4) with keys matched to the current datapoint names"
+ },
+ "solids_constant_check": {
+  "_primary_source_opened": [
+   {
+    "file": "INJ-09-2026-W4 Ops Notes, AECN Rail tab N7:O7",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1zgrkVKQsGlzwjiumtn1vkYSaCt5_XTr7UWs3lR3RORQ/edit",
+    "artifact_path": "source_exports/INJ-09-2026-W4_Ops_Notes_live_20261006T1828Z.xlsx"
+   },
+   {
+    "file": "INJ-08-2026-W5 Ops Notes, Kerry tab O5 cell note",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://docs.google.com/spreadsheets/d/1o6xz3GjWJSkmMNnjZV30U4-HNzZyJCSAp-XgsCJqbEY/edit",
+    "artifact_path": "source_exports/w3_kerry_cross_check/INJ-08-2026-W5_Ops_Notes_live_20261006T1831Z.xlsx"
+   }
+  ],
+  "aecn_rail_O7_label": "Filtration Solids Content",
+  "aecn_rail_O7_filtration_solids": 0.00196,
+  "aecn_rail_O7_formula": "=HYPERLINK(\"https://docs.google.com/spreadsheets/d/1XhIwfVwGTl2T04CAlA-qee03gfqxNWwBmSCAeiSW548/edit?usp=sharing\", 0.00196)",
+  "kerry_M5_filtration_solids": 0.00071,
+  "july_guidance_verbatim": "Kerry calciner oil measures materially higher in solids than AECN oil",
+  "july_guidance_quote_in_source": true,
+  "w5_kerry_O5_note_verbatim": "Kerry Calciner filtration solids = 0.071% (0.00071). Cell is hyperlinked to the test.\n\nSOURCE OF RECORD: CAR-474 'Solids Loading in Kerry-AECN-WODO oils.xlsx', sample 'MANITOWOC CALCINER PHASE' = 0.071 % Solids, lab SGS, measured 2026-05-28.\nFiled this RP at: August 1 - August 31 RP / Injection Batch Data / Kerry Oil /\nCAR-474 folder: https://drive.google.com/drive/folders/1TrKV8srSpVrofMKx1KM77qALoDlqQiK1\n\nFull CAR-474 set (% solids): WODO 0.3 (Charm); GPRX 5254 Tanker Load 0.33 (SGS); GPRX 5254 Railcar Preload 0.076 (SGS); Manitowoc Calciner Phase 0.071 (SGS); Rhinelander RTP Tar 2.5 (SGS).\n\nDISCREPANCY TO CONFIRM WITH THE LAB: the Slack announcement of CAR-474 (steven.rowland, #chemical-analysis-notifs 2026-05-29 10:42 MDT) quotes 'Kerry Manitowoc Calciner Phase Separated Tar - 0.71% solids' and 'WODO - 0.33%' - i.e. 10x this value for Kerry, and the tanker-load figure for WODO. All three copies of the CAR-474 data file read 0.071 and 0.3, so the data file is authoritative and the Slack text is treated as a transcription slip. Confirm with Steven Rowland before this constant is ever changed.\n\nSolids is NOT on the SGS MRV COA panel (C/H/N, D445 viscosity, titration solvent volume, D664 acid number, D4052 density) - it only comes from CAR filtration work.\n\nPRODUCT DRIFT: Calciner 0.071% vs Rhinelander 2.5% is ~35x. Confirm the product from the COA CLIENT ID / SOURCE ID before applying (W3 = '08-2026-W3 KERRY', SOURCE ID 'B CALCINER').",
+  "w5_note_discrepancy_quote": "quotes 'Kerry Manitowoc Calciner Phase Separated Tar - 0.71% solids'",
+  "w5_note_confirm_quote": "Confirm with Steven Rowland before this constant is ever changed.",
+  "w5_note_resolution_quote": "the data file is authoritative and the Slack text is treated as a transcription slip",
+  "w4_M5_note": null,
+  "sensitivity_if_0_71_pct": {
+   "mobi_kg": 17879.748,
+   "sequestration_t": 37.9622,
+   "difference_t": -0.2443,
+   "difference_pct": -0.64
+  }
+ },
+ "reference_rules": {
+  "kb_ticket_date_rule": "For each pair: dates within 2 weeks of injection [VR Sec 3.5]",
+  "kb_ticket_date_rule_in_source": true,
+  "kb_path": "knowledge-base/Charm_Isometric_Knowledge_Base.md (Section 10A, item 2)"
+ },
+ "adversarial_review": {
+  "file": "adversarial_review_INJ-09-2026-W4-KERRY.md",
+  "reviewer": "independent general-purpose agent (adversarial-reviewer skill), files on disk only, no browser",
+  "rows_upheld": 27,
+  "rows_challenged": 5,
+  "accepted": [
+   "1.5 Pass -> Flag: Kerry solids constant 0.00071 below AECN 0.00196 against July 'materially higher'; Aug W5 note's 0.71% discrepancy; M5 uncited (moved from 1.7(e))",
+   "1.7 Fail kept; wording fixed: COBB quantity does not separate WILA003/WILA004; W3 claim now read from the W3 Certify removal itself; KB 14-day rule quoted; transport/BCU effect added; dependent rows marked",
+   "2A.6: COBB WILA004 quantity removed as support (WILA003 carries the same figure)",
+   "3.6: paraphrase replaced by the verbatim July pH sentence",
+   "S.4: cell addresses corrected to the value cells (C10, F10, A18, C18)"
+  ],
+  "reviewer_notes_added": [
+   "W3 composite sample dated 2026-09-16 (W3 Summary D19) added to 1.7",
+   "empty-ticket Drive filing date 2026-09-14 added to 1.7",
+   "COBB WILA004 offload after its own injection completion added to 1.7"
+  ],
+  "re_checked_by_qa_agent": "AECN Rail O7 and Aug W5 Kerry O5 note opened in the saved workbooks; W3 Kerry Certify removal Sources and Datapoints tabs read live"
+ },
+ "gate1_ordered_repass": {
+  "_primary_source_opened": [
+   {
+    "file": "VVB Guidance September 1 - September 30 (re-read in full)",
+    "action": "pdf_read",
+    "live_source_url": "https://docs.google.com/document/d/1pib26xToLPFxaOla2p3pv4ummq5ekPpAn65FFuqrlPc/edit",
+    "artifact_path": "source_exports/repass/VVB_Guidance_Sep_2026.txt"
+   },
+   {
+    "file": "All Gate 1 sources re-opened after the guidance",
+    "action": "sheet_grid_read",
+    "live_source_url": "https://drive.google.com/drive/folders/1Ed6zGEgZO69vZPbvmDo0l4Sw4zzZiZl0",
+    "artifact_path": "repass_comparison.json"
+   }
+  ],
+  "why": "The step audit (ledger_audit.json, first run) found that in the first pass the Certify Components page (18:24:52Z) and the Drive folder listing (18:24:53Z) were opened before the September guidance (18:26:00Z), and that the failure-category list had not been printed to chat. Every other first-pass read came after the guidance. Gate 1 was re-run in the required order.",
+  "order": [
+   "21:30Z failure categories printed to chat as a plain message",
+   "21:30:41Z re-pass start; 21:30:48-53Z September, August and July guidance re-read from the live docs and read in full",
+   "21:31Z Drive listing, Ops Notes W4 (and W2, W3, Aug W5), Standard EFs, CAR-474, CoA, both ticket images re-downloaded and opened",
+   "21:32Z live COBB calciner rows; Certify Components tab, four component modals, Calculation view, Datapoints, Sources; W3 Kerry Datapoints",
+   "21:46-21:50Z Certify-attached copies of the Ops Notes, both EF workbooks, CoA and both tickets; route map and retirement certificate (opened); Removal-Batch Cross-Reference; Sep W1 and Oct W1 Ops Notes; W2 and W3 ticket files (opened)"
+  ],
+  "result": {
+   "guidance_Sep_identical": true,
+   "guidance_Aug_identical": true,
+   "guidance_Jul_identical": true,
+   "full_ticket_identical": true,
+   "empty_ticket_identical": true,
+   "coa_identical": true,
+   "car474_manitowoc": 0.071,
+   "ops_notes_value_diffs": [],
+   "ops_notes_note_diffs": [],
+   "ops_notes_kerry_values_checked": 49,
+   "INJ-09-2026-W3_kerry_summary_diffs": [],
+   "INJ-09-2026-W3_note_diffs": [],
+   "INJ-09-2026-W2_kerry_summary_diffs": [],
+   "INJ-09-2026-W2_note_diffs": [],
+   "INJ-08-2026-W5_kerry_summary_diffs": [],
+   "INJ-08-2026-W5_note_diffs": [],
+   "ef_row6": 0.0001143,
+   "ef_row11": 0.0002375605888,
+   "ef_identical_to_log": true,
+   "cobb_identical": true,
+   "cobb_note": "compared with the tracker's 'Last updated ... ago' header stamp removed; every data row compared",
+   "certify_modal_injection_sequestration.txt_identical": true,
+   "certify_modal_transport_process.txt_identical": true,
+   "certify_modal_transport_embodied.txt_identical": true,
+   "certify_modal_bcu.txt_identical": true,
+   "certify_calculation_view.txt_identical": true,
+   "certify_datapoints_tab.txt_identical": true,
+   "certify_sources_tab.txt_identical": true,
+   "components_tab_has": {
+    "37.73 tCO₂e": true,
+    "19 Sep 2026 to 25 Sep 2026": true,
+    "38.206 tCO₂e": true,
+    "2.244 tCO₂e": true,
+    "0.259 tCO₂e": true,
+    "4 components": true
+   },
+   "w3_certify_has": {
+    "40.19 tCO₂e": true,
+    "12 Sep 2026 to 18 Sep 2026": true,
+    "19.155 t": true,
+    "19.169 t": true,
+    "Sept_W3_Full_Scale_Ticket_Kerry.pdf": true,
+    "57.90 %": true
+   },
+   "second_batch_files_identical": {
+    "Certify_attached_COA_src_1M3VZ8S8W1S013HS.pdf": true,
+    "Certify_attached_src_1M3VZ8VKH1S0MRDE_Sept_W4_Full_Scale_Ticket_Kerry.jpg": true,
+    "Certify_attached_src_1M3VZ8XVN1S0W24R_Sept_W4_Empty_Scale_Ticket_Kerry.jpg": true,
+    "Certify_attached_src_1KT1W9XED1S08J0H_Kerry_to_Basco_Distance.png": true,
+    "Certify_attached_src_1M1MFJPW11S08KY2_Charm-RetirementCertificate-RD-EACs-20251218.pdf": true,
+    "Certify_attached_StdEFs_src_1KWZ2NVQM1S08AWN.xlsx": true,
+    "Certify_attached_StdEFs_src_1KVJRSYT91S09G2E.xlsx": true,
+    "Certify_attached_Ops_Notes_src_1M3W1NWED1S0K0MP.xlsx": true,
+    "Sept-W3-Full-Scale-Ticket-Kerry.pdf": true,
+    "Sept-W3-Empty-Scale-Ticket-Kerry.pdf": true,
+    "Sept-W2-Empty-Scale-Ticket-Kerry.pdf": true,
+    "Sept_W2_Full_Scale_Ticket_Kerry.jpg": true
+   },
+   "second_batch_values_identical_Removal_Batch_CrossRef_Sep2026.xlsx": true,
+   "second_batch_values_identical_INJ-09-2026-W1-Ops-Notes.xlsx": true,
+   "second_batch_values_identical_INJ-10-2026-W1-Ops-Notes.xlsx": true,
+   "all_match": true
+  }
+ }
+}

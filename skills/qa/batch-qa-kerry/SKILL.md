@@ -11,7 +11,7 @@ You are Max Lavine's QA agent for Kerry injection batch verification at Charm In
 **Scope: Kerry oil only.** This skill covers the Kerry portion of injection batches. Kerry is a waste-derived bio-oil supplied to Charm by a third party. Kerry oil arrives in two possible delivery modes:
 
 - **Tote mode:** flatbed truck delivers totes; each tote is weighed full and empty; net = MOBI.
-- **Tanker mode:** flatbed-haul tanker; full + empty scale ticket pair (analogous to AECN truck).
+- **Tanker mode:** tanker truck (tractor + bulk tanker trailer); full + empty scale ticket pair (analogous to AECN truck). This is the current mode: Kerry moved from flatbed totes to tankers in July 2026 (INJ-07-2026-W4 was the first tanker batch).
 
 The skill detects mode from the data (tote weighing log + multi-tote BOL → tote; single full+empty scale ticket pair + single oil-mass BOL → tanker) and applies the appropriate Section 2 path.
 
@@ -139,10 +139,10 @@ If ANY category is missing or ANY mandatory field is absent, Gate 1 is NOT compl
 - **Conservative MOBI:** MIN(Σ tote nets [or scale ticket net], BOL oil-only mass) used as Kerry credit basis
 - **No sparging applied to Kerry mass.** Kerry enters the homogenization tank un-sparged. The 1.29% sparging deduction belongs to the AECN portion only and is QA'd by the AECN skill on the AECN production batch.
 - **Carbon content:** lab value matches Certify datapoint, used correctly in gross calculation
-- **Transport-EF mass basis:** for the flatbed transport components, the Mass of Load datapoint = **gross mass transported** (BOL gross, including tote tares for tote mode; oil-only mass for tanker mode), NOT the Kerry MOBI alone for tote mode.
+- **Transport-EF mass basis:** for the transport process component (flatbed for totes, tanker truck for tankers), the Mass of Load datapoint = **gross mass transported** (BOL gross, including tote tares for tote mode; oil-only mass for tanker mode), NOT the Kerry MOBI alone for tote mode.
 - **No upstream production components in Certify.** If Kerry Production Process or Embodied components appear, FAIL Section 8.
 - **Counterfactuals = 0** in Certify (expected; the waste boundary excludes upstream rather than offsetting it).
-- **BCUs:** transport process BCU ≥ transport process activity emission
+- **BCUs:** transport process BCU = transport process activity emission, never more (over-coverage is a FAIL)
 
 **Mandatory Verification Sub-Tasks (non-skippable):**
 
@@ -150,9 +150,11 @@ If ANY category is missing or ANY mandatory field is absent, Gate 1 is NOT compl
    - Tote mode: open each per-tote weighing record; verify tare was measured (not nominal label); enumerate serials.
    - Tanker mode: open BOTH full and empty scale ticket PDFs; verify tractor/trailer match.
 2. **COBB tracker (items 5.4, 5.6):** Navigate to the correct tab, find the batch row, confirm cell A matches batch ID. Verify `consumed_lot` follows `kc_NNNN` pattern. Extract offloaded_qty, origin_qty, completion date.
-3. **Uncertainty per-component (items 6a.1, 6a.2):** Open EACH Certify component detail modal (Injection Sequestration, Flatbed Transport Process, Flatbed Transport Embodied, Injection-site emissions). In the INPUTS section, read the +/- values. Compare against expected values (see Uncertainty Reference below). **Failure to open the modals = +3 laziness penalty.**
+3. **Uncertainty per-component (items 6a.1, 6a.2):** Open EACH Certify component detail modal (Injection Sequestration, Kerry to Basco Transport Process, Kerry to Basco Transport Embodied, Injection-site emissions). In the INPUTS section, read the +/- values. Compare against expected values (see Uncertainty Reference below). **Failure to open the modals = +3 laziness penalty.**
 
-**Exit condition:** The .xlsx checklist exists with all items assigned a status (PASS/FAIL/FLAG/N/A), every evidence note contains specific cited values with `[log:KEY]` tags, and all three mandatory sub-tasks completed with primary-source evidence.
+4. **Deterministic recompute (MANDATORY; `run_gates.py` blocks without it).** Write `recompute_<batch>.py` in the batch folder. It reads the source-read log, recomputes the mass chain, conservative MOBI, gross CO2e, both transport components, BCUs and net, compares each with the Certify value in the log (tolerance ~0.001 tCO2e). Every difference between Certify and the evidence (or Certify's own inputs) is a finding: print it as `FINDING <row>[/<row>]: ...` naming the checklist row that carries it, and grade that row Fail or Flag. Exit non-zero only when a difference has not been routed to a row yet or the script cannot run. `run_gates.py` blocks an unrouted difference and any FINDING whose row is not Fail or Flag; a routed finding never blocks delivery (findings rule, 2026-09-29). Paste its full output into the chat before delivery.
+
+**Exit condition:** The .xlsx checklist exists with all items assigned a status (PASS/FAIL/FLAG/N/A), every evidence note contains specific cited values with `[log:KEY]` tags, and all four mandatory sub-tasks completed with primary-source evidence.
 
 ---
 
@@ -167,6 +169,57 @@ If ANY category is missing or ANY mandatory field is absent, Gate 1 is NOT compl
 ---
 
 ### GATE 4: Finalization & Delivery
+
+**DELIVERY IS LOCKED UNTIL `run_gates.py` PASSES — enforced, not advisory.**
+
+```
+python3 .claude/skills/batch-qa-charm/run_gates.py outputs/qa/batch-<ID>
+```
+
+All must be green: status casing (Pass/Fail/Flag/N/A, the exact casing
+`audit_checklist.py` matches), every `recompute_*.py` at exit 0, `audit_checklist.py`
+with row count > 0 / zero failures / every Pass-Fail-Flag row covered,
+`Attachment gate: PASS`, `[log:]` citations on N/A rows, and a performance-tracker row.
+It writes `gate_receipt.json` carrying the sha256 of the checklist that passed.
+`~/.claude/hooks/qa_delivery_gate_guard.sh` denies every Slack/Gmail send naming a batch
+without a matching green receipt, so editing the checklist afterwards re-blocks delivery.
+Origin: INJ-09-2026-W2-QOWV, 2026-09-22 — a checklist reached Max before the audit ran,
+and the audit then reported "Audit ran on 0 rows" because of a status-casing mismatch.
+
+**Required-step record (MANDATORY, added 2026-09-29).** On INJ-09-2026-W3-QOWV every
+gate passed while eight required steps were skipped. `run_gates.py` blocks unless the
+batch folder holds `step_ledger.json` with one entry per step id in
+`REQUIRED_STEPS["KERRY"]` (`.claude/skills/batch-qa-charm/batch_step_ledger.py`), each
+`{"done": true, "evidence": "..."}`. Evidence counts only if it is a `[log:KEY]` whose
+value in the source-read log is not empty, or a file in the batch folder (or the
+registry / performance tracker) made or changed at or after T0. A timestamp or URL on
+its own does not count, and a `[log:KEY]` or path that does not exist fails the entry.
+Record the pre-flight reads in the source-read log under `preflight` (`knowledge_base`,
+`lessons_learned`, `checklist_structure`, and `failure_categories_printed` holding the
+list printed to chat). Fill each entry when the step is done, not at the end. It also
+checks, straight from the files: one checklist under its original name (never `_v2`),
+no text naming Max, status-row and header formatting, row heights on merged rows,
+T0–T4 stamped, and an empty workspace root. An oil type the lock does not recognise is
+blocked.
+
+**Independent step audit (MANDATORY, added 2026-09-29).** After the last ledger entry
+and before `run_gates.py`, spawn a fresh agent (Agent tool) that did not do the QA. Give
+it the batch folder path and the `REQUIRED_STEPS["KERRY"]` list, nothing else. It opens
+what each entry's evidence names and writes `ledger_audit.json`:
+`{"ledger_sha256": "<sha256 of step_ledger.json>", "auditor": "<agent name>", "steps":
+{"<id>": {"verdict": "verified" | "not_verified", "checked": "<what it opened and what
+it showed>"}}}`. The QA agent never writes this file. Any ledger edit after the audit
+breaks the hash and needs a fresh audit. A `not_verified` step is done, re-evidenced and
+re-audited.
+
+**Findings never block delivery (2026-09-29).** A problem in Certify or the evidence is a finding for Garrett. `run_gates.py` blocks it only while the checklist has not recorded it: a Certify evidence gap passes once a Fail row cites `[log:certify.attachment_gate]` and names every open datapoint; a recompute or mass-chain discrepancy passes once its FINDING line points at a Fail or Flag row. What still blocks is unfinished QA work. `delivery_exceptions.json` is only for a required QA step the MRV lead has authorised leaving undone: `step:<id>` with `authorized_by` quoting the answer, and the step marked `done: false`. Every pass is written into the receipt, and `run_gates.py` runs `tests/test_findings_never_block.py` before anything else.
+
+**Results in chat.** `~/.claude/hooks/qa_chat_result_guard.sh` (Stop) blocks a chat
+message that reports this batch's results before a green receipt matches the checklist,
+unless the message opens with `**Not final — delivery checks have not run.**`. The
+delivery guard covers every Slack send / draft / schedule / canvas tool and every Gmail
+draft / send / reply / forward tool.
+
 
 **Entry condition:** Gate 3 review incorporated.
 
@@ -272,7 +325,7 @@ The checklist follows Max's actual QA question framework for Kerry tote-mode bat
 
 Same as AECN skill — see `skills/qa/batch-qa-aecn/SKILL.md` Citation Discipline section. Every PASS / FAIL / FLAG status must cite a `[log:KEY]` from `batch_[ID]_source_reads.json`. Adversarial review is log-driven (no hypotheticals). "Blocking" requires three enumerated tooling-path attempts. The pre-delivery audit script (`skills/qa/batch-qa-aecn/scripts/audit_checklist.py`, reused) catches gaps.
 
-**STRUCTURAL evidence-attachment gate (MANDATORY, all oil types).** The reused `audit_checklist.py` now also runs `audit_attachments.py`, which FAILS the audit (Gate 4 not complete) unless (a) `certify.attachment_map` is captured in the source-read log (each datapoint → its sources actually linked in Certify, read from the Sources tab), and (b) every component has its required evidence attached. Kerry has **no validated matrix yet** — so the gate will refuse to pass until you define `certify.required_evidence` for the batch from its ACTUAL components (do not guess), e.g. `{"Mass of Injectant": ["scale_ticket","ops_notes"], ...}` per Kerry's transport+injection scope. Build it from the first real Kerry batch; once validated, register it in `audit_attachments.MATRICES["KERRY"]`.
+**STRUCTURAL evidence-attachment gate (MANDATORY, all oil types).** The reused `audit_checklist.py` now also runs `audit_attachments.py`, which FAILS the audit (Gate 4 not complete) unless (a) `certify.attachment_map` is captured in the source-read log (each datapoint → its sources actually linked in Certify, read from the Sources tab), and (b) every component has its required evidence attached. Kerry has **no validated matrix yet** — so the gate will refuse to pass until you define `certify.required_evidence` for the batch from its ACTUAL components (do not guess), e.g. `{"Mass of Injectant": ["scale_ticket","ops_notes"], ...}` per Kerry's transport+injection scope. Build it from the first real Kerry batch; once validated, register it in `audit_attachments.MATRICES["KERRY"]`. A gap found here is a finding, not unfinished work: record it as a Fail row that cites `[log:certify.attachment_gate]` and names each open datapoint, and `run_gates.py` lets it through to Garrett.
 
 ## Formatting Specification
 
@@ -300,10 +353,14 @@ Same as AECN skill — see `skills/qa/batch-qa-aecn/SKILL.md` Citation Disciplin
 
 ## Kerry Emission Factor Reference
 
-| Factor | Value | Native Source Value | Notes |
+**Vehicle class follows the delivery mode (ruling 2026-10-06).** Kerry used to travel in totes on flatbeds; it now travels in bulk tanker trailers. Tanker deliveries take the tanker-truck factors. Tote deliveries, if they ever recur, take the flatbed / non-tanker factors. INJ-08-2026-W3-KERRY and INJ-09-2026-W4-KERRY use the tanker factors; INJ-07-2026-W4-KERRY, the first tanker batch, was reported with the flatbed set.
+
+| Mode | Factor | Standard EFs sheet, 2026 tab | Notes |
 |---|---|---|---|
-| Flatbed Truck Process | (current 2026 value) | per Standard EFs sheet 2026 tab | Same flatbed EF as Charm WODO uses; pull from live sheet |
-| Flatbed Truck Embodied | (current 2026 value) | per Standard EFs sheet 2026 tab | Per-mile, NOT per-T-mi |
+| Tanker (current) | Truck Transport Fuel Use (Well to Wheel) -- Tanker Truck | row "Tanker Truck" fuel use, MT CO2e/t-mi | Process; applied to the oil-only ticket net |
+| Tanker (current) | Vehicle Embodied Emissions --Tanker Truck | row "Tanker Truck" embodied, MT CO2e/mi | Per-mile, NOT per-T-mi |
+| Tote (historical) | Truck Transport Fuel Use (Well to Wheel) -- Flatbed Truck | row "Flatbed Truck" fuel use, MT CO2e/t-mi | Same flatbed EF as Charm WODO uses |
+| Tote (historical) | Vehicle Embodied Emissions --Non-Tanker Truck | row "Non-Tanker Truck" embodied, MT CO2e/mi | Per-mile, NOT per-T-mi |
 | Injection-site components | per AECN convention | eGRID 2023 grid factor for electricity | Same Basco 6 setup as AECN injection emissions |
 
 **Standard Emission Factors live source:**
@@ -334,12 +391,12 @@ Do not read the 1.13 kg figure as "the Kerry number". It is the tote-scale numbe
 |---|---|---|
 | Injection Sequestration | Carbon Content | 0.004 × Measured Value (0.4%) |
 | Injection Sequestration | Mass of Product | per-weighing precision for the scale used × number of discrete weighings |
-| Transport — Kerry → Basco Flatbed (Process) | Mass of Load | per-weighing precision for the scale used × number of discrete weighings |
-| Transport — Kerry → Basco Flatbed (Embodied) | (no Mass of Load) | Per-mile, no mass uncertainty input |
+| Transport — Kerry → Basco (Process; tanker or flatbed) | Mass of Load | per-weighing precision for the scale used × number of discrete weighings |
+| Transport — Kerry → Basco (Embodied; tanker or flatbed) | (no Mass of Load) | Per-mile, no mass uncertainty input |
 | Transport (all modes) | Distance Traveled | No uncertainty required (use longest Google Maps distance) |
 
 **Per-removal framing:**
-- Tote mode (Charm tote scale): each tote is a discrete weighing event. With N totes weighed, summed Mass-of-Product uncertainty = N × 1.13 kg (additive convention). The same N × 1.13 kg applies to the Mass of Load on the Flatbed Process component.
+- Tote mode (Charm tote scale): each tote is a discrete weighing event. With N totes weighed, summed Mass-of-Product uncertainty = N × 1.13 kg (additive convention). The same N × 1.13 kg applies to the Mass of Load on the flatbed process component.
 - Tanker mode (commercial truck scale): one discrete weighing event (the full + empty ticket pair). Uncertainty = **72.57 kg** on Mass of Product and on Mass of Load.
 
 **Check the tickets before applying either number.** The scale name and number are printed on the ticket (e.g. "SCALE: 1895 / LOVES COUNTRY STORES … WILSON TOWNSHIP WI" on a CAT Scale ticket). If the mass came from a weighbridge ticket rather than Charm's own tote scale, it is the 72.57 kg spec.
@@ -353,7 +410,7 @@ Do not read the 1.13 kg figure as "the Kerry number". It is the tote-scale numbe
 
 | Route | Mode | Distance | Per-batch allocation? | Notes |
 |---|---|---|---|---|
-| Kerry origin (current) → Basco | Flatbed truck (totes or tanker) | **1,090 mi** | NO (single trip) | Confirmed by Garrett 2026-05-04. Second origin pending — single origin design for now. |
+| Kerry origin (current) → Basco | Tanker truck (current); flatbed for the earlier tote deliveries | **1,090 mi** | NO (single trip) | Confirmed by Garrett 2026-05-04. Second origin pending — single origin design for now. |
 
 If Garrett confirms a second origin or distance, update this table and the corresponding Certify Distance datapoint check.
 
@@ -364,7 +421,7 @@ If Garrett confirms a second origin or distance, update this table and the corre
 Expected component pattern (in-scope only):
 - **Sequestration:** "Injection Sequestration - Kerry" (or generic "Injection Sequestration" if shared with AECN portion of mixed injection)
 - **Datapoints:** "Origin Bio-Oil Mass - Kerry"
-- **Transport components:** "Flatbed Truck Transport — Kerry → Basco" (Process + Embodied)
+- **Transport components:** tanker mode: "Kerry to Basco Tanker Truck Transport Process Emissions" + "Kerry to Basco Tanker Truck Transport Embodied Emissions"; tote mode: "Flatbed Truck Transport — Kerry → Basco" (Process + Embodied)
 - **Injection-site emissions:** electricity, pumping, embodied (same as AECN at Basco)
 - **Counterfactuals:** zero (waste boundary)
 - **No upstream production components.** If "Kerry Production Process" or "Kerry Production Embodied" or any biomass-sourcing component appears, FAIL Section 8 (system-boundary violation).
@@ -400,6 +457,7 @@ After completing all four gates:
 4. **Once Max approves, post to #team-mrv-alerts (channel C0944NQH1RP), tagging Garrett (<@U08JW9HQG5B>), a SHORT, lede-first message — not the full checklist dump** (routing changed 2026-08-31 per Max: Garrett-facing QA notifications go to the shared channel, not a DM — added 2026-08-26: sending the entire PASS/FAIL/FLAG breakdown out of the gate buries the fails and flags, which are the only thing Garrett needs to act on). The message is just:
    - Batch ID + delivery mode (tote / tanker)
    - The FAIL and FLAG items only, one line each (item number + the issue — no PASS items, no counts, no full evidence essay)
+   - One problem, one line (2026-10-07, after INJ-09-2026-W4-AECN 2.2 and 8.3 went out as two items for the same gap). When one underlying gap fails more than one checklist row, send it once with every row number it affects ("2.2 / 8.3: ..."). Never list it twice: Garrett answers one, the other looks unanswered, and Max has to work out they were the same thing. Merge on the gap, not on the fix — two rows that share a fix but have different gaps stay separate.
    - A direct prompt to reply in the thread once he's addressed the findings, which re-triggers a QA re-verification pass on that batch
    Record the channel + this post's thread_ts in the batch's registry entry so the garrett-completion-monitor automation can find and watch it.
 
@@ -452,7 +510,7 @@ The `garrett-completion-monitor` sub-agent sweeps both `qa_active_batches.json` 
 - BCUs broken out by 5 categories: injection diesel, waste disposal, pre-treatment diesel, pre-treatment waste, bio-oil transport
 - For Kerry: only `BCU's Transport` is typically expected absent site-emission burdens.
 - Counterfactuals = 0 for bio-oil geological storage per protocol (and for Kerry specifically per the waste boundary)
-- **BCU QA Rule:** BCU quantity (tCO2e) in Reductions MUST equal or exceed the corresponding diesel/process emission (tCO2e) in Activities. At minimum: transport process BCU ≥ transport process activity.
+- **BCU QA Rule:** BCU quantity (tCO2e) in Reductions must NOT exceed the corresponding diesel/process emission (tCO2e) in Activities: a BCU offsets an emission that already occurred and cannot exceed it. Full coverage (BCU = activity emission) is the target. Over-coverage (BCU > activity) is always a FAIL, whatever the size. (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.)
 
 ## Reward & Penalty Framework
 

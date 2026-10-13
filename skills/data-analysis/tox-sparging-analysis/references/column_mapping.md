@@ -1,6 +1,33 @@
 # ToX Data Column Mapping
 
-## Current export format (July 2026 onward) — ONE FILE PER TRAIN
+## Current export format (September 2026 onward) — ONE COMBINED FILE, pulled by Garrett
+
+For the September 2026 period Garrett pulled the data himself (from Google BigQuery, per his
+reply in the #mrv-ops-la Oct 1 ask thread: *"I now have the schema for this where its stored in
+Google Big Query, so we can automate this on our end"*) instead of Evan exporting from Ignition.
+It arrived as one file, `Oxidizer_Catalyst_Temps_2026-09.csv`, in the period's
+`Additional Documentation/Oxidizer Data` folder (Garrett's Drive area — NOT on Max's local Drive
+mount; download it through the Drive connector).
+
+| Index | Header (as exported) | Notes |
+|---|---|---|
+| 0 | `timestamp_central` | Format `M/D/YYYY H:MM`, US Central time |
+| 1 | `train1_ox2100_catalyst_inlet_F` | °F |
+| 2 | `train1_ox2100_catalyst_outlet_F` | °F |
+| 3 | `train2_ox2200_catalyst_inlet_F` | °F |
+| 4 | `train2_ox2200_catalyst_outlet_F` | °F |
+
+- Pass the single file to `--input`; the 5-column positional map applies unchanged. Confirm the
+  header order still reads Train 1 inlet, Train 1 outlet, Train 2 inlet, Train 2 outlet before
+  running — the positional map does not check train identity in a combined file.
+- September 2026: 8,640 rows, exactly one per 5 minutes, no gaps or repeated timestamps.
+- **Two kinds of "no reading":** `0` for offline stretches (as before) AND, new in this export,
+  **empty cells** — scattered single dropped readings (92 rows in September). Both become blank in
+  the charts; the script prints the two counts separately so they can be reported apart.
+
+---
+
+## Previous export format (July–August 2026) — ONE FILE PER TRAIN
 
 Since the July 2026 period, Garrett's export arrives as **two CSVs, one per train**, e.g.
 `Train 1 OX - JULY.csv` and `Train 2 OX - JULY.csv`. Each is three columns:

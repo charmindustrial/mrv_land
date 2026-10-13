@@ -27,7 +27,18 @@
 
 set -euo pipefail
 input="$(cat)"
-transcript_path="$(echo "$input" | jq -r '.transcript_path // empty' 2>/dev/null || true)"
+# Which transcript this hook is about, and whose counters it belongs to, are
+# decided in ONE place: ~/.claude/hooks/lib/subagent_scope.sh. It picks the
+# subagent's own transcript on SubagentStop AND exports CLAUDE_HOOK_AGENT_SCOPE,
+# so this guard's circuit breaker and the shared per-turn block budget land in
+# the same per-worker file every other guard uses. Those two steps used to be
+# hand-copied into all fifteen guards, and five copies did the first without the
+# second -- see that file's header for the 2026-09-17 failure it caused.
+source ~/.claude/hooks/lib/subagent_scope.sh
+hook_scope_resolve "$input"
+transcript_path="$HOOK_TRANSCRIPT_PATH"
+hook_event="$HOOK_EVENT_NAME"
+
 [ -z "$transcript_path" ] || [ ! -f "$transcript_path" ] && exit 0
 
 python3 - "$transcript_path" <<'PYEOF'
@@ -42,8 +53,16 @@ try:
     from circuit_breaker import Breaker
 except Exception:
     sys.exit(0)  # shared library missing/broken -- fail open, never crash
+# Shared per-turn block budget: work out a name for the current turn so that
+# every guard counts its blocks against the same budget (lib/circuit_breaker.py).
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from transcript_text import turn_key_from_path as _tk_from_path
+    _turn = _tk_from_path(transcript_path)
+except Exception:
+    _turn = None
 brk = Breaker(state_file=os.path.join(session_dir, 'precedent_block_count'),
-              label='PRECEDENT GROUNDING', max_strikes=3)
+              label='PRECEDENT GROUNDING', max_strikes=3, turn_key=_turn, transcript_path=transcript_path)
 def _bc():
     return brk.count
 def _set_bc(n):
@@ -90,7 +109,14 @@ ANCHOR = re.compile(r'cowf-?005|elk\s*meadow|iss-?3[89]|iss-?40|precedent:', re.
 # transcript to reference the file's basename via a write-class tool call
 # (Write/Edit/MultiEdit/NotebookEdit, an Office MCP writer, or a Bash
 # command) before it counts as a target at all.
-WRITE_TOOL_NAMES = {'Write', 'Edit', 'MultiEdit', 'NotebookEdit'}
+# Write-detection (tool names + the "did this Bash call actually write"
+# check) lives in one shared place now -- see lib/write_detection.py for why:
+# four copies of this same logic already drifted apart once (2026-09-10).
+try:
+    from write_detection import WRITE_TOOL_NAMES, PUBLISH_TOOL_NAMES, is_real_write
+except Exception:
+    WRITE_TOOL_NAMES, PUBLISH_TOOL_NAMES = set(), set()
+    def is_real_write(_): return False
 authored_blob_parts = []
 try:
     with open(transcript_path) as f:
@@ -106,8 +132,11 @@ try:
                 if not isinstance(item, dict) or item.get('type') != 'tool_use':
                     continue
                 name = item.get('name', '')
-                if name in WRITE_TOOL_NAMES or name == 'Bash' or 'word' in name.lower() or 'office' in name.lower():
-                    authored_blob_parts.append(name + ' ' + json.dumps(item.get('input', ''))[:5000])
+                inp_blob = json.dumps(item.get('input', ''))[:5000]
+                if name in WRITE_TOOL_NAMES or name in PUBLISH_TOOL_NAMES:
+                    authored_blob_parts.append(name + ' ' + inp_blob)
+                elif name == 'Bash' and is_real_write(inp_blob):
+                    authored_blob_parts.append(name + ' ' + inp_blob)
 except Exception:
     pass
 authored_blob = '\n'.join(authored_blob_parts).lower()
@@ -243,7 +272,8 @@ for p in targets:
         print(f"[precedent-guard] WARN: could not scan {os.path.basename(p)}: {ex}", file=sys.stderr)
 
 if violations:
-    _set_bc(_bc() + 1)
+    if not brk.claim_or_release():
+        sys.exit(0)  # shared per-turn block budget already spent -- stand down
     print("─"*72, file=sys.stderr)
     print("PRECEDENT GROUNDING — response blocked", file=sys.stderr)
     print("─"*72, file=sys.stderr)
@@ -258,8 +288,13 @@ if violations:
         print(f"  • [{fn}] {lbl}", file=sys.stderr)
         print(f"      {snip}", file=sys.stderr)
     print("", file=sys.stderr)
-    print("Fix: for each item, either ground it against COWF-005 (or drop it), then", file=sys.stderr)
-    print("re-deliver the COMPLETE corrected deliverable.", file=sys.stderr)
+    print("Fix: for each item, either ground it against COWF-005 or drop it, and", file=sys.stderr)
+    print("rebuild the deliverable.", file=sys.stderr)
+    try:
+        from guard_footer import print_footer
+        print_footer()   # the ONE shared re-send instruction (lib/guard_footer.py)
+    except Exception:
+        pass
     print("─"*72, file=sys.stderr)
     sys.exit(2)
 

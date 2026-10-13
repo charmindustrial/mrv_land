@@ -8,7 +8,7 @@ that actually turned up; nothing is guessed.
 Nothing is thrown away that could be work. Anything unknown is MOVED to
 archive/, never deleted. Only these are deleted:
   - known junk at the root ("<property object at 0x...>" files: a guard-script
-    bug on 2026-09-24 left 130 of them)
+    bug on 2026-09-24 left 258 of them)
   - empty folder trees at the root (a path split at the space in "MRV Expert"
     left an empty Expert/ tree on 2026-09-29)
   - leftover Office lock files (~$name, .~lock.name#), only when that Office

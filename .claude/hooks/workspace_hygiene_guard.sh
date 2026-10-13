@@ -71,6 +71,13 @@ if [ "$tool_name" = "Write" ]; then
                 echo "DENIED by workspace_hygiene_guard: Write to '$rel' at the workspace root is blocked. Binary captures and YAML scrapes belong under outputs/ (typically outputs/qa/batch-<batch_id>/screenshots/ for PNGs and outputs/qa/batch-<batch_id>/ for YAML). Move this write to the correct outputs/ subfolder." >&2
                 exit 2
                 ;;
+              CLAUDE.md|README.txt|FOLDER_INDEX.md|.gitignore|.gitattributes|.mcp.json) : ;;
+              *)
+                # Added 2026-10-13: protocol scrapes and page-text dumps (.txt) kept
+                # landing at the root because only images/YAML were blocked.
+                echo "DENIED by workspace_hygiene_guard: Write to '$rel' at the workspace root is blocked. Only CLAUDE.md, README.txt, FOLDER_INDEX.md and the git/config files live at the root. Protocol or registry text scrapes go in knowledge-base/; research notes and page captures go in outputs/research/; scratch work goes in the session scratchpad. Write to the right folder instead." >&2
+                exit 2
+                ;;
             esac
             ;;
         esac

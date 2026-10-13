@@ -179,9 +179,17 @@ def save_to_github(summary):
                "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>")
         git("commit", "-q", "-m", msg)
     branch = git("rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
-    push = git("push", "-q", "origin", branch, check=False)
+    # The every-turn backup hook pushes the same branch from this same folder;
+    # on 2026-10-13 the two pushes collided ("cannot lock ref"). Wait, retry.
+    for attempt in range(4):
+        push = git("push", "-q", "origin", branch, check=False)
+        if push.returncode == 0:
+            break
+        time.sleep(30)
+        git("fetch", "-q", "origin", branch, check=False)
     if push.returncode != 0:
         raise RuntimeError(f"push to GitHub failed: {(push.stderr or push.stdout).strip()[:300]}")
+    git("fetch", "-q", "origin", branch, check=False)
     ahead = git("rev-list", "--count", f"origin/{branch}..HEAD").stdout.strip()
     if ahead != "0":
         raise RuntimeError(f"after pushing, GitHub is still {ahead} commit(s) behind")

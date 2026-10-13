@@ -1,7 +1,16 @@
 MRV EXPERT WORKSPACE — README
 ==============================
 
-Last updated: 2026-10-01 (RETIRED automation/resume-echo-review at Max's
+Last updated: 2026-10-13 (third full workspace clean-up; added
+              automation/workspace-tidy, a weekly sweep -- Mondays 07:00
+              Pacific through ~/.claude/scheduled/ -- that keeps the root
+              clean and saves + pushes this folder to GitHub. Widened
+              workspace_hygiene_guard.sh to block every new root file.
+              Fixed the GitHub backup hook, silently failing since
+              2026-04-29. Details in FOLDER_INDEX.md "Recently Resolved
+              (2026-10-13)")
+
+Previously: 2026-10-01 (RETIRED automation/resume-echo-review at Max's
               request: launchd job unloaded, plist moved to
               ~/.claude/scheduled/plist-backups/retired/, cloud routine
               resume-echo-artifact-publish disabled, .claude/skills
@@ -331,6 +340,24 @@ SKILLS/  --  WHAT EACH SKILL DOES
                                    state.json -- no per-cycle scheduled task
                                    needed. Fired by macOS launchd weekdays
                                    ~9:00/12:00/15:00/18:00 local.
+        workspace-tidy/            Weekly clean-up of this folder + GitHub
+                                   backup check. tidy.py --apply deletes
+                                   known junk (guard-script "<property
+                                   object...>" files, empty root folders,
+                                   stale Office lock files, browser captures
+                                   past 7/30 days), MOVES anything else
+                                   unknown at the root to archive/root-sweep/
+                                   <date>/ and output folders found inside
+                                   skills/ to archive/misrouted/<date>/ --
+                                   never deletes possible work -- then
+                                   commits, pushes to GitHub, and fails if
+                                   GitHub is still behind. Scheduled job
+                                   workspace-tidy in ~/.claude/scheduled/,
+                                   Mondays 07:00 Pacific. A Claude job, not a
+                                   plain script, because macOS blocks
+                                   launchd-started scripts from touching
+                                   ~/Desktop. Also runs ad-hoc ("tidy the
+                                   workspace").
         aecn-lca-processor/        Processes a new half-yearly AECN carbon-
                                    intensity LCA submission (from J-C Amado,
                                    j-c@viridiglobal.com) into Drive: archives
@@ -378,6 +405,8 @@ OUTPUTS/  --  WHERE EACH SKILL'S WORK GOES
                                            ~/.ancillary-data-request/ledgers/,
                                            not here -- runtime state, like the
                                            other launchd-fired automations)
+    outputs/automation/workspace-tidy/  run-log.jsonl: what each weekly
+                                           sweep deleted and moved
     outputs/automation/resume-echo-review/  run-log.jsonl audit trail (new/
                                            removed candidates, run summaries).
                                            The actual candidate verdicts live
@@ -504,6 +533,11 @@ ROUTING RULES
                                  Factors + Calculations" Sheet (a separate
                                  file, found by search, not a fixed path).
                                  No local outputs/ dir. Manual trigger only.
+    workspace-tidy              outputs/automation/workspace-tidy/run-log.jsonl
+                                 (moved items go to archive/root-sweep/<date>/
+                                 and archive/misrouted/<date>/; commits and
+                                 pushes to GitHub). Fired Mondays 07:00
+                                 Pacific via ~/.claude/scheduled/.
     brief-writer                outputs/deliverables/<audience>/
                                   OR outputs/mrv-operational-documents/
                                   *** MUST ask user which audience first ***
@@ -563,6 +597,12 @@ captures and Certify scrapes from accumulating at the workspace root. It denies:
       routes under outputs/.
     - Write calls targeting .png / .jpg / .jpeg / .yml / .yaml files at the
       workspace root.
+    - Write calls creating any other file at the workspace root except
+      CLAUDE.md, README.txt, FOLDER_INDEX.md, .gitignore, .gitattributes,
+      .mcp.json (added 2026-10-13: protocol scrapes kept landing there).
+
+Files written by scripts or other programs never pass through this hook;
+the weekly workspace-tidy sweep catches those.
 
 The hook lives INSIDE the workspace (.claude/hooks/) and is registered in
 .claude/settings.json — both are tracked in git so the protection rides with the
@@ -656,7 +696,11 @@ Every skill reads from here. Files at the root, plus historical PDFs.
     book_and_claim_module_v1.txt, ghg_accounting_v1.1_allocation_text.txt,
     ghg_accounting_v1.1_allocation_text_p2.txt, lowox_clean.txt,
     lowox_module.txt, saba_atmospheric_benefit_tool.txt,
-    v19_standard_snapshot.md
+    v19_standard_snapshot.md,
+    isometric_standard_v1.9.txt, isometric_standard_v2.0.txt,
+    isometric_standard_v2.1.txt, ghg_accounting_v1.1_full.txt,
+    bio_oil_geological_storage_v1.2.txt (these five moved from the
+    workspace root 2026-10-13)
         Plain-text scrapes of Isometric protocol and module registry
         pages, kept for fast text search alongside the PDFs in
         isometric-pdfs/. Moved here from the workspace root 2026-07-23.
@@ -691,6 +735,19 @@ Also holds (moved from the workspace root 2026-07-23): screenshots/
 (Jira service-desk + GCP setup captures, May 2026), the superseded
 2026-06-30 Book and Claim scrape, and Runbear Receipts/ (one empty
 upload log).
+
+Added 2026-10-13:
+    deliverable-backups/isometric/   working "_backup_" copies of Tier 0/1/2
+                                     PDD files, moved out of
+                                     outputs/deliverables/isometric/
+    superseded-versions/isometric/   older numbered versions of the RSB/ISCC
+                                     deck (v1-v9) and the PDD v1.12 Coverage
+                                     Inventory (v1-v6); the current one stays
+                                     in outputs/deliverables/isometric/
+    misrouted/<date>/                output folders the weekly tidy found
+                                     inside skills/, original path kept
+    root-sweep/<date>/               anything the weekly tidy found loose at
+                                     the workspace root
 
 
 CONVENTIONS FOR ADDING NEW WORK

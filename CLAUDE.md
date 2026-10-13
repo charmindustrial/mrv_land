@@ -45,8 +45,9 @@ Most of the workspace is portable — clone the repo and it just works. Two piec
 
 2. **`.claude/settings.json` Stop-hook absolute path** — the auto-sync hook is registered with a hardcoded absolute path:
    ```
-   "command": "/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/.claude/auto-sync.sh"
+   "command": "bash \"/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/.claude/auto-sync.sh\""
    ```
+   Keep the path in quotes: the space in "MRV Expert" splits an unquoted path, and that silently stopped every GitHub backup from 2026-04-29 to 2026-10-13. The weekly `workspace-tidy` job also pushes, and fails loudly if GitHub falls behind.
    On a new machine this path will be wrong and the auto-sync will silently fail (Stop hook errors don't surface to the session). Update the absolute path to match the new machine's clone location, OR change it to `bash "${CLAUDE_PROJECT_DIR}/.claude/auto-sync.sh"` if you trust Claude Code to always set that env var. (We left it absolute for the louder failure mode — fail-loudly-on-new-machine beats silent-failure-when-env-var-missing.)
 
 The `workspace_hygiene_guard.sh` PreToolUse hook is already portable: it self-derives the workspace path from its own location, so cloning to a new path requires no changes.

@@ -156,6 +156,15 @@
             "command": "bash \"$HOME/.claude/hooks/literal_instruction_guard.sh\""
           }
         ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/boss_background_spawn_guard.sh\""
+          }
+        ]
       }
     ],
     "PostToolUse": [

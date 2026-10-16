@@ -13,7 +13,7 @@
 # GATE 2 (Accuracy): Every verbatim quote longer than 15 chars in the
 #   response must appear — exactly — in the corpus of text returned by
 #   source-read tool calls this session (Read, Google Drive read/download,
-#   Playwright snapshot, Word get_document_text).
+#   Certify/Drive API tool output, Word get_document_text).
 #
 # If Gate 1 fails: the response asserts document content without quoting. Blocked.
 # If Gate 2 fails: a quote cannot be found in any opened document. Fabricated. Blocked.
@@ -868,7 +868,7 @@ if not corpus_parts:
         "─" * 72,
         f"Response contains {len(signals)} citation-signal phrase(s) and",
         f"{len(quote_texts)} quoted string(s), but no source documents were",
-        "opened this session via Read, Google Drive, Playwright, or Word.",
+        "opened this session via Read, Google Drive, the Certify/Drive API tools, or Word.",
         "",
         "A quote that cannot be traced to an opened document is fabricated.",
         "Action: open the source document first, then re-read and re-respond.",
@@ -909,7 +909,7 @@ if fabricated:
         "CITATION INTEGRITY BLOCK — Gate 2: Quote Not Found in Any Opened Document",
         "─" * 72,
         "The following quote(s) do not appear verbatim in any document opened",
-        "this session via Read, Google Drive, Playwright, or Word:",
+        "this session via Read, Google Drive, the Certify/Drive API tools, or Word:",
         "",
     ]
     for q in fabricated[:5]:
@@ -923,7 +923,7 @@ if fabricated:
         "read this session. Fabricated quotes are blocked unconditionally.",
         "",
         "Action:",
-        "  1. Open the source document (Read / Drive / Playwright).",
+        "  1. Open the source document (Read / Drive / certify_read.py / drive_read.py).",
         "  2. Locate the exact passage.",
         "  3. Copy the verbatim text into the response.",
         "─" * 72,

@@ -44,7 +44,7 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 
 **Verifier reference:** VR Appendix 1
 
-**Document location rule applies:** Documents may be in Drive OR Certify Sources. Only FAIL if absent from BOTH.
+**Document location rule applies:** Documents may be in Drive OR Certify Sources (the Certify API dump's `sources` list). Only FAIL if absent from BOTH — except that removal-level sources not linked to any datapoint are not visible via the API, so an absence from both is graded Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)".
 
 **Note on injection site:** Basco 6 only — no other Kerry injection site exists.
 
@@ -82,7 +82,7 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 - Scale ticket net (kg) = (Full_gross_lb − Empty_gross_lb) / 2.20462 (tanker mode)
 - Conservative MOBI = MIN(net candidate, BOL oil-only mass)
 
-**No sparging deduction on Kerry.** Kerry enters the homogenization tank un-sparged. The 1.29% sparging deduction belongs to the AECN portion only and is QA'd by the AECN skill on the AECN production batch. If a sparging deduction is applied to Kerry mass anywhere (Ops Notes, Certify, Calculation View) → FAIL.
+**No sparging deduction on Kerry.** Kerry enters the homogenization tank un-sparged. The 1.29% sparging deduction belongs to the AECN portion only and is QA'd by the AECN skill on the AECN production batch. If a sparging deduction is applied to Kerry mass anywhere (Ops Notes, Certify inputs, Certify net calculation) → FAIL.
 
 **Mass transported (transport-EF basis):**
 - Tote mode: BOL gross mass (oil + tote tares + deck items). Used as the Mass of Load datapoint on the flatbed process component. **NOT MOBI alone** (see FC-K2).
@@ -137,7 +137,7 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 | 5.3 | COBB values present and match | COBB tracker vs Ops Notes | `consumed_lot` follows `kc_NNNN`; origin_qty, BOL_number align with Ops Notes | COBB row not found; values differ; wrong consumed_lot pattern |
 | 5.4 | Completion date present and matches COBB | Ops Notes vs COBB | Same date in both | Date mismatch |
 
-**MANDATORY VERIFICATION SUB-TASK (5.3, 5.4):** Navigate to COBB `Basco Injection -- COBB` tab. Verify cell A = batch ID before reading any values. Verify `consumed_lot` field shows `kc_NNNN` pattern.
+**MANDATORY VERIFICATION SUB-TASK (5.3, 5.4):** Read the COBB `Basco Injection -- COBB` tab with `drive_read.py rows` (absence needs a full-tab scan: `rows_scanned` over the whole tab, `match_count: 0`). Verify cell A = batch ID before reading any values. Verify `consumed_lot` field shows `kc_NNNN` pattern.
 
 **pH measurement:** required for all batches per workspace memory. Find in Ops Notes Batch Consumables section. If pH is missing, Section 5 includes a FAIL.
 
@@ -148,8 +148,8 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 | Item | Check | Primary Source | Expected | Common Failure |
 |------|-------|---------------|----------|----------------|
 | 6.1 | Gross CO2e = MOBI (tonnes) × carbon wt% (decimal) × 3.667 | Independent calc vs Certify | Match within rounding | Carbon % not as decimal (42 vs 0.42); unit mismatch; sparging deduction erroneously applied to MOBI |
-| 6.2 | Process emissions correctly deducted (transport process + embodied; injection-site process + embodied; injection electricity) | Certify Calculation View | Only in-scope components present | Upstream Kerry production component appears (FAIL — system-boundary violation); component missing |
-| 6.3 | Uncertainty discount correctly applied | Certify Calculation View | Present per Isometric Standard S3.7 | Discount missing |
+| 6.2 | Process emissions correctly deducted (transport process + embodied; injection-site process + embodied; injection electricity) | Certify API dump: components + blueprint-computed net calc | Only in-scope components present | Upstream Kerry production component appears (FAIL — system-boundary violation); component missing |
+| 6.3 | Uncertainty discount correctly applied | Certify API dump: discount = `removal.co2e_net_removed_without_discount_kg` − `removal.co2e_net_removed_kg`; undiscounted net vs blueprint-computed gross-to-net | Present per Isometric Standard S3.7 | Discount missing |
 
 **Verifier references:** GHG Stmt Sec E, Bio-oil Geol Storage v1.1, Isometric Standard v2.0 S3.7
 
@@ -163,11 +163,11 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 
 | Item | Check | Primary Source | Expected | Common Failure |
 |------|-------|---------------|----------|----------------|
-| 6a.1 | Layer 1 — Completeness: every Kerry component has uncertainty on correct datapoint | Certify component modals | All required components have +/- values | Missing uncertainty on a component |
-| 6a.2 | Layer 2 — Correctness: reported +/- matches expected value | Certify component modals (INPUTS section) | See Uncertainty Reference in SKILL.md | Wrong value; value not actually checked |
-| 6a.3 | Layer 3 — Discount presence and consistency | Certify Calculation View vs GHG Statement | Aggregate discount present in net calc | Discount missing or inconsistent |
+| 6a.1 | Layer 1 — Completeness: every Kerry component has uncertainty on correct datapoint | Certify API summary: per-component input table | All required components have +/- values (`standard_deviation`) | Missing uncertainty on a component |
+| 6a.2 | Layer 2 — Correctness: reported +/- matches expected value | Certify API summary: per-component inputs (`standard_deviation`, cited by JSON path) | See Uncertainty Reference in SKILL.md | Wrong value; value not actually checked |
+| 6a.3 | Layer 3 — Discount presence and consistency | Certify API dump discount (`removal.co2e_net_removed_without_discount_kg` − `removal.co2e_net_removed_kg`) and net vs GHG Statement | Aggregate discount present in net calc | Discount missing or inconsistent |
 
-**MANDATORY VERIFICATION SUB-TASK:** Open EACH component modal. Read the +/- from INPUTS section. Do not infer from aggregate calculations. +3 laziness penalty for avoidance.
+**MANDATORY VERIFICATION SUB-TASK:** Read EACH component's inputs from the Certify API. Read the +/- (`standard_deviation`) of every input, cited by JSON path. Do not infer from aggregate calculations. +3 laziness penalty for not reading each component's input ± values from the Certify API.
 
 **Kerry components requiring uncertainty verification:**
 - Injection Sequestration (Carbon Content + Mass of Product)
@@ -211,12 +211,12 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 | 8.4 | NO upstream production components | Certify Components | Kerry Production Process and Kerry Production Embodied components ABSENT (per VVB-validated waste boundary) | If present → FAIL (system-boundary violation) |
 | 8.5 | COUNTERFACTUALS: zero | Certify Components | 0 (waste boundary excludes upstream entirely; no offsetting counterfactual) | Non-zero counterfactual = FAIL (system-boundary violation) |
 
-| 8.6 | REDUCTIONS: BCU Transport quantity = transport process activity (never exceeds) | Certify Components + Calculation View | BCU Transport = transport process emission | BCU underfunded, or BCU exceeds the emission (any size) |
-| 8.7 | Net removal matches internal calculation | Certify Calculation View | Agrees with independent gross-to-net | Discrepancy |
+| 8.6 | REDUCTIONS: BCU Transport quantity = transport process activity (never exceeds) | Certify API dump: components + blueprint-computed tCO2e | BCU Transport = transport process emission | BCU underfunded, or BCU exceeds the emission (any size) |
+| 8.7 | Net removal matches internal calculation | Certify API dump: `removal.co2e_net_removed_kg` | Agrees with independent gross-to-net | Discrepancy |
 | 8.8 | All Datapoints have descriptive source names | Certify Datapoints | No "Measurement XXXX" or "IMG_001" | Generic names = FLAG (not FAIL) |
 | 8.9 | All Sources match files in batch folder on Drive | Certify Sources vs Drive | Same files in both | File in one but not the other |
 
-**Verifier reference:** Certify Components, Certify Datapoints, Certify Sources, Certify Calculation View
+**Verifier reference:** Certify Components, Certify Datapoints, Certify Sources, Certify net calculation (all read via the Certify API dump)
 
 **On 8.2 (Transport mode, ruling 2026-10-06):** Kerry used to travel in totes on flatbeds and now travels in bulk tanker trailers. Tanker deliveries take the Tanker Truck fuel-use and Tanker Truck embodied factors; tote deliveries take the Flatbed Truck fuel-use and Non-Tanker Truck embodied factors. Never railcar. Read the commodity on the scale tickets ("TANKER") to confirm the vehicle.
 
@@ -234,4 +234,4 @@ Every section below has tote-batch defaults. Where tanker batches differ, look f
 
 **On 8.8:** Generic/non-descriptive filenames are a FLAG with yellow fill, not a FAIL. The content is correct; the naming is a hygiene issue.
 
-**On 8.9:** Document Location Rule applies — the doc may be in Drive OR Certify Sources. Only FAIL if absent from BOTH.
+**On 8.9:** Document Location Rule applies — the doc may be in Drive OR Certify Sources. Only FAIL if absent from BOTH. Certify Sources are read from the API dump's `sources` list and Drive from a `drive_read.py ls --recursive` listing; a Drive file missing from the API list may be a removal-level source not linked to any datapoint, which the API cannot see — grade that Flag ("not visible via Certify API; confirm on the Sources tab"), never Fail on that alone.

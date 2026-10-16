@@ -40,7 +40,7 @@ This is a starter set, seeded from the AECN and Kerry skills' Failure Categories
 
 **Why it happens:** Manual override during data entry without restoring the formula.
 
-**Mitigation:** Item 3.3 is non-skippable. Click into EACH computed cell (RP Share, RP Allocated Miles, Batch Mileage Allocation) in Drive's Sheets and read the formula bar. Quote the formula verbatim in the source-read log: `shipment_tracker_cells_are_formulas: {rp_share: "=B2/B3", rp_allocated_miles: "=...", batch_mileage_allocation: "=..."}`. A constant ("0.5", "545.0") triggers FAIL 3.3 with FC-C3 citation.
+**Mitigation:** Item 3.3 is non-skippable. Read EACH computed cell (RP Share, RP Allocated Miles, Batch Mileage Allocation) with `drive_read.py rows` on the downloaded Tracker and read its `formula` field. Quote the formula verbatim in the source-read log: `shipment_tracker_cells_are_formulas: {rp_share: "=B2/B3", rp_allocated_miles: "=...", batch_mileage_allocation: "=..."}`. A constant ("0.5", "545.0") triggers FAIL 3.3 with FC-C3 citation.
 
 **Detection:** source-read log field `shipment_tracker_cells_are_formulas` shows any value that is not a `=...` formula string.
 
@@ -191,7 +191,7 @@ These apply identically to Charm batches; see the AECN/Kerry skills' `lessons_le
 - **Process Conversations in QA Output** — No "Per Max:" citations; evidence comes from documents
 - **Wrong FAIL/FLAG Classification** — Missing evidence = FAIL
 - **File Metadata as Evidence** — File sizes never count
-- **Not Reading the Sources Tab** — Sources tab is the authoritative inventory
+- **Not Reading the Certify Sources List** — the Certify API dump's `sources` list is the authoritative inventory (removal-level sources unlinked to any datapoint are not visible via the API: check Drive, then Fail as before, with a note to confirm on the Sources tab)
 - **Pre-Flight Gate Skip** — Skipping the lessons-learned read causes the next session to re-make a logged failure
 
 ---

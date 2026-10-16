@@ -24,12 +24,12 @@ Three layers:
      canonical name (no _vN), no process text quoting Max, status-row and header
      formatting, explicit heights on merged sidebar rows, T0-T4 stamped, empty workspace root.
 """
-import datetime, hashlib, json, math, re
+import datetime, hashlib, json, math, os, re
 from pathlib import Path
 
 # (id, what SKILL.md / the monitor skill requires, n/a allowed)
 _PREFLIGHT = [
-    ("P1_knowledge_base", "Pre-flight: read the Knowledge Base (knowledge-base/Charm_Isometric_Knowledge_Base.md)", False),
+    ("P1_knowledge_base", "Pre-flight: read the Knowledge Base (knowledge-base/Charm_Isometric_Knowledge_Base.md; in the GCP container, its generated slice for this QA mode, knowledge-base/slices/<mode>.md)", False),
     ("P2_lessons_learned", "Pre-flight: read references/lessons_learned.md, every Failure Category", False),
     ("P3_checklist_structure", "Pre-flight: read references/checklist_structure.md", False),
     ("P4_failure_categories_printed", "Pre-flight: print the applicable Failure Categories to chat before Gate 1 begins", False),
@@ -55,13 +55,13 @@ REQUIRED_STEPS = {
         ("G1_5_testing", "Gate 1 step 5: lab report PDF opened; certificate, C, H, N, density read", False),
         ("G1_6_pp_summaries", "Gate 1 step 6: each PP Summary: PP id, WODO CI, Aqueous CI, mass per fraction, date range", False),
         ("G1_7_charm_contents", "Gate 1 step 7: Charm Contents sheet read, or its absence shown from folder + Certify sources", False),
-        ("G1_8_certify_four_tabs", "Gate 1 step 8: Certify Components, Calculation View, Datapoints and Sources tabs all opened", False),
+        ("G1_8_certify_four_tabs", "Gate 1 step 8: Certify removal fetched via API (certify_read.py): components, datapoints, sources and blueprint recompute", False),
         ("G1_8_sources_tab_total", "Gate 1: certify_sources_tab_total with full enumeration of source filenames", False),
         ("G1_registry_updated", "Gate 1 exit: batch added to qa_active_charm_batches.json", False),
         ("G1_injection_record", "Bio-oil Injection Tracker (COBB) opened: batch rows, tags, completion date (monitor T1 = Drive, Certify AND COBB)", False),
         ("G2_1_tare_measured", "Gate 2 sub-task 1: verify gross/tare were measured (not nominal)", False),
-        ("G2_2_tracker_cells_clicked", "Gate 2 sub-task 2: click into each computed allocation cell, quote the formula", False),
-        ("G2_3_component_modals", "Gate 2 sub-task 3: open each Certify component modal individually; read INPUTS and +/-", False),
+        ("G2_2_tracker_cells_clicked", "Gate 2 sub-task 2: each computed allocation cell's formula quoted (drive_read.py rows formula field / openpyxl)", False),
+        ("G2_3_component_modals", "Gate 2 sub-task 3: every component's input datapoints and ± (standard_deviation) read from the Certify API", False),
         ("G2_4_each_pp_summary", "Gate 2 sub-task 4: open EACH PP Summary referenced by the production-emissions component", False),
         ("G2_5_recompute_pasted", "Gate 2 sub-task 5: recompute run, exit 0, full output pasted into the chat before delivery", False),
         ("G2_lcs_search", "LCS use searched in Ops Notes (Aqueous); matching Certify component if reported", True),
@@ -78,14 +78,14 @@ REQUIRED_STEPS = {
         ("G1_4_ops_notes", "Gate 1 step 4: Ops Notes batch ID, completion date, origin lot, every mass value, sparging rate + loss, pH, total injectate", False),
         ("G1_4_cell_comments", "Gate 1 step 4: every Ops Notes cell comment on the offload table dumped (openpyxl without data_only)", False),
         ("G1_5_cobb_row_verified", "Gate 1 step 5: 'Basco Injection -- COBB' tab, cell A of the row equals the batch ID before any value is read", False),
-        ("G1_6_certify_four_tabs", "Gate 1 step 6: Certify Components, Calculation View, Datapoints and Sources tabs all opened", False),
+        ("G1_6_certify_four_tabs", "Gate 1 step 6: Certify removal fetched via API (certify_read.py): components, datapoints, sources and blueprint recompute", False),
         ("G1_6_sources_tab_total", "Gate 1: certify_sources_tab_total with full enumeration of source filenames and linked datapoints", False),
         ("G1_mass_chain_script", "Gate 1 exit 4 (rail): compute_mass_chain.py run; every computation FAIL either traced to a log transcription error and fixed, or confirmed against the primary source and carried as a Fail or Flag row in the checklist", True),
         ("G1_registry_updated", "Gate 1 exit: batch added to qa_active_batches.json", False),
         ("G2_0_findings_routed", "Gate 2 start (rail): mass_chain_findings.json read; each finding routed by check_type", True),
         ("G2_1_ticket_pairs_compared", "Gate 2 sub-task 1: full and empty ticket PDFs from Certify Sources opened; tractor and trailer numbers compared", False),
         ("G2_2_cobb_values", "Gate 2 sub-task 2: COBB tab name and row number recorded; offloaded qty, origin qty, completion date extracted", False),
-        ("G2_3_component_modals", "Gate 2 sub-task 3: every Certify component modal opened; every INPUTS +/- value recorded against the uncertainty reference", False),
+        ("G2_3_component_modals", "Gate 2 sub-task 3: every component's input datapoints and ± (standard_deviation) read from the Certify API; every value recorded against the uncertainty reference", False),
         ("G2_ef_live_sheet", "Primary source: Standard Emission Factors sheet, 2026 tab, opened; every EF read from the live cell", False),
         ("G2_carbon_range_source", "Primary source: MRV_AECN_Analysis.xlsx opened for carbon mean / SD / n", False),
         ("G2_bcu_sources", "Primary source: BCU certificate PDF opened (coverage confirmed) and protocol opened for BCU eligibility", True),
@@ -106,12 +106,12 @@ REQUIRED_STEPS = {
         ("G1_3_lab_results", "Gate 1 step 3: SGS CoA(s) opened (per tote or per tanker), or absence recorded as lab_results.status", False),
         ("G1_4_ops_notes", "Gate 1 step 4: Ops Notes Kerry mass IN, sparged-AECN mass IN, pH, total injectate", False),
         ("G1_5_cobb_row_verified", "Gate 1 step 5: COBB cell A equals the batch ID before any value is read; consumed_lot follows kc_NNNN", False),
-        ("G1_6_certify_four_tabs", "Gate 1 step 6: Certify Components, Calculation View, Datapoints and Sources tabs all opened", False),
+        ("G1_6_certify_four_tabs", "Gate 1 step 6: Certify removal fetched via API (certify_read.py): components, datapoints, sources and blueprint recompute", False),
         ("G1_6_sources_tab_total", "Gate 1: certify_sources_tab_total with full enumeration of source filenames", False),
         ("G1_registry_updated", "Gate 1 exit: batch added to qa_active_kerry_batches.json", False),
         ("G2_1_mass_artifacts_opened", "Gate 2 sub-task 1: every weighing artifact opened; tote tare measured not nominal, or tanker tractor/trailer match", False),
         ("G2_2_cobb_values", "Gate 2 sub-task 2: COBB row read; kc_NNNN pattern, offloaded qty, origin qty, completion date", False),
-        ("G2_3_component_modals", "Gate 2 sub-task 3: every Certify component modal opened; +/- read; scale on the ticket checked before choosing 1.13 or 72.57 kg", False),
+        ("G2_3_component_modals", "Gate 2 sub-task 3: every component's input datapoints and ± (standard_deviation) read from the Certify API; scale on the ticket checked before choosing 1.13 or 72.57 kg", False),
         ("G2_system_boundary", "No upstream Kerry production or biomass component in Certify; counterfactual = 0; no sparging on Kerry mass", False),
         ("G2_transport_mass_basis", "Mass of Load checked against BOL gross (tote) or oil-only mass (tanker)", False),
         ("G2_ef_live_sheet", "Primary source: Standard Emission Factors sheet, 2026 tab, opened; every EF read from the live cell", False),
@@ -119,6 +119,12 @@ REQUIRED_STEPS = {
         ("G2_recompute_pasted", "recompute_*.py in the batch folder, exit 0, full output pasted into the chat before delivery", False),
     ] + _CLOSE,
 }
+
+# Steps that cannot run in the GCP QA container (skills/qa/container), where they may be
+# marked done="n/a" with a reason. G4_render_in_excel checks how the checklist looks in
+# Excel; there is no Excel in a Linux container. Every QA check and the code-enforced
+# formatting checks in check_files() still run.
+CONTAINER_NA = {"G4_render_in_excel"}
 
 ANCHOR_LOG = re.compile(r"\[log:([^\]]+)\]")
 ANCHOR_PATH = re.compile(r"[\w~./-]+\.(?:xlsx|json|txt|csv|pdf|png|md|py|yml|jsonl)\b")
@@ -206,6 +212,7 @@ def check_ledger(folder: Path, log: dict, ws: Path, kind: str, log_name: str = "
     t0 = t0_epoch(folder)
     fails = []
     for sid, text, na_ok in REQUIRED_STEPS[kind]:
+        na_ok = na_ok or (sid in CONTAINER_NA and os.environ.get("QA_CONTAINER") == "1")
         e = steps.get(sid)
         if not e:
             fails.append(f"{sid} missing ({text})")

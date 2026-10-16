@@ -97,6 +97,8 @@ Adversarial reviewer continues to challenge anything that smells templated. Add 
 
 ### 4. Sonnet subagent for Certify modal capture
 
+> **Superseded (2026-10-16):** Certify is now read through the API (`skills/qa/container/tools/certify_read.py`), not Playwright modals, so there are no modals to delegate. Kept as history.
+
 **Saves:** ~$15-25/batch
 **Difficulty:** Skill refactor
 **Risk:** Low
@@ -112,6 +114,8 @@ Adversarial reviewer continues to challenge anything that smells templated. Add 
 - `~/.claude/hooks/certify_readonly_guard.sh` — verify subagent coverage (likely already works)
 
 ### 5. Tighter snapshots and re-grep over saved files
+
+> **Superseded (2026-10-16):** QA no longer takes browser snapshots; the API tools write dumps and a compact summary to the batch folder, and the skill says to re-read saved dumps. Kept as history.
 
 **Saves:** ~$10-15/batch
 **Difficulty:** Behavioral (instructions in SKILL.md)

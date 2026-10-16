@@ -13,7 +13,7 @@ This document captures real failure patterns from batch QA sessions spanning bat
 
 **Fix applied:** SOURCES TAB FIRST RULE in Gate 1. The source-read log now requires `"certify_sources_tab_total"` with a complete enumeration of ALL source filenames. Gate 1 cannot be completed without this field.
 
-**The principle:** Any time you need to determine whether a document exists in Certify, check the Sources tab. Not the Datapoints tab. Not a summary view. The Sources tab.
+**The principle:** Any time you need to determine whether a document exists in Certify, check the full `sources` list in the Certify API dump, then Drive. Not the per-datapoint links. Not a summary view. The full `sources` list.
 
 ### Batch 2-178 — Wrong COBB Row
 **What happened:** The agent read values from row 27 (batch 2-170's row) instead of row 55 (batch 2-178's row), producing 2 false FAILs that Max had to catch. The agent navigated to the COBB tracker and read the first plausible-looking row without verifying the batch ID.
@@ -22,7 +22,7 @@ This document captures real failure patterns from batch QA sessions spanning bat
 
 **Fix applied:** ROW VERIFICATION GATE — before extracting ANY value from a COBB row, read cell A and confirm it contains the target batch ID. The source-read log now requires `"cobb_row_id_verified": true` and `"cobb_cell_A_value"` matching the target batch.
 
-**The principle:** Large Google Sheets are deceptive. Never trust what's visible on screen. Navigate deliberately and verify you're in the right place before reading.
+**The principle:** Large Google Sheets are deceptive. Never trust a partial read. Search the whole tab (`rows --match`, check `rows_scanned`) and verify you're in the right place before reading.
 
 ### Recurring — Scale Tickets Not Opened
 **What happened:** Across multiple batches, the agent marked scale ticket items PASS without opening the actual PDF images. Evidence notes said things like "not directly opened," "match assumed," or cited values only from Ops Notes without confirming against the ticket itself.
@@ -270,8 +270,8 @@ This applies equally to AECN, Kerry, WODO, and Aqueous batch QA — newer skills
 2. **The checklist is a report, not a to-do list.** Every entry describes completed work with specific values.
 3. **Context fatigue is real.** After ~100+ items in a long session, quality degrades. Flag it.
 4. **Primary source or nothing.** Transcribed values are not verified values.
-5. **Google Sheets are larger than they look.** Navigate beyond the viewport.
-6. **The Sources tab is the document truth.** Not Datapoints, not summary views.
+5. **Google Sheets are larger than they look.** Read the whole tab; check `rows_scanned`.
+6. **The full Certify `sources` list is the document truth** (then Drive; a removal-level source not linked to a datapoint is invisible to the API, so an absence from both is still a Fail, noted for confirmation on the Sources tab). Not per-datapoint links, not summary views.
 7. **Missing evidence = FAIL.** No exceptions.
 8. **Certify display values are rounded.** Use the Standard EF Sheet for calculations.
 9. **Track your row.** Verify cell A before reading ANY COBB value.

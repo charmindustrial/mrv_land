@@ -14,8 +14,9 @@
 #
 # THE INVARIANT: you may not pull a derived/summarized representation of a
 # discrete primary source you were asked to read. Open it directly:
-#   - web page / registry  -> Playwright: browser_navigate + browser_evaluate
-#                             '() => document.body.innerText', then read the text
+#   - Certify removal data  -> skills/qa/container/tools/certify_read.py (Certify API)
+#   - Isometric protocols / docs -> Isometric MCP protocols_get_content / isometric_docs_get
+#   - any other web page    -> curl -sL <url> -o <file>, then Read the saved file
 #   - Google Drive file     -> Drive connector read_file_content/download (text docs)
 #                             or download + Read the image (scans/receipts/tickets)
 #   - document file (pdf/doc/xls/ppt/csv) -> download bytes + Read
@@ -77,7 +78,7 @@ case "$tool" in
     url="$(get_field url)"
     [ -z "$url" ] && exit 0
     if [ "$(classify_url "$url")" = "BLOCK" ]; then
-      echo "BLOCKED ($tool): this returns a SUMMARY/derived view, not the source. The target is a primary source you were asked to read. Open it directly with Playwright (browser_navigate + browser_evaluate '() => document.body.innerText', then read the saved text in chunks and QUOTE verbatim), or for Drive use the Drive connector. Do not analyze a document you have not opened." >&2
+      echo "BLOCKED ($tool): this returns a SUMMARY/derived view, not the source. The target is a primary source you were asked to read. Open it directly: Certify data with skills/qa/container/tools/certify_read.py, Isometric protocols with the Isometric MCP (protocols_get_content / isometric_docs_get), Drive files with skills/qa/container/tools/drive_read.py get (or the Drive connector) then Read, any other page with curl -sL <url> -o <file> then Read the saved file in chunks and QUOTE verbatim. Do not analyze a document you have not opened." >&2
       exit 2
     fi
     exit 0

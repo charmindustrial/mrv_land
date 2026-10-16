@@ -114,19 +114,20 @@ The key signal is that Garrett is communicating he's finished making the request
 
 ### 2. Re-Review in Certify
 
-**Tool note (fixed 2026-09-01, corrected same day — the Playwright browser tools do not appear in your default tool list; they are deferred, so calling one directly fails and looks like "no browser tools available." Load their schemas first, ONE AT A TIME):** a single `ToolSearch` call with a comma-separated list of tool names is unreliable for these — a live test of that format failed 3 times in a row with "No matching deferred tools found," and only succeeded once split into individual calls. Call `ToolSearch` six separate times, one tool per call: `select:mcp__playwright__browser_navigate`, then `select:mcp__playwright__browser_snapshot`, then `select:mcp__playwright__browser_click`, then `select:mcp__playwright__browser_evaluate`, then `select:mcp__playwright__browser_wait_for`, then `select:mcp__playwright__browser_close` — before doing anything else in this step. Use the **`playwright`** server only (headless, per the workspace's hard rule) — never `chrome-control`, and never `playwright-mrv`/`playwright-mrv-2/3/4` (the project's own `.mcp.json` copies of these servers run HEADED, with no `--headless` flag; using one in an unattended run risks popping a visible browser window on Max's screen). "Claude in Chrome" is not a real tool here — that phrasing is stale, ignore it.
+**Tool note:** Certify is read through the read-only REST API, never a browser. Fetch the removal fresh for every re-review (never reuse the originating QA session's dump — Garrett's corrections post-date it): `python3 skills/qa/container/tools/certify_read.py removal <certify_url> --out outputs/qa/batch-<id>/rereview_<YYYYMMDD>/certify_removal.json`. It writes the full dump and `certify_removal_summary.md` (every component, its blueprint, attribution factor, every input datapoint's magnitude, unit, standard_deviation (±), SD %, and source filenames, each with its JSON path). Needs ISO_PROD_CLIENT_SECRET and ISO_PROD_JWT. Download any Sources file to read with `certify_read.py source <src_id> --out <dir>`. Where the Isometric MCP server is connected, its GraphQL tools may be used for fields the REST API lacks; record the query and response.
 
-Open the batch's `certify_url` with `mcp__playwright__browser_navigate`. For each item in `fail_items` and `flag_items`:
+For each item in `fail_items` and `flag_items`:
 
-1. Navigate to the location specified in `certify_location`
-2. Extract the current values
+1. Locate the item named in `certify_location` in the dump/summary (`Components tab → …` = that component's blueprint and input datapoints; `Datapoints tab` = the datapoint's magnitude/unit/standard_deviation; `Sources tab` = the dump's `sources` list; `Calculation View` = blueprint recompute + `removal.co2e_net_removed_kg`)
+2. Extract the current values, citing each by its JSON path
 3. Evaluate whether the issue has been corrected, using the criteria in `what_to_verify`
 
 **Common verification patterns:**
-- **BCU vs. process emission mismatches:** Extract both values from the Components tab. The BCU reduction (tCO₂e) must equal the corresponding process emission (tCO₂e) and never exceed it; over-coverage of any size stays a FAIL. This is the core rule from the knowledge base. (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.)
-- **Generic filenames (FLAG-level, not FAIL):** Check the Sources tab for whether the file has been renamed to something descriptive (not a screenshot timestamp or auto-generated name). Note: generic filenames are a process hygiene issue and should always be classified as a Flag, not a Fail.
-- **Missing or incorrect values:** Compare current Certify values against what the checklist expected.
-- **Data entry corrections:** Verify the new value matches what the QA finding specified.
+- **BCU vs. process emission mismatches:** Compute both values from the dump — each component's tCO₂e from its blueprint expression (`blueprints` in the full dump) and its current input datapoints (the API does not return per-component tCO₂e). The BCU reduction (tCO₂e) must equal the corresponding process emission (tCO₂e) and never exceed it; over-coverage of any size stays a FAIL. This is the core rule from the knowledge base. (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.)
+- **Generic filenames (FLAG-level, not FAIL):** Check the source's `display_name` / `original_filename` in the dump's `sources` list for whether the file has been renamed to something descriptive (not a screenshot timestamp or auto-generated name). Note: generic filenames are a process hygiene issue and should always be classified as a Flag, not a Fail.
+- **Missing or incorrect values:** Compare current Certify values (datapoint magnitude / unit / standard_deviation in the dump) against what the checklist expected.
+- **Data entry corrections:** Verify the new value matches what the QA finding specified — confirm the datapoint's actual magnitude/SD changed, not just a label or source name, and recompute the affected component from its blueprint.
+- **Source no longer listed:** removal-level sources not linked to any datapoint are not visible via the API. If an expected source is absent from the dump, check Drive; if still absent, it stays a Fail, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)".
 
 Document what you find for each item — the current values and whether they satisfy the original finding.
 
@@ -134,7 +135,7 @@ Document what you find for each item — the current values and whether they sat
 
 Certify is not the only place evidence lives, and "it isn't in Certify Sources" is never a reason to stop. Scale tickets live in the batch Drive folder's **Scale Tickets** subfolder, BOLs in the reporting-period **AECN BOLs** folder, and the originating QA session has usually already downloaded both into `outputs/qa/batch-<id>/screenshots/` or `/tickets/` and `/bols/`. Check the per-batch output folder first, then Drive, then Certify. A mass finding cannot be closed or left open on Certify values alone — open the ticket.
 
-Before writing any item as unresolved, you must have tried, and be able to name the failure of, all three: (1) the per-batch output folder, (2) the batch Drive folder subfolders, (3) Certify Sources.
+Before writing any item as unresolved, you must have tried, and be able to name the failure of, all three: (1) the per-batch output folder, (2) the batch Drive folder subfolders (`drive_read.py ls <folder URL> --recursive`, then `drive_read.py get`), (3) Certify Sources (the dump's `sources` list, downloaded with `certify_read.py source <src_id>`).
 
 These phrasings are banned from your re-review note, your registry entry and your Slack message:
 - "needs ticket-level PDF review" / "needs review" / "requires opening the original …"
@@ -143,7 +144,7 @@ These phrasings are banned from your re-review note, your registry entry and you
 
 Max adjudicates **judgement** — whether a Flag is acceptable, whether to accept a documented deviation. He does not adjudicate whether a number on a ticket says what it says. If a document is genuinely unreadable or access is genuinely denied, say exactly that, name the file and the specific error, and list the three paths you tried. That is a legibility/access blocker and is legitimate. Anything short of that, go read it.
 
-**Close browser tabs when finished.** Max's browser gets cluttered otherwise.
+**No browser.** Re-review reads Certify and Drive through `certify_read.py` / `drive_read.py`. If a browser tab is ever opened, close it when finished — Max's browser gets cluttered otherwise.
 
 ### 3. Update the QA Checklist
 
@@ -237,4 +238,4 @@ This registration step is what makes the monitoring generic — no need to creat
 - **Be flexible in detection.** Garrett is a human, not a bot. He'll phrase completion however feels natural. Match intent, not keywords.
 - **Keep the registry clean.** Closed batches get removed. The registry should only contain batches that genuinely need monitoring.
 - **Don't re-review prematurely.** Only trigger on messages from Garrett (U08JW9HQG5B), not from Max or the QA bot. And make sure the message actually signals completion — a question like "is this the right value?" is not completion.
-- **Close browser tabs.** Always clean up after navigating Certify.
+- **Read Certify through the API, not a browser.** Fetch a fresh `certify_read.py removal` dump for every re-review; if a browser tab is ever opened, close it.

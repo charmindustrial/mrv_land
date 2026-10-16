@@ -95,7 +95,7 @@
         ]
       },
       {
-        "matcher": "Bash|mcp__chrome-control__open_url",
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
@@ -104,7 +104,7 @@
         ]
       },
       {
-        "matcher": "Write|mcp__playwright__browser_take_screenshot|mcp__playwright-mrv__browser_take_screenshot",
+        "matcher": "Write",
         "hooks": [
           {
             "type": "command",
@@ -122,7 +122,7 @@
         ]
       },
       {
-        "matcher": "WebFetch|WebSearch|Agent|mcp__chrome-control__open_url|mcp__chrome-control__get_page_content|mcp__chrome-control__execute_javascript",
+        "matcher": "WebFetch|WebSearch|Agent",
         "hooks": [
           {
             "type": "command",
@@ -219,16 +219,6 @@
           }
         ]
       }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/browser_cleanup_sessionend.sh\""
-          }
-        ]
-      }
     ]
   },
   "permissions": {
@@ -258,30 +248,6 @@
       "mcp__claude_ai_Slack__slack_read_channel",
       "mcp__claude_ai_Slack__slack_read_canvas",
       "mcp__claude_ai_Slack__slack_read_user_profile",
-      "mcp__playwright__browser_click",
-      "mcp__playwright__browser_take_screenshot",
-      "mcp__playwright__browser_navigate",
-      "mcp__playwright__browser_navigate_back",
-      "mcp__playwright__browser_wait_for",
-      "mcp__playwright__browser_evaluate",
-      "mcp__playwright__browser_snapshot",
-      "mcp__playwright__browser_resize",
-      "mcp__playwright__browser_close",
-      "mcp__playwright__browser_tabs",
-      "mcp__playwright__browser_console_messages",
-      "mcp__playwright__browser_network_requests",
-      "mcp__playwright-mrv__browser_click",
-      "mcp__playwright-mrv__browser_take_screenshot",
-      "mcp__playwright-mrv__browser_navigate",
-      "mcp__playwright-mrv__browser_navigate_back",
-      "mcp__playwright-mrv__browser_wait_for",
-      "mcp__playwright-mrv__browser_evaluate",
-      "mcp__playwright-mrv__browser_snapshot",
-      "mcp__playwright-mrv__browser_resize",
-      "mcp__playwright-mrv__browser_close",
-      "mcp__playwright-mrv__browser_tabs",
-      "mcp__playwright-mrv__browser_console_messages",
-      "mcp__playwright-mrv__browser_network_requests",
       "mcp__word__open_document",
       "mcp__word__close_document",
       "mcp__word__create_document",
@@ -308,67 +274,7 @@
       "WebSearch",
       "WebFetch",
       "Bash(curl:*)",
-      "Bash(wget:*)",
-      "mcp__playwright__browser_find",
-      "mcp__playwright__browser_network_request",
-      "mcp__playwright-mrv__browser_find",
-      "mcp__playwright-mrv__browser_network_request",
-      "mcp__playwright-mrv-2__browser_click",
-      "mcp__playwright-mrv-2__browser_take_screenshot",
-      "mcp__playwright-mrv-2__browser_navigate",
-      "mcp__playwright-mrv-2__browser_navigate_back",
-      "mcp__playwright-mrv-2__browser_wait_for",
-      "mcp__playwright-mrv-2__browser_evaluate",
-      "mcp__playwright-mrv-2__browser_snapshot",
-      "mcp__playwright-mrv-2__browser_resize",
-      "mcp__playwright-mrv-2__browser_close",
-      "mcp__playwright-mrv-2__browser_tabs",
-      "mcp__playwright-mrv-2__browser_console_messages",
-      "mcp__playwright-mrv-2__browser_network_requests",
-      "mcp__playwright-mrv-2__browser_find",
-      "mcp__playwright-mrv-2__browser_network_request",
-      "mcp__playwright-mrv-3__browser_click",
-      "mcp__playwright-mrv-3__browser_take_screenshot",
-      "mcp__playwright-mrv-3__browser_navigate",
-      "mcp__playwright-mrv-3__browser_navigate_back",
-      "mcp__playwright-mrv-3__browser_wait_for",
-      "mcp__playwright-mrv-3__browser_evaluate",
-      "mcp__playwright-mrv-3__browser_snapshot",
-      "mcp__playwright-mrv-3__browser_resize",
-      "mcp__playwright-mrv-3__browser_close",
-      "mcp__playwright-mrv-3__browser_tabs",
-      "mcp__playwright-mrv-3__browser_console_messages",
-      "mcp__playwright-mrv-3__browser_network_requests",
-      "mcp__playwright-mrv-3__browser_find",
-      "mcp__playwright-mrv-3__browser_network_request",
-      "mcp__playwright-mrv-4__browser_click",
-      "mcp__playwright-mrv-4__browser_take_screenshot",
-      "mcp__playwright-mrv-4__browser_navigate",
-      "mcp__playwright-mrv-4__browser_navigate_back",
-      "mcp__playwright-mrv-4__browser_wait_for",
-      "mcp__playwright-mrv-4__browser_evaluate",
-      "mcp__playwright-mrv-4__browser_snapshot",
-      "mcp__playwright-mrv-4__browser_resize",
-      "mcp__playwright-mrv-4__browser_close",
-      "mcp__playwright-mrv-4__browser_tabs",
-      "mcp__playwright-mrv-4__browser_console_messages",
-      "mcp__playwright-mrv-4__browser_network_requests",
-      "mcp__playwright-mrv-4__browser_find",
-      "mcp__playwright-mrv-4__browser_network_request",
-      "mcp__playwright-login__browser_click",
-      "mcp__playwright-login__browser_take_screenshot",
-      "mcp__playwright-login__browser_navigate",
-      "mcp__playwright-login__browser_navigate_back",
-      "mcp__playwright-login__browser_wait_for",
-      "mcp__playwright-login__browser_evaluate",
-      "mcp__playwright-login__browser_snapshot",
-      "mcp__playwright-login__browser_resize",
-      "mcp__playwright-login__browser_close",
-      "mcp__playwright-login__browser_tabs",
-      "mcp__playwright-login__browser_console_messages",
-      "mcp__playwright-login__browser_network_requests",
-      "mcp__playwright-login__browser_find",
-      "mcp__playwright-login__browser_network_request"
+      "Bash(wget:*)"
     ]
   }
 }

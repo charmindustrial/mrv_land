@@ -6,7 +6,7 @@
 # pdftotext, grep, sed, awk, or cat on PDFs and text extractions.
 #
 # The citation integrity hook requires documents to be opened via
-# Read, Google Drive, Playwright, or Word. Bash extraction bypasses
+# Read, Google Drive, the Certify/Drive API tools, or Word. Bash extraction bypasses
 # that chain and produces unverifiable citations.
 #
 # Exit 2 = deny with reason surfaced to Claude.
@@ -32,19 +32,19 @@ command="$(echo "$input" | jq -r '.tool_input.command // empty' 2>/dev/null || e
 
 # Block pdftotext on any file
 if echo "$command" | grep -qE 'pdftotext'; then
-  echo "DENIED by doc_extraction_guard: pdftotext is blocked. Open PDFs using the Read tool (for local files), Playwright (for web PDFs), or Google Drive MCP. Bash text extraction produces citations the citation integrity hook cannot verify." >&2
+  echo "DENIED by doc_extraction_guard: pdftotext is blocked. Open PDFs using the Read tool (for local files; download web or Certify PDFs first with curl or certify_read.py source), or Google Drive (drive_read.py get, or the Drive MCP). Bash text extraction produces citations the citation integrity hook cannot verify." >&2
   exit 2
 fi
 
 # Block grep/sed/awk/cat targeting .pdf or known text extraction files
 if echo "$command" | grep -qE '(grep|sed|awk|cat)\s.*\.(pdf|PDF)'; then
-  echo "DENIED by doc_extraction_guard: grep/sed/awk/cat on PDF files is blocked. Open PDFs using the Read tool, Playwright, or Google Drive MCP." >&2
+  echo "DENIED by doc_extraction_guard: grep/sed/awk/cat on PDF files is blocked. Open PDFs using the Read tool, or Google Drive (drive_read.py get, or the Drive MCP)." >&2
   exit 2
 fi
 
 # Block grep/sed/awk/cat targeting the .playwright-mcp text extraction files
 if echo "$command" | grep -qE '(grep|sed|awk|cat)\s.*playwright-mcp/.*-text\.txt'; then
-  echo "DENIED by doc_extraction_guard: Bash extraction from playwright-mcp text files is blocked. These are unverified extractions. Open the source PDF using the Read tool, Playwright, or Google Drive MCP instead." >&2
+  echo "DENIED by doc_extraction_guard: Bash extraction from playwright-mcp text files is blocked. These are unverified extractions. Open the source PDF using the Read tool, or Google Drive MCP instead." >&2
   exit 2
 fi
 

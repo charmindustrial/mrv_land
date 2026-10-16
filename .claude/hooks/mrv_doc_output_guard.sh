@@ -156,12 +156,7 @@ SOURCE_READ_TOOLS = {
     'mcp__claude_ai_Google_Drive__read_file_content',
     'mcp__claude_ai_Google_Drive__download_file_content',
     'mcp__word__get_document_text',
-    'mcp__playwright__browser_snapshot',
-    'mcp__playwright-mrv__browser_snapshot',
-    'mcp__playwright-mrv-2__browser_snapshot',
-    'mcp__playwright-mrv-3__browser_snapshot',
-    'mcp__playwright-mrv-4__browser_snapshot',
-}
+}  # certify_read.py / drive_read.py output is opened with Read, so it is covered above
 
 corpus_parts = []
 for entry in entries:
@@ -280,7 +275,7 @@ if signals and not corpus_parts:
     print('DOC OUTPUT BLOCK — Gate A2: No Source Documents Opened', file=sys.stderr)
     print('─' * 72, file=sys.stderr)
     print('Document content contains citation signals and quoted strings, but no', file=sys.stderr)
-    print('source documents were opened this session via Read/Drive/Playwright/Word.', file=sys.stderr)
+    print('source documents were opened this session via Read/Drive/Word (API tool output is opened with Read).', file=sys.stderr)
     print('Open the source document first, then re-draft.', file=sys.stderr)
     print('─' * 72, file=sys.stderr)
     sys.exit(2)

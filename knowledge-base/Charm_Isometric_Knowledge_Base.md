@@ -29,13 +29,13 @@ The QA workflow is structured as **four sequential gates**. Each gate MUST be co
 3. **Lab results (CHN PDF)** — Open SGS Certificate of Analysis, navigate to correct page. Extract: Certificate #, batch ID on page, sample date+location, Carbon %, Hydrogen %, Nitrogen %, Viscosity, Acid Number, Density.
 4. **Ops Notes** — Open Google Sheet. Extract: batch ID, completion date, origin lot, all mass values (origin mass, truck full/empty/net for each truck), sparging rate+loss, pH, total injectate mass.
 5. **COBB tracker** — Navigate to correct row. Extract: injection_batch, consumed_lot, BOL_number, origin_quantity_kg, order_line_completed_on.
-6. **Certify removal** — Open ALL four tabs:
-   - **Components:** sequestrations (tCO₂e), activities (tCO₂e), reductions (tCO₂e), counterfactuals, losses
-   - **Calculation View:** full net calculation formula and result
-   - **Datapoints:** all datapoint names, values, and linked sources (every one)
-   - **Sources:** all source filenames and linked datapoints (every one)
+6. **Certify removal** — Fetch the removal via the Certify API (`python3 skills/qa/container/tools/certify_read.py removal <removal URL> --out outputs/qa/<folder>/certify_removal.json`, which also writes `certify_removal_summary.md`) and read ALL four of:
+   - **Components:** sequestrations, activities, reductions, counterfactuals, losses — every component, its blueprint, attribution factor and input datapoints (summary per-component tables)
+   - **Calculation:** recompute each component's tCO₂e from its blueprint expression (`blueprints` in the full dump) and its inputs; the removal's net is `removal.co2e_net_removed_kg` (the API does not return per-component tCO₂e)
+   - **Datapoints:** all datapoint names, values, and linked sources (every one, from the dump)
+   - **Sources:** all source filenames and linked datapoints (every one, from the dump's `sources` list)
 
-   **SOURCES TAB FIRST RULE (added April 7, 2026 — after batch 2-178 laziness failure):** The Sources tab is the SINGLE SOURCE OF TRUTH for document presence. It shows ALL sources — both removal-level AND component-level — in one flat list. For ANY document presence check (Section 6a LCA docs, BOLs, billing docs, or anything referenced in VR Appendix 1), the Sources tab is where you look. The Datapoints tab only shows sources linked to each datapoint and may not show component-level docs. The source-read log MUST contain `"certify_sources_tab_total": [N]` with a full enumeration of all N source filenames and their linked datapoints. If this field is missing, Gate 1 is not complete. Never conclude a document is absent without checking the Sources tab. This gate exists because batch 2-178 checked only 12 removal-level sources from the Datapoints tab and declared 3 AECN LCA docs missing — when all 3 were present on the Sources tab (16 total sources, 4 at component level). Max had to catch this.
+   **SOURCES TAB FIRST RULE (added April 7, 2026 — after batch 2-178 laziness failure):** The dump's `sources` list is the Certify source of truth for document presence. It is a flat list of every source linked to any datapoint — including component-level docs, which a per-datapoint read can miss. For ANY document presence check (Section 6a LCA docs, BOLs, billing docs, or anything referenced in VR Appendix 1), the full `sources` list is where you look in Certify. Known API gap: removal-level sources not linked to any datapoint are not visible via the API — a document absent from the dump must also be checked in Drive and, if still absent, graded Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)". The source-read log MUST contain `"certify_sources_tab_total": [N]` with a full enumeration of all N source filenames and their linked datapoints. If this field is missing, Gate 1 is not complete. Never conclude a document is absent without checking the full `sources` list. This gate exists because batch 2-178 checked only 12 removal-level sources from the Datapoints tab and declared 3 AECN LCA docs missing — when all 3 were present on the Sources tab (16 total sources, 4 at component level). Max had to catch this.
 
 **Exit condition / Gate check:** The `batch_[ID]_source_reads.json` file exists and contains non-null entries for ALL six source categories above. Additionally, the following mandatory fields must be present: `"cobb_row_id_verified": true` with `"cobb_cell_A_value"` matching the target batch ID, and `"certify_sources_tab_total"` with a complete enumeration of all source filenames. If any category or mandatory field is missing, Gate 1 is not complete and Gate 2 CANNOT begin.
 
@@ -57,9 +57,9 @@ The QA workflow is structured as **four sequential gates**. Each gate MUST be co
 
 **Mandatory Verification Sub-Tasks (non-skippable):** These items have failed across multiple batches due to the QA agent not opening the primary source. They MUST be completed during Gate 2 with evidence extracted directly from the source. A checklist cannot exit Gate 2 without all of these done:
 
-1. **Scale tickets (items 2.1–2.3):** Open BOTH full and empty scale ticket PDFs from Certify Sources. Extract tractor number, trailer number, gross/tare weight, and date from each. Compare tractor and trailer numbers between the two tickets. Any mismatch in vehicle identifiers is a FAIL (Section 13A-II).
+1. **Scale tickets (items 2.1–2.3):** Open BOTH full and empty scale ticket PDFs from Certify Sources (download each with `certify_read.py source <src_id> --out <dir>` and open it with the Read tool). Extract tractor number, trailer number, gross/tare weight, and date from each. Compare tractor and trailer numbers between the two tickets. Any mismatch in vehicle identifiers is a FAIL (Section 13A-II).
 2. **COBB tracker (items 5.4, 5.6):** Navigate to the Bio-oil Injection Tracker, open the correct tab (e.g., "Basco Injection -- COBB"), find the batch row by batch ID or consumed_lot. **ROW VERIFICATION GATE (added April 7, 2026 — after batch 2-178 laziness failure):** Before extracting ANY value from a COBB row, read cell A of that row and confirm it contains the target batch ID. If cell A does not match the target batch, STOP — you are on the wrong row. Navigate again. Do NOT proceed to extract values until the batch ID is confirmed. The source-read log MUST contain the field `"cobb_row_id_verified": true` and `"cobb_cell_A_value": "[batch ID]"` — without these fields, Gate 1 is not complete. This gate exists because batch 2-178 was read from row 27 (batch 2-170's row) instead of row 55, producing 2 false FAILs that Max had to catch. Extract offloaded_qty, origin_qty, and completion date. Record the tab name and row number.
-3. **Uncertainty per-component (items 7a.1, 7a.2):** Open EACH Certify component detail modal (Injection Sequestration, Transport Process, Pyrolysis Process, Pyrolysis Embodied). In the INPUTS section of each modal, read the ± values. Record every uncertainty value found. Compare against KB expected values (Section 7a).
+3. **Uncertainty per-component (items 7a.1, 7a.2):** For EACH Certify component (Injection Sequestration, Transport Process, Pyrolysis Process, Pyrolysis Embodied), read every input datapoint's ± value (`standard_deviation`, with SD %) from the Certify API summary's per-component input table. Record every uncertainty value found. Compare against KB expected values (Section 7a).
 
 **Exit condition / Gate check:** The .xlsx checklist file exists with all items assigned a status (PASS/FAIL/FLAG/N/A) and every evidence note contains specific cited values. All three mandatory verification sub-tasks above have been completed with primary-source evidence recorded.
 
@@ -93,7 +93,7 @@ Each penalty represents a failure that costs Max and Garrett time, erodes trust 
 |---|---|---|
 | **Error** | A finding Max or Garrett corrects (wrong status, wrong value, wrong conclusion) | +1 per distinct issue |
 | **Laziness Violation** | Writing a status without reading the source; spot-checking instead of checking all; declaring data absent without exhaustive search | +1 per affected checklist item |
-| **Uncertainty Modal Avoidance** | Failing to open Certify component detail modals and individually confirm per-component ± values; using aggregate discount, KB defaults, or backed-out math as a proxy for reading the actual UI values. This is a specific, recurring laziness pattern elevated to its own penalty category effective 2026-04-07. | **+3 per violation** (not per item — the entire uncertainty section counts as one violation) |
+| **Uncertainty Modal Avoidance** | Failing to read each Certify component's input ± values (`standard_deviation`) from the Certify API and individually confirm them per component; using aggregate discount, KB defaults, or backed-out math as a proxy for reading the actual API values. This is a specific, recurring laziness pattern elevated to its own penalty category effective 2026-04-07. | **+3 per violation** (not per item — the entire uncertainty section counts as one violation) |
 | **Material Error** | Error that affects Net CDR calculation (wrong EFs, mass errors, formula errors, missed components) | Flagged separately — these are the most serious |
 | **Gate Violation** | Attempting to proceed past a gate without completing it | +5 per occurrence (this is a structural failure) |
 
@@ -489,7 +489,7 @@ Worked through with Tom Sellers and Seb Green:
 - **Tab "COBB (with offload info)":** Older / archived tab. Contains only historical entries (max batch ~2-122 / 3-54). Do NOT use for current rail batches. Corrected April 27, 2026 after batch 2-182 training pass surfaced that the rail tab pointer was stale.
 - **Key columns:** injection_batch, consumed_lot, BOL_number, offloaded_quantity_kg, order_line_quantity_completed, injection_completion_date, injection_ph
 - **Note:** COBB data is maintained in this live tracker, NOT in per-batch Ops Notes. Always reference this sheet for COBB verification.
-- **CRITICAL — Navigation:** The "Basco Injection -- COBB" tab contains far more rows than fit in the initial viewport. Data extends well past the first screenful. To find a batch: use the Name Box (top-left cell reference box) to jump to A50, A100, etc., or use Ctrl+F search. NEVER conclude a batch is absent based only on what is visible on screen. The initial viewport typically shows ~24 data rows (up to ~batch 2-146); newer batches require scrolling or direct navigation. If Ctrl+End or scroll fails to move the view, use the Name Box to jump to a specific cell.
+- **CRITICAL — Navigation:** The "Basco Injection -- COBB" tab contains far more rows than a partial read shows. Data extends well past the first ~24 data rows (up to ~batch 2-146). To find a batch: export the tracker with `drive_read.py get` and run `drive_read.py rows <xlsx> --tab "Basco Injection -- COBB" --match "<batch ID or consumed_lot>"`, confirming `rows_scanned` covers the whole tab. NEVER conclude a batch is absent based only on the first rows read. If the match returns nothing, retry with a looser regex (consumed_lot, BOL number) or a full-tab openpyxl scan before concluding absence.
 - **Added:** March 30, 2026
 
 ### QA Output
@@ -572,19 +572,19 @@ Used per-batch to verify every injection event before submission to Certify/veri
 - Supporting GHG data file present for the AECN production period [VR Appendix 1]
 - AECN pyrolysis process EF matches current half-year value (current: 0.10402 kgCO₂e/kg in Certify; previously rounded to 0.10) [Certify Datapoints]
 - AECN pyrolysis embodied EF applied (current: 0.0212 kgCO₂e/kg in Certify; previously rounded to 0.02) [Certify Datapoints]
-- **Mass basis for pyrolysis EFs:** Certify applies pyrolysis EFs to Origin Bio-Oil Mass (pre-sparging), NOT the injectate mass (post-sparging). This is correct — pyrolysis emissions were incurred to produce the full quantity of oil. Verified March 31, 2026 via Certify component inspection (batch 2-166). [Certify Components]
+- **Mass basis for pyrolysis EFs:** Certify applies pyrolysis EFs to Origin Bio-Oil Mass (pre-sparging), NOT the injectate mass (post-sparging). This is correct — pyrolysis emissions were incurred to produce the full quantity of oil. Verified March 31, 2026 via Certify component inspection (batch 2-166). [Certify API: components + blueprint recompute]
 
 **6b. Charm WODO Emissions** (Mark N/A if no Charm WODO in batch)
 - Production Period identified and emission factor (CI) documented
 - Charm WODO CI calculated via spreadsheet method (until dMRV integration complete) [GHG Stmt Sec C]
-- Production Period production emissions correctly allocated to this batch [Certify Components]
+- Production Period production emissions correctly allocated to this batch [Certify API: components + blueprint recompute]
 - Flatbed truck transport distance and emissions correctly entered [Certify Datapoints]
 - Pre-treatment status: NONE for Charm WODO (no sparging/LCS applied) [VR Sec 3.1]
 
 **6c. Charm Aqueous Emissions** (Mark N/A if no Charm Aqueous in batch)
 - Production Period identified and emission factor (CI) documented
 - Aqueous CI calculated via same spreadsheet method as WODO [GHG Stmt Sec C]
-- Production Period production emissions correctly allocated to this batch [Certify Components]
+- Production Period production emissions correctly allocated to this batch [Certify API: components + blueprint recompute]
 - Flatbed truck transport distance and emissions correctly entered [Certify Datapoints]
 - LCS pre-treatment applied for pH adjustment: LCS mass and CI entered in Certify; aqueous mass adjusted accordingly
 
@@ -608,7 +608,7 @@ Charm uses Option B (Variance Propagation) per Isometric Standard §3.7.3. Charm
 
 **Layer 1 — Completeness:** Every component that requires uncertainty reporting has it, AND the uncertainty is applied to the correct datapoint/sub-component within that component (not all datapoints in a component require uncertainty). Reference: MRV Uncertainty+ Evidence Cheat Sheet.xlsx for the component→datapoint mapping. The PDD Uncertainty Assessment section is the authoritative source for which components are sensitive enough to require uncertainty reporting.
 
-**Layer 2 — Correctness:** The reported uncertainty value on each datapoint matches the expected value. In Certify, uncertainty is displayed next to the reported value with a ± symbol in gray text, between the value and the source link. Some uncertainties are absolute values; others are a percentage of the reported measurement value and must be recomputed to verify. Expected values per component→datapoint:
+**Layer 2 — Correctness:** The reported uncertainty value on each datapoint matches the expected value. In the Certify API, uncertainty is the datapoint's `standard_deviation` (the ± value; the summary also gives SD %), read per input in `certify_removal_summary.md`. Some uncertainties are absolute values; others are a percentage of the reported measurement value and must be recomputed to verify. Expected values per component→datapoint:
 
 - Injection Sequestration → Carbon Content: 0.004 × Measured Value (0.4%)
 - Injection Sequestration → Mass of Product: 72.57 kg per discrete weight (one vehicle with one load)
@@ -622,7 +622,7 @@ Charm uses Option B (Variance Propagation) per Isometric Standard §3.7.3. Charm
 - Diesel Site Emissions → Mass of Fuel: 0.0129 × Measured Value (1.29%)
 - LCS → Mass of LCS: 0.02045 × Measured Value (2.045%)
 
-**Layer 3 — Discount presence and consistency:** The resulting aggregate uncertainty discount (computed by Certify from the above inputs) is present and correctly reflected in net CDR calculations: Gross CO2e → minus process emissions → minus uncertainty discount → Net removal. Verify the discount value is consistent with the GHG Statement Section E.
+**Layer 3 — Discount presence and consistency:** The resulting aggregate uncertainty discount (computed by Certify from the above inputs; via the API it is `removal.co2e_net_removed_without_discount_kg` − `removal.co2e_net_removed_kg`) is present and correctly reflected in net CDR calculations: Gross CO2e → minus process emissions → minus uncertainty discount → Net removal. Verify the discount value is consistent with the GHG Statement Section E.
 
 **8. Data Integrity & Anomaly Check**
 - No unexplained outliers in mass, carbon content, or calculated values
@@ -630,19 +630,19 @@ Charm uses Option B (Variance Propagation) per Isometric Standard §3.7.3. Charm
 - If inventory reconciliation applies: carryover oil from prior production periods documented and allocated [VR Sec 3.5]
 
 **9. Isometric Certify — Removal Component Mapping**
-- SEQUESTRATIONS: Gross injection sequestration (tCO2e) matches internal gross for total batch [Certify Components]
-- REMOVAL ACTIVITIES — Transport: Process + embodied emissions correct for each lot/mode (tanker, railcar, flatbed) [Certify Components]
-- REMOVAL ACTIVITIES — Injection: LCS and sample transport emissions correct [Certify Components]
-- REMOVAL ACTIVITIES — Pyrolysis: Each oil type has corresponding entry (AECN = "AECN Pyrolysis/Production"; Charm = "(Production Period X)" prefix) [Certify Components]
-- REDUCTIONS: All applicable BCU categories populated (5 categories: injection diesel, injection waste, pre-treat diesel, pre-treat waste, transport process) [Certify Components]
-- **REDUCTIONS — BCU Quantity Verification:** BCU quantity (tCO₂e) in Reductions must equal, and never exceed, the corresponding diesel/process emission (tCO₂e) in Activities. Transport process BCU (tCO₂e) = transport process activity emission (tCO₂e) for all trucking and rail. Other diesel BCU categories must similarly match, never exceed, their corresponding activity emissions when present. Over-coverage of any size is a FAIL (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.). Check EVERY removal. [Certify Components / Calculation View]
-- COUNTERFACTUALS: Baseline correctly computed or zero per protocol [Certify Components]
-- Net removal (tCO2e) in Certify matches internal net calculation [Certify Calculation View]
+- SEQUESTRATIONS: Gross injection sequestration (tCO2e) matches internal gross for total batch [Certify API: components + blueprint recompute]
+- REMOVAL ACTIVITIES — Transport: Process + embodied emissions correct for each lot/mode (tanker, railcar, flatbed) [Certify API: components + blueprint recompute]
+- REMOVAL ACTIVITIES — Injection: LCS and sample transport emissions correct [Certify API: components + blueprint recompute]
+- REMOVAL ACTIVITIES — Pyrolysis: Each oil type has corresponding entry (AECN = "AECN Pyrolysis/Production"; Charm = "(Production Period X)" prefix) [Certify API: components + blueprint recompute]
+- REDUCTIONS: All applicable BCU categories populated (5 categories: injection diesel, injection waste, pre-treat diesel, pre-treat waste, transport process) [Certify API: components + blueprint recompute]
+- **REDUCTIONS — BCU Quantity Verification:** BCU quantity (tCO₂e) in Reductions must equal, and never exceed, the corresponding diesel/process emission (tCO₂e) in Activities. Transport process BCU (tCO₂e) = transport process activity emission (tCO₂e) for all trucking and rail. Other diesel BCU categories must similarly match, never exceed, their corresponding activity emissions when present. Over-coverage of any size is a FAIL (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.). Check EVERY removal. [Certify API: components + blueprint recompute]
+- COUNTERFACTUALS: Baseline correctly computed or zero per protocol [Certify API: components + blueprint recompute]
+- Net removal (tCO2e) in Certify matches internal net calculation [Certify API: removal net + blueprint recompute]
 - All Datapoints have corresponding source documents linked with descriptive names (no "Measurement XXXX" or "IMG_001") [Certify Datapoints] — **Generic or non-descriptive filenames are a FLAG, not a FAIL.** This is a process hygiene issue, not a reporting error. Flag the row yellow and note the filename that should be renamed.
 - All Sources uploaded to Certify match files in the batch folder on Drive [Certify Sources]
 
 **CRITICAL — Document Location Rule (added April 1, 2026):**
-Documents required by VR Appendix 1 (BOLs, billing documents, AECN LCA CI spreadsheets, LCA with stack emissions files, supporting GHG data files) do NOT need to be in the per-batch Google Drive folder if they are uploaded to Certify Sources for the removal. Presence in Certify Sources satisfies the document-presence requirement. When verifying document presence: (1) check the batch Drive folder first, (2) if not found there, check Certify Sources tab, (3) only FLAG/FAIL if the document is absent from BOTH locations. This applies to all items in Sections 1, 3, and 6a that reference VR Appendix 1. Do NOT flag a document as missing solely because it is not in the Drive folder — confirm it is also absent from Certify before flagging. Origin/destination and billing details can likewise be confirmed from BOL documents in Certify Sources.
+Documents required by VR Appendix 1 (BOLs, billing documents, AECN LCA CI spreadsheets, LCA with stack emissions files, supporting GHG data files) do NOT need to be in the per-batch Google Drive folder if they are uploaded to Certify Sources for the removal. Presence in Certify Sources satisfies the document-presence requirement. When verifying document presence: (1) check the batch Drive folder first, (2) if not found there, check the Certify API dump's `sources` list, (3) only FLAG/FAIL if the document is absent from BOTH locations — and because removal-level sources not linked to any datapoint are not visible via the API, an absence from the dump plus Drive is graded Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)". This applies to all items in Sections 1, 3, and 6a that reference VR Appendix 1. Do NOT flag a document as missing solely because it is not in the Drive folder — confirm it is also absent from Certify before flagging. Origin/destination and billing details can likewise be confirmed from BOL documents in Certify Sources.
 
 ---
 
@@ -1008,9 +1008,9 @@ All files are organized in the MRV Expert workspace folder. See `FOLDER_INDEX.md
 
 These rules exist because of repeated failures where expected data was declared absent due to inadequate navigation, or conclusions were drawn without verifying against primary sources. They are non-negotiable.
 
-1. **Never conclude data is absent without exhausting all navigation methods.** If you cannot find expected data in a Google Sheet, browser page, or any other source, assume operator error first. Try at least 3 different navigation methods (e.g., Ctrl+F, Name Box jump, scrolling, Page Down, arrow keys) before concluding the data does not exist.
+1. **Never conclude data is absent without exhausting all navigation methods.** If you cannot find expected data in a Google Sheet, API response, or any other source, assume operator error first. Try at least 3 different navigation methods (e.g., `drive_read.py rows` with a different `--match` regex, listing every tab with `drive_read.py tabs` and searching each, a full-tab openpyxl scan confirming `rows_scanned` covers the whole tab, `drive_read.py search` for a newer copy) before concluding the data does not exist.
 2. **Never mark a checklist item as INFO, N/A, or "data unavailable" due to missing data without exhausting all approaches.** If you still can't find it after 3 methods, state exactly which methods you tried and why each failed — do not simply declare the data isn't there.
-3. **Google Sheets are larger than they look.** Frozen header rows, filtered views, and large datasets mean the initial viewport is never the full picture. Always navigate beyond what is visible.
+3. **Google Sheets are larger than they look.** Frozen header rows, filtered views, hidden rows and large datasets mean a partial read is never the full picture. Always confirm the read covered the whole tab (`rows_scanned`), not just the first rows.
 4. **If a source is expected to have the data (e.g., COBB tracker should have all injected batches), treat failure to find it as YOUR problem, not a data gap.** Escalate to Max only after genuinely exhausting all options.
 5. **Added:** March 31, 2026
 
@@ -1021,9 +1021,9 @@ Every checklist item that references a data value MUST be verified by directly o
 **Primary sources by checklist area:**
 - **Scale ticket values (Section 2):** Open each scale ticket PDF directly (both full and empty). Read tractor number, trailer number, gross weight, and date from the ticket image itself. Do not rely on transcribed values in Ops Notes or Certify alone.
 - **COBB tracker values (Section 5):** Navigate to the correct tab in the Bio-oil Injection Tracker and locate the batch row. Read the values from the cells. Do not infer presence or absence from other sources.
-- **Uncertainty values (Section 7a):** Open each Certify component detail modal and read the ± values from the INPUTS section. Do not infer from aggregate calculations or assume values match expected. **CRITICAL (2026-04-07): Failure to individually confirm per-component ± values from the Certify UI is a +3 laziness penalty. Using aggregate discount math, KB expected ranges, or any proxy in place of actually opening the modals and reading the values is not acceptable. If a modal will not open, escalate to Max immediately — do not write hedged evidence notes.**
+- **Uncertainty values (Section 7a):** For each Certify component, read every input datapoint's ± value (`standard_deviation`) from the Certify API (`certify_removal_summary.md` per-component input table, JSON path into the full dump). Do not infer from aggregate calculations or assume values match expected. **CRITICAL (2026-04-07): Failure to individually confirm per-component ± values from the Certify API is a +3 laziness penalty. Using aggregate discount math, KB expected ranges, or any proxy in place of actually reading each component's input `standard_deviation` values is not acceptable. If the removal cannot be fetched or a component's inputs are missing from the dump, escalate to Max immediately — do not write hedged evidence notes.**
 - **Lab results (Section 4):** Open the CHN/CoA PDF and read values from the report page for the specific batch.
-- **Certify component values (Sections 7, 9):** Open the Components tab and click into each relevant component. Read values from the modal, not from summary displays.
+- **Certify component values (Sections 7, 9):** Fetch the removal with `certify_read.py removal` and read each relevant component's blueprint, attribution factor and every input datapoint (magnitude, unit, ±) from the API, then recompute the component's tCO₂e from its blueprint expression. Read values from the component's inputs, not from removal-level totals.
 
 **The rule:** If your evidence note for any item does not reflect values you personally extracted from the primary source in this session, the item is not verified. Writing "confirmed" or "matches" based on secondhand data, inference, or expectations is a laziness violation (Section 0B).
 
@@ -1113,7 +1113,7 @@ After completing a batch QA checklist:
 ## Operational Preferences
 
 ### Browser Tab Management
-- When opening browser tabs (Claude in Chrome) to do work, **always close them when finished**. Max's browser gets cluttered otherwise. Clean up after yourself.
+- QA reads Certify and Drive through the APIs (`certify_read.py`, `drive_read.py`), not a browser. If a browser tab is ever opened for other work, **always close it when finished**. Max's browser gets cluttered otherwise. Clean up after yourself.
 
 ### Batch QA Workflow
 - After completing batch QA, **always save the completed checklist to the Google Drive "Completed QA Sheets" folder**: https://drive.google.com/drive/folders/11n-sN6JPCy58t1-zOYOVRxLfGeGJX8dh

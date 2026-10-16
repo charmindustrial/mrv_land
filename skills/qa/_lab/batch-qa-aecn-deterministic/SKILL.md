@@ -75,15 +75,17 @@ The QA workflow is four sequential gates. Each gate must be completed and verifi
 
 4. **Ops Notes** — Open Google Sheet. Extract: batch ID, completion date, origin lot, all mass values (origin mass, truck full/empty/net for each truck), sparging rate+loss, pH, total injectate mass.
 
-5. **COBB tracker** — Navigate to the "Basco Injection -- COBB" tab. **ROW VERIFICATION GATE:** Before extracting ANY value, read cell A of the row and confirm it contains the target batch ID. If cell A does not match, STOP — you are on the wrong row. The tracker has far more rows than the initial viewport shows. Use Name Box (jump to A50, A100, etc.) or Ctrl+F to find the batch. NEVER conclude a batch is absent based only on what's visible on screen. Extract: injection_batch, consumed_lot, BOL_number, origin_quantity_kg, order_line_completed_on.
+5. **COBB tracker** — Navigate to the "Basco Injection -- COBB" tab. **ROW VERIFICATION GATE:** Before extracting ANY value, read cell A of the row and confirm it contains the target batch ID. If cell A does not match, STOP — you are on the wrong row. The tracker has far more rows than a partial read shows. Download it with `drive_read.py get` and find the batch with `drive_read.py rows <xlsx> --tab "Basco Injection -- COBB" --match "<batch_id>" --out <rows.json>`; confirm `rows_scanned` covers the whole tab. NEVER conclude a batch is absent based on a partial read. Extract: injection_batch, consumed_lot, BOL_number, origin_quantity_kg, order_line_completed_on.
 
-6. **Certify removal** — Open ALL four tabs:
-   - **Components:** sequestrations (tCO2e), activities (tCO2e), reductions (tCO2e), counterfactuals, losses
-   - **Calculation View:** full net calculation formula and result
-   - **Datapoints:** all datapoint names, values, and linked sources (every one)
-   - **Sources:** all source filenames and linked datapoints (every one)
+6. **Certify removal** — Read it through the Certify API (read-only; needs `ISO_PROD_CLIENT_SECRET` and `ISO_PROD_JWT`): `python3 skills/qa/container/tools/certify_read.py removal <removal URL> --out outputs/qa/batch-<batch_id>/certify_removal.json`. It writes the full dump and `certify_removal_summary.md` (every component, its blueprint, attribution factor, and every input datapoint's magnitude, unit, ± value (`standard_deviation`), SD % and source filenames, each with its JSON path into the dump). Read the summary; open the full dump for anything else. Cover ALL four views:
+   - **Components:** sequestrations (tCO2e), activities (tCO2e), reductions (tCO2e), counterfactuals, losses — the API does not return per-component tCO2e, so compute each component from its blueprint expression (`blueprints` in the full dump) and its inputs
+   - **Net calculation:** full gross-to-net calculation from those components; the removal's net is `removal.co2e_net_removed_kg`
+   - **Datapoints:** all datapoint names, values, and linked sources (every one), from the dump
+   - **Sources:** all source filenames and linked datapoints (every one), from the dump's `sources` list. `certify_read.py source <src_id> --out <dir>` downloads a file to open with Read.
 
-   **SOURCES TAB FIRST RULE:** The Sources tab is the SINGLE SOURCE OF TRUTH for document presence. It shows ALL sources — removal-level AND component-level — in one flat list. For ANY document presence check (AECN LCA docs, BOLs, billing docs), the Sources tab is where you look. The Datapoints tab only shows sources linked to each datapoint and may miss component-level docs. The source-read log MUST contain `"certify_sources_tab_total": [N]` with a full enumeration of all N source filenames. If this field is missing, Gate 1 is not complete.
+   Where the Isometric MCP server is connected, its GraphQL tools may be used for fields the REST API lacks; record the query and response like any other source.
+
+   **SOURCES TAB FIRST RULE:** The dump's `sources` list is the Certify source of truth for document presence. It is a flat list of every source linked to any datapoint — including component-level docs, which a per-datapoint read can miss. For ANY document presence check (AECN LCA docs, BOLs, billing docs), the full `sources` list is where you look. The source-read log MUST contain `"certify_sources_tab_total": [N]` with a full enumeration of all N source filenames, filled from the `sources` list. If this field is missing, Gate 1 is not complete. **Known API gap:** the `sources` list is built from datapoint source_ids, so removal-level sources not linked to any datapoint are not visible via the API. A document absent from it must also be checked in Drive and, if still absent, graded Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)".
 
 **Exit condition:** The `batch_[ID]_source_reads.json` file exists and passes ALL of these checks:
 1. Non-null entries for ALL six source categories (scale tickets, BOL, CHN, Ops Notes, COBB, Certify)
@@ -118,9 +120,9 @@ These items have failed across multiple batches. A checklist cannot exit Gate 2 
 
 1. **Scale tickets (items 2.1-2.3):** Open BOTH full and empty scale ticket PDFs from Certify Sources. Extract tractor number, trailer number, gross/tare weight, and date from each. Compare tractor and trailer numbers. Any mismatch in vehicle identifiers = FAIL.
 
-2. **COBB tracker (items 5.4, 5.6):** Navigate to the correct tab, find the batch row, confirm cell A matches batch ID. Extract offloaded_qty, origin_qty, completion date. Record tab name and row number.
+2. **COBB tracker (items 5.4, 5.6):** Read the correct tab with `drive_read.py rows --match`, find the batch row, confirm cell A matches batch ID. Extract offloaded_qty, origin_qty, completion date. Record tab name and row number.
 
-3. **Uncertainty per-component (items 7a.1, 7a.2):** Open EACH Certify component detail modal (Injection Sequestration, AECN->Basco or AECN->SOPOR Transport Process, AECN Pyrolysis Process, AECN Pyrolysis Embodied). In the INPUTS section, read the +/- values. Record every uncertainty value. Compare against expected values (see Uncertainty Reference below). **Failure to open the modals = +3 laziness penalty.**
+3. **Uncertainty per-component (items 7a.1, 7a.2):** Read EACH Certify component's input table in `certify_removal_summary.md` (Injection Sequestration, AECN->Basco or AECN->SOPOR Transport Process, AECN Pyrolysis Process, AECN Pyrolysis Embodied). For every input datapoint, read the +/- value (`standard_deviation`) and SD %. Record every uncertainty value. Compare against expected values (see Uncertainty Reference below). **Failure to read each component's input +/- values from the Certify API = +3 laziness penalty.**
 
 **Exit condition:** The .xlsx checklist file exists with all items assigned a status (PASS/FAIL/FLAG/N/A) and every evidence note contains specific cited values. All three mandatory sub-tasks completed with primary-source evidence.
 
@@ -306,8 +308,8 @@ Charm uses Option B (Variance Propagation) per Isometric Standard S3.7.3. Per-co
 
 **Three-layer uncertainty verification:**
 1. **Completeness:** Every component requiring uncertainty has it, applied to the correct datapoint
-2. **Correctness:** Reported +/- value matches expected value (open each component modal and READ)
-3. **Discount presence:** Aggregate discount is present in net CDR calculation and consistent with GHG Statement
+2. **Correctness:** Reported +/- value matches expected value (read each component's input `standard_deviation` from the Certify API)
+3. **Discount presence:** Aggregate discount is present in net CDR calculation and consistent with GHG Statement (Certify API: discount = `removal.co2e_net_removed_without_discount_kg` − `removal.co2e_net_removed_kg`)
 
 ## AECN Transport & Route Reference
 
@@ -340,28 +342,28 @@ In the current Certify format (Feb-Mar 2026):
 
 Documents required by VR Appendix 1 (BOLs, billing documents, AECN LCA CI spreadsheets, LCA with stack emissions files, supporting GHG data files) do NOT need to be in the per-batch Google Drive folder if they are uploaded to Certify Sources for the removal. When verifying document presence:
 1. Check the batch Drive folder first
-2. If not found there, check Certify Sources tab
-3. Only FLAG/FAIL if the document is absent from BOTH locations
+2. If not found there, check Certify Sources (the API dump's `sources` list)
+3. Only FLAG/FAIL if the document is absent from BOTH locations. An absence in Certify rests on the API alone (removal-level sources not linked to a datapoint are not visible), so it is a Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)"
 
-## Workspace Hygiene — Screenshot & Scratch File Routing
+## Workspace Hygiene — API Dump & Scratch File Routing
 
-Every Playwright screenshot, Certify YAML scrape, image dump, or other binary capture taken during QA MUST be saved into the per-batch output folder. Never let captures land at the workspace root.
+Every Certify API dump, Sources download, Drive listing, Drive download, `rows` JSON, image dump, or other capture taken during QA MUST be saved into the per-batch output folder. Never let captures land at the workspace root.
 
-- Screenshots → `outputs/qa/batch-<batch_id>/screenshots/<descriptive_name>.png`
-- YAML scrapes (Certify component dumps, datapoint exports) → `outputs/qa/batch-<batch_id>/<descriptive_name>.yml`
+- Certify dumps → `outputs/qa/batch-<batch_id>/certify_removal.json` (+ `certify_removal_summary.md`); Sources downloads → a subfolder of `outputs/qa/batch-<batch_id>/`
+- Drive listings, downloads and `rows` output → `outputs/qa/batch-<batch_id>/<descriptive_name>.<ext>`
 
-Always pass an explicit `filename` to `mcp__playwright__browser_take_screenshot` with a path starting with `outputs/`. Bare filenames default to the cwd (workspace root) and are the cause of historical clutter. The `workspace_hygiene_guard.sh` PreToolUse hook will deny captures or PNG/YAML writes to the workspace root.
+Always pass an explicit `--out` to `certify_read.py` and `drive_read.py` with a path starting with `outputs/qa/batch-<batch_id>/`. Bare filenames resolve to the cwd (workspace root) and are the cause of historical clutter. The `workspace_hygiene_guard.sh` PreToolUse hook will deny PNG/YAML writes to the workspace root.
 
-If the `outputs/qa/batch-<batch_id>/screenshots/` folder doesn't exist yet, create it (`mkdir -p`) on first capture.
+If the `outputs/qa/batch-<batch_id>/` folder doesn't exist yet, create it (`mkdir -p`) on first capture.
 
-**End-of-session check:** before delivering, run `ls *.png *.jpg *.yml *.yaml 2>/dev/null` from the workspace root. Expected output: empty. If anything appears, you wrote to the wrong path — move it into the per-batch folder before declaring done.
+**End-of-session check:** before delivering, run `ls *.png *.jpg *.yml *.yaml certify_removal* 2>/dev/null` from the workspace root. Expected output: empty. If anything appears, you wrote to the wrong path — move it into the per-batch folder before declaring done.
 
-### Snapshot discipline
+### Dump discipline
 
-Full-page Certify snapshots are 400+ lines each. Two rules:
+The full Certify dump is large. Two rules:
 
-1. **Scope when possible.** Pass `target`/`depth` to `browser_snapshot` for specific regions (one modal, one Datapoints row, one Sources entry). Full-page snapshots only for initial Sources/Components/Datapoints tab maps in Gate 1.
-2. **Re-grep saved yml; don't re-snapshot.** Captured value didn't change between turn 50 and turn 80. Re-snapshot only if you suspect Certify was edited mid-session — and say so explicitly before doing it.
+1. **Scope when possible.** Read `certify_removal_summary.md` and follow its JSON paths into the full dump for specific fields (one component, one datapoint, one source); use `rows --match` for specific sheet rows. Full-dump reads only for the initial Sources/Components/Datapoints maps in Gate 1.
+2. **Re-read saved dumps; don't re-fetch.** Captured value didn't change between turn 50 and turn 80. Re-fetch only if you suspect Certify was edited mid-session — and say so explicitly before doing it.
 
 ## Batch QA Slack Workflow (Section 13B)
 
@@ -405,7 +407,7 @@ The file `skills/qa/batch-qa-aecn/qa_active_batches.json` in the MRV Expert work
 | BOL / Billing | Batch folder or Certify Sources | Origin, destination, weighed shipped mass ("Qty shipped", located by field name — KB Section 3 "AECN Bill of Lading Formats") |
 | CHN Analysis | Testing subfolder | Carbon wt%, hydrogen, nitrogen |
 | COBB Tracker | Live Google Sheet | Lot tracking, BOL numbers, offloaded quantities, dates |
-| Certify Removal | Isometric registry | Components, Datapoints, Sources, Calculation View |
+| Certify Removal | Isometric registry (Certify API, `certify_read.py`) | Components + blueprints, Datapoints (± = `standard_deviation`), Sources, net (`removal.co2e_net_removed_kg`) |
 | Standard EFs | Live Google Sheet, 2026 tab | Column F = final emission factor values |
 
 **COBB Tracker URL:** https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350
@@ -432,7 +434,7 @@ Performance is tracked in `Claude_QA_Performance_Tracker.xlsx`.
 |------|-----------|------|
 | Error | A finding Max or Garrett corrects | +1 per issue |
 | Laziness Violation | Writing status without reading source; spot-checking; declaring absent without exhaustive search | +1 per item |
-| Uncertainty Modal Avoidance | Not opening Certify modals to read +/- values | +3 per violation |
+| Uncertainty Modal Avoidance | Not reading each component's input +/- values (`standard_deviation`) from the Certify API | +3 per violation |
 | Material Error | Affects Net CDR calculation | Flagged separately |
 | Gate Violation | Proceeding past incomplete gate | +5 per occurrence |
 
@@ -462,15 +464,15 @@ Read `references/lessons_learned.md` for the full list with examples. The critic
 
 6. **File Metadata as Evidence** — File sizes ("1.3 MB") are never evidence. Report what is IN the document.
 
-7. **Not Reading the Sources Tab** — The Sources tab shows ALL sources (removal + component level). The Datapoints tab can miss component-level docs. Always check Sources tab for document presence.
+7. **Not Reading the Sources Tab** — The dump's `sources` list shows every datapoint-linked source (removal + component level). A per-datapoint read can miss component-level docs. Always check the full `sources` list for document presence, then Drive (known API gap, Gate 1).
 
 8. **Wrong COBB Row** — Always verify cell A of the row matches the target batch before extracting values. The tracker is larger than it looks.
 
 ## Data Verification Hard Rules (Section 13A)
 
-1. **Never conclude data is absent without exhausting all navigation methods.** Try at least 3 different methods (Ctrl+F, Name Box, scrolling) before concluding data doesn't exist.
+1. **Never conclude data is absent without exhausting all navigation methods.** Try at least 3 different methods (`rows --match` on the batch ID, a broader regex or `--context`, other tabs listed by `drive_read.py tabs`, `drive_read.py search`) before concluding data doesn't exist.
 2. **Never mark N/A or "data unavailable" without exhausting all approaches.** State exactly which methods you tried.
-3. **Google Sheets are larger than they look.** Always navigate beyond the visible viewport.
+3. **Google Sheets are larger than they look.** Always confirm `rows_scanned` covers the whole tab.
 4. **If a source should have the data, treat failure to find it as YOUR problem.** Escalate to Max only after genuinely exhausting all options.
 
 ## Primary Source Verification Requirement (Section 13A-II)
@@ -483,16 +485,16 @@ Read `references/lessons_learned.md` for the full list with examples. The critic
 
 2. **SKILL-doc-as-proxy.** Citing an EF / constant / range / threshold from SKILL.md or the knowledge base as if SKILL.md were the primary source. SKILL.md is reference material — it tells you where to look and what to expect. It is not the source. The Standard Emission Factors sheet (2026 tab) is the primary source for EFs. `MRV_AECN_Analysis.xlsx` is the primary source for the carbon range. The protocol is the primary source for BCU eligibility. The BCU certificate is the primary source for whether a cert covers a batch. **Mitigation:** every row that cites a numeric constant / range / threshold (matched by `SKILL_PROXY_RE`) must trace through `[log:KEY]` to a `_primary_source_opened` entry with `live_source_url` set — not to SKILL.md.
 
-3. **"Listed-in-Sources-tab" as a stand-in for opening the file.** Confirming that a file appears on the Certify Sources tab is not the same as opening the file. The Sources tab gives filename, type, and linked datapoint — not content. For any source that is load-bearing on a finding (BCU certificate, LCA spreadsheet, route map, EF source image), the source-read log must record that you opened the file and verified its content, not just that you saw the filename in the Sources list.
+3. **"Listed-in-Sources-tab" as a stand-in for opening the file.** Confirming that a file appears in the Certify `sources` list is not the same as opening the file. The list gives filename, type, and linked datapoint — not content; download it with `certify_read.py source` and open it. For any source that is load-bearing on a finding (BCU certificate, LCA spreadsheet, route map, EF source image), the source-read log must record that you opened the file and verified its content, not just that you saw the filename in the Sources list.
 
-**Schema requirement.** Every section of `batch_<id>_source_reads.json` that backs a checklist row must include a `_primary_source_opened: [{file, action, evidence}]` block. `action` ∈ {`image_read`, `pdf_read`, `modal_opened`, `csv_exported`, `sheet_grid_read`}. SKILL.md / KB never qualify as `action`. EF / constant citations additionally require `live_source_url` on the entry.
+**Schema requirement.** Every section of `batch_<id>_source_reads.json` that backs a checklist row must include a `_primary_source_opened: [{file, action, evidence}]` block. `action` ∈ {`api_read` (values read from the Certify API), `image_read`, `pdf_read`, `csv_exported`, `sheet_grid_read` (spreadsheet cells); `modal_opened` is legacy}. SKILL.md / KB never qualify as `action`. EF / constant citations additionally require `live_source_url` on the entry (the dump's `live_source_url`, or the Drive webViewLink in the `.meta.json` next to a `get` download).
 
 **Primary sources for AECN batch QA (open each in this session — not cited from SKILL doc):**
 - Scale ticket values (Section 2): Open each PDF/JPG, read pixels from the image
-- COBB tracker (Section 5): Navigate to tab, verify cell A = batch ID, read row cells
-- Uncertainty values (Section 7a): Open each Certify component modal, read +/- from INPUTS
+- COBB tracker (Section 5): `rows --match` on the tab, verify cell A = batch ID, read row cells
+- Uncertainty values (Section 7a): Read each Certify component's inputs from the API summary, read +/- (`standard_deviation`) for every input
 - Lab results (Section 4): Open CHN/CoA PDF, read from the report page
-- Certify components (Sections 7, 9): Open Components tab, click into each component modal
+- Certify components (Sections 7, 9): Read every component in the API dump (blueprint, attribution factor, inputs) and compute its value
 - **EF precise values (Section 6 + 9.2 + 9.4):** Open the Standard Emission Factors sheet 2026 tab and read the live cell — do NOT cite from SKILL.md
 - **Carbon range / SD / n (Section 4.2):** Open `MRV_AECN_Analysis.xlsx` — do NOT cite from SKILL.md
 - **BCU eligibility (Section 9.5/9.6):** Open the Bio-oil Geological Storage protocol PDF — do NOT cite from SKILL.md
@@ -512,7 +514,7 @@ Read `references/lessons_learned.md` for the full list with examples. The critic
 
 QA runs 200-500 turns. Output is $75/M. Per-tool-call status restating compounds.
 
-- One status line per **section transition** (enter/exit each gate, opening modals, etc.). Not per tool call.
+- One status line per **section transition** (enter/exit each gate, reading the Certify dump, etc.). Not per tool call.
 - Mid-section: surprises and blockers get one short line. Routine confirmations don't.
 - Exhaustive findings live in checklist evidence cells. Chat is for transitions, surprises, blockers.
 - Cross-ref: `feedback_communication_style.md`, `feedback_lossless_concision.md`.

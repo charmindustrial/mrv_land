@@ -276,7 +276,7 @@ If named subfolders present (e.g., "KS Decomm", "Methanol Flush"): per-event doc
 | 18.1 | BCU Quant sheet present and current for RP | Drive root | sheet exists, dated correctly | Stale or missing |
 | 18.2 | Internal sum check (Phase 1) | BCU Quant | sum of all components, diesel/non-diesel split | Sum drift |
 | 18.3 | Every BCU-eligible site emission category present in BCU Quant | BCU Quant + skill U3 list | full coverage of: Site Diesel, Diesel Delivery Process, Brine Process, Methanol Process, Argon Process, Railcar Process, Waste Disposal Process, additional diesel transport | Missing category (Apr 2026 — Waste Disposal absent) |
-| 18.4 | BCU Quant → Certify Reductions reconciliation (Phase 2) | BCU Quant + Certify Reductions tab | every BCU application traces to a quant-sheet line, totals reconcile | Trace gap |
+| 18.4 | BCU Quant → Certify Reductions reconciliation (Phase 2) | BCU Quant + Certify API dump (reductions components) | every BCU application traces to a quant-sheet line, totals reconcile | Trace gap |
 | 18.5 | NO BCU applied to ineligible components | BCU Quant + Certify Reductions (Phase 2) | gasoline / support travel / embodied / electricity all absent from BCU offsets | BCU applied to ineligible (critical FAIL) |
 | 18.6 | REC kWh = consumed kWh | Calc sheet | match | Mismatch |
 
@@ -299,7 +299,7 @@ If named subfolders present (e.g., "KS Decomm", "Methanol Flush"): per-event doc
 | Item | Check | Primary Source | Expected Extracted Values | Common Failure |
 |------|-------|---------------|---------------------------|----------------|
 | 20.1 | Total site emissions = sum across scapegoats | Certify (Phase 2) | total reconciles | Drift |
-| 20.2 | No removal net-emissive | Certify Calculation View (Phase 2) | sequestrations - activities + reductions > 0 for each | Net-emissive |
+| 20.2 | No removal net-emissive | Certify API: removal net (`co2e_net_removed_kg`) + blueprint recompute (Phase 2) | sequestrations - activities + reductions > 0 for each | Net-emissive |
 | 20.3 | Allocation logic stated and reasonable | Calc sheet or methodology memo | rationale documented | Arbitrary split |
 
 ---

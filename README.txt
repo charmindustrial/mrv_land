@@ -1,7 +1,12 @@
 MRV EXPERT WORKSPACE — README
 ==============================
 
-Last updated: 2026-10-13 (third full workspace clean-up; added
+Last updated: 2026-10-16 (QA moved off Playwright: Certify and Drive are read through
+              APIs by skills/qa/container/tools/; added skills/qa/container/ to run
+              the QA skills in GCP; browser permissions and the browser-cleanup
+              hook removed from .claude/settings.json)
+
+Previously: 2026-10-13 (third full workspace clean-up; added
               automation/workspace-tidy, a weekly sweep -- Mondays 07:00
               Pacific through ~/.claude/scheduled/ -- that keeps the root
               clean and saves + pushes this folder to GitHub. Widened
@@ -178,6 +183,12 @@ SKILLS/  --  WHAT EACH SKILL DOES
         garrett-completion-monitor/ Sub-agent: monitors Garrett's Slack responses;
                                    sweeps AECN, Kerry, and Charm batch registries
         performance-monitor/       Sub-agent: tracks QA KPIs over time
+        container/                 Not a skill: runs the QA skills in GCP
+                                   (charm-mrv, Cloud Run job qa-runner),
+                                   operator-started by qa_run.sh or the
+                                   qa-trigger endpoint. Certify and Drive
+                                   through the API, no Slack/Gmail sends.
+                                   See container/README.md
 
         The three sub-agents serve ALL primary QA agents. As new
         application-specific QA primaries are added (new oil types,
@@ -383,7 +394,7 @@ OUTPUTS/  --  WHERE EACH SKILL'S WORK GOES
 -------------------------------------------
 
     outputs/research/                       Research outputs: findings docs, source lists,
-                                           Playwright captures from web document reads
+                                           saved page text from web document reads
     outputs/lca-model-builder/             DOT-111 models, BOMs, co-product analyses
     outputs/qa/batch-<batch_id>/           Per-batch folder (AECN, Kerry, or Charm). Contains
                                            checklist, adversarial review, source reads,
@@ -452,13 +463,14 @@ Example for batch 2-190:
         batch_timestamps.json               <-- gate-by-gate timing
         build_checklist.py                  <-- per-batch build script
         token_cost.json                     <-- per-batch token usage
-        screenshots/                        <-- Playwright captures (gitignored)
+        screenshots/                        <-- captures from older browser-based runs (gitignored)
 
 The per-batch folder bundles checklist + adversarial + source reads + screenshots so a
 verifier or future agent can reconstruct the QA session from one location. Screenshots
 are evidence-pointers (regenerable), so screenshots/ is gitignored to keep the repo
-lean. The workspace_hygiene_guard.sh hook denies any Playwright screenshot or .png/.yml
-write that would land at the workspace root — captures must route to outputs/.
+lean. QA now reads Certify and Drive through APIs, so new runs take no screenshots. The
+workspace_hygiene_guard.sh hook denies any .png/.yml write that would land at the
+workspace root — captures must route to outputs/.
 
 
 ROUTING RULES
@@ -593,8 +605,6 @@ python heredocs (not separate script files) to stay inside the no-prompt path.
 A PreToolUse hook at .claude/hooks/workspace_hygiene_guard.sh prevents loose binary
 captures and Certify scrapes from accumulating at the workspace root. It denies:
 
-    - mcp__playwright__browser_take_screenshot calls without a `filename` that
-      routes under outputs/.
     - Write calls targeting .png / .jpg / .jpeg / .yml / .yaml files at the
       workspace root.
     - Write calls creating any other file at the workspace root except
@@ -609,16 +619,10 @@ The hook lives INSIDE the workspace (.claude/hooks/) and is registered in
 repo. The hook self-derives its workspace path from its own location, making it
 machine-portable: clone the repo on a new machine and the hook just works.
 
-A SessionEnd hook at .claude/hooks/browser_cleanup_sessionend.sh closes the Playwright
-browser windows a session opened, so they don't pile up across sessions (the "why do I
-have 4 Chromes open" problem). It is PRECISE, not a blanket kill: it reads the session's
-own transcript for which Playwright MCP servers were actually used, maps each to its
-profile directory (playwright -> playwright-profile, playwright-mrv-2 -> playwright-
-profile-mrv-2, etc.), and closes only those exact windows. A window opened by a
-different, still-running session (different profile) is never touched, and a session that
-used no browser closes nothing. Fail-open: any error exits 0 without acting, so it can
-only ever close a leftover window, never brick a session. Runs at session end, not
-between turns, so a browser mid-task is never killed.
+The SessionEnd hook .claude/hooks/browser_cleanup_sessionend.sh (closed the Playwright
+windows a session opened) is no longer registered in .claude/settings.json: QA reads
+Certify and Drive through APIs (skills/qa/container/tools/), so sessions open no browser.
+The script is kept in .claude/hooks/ for reference.
 
 .gitignore also blocks root-level .png/.jpg/.yml/.yaml as a backstop. If the hook
 ever gets disabled, git won't accidentally commit the clutter.

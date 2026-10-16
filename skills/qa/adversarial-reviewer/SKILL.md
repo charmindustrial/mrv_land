@@ -37,9 +37,9 @@ For every item that references a data value, ask: **"Does this evidence note con
 
 - **Scale ticket items (Section 2, especially 2.3):** The evidence MUST include tractor number, trailer number, and weight values read from each ticket PDF. If the note says "not directly opened," "match assumed," "tractor/trailer match deferred," or cites values only from Ops Notes or Certify without confirming against the ticket itself → **REJECT.** The agent must open both the full and empty ticket PDFs and read the identifiers from the images.
 
-- **COBB tracker items (Section 5, especially 5.4 and 5.6):** The evidence MUST name the specific tab (e.g., "Basco Injection -- COBB") and row number where the batch was found, with values extracted from the cells. If the note says "not yet present," "not synced," "deferred," or "batch too recent" without the agent having actually navigated to the COBB tracker → **REJECT.** The tracker contains all injected batches; absence is almost certainly an operator navigation failure, not a data gap.
+- **COBB tracker items (Section 5, especially 5.4 and 5.6):** The evidence MUST name the specific tab (e.g., "Basco Injection -- COBB") and row number where the batch was found, with values extracted from the cells. If the note says "not yet present," "not synced," "deferred," or "batch too recent" without the agent having actually read the COBB tracker tab (`drive_read.py rows --match`, with `rows_scanned` covering the tab) → **REJECT.** The tracker contains all injected batches; absence is almost certainly an operator navigation failure, not a data gap.
 
-- **Uncertainty items (Section 7a, especially 7a.1 and 7a.2):** The evidence MUST list the actual ± values read from each Certify component detail modal's INPUTS section. If the note says "not verified at component level," "deferred," or "component detail views not opened" → **REJECT.** The agent must click into each component modal and read the uncertainty values directly.
+- **Uncertainty items (Section 7a, especially 7a.1 and 7a.2):** The evidence MUST list the actual ± values (`standard_deviation`) read from each Certify component's inputs via the Certify API (`certify_removal_summary.md` / the full dump). If the note says "not verified at component level," "deferred," "component detail views not opened," or "component inputs not read" → **REJECT.** The agent must read each component's input ± values from the Certify API directly.
 
 Any item that fails the primary source check should be sent back with a clear statement of what source needs to be opened and what value needs to be extracted. Do not accept the item in any status — Pass, Fail, Flag, or N/A — until primary source verification is demonstrated in the evidence note.
 
@@ -83,14 +83,14 @@ Items where you disagree with the assigned status or find the evidence insuffici
 ### 2. Confirmed Items
 Every other item — ones you reviewed and agree with. For each, include a one-line confirmation that references the specific evidence you verified (not just "confirmed"). Example: "Verified: 19.851 × 0.4460 × 3.667 = 32.465, matches Certify sequestration value."
 
-## Workspace Hygiene — Screenshot & Scratch File Routing
+## Workspace Hygiene — API Dump & Scratch File Routing
 
-If you take any screenshots or scrape Certify during your adversarial review (e.g., to independently verify a value the QA agent cited), save them into the same per-batch folder the primary skill is using:
+If you pull Certify or Drive data during your adversarial review (e.g., to independently verify a value the QA agent cited), save it into the same per-batch folder the primary skill is using:
 
-- Screenshots → `outputs/qa/batch-<batch_id>/screenshots/<descriptive_name>.png` (or `outputs/qa/site-emissions-qa/screenshots/...` for site emissions reviews)
-- YAML scrapes → same parent folder, no `screenshots/` subfolder needed
+- Certify dumps, Sources downloads, Drive listings/downloads and `rows` JSON → `outputs/qa/batch-<batch_id>/<descriptive_name>.<ext>` (or `outputs/qa/site-emissions-qa/...` for site emissions reviews)
+- Re-read the primary skill's saved dumps instead of re-fetching, unless Certify may have changed mid-session — and say so explicitly before re-fetching.
 
-Always pass an explicit `filename` to `mcp__playwright__browser_take_screenshot`. Bare filenames default to the workspace root and clutter it. The `workspace_hygiene_guard.sh` PreToolUse hook will deny captures or PNG/YAML writes to the workspace root.
+Always pass an explicit `--out` to `certify_read.py` and `drive_read.py`. Bare filenames resolve to the workspace root and clutter it. The `workspace_hygiene_guard.sh` PreToolUse hook will deny PNG/YAML writes to the workspace root.
 
 ## Principles
 

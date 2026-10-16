@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """
+SUPERSEDED: QA no longer uses Playwright. Enumerate Drive folders with
+`skills/qa/container/tools/drive_read.py ls <folder> --recursive --out <listing.json>`
+(Drive API); the listing JSON is the artifact for absence claims. This parser of
+Playwright snapshot YAML is kept only to read snapshots saved by older QA runs.
+
 Drive folder enumeration helper for batch QA workflows.
 
 Reads a Playwright accessibility-snapshot YAML file and extracts every Google

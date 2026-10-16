@@ -100,7 +100,8 @@ LIVE_URL_KEY = "live_source_url"
 ARTIFACT_PATH_KEY = "artifact_path"
 NEGATIVE_CHECK_TOKENS_KEY = "negative_check_tokens"
 SOURCE_OPENED_ACTIONS = (
-    "image_read", "pdf_read", "modal_opened", "csv_exported", "sheet_grid_read"
+    "image_read", "pdf_read", "modal_opened", "csv_exported", "sheet_grid_read",
+    "api_read",  # container mode: Certify / Drive read through the API
 )
 # A "file row" in a Drive snapshot YAML / file listing typically carries one of
 # these markers. If a negative claim says "folder empty" but the artifact

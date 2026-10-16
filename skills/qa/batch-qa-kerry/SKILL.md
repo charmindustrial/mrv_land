@@ -83,17 +83,17 @@ The QA workflow is four sequential gates. Each gate must be completed and verifi
 
 **Required reads (in this order):**
 
-0. **Reporting-period VVB guidance doc — READ THIS BEFORE ANY OTHER SOURCE.** Open it from Drive using the query `title contains 'VVB Guidance'` — the doc whose period covers the batch's injection date (owner is normally garrett.lutz@). Read it **in full**, not only the section that looks relevant. This is where Charm records the operational explanations and substitution methods a verifier relies on, and it is the difference between a finding and a false accusation. Record it in the source-read log under `vvb_guidance` with `live_source_url` and verbatim quotes of every section bearing on this batch. If no doc exists for the period, record that you searched and found none.
+0. **Reporting-period VVB guidance doc — READ THIS BEFORE ANY OTHER SOURCE.** Find it with `python3 skills/qa/container/tools/drive_read.py search "name contains 'VVB Guidance'"` and download it with `drive_read.py get <file URL> --out outputs/qa/<batch folder>/sources/` — the doc whose period covers the batch's injection date (owner is normally garrett.lutz@). Read it **in full**, not only the section that looks relevant. This is where Charm records the operational explanations and substitution methods a verifier relies on, and it is the difference between a finding and a false accusation. Record it in the source-read log under `vvb_guidance` with `live_source_url` and verbatim quotes of every section bearing on this batch. If no doc exists for the period, record that you searched and found none.
 
    **Why this is step 0:** on AECN batch INJ-07-2026-W1 the QA agent raised six Fails against a tare weight that "appeared on no scale ticket." The period's guidance doc documented that exact value as a published per-trailer standard empty weight and named the offloads it applied to. All six Fails were wrong. See `skills/qa/batch-qa-aecn/references/lessons_learned.md` Failure Category 14.
 
-   **Also read the Ops Notes CELL COMMENTS, not only the cell values.** Operators annotate substituted or adjusted figures in the cell note. `openpyxl.load_workbook(path)` **without** `data_only=True` exposes them as `cell.comment.text`; a `data_only=True` load reads values only and hides them. Any figure that does not tie to a source document may be a documented substitution — check the annotation before calling it an error.
+   **Also read the Ops Notes CELL COMMENTS, not only the cell values.** Operators annotate substituted or adjusted figures in the cell note. `drive_read.py rows <xlsx> --tab "<tab>" --comments` returns every cell comment on the tab (as does `openpyxl.load_workbook(path)` **without** `data_only=True`, as `cell.comment.text`); a `data_only=True` load reads values only and hides them. Any figure that does not tie to a source document may be a documented substitution — check the annotation before calling it an error.
 
 1. **Mass quantification artifacts** (mode-dependent):
    - **Tote mode:** Open the tote weighing log + each tote-photo (if present). For each tote: serial #, gross-loaded weight, tare-empty weight, net = gross − tare, weighing date+location. Source-read log enumerates every tote: `totes: [{serial, gross_lb, tare_lb, net_kg, weighing_loc, weighing_date, source_doc}, ...]`.
    - **Tanker mode:** Open BOTH full and empty scale ticket PDFs. Extract: gross weight, date, tractor #, trailer #, scale #, location from each ticket. Confirm tractor and trailer numbers match across both. Source-read log: `scale_tickets: {full_ticket: {...}, empty_ticket: {...}, net_kg: ...}`.
 
-2. **BOL / Billing documents** — Open BOL (check Certify Sources if not in Drive). For Kerry there is 1 BOL per truckload.
+2. **BOL / Billing documents** — Open BOL (check the Certify API dump's `sources` list, `certify_read.py source <src_id>`, if not in Drive). For Kerry there is 1 BOL per truckload.
    - **Tote mode:** BOL records gross mass transported (oil + tote tares + deck items), origin (Kerry facility), destination (Basco), tote count, carrier.
    - **Tanker mode:** BOL records oil-only mass shipped, origin, destination, carrier — analogous to AECN truck BOL.
 
@@ -104,15 +104,15 @@ The QA workflow is four sequential gates. Each gate must be completed and verifi
 
 4. **Ops Notes** — Open Google Sheet. Extract: batch ID, completion date, origin lot, **Kerry mass IN** (sum of tote nets or tanker net), **sparged-AECN mass IN** (the AECN portion entering the homogenization tank — for context, not for the Kerry credit math), pH, total injectate mass (Kerry + sparged-AECN combined).
 
-5. **COBB tracker** — Navigate to the `Basco Injection -- COBB` tab. **ROW VERIFICATION GATE:** Before extracting ANY value, read cell A of the row and confirm it contains the target batch ID. If cell A does not match, STOP — you are on the wrong row. Use Name Box (jump to A50, A100, etc.) or Ctrl+F to find the batch. NEVER conclude a batch is absent based only on what's visible on screen. Extract: injection_batch, consumed_lot, BOL_number, origin_quantity_kg, order_line_completed_on. **Kerry `consumed_lot` follows pattern `kc_NNNN` (sequential, e.g., `kc_0001`, `kc_0002`).**
+5. **COBB tracker** — Download it (`drive_read.py get`) and read the `Basco Injection -- COBB` tab with `drive_read.py rows <xlsx> --tab "Basco Injection -- COBB" --match "<batch id>" --out outputs/qa/<batch folder>/cobb_rows.json`. **ROW VERIFICATION GATE:** Before extracting ANY value, read cell A of the row (its `A<n>` coordinate in the rows result) and confirm it contains the target batch ID. If cell A does not match, STOP — you are on the wrong row. NEVER conclude a batch is absent without a full-tab scan: a `rows` result whose `rows_scanned` covers the whole tab with `match_count: 0`. Extract: injection_batch, consumed_lot, BOL_number, origin_quantity_kg, order_line_completed_on. **Kerry `consumed_lot` follows pattern `kc_NNNN` (sequential, e.g., `kc_0001`, `kc_0002`).**
 
-6. **Certify removal** — Open ALL four tabs:
-   - **Components:** sequestrations (tCO2e), activities (tCO2e), reductions (tCO2e), counterfactuals (expected zero), losses
-   - **Calculation View:** full net calculation formula and result
-   - **Datapoints:** all datapoint names, values, and linked sources
-   - **Sources:** all source filenames and linked datapoints
+6. **Certify removal** — Read via the Certify API (never a browser): `python3 skills/qa/container/tools/certify_read.py removal <removal URL> --out outputs/qa/<batch folder>/certify_removal.json`. Read `certify_removal_summary.md`; open the full dump for anything the summary doesn't show. Cover ALL four areas:
+   - **Components:** sequestrations, activities, reductions, counterfactuals (expected zero), losses — every component, its blueprint, attribution factor and every input datapoint (summary's per-component input table)
+   - **Net calculation:** compute each component's tCO2e from its blueprint expression (`blueprints` in the full dump) and its inputs (the API does not return per-component tCO2e); reconcile the total to `removal.co2e_net_removed_kg`. Any row comparing against "the Certify component value" says it was computed this way.
+   - **Datapoints:** all datapoint names, values, and linked sources (datapoints in the dump)
+   - **Sources:** all source filenames and linked datapoints (the dump's `sources` list; open a file with `certify_read.py source <src_id> --out outputs/qa/<batch folder>/sources/` and the Read tool)
 
-   **SOURCES TAB FIRST RULE:** The Sources tab is the SINGLE SOURCE OF TRUTH for document presence. The source-read log MUST contain `"certify_sources_tab_total": [N]` with a full enumeration of all N source filenames. If this field is missing, Gate 1 is not complete.
+   **SOURCES LIST FIRST RULE:** The dump's `sources` list is the SINGLE SOURCE OF TRUTH for document presence. The source-read log MUST contain `"certify_sources_tab_total": [N]` with a full enumeration of all N source filenames, filled from that list. If this field is missing, Gate 1 is not complete. Known API gap: the list is built from datapoint source_ids, so removal-level sources not linked to any datapoint are not visible. Before grading a document-presence item Fail on absence from Certify, check Drive too; if still absent, grade it Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)".
 
 **Exit condition:** The `batch_[ID]_source_reads.json` file exists and passes ALL of these checks:
 1. Non-null entries for ALL six source categories (mass artifacts, BOL, CHN, Ops Notes, COBB, Certify)
@@ -149,8 +149,8 @@ If ANY category is missing or ANY mandatory field is absent, Gate 1 is NOT compl
 1. **Mass artifacts (items 2.1–2.3):** Open every weighing artifact.
    - Tote mode: open each per-tote weighing record; verify tare was measured (not nominal label); enumerate serials.
    - Tanker mode: open BOTH full and empty scale ticket PDFs; verify tractor/trailer match.
-2. **COBB tracker (items 5.4, 5.6):** Navigate to the correct tab, find the batch row, confirm cell A matches batch ID. Verify `consumed_lot` follows `kc_NNNN` pattern. Extract offloaded_qty, origin_qty, completion date.
-3. **Uncertainty per-component (items 6a.1, 6a.2):** Open EACH Certify component detail modal (Injection Sequestration, Kerry to Basco Transport Process, Kerry to Basco Transport Embodied, Injection-site emissions). In the INPUTS section, read the +/- values. Compare against expected values (see Uncertainty Reference below). **Failure to open the modals = +3 laziness penalty.**
+2. **COBB tracker (items 5.4, 5.6):** Read the correct tab with `drive_read.py rows`, find the batch row, confirm cell A matches batch ID. Verify `consumed_lot` follows `kc_NNNN` pattern. Extract offloaded_qty, origin_qty, completion date.
+3. **Uncertainty per-component (items 6a.1, 6a.2):** Read EACH Certify component's inputs from the API (Injection Sequestration, Kerry to Basco Transport Process, Kerry to Basco Transport Embodied, Injection-site emissions) — the summary's per-component input table. Read the +/- values (`standard_deviation`), each cited by its JSON path. Compare against expected values (see Uncertainty Reference below). **Failure to read each component's input ± values from the Certify API = +3 laziness penalty.**
 
 4. **Deterministic recompute (MANDATORY; `run_gates.py` blocks without it).** Write `recompute_<batch>.py` in the batch folder. It reads the source-read log, recomputes the mass chain, conservative MOBI, gross CO2e, both transport components, BCUs and net, compares each with the Certify value in the log (tolerance ~0.001 tCO2e). Every difference between Certify and the evidence (or Certify's own inputs) is a finding: print it as `FINDING <row>[/<row>]: ...` naming the checklist row that carries it, and grade that row Fail or Flag. Exit non-zero only when a difference has not been routed to a row yet or the script cannot run. `run_gates.py` blocks an unrouted difference and any FINDING whose row is not Fail or Flag; a routed finding never blocks delivery (findings rule, 2026-09-29). Paste its full output into the chat before delivery.
 
@@ -325,7 +325,7 @@ The checklist follows Max's actual QA question framework for Kerry tote-mode bat
 
 Same as AECN skill — see `skills/qa/batch-qa-aecn/SKILL.md` Citation Discipline section. Every PASS / FAIL / FLAG status must cite a `[log:KEY]` from `batch_[ID]_source_reads.json`. Adversarial review is log-driven (no hypotheticals). "Blocking" requires three enumerated tooling-path attempts. The pre-delivery audit script (`skills/qa/batch-qa-aecn/scripts/audit_checklist.py`, reused) catches gaps.
 
-**STRUCTURAL evidence-attachment gate (MANDATORY, all oil types).** The reused `audit_checklist.py` now also runs `audit_attachments.py`, which FAILS the audit (Gate 4 not complete) unless (a) `certify.attachment_map` is captured in the source-read log (each datapoint → its sources actually linked in Certify, read from the Sources tab), and (b) every component has its required evidence attached. Kerry has **no validated matrix yet** — so the gate will refuse to pass until you define `certify.required_evidence` for the batch from its ACTUAL components (do not guess), e.g. `{"Mass of Injectant": ["scale_ticket","ops_notes"], ...}` per Kerry's transport+injection scope. Build it from the first real Kerry batch; once validated, register it in `audit_attachments.MATRICES["KERRY"]`. A gap found here is a finding, not unfinished work: record it as a Fail row that cites `[log:certify.attachment_gate]` and names each open datapoint, and `run_gates.py` lets it through to Garrett.
+**STRUCTURAL evidence-attachment gate (MANDATORY, all oil types).** The reused `audit_checklist.py` now also runs `audit_attachments.py`, which FAILS the audit (Gate 4 not complete) unless (a) `certify.attachment_map` is captured in the source-read log (each datapoint → its sources actually linked in Certify, read from each datapoint's source links in the Certify API dump), and (b) every component has its required evidence attached. Kerry has **no validated matrix yet** — so the gate will refuse to pass until you define `certify.required_evidence` for the batch from its ACTUAL components (do not guess), e.g. `{"Mass of Injectant": ["scale_ticket","ops_notes"], ...}` per Kerry's transport+injection scope. Build it from the first real Kerry batch; once validated, register it in `audit_attachments.MATRICES["KERRY"]`. A gap found here is a finding, not unfinished work: record it as a Fail row that cites `[log:certify.attachment_gate]` and names each open datapoint, and `run_gates.py` lets it through to Garrett.
 
 ## Formatting Specification
 
@@ -403,8 +403,8 @@ Do not read the 1.13 kg figure as "the Kerry number". It is the tote-scale numbe
 
 **Three-layer uncertainty verification:**
 1. **Completeness:** Every Kerry component requiring uncertainty has it, applied to the correct datapoint
-2. **Correctness:** Reported +/- value matches expected value (open each component modal and READ)
-3. **Discount presence:** Aggregate discount is present in net CDR calculation and consistent with GHG Statement
+2. **Correctness:** Reported +/- value matches expected value (read each component's input `standard_deviation` from the Certify API — READ, don't assume)
+3. **Discount presence:** Aggregate discount is present in net CDR calculation and consistent with GHG Statement (Certify API: discount = `removal.co2e_net_removed_without_discount_kg` − `removal.co2e_net_removed_kg`)
 
 ## Kerry Transport & Route Reference
 
@@ -431,21 +431,21 @@ Expected component pattern (in-scope only):
 
 Documents required by VR Appendix 1 (BOLs, billing documents) do NOT need to be in the per-batch Google Drive folder if uploaded to Certify Sources. When verifying document presence:
 1. Check the batch Drive folder first
-2. If not found, check Certify Sources tab
-3. Only FLAG/FAIL if absent from BOTH locations
+2. If not found, check the Certify dump's `sources` list
+3. Only FLAG/FAIL if absent from BOTH locations. Removal-level sources not linked to any datapoint are not visible via the Certify API, so an absence from both is graded Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)"
 
-## Workspace Hygiene — Screenshot & Scratch File Routing
+## Workspace Hygiene — API Dump & Scratch File Routing
 
-Every Playwright screenshot, Certify YAML scrape, image dump, or other binary capture taken during Kerry batch QA MUST be saved into the per-batch output folder. Never let captures land at the workspace root.
+Every Certify API dump and summary, Drive download, Drive listing, `rows` JSON, or other capture taken during Kerry batch QA MUST be saved into the per-batch output folder. Never let captures land at the workspace root.
 
-- Screenshots → `outputs/qa/batch-<batch_id>/screenshots/<descriptive_name>.png`
-- YAML scrapes (Certify component dumps, datapoint exports) → `outputs/qa/batch-<batch_id>/<descriptive_name>.yml`
+- Certify dumps → `outputs/qa/batch-<batch_id>/certify_removal.json` (+ `certify_removal_summary.md`); Certify source files → `outputs/qa/batch-<batch_id>/sources/`
+- Drive downloads → `outputs/qa/batch-<batch_id>/sources/`; listings and rows results → `outputs/qa/batch-<batch_id>/<descriptive_name>.json`
 
-Always pass an explicit `filename` to `mcp__playwright__browser_take_screenshot` with a path starting with `outputs/`. Bare filenames default to the cwd (workspace root) and are the cause of historical clutter. The `workspace_hygiene_guard.sh` PreToolUse hook will deny captures or PNG/YAML writes to the workspace root.
+Always pass an explicit `--out` to `certify_read.py` and `drive_read.py` with a path starting with `outputs/`. Bare filenames default to the cwd (workspace root) and are the cause of historical clutter. The `workspace_hygiene_guard.sh` PreToolUse hook will deny captures or PNG/YAML writes to the workspace root.
 
-If the `outputs/qa/batch-<batch_id>/screenshots/` folder doesn't exist yet, create it (`mkdir -p`) on first capture.
+Re-read a saved dump instead of re-fetching. Re-fetch only when Certify may have changed mid-session (e.g. Garrett made a correction), and say so in the source-read log.
 
-**End-of-session check:** before delivering, run `ls *.png *.jpg *.yml *.yaml 2>/dev/null` from the workspace root. Expected output: empty. If anything appears, you wrote to the wrong path — move it into the per-batch folder before declaring done.
+**End-of-session check:** before delivering, run `ls *.png *.jpg *.yml *.yaml certify_*.json certify_*.md drive_*.json *_rows.json 2>/dev/null` from the workspace root. Expected output: empty. If anything appears, you wrote to the wrong path — move it into the per-batch folder before declaring done.
 
 ## Batch QA Slack Workflow
 
@@ -465,7 +465,7 @@ After completing all four gates:
    - **Garrett-actionable** (evidence gaps, mislinked sources, wrong EFs, labeling, COBB/Ops Notes records — anything he can fix) — send these to him now, regardless of what else is unresolved.
    - **Externally blocked** (waiting on something neither Garrett nor Max controls directly — a reporting-period regeneration, a platform bug, a pending Isometric decision) — do not hold the Garrett-actionable items hostage to this. Record it as its own thing: set the registry `status` to exactly `"blocked_external"` and add a `blocked_on` field stating precisely what's being waited on and how to tell when it's cleared (e.g., "GHG statement ggs_XXX total no longer matches stale figure Y"). **`status` must always be one of the defined enum values — `awaiting_garrett` / `re_reviewing` / `blocked_external` / `closed` — never a free-text narrative sentence.** Put narrative context in a `notes` field instead. A batch that got this wrong (INJ-07-2026-W2 AECN, Aug 2026) sat for a month with 6 Garrett-actionable flags never sent, because the whole notification was held on one externally-blocked Fail and the registry `status` field held a prose sentence instead of a recognized state — invisible to every automated sweep, which matches on the literal string.
 5. **Iterate — re-verify live, don't trust the reply at face value, narrow the list each round:**
-   a. When Garrett replies (in the #team-mrv-alerts thread), re-open Certify (and Ops Notes/Drive if relevant) and independently re-check every item he says he addressed. A "corrected" claim is not evidence — confirm the actual value/EF/source changed, not just a label or unit re-expression (a component can be renamed or re-unitized without the underlying number actually changing — verify by recomputing, not by reading the new label).
+   a. When Garrett replies (in the #team-mrv-alerts thread), re-pull Certify with a fresh `certify_read.py removal` dump (Certify has changed; say so in the log) (and Ops Notes/Drive via `drive_read.py` if relevant) and independently re-check every item he says he addressed. A "corrected" claim is not evidence — confirm the actual value/EF/source changed, not just a label or unit re-expression (a component can be renamed or re-unitized without the underlying number actually changing — verify by recomputing, not by reading the new label).
    b. For each item: if genuinely fixed, mark PASS with the fresh evidence and drop it from the outstanding list. If claimed-fixed but not actually changed, keep it FAIL/FLAG with the sharper finding. If Garrett raises a substantive disagreement (a methodology or policy read, not a data fix) rather than making a change, do NOT resolve it yourself — go find the governing primary source, and if it doesn't settle the question outright, take it to Max with Garrett's exact words rather than picking a side.
    c. Reply into that same #team-mrv-alerts thread with only what's still outstanding (never re-send the full list, and never re-send items already confirmed fixed), and prompt him again to note when addressed.
    d. Repeat until the outstanding list is empty — either because every item is fixed and verified, or because remaining ones were resolved a different way (a primary-source read, a Max ruling, a re-scoped finding). Update the checklist after every round, not just at the end.
@@ -495,7 +495,7 @@ The `garrett-completion-monitor` sub-agent sweeps both `qa_active_batches.json` 
 | BOL / Billing | Batch folder or Certify Sources | Origin (Kerry facility), destination (Basco), shipped mass |
 | CHN Analysis | Testing subfolder | Carbon wt%, hydrogen, nitrogen — per-tote (current) or per-tanker (going forward) |
 | COBB Tracker | Live Google Sheet | Lot tracking (`kc_NNNN`), BOL numbers, offloaded quantities, dates |
-| Certify Removal | Isometric registry | Components, Datapoints, Sources, Calculation View |
+| Certify Removal | Isometric registry, read via `certify_read.py removal` (API) | Components with blueprints and inputs, Datapoints, Sources, net (`removal.co2e_net_removed_kg`; per-component tCO2e computed from blueprints) |
 | Standard EFs | Live Google Sheet, 2026 tab | Column F = final emission factor values |
 
 **COBB Tracker URL:** https://docs.google.com/spreadsheets/d/116ZyeotERBTpPrHnWmxLfEjXpqPguTpHNAQKohy5j1Q/edit?gid=1627433350
@@ -530,7 +530,7 @@ Read `references/lessons_learned.md` for the full list with examples. The critic
 
 5. **File Metadata as Evidence** — File sizes are never evidence. Report what is IN the document.
 
-6. **Not Reading the Sources Tab** — The Sources tab shows ALL sources. The Datapoints tab can miss component-level docs.
+6. **Not Reading the Certify Sources List** — Read the dump's full `sources` list, not just one datapoint's links. Removal-level sources not linked to any datapoint are invisible via the API: check Drive, and grade a remaining absence Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)".
 
 7. **Wrong COBB Row** — Always verify cell A of the row matches `kc_NNNN` for the target batch before extracting values.
 
@@ -542,9 +542,9 @@ Read `references/lessons_learned.md` for the full list with examples. The critic
 
 ## Data Verification Hard Rules
 
-1. **Never conclude data is absent without exhausting all navigation methods.** Try at least 3 different methods (Ctrl+F, Name Box, scrolling) before concluding data doesn't exist.
+1. **Never conclude data is absent without exhausting all navigation methods.** Try at least 3 different methods (`drive_read.py rows` regex `--match`, a full-tab `rows` read with no `--match` showing `rows_scanned`, and `rows` on every tab from `drive_read.py tabs`) before concluding data doesn't exist.
 2. **Never mark N/A or "data unavailable" without exhausting all approaches.** State exactly which methods you tried.
-3. **Google Sheets are larger than they look.** Always navigate beyond the visible viewport.
+3. **Google Sheets are larger than they look.** Always read the whole tab: confirm `rows_scanned` covers every row, not just the top of the sheet.
 4. **If a source should have the data, treat failure to find it as YOUR problem.** Escalate to Max only after genuinely exhausting all options.
 
 ## Primary Source Verification Requirement
@@ -553,10 +553,10 @@ Every checklist item referencing a data value MUST be verified by directly openi
 
 **Primary sources for Kerry batch QA:**
 - Mass quantification artifacts (Section 2): tote weighing log (tote mode) or scale ticket PDFs (tanker mode) — open each, read from the document
-- COBB tracker (Section 5): navigate to tab, find row, read cells
-- Uncertainty values (Section 6a): open each Certify component modal, read +/- from INPUTS
+- COBB tracker (Section 5): `drive_read.py rows` on the tab, find row, read cells (with coordinates)
+- Uncertainty values (Section 6a): read each Certify component's input +/- (`standard_deviation`) from the Certify API summary, cited by JSON path
 - Lab results (Section 4): open CHN/CoA PDF, read from the report page
-- Certify components (Sections 6, 8): open Components tab, click into each component modal
+- Certify components (Sections 6, 8): read every component and its inputs, one by one, from `certify_removal_summary.md` / `certify_removal.json`
 
 ## Working with Max
 

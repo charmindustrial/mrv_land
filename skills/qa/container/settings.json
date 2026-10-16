@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "Stop": [
+      {"hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/citation_integrity_stop.sh\""}]},
+      {"hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/numeric_integrity_stop.sh\""}]},
+      {"hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/precedent_grounding_guard.sh\""}]},
+      {"hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/delta_baseline_guard.sh\""}]},
+      {"hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/no_fragment_redelivery_guard.sh\""}]}
+    ],
+    "PreToolUse": [
+      {"matcher": "Bash", "hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/doc_extraction_guard.sh\""}]},
+      {"matcher": "Write", "hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/workspace_hygiene_guard.sh\""}]},
+      {"matcher": "Write|Edit", "hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/mrv_doc_output_guard.sh\""}]},
+      {"matcher": "WebFetch|WebSearch|Agent", "hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/primary_source_guard.sh\""}]},
+      {"matcher": "Bash|Write|Edit", "hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/input_file_write_guard.sh\""}]}
+    ],
+    "PostToolUse": [
+      {"matcher": "Write", "hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/research_citation_guard.sh\""}]}
+    ],
+    "SubagentStop": [
+      {"hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/citation_integrity_stop.sh\""}]},
+      {"hooks": [{"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/numeric_integrity_stop.sh\""}]},
+      {"hooks": [
+        {"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/precedent_grounding_guard.sh\""},
+        {"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/delta_baseline_guard.sh\""},
+        {"type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/no_fragment_redelivery_guard.sh\""}
+      ]}
+    ]
+  }
+}

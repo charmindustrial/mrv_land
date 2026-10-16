@@ -147,7 +147,7 @@ A BOL that contradicts itself is a finding on 3.3. Precedent: 2492-T printed 20.
 | 5.6 | Completion date present and matches COBB | Ops Notes vs COBB | Same date in both | Date mismatch |
 | 5.7 | No erroneous density measurements | Ops Notes > Batch Composition | **Mark N/A** — density field is expected to be blank for AECN | Agent incorrectly flagging blank density as an issue |
 
-**MANDATORY VERIFICATION SUB-TASK (5.4, 5.6):** Navigate to COBB tracker, verify cell A = batch ID before reading any values.
+**MANDATORY VERIFICATION SUB-TASK (5.4, 5.6):** Read the COBB tracker with `drive_read.py rows --match` (`rows_scanned` covering the tab), verify cell A = batch ID before reading any values.
 
 **CRITICAL — pH:** pH is required for ALL batches regardless of oil type. The agent has previously invented a rule that pH doesn't apply to AECN. It does. Find it in Ops Notes Batch Consumables section.
 
@@ -170,9 +170,9 @@ A BOL that contradicts itself is a finding on 3.3. Precedent: 2492-T printed 20.
 
 | Item | Check | Primary Source | Expected | Common Failure |
 |------|-------|---------------|----------|----------------|
-| 6.1 | AECN process emissions LCA CI spreadsheet present | Certify Sources tab | Document present (check Sources tab, not just Datapoints) | Not checking Sources tab |
-| 6.2 | LCA with stack emissions file present | Certify Sources tab | Document present | Same as above |
-| 6.3 | Supporting GHG data file present for AECN production period | Certify Sources tab | Document present | Same as above |
+| 6.1 | AECN process emissions LCA CI spreadsheet present | Certify `sources` list (API dump) | Document present (check the full `sources` list, not just per-datapoint links; if absent there and in Drive, Fail with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)") | Not checking the full `sources` list |
+| 6.2 | LCA with stack emissions file present | Certify `sources` list (API dump) | Document present | Same as above |
+| 6.3 | Supporting GHG data file present for AECN production period | Certify `sources` list (API dump) | Document present | Same as above |
 | 6.4 | AECN pyrolysis process EF matches current value | Certify Datapoints | 0.10402 kgCO2e/kg (precise) / ~0.10 (display) | Wrong half-year EF, or using display value |
 | 6.5 | AECN pyrolysis embodied EF applied | Certify Datapoints | 0.0212 kgCO2e/kg (precise) / ~0.02 (display) | Missing embodied EF entirely |
 | 6.6 | Mass basis for pyrolysis EFs is Origin Bio-Oil Mass (pre-sparging) | Certify Components | EF applied to pre-sparging mass | EF applied to post-sparging mass (wrong) |
@@ -196,8 +196,8 @@ A BOL that contradicts itself is a finding on 3.3. Precedent: 2492-T printed 20.
 | Item | Check | Primary Source | Expected | Common Failure |
 |------|-------|---------------|----------|----------------|
 | 7.1 | Gross CO2e = injectate mass x carbon wt% (decimal) x 3.667 | Independent calc vs Certify | Match within rounding | Carbon % not as decimal (42 vs 0.42), unit mismatch |
-| 7.2 | Process emissions correctly deducted | Certify Calculation View | AECN pyrolysis + transport deducted | Missing a component |
-| 7.3 | Uncertainty discount correctly applied | Certify Calculation View | Present per Isometric Standard | Discount missing |
+| 7.2 | Process emissions correctly deducted | Certify API components (each computed from its blueprint and inputs) | AECN pyrolysis + transport deducted | Missing a component |
+| 7.3 | Uncertainty discount correctly applied | Certify API: discount = `removal.co2e_net_removed_without_discount_kg` − `removal.co2e_net_removed_kg`; undiscounted net vs recomputed gross-to-net | Present per Isometric Standard | Discount missing |
 | 7.4 | Net removals consistent with BCU Quant and GHG Statement | Certify vs BCU Quant | Values align | Discrepancy |
 
 **Verifier references:** GHG Stmt Sec E, Bio-oil Geol Storage v1.1, Isometric Standard v2.0 S3.7
@@ -210,11 +210,11 @@ A BOL that contradicts itself is a finding on 3.3. Precedent: 2492-T printed 20.
 
 | Item | Check | Primary Source | Expected | Common Failure |
 |------|-------|---------------|----------|----------------|
-| 7a.1 | Layer 1 — Completeness: every AECN component has uncertainty on correct datapoint | Certify component modals + MRV Uncertainty Cheat Sheet | All required components have +/- values | Missing uncertainty on a component |
-| 7a.2 | Layer 2 — Correctness: reported +/- matches expected value | Certify component modals (INPUTS section) | See Uncertainty Reference in SKILL.md | Wrong value, or value not actually checked |
-| 7a.3 | Layer 3 — Discount presence and consistency | Certify Calculation View vs GHG Statement | Aggregate discount present in net calc | Discount missing or inconsistent |
+| 7a.1 | Layer 1 — Completeness: every AECN component has uncertainty on correct datapoint | Certify API component inputs (`certify_removal_summary.md`) + MRV Uncertainty Cheat Sheet | All required components have +/- values | Missing uncertainty on a component |
+| 7a.2 | Layer 2 — Correctness: reported +/- matches expected value | Certify API component inputs (`standard_deviation`) | See Uncertainty Reference in SKILL.md | Wrong value, or value not actually checked |
+| 7a.3 | Layer 3 — Discount presence and consistency | Certify API discount (`removal.co2e_net_removed_without_discount_kg` − `removal.co2e_net_removed_kg`) and net vs GHG Statement | Aggregate discount present in net calc | Discount missing or inconsistent |
 
-**MANDATORY VERIFICATION SUB-TASK:** Open EACH component modal. Read the +/- from INPUTS section. Do not infer from aggregate calculations. +3 laziness penalty for avoidance.
+**MANDATORY VERIFICATION SUB-TASK:** Read EACH component's inputs from the Certify API. Read the +/- (`standard_deviation`) for every input. Do not infer from aggregate calculations. +3 laziness penalty for avoidance.
 
 **AECN components requiring uncertainty verification:**
 - Injection Sequestration (Carbon Content + Mass of Product)
@@ -265,9 +265,9 @@ If a railcar instead drew down in FEWER offloads than the BOLs loaded into it (N
 | 9.3 | ACTIVITIES — Injection: LCS and sample transport correct | Certify Components | Samples for MRV (<1 kgCO2e typically) | Often N/A for pure AECN (no LCS needed) |
 | 9.4 | ACTIVITIES — Pyrolysis: AECN production process + embodied entries present | Certify Components | "AECN Production Process Emissions" + "AECN Production Embodied Emissions" | Missing one of the two |
 | 9.5 | REDUCTIONS: All applicable BCU categories populated | Certify Components | 5 categories: injection diesel, injection waste, pre-treat diesel, pre-treat waste, transport | Missing BCU category |
-| 9.6 | REDUCTIONS — BCU quantity >= corresponding activity emission | Certify Components + Calculation View | Transport BCU >= transport activity (at minimum) | BCU underfunding a category |
+| 9.6 | REDUCTIONS — BCU quantity >= corresponding activity emission | Certify API components (computed from blueprints) | Transport BCU >= transport activity (at minimum) | BCU underfunding a category |
 | 9.7 | COUNTERFACTUALS: Zero per protocol | Certify Components | 0 | Non-zero counterfactual |
-| 9.8 | Net removal matches internal calculation | Certify Calculation View | Agrees with independent gross-to-net | Discrepancy |
+| 9.8 | Net removal matches internal calculation | Certify API net (`removal.co2e_net_removed_kg`) | Agrees with independent gross-to-net | Discrepancy |
 | 9.9 | All Datapoints have descriptive source names | Certify Datapoints | No "Measurement XXXX" or "IMG_001" | Generic names = FLAG (not FAIL) |
 | 9.10 | All Sources match files in batch folder on Drive | Certify Sources vs Drive | Same files in both | File in one but not the other |
 
@@ -283,21 +283,21 @@ If a railcar instead drew down in FEWER offloads than the BOLs loaded into it (N
 
 ## Primary-source artifact rule (hard requirement, audit-enforced)
 
-**Every absence/empty/no-X claim in an evidence note must cite a `_primary_source_opened` entry that includes an `artifact_path` field.** The artifact must be a saved file in the per-batch output folder (snapshot YAML, downloaded PDF, exported CSV, image file) that the audit script can re-open and scan. A `live_source_url` is not sufficient — URLs cannot be re-read at audit time, artifacts can.
+**Every absence/empty/no-X claim in an evidence note must cite a `_primary_source_opened` entry that includes an `artifact_path` field.** The artifact must be a saved file in the per-batch output folder (Drive listing JSON, Certify dump, downloaded PDF, exported CSV, image file) that the audit script can re-open and scan. A `live_source_url` is not sufficient — URLs cannot be re-read at audit time, artifacts can.
 
 The audit script (`audit_checklist.py`) enforces this:
 1. Negative-claim regex fires on evidence text matching "empty/absent/no-X/not present/no Vaulted refs/…"
 2. For each reachable `_primary_source_opened` entry, the `artifact_path` must exist on disk (resolved relative to the source_reads.json directory)
 3. The audit re-reads the artifact and scans for file-presence markers (`.pdf`, `.xlsx`, ` Owned by `, ` Modified `, ` Size: `, etc.); if any are found AND the entry's `items_found` is `[]`, the absence claim is contradicted and the row is rewritten to Flag
 
-**Drive folder enumeration must use `scripts/drive_enum.py`, not ad-hoc JS selectors.** The helper parses the Playwright snapshot YAML directly and returns the renderer's output, not a filter over it. Reason: narrow `[data-id][role="row"]` queries silently miss rows when Drive's DOM varies between folder types (caught yesterday on 2-181 — JS query returned 1 row, the cert PDF was actually in the folder; snapshot YAML showed it plainly. The lesson: queries are not sources, the snapshot is the source).
+**Drive folder enumeration must use `drive_read.py ls`, not ad-hoc queries.** The listing is the Drive API's full folder contents saved to disk, not a filter over it. Reason: narrow `[data-id][role="row"]` queries silently missed rows when Drive's DOM varied between folder types (caught on 2-181 — JS query returned 1 row, the cert PDF was actually in the folder; the saved full capture showed it plainly. The lesson: queries are not sources, the saved full listing is the source).
 
 **Workflow for any Drive folder enumeration in Gate 1:**
-1. Navigate to the folder via Playwright
-2. Take a snapshot with explicit `filename` pointing to `outputs/qa/batch-<id>/<descriptive>.yml`
-3. Run `python3 scripts/drive_enum.py outputs/qa/batch-<id>/<descriptive>.yml` to extract row tuples
-4. Record items in the source-read log's `_primary_source_opened` entry with `artifact_path` set to the snapshot YAML and `items_found` set to the helper's output
-5. The audit verifies both: artifact exists on disk + scan of artifact matches the items_found claim
+1. Run `python3 skills/qa/container/tools/drive_read.py ls <folder URL> --recursive --out outputs/qa/batch-<id>/<descriptive>.json`
+2. Record items in the source-read log's `_primary_source_opened` entry with `artifact_path` set to the listing JSON and `items_found` set to the listing's files
+3. The audit verifies both: artifact exists on disk + scan of artifact matches the items_found claim
+
+Where `drive_read.py` has no Google credentials (a workstation), the Google Drive MCP connector (`search_files`) is the fallback; save its full response to `outputs/qa/batch-<id>/` and use that file as the `artifact_path`.
 
 **On 9.2:** Always show the **Bio-oil transport total** in the evidence note (transport process sum + transport embodied sum). For truck: `5.010 (Process) + 0.522 (Embodied) = 5.532 tCO2e = Certify Components 'Bio-oil transport' subtotal`. For rail: include the per-leg breakdown plus both the process subtotal and the full transport total. Same convention as 9.6 — always show the sum even on single-leg truck batches.
 
@@ -309,8 +309,8 @@ The audit script (`audit_checklist.py`) enforces this:
 - Item 9.5 (Reductions — BCU categories): for typical AECN batches without site-emission burdens, only `BCU's Transport` category applies. Other categories (injection diesel, injection waste, pre-treat diesel, pre-treat waste) appear only when removals are burdened with site emissions. Don't FAIL on missing categories absent a site-emission allocation.
 - Item 9.6 (BCU ≥ activity): rail batches: BCUs offset transport **process** emissions only. Embodied emissions are NOT BCU-eligible (per protocol). Verify `BCU's Transport` quantity ≥ sum of three transport-process activities (AECN→SOPOR truck process + SOPOR→Opelousas rail process + Opelousas→Basco truck process). For 2-182: 1.594 = 0.264 + 1.225 + 0.105 = 1.594 ✓.
 - Rail embodied EF: Standard EFs sheet 2026 value is **0.0000311307 MTCO₂e/mi** (per `2026 Railcar Embodied Emissions` tab: 65.37 MT CTGate ÷ 2.1M mi lifetime). If Certify shows the older 0.0000352240 value instead, that's a stale-EF FAIL on item 9.2 (Activities — Transport). Same shared datapoint feeds rail process components on multiple removals — a fix at the source datapoint propagates.
-- Rail process EF: Standard EFs sheet 2026 value is **0.0000259104 MTCO₂e/(t·mi)** (= 0.0259 kgCO₂e/(t·mi) shown in Certify modal — matches).
-- Item 9.10 (Sources match Drive): rail batches have additional source files vs truck batches — typically the rail logistics provider's email/invoice for distance, the railcar inbound documentation, the offload work order. Cross-reference against the Sources tab enumeration (per Gate 1's SOURCES TAB FIRST RULE).
+- Rail process EF: Standard EFs sheet 2026 value is **0.0000259104 MTCO₂e/(t·mi)** (= 0.0259 kgCO₂e/(t·mi) in Certify — matches; read the datapoint's magnitude and unit from the API dump).
+- Item 9.10 (Sources match Drive): rail batches have additional source files vs truck batches — typically the rail logistics provider's email/invoice for distance, the railcar inbound documentation, the offload work order. Cross-reference against the `sources` list enumeration (per Gate 1's SOURCES TAB FIRST RULE).
 
 ---
 
@@ -397,7 +397,7 @@ Requirement: at least one cited `_primary_source_opened` entry must have a `live
 
 Failure mode it catches: citing EF 0.10402 from SKILL.md without ever opening the Standard EFs sheet 2026 tab; citing "carbon mean 39.42 / SD 6.09" from SKILL.md without ever opening `MRV_AECN_Analysis.xlsx`; citing "Embodied NOT BCU-eligible per protocol" without opening the protocol PDF.
 
-Fix when this fires: open the live primary source in Playwright, capture the URL, and add a `_primary_source_opened` entry with the `live_source_url` field set.
+Fix when this fires: open the live primary source (`drive_read.py get`; its webViewLink is in the `.meta.json` next to the download, or the Certify dump's `live_source_url`), capture the URL, and add a `_primary_source_opened` entry with the `live_source_url` field set.
 
 ### Required schema in `batch_<id>_source_reads.json`
 
@@ -422,4 +422,4 @@ Every section that backs a checklist row should have a `_primary_source_opened` 
 }
 ```
 
-`action` is one of: `image_read`, `pdf_read`, `modal_opened`, `csv_exported`, `sheet_grid_read`. SKILL.md and KB documents are reference material, not primary sources — they do NOT count as a valid `action` value.
+`action` is one of: `api_read` (values read from the Certify API), `image_read`, `pdf_read`, `csv_exported`, `sheet_grid_read` (spreadsheet cells; a computed cell's formula is the `rows` output's `formula` field). `modal_opened` is legacy. SKILL.md and KB documents are reference material, not primary sources — they do NOT count as a valid `action` value.

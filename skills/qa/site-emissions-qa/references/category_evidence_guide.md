@@ -9,8 +9,8 @@ Before reviewing any individual category below, remember that the Universal Cros
 - **U1 — Units:** Read every column header and labeled cell in the calc sheet. Report which have units and which don't.
 - **U2 — Distance evidence:** If the category involves transport, verify distance evidence exists in the Drive folder. Missing distance evidence = FAIL.
 - **U3 — BCU cross-check:** If the category has BCU-eligible emissions, cross-check against the BCU Quant sheet. The BCU-eligible components are: diesel consumption, diesel delivery transport process, brine transport process, methanol transport process, argon transport process, railcar transport process, waste disposal transport process, and any additional diesel-fueled transport process.
-- **U4 — Missing evidence = FAIL:** Never classify missing evidence as FLAG. If you can't independently confirm a value, it's a FAIL.
-- **U5 — Certify match:** The Certify component value must exactly match the evidence. Any mismatch = FAIL.
+- **U4 — Missing evidence = FAIL:** Never classify missing evidence as FLAG. If you can't independently confirm a value, it's a FAIL. (Certify document presence is read from the Certify API dump's `sources` list, which cannot see removal-level sources not linked to any datapoint: a document absent from the dump must also be checked in Drive and, if still absent, graded Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)".)
+- **U5 — Certify match:** The Certify component value — computed from its blueprint expression and input datapoints in the Certify API dump (`certify_read.py removal`; the API does not return per-component tCO₂e) — must exactly match the evidence. Any mismatch = FAIL.
 - **U6 — Naming consistency:** Check that folder names, sheet names, and Certify component names are traceable.
 - **U7 — Correct EF year tab:** Confirm you're reading from the correct year tab in the Standard EF Sheet before citing any EF.
 - **U8 — Output standards:** Report your own findings with specific values. Never write "verify X" — do it and report what you found.

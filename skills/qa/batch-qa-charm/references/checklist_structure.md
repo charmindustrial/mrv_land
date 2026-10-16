@@ -4,6 +4,8 @@ This document is the complete specification for every checklist item in a Charm-
 
 The checklist applies Max's actual QA question framework for Charm-produced batches (WODO and Aqueous). Section 9 (LCS) is Aqueous-only; render it as N/A for WODO batches.
 
+**Certify reads are API reads, never a browser.** "Certify <X> component → INPUTS → <field>" means that component's input row in `certify_removal_summary.md` (from `certify_read.py removal`), cited by its JSON path; the ± uncertainty is the input's `standard_deviation`. "→ linked sources" means the datapoint's source links and the dump's `sources` list. Per-component tCO2e is not in the API: compute it from the component's blueprint (`blueprints` in the full dump) and inputs, and reconcile the total to `removal.co2e_net_removed_kg`. Removal-level sources not linked to any datapoint are not visible via the API: a document absent from Certify and Drive is graded Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)".
+
 ## Columns
 
 - **A:** Item number
@@ -115,7 +117,7 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 ### 3.3 Are computed outputs (RP Share of Truck, RP Allocated Miles, Batch Mileage Allocation) auditable formulas rather than hard-coded values?
 
 - **Primary source:** Shipment Tracker computed cells
-- **Verification method:** click into EACH computed cell; the formula bar must show a `=...` formula referencing tote counts and mileage inputs. A constant value (e.g., `0.5`, `545.0`) FAILs.
+- **Verification method:** read EACH computed cell with `drive_read.py rows`; its `formula` field must show a `=...` formula referencing tote counts and mileage inputs. A constant value (e.g., `0.5`, `545.0`) FAILs.
 - **Pass criteria:** all three computed-cell types are formulas; formulas reference the expected inputs
 - **Fail mode:** any of the three is a hard-coded constant — **auditability FAIL** (verifier cannot reconstruct without the formula)
 - **Note:** record the formula text verbatim in the source-read log for the audit trail
@@ -150,7 +152,7 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 
 ### 4.2 Is the C content properly evidenced (test copy + Ops Notes copy)?
 
-- **Primary source:** Certify Sequestration component → Sources tab
+- **Primary source:** Certify Sequestration component → linked sources (Certify API dump: datapoint source links + `sources` list)
 - **What to extract:** filenames of attached evidence; confirm both (a) the lab report and (b) the Ops Notes appear as Sources for the C Content datapoint
 - **Pass criteria:** both evidence types present and linked to the Carbon Content datapoint
 - **Fail mode:** missing test copy, missing Ops Notes copy, or evidence linked at component level but not to the specific datapoint
@@ -197,7 +199,7 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 
 ### 5.4 Is the Mass of Load evidenced by a copy of the batch Ops Notes?
 
-- **Primary source:** Certify Transport Process component → Sources tab
+- **Primary source:** Certify Transport Process component → linked sources (Certify API dump: datapoint source links + `sources` list)
 - **Pass criteria:** Ops Notes (PDF, screenshot, or live link) attached to the Mass of Load datapoint
 - **Fail mode:** evidence missing; only BOL attached (BOL is not Ops Notes)
 
@@ -227,7 +229,7 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 
 ### 6.3 Is the aggregate distance evidenced with the RP Bio-Oil Shipment Tracker, batch Charm Contents, and applicable route Google Map?
 
-- **Primary source:** Certify Transport Embodied component → Sources tab
+- **Primary source:** Certify Transport Embodied component → linked sources (Certify API dump: datapoint source links + `sources` list)
 - **Pass criteria:** all THREE evidence types attached: (a) Shipment Tracker, (b) Charm Contents, (c) Google Maps route
 - **Fail mode:** any of the three missing
 
@@ -237,7 +239,7 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 
 ### 7.1 Are there Production Emissions components for ALL Production Periods in the batch?
 
-- **Primary source:** Charm Contents sheet (PP list for the batch) + Certify Components tab (enumerate all Production Emissions components)
+- **Primary source:** Charm Contents sheet (PP list for the batch) + Certify API dump components list (enumerate all Production Emissions components)
 - **Math:** every PP that contributed mass has its production emissions captured — either its own component OR an aggregated component whose production-mass-weighted blended CI reconciles to the per-PP sum
 - **Pass criteria:** every PP's production emissions are accounted for (per-PP component or aggregated mass-weighted component both pass)
 - **Fail mode:** a PP's production emissions omitted entirely (system-boundary completeness FAIL). Aggregating multiple PPs into one mass-weighted component is NOT a fail and NOT a flag — no primary source requires per-PP component granularity (verified absent on INJ-06-2026-W1).
@@ -256,7 +258,7 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 ### 7.3 Is the CI evidenced (Ops Notes weighted-average across totes)?
 
 - **Evidence standard (Max-stated, 2026-06-30):** CI evidence = the **Ops Notes** (weighted-average across all totes used in the injection), NOT a PP Summary. Do not FAIL this for "missing PP Summary."
-- **Primary source:** Certify Production Emissions component → Sources tab; Ops Notes
+- **Primary source:** Certify Production Emissions component → linked sources (Certify API dump: datapoint source links + `sources` list); Ops Notes
 - **Pass criteria:** the Ops Notes (PDF/screenshot/live link) is attached and linked to the CI datapoint
 - **Fail mode:** the CI datapoint has no source linked / the Ops Notes is not attached. (This typically clears together with the other Ops-Notes-linking items — 4.2 carbon content, 5.4 transport mass, 7.6 production mass — when the batch Ops Notes is uploaded and linked in Certify.)
 
@@ -276,8 +278,8 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 
 ### 7.6 Is the mass evidenced with a copy of the Charm Contents sheet for the batch?
 
-- **Primary source:** Certify PE component → Sources tab
-- **Pass criteria:** Charm Contents (PDF or screenshot) attached, OR — for 2026 weekly time-block batches, where no standalone Charm Contents sheet exists — the batch Ops Notes attached to the production-mass datapoint, with its Production Period column carrying the per-period mass breakdown. Confirm Charm Contents is absent from BOTH the Drive batch folder and the Certify Sources tab before relying on the Ops Notes. This basis has been accepted on every 2026 weekly WODO/Aqueous batch.
+- **Primary source:** Certify PE component → linked sources (Certify API dump: datapoint source links + `sources` list)
+- **Pass criteria:** Charm Contents (PDF or screenshot) attached, OR — for 2026 weekly time-block batches, where no standalone Charm Contents sheet exists — the batch Ops Notes attached to the production-mass datapoint, with its Production Period column carrying the per-period mass breakdown. Confirm Charm Contents is absent from BOTH the Drive batch folder (`drive_read.py ls` listing) and the Certify API `sources` list before relying on the Ops Notes. This basis has been accepted on every 2026 weekly WODO/Aqueous batch.
 - **Fail mode:** neither Charm Contents nor an Ops Notes carrying the per-period masses is attached to the mass datapoint
 
 ---
@@ -289,7 +291,7 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 **Hard rule (Max-stated, authoritative):** ALL diesel transport-process emissions must be offset with BCUs. A diesel transport-process emission with NO BCU offset is a **FAIL** (required reduction missing) — NOT N/A. (Confirmed on INJ-06-2026-W1 WODO 2026-06-25: 1.954 t diesel flatbed process with empty Reductions → FAIL.)
 
 - **Primary source:** Certify Reductions → BCU components + Certify Activities → Transport Process emissions
-- **Math:** Σ BCU tCO2e (transport-related) =? Σ Transport Process activity tCO2e
+- **Math:** Σ BCU tCO2e (transport-related) =? Σ Transport Process activity tCO2e (each computed from the component's blueprint and inputs in the Certify API dump)
 - **Pass criteria:** every diesel transport-process emission is BCU-offset AND Σ BCU = Σ transport process activity (BCU never exceeds the emission it offsets) (Corrected 2026-09-28 per Max: "BCUs should never exceed the emission." The prior "MUST equal or exceed" wording was reversed.)
 - **Fail mode:** a diesel transport-process emission has no BCU (Reductions empty for that lane), OR BCU < transport process activity (under-reduction), OR BCU > transport process activity (over-coverage, any size). Material — a missing or excess BCU changes net.
 - **N/A:** only if the batch has NO diesel transport-process emissions at all (e.g., no transport leg). Absence of a BCU when a diesel transport-process emission EXISTS is a FAIL, not N/A.
@@ -300,7 +302,7 @@ The checklist applies Max's actual QA question framework for Charm-produced batc
 
 ### 9.1 If LCS use is reported in Ops Notes, does a matching Certify component exist?
 
-- **Primary source:** Ops Notes (search for LCS / Liquid Calcium Sulfate / buffer column) + Certify Components tab
+- **Primary source:** Ops Notes (search for LCS / Liquid Calcium Sulfate / buffer column) + Certify API dump components list
 - **Pass criteria:**
   - If Ops Notes reports LCS mass and use → a matching Certify component MUST exist (correct mass, correct EF, evidenced with Ops Notes copy)
   - If Ops Notes reports NO LCS use → N/A

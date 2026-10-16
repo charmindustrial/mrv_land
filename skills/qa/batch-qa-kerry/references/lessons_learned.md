@@ -86,7 +86,7 @@ For lessons that apply across all oil types (AECN, Kerry, future WODO/Aqueous), 
 
 **Applies to:** Both tote and tanker modes.
 
-**Trigger:** Certify Components tab shows any of: "Kerry Production Process Emissions", "Kerry Production Embodied Emissions", "Kerry Biomass Sourcing", "Kerry Pyrolysis [Process|Embodied]", or any feedstock-allocation component tagged to Kerry.
+**Trigger:** the Certify components list (Certify API dump) shows any of: "Kerry Production Process Emissions", "Kerry Production Embodied Emissions", "Kerry Biomass Sourcing", "Kerry Pyrolysis [Process|Embodied]", or any feedstock-allocation component tagged to Kerry.
 
 **Failure mode:** Kerry's VVB-validated waste boundary excludes biomass sourcing and production emissions entirely. The presence of any upstream production component indicates either (a) Certify has been misconfigured for Kerry, treating it like AECN, or (b) the Kerry methodology has been silently revised and the QA hasn't been updated. Either way, the credit math is wrong: an upstream component that shouldn't exist is reducing Net CDR.
 
@@ -103,7 +103,7 @@ For lessons that apply across all oil types (AECN, Kerry, future WODO/Aqueous), 
 
 **Applies to:** Both tote and tanker modes.
 
-**Trigger:** Certify Components tab shows a non-zero Counterfactuals value for the Kerry removal.
+**Trigger:** the Certify components list (Certify API dump) shows a non-zero Counterfactuals value for the Kerry removal.
 
 **Failure mode:** Kerry's waste boundary handles the counterfactual by excluding upstream entirely (no biomass sourcing or production emissions are credited or debited). It does NOT handle the counterfactual by adding an offsetting counterfactual emission. If Certify shows a non-zero counterfactual for Kerry, the methodology is being applied incorrectly — likely double-counting (excluding upstream AND adding a CC2/CC3 counterfactual), which under-credits Kerry.
 
@@ -160,8 +160,8 @@ This applies on first delivery, on Max-correction passes, AND on Garrett-correct
 
 For lessons that apply across all oil types, read the AECN file at `skills/qa/batch-qa/references/lessons_learned.md`. Notable carry-overs:
 
-- **FC1 (AECN):** Sources tab is the truth (not Datapoints tab). COBB tracker larger than viewport — verify cell A before reading row values. Applies identically to Kerry.
-- **FC3 (AECN):** Scale tickets MUST be opened as images (in tanker-mode Kerry batches). Uncertainty modals MUST be opened.
+- **FC1 (AECN):** The Certify API dump's full `sources` list is the truth (not one datapoint's links; removal-level sources unlinked to any datapoint are not visible via the API — check Drive, then Fail as before, with a note to confirm on the Sources tab). COBB tracker is larger than it looks — read it with a full-tab `drive_read.py rows` scan and verify cell A before reading row values. Applies identically to Kerry.
+- **FC3 (AECN):** Scale tickets MUST be opened as images (in tanker-mode Kerry batches). Each component's input ± values (`standard_deviation`) MUST be read from the Certify API.
 - **FC8 (AECN):** Vehicle Embodied EFs are PER-MILE, not per-T-mi. Applies to Kerry flatbed embodied identically.
 - **FC10 (AECN):** Every evidence note MUST cite `[log:KEY]` to source-read log. Adversarial review log-driven only. "Blocking" requires ≥3 enumerated tooling-path attempts. All apply to Kerry.
 

@@ -1,6 +1,6 @@
 # MRV Expert — Folder Index
 
-Last updated: 2026-10-13 (third full workspace clean-up; added `automation/workspace-tidy`, a weekly scheduled sweep (Mondays 07:00 Pacific, through `~/.claude/scheduled/`) that keeps the root clean and saves + pushes the folder to GitHub; widened `workspace_hygiene_guard.sh` to block every new root file, not just images/YAML; fixed the GitHub backup hook, which had silently failed since 2026-04-29 — see "Recently Resolved (2026-10-13)"). Previously: 2026-10-01 (RETIRED `automation/resume-echo-review` at Max's request: launchd job unloaded, plist moved to `~/.claude/scheduled/plist-backups/retired/`, cloud routine `resume-echo-artifact-publish` disabled, `.claude/skills` symlink removed; skill folder, registry and audit trail kept as a record. All scheduled jobs now run through `~/.claude/scheduled/` — see its README.md). Previously: 2026-09-13 (added `skills/orchestrator-mode` — interactive "boss" mode that turns a Claude Code window into a coordinator planning/delegating/unblocking other "worker" windows without editing anything itself; NOT a scheduled automation, invoked by hand; boss window must be switched to the Fable model at low reasoning effort via `/model`; worker count is task-dependent, never fixed in advance; see the skill's SKILL.md for the full procedure). Previously: 2026-09-03 (added `automation/resume-echo-review` — twice-daily applicant screen for the open MRV Analyst Lever posting, building on the one-time manual "Resume Echo Audit." Fired 9am/17:00 by launchd; also runs ad-hoc. STRICTLY READ-ONLY on Lever and LinkedIn — `~/.claude/hooks/certify_readonly_guard.sh` hard-blocks writes to `hire.lever.co` the same way it does `registry.isometric.com`. Persistent candidate verdicts in `skills/automation/resume-echo-review/candidate_registry.json` (git-tracked, like the QA batch registries); audit trail in `outputs/automation/resume-echo-review/`; alerts via a macOS desktop notification, deliberately never Slack — see the skill's SKILL.md). Previously: 2026-09-02 (retired `automation/mrv-mailbox` — email-based RP-close ancillary data request, paused since 2026-06-30 and never resumed — moved to `archive/mrv-mailbox-superseded/`; replaced by `automation/ancillary-data-request`, a Slack-based version posting the monthly asks in #mrv-ops-la and alerting finished products to #team-mrv-alerts. Not yet live: AUTO_POST_APPROVED is false pending Max's go-ahead on the first post). The workspace has four parent folders. Every skill, output, reference, and old artifact lives in exactly one of them. New work always lands in a predictable place.
+Last updated: 2026-10-16 (QA moved off Playwright — Certify and Drive are read through APIs by `skills/qa/container/tools/`; added `skills/qa/container/` to run the QA skills in GCP; see "Recently Resolved (2026-10-16)"). Previously: 2026-10-13 (third full workspace clean-up; added `automation/workspace-tidy`, a weekly scheduled sweep (Mondays 07:00 Pacific, through `~/.claude/scheduled/`) that keeps the root clean and saves + pushes the folder to GitHub; widened `workspace_hygiene_guard.sh` to block every new root file, not just images/YAML; fixed the GitHub backup hook, which had silently failed since 2026-04-29 — see "Recently Resolved (2026-10-13)"). Previously: 2026-10-01 (RETIRED `automation/resume-echo-review` at Max's request: launchd job unloaded, plist moved to `~/.claude/scheduled/plist-backups/retired/`, cloud routine `resume-echo-artifact-publish` disabled, `.claude/skills` symlink removed; skill folder, registry and audit trail kept as a record. All scheduled jobs now run through `~/.claude/scheduled/` — see its README.md). Previously: 2026-09-13 (added `skills/orchestrator-mode` — interactive "boss" mode that turns a Claude Code window into a coordinator planning/delegating/unblocking other "worker" windows without editing anything itself; NOT a scheduled automation, invoked by hand; boss window must be switched to the Fable model at low reasoning effort via `/model`; worker count is task-dependent, never fixed in advance; see the skill's SKILL.md for the full procedure). Previously: 2026-09-03 (added `automation/resume-echo-review` — twice-daily applicant screen for the open MRV Analyst Lever posting, building on the one-time manual "Resume Echo Audit." Fired 9am/17:00 by launchd; also runs ad-hoc. STRICTLY READ-ONLY on Lever and LinkedIn — `~/.claude/hooks/certify_readonly_guard.sh` hard-blocks writes to `hire.lever.co` the same way it does `registry.isometric.com`. Persistent candidate verdicts in `skills/automation/resume-echo-review/candidate_registry.json` (git-tracked, like the QA batch registries); audit trail in `outputs/automation/resume-echo-review/`; alerts via a macOS desktop notification, deliberately never Slack — see the skill's SKILL.md). Previously: 2026-09-02 (retired `automation/mrv-mailbox` — email-based RP-close ancillary data request, paused since 2026-06-30 and never resumed — moved to `archive/mrv-mailbox-superseded/`; replaced by `automation/ancillary-data-request`, a Slack-based version posting the monthly asks in #mrv-ops-la and alerting finished products to #team-mrv-alerts. Not yet live: AUTO_POST_APPROVED is false pending Max's go-ahead on the first post). The workspace has four parent folders. Every skill, output, reference, and old artifact lives in exactly one of them. New work always lands in a predictable place.
 
 > **Companion file:** `README.txt` at the workspace root is a plain-text version of the same information for quick scanning. **Whenever you change the folder structure, update BOTH this file AND README.txt in the same change.** Out-of-date docs mislead future agents and waste time.
 
@@ -46,7 +46,8 @@ skills/
 │   ├── site-emissions-qa/                     (primary QA agent — site/non-batch emissions)
 │   ├── adversarial-reviewer/                  (sub-agent — serves all QA primaries)
 │   ├── garrett-completion-monitor/            (sub-agent — sweeps all batch-qa registries: AECN, Kerry, Charm)
-│   └── performance-monitor/                   (sub-agent — serves all QA primaries)
+│   ├── performance-monitor/                   (sub-agent — serves all QA primaries)
+│   └── container/                             (not a skill — runs the QA skills in GCP: Cloud Run job `qa-runner` in `charm-mrv`, started by an operator via `qa_run.sh` or the `qa-trigger` endpoint; Certify and Drive read through the API; never sends Slack/Gmail. See `container/README.md` and `container/CONTAINER_MODE.md`)
 ├── data-analysis/                              ← data analysis cluster
 │   └── wellhead-data-transform/               (Ignition SCADA → VVB format + compliance charts)
 ├── digests/                                    ← cross-team digest cluster
@@ -71,7 +72,7 @@ skills/
 
 ```
 outputs/
-├── research/                                   ← findings docs, source lists, Playwright captures from web reads
+├── research/                                   ← findings docs, source lists, saved page text from web reads
 ├── lca-model-builder/                         ← DOT-111 models, BOMs, co-product analyses
 ├── qa/
 │   ├── batch-<batch_id>/                      ← per-batch folder (AECN, Kerry, or Charm); see "QA per-batch layout" below
@@ -115,7 +116,7 @@ outputs/qa/batch-2-190/
 ├── batch_timestamps.json                      ← gate-by-gate timing for performance-monitor
 ├── build_checklist.py                         ← per-batch build script (kept for reproducibility)
 ├── token_cost.json                            ← per-batch token usage
-└── screenshots/                               ← Playwright captures from the QA session (gitignored)
+└── screenshots/                               ← captures from older browser-based QA runs (gitignored)
     ├── certify_components.png
     ├── ops_notes_full.png
     └── ...
@@ -172,7 +173,6 @@ Everything else falls through to the normal permission prompt — network-touchi
 
 A PreToolUse hook at [`.claude/hooks/workspace_hygiene_guard.sh`](.claude/hooks/workspace_hygiene_guard.sh) prevents loose binary captures and Certify scrapes from accumulating at the workspace root. It denies:
 
-- `mcp__playwright__browser_take_screenshot` calls without a `filename` that routes under `outputs/`.
 - `Write` calls targeting `.png` / `.jpg` / `.jpeg` / `.yml` / `.yaml` files at the workspace root.
 - `Write` calls creating any other file at the workspace root except `CLAUDE.md`, `README.txt`, `FOLDER_INDEX.md`, `.gitignore`, `.gitattributes`, `.mcp.json` (added 2026-10-13: protocol scrapes and page-text dumps kept landing there as `.txt`).
 
@@ -180,7 +180,7 @@ Files written by scripts or other programs never pass through this hook; the wee
 
 **Portable by design.** The hook script lives in `.claude/hooks/` and is registered via `.claude/settings.json`; both are tracked in git, so the protection rides with the repo. The hook self-derives the workspace root from its own location (`<workspace>/.claude/hooks/...` → `<workspace>`), so cloning to a new machine "just works" with no global config to set up.
 
-A SessionEnd hook at [`.claude/hooks/browser_cleanup_sessionend.sh`](.claude/hooks/browser_cleanup_sessionend.sh) closes the Playwright browser windows a session opened, so they don't accumulate across sessions (the "why do I have 4 Chromes open" problem). It is **precise, not a blanket kill**: it reads the session's own transcript for which Playwright MCP servers were actually used, maps each to its profile directory (`playwright` → `playwright-profile`, `playwright-mrv-2` → `playwright-profile-mrv-2`, etc.), and closes only those exact windows via `pkill` on the `--user-data-dir` path. A window opened by a different, still-running session (different profile) is never touched; a session that used no browser closes nothing. **Fail-open:** any error exits 0 without acting, so it can only ever close a leftover window, never brick a session. It runs at session end, not between turns, so a browser being used mid-task is never killed.
+The SessionEnd hook [`.claude/hooks/browser_cleanup_sessionend.sh`](.claude/hooks/browser_cleanup_sessionend.sh) (closed the Playwright windows a session opened) is **no longer registered** in `.claude/settings.json`: QA reads Certify and Drive through APIs (`skills/qa/container/tools/`), so sessions open no browser. The script is kept for reference.
 
 `.claude/skills/` stays gitignored because those entries are machine-specific absolute-path symlinks. Recreate them on a new machine with `ln -s ../../skills/<cluster>/<skill> .claude/skills/<skill>` for each skill (or whatever discovery setup exists at the time).
 
@@ -308,6 +308,12 @@ archive/
 
 - **Resolve `#co` channel ID for mrv-standup registry.** Max requested it but no exact match exists in the channel index (only `#colorado-ski-snowboard` came back). On first run of the standup, ask Max which channel he meant and update `skills/digests/mrv-standup/SKILL.md`.
 - **Extract shared root from `batch-qa-aecn` / `batch-qa-kerry` / `batch-qa-charm`.** The three batch-QA skills share ~70% of their structure (pre-flight gate, 4-gate workflow, Slack workflow, formatting spec, citation discipline, anti-patterns, key principles, working-with-Max). Each currently duplicates this scaffolding inline. Pulling the common spine into a `skills/qa/_batch-qa-common/` shared reference doc (or a root SKILL.md included by each branch) would remove the drift risk that already exists across the three — e.g., the Slack workflow's siren-emoji prefix rule was added to AECN/Kerry independently after the rule was introduced for AECN. Deferred from the 2026-05-12 Charm-skill build because it touches all three working skills.
+
+## Recently Resolved (2026-10-16)
+
+- **QA reads Certify and Drive through APIs, not Playwright.** Every QA skill, reference doc, the Knowledge Base and the step-ledger descriptions now use `skills/qa/container/tools/certify_read.py` (read-only Certify REST) and `drive_read.py` (Drive API; Drive MCP connector as the workstation fallback). Rules, gates and penalties were translated, not removed. A document absent from both Drive and the Certify API dump is still a Fail (the API cannot see removal-level sources, so the note says to confirm on the Sources tab).
+- **Browser config removed.** 84 Playwright / chrome-control permission entries and the SessionEnd `browser_cleanup_sessionend.sh` registration removed from `.claude/settings.json`; hook messages that pointed at Playwright now point at the API tools; the dead Playwright-screenshot case was removed from `workspace_hygiene_guard.sh`.
+- **Added `skills/qa/container/`** — runs the QA skills in GCP (`charm-mrv`, Cloud Run job `qa-runner`), operator-started via `qa_run.sh` or the `qa-trigger` endpoint, one Claude session per gate, per-mode Knowledge Base slices, robustness tests in the image build, `parity_check.py` for Mac-vs-container comparison. See `skills/qa/container/README.md`.
 
 ## Recently Resolved (2026-10-13)
 

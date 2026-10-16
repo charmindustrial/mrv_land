@@ -129,17 +129,17 @@ Example filename: `site_emissions_basco_apr2026_source_reads.json`. Each read mu
 
 | Source type | Read method | Why |
 |---|---|---|
-| xlsx with formulas | `mcp__claude_ai_Google_Drive__download_file_content` → base64-decode → `openpyxl.load_workbook(path, data_only=True)` → read cached cell values | Drive's `read_file_content` is a natural-language renderer; named-range formulas (e.g., `=F2*ProcessEF`) emit `#NAME?` in its text dump even when the sheet evaluates correctly. Treating the renderer's `#NAME?` as the actual cell value is a Failure Category 15 violation. |
-| Google Sheets (native) | `read_file_content` is acceptable; computed values are surfaced | Native Sheets renders computed values directly. |
-| PDFs (receipts, invoices, manifests, scale tickets) | `read_file_content` | Text extraction is reliable for PDFs. |
-| PNG / JPG (distance maps, scanned receipts, photos) | `read_file_content` (OCR-based) for first pass; if text or numbers look wrong, `download_file_content` and Read the image directly via the Read tool to inspect pixels | OCR can misread digits (per `feedback_ocr_not_primary_source.md` memory). |
-| docx (LCAs, methodology memos) | `read_file_content` | Reliable for prose. |
+| xlsx with formulas | `drive_read.py get <file URL> --out <dir>` (fallback where drive_read.py has no Google credentials: `mcp__claude_ai_Google_Drive__download_file_content` → base64-decode) → `openpyxl.load_workbook(path, data_only=True)` → read cached cell values; `drive_read.py rows` returns value and formula per cell | Drive's `read_file_content` is a natural-language renderer; named-range formulas (e.g., `=F2*ProcessEF`) emit `#NAME?` in its text dump even when the sheet evaluates correctly. Treating the renderer's `#NAME?` as the actual cell value is a Failure Category 15 violation. |
+| Google Sheets (native) | `drive_read.py get` (exports to xlsx with notes/links) → `drive_read.py tabs` / `rows`; `read_file_content` is an acceptable fallback; computed values are surfaced | Native Sheets renders computed values directly. |
+| PDFs (receipts, invoices, manifests, scale tickets) | `drive_read.py get` → Read tool (fallback `read_file_content`) | Text extraction is reliable for PDFs. |
+| PNG / JPG (distance maps, scanned receipts, photos) | `drive_read.py get` and Read the image directly via the Read tool to inspect pixels (fallback: `read_file_content` (OCR-based) for first pass; if text or numbers look wrong, `download_file_content` and Read the image) | OCR can misread digits (per `feedback_ocr_not_primary_source.md` memory). |
+| docx (LCAs, methodology memos) | `drive_read.py get` → Read tool (fallback `read_file_content`) | Reliable for prose. |
 
 **Never claim "the cell shows X" or "the formula is broken" based on Drive's text renderer alone for xlsx files.** Download and inspect with openpyxl before reporting any cell-level finding.
 
 **Required reads (in this order):**
 
-1. **Drive folder inventory** — Open the Drive folder. List every subfolder and every root-level file. For each: record name, file ID, type (folder / xlsx / pdf / png / docx / sheet), and category mapping. Note unexpected subfolders (one-offs) and any expected category with NO subfolder.
+1. **Drive folder inventory** — List the Drive folder with `drive_read.py ls <folder URL> --recursive --out <listing.json>`. List every subfolder and every root-level file. For each: record name, file ID, type (folder / xlsx / pdf / png / docx / sheet), and category mapping. Note unexpected subfolders (one-offs) and any expected category with NO subfolder.
 
 2. **BCU Quant sheet** — Open the root-level BCU Quant sheet. Enumerate every component row with diesel emissions, non-diesel emissions, total emissions. This is the site emissions inventory; absence of a known category here is a substantive finding.
 
@@ -151,7 +151,7 @@ Example filename: `site_emissions_basco_apr2026_source_reads.json`. Each read mu
 
 4. **Standard EF Sheet** — Open the Standard EF Sheet. Confirm the tab being read is the current-year tab (e.g., `2026 / GLEC V3.2 2025 / GREET 2025`). For every EF cited anywhere in the calc sheets, record: the EF name, the cell on the EF sheet, the value, the unit, and the source attribution.
 
-5. **Certify removal** (Phase 2 / Full only — DEFERRED in Phase 1) — Open all four tabs of the scapegoat removal(s): Components, Calculation View, Datapoints, Sources. For each site emission component, record: name, value (tCO₂e), attached source filename(s), datapoint linkages.
+5. **Certify removal** (Phase 2 / Full only — DEFERRED in Phase 1) — Fetch each scapegoat removal via the Certify API: `python3 skills/qa/container/tools/certify_read.py removal <removal URL> --out outputs/qa/site-emissions-qa/certify_removal.json` (one file per removal if multiple), and read `certify_removal_summary.md` plus the full dump's components, datapoints, `sources` and `blueprints`. For each site emission component, record: name, blueprint, every input datapoint (magnitude, unit, ±), value (tCO₂e — computed from the blueprint expression and inputs, since the API does not return per-component tCO₂e; say so in the log), attached source filename(s), datapoint linkages. Record `removal.co2e_net_removed_kg` as the removal's net.
 
 **Mandatory log fields (Gate 1 cannot exit without these):**
 
@@ -187,14 +187,14 @@ Example: The Diesel component in Certify reports 2.157 tCO₂e. The evidence att
 
 ### GATE 2: Per-Category Evidence Review & Checklist Build
 
-**Phase applicability:** Phase 1 runs Layer 3 (Drive folder ↔ calc sheet) in full, plus EF validation and BCU eligibility flagging. Layers 1 and 2 are recorded as `Pending`, with the calc-sheet authoritative value preserved in the evidence note so Phase 2 can compare against it. Phase 2 reads each `Pending` item, opens the Certify component, performs Layer 1 and Layer 2 verification, and updates the status to Pass/Fail/Flag. Full mode runs all layers in sequence.
+**Phase applicability:** Phase 1 runs Layer 3 (Drive folder ↔ calc sheet) in full, plus EF validation and BCU eligibility flagging. Layers 1 and 2 are recorded as `Pending`, with the calc-sheet authoritative value preserved in the evidence note so Phase 2 can compare against it. Phase 2 reads each `Pending` item, reads the Certify component from the API dump, performs Layer 1 and Layer 2 verification, and updates the status to Pass/Fail/Flag. Full mode runs all layers in sequence.
 
 Work through each category systematically. For each category present in this period:
 
 Work through the 3-layer evidence chain for each category:
 
-1. **Layer 1 — Certify component.** Read the reported value for the Certify component(s) mapped to this category.
-2. **Layer 2 — Certify evidence.** Open the source document(s) attached to that component in Certify (typically a calc sheet). Verify the calc sheet output matches the Certify component value exactly. If not → FAIL.
+1. **Layer 1 — Certify component.** Compute the value for the Certify component(s) mapped to this category from the blueprint expression and input datapoints in the Certify API dump (the API does not return per-component tCO₂e); the evidence note must say the value was computed this way.
+2. **Layer 2 — Certify evidence.** Open the source document(s) attached to that component in Certify (typically a calc sheet) — the sources linked to its input datapoints in the dump, downloaded with `certify_read.py source <src_id> --out <dir>`. Verify the calc sheet output matches the Certify component value exactly. If not → FAIL.
 3. **Layer 3 — Drive folder.** Open the Drive subfolder. List all evidence files (receipts, invoices, screenshots). Verify:
    - All receipts/invoices for the period are present in the folder
    - All receipts/invoices in the folder are accounted for in the calc sheet
@@ -308,7 +308,7 @@ python3 skills/qa/site-emissions-qa/scripts/validate_log.py \
 
 Any evidence note containing speculative or hedging language ("may be", "might be", "could be", "probably", "presumably", "appears to be", "seems to be", "is a display format", "is a storage value", "is likely a rounding", "if metric-tonne is correct", "convention generally treats", "recommend confirming GREET…", "implicit interpretation", "I think", "I believe") **must** carry a `[verified-via:METHOD]` citation pointing to the primary-source verification step that confirmed the claim.
 
-Format: `[verified-via:opened-detail-modal]`, `[verified-via:Max-confirmed-direct-read]`, `[verified-via:GREET-database-lookup]`, `[verified-via:openpyxl-cell-read]`. Any nonempty method label is acceptable, but it must name the specific verification action, not "verified".
+Format: `[verified-via:certify-api-datapoint-read]`, `[verified-via:Max-confirmed-direct-read]`, `[verified-via:GREET-database-lookup]`, `[verified-via:openpyxl-cell-read]`. Any nonempty method label is acceptable, but it must name the specific verification action, not "verified".
 
 Applies to **every status** including Pass. Pass-with-unverified-speculation is the failure mode this rule was built to catch. The audit script blocks the row from saving until either:
 - The speculation is removed and replaced with a verified literal value (with `[log:KEY]`),
@@ -323,7 +323,7 @@ The Rule C `[rule:KEY]` tag pattern is the sibling: rule-assertion language must
 
 An applied REC (and the same logic for any EAC/BCU offset) is only "applied" when it shows up in **both** places, and they must agree:
 
-1. **REC EF applied in Certify** — the component uses the REC-derated EF (e.g. the ~0.0366 kgCO₂e/kWh "derated" rate), **not** the grid EF (~0.467), and the reduced value is what's carried. Confirm by opening the Certify component/reduction — never from a label.
+1. **REC EF applied in Certify** — the component uses the REC-derated EF (e.g. the ~0.0366 kgCO₂e/kWh "derated" rate), **not** the grid EF (~0.467), and the reduced value is what's carried. Confirm by reading the Certify component/reduction's blueprint and input datapoints (EF magnitude) in the Certify API dump — never from a label.
 2. **REC qty deducted from the REC inventory sheet** — the matching quantity is drawn down in Charm's REC/EAC inventory tracker. Confirm by opening the inventory sheet — never from a folder/column name.
 
 **Decision matrix (this is the classification, apply it exactly):**
@@ -340,7 +340,7 @@ So: a mismatch between Certify and the inventory sheet in **either** direction i
 **Scope nuance — where the mismatch is a FAIL vs. a Flag (BCUs especially).** BCUs (and REC draw-downs) are reconciled against inventory **at the GHG-statement / reporting-package level, drawn down per reporting period — not per batch/removal**. So "applied in Certify but not yet counted against inventory" is disqualifying **for the reporting package**, but it does **not** follow that a single batch/removal fails: the draw-down is entered when the statement is assembled, which is downstream of batch QA. Therefore, at batch/removal QA, an applied-but-not-yet-drawn-down BCU is a **Flag** — a standing reminder that says *"ensure this and all other BCUs for the period are counted against inventory before submitting the reporting package."* It becomes a FAIL only if the reporting package/statement is finalized with the mismatch unresolved. Don't FAIL a batch for a reconciliation step that legitimately happens at statement time; do raise the Flag so it can't be forgotten. (RECs on a single removal follow the matrix above directly, since the removal carries the electricity emission itself; the statement-level timing nuance is primarily a BCU concern.)
 
 **Citation requirement (audit-enforced).** Any note asserting an applied REC/EAC/BCU coverage ("REC-covered", "RECs applied", "offset by BCU", "net of RECs", "derated", "fully offset", …) on a **Pass** must carry **both** verification legs:
-- `[verified-via:opened-Certify-reduction]` (or `-component-modal`) — the REC-derated EF / reduction is applied, and
+- `[verified-via:opened-Certify-reduction]` (or `-Certify-api-datapoint`) — the REC-derated EF / reduction is applied (read from the Certify API dump), and
 - `[verified-via:REC-inventory-deduction]` (or `-EAC-inventory` / `-BCU-inventory`) — the qty is drawn from the inventory sheet.
 
 A tracker label, BCU-Quant column name (e.g. `Basco Site Electricity (RECs)`), folder name, or component name satisfies **neither** leg. Missing either leg → the audit fails the row; if you can't confirm both, it is not a Pass (Flag it, or FAIL it per the matrix). The audit (`audit_checklist.py`: `COVERAGE_CLAIM_RE`, `APPLIED_MECHANISM_RE`, `INVENTORY_VERIFY_RE`) blocks a coverage-claim Pass that lacks both legs.
@@ -407,7 +407,7 @@ For each of these, verify the BCU Quant sheet has a corresponding line item and 
 
 ### U4: Missing Evidence = FAIL
 
-If evidence is missing — a receipt not in the folder, a calc sheet not attached in Certify, a distance not documented — that is a FAIL. Not a Flag. Not "pending clarification."
+If evidence is missing — a receipt not in the folder, a calc sheet not attached in Certify, a distance not documented — that is a FAIL. Not a Flag. Not "pending clarification." (One API exception: the Certify API cannot see removal-level sources not linked to any datapoint, so a calc sheet absent from the dump's `sources` list must also be checked in Drive and, if still absent, graded Fail as before, with the note "absent from Drive and the Certify API dump; confirm on the Sources tab (removal-level sources are not visible via the API)".)
 
 The distinction: a Flag is for hygiene issues where the underlying data supports the reported value (e.g., a file named "scan001.pdf" instead of "Diesel_Receipt_March2026.pdf"). A FAIL is for anything that means you cannot independently confirm the reported value. Missing evidence means you cannot confirm. That's a FAIL.
 
@@ -548,7 +548,7 @@ When triggered in Phase 2 mode (components have been entered into Certify after 
 
 1. **Open the Phase 1 checklist file.** Max provides the path. This is your starting state, not a clean slate.
 2. **Identify every `Pending` item.** Each Pending item's evidence note contains the authoritative value from the Drive/calc-sheet review (recorded in Phase 1).
-3. **For each `Pending` item:** open the corresponding Certify component. Verify Layer 1 (component value matches the recorded calc-sheet value) and Layer 2 (the document attached as evidence in Certify is the same calc sheet you reviewed in Phase 1, and produces the recorded value). Update Status to Pass / Fail / Flag and append the Certify finding to the evidence note. Do NOT erase the Phase 1 finding — the evidence note should show both the Phase 1 calc-sheet value and the Phase 2 Certify comparison.
+3. **For each `Pending` item:** read the corresponding Certify component from the API dump (`certify_read.py removal`; value computed from blueprint + inputs). Verify Layer 1 (component value matches the recorded calc-sheet value) and Layer 2 (the document attached as evidence in Certify is the same calc sheet you reviewed in Phase 1, and produces the recorded value). Update Status to Pass / Fail / Flag and append the Certify finding to the evidence note. Do NOT erase the Phase 1 finding — the evidence note should show both the Phase 1 calc-sheet value and the Phase 2 Certify comparison.
 4. **Do NOT re-QA non-Pending items.** Pass/Fail/Flag/N/A items from Phase 1 are findings-of-record. Re-running them is wasted effort and risks introducing inconsistency. The only exception: if a Phase 1 FAIL was corrected and the corrected calc sheet is now in Drive, run the corrected check.
 5. **Run Phase-2-only checks:** BCU Quant sheet → Certify Reductions reconciliation, multi-scapegoat allocation across removals in Certify (no removal net-emissive), Certify-component naming consistency.
 6. **Verify no `Pending` items remain.** Every Pending must resolve to Pass/Fail/Flag/N/A. If any remain, the Phase 2 pass is incomplete.
@@ -607,12 +607,12 @@ Example: `Site_Emissions_QA_Basco_FebMar2026.xlsx`
 
 ## Workspace Hygiene — Screenshot & Scratch File Routing
 
-Every Playwright screenshot, Certify YAML scrape, image dump, or other binary capture taken during site emissions QA MUST be saved into the site emissions output folder. Never let captures land at the workspace root.
+Every Certify API dump, downloaded Drive/Certify source file, image dump, or other binary capture taken during site emissions QA MUST be saved into the site emissions output folder. Never let captures land at the workspace root.
 
-- Screenshots → `outputs/qa/site-emissions-qa/screenshots/<descriptive_name>.png`
-- YAML scrapes (Certify component dumps, datapoint exports) → `outputs/qa/site-emissions-qa/<descriptive_name>.yml`
+- Downloaded images / screenshots → `outputs/qa/site-emissions-qa/screenshots/<descriptive_name>.png`
+- Certify API dumps (`certify_removal.json` + `certify_removal_summary.md`) and Drive listings / row extracts → `outputs/qa/site-emissions-qa/<descriptive_name>.json`
 
-Always pass an explicit `filename` to `mcp__playwright__browser_take_screenshot` with a path starting with `outputs/`. Bare filenames default to the cwd (workspace root) and are the cause of historical clutter. The `workspace_hygiene_guard.sh` PreToolUse hook will deny captures or PNG/YAML writes to the workspace root.
+Always pass an explicit `--out` to `certify_read.py` and `drive_read.py` with a path starting with `outputs/`. Bare filenames default to the cwd (workspace root) and are the cause of historical clutter. The `workspace_hygiene_guard.sh` PreToolUse hook will deny captures or PNG/YAML writes to the workspace root.
 
 If the `outputs/qa/site-emissions-qa/screenshots/` folder doesn't exist yet, create it (`mkdir -p`) on first capture.
 

@@ -4,5 +4,21 @@
   "setpoint_source": "Intellishare ECO300 manufacturer spec, >98% VOC destruction efficiency; CatOx Engineering Brief (Drive doc 1pBwtOUc78e5ayvgTxMhiOJsPrO5L9ZPP681Oy3CApJg), Setpoint Supplement tab",
   "offline_sentinels": [0, -238],
   "processed_tabs": ["Train 1 — Temperature", "Train 2 — Temperature", "Raw Data"],
-  "package_files": ["{Month} CatOx -- Raw.xlsx", "{Month} CatOx -- Processed.xlsx"]
+  "package_files": ["{Month} CatOx -- Raw.xlsx", "{Month} CatOx -- Processed.xlsx"],
+  "manual_limits": {
+    "inlet_alarm_f": 900,
+    "outlet_alarm_f": 1100,
+    "outlet_continuous_max_f": 1150,
+    "outlet_continuous_max_minutes_per_24h": 15,
+    "outlet_never_exceed_f": 1200,
+    "source": "Intellishare O&M Guide, ECO300 Electric Catox, N-24-2702A, Nov 2024 (Drive id 1qqTENyFo7jD_8s78MNC0i4n79xsgafET): §6.9 inlet 'above the alarm set-point of 900 degree F', outlet 'above the alarm set-point of 1100 degree F'; §4.3 ¶6b 'at no time shall the catalyst outlet temperature be permitted to exceed 1200°F. Normal continuous operating temperature shall not exceed 1150°F for more than 15 minutes during any 24 hours period.'"
+  },
+  "anomaly_checks": {
+    "trip_from_f": 850,
+    "trip_drop_f": 300,
+    "trip_window_min": 30,
+    "running_floor_f": 200,
+    "isolated_offline_max_readings": 3,
+    "_note": "Working choices for the chat-report checks, not external specs. Trip = a fall from >=850°F of >=300°F within 30 min (the July 2026 hand count in thresholds.md). 200°F separates cold idle from running (July bands in thresholds.md). An offline stretch of <=3 readings with the unit above 200°F on both sides is flagged as a zero inside a run."
+  }
 }

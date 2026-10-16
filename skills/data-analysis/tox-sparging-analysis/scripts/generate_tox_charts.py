@@ -47,6 +47,8 @@ try:
     _CFG = json.loads(_CONFIG_PATH.read_text())
     THRESH_F = _CFG['outlet_setpoint_f']
     OFFLINE_SENTINELS = _CFG['offline_sentinels']
+    LIM = _CFG['manual_limits']
+    ANOM = _CFG['anomaly_checks']
 except (FileNotFoundError, KeyError, json.JSONDecodeError) as e:
     sys.exit(f"ERROR: cannot load canonical config {_CONFIG_PATH} ({e}). "
              f"Refusing to run with hardcoded defaults — fix the config first.")
@@ -162,6 +164,8 @@ def load_data(paths):
         v = pd.to_numeric(df[c], errors='coerce')
         n_empty, n_sent = int(v.isna().sum()), int(v.isin(OFFLINE_SENTINELS).sum())
         print(f"  {c}: {n_sent} offline-sentinel reading(s), {n_empty} empty cell(s)")
+        # Kept so the anomaly checks can tell an offline marker from a dropped (empty) reading.
+        df[f'{c}_offline'] = v.isin(OFFLINE_SENTINELS)
         df[c] = v.replace(OFFLINE_SENTINELS, np.nan)
 
     # ── Orientation self-check (never trust a historical swap blindly) ──
@@ -279,6 +283,157 @@ def report_train_holds(df, min_readings=12):
         print("    none")
 
 
+# ── Anomaly checks (added October 2026) — diagnostics for the chat report only ──
+# Limits and check settings come from catox_config.json (manual_limits, anomaly_checks).
+_MAX_LINES = 20  # per list, so a flickering sensor cannot bury the report
+
+
+def _episodes(mask):
+    """Consecutive True rows of a boolean Series, as (first_index, last_index) pairs."""
+    return [(g.index[0], g.index[-1])
+            for _, g in mask[mask].groupby((mask != mask.shift()).cumsum()[mask])]
+
+
+def _step(df):
+    """The export's normal reading interval (the most common gap between readings)."""
+    d = df['time'].diff()
+    return d[d > pd.Timedelta(0)].mode().iloc[0]
+
+
+def _print_capped(lines):
+    for ln in lines[:_MAX_LINES]:
+        print(ln)
+    if len(lines) > _MAX_LINES:
+        print(f"      … and {len(lines) - _MAX_LINES} more")
+
+
+def report_time_coverage(df, month):
+    """Missing readings, repeated timestamps, and whether the file covers the whole month."""
+    print("\n  Time coverage:")
+    t, step = df['time'], _step(df)
+    print(f"    Reading interval {step.total_seconds()/60:.0f} min")
+
+    dup = t[t.duplicated(keep=False)]
+    if len(dup):
+        print(f"    *** {dup.nunique()} timestamp(s) appear more than once ({len(dup)} rows) ***")
+        if (dup.dt.month == 11).all() and (dup.dt.hour == 1).all() and dup.dt.date.nunique() == 1:
+            print("      All fall in one November 1 am hour — matches the clock change back to "
+                  "standard time (Central time repeats that hour).")
+        _print_capped([f"      {v:%b %d %H:%M}" for v in dup.drop_duplicates()])
+    else:
+        print("    No repeated timestamps")
+
+    gaps = [(t.iloc[i - 1], t.iloc[i]) for i in np.where(t.diff() > step * 1.5)[0]]
+    if gaps:
+        n_missing = sum(round((b - a) / step) - 1 for a, b in gaps)
+        print(f"    *** {len(gaps)} gap(s) in the timestamps, ~{n_missing} reading(s) missing ***")
+        _print_capped([f"      {a:%b %d %H:%M} -> {b:%b %d %H:%M}  ({(b - a).total_seconds()/3600:.1f} h)"
+                       for a, b in gaps])
+    else:
+        print("    No gaps in the timestamps")
+
+    try:
+        start = pd.Timestamp(month)
+    except ValueError:
+        return
+    end = start + pd.offsets.MonthBegin(1)
+    if t.iloc[0] > start + step:
+        print(f"    *** File starts {t.iloc[0]:%b %d %H:%M}, after the period start {start:%b %d %H:%M} ***")
+    if t.iloc[-1] < end - 2 * step:
+        print(f"    *** File ends {t.iloc[-1]:%b %d %H:%M}, before the period end {end:%b %d %H:%M} ***")
+    outside = ((t < start) | (t >= end)).sum()
+    if outside:
+        print(f"    *** {outside} reading(s) fall outside {month} ***")
+
+
+def report_isolated_offline(df):
+    """
+    Offline markers (0 / -238) inside a run: a short offline stretch with the same sensor
+    reading hot on both sides. A real shutdown leaves the unit cold; a 0 between two hot
+    readings is a dropped reading the export labeled offline, and the chart shades it grey.
+    """
+    k, floor = ANOM['isolated_offline_max_readings'], ANOM['running_floor_f']
+    print(f"\n  Offline markers inside a run (<= {k} reading(s), sensor above {floor}°F on both sides):")
+    lines = []
+    for c in ['T1_in', 'T1_out', 'T2_in', 'T2_out']:
+        for i0, i1 in _episodes(df[f'{c}_offline']):
+            if i1 - i0 + 1 > k or i0 == 0 or i1 + 1 not in df.index:
+                continue
+            before, after = df.loc[i0 - 1, c], df.loc[i1 + 1, c]
+            if before > floor and after > floor:
+                lines.append(f"    {c}: {df.time[i0]:%b %d %H:%M} ({i1 - i0 + 1} reading(s)), "
+                             f"{before:.0f}°F before, {after:.0f}°F after")
+    if lines:
+        print(f"    *** {len(lines)} found ***")
+        _print_capped(lines)
+    else:
+        print("    none")
+
+
+def report_limit_exceedances(df):
+    """Readings above the manufacturer's alarm and warranty limits (O&M Guide N-24-2702A)."""
+    print("\n  Readings above the manufacturer's limits (O&M Guide N-24-2702A §6.9, §4.3):")
+    checks = [(c, 'inlet alarm', LIM['inlet_alarm_f']) for c in ('T1_in', 'T2_in')] + \
+             [(c, lab, LIM[k]) for c in ('T1_out', 'T2_out')
+              for lab, k in (('outlet alarm', 'outlet_alarm_f'), ('outlet never-exceed', 'outlet_never_exceed_f'))]
+    lines = []
+    for c, lab, lim in checks:
+        for i0, i1 in _episodes(df[c] > lim):
+            lines.append(f"    {c} above {lab} {lim}°F: {df.time[i0]:%b %d %H:%M} -> {df.time[i1]:%b %d %H:%M} "
+                         f"({i1 - i0 + 1} reading(s)), peak {df.loc[i0:i1, c].max():.0f}°F")
+
+    # §4.3: no more than N minutes above the continuous limit in any 24 hours (rolling window).
+    lim, cap, step_min = (LIM['outlet_continuous_max_f'], LIM['outlet_continuous_max_minutes_per_24h'],
+                          _step(df).total_seconds() / 60)
+    for c in ('T1_out', 'T2_out'):
+        hot = pd.Series((df[c] > lim).astype(float).values, index=df['time'])
+        mins = pd.Series(hot.rolling('24h').sum().values * step_min, index=df.index)
+        for i0, i1 in _episodes(mins > cap):
+            lines.append(f"    {c} above {lim}°F for more than {cap} min in 24 h: from {df.time[i0]:%b %d %H:%M}, "
+                         f"up to {mins.loc[i0:i1].max():.0f} min in the 24 h to {df.time[mins.loc[i0:i1].idxmax()]:%b %d %H:%M}")
+    if lines:
+        print(f"    *** {len(lines)} found ***")
+        _print_capped(lines)
+    else:
+        print("    none")
+
+
+def report_sudden_drops(df):
+    """
+    Possible trips: an outlet at/above trip_from_f that falls by trip_drop_f or more within
+    trip_window_min. The temperature record cannot say WHY (thresholds.md: do not call any of
+    these an E-stop without the control-system log). A drop that follows repeated identical
+    readings may be the logger releasing a hold, not a real fall — flagged so it gets checked.
+    """
+    frm, drop, win = ANOM['trip_from_f'], ANOM['trip_drop_f'], pd.Timedelta(minutes=ANOM['trip_window_min'])
+    n_win = max(1, int(win / _step(df)))
+    print(f"\n  Sudden outlet drops (from >= {frm}°F, down >= {drop}°F within {win.total_seconds()/60:.0f} min):")
+    for n, oc in [(1, 'T1_out'), (2, 'T2_out')]:
+        s, t, lines, last_j = df[oc], df['time'], [], -1
+        for i in np.where(s >= frm)[0]:
+            if i <= last_j:
+                continue  # still inside the previous fall
+            j = next((j for j in range(i + 1, min(i + n_win, len(df) - 1) + 1)
+                      if s.iloc[j] <= s.iloc[i] - drop and t.iloc[j] - t.iloc[i] <= win), None)
+            if j is None:
+                continue
+            last_j = j
+            held = i >= 2 and s.iloc[i - 2] == s.iloc[i - 1] == s.iloc[i]
+            lines.append(f"    {t.iloc[i]:%b %d %H:%M}  {s.iloc[i]:.0f} -> {s.iloc[j]:.0f}°F "
+                         f"in {(t.iloc[j] - t.iloc[i]).total_seconds()/60:.0f} min"
+                         + ("  (follows repeated identical readings — check for a logger hold)" if held else ""))
+        print(f"    Train {n}: {len(lines)} found")
+        _print_capped(lines)
+
+
+def report_anomalies(df, month):
+    print("\n── Anomaly checks (diagnostic — not in the workbook) ──")
+    report_time_coverage(df, month)
+    report_isolated_offline(df)
+    report_limit_exceedances(df)
+    report_sudden_drops(df)
+
+
 # ── Processed chart (matches the May precedent style) ─────────────────────────
 def make_chart(df, n, inc, outc, month, path):
     fig, ax = plt.subplots(figsize=(16, 6.5))
@@ -391,6 +546,7 @@ def main():
               f"offline {off/total*100:.1f}% | peak {peak:.0f}°F")
 
     report_stuck_readings(df)
+    report_anomalies(df, month)
     print(f"\n  open \"{proc}\"")
 
 

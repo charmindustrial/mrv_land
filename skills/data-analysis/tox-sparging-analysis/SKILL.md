@@ -88,8 +88,8 @@ python3 "skills/data-analysis/tox-sparging-analysis/scripts/generate_tox_charts.
   --month "July 2026"
 ```
 It builds both workbooks, runs a **column-orientation self-check** (warns if a train's outlet
-reads colder than its inlet), runs a **stuck-reading check**, and prints per-train summary stats
-for your chat report.
+reads colder than its inlet), runs a **stuck-reading check** and the **anomaly checks** (below),
+and prints per-train summary stats for your chat report.
 
 ### Step 2: Confirm orientation, then read the stuck-reading check
 Confirm the script reported orientation OK for both trains. If it warns, stop and verify before
@@ -104,6 +104,12 @@ completeness note, not a compliance finding. See `references/thresholds.md`.
 Also read the **one-train hold** lines (added September 2026): one train frozen above setpoint
 while the other moves. Same treatment — report both ways, and check the reading after each hold
 for a jump too large to be real cooling.
+
+Then read the **anomaly checks** (added October 2026) and put every hit in the chat report with
+its time and values: timestamp gaps, repeated timestamps and incomplete month coverage; offline
+markers (0) inside a run; readings above the manufacturer's alarm and warranty limits; and sudden
+outlet drops. What each check means and how to word it is in `references/thresholds.md` →
+"Anomaly checks". Like the hold checks, none of this goes in the workbook.
 
 ### Step 3: Optional — Slack context for your understanding
 For any long offline or below-setpoint stretch, you may check `#injection-ops-la` to understand

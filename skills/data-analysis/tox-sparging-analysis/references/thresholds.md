@@ -200,6 +200,36 @@ on the sparging-blower interlock, not on the temperature record (see SKILL.md).
 
 ---
 
+## Anomaly checks — run every period (added October 2026)
+
+Printed after the stuck-reading check, for the chat report only. Limits and settings live in
+`catox_config.json` (`manual_limits`, `anomaly_checks`). Lists longer than 20 lines are cut
+short with a count of the rest.
+
+1. **Time coverage.** Gaps in the timestamps (with the number of readings missing), repeated
+   timestamps, and whether the file starts and ends at the period boundaries. A repeated 1 am
+   hour on the November clock change is expected in Central-time exports and is labeled as such.
+   July 2026 carries one reading past the period (Aug 01 00:01).
+2. **Offline markers inside a run.** A stretch of ≤3 offline readings (`0`) with the same sensor
+   above 200°F on both sides. A real shutdown leaves the unit cold, so this is a dropped reading
+   the export labeled offline. The chart still shades it grey. Example: Jul 30 05:21, all four
+   sensors read 0 for one reading between 386/392/701/1009°F and 371/369/661/838°F.
+3. **Above the manufacturer's limits** (O&M Guide quotes above): inlet above 900°F, outlet
+   above 1100°F, outlet above 1200°F, and outlet above 1150°F for more than 15 minutes in any
+   rolling 24 hours. §2.5 puts the high-limit control on a separate controller from the logging
+   PLC, so a logged value a few degrees over a limit doesn't show that the limit tripped. Report the value
+   and time, and don't call it an alarm or a shutdown without the control-system log. Hits so far:
+   June T1 outlet 1135°F (Jun 09 13:51) and 1111°F (Jun 29 20:21); September T2 inlet 901–903°F
+   (Sep 13 10:20–11:05).
+4. **Sudden outlet drops.** An outlet at or above 850°F falling 300°F or more within 30 minutes.
+   Back-to-back falls are counted separately once the previous fall has landed, which gives
+   32 (T1) / 28 (T2) for July against the 25 / 23 hand count above. The hand count's grouping rule
+   wasn't recorded. A drop that follows repeated identical readings is marked: it may be a logger
+   releasing a hold (the Jul 09 07:26 Train 2 case), not a real fall. Never label a drop a trip
+   or an E-stop from temperature alone (see "Trips" above).
+
+---
+
 ## Offline / Sentinel Convention
 
 - **Current exports:** `0` = offline / no reading.

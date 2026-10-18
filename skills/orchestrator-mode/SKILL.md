@@ -76,6 +76,8 @@ A value diff of the edited cells proves the worker did what it was told. It does
 
 Why: 2026-09-25. Three faults in one day (circular water-use pointers, a missing capital-equipment row on tab 4, two uncertainty cells never converted to the template) were each caught by Max, not by the coordinator, because the coordinator only checked the cells it had just changed. Max: "WHY ARE YOU ONLY DOING THIS WHEN IVE CAUGHT AN ISSUE".
 
+Evidence a worker gathers goes to Max as one finished exhibit per fact (PDF or image with source and date on it). Working files (raw JSON, markdown notes, query screenshots) never enter a verifier-facing folder; they stay local or go in a "Working files – not for submission" subfolder. `~/.claude/hooks/evidence_folder_upload_guard.sh` (PreToolUse on Drive create_file/update_file and Bash; folder IDs in `~/.claude/hooks/lib/evidence_folder_ids.txt`) blocks it. Why: 2026-10-17, raw dumps landed in the D-Series Supporting Documents folders. Max: "Not acceptable outut. I'm supposed to submit this to a verifier? Crazy."
+
 ## Hard Rule — Source Before Rows, Source Before Answers
 
 Every row, cell or sentence in a deliverable traces to a passage of the governing document that the coordinator has read in this session, in full, itself. A list derived by another session, a worker, or a memory note is a pointer to the source, never a substitute for it. When Max names the governing frame (for example: the validated PDD sets the scope; the module version the PDD was written to), that frame applies to every section of the deliverable, and the coordinator checks each section against it before sending anything.

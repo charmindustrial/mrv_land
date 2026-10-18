@@ -77,6 +77,15 @@
     ],
     "PreToolUse": [
       {
+        "matcher": "mcp__claude_ai_Google_Drive__create_file|mcp__claude_ai_Google_Drive__update_file|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/evidence_folder_upload_guard.sh\""
+          }
+        ]
+      },
+      {
         "matcher": "Bash",
         "hooks": [
           {

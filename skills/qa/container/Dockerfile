@@ -1,5 +1,5 @@
 # QA runner image. Built by deploy.sh from a staged context that holds only
-# skills/, knowledge-base/, CLAUDE.md, README.txt, FOLDER_INDEX.md and
+# skills/qa/, knowledge-base/, CLAUDE.md, README.txt, FOLDER_INDEX.md and
 # .claude/hooks — never outputs/, archive/ or any credentials.
 FROM node:22-bookworm-slim
 

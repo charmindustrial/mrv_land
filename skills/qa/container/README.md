@@ -59,7 +59,7 @@ Before the first deploy:
 2. After the deploy, share the batch and Site Emissions shared drive(s) with `mrv-qa-runner@charm-mrv.iam.gserviceaccount.com`: Viewer on the drives, Content manager on the publish folders.
 3. Seed the state bucket once from the Mac workspace. The commands are printed at the end of `deploy.sh`.
 
-The image contains `skills/`, `knowledge-base/`, `CLAUDE.md`, the README/index files and `.claude/hooks/`. It never contains `outputs/`, `archive/` or credentials. `settings.json` here replaces `.claude/settings.json` in the image. It keeps the portable project hooks and drops the Mac-only ones: auto-sync, the `~/.claude/hooks/*` guards and the browser cleanup.
+The image contains `skills/qa/` (no other skills: nothing outside `skills/qa/` is used by a QA run, and some of it, like `orchestrator-mode`, can't run headless), `knowledge-base/`, `CLAUDE.md`, the README/index files and `.claude/hooks/`. It never contains `outputs/`, `archive/` or credentials. `settings.json` here replaces `.claude/settings.json` in the image. It keeps the portable project hooks and drops the Mac-only ones: auto-sync, the `~/.claude/hooks/*` guards and the browser cleanup.
 
 ## What keeps the cost down
 

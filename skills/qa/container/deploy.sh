@@ -73,9 +73,12 @@ g artifacts repositories describe "$REPO" --location="$REGION" >/dev/null 2>&1 \
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
 
-echo "== Build runner image (staged: skills, knowledge-base, hooks; no outputs/, archive/ or secrets)"
-mkdir -p "$STAGE/runner/.claude"
-cp -r "$WS/skills" "$WS/knowledge-base" "$STAGE/runner/"
+echo "== Build runner image (staged: skills/qa, knowledge-base, hooks; no other skills, outputs/, archive/ or secrets)"
+# Only the QA skills: the rest of skills/ (orchestrator-mode, lca-model-builder, ...) is never
+# used by a QA run, and some of it (orchestrator-mode) cannot work headless.
+mkdir -p "$STAGE/runner/.claude" "$STAGE/runner/skills"
+cp -r "$WS/skills/qa" "$STAGE/runner/skills/"
+cp -r "$WS/knowledge-base" "$STAGE/runner/"
 cp "$WS/CLAUDE.md" "$WS/README.txt" "$WS/FOLDER_INDEX.md" "$STAGE/runner/"
 cp -r "$WS/.claude/hooks" "$STAGE/runner/.claude/"
 cp "$C/Dockerfile" "$STAGE/runner/Dockerfile"

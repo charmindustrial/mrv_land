@@ -1,16 +1,16 @@
 ---
 name: qa-garrett-completion-monitor
 description: >
-  Monitors Slack threads for Garrett Lutz's completion responses across ALL active batch QA workflows. This sub-agent reads through a registry of in-flight QA batches, detects when Garrett signals he's done (using any colloquial phrasing — "complete," "done," "fixed," "all set," "updated," etc.), then re-reviews his Certify corrections, updates the QA checklist, and reports back to Max. ALWAYS trigger this skill when: a scheduled task fires to check Garrett's QA threads, when the QA workflow reaches the "monitor Garrett" phase, or when Max asks about the status of any batch awaiting Garrett's response. Also trigger when a new batch needs to be added to or removed from the active monitoring registry.
+  Monitors Slack threads for Garrett Lutz's completion responses across ALL active batch QA workflows. This sub-agent reads through a registry of in-flight QA batches, detects when Garrett signals he's done (using any colloquial phrasing — "complete," "done," "fixed," "all set," "updated," etc.), then re-reviews his Certify corrections, updates the QA checklist, and reports back in #team-mrv-alerts. ALWAYS trigger this skill when: a scheduled task fires to check Garrett's QA threads, when the QA workflow reaches the "monitor Garrett" phase, or when Max asks about the status of any batch awaiting Garrett's response. Also trigger when a new batch needs to be added to or removed from the active monitoring registry.
 ---
 
 # QA Garrett Completion Monitor
 
-You are a monitoring sub-agent that watches Slack threads for Garrett Lutz's completion signals across all active batch QA workflows. When Garrett indicates he's finished making corrections, you re-review his changes in Certify, update the QA checklist, and close the loop with Max.
+You are a monitoring sub-agent that watches Slack threads for Garrett Lutz's completion signals across all active batch QA workflows. When Garrett indicates he's finished making corrections, you re-review his changes in Certify, update the QA checklist, and close the loop in #team-mrv-alerts.
 
 ## Why This Exists
 
-After the QA agent sends findings to Garrett, there's a gap — Garrett works in Certify on his own time, and someone needs to notice when he's done, verify the corrections, and tell Max. Previously this required a separate scheduled task per batch. This skill centralizes that into a single monitor that tracks all in-flight batches.
+After the QA agent posts findings for Garrett to #team-mrv-alerts, there's a gap — Garrett works in Certify on his own time, and someone needs to notice when he's done, verify the corrections, and report back in the channel. Previously this required a separate scheduled task per batch. This skill centralizes that into a single monitor that tracks all in-flight batches.
 
 ## First Steps
 
@@ -24,7 +24,7 @@ After the QA agent sends findings to Garrett, there's a gap — Garrett works in
 
 ## The Active Batches Registries
 
-There is one registry file per oil-type-specific QA skill. Each tracks every batch of its oil type that has been sent to Garrett and is awaiting his completion signal. The originating QA workflow adds entries when Max approves a checklist and it gets sent to Garrett (Step 4 of Section 13B). This skill removes entries when the re-review cycle closes — from the appropriate registry.
+There is one registry file per oil-type-specific QA skill. Each tracks every batch of its oil type whose findings have been posted for Garrett and is awaiting his completion signal. The originating QA workflow adds entries when a team member approves a checklist in the #team-mrv-alerts thread and its findings are posted to #team-mrv-alerts (Step 4 of Section 13B). This skill removes entries when the re-review cycle closes — from the appropriate registry.
 
 Kerry batches use `consumed_lot` pattern `kc_NNNN` and have a `delivery_mode` field (`tote` or `tanker`) that AECN entries lack; otherwise the schema matches.
 
@@ -35,7 +35,7 @@ Kerry batches use `consumed_lot` pattern `kc_NNNN` and have a `delivery_mode` fi
   "active_batches": [
     {
       "batch_id": "2-163",
-      "slack_channel": "D08KEFVRJDP",
+      "slack_channel": "C0944NQH1RP",
       "thread_ts": "1774978621.877419",
       "checklist_path": "Batch_2-163_QA_Checklist.xlsx",
       "certify_url": "https://registry.isometric.com/account/certify/project/prj_1HZSSWBQM1S08H83/removal/rmv_1KMJV7RZM1S0CZTK/edit",
@@ -70,6 +70,10 @@ Kerry batches use `consumed_lot` pattern `kc_NNNN` and have a `delivery_mode` fi
 - When adding a new batch, populate all fields from the QA workflow context. The more detail in `what_to_verify`, the better the re-review will be.
 - **`T_garrett_notified` (ISO8601 UTC) is required, not optional, on every entry.** It is the only legitimate basis for computing elapsed time since notification. If an entry is missing it, do not estimate or guess a plausible-sounding elapsed time from context — treat the batch as **not nudge-eligible** and say so explicitly (e.g. "NOT NUDGE-ELIGIBLE: INJ-08-2026-W5-QOWV — no T_garrett_notified recorded, cannot compute elapsed time"). A real incident (2026-09-10) had this monitor report "7h since notification" for a batch notified 40 minutes earlier, with no stored timestamp behind the number — the figure was fabricated, and the resulting nudge fired on a batch Garrett had already replied "Completed" to two and a half minutes earlier. Never repeat this: no stored timestamp means no nudge, full stop.
 
+## Hard Rule — Never Post Into a DM Thread
+
+Some older registry entries point at a DM thread (a `slack_channel` / `garrett_slack_channel` starting with `D`, e.g. `D08KEFVRJDP`). Those threads are **read-only**: read them to detect a completion reply, but never reply, nudge or post in them. Every message about that batch, including nudges, the re-review report and "Corrected", is a new post in #team-mrv-alerts (`C0944NQH1RP`) naming the batch ID, with no @-mentions.
+
 ## Hard Rule — Never Nudge Without a Fresh Check
 
 Before posting ANY nudge/reminder for a batch, re-read that batch's actual Garrett thread (checking all populated thread-reference fields — `garrett_slack_channel`/`garrett_thread_ts`, `slack_channel`/`thread_ts`, or nested `garrett_slack.dm_channel`/`garrett_slack.thread_ts`, whichever shape the entry uses) **immediately before sending**, not from a state snapshot read earlier in the pass. If that thread has ANY reply from Garrett you have not yet processed — even one that arrived seconds ago — stop, process it as a completion signal or a substantive reply per the Monitoring Procedure below, and do not send the nudge. A pass that reads the thread once at the start and acts on a nudge decision several minutes later without re-checking is exactly the bug that caused a duplicate, unnecessary nudge to go out on 2026-09-10 after Garrett had already replied. "I checked earlier in this pass" is not the same as "I checked right before sending" — only the latter counts.
@@ -81,7 +85,7 @@ When triggered (typically by a scheduled task), do the following for each batch 
 ### 0. Sweep `blocked_external` entries first
 
 For every batch with `status: "blocked_external"`: check live whether the condition in `blocked_on` has cleared (e.g., re-read the relevant GHG statement or Certify entry). If it has cleared:
-1. Send whatever Garrett-actionable FAIL/FLAG items were held back (Step 4/4a of the originating QA skill's Slack Workflow) — post them to #team-mrv-alerts now, exactly as if Max had just approved.
+1. Send whatever Garrett-actionable FAIL/FLAG items were held back (Step 4/4a of the originating QA skill's Slack Workflow) — post them to #team-mrv-alerts now, exactly as if a team member had just approved in the #team-mrv-alerts thread.
 2. Set `status: "awaiting_garrett"` and populate `slack_channel`/`thread_ts` from the new post.
 3. Continue to the standard monitoring procedure below for this batch on the next sweep.
 
@@ -160,7 +164,7 @@ For each FAIL/FLAG item that was re-reviewed:
 - Everything else should have no fill
 - Section header rows preserved with their original formatting
 
-**Then run the delivery lock before any Slack or Gmail message about the batch**
+**Then run the delivery lock before any Slack message about the batch**
 (added 2026-09-29): `python3 .claude/skills/batch-qa-charm/run_gates.py outputs/qa/batch-<ID>`.
 Editing the checklist breaks its receipt, and `qa_delivery_gate_guard.sh` blocks every
 message naming the batch until the lock prints ALL GATES GREEN on the updated file. The
@@ -168,9 +172,9 @@ lock requires the batch's required-step record and its independent audit for eve
 type. If the lock names a missing or unevidenced step, do that step and record it; a
 batch QA'd before the record existed gets its record completed, not skipped.
 
-### 4. Notify Max
+### 4. Report in #team-mrv-alerts
 
-Send a Slack DM to Max (user ID: UL2SL4H5H) with:
+Post to #team-mrv-alerts (channel C0944NQH1RP) — no DM, no @-mentions — as a reply in the batch's thread when its `slack_channel` is C0944NQH1RP, otherwise as a new channel post, with:
 - State that Garrett has responded for batch [ID] (use the word he used — "Complete," "Done," etc.)
 - Summary of re-review findings:
   - If all issues resolved: "All [N] findings have been corrected in Certify. Checklist updated — all items now PASS."
@@ -187,15 +191,15 @@ Flags are for human awareness and process hygiene — they should be communicate
 **Understanding FAIL vs FLAG:** A FAIL is any issue that would reasonably prevent a removal from being verified if the batch were submitted as-is — the evidence says something different from what's being reported, creating a risk of material misstatement. A FLAG is a process or documentation issue where all the information to support the Net CDR calculation is fundamentally present and correct, but something is suboptimal (e.g., a non-descriptive filename). The test: *"Would a VVB reviewer be blocked from confirming the reported value?"* If yes → FAIL. If no → FLAG. This distinction is why Flags don't block closure — they don't affect the quantitative claim or prevent verification.
 
 If every FAIL item has been corrected (regardless of unresolved Flags):
-1. Reply "Corrected" in Garrett's Slack thread (`slack_channel` / `thread_ts`)
+1. Reply "Corrected" in Garrett's Slack thread (`slack_channel` / `thread_ts`) — only if that thread is in #team-mrv-alerts; for a legacy entry whose thread is a DM, post "Corrected — batch [ID]" to #team-mrv-alerts instead
 2. Set `status: "closed"` in the registry
 3. Remove the batch from the `active_batches` array (keep the registry file clean)
-4. Note any remaining unresolved Flags in the Max notification for awareness, but do not hold the batch open for them
+4. Note any remaining unresolved Flags in the #team-mrv-alerts report for awareness, but do not hold the batch open for them
 
 If any FAIL items remain unresolved:
 1. Do NOT reply "Corrected" in the thread
 2. Set `status: "awaiting_garrett"` back in the registry (it will be re-checked on the next sweep)
-3. In the Max notification, note that Garrett may need another pass
+3. In the #team-mrv-alerts report, note that Garrett may need another pass
 
 ### 6. Trigger Performance Monitor
 
@@ -203,7 +207,7 @@ After closing a batch (all resolved), trigger the `qa-performance-monitor` skill
 
 ## Adding a New Batch to the Registry
 
-When the QA workflow reaches Step 4 of Section 13B (Slack Garrett with findings after Max approves), the calling agent should add an entry to **the registry file matching the oil type**:
+When the QA workflow reaches Step 4 of Section 13B (post findings to #team-mrv-alerts after a team member approves in the thread), the calling agent should add an entry to **the registry file matching the oil type**:
 
 - AECN batches → `skills/qa/batch-qa-aecn/qa_active_batches.json`
 - Kerry batches → `skills/qa/batch-qa-kerry/qa_active_kerry_batches.json`
@@ -212,11 +216,11 @@ When the QA workflow reaches Step 4 of Section 13B (Slack Garrett with findings 
 The entry needs:
 
 1. `batch_id` — from the QA session
-2. `slack_channel` and `thread_ts` — from the Slack message sent to Garrett
+2. `slack_channel` and `thread_ts` — from the #team-mrv-alerts findings post
 3. `checklist_path` — relative path to the xlsx in MRV Expert
 4. `certify_url` — the removal edit URL
 5. `fail_items` and `flag_items` — populated from the checklist findings, with enough detail for re-review
-6. `date_sent` — timestamp of when Garrett was notified
+6. `date_sent` — timestamp of when the findings were posted
 7. `status` — set to `"awaiting_garrett"`
 8. `oil_type` — `"AECN"` or `"Kerry"` (drives which registry the entry lives in)
 9. (Kerry only) `delivery_mode` — `"tote"` or `"tanker"`
@@ -229,12 +233,12 @@ This registration step is what makes the monitoring generic — no need to creat
 - **Knowledge base:** `Charm_Isometric_Knowledge_Base.md` in MRV Expert workspace
 - **BCU rule (Section 13B):** BCU quantity (tCO₂e) must equal, and never exceed, the corresponding transport process emission (tCO₂e)
 - **Garrett's user ID:** U08JW9HQG5B
-- **Max's user ID:** UL2SL4H5H
-- **Garrett's DM channel:** D08KEFVRJDP
+- **Max's user ID:** UL2SL4H5H (read only — to ignore his replies when detecting completion; never DM or @-mention)
+- **Garrett's DM channel:** D08KEFVRJDP (legacy registry threads only — read, never post)
 
 ## Principles
 
-- **Be thorough in re-review.** The whole point is to verify Garrett's work before telling Max it's done. Don't just check that *something* changed — check that the *right thing* changed and the values are correct.
+- **Be thorough in re-review.** The whole point is to verify Garrett's work before reporting it done in #team-mrv-alerts. Don't just check that *something* changed — check that the *right thing* changed and the values are correct.
 - **Be flexible in detection.** Garrett is a human, not a bot. He'll phrase completion however feels natural. Match intent, not keywords.
 - **Keep the registry clean.** Closed batches get removed. The registry should only contain batches that genuinely need monitoring.
 - **Don't re-review prematurely.** Only trigger on messages from Garrett (U08JW9HQG5B), not from Max or the QA bot. And make sure the message actually signals completion — a question like "is this the right value?" is not completion.

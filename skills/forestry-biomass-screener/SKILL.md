@@ -380,16 +380,18 @@ When running a pre-screen as part of the full workflow (Max provides a Drive fol
 2. **Run the pre-screen** — read all documents, read all required BFA v1.3 sections,
    produce the pre-screen output per Step 3a below.
 
-3. **Send Slack alert 1** — DM Max directly (user ID: UL2SL4H5H):
-   "Finished Initial Review: [Project Name]. Approval required."
-   This is the gate. Do not produce final documents until Max explicitly approves.
+3. **Send Slack alert 1** — post to #team-mrv-alerts (channel ID: C0944NQH1RP), no
+   @-mention: "Finished Initial Review: [Project Name]. Approval required."
+   This is the gate. Do not produce final documents until a team member explicitly
+   approves in that post's #team-mrv-alerts thread. (Alerts go to the team channel so
+   any team member can pick up the review, not one person's DMs.)
 
 4. **After approval** — create a subfolder inside the project folder named
    "[Project Name] -- Review Documents". Produce the two work product documents
    (report + checklist) as .docx and .xlsx using python-docx and openpyxl, then copy
    both to that subfolder via the local Drive mount at
    `~/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/`. Send Slack alert 2
-   as a DM to Max: "Review Complete: [Project Name]."
+   as a post to #team-mrv-alerts, no @-mention: "Review Complete: [Project Name]."
 
 ---
 

@@ -7,7 +7,7 @@ description: >
   RECs Inventory tab ("Volume Remaining", alert below 50), ignoring every row the sheet
   has hidden (hidden means expired or fully drawn down) and any still-visible REC row
   whose Expiry Date has passed. If any active certificate is below its threshold, posts
-  one alert to #team-mrv-alerts tagging Max with the certificate and the value. If
+  one alert to #team-mrv-alerts (no @-mention) with the certificate and the value. If
   everything is above threshold, it does nothing and stays silent. STRICTLY READ-ONLY on
   the sheet — it never writes anything back. ALWAYS trigger when: a scheduled run fires
   this job, Max says "run the EAC inventory check", "check the BCU/REC inventory",
@@ -50,8 +50,7 @@ Every other row is **checked**. Thresholds live in `config.json`, not in this do
 ```
 
 It prints one JSON object and exits 0 when it ran cleanly, 1 when it could not finish.
-All settings — sheet ID, tab titles, column headers, thresholds, Slack channel, the
-member ID to tag — come from `/Users/maxlavine/.eac-inventory-monitor/config.json`.
+All settings — sheet ID, tab titles, column headers, thresholds, Slack channel — come from `/Users/maxlavine/.eac-inventory-monitor/config.json`.
 The script fails loudly rather than guessing if any of those are missing or no longer
 match the sheet.
 
@@ -75,13 +74,15 @@ Read these fields from the output:
 
 ## Step 3 — Post the alert
 
-Post to the channel in `slack_channel_id`, tagging `slack_tag_user_id`. Use the numbers
-from `breaches` exactly as the script reported them, rounded to two decimals.
+Post to the channel in `slack_channel_id` (#team-mrv-alerts). Do not @-mention anyone,
+even if `slack_tag_user_id` is still set in config — the team watches the channel, so the
+post is the alert. Use the numbers from `breaches` exactly as the script reported them,
+rounded to two decimals.
 
 Shape (drop whichever inventory has no breach):
 
 ```
-<@UL2SL4H5H> EAC inventory running low.
+EAC inventory running low.
 
 *BCUs* — Total Attributes Remaining below 200:
 • 13-47206-50000 — 45.12 MT CO2e left (row 16)
@@ -103,10 +104,10 @@ Then print: `ALERTED: <n> BCU breach(es), <n> REC breach(es)`.
 ## Step 4 — When the check fails
 
 `ok: false` means the job could not answer the question, which is itself worth knowing.
-Post to the same channel, tagging Max:
+Post to the same channel, no @-mention:
 
 ```
-<@UL2SL4H5H> The daily EAC inventory check could not run.
+The daily EAC inventory check could not run.
 
 Error: <the error string, verbatim>
 

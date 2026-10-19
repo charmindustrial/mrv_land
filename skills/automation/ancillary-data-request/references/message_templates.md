@@ -15,11 +15,12 @@ each reporter's replies then thread under their own post.
 **Oxidizer (tag Evan, U08DEK006D9):**
 > <@U08DEK006D9> it's RP close time again! Please link to the prior months oxidizer sensor data as a thread in this post
 
-## Finished-product alert (posted to #team-mrv-alerts, tag Garrett + Max)
+## Finished-product alert (posted to #team-mrv-alerts, no @-mentions)
 
-Per item, as soon as its finished product lands in the Processed Ancillary Data Drafts folder:
+Per item, as soon as its finished product lands in the Processed Ancillary Data Drafts folder
+(the team watches #team-mrv-alerts, so the post itself is the alert — no one is tagged):
 
-> <@U08JW9HQG5B> <@UL2SL4H5H> {label} for {period} has been processed and added to Processed Ancillary Data Drafts: {drive_link}
+> {label} for {period} has been processed and added to Processed Ancillary Data Drafts: {drive_link}
 
 On the item that completes the period (all three items filed), append a second line:
 

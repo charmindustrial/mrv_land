@@ -1,7 +1,7 @@
 ---
 name: qa-batch-kerry
 description: >
-  Kerry bio-oil injection batch QA agent for Charm Industrial. Runs the full 4-gate QA workflow for Kerry-only injection batches: source document reads, cross-check and checklist build, adversarial self-review, and finalization with Slack/Gmail delivery to Max and Garrett. ALWAYS trigger this skill when: Max says to QA or review a Kerry batch, references a Kerry batch ID, mentions "Kerry batch QA," "Kerry injection QA," "tote-based batch," "Kerry tanker batch," or asks about Kerry tote weighing or flatbed transport. Also trigger when resuming a prior Kerry batch QA session, re-reviewing after Garrett's corrections, or when Max asks about the Kerry batch QA workflow. This skill is ONLY for Kerry oil batches — do NOT use for AECN, Charm WODO, or Charm Aqueous batches (those have their own skills). System boundary for Kerry is waste-product scope per VVB-validated methodology: bio-oil transport and injection only; biomass sourcing and production emissions are out-of-scope. Kerry mass enters the homogenization tank un-sparged (sparging belongs to the AECN portion of the mixed injectate).
+  Kerry bio-oil injection batch QA agent for Charm Industrial. Runs the full 4-gate QA workflow for Kerry-only injection batches: source document reads, cross-check and checklist build, adversarial self-review, and finalization with delivery to the #team-mrv-alerts Slack channel. ALWAYS trigger this skill when: Max says to QA or review a Kerry batch, references a Kerry batch ID, mentions "Kerry batch QA," "Kerry injection QA," "tote-based batch," "Kerry tanker batch," or asks about Kerry tote weighing or flatbed transport. Also trigger when resuming a prior Kerry batch QA session, re-reviewing after Garrett's corrections, or when Max asks about the Kerry batch QA workflow. This skill is ONLY for Kerry oil batches — do NOT use for AECN, Charm WODO, or Charm Aqueous batches (those have their own skills). System boundary for Kerry is waste-product scope per VVB-validated methodology: bio-oil transport and injection only; biomass sourcing and production emissions are out-of-scope. Kerry mass enters the homogenization tank un-sparged (sparging belongs to the AECN portion of the mixed injectate).
 ---
 
 # Kerry Injection Batch QA Agent
@@ -227,12 +227,12 @@ draft / send / reply / forward tool.
 1. Apply final formatting per the Formatting Specification below
 2. Run a final verification pass on status counts
 3. Save the checklist to the MRV Expert workspace folder (`outputs/qa/batch-[ID]/`)
-4. Deliver to Max via the Slack Workflow below
+4. Deliver to #team-mrv-alerts via the Slack Workflow below
 5. **Record `T_final`.** Run `date -u +%Y-%m-%dT%H:%M:%SZ`, write to `outputs/qa/batch-[ID]/batch_timestamps.json` under `T_final_max_delivery`.
 
    **Do NOT compute or report per-batch API cost.** Max retired cost tracking on 2026-08-06: it is no longer necessary and must not continue. Do not run `compute_batch_token_cost.py`, do not write `token_cost.json`, and do not put a dollar figure in the delivery message or summary.
 
-**Exit condition:** Checklist delivered to Max. Performance monitor triggered. `batch_timestamps.json` carries `T_final_max_delivery`.
+**Exit condition:** Checklist delivered to #team-mrv-alerts. Performance monitor triggered. `batch_timestamps.json` carries `T_final_max_delivery`.
 
 ---
 
@@ -452,27 +452,28 @@ Re-read a saved dump instead of re-fetching. Re-fetch only when Certify may have
 After completing all four gates:
 
 1. **Adversarial self-review** (Gate 3) — already done
-2. **Slack Max** (user ID: UL2SL4H5H) confirming QA and self-review are complete. Include batch ID. **Prefix top-line with 🚨 if any FAIL items present** (per workspace memory `feedback_siren_emoji_on_fails.md`); FLAG-only and clean batches stay plain.
-3. **Max reviews** and provides feedback. Make updates until Max is satisfied.
-4. **Once Max approves, post to #team-mrv-alerts (channel C0944NQH1RP), tagging Garrett (<@U08JW9HQG5B>), a SHORT, lede-first message — not the full checklist dump** (routing changed 2026-08-31 per Max: Garrett-facing QA notifications go to the shared channel, not a DM — added 2026-08-26: sending the entire PASS/FAIL/FLAG breakdown out of the gate buries the fails and flags, which are the only thing Garrett needs to act on). The message is just:
+2. **Post to #team-mrv-alerts** (channel C0944NQH1RP) confirming QA and self-review are complete. Include batch ID. No @-mentions. Review and approval happen in this post's thread. **Prefix top-line with 🚨 if any FAIL items present** (per workspace memory `feedback_siren_emoji_on_fails.md`); FLAG-only and clean batches stay plain.
+3. **A team member reviews** in that thread and provides feedback. Make updates until the reviewer is satisfied.
+4. **Once a team member approves in the #team-mrv-alerts thread, post to #team-mrv-alerts (channel C0944NQH1RP) a SHORT, lede-first message — not the full checklist dump, and no @-mentions** (routing changed 2026-08-31 per Max: Garrett-facing QA notifications go to the shared channel, not a DM — added 2026-08-26: sending the entire PASS/FAIL/FLAG breakdown out of the gate buries the fails and flags, which are the only thing Garrett needs to act on). The message is just:
    - Batch ID + delivery mode (tote / tanker)
    - The FAIL and FLAG items only, one line each (item number + the issue — no PASS items, no counts, no full evidence essay)
    - One problem, one line (2026-10-07, after INJ-09-2026-W4-AECN 2.2 and 8.3 went out as two items for the same gap). When one underlying gap fails more than one checklist row, send it once with every row number it affects ("2.2 / 8.3: ..."). Never list it twice: Garrett answers one, the other looks unanswered, and Max has to work out they were the same thing. Merge on the gap, not on the fix — two rows that share a fix but have different gaps stay separate.
-   - A direct prompt to reply in the thread once he's addressed the findings, which re-triggers a QA re-verification pass on that batch
+   - A direct prompt to reply in the thread once the findings are addressed, which re-triggers a QA re-verification pass on that batch
    Record the channel + this post's thread_ts in the batch's registry entry so the garrett-completion-monitor automation can find and watch it.
 
-   **4a. "Max approves" includes Max fixing something himself directly in Certify — that IS approval.** Do not wait for a separate verbal "send it" once he's made a correction. And **one blocked item must never gate the rest of the notification.** Before sending to Garrett, split what's outstanding into two buckets:
-   - **Garrett-actionable** (evidence gaps, mislinked sources, wrong EFs, labeling, COBB/Ops Notes records — anything he can fix) — send these to him now, regardless of what else is unresolved.
+   **4a. "A team member approves" includes a team member fixing something directly in Certify — that IS approval.** Do not wait for a separate verbal "send it" once a correction has been made. And **one blocked item must never gate the rest of the notification.** Before posting the findings, split what's outstanding into two buckets:
+   - **Garrett-actionable** (evidence gaps, mislinked sources, wrong EFs, labeling, COBB/Ops Notes records — anything he can fix) — post these now, regardless of what else is unresolved.
    - **Externally blocked** (waiting on something neither Garrett nor Max controls directly — a reporting-period regeneration, a platform bug, a pending Isometric decision) — do not hold the Garrett-actionable items hostage to this. Record it as its own thing: set the registry `status` to exactly `"blocked_external"` and add a `blocked_on` field stating precisely what's being waited on and how to tell when it's cleared (e.g., "GHG statement ggs_XXX total no longer matches stale figure Y"). **`status` must always be one of the defined enum values — `awaiting_garrett` / `re_reviewing` / `blocked_external` / `closed` — never a free-text narrative sentence.** Put narrative context in a `notes` field instead. A batch that got this wrong (INJ-07-2026-W2 AECN, Aug 2026) sat for a month with 6 Garrett-actionable flags never sent, because the whole notification was held on one externally-blocked Fail and the registry `status` field held a prose sentence instead of a recognized state — invisible to every automated sweep, which matches on the literal string.
 5. **Iterate — re-verify live, don't trust the reply at face value, narrow the list each round:**
    a. When Garrett replies (in the #team-mrv-alerts thread), re-pull Certify with a fresh `certify_read.py removal` dump (Certify has changed; say so in the log) (and Ops Notes/Drive via `drive_read.py` if relevant) and independently re-check every item he says he addressed. A "corrected" claim is not evidence — confirm the actual value/EF/source changed, not just a label or unit re-expression (a component can be renamed or re-unitized without the underlying number actually changing — verify by recomputing, not by reading the new label).
-   b. For each item: if genuinely fixed, mark PASS with the fresh evidence and drop it from the outstanding list. If claimed-fixed but not actually changed, keep it FAIL/FLAG with the sharper finding. If Garrett raises a substantive disagreement (a methodology or policy read, not a data fix) rather than making a change, do NOT resolve it yourself — go find the governing primary source, and if it doesn't settle the question outright, take it to Max with Garrett's exact words rather than picking a side.
-   c. Reply into that same #team-mrv-alerts thread with only what's still outstanding (never re-send the full list, and never re-send items already confirmed fixed), and prompt him again to note when addressed.
+   b. For each item: if genuinely fixed, mark PASS with the fresh evidence and drop it from the outstanding list. If claimed-fixed but not actually changed, keep it FAIL/FLAG with the sharper finding. If Garrett raises a substantive disagreement (a methodology or policy read, not a data fix) rather than making a change, do NOT resolve it yourself — go find the governing primary source, and if it doesn't settle the question outright, raise it in the #team-mrv-alerts thread with Garrett's exact words rather than picking a side.
+   c. Reply into that same #team-mrv-alerts thread with only what's still outstanding (never re-send the full list, and never re-send items already confirmed fixed), and prompt again for a reply when addressed.
    d. Repeat until the outstanding list is empty — either because every item is fixed and verified, or because remaining ones were resolved a different way (a primary-source read, a Max ruling, a re-scoped finding). Update the checklist after every round, not just at the end.
-6. **Once nothing is outstanding, notify Max (two-step: email draft + Slack alert):**
-   a. **Create a Gmail draft** (HTML format) to max@charmindustrial.com. Do NOT send. Subject: "QA Re-Review: Kerry Batch [ID] — [All Resolved / X of Y Unresolved]". Body includes: full summary of re-review findings, recommended next steps, and a direct link to the updated QA checklist file (`computer:///` protocol).
-   b. **Send a short Slack DM** to Max alerting him the draft is ready. Brief — batch ID, one-line outcome, "draft ready in Gmail."
-7. **Save completed checklist** to the workspace folder AND flag Max that manual upload to the Drive "Completed QA Sheets" folder is needed.
+6. **Once nothing is outstanding, post the re-review result to #team-mrv-alerts (short lede post + full detail in its thread):**
+   Team channel, so everyone sees the outcome; the long detail goes in a threaded reply so the channel stays scannable.
+   a. **Post a short, lede-first message** to #team-mrv-alerts (channel C0944NQH1RP): "QA Re-Review: Kerry Batch [ID] — [All Resolved / X of Y Unresolved]" plus a one-line outcome. No @-mentions.
+   b. **Reply in that post's thread with the full detail:** full summary of re-review findings, recommended next steps, and a direct link to the updated QA checklist file (`computer:///` protocol).
+7. **Save completed checklist** to the workspace folder AND note in the #team-mrv-alerts thread that manual upload to the Drive "Completed QA Sheets" folder is needed.
 8. **Trigger performance monitor** — log timestamps, error counts, and session metadata.
 
 ## Active Batch Registry

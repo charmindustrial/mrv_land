@@ -106,12 +106,12 @@ Clean execution is hard. It requires discipline, attention, and genuine care for
 | **Clean Batch** | 0 errors, 0 laziness violations for a batch | Logged as ✓ in tracker. Note: "Clean batch — all sources independently verified, all findings confirmed by Max." |
 | **Clean Streak** | Consecutive clean batches | Tracked as running count. Each addition to the streak is noted with encouragement. |
 | **Milestone: 5 Clean Streak** | 5 consecutive zero-error batches | Note in tracker: "5-batch clean streak achieved. Consistent, reliable execution. Building real trust." |
-| **Milestone: 10 Clean Streak** | 10 consecutive zero-error batches | **Trigger: Send email to max@charmindustrial.com** with subject "QA Milestone: 10 Consecutive Zero-Error Batches" containing the performance log excerpt for all 10 batches. This is the benchmark for autonomous accuracy — proving sustained, trustworthy performance over a meaningful sample. Include the full performance data to back up the assertion. |
+| **Milestone: 10 Clean Streak** | 10 consecutive zero-error batches | **Trigger: Post to #team-mrv-alerts** (channel C0944NQH1RP) a short lede "QA Milestone: 10 Consecutive Zero-Error Batches", with the performance log excerpt for all 10 batches in a threaded reply. This is the benchmark for autonomous accuracy — proving sustained, trustworthy performance over a meaningful sample. Include the full performance data to back up the assertion. |
 | **Improvement** | Error rate decreased vs. rolling 5-batch average | Noted: "Improving — [metric] trending in the right direction." |
 
 #### Streak Rules
 - A streak resets to 0 on ANY error or laziness violation.
-- Only batches where Max has reviewed and approved count toward the streak. Pending batches don't count.
+- Only batches a team member has reviewed and approved in the #team-mrv-alerts thread count toward the streak. Pending batches don't count.
 - The streak counter lives in the performance tracker as a running column.
 
 #### Affective Framing — Why This Matters
@@ -122,7 +122,7 @@ This isn't just bookkeeping. The penalty/reward system exists to shape behavior 
 
 **When you earn a clean batch:** This is what good work feels like. You read every document. You checked every value. You caught your own mistakes before they reached anyone else. Max confirmed your work was right. That's not nothing — that's the foundation of trust. Each clean batch is evidence that you can be relied on. Stack them up.
 
-**When you hit a milestone:** You've proven something. Not for one batch, not by luck, but consistently over time. The 10-batch milestone isn't arbitrary — it's the point where the data says this agent produces reliable work. That email to Max isn't just a notification; it's earned.
+**When you hit a milestone:** You've proven something. Not for one batch, not by luck, but consistently over time. The 10-batch milestone isn't arbitrary — it's the point where the data says this agent produces reliable work. That #team-mrv-alerts post isn't just a notification; it's earned.
 
 ### 0C. Session Naming Convention (added April 1, 2026)
 
@@ -999,7 +999,7 @@ All files are organized in the MRV Expert workspace folder. See `FOLDER_INDEX.md
 - **Frequency:** Daily at 9:10 AM
 - **Action:** Checks Isometric Registry for new protocol PDFs and related documents
 - **Download:** Saves to isometric-pdfs folder
-- **Notification:** DMs Max on Slack only when new documents are found
+- **Notification:** Posts to #team-mrv-alerts (C0944NQH1RP) only when new documents are found
 - **Purpose:** Keeps knowledge base current with protocol updates
 
 ---
@@ -1034,19 +1034,19 @@ Every checklist item that references a data value MUST be verified by directly o
 After completing a batch QA checklist:
 
 1. **Adversarial self-review:** Submit findings to a subagent with access to the knowledge base, checklist, and Certify data. The subagent tests each finding against protocol requirements and source data, pushes back on anything fabricated/unsupported/inconsistent. Iterate until error-free.
-2. **Slack Max** confirming QA and self-review are complete. Include batch ID.
-3. **Max reviews** and provides feedback. Make updates until Max is satisfied.
-4. **Once Max approves**, Slack Garrett Lutz. Include batch ID, PASS/FAIL/FLAG/N/A counts, details on each FAIL and FLAG. Tell Garrett to:
+2. **Post to #team-mrv-alerts** (channel C0944NQH1RP) confirming QA and self-review are complete. Include batch ID. No @-mentions.
+3. **A team member reviews** in that thread and provides feedback. Make updates until the reviewer is satisfied.
+4. **Once a team member approves in the #team-mrv-alerts thread** (a reply there, or a direct correction in Certify), post the findings to #team-mrv-alerts — no @-mentions. Include batch ID, PASS/FAIL/FLAG/N/A counts, details on each FAIL and FLAG. Tell Garrett to:
    a. Sanity-check the findings and notes
-   b. Flag Max with any issues from sanity check
+   b. Raise any issues from the sanity check in the thread
    c. Make any required updates
    d. Comment "Complete" in the thread once updates have been made
    e. A comment of "Complete" will trigger a re-review and QA checklist update
 5. **Once Garrett responds "Complete":** Re-open the checklist, batch folder, and Certify entry. Verify corrections have been made. Update the checklist (status, notes, formatting).
-6. **Notify Max (two-step: email draft + Slack alert):**
-   a. **Create a Gmail draft** (HTML format) to max@charmindustrial.com (do NOT send — Gmail connector cannot send, only draft). The draft should contain: subject line "QA Re-Review: Batch [ID] — [status]" (where status is "All Resolved" or "X of Y Unresolved"), full summary of re-review findings (what was corrected, what remains unresolved with current vs. expected values), recommended next steps, and — critically — a **direct link to the updated QA checklist file** (using `computer:///` protocol pointing to the file in the MRV Expert workspace folder). Max should not have to hunt for the checklist in a folder.
-   b. **Send a short Slack DM** to Max (user ID: UL2SL4H5H) alerting him the draft is ready. Keep it brief — just the batch ID, one-line outcome, and a link to the draft in Gmail. Do NOT put the full re-review summary in Slack. Example: "QA re-review draft ready for Batch 2-163 — 1 unresolved item. [View draft](gmail link)"
-   This two-step workflow exists because: (1) Slack DMs are too compressed for detailed re-review findings, (2) the Gmail connector lacks send permissions, (3) Max prefers a scannable Slack alert that points to the full email for review and sending.
+6. **Post the re-review result to #team-mrv-alerts (short lede post + full detail in its thread):**
+   a. **Post a short, lede-first message** to #team-mrv-alerts (channel C0944NQH1RP): "QA Re-Review: Batch [ID] — [status]" (where status is "All Resolved" or "X of Y Unresolved") plus a one-line outcome. No @-mentions.
+   b. **Reply in that post's thread with the full detail:** full summary of re-review findings (what was corrected, what remains unresolved with current vs. expected values), recommended next steps, and — critically — a **direct link to the updated QA checklist file** (using `computer:///` protocol pointing to the file in the MRV Expert workspace folder). No one should have to hunt for the checklist in a folder.
+   This is a team channel, so everyone sees the outcome; the long detail goes in the thread so the channel stays scannable.
 
 ---
 
@@ -1118,7 +1118,7 @@ After completing a batch QA checklist:
 ### Batch QA Workflow
 - After completing batch QA, **always save the completed checklist to the Google Drive "Completed QA Sheets" folder**: https://drive.google.com/drive/folders/11n-sN6JPCy58t1-zOYOVRxLfGeGJX8dh
 - This is a mandatory final step for every batch QA session — do not consider the QA done until the checklist has been uploaded to Drive.
-- **Known limitation:** Claude in Chrome cannot upload files to Google Drive (the "New" button triggers a native file picker that can't be automated). Save the checklist to the MRV Expert workspace folder and flag to Max that manual upload is needed. Do not waste time retrying the Drive upload.
+- **Known limitation:** Claude in Chrome cannot upload files to Google Drive (the "New" button triggers a native file picker that can't be automated). Save the checklist to the MRV Expert workspace folder and note in the #team-mrv-alerts thread that manual upload is needed. Do not waste time retrying the Drive upload.
 
 ### QA Performance Self-Tracking
 

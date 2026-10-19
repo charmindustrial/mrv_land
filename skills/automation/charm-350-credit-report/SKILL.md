@@ -9,7 +9,7 @@ description: >
   for the prior calendar month, classifies every removal by oil source (Charm-produced QOWV /
   WODO / Aqueous, AECN, Kerry), builds a spreadsheet (removal ID linked, removal date, oil
   type, tCDR; one section per source with subtotal, plus a grand total) saved to Drive, and
-  sends the report to the fixed recipient list. Idempotent: it will not re-report a statement it has already reported.
+  sends the report to the fixed recipient list plus #team-mrv-alerts. Idempotent: it will not re-report a statement it has already reported.
   ALWAYS trigger when: a scheduled run fires this job, Max says "run the 350 credit report",
   "check for a credit submission", "check #ext-proj-charm-350 for a submission", or asks
   about the state of this automation. This skill is READ-ONLY on Certify and any live
@@ -26,7 +26,7 @@ ID) both live in durable external state, not in timing. Read the ledger first, w
 is used only to *recognize* which removals are Charm-produced oil, AECN, or Kerry.
 
 **Config (read first, fail loud if missing):** `config.json` in this folder holds every
-changeable fact — channel ID, project ID, recipient user IDs, Drive folder, oil-type keywords,
+changeable fact — channel IDs, project ID, recipient user IDs, Drive folder, oil-type keywords,
 delivery mode. Never hardcode any of these in prose or in a command; read them from config.
 Per the workspace rule "skills hold logic, not facts."
 
@@ -70,11 +70,13 @@ write ever seems required, stop and surface to Max.
   - Prefer the exact `ggs_…` from the announcement link if present.
 - If the only matching statement already shows "Certificates issued", note it — a real live
   run should find "under verification". (A backfill/test run against an issued statement is
-  fine but must be labeled as such and NOT auto-sent to colleagues without Max's OK.)
+  fine but must be labeled as such and NOT auto-sent to colleagues until a team member
+  approves in the #team-mrv-alerts thread.)
   **Enforced since 2026-10-01:** the report header must state the Certify status verbatim, and
   the posting hook (`~/.claude/hooks/scoped_automation_slack_send.sh`) refuses any send to a
-  colleague whose message lacks "under verification". Any other status goes to Max only, first
-  line "BACKFILL — needs your OK before forwarding", ledger untouched. (A 2026-10-01 run sent
+  colleague whose message lacks "under verification". Any other status goes only to
+  `team_alert_channel_id` (#team-mrv-alerts, no DMs, no @-mentions), first line "BACKFILL —
+  needs a team member's OK in this thread before forwarding", ledger untouched. (A 2026-10-01 run sent
   the already-issued August statement to all four recipients after quoting this rule to itself.)
 
 ### 3. Read the removals and classify by oil source (Charm / AECN / Kerry)
@@ -120,13 +122,17 @@ classification only decides which section a removal lands in.
 - Deliver per `delivery_mode` in config:
   - `dedicated_channel`: post one message to `dedicated_channel_id`.
   - `individual_dms`: send the same message to each recipient `user_id`.
+  - In either mode, also post the same message to `team_alert_channel_id` (#team-mrv-alerts),
+    with no @-mentions. Max and Garrett get the report there instead of by DM, so the whole
+    team sees it in one place.
 - Message = a short header (statement ID, Certify status verbatim, period) + a per-source
   summary table (Charm-produced / AECN / Kerry: number of removals and tCDR, with a total row)
   + a Markdown table of every removal (ID linked to Certify, removal date, oil type, tCDR)
   + the Drive spreadsheet link. Keep it lossless and scannable.
 - **Autonomous send is authorized for this automation** (Max set it up to send directly to the
   fixed recipient list). This is a narrow, standing exception to the general no-autonomous-send
-  rule — it applies ONLY to this report, ONLY to the configured recipients. Any change to
+  rule — it applies ONLY to this report, ONLY to the configured recipients and
+  `team_alert_channel_id`. Any change to
   recipients or scope reverts to draft-for-approval.
 
 ### 6. Update the ledger

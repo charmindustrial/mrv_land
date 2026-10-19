@@ -11,7 +11,7 @@
 `qa-garrett-completion-sweep`
 
 ## Description
-Sweep all active QA batch threads for Garrett's completion signals — triggers re-review and closes the loop with Max
+Sweep all active QA batch threads for Garrett's completion signals — triggers re-review and closes the loop in #team-mrv-alerts
 
 ## Cron Expression
 `0 9,12,15,18 * * 1-5` (weekdays at 9am, 12pm, 3pm, 6pm local)
@@ -22,7 +22,7 @@ You are running the QA Garrett Completion Monitor sweep. This is an automated ta
 
 ### Objective
 
-Sweep all active QA batch threads sent to Garrett Lutz for completion signals. When Garrett indicates he's finished making corrections, re-review his changes in Certify, update the QA checklist, and notify Max.
+Sweep all active QA batch threads sent to Garrett Lutz for completion signals. When Garrett indicates he's finished making corrections, re-review his changes in Certify, update the QA checklist, and report the result in #team-mrv-alerts.
 
 ### Step 1: Load context
 
@@ -73,18 +73,18 @@ Follow the re-review workflow from the skill. In summary:
    - If a FAIL/FLAG is corrected: change status to PASS, update notes with new verified values and date, clear red fill from all 4 columns
    - If NOT corrected: keep as FAIL/FLAG, update notes explaining what remains unresolved
    - After updates, audit entire checklist formatting: only FAIL rows should have red fill (all 4 columns), everything else no fill, section headers preserved
-5. **Slack Max** (user ID: UL2SL4H5H) with a DM:
+5. **Post to #team-mrv-alerts** (channel C0944NQH1RP) — no DM, no @-mentions — as a reply in the batch's thread when its `slack_channel` is C0944NQH1RP, otherwise as a new channel post:
    - State that Garrett has responded for batch [ID]
    - Summarize re-review findings (all resolved, or specify unresolved items)
    - Include a link to the updated checklist
 6. **If ALL findings resolved:**
-   - Reply "Corrected" in Garrett's Slack thread (batch's `slack_channel` / `thread_ts`)
+   - Reply "Corrected" in Garrett's Slack thread (batch's `slack_channel` / `thread_ts`) — only if that thread is in #team-mrv-alerts; for a legacy DM thread, post "Corrected — batch [ID]" to #team-mrv-alerts instead
    - Remove the batch from the `active_batches` array in the registry
    - Disable this scheduled task if the registry is now empty (no more batches to monitor)
 7. **If any findings NOT resolved:**
    - Do NOT reply "Corrected"
    - Keep `status: "awaiting_garrett"` in the registry
-   - Note in Max's notification that Garrett may need another pass
+   - Note in the #team-mrv-alerts post that Garrett may need another pass
 
 ### Step 4: Save the updated registry
 
@@ -95,5 +95,6 @@ Write the updated `qa_active_batches.json` back to `skills/qa/batch-qa-aecn/` in
 - Registry: skills/qa/batch-qa-aecn/qa_active_batches.json (MRV Expert workspace folder)
 - Knowledge base: knowledge-base/Charm_Isometric_Knowledge_Base.md (MRV Expert workspace folder)
 - Garrett's user ID: U08JW9HQG5B
-- Garrett's DM channel: D08KEFVRJDP
-- Max's user ID: UL2SL4H5H
+- Garrett's DM channel: D08KEFVRJDP (legacy registry threads only — read, never post)
+- Max's user ID: UL2SL4H5H (read only — to ignore his replies when detecting completion; never DM or @-mention)
+- Delivery channel: #team-mrv-alerts (C0944NQH1RP)

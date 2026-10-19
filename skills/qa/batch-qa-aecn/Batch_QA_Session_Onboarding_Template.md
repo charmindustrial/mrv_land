@@ -129,16 +129,16 @@ For each batch, verify data from these sources:
 4. **Formatting rule:** FAIL rows must be highlighted red across ALL columns (A through D). All other rows (PASS, N/A) must have NO fill — default/no color. Do NOT carry over red fills from prior batches. Every new batch starts with no fills; only apply red to rows that fail in THIS batch. When clearing fills, clear EVERY column in EVERY non-header data row. Verify by auditing every cell in the sheet after applying formatting. Section header rows (blue/yellow/green) are structural and preserved.
 5. After completing all sections, scroll through the full checklist to verify no blanks
 6. **Adversarial self-review:** Submit findings to a subagent that has access to the knowledge base, checklist, and Certify data. The subagent tests each finding against protocol requirements and source data, pushes back on anything fabricated/unsupported/inconsistent. Iterate until the subagent finds no errors. This guards against the tendency to fabricate or be lazy.
-7. **Slack Max** confirming QA and self-review are complete. Include batch ID.
-8. **Max reviews** and provides feedback. Make updates until Max is satisfied.
-9. **Once Max approves**, Slack Garrett Lutz. Include batch ID, PASS/FAIL/N/A counts, details on each FAIL. Tell Garrett to:
+7. **Post to #team-mrv-alerts** (channel C0944NQH1RP) confirming QA and self-review are complete. Include batch ID. No @-mentions.
+8. **A team member reviews** in that thread and provides feedback. Make updates until the reviewer is satisfied.
+9. **Once a team member approves in the #team-mrv-alerts thread** (a reply there, or a direct correction in Certify), post the findings to #team-mrv-alerts — no @-mentions. Include batch ID, PASS/FAIL/N/A counts, details on each FAIL. Tell Garrett to:
    a. Sanity-check the findings and notes
-   b. Flag Max with any issues from sanity check
+   b. Raise any issues from the sanity check in the thread
    c. Make any required updates
    d. Comment "Complete" in the thread once updates have been made
    e. A comment of "Complete" will trigger a re-review and QA checklist update
 10. **Once Garrett responds "Complete":** Re-open the checklist, batch folder, and Certify entry. Verify corrections have been made. Update the checklist (status, notes, formatting).
-11. **Slack Max** with update: Garrett has made required changes for batch [ID]. Summarize findings — changes were satisfactory, or specify unresolved issues and/or new issues introduced. Include a link to the updated checklist.
+11. **Post to #team-mrv-alerts** with update: Garrett has made required changes for batch [ID]. Summarize findings — changes were satisfactory, or specify unresolved issues and/or new issues introduced. Include a link to the updated checklist. If the detail is long, post a short lede and put the full detail in a threaded reply.
 
 ---
 

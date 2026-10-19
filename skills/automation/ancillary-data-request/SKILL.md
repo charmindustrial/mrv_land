@@ -8,8 +8,8 @@ description: >
   a link to the prior month's data. Every run after that (fired every 3 hours) scans each thread
   for a qualifying reply, routes Wellhead to wellhead-data-transform and Oxidizer to
   tox-sparging-analysis for processing (Community is filed as submitted, no processing), uploads
-  the finished product to the Processed Ancillary Data Drafts Drive folder, and alerts Garrett +
-  Max in #team-mrv-alerts — noting when the last item for the period lands. Human review and the
+  the finished product to the Processed Ancillary Data Drafts Drive folder, and posts an alert
+  (no @-mentions) to #team-mrv-alerts — noting when the last item for the period lands. Human review and the
   final drop into the reporting package folder happen after this skill's job is done; it does not
   do that step. ALWAYS trigger when: a scheduled run fires this job, Max says "run the ancillary
   data request", "check RP close", "check the mrv-ops-la threads", or asks about the state of this
@@ -89,7 +89,7 @@ For each item where `posted_ts` is set but `received` is not yet `true`:
   attached directly to the Slack reply. Either form is a completed delivery; don't hold out for a
   link when the reporter has already handed over the file. If a reply (link or attachment) comes
   from someone other than the tagged reporter, do **not** auto-complete the item — note it in this
-  run's chat report as "reply from someone else, needs a look" so Max/Garrett can confirm it's
+  run's chat report as "reply from someone else, needs a look" so a team member can confirm it's
   authorized, and leave `received` false. Never guess.
 - On a qualifying reply: stamp `received = true`, `received_date` = today, and:
   - **Link delivery**: `received_link` = the URL.
@@ -165,8 +165,9 @@ Drive-link-only / ask-the-reporter workaround this mistake produced — attachme
 For each item just marked `filed` this pass where `alerted` is not yet `true`:
 - Check whether this is the **last** of the three items to reach `filed = true` for this period
   (all three `filed == true` after this one, and `period_complete_alert_sent` is false).
-- Post to `alert_channel_id` (#team-mrv-alerts), tagging both `tag_on_alert_user_ids` (Garrett and
-  Max), using the finished-product template from `message_templates.md`. If this is the last item,
+- Post to `alert_channel_id` (#team-mrv-alerts) using the finished-product template from
+  `message_templates.md`. Prefix one `<@id>` mention per entry in `tag_on_alert_user_ids`; that
+  list is empty, so the post carries no mentions — the channel post is the alert. If this is the last item,
   append the second line from the template and set `period_complete_alert_sent = true`.
 - Stamp `alerted = true`.
 
@@ -187,7 +188,7 @@ received, what was filed, what was alerted, anything flagged "needs a look."
 - **AUTO_POST_APPROVED** gates the RP-close asks (step 1) exactly like `AUTO_SEND_APPROVED` gated
   the retired mrv-mailbox automation — Max flips it once the copy and timing are confirmed live.
   It does **not** gate the finished-product alerts (step 4): once an item is genuinely received and
-  filed, alerting Garrett and Max is the whole point of the automation and should never be held
+  filed, alerting the team in #team-mrv-alerts is the whole point of the automation and should never be held
   back by a copy-review gate meant for the outbound ask.
 - Never invent a reply. A thread with no reply, or a reply with no link, or a reply from the wrong
   person, all leave the item `received: false` — surfaced in the chat report, never marked done.

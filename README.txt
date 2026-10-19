@@ -257,8 +257,8 @@ SKILLS/  --  WHAT EACH SKILL DOES
                                    tox-sparging-analysis (Community files as
                                    submitted, no processing), uploads the
                                    finished product to the Processed Ancillary
-                                   Data Drafts Drive folder, and alerts
-                                   Garrett + Max in #team-mrv-alerts per item
+                                   Data Drafts Drive folder, and posts an alert
+                                   (no @-mentions) to #team-mrv-alerts per item
                                    -- noting when the last item for the period
                                    lands. Stops there; human review and the
                                    final drop into the reporting package
@@ -292,9 +292,10 @@ SKILLS/  --  WHAT EACH SKILL DOES
                                    AECN, Kerry), build a linked spreadsheet (one
                                    section per source with subtotal, grand total)
                                    to Drive, and send it as
-                                   individual Slack DMs to Max, Garrett, Harris
-                                   Cohn, John Zalewski. Idempotent (dedups on GHG
-                                   statement ID). Changeable facts live in the
+                                   individual Slack DMs to Harris Cohn and John
+                                   Zalewski, plus one post to #team-mrv-alerts.
+                                   Idempotent (dedups on GHG statement ID).
+                                   Changeable facts live in the
                                    skill's config.json. Fired by macOS launchd
                                    daily at 15:00 local; also runs ad-hoc. NOT a
                                    QA process. Autonomous send authorized for this
@@ -310,7 +311,7 @@ SKILLS/  --  WHAT EACH SKILL DOES
                                    fully drawn down) plus any still-visible REC
                                    row whose Expiry Date has passed. If an
                                    active certificate is below threshold, posts
-                                   ONE alert to #team-mrv-alerts tagging Max
+                                   ONE alert to #team-mrv-alerts (no @-mention)
                                    with the cert ID and the value; otherwise
                                    silent (no "all clear" posts). Reads the
                                    sheet via the Sheets API using the shared
@@ -402,7 +403,7 @@ OUTPUTS/  --  WHERE EACH SKILL'S WORK GOES
     outputs/data-analysis/                 Cross-skill ad-hoc analyses
     outputs/data-analysis/wellhead-data-transform/   Cleaned SCADA, compliance charts
     outputs/digests/mrv-standup/           run-log.jsonl audit trail
-                                           (the digest itself lives in Slack DM)
+                                           (the digest itself posts to #team-mrv-alerts)
     outputs/automation/ancillary-data-request/  run-log.jsonl audit trail
                                            (reconcile cycle; the per-period
                                            ledger lives at
@@ -490,7 +491,7 @@ ROUTING RULES
     wellhead-data-transform     outputs/data-analysis/wellhead-data-transform/
     mrv-standup                 outputs/digests/mrv-standup/run-log.jsonl
                                 (drafts live in Gmail; never sent autonomously)
-                                  (digest itself posts to Slack self-DM)
+                                  (digest itself posts to #team-mrv-alerts)
     ancillary-data-request      outputs/automation/ancillary-data-request/run-log.jsonl
                                 (ledger in ~/.ancillary-data-request/ledgers/;
                                  asks post in #mrv-ops-la, alerts post in
@@ -509,7 +510,8 @@ ROUTING RULES
     charm-350-credit-report     Drive: .../My Drive/Charm Bio-oil Credit
                                  Reports/ (per-period .xlsx). Runtime state
                                  in ~/.charm-350-credit-report/ (ledger,
-                                 run.sh, logs). Report sends as Slack DMs.
+                                 run.sh, logs). Report sends as Slack DMs
+                                 (Harris, John) plus a #team-mrv-alerts post.
                                  Fired by launchd daily 15:00 local.
     eac-inventory-monitor       no file outputs (read-only check). Runtime
                                  state in ~/.eac-inventory-monitor/

@@ -1,7 +1,7 @@
 ---
 name: qa-batch-aecn
 description: >
-  AECN injection batch QA agent for Charm Industrial. Runs the full 4-gate QA workflow for AECN-only injection batches: source document reads, cross-check and checklist build, adversarial self-review, and finalization with Slack/Gmail delivery to Max and Garrett. ALWAYS trigger this skill when: Max says to QA or review an AECN batch, references a batch ID in 2-XXX format, mentions "batch QA," "injection QA," "AECN batch," "run QA on 2-XXX," or "checklist for batch." Also trigger when resuming a prior AECN batch QA session, re-reviewing after Garrett's corrections, or when Max asks about the AECN batch QA workflow, gate system, or checklist structure. This skill is ONLY for AECN oil batches — do NOT use for WODO, Aqueous, or Kerry batches (those have their own skills). If the batch contains non-AECN oil types, tell Max this skill doesn't cover that oil type and ask which skill to use.
+  AECN injection batch QA agent for Charm Industrial. Runs the full 4-gate QA workflow for AECN-only injection batches: source document reads, cross-check and checklist build, adversarial self-review, and finalization with delivery to the #team-mrv-alerts Slack channel. ALWAYS trigger this skill when: Max says to QA or review an AECN batch, references a batch ID in 2-XXX format, mentions "batch QA," "injection QA," "AECN batch," "run QA on 2-XXX," or "checklist for batch." Also trigger when resuming a prior AECN batch QA session, re-reviewing after Garrett's corrections, or when Max asks about the AECN batch QA workflow, gate system, or checklist structure. This skill is ONLY for AECN oil batches — do NOT use for WODO, Aqueous, or Kerry batches (those have their own skills). If the batch contains non-AECN oil types, tell Max this skill doesn't cover that oil type and ask which skill to use.
 ---
 
 # AECN Injection Batch QA Agent
@@ -146,10 +146,10 @@ These items have failed across multiple batches. A checklist cannot exit Gate 2 
 1. Apply final formatting per the Formatting Specification below
 2. Run a final verification pass on status counts
 3. Save the checklist to the MRV Expert workspace folder
-4. Deliver to Max via the Slack Workflow below
-5. **Record `T_final` and log token cost.** Immediately after the Slack Max-delivery message is sent (step 4), run `date -u +%Y-%m-%dT%H:%M:%SZ` and write the result to `outputs/qa/batch-[ID]/batch_timestamps.json` under key `T_final_max_delivery`. Then run `python3 skills/qa/batch-qa-aecn/scripts/compute_batch_token_cost.py [ID] --write-summary` to record per-batch API cost to `outputs/qa/batch-[ID]/token_cost.json`. This is the unit-economics input — skip it and the performance tracker has nothing to learn from.
+4. Deliver to #team-mrv-alerts via the Slack Workflow below
+5. **Record `T_final` and log token cost.** Immediately after the #team-mrv-alerts delivery post is sent (step 4), run `date -u +%Y-%m-%dT%H:%M:%SZ` and write the result to `outputs/qa/batch-[ID]/batch_timestamps.json` under key `T_final_max_delivery`. Then run `python3 skills/qa/batch-qa-aecn/scripts/compute_batch_token_cost.py [ID] --write-summary` to record per-batch API cost to `outputs/qa/batch-[ID]/token_cost.json`. This is the unit-economics input — skip it and the performance tracker has nothing to learn from.
 
-**Exit condition:** Checklist delivered to Max. Performance monitor triggered. `token_cost.json` exists for the batch.
+**Exit condition:** Checklist delivered to #team-mrv-alerts. Performance monitor triggered. `token_cost.json` exists for the batch.
 
 ---
 
@@ -370,24 +370,24 @@ The full Certify dump is large. Two rules:
 After completing all four gates:
 
 1. **Adversarial self-review** (Gate 3) — already done by this point
-2. **Slack Max** (user ID: UL2SL4H5H) confirming QA and self-review are complete. Include batch ID.
-3. **Max reviews** and provides feedback. Make updates until Max is satisfied.
-4. **Once Max approves**, Slack Garrett Lutz. Include:
+2. **Post to #team-mrv-alerts** (channel C0944NQH1RP) confirming QA and self-review are complete. Include batch ID. No @-mentions. Review and approval happen in this post's thread.
+3. **A team member reviews** in that thread and provides feedback. Make updates until the reviewer is satisfied.
+4. **Once a team member approves in the #team-mrv-alerts thread** (a reply there, or a direct correction in Certify), post the findings to #team-mrv-alerts (channel C0944NQH1RP) — no @-mentions. Include:
    - Batch ID
    - PASS/FAIL/FLAG/N/A counts
    - Details on each FAIL and FLAG
    - Instructions to Garrett:
      a. Sanity-check the findings and notes
-     b. Flag Max with any issues
+     b. Raise any issues in the thread
      c. Make any required updates
      d. Comment "Complete" in the thread when done
      e. "Complete" triggers re-review
 5. **Once Garrett responds "Complete":** Re-open the checklist, batch folder, and Certify entry. Verify that each correction has actually been made. Update the checklist (status, evidence notes, formatting).
-6. **Notify Max (two-step: email draft + Slack alert):**
-   This is a deliberate two-step workflow. Slack DMs are too compressed for detailed re-review findings. The Gmail connector lacks send permissions. Max prefers a scannable Slack alert that points to the full email for review and manual sending.
-   a. **Create a Gmail draft** (HTML format) to max@charmindustrial.com. Do NOT send — only draft. Subject: "QA Re-Review: Batch [ID] — [All Resolved / X of Y Unresolved]". Body includes: full summary of re-review findings (what was corrected, what remains unresolved with current vs. expected values), recommended next steps, and a **direct link to the updated QA checklist file** (using `computer:///` protocol pointing to the file in the MRV Expert workspace folder). Max should not have to hunt for the checklist.
-   b. **Send a short Slack DM** to Max (user ID: UL2SL4H5H) alerting him the draft is ready. Keep it brief — just batch ID, one-line outcome, and "draft ready in Gmail." Example: "QA re-review draft ready for Batch 2-163 — 1 unresolved item. Check Gmail drafts."
-7. **Save completed checklist** to the workspace folder AND flag Max that manual upload to the Drive "Completed QA Sheets" folder is needed (Claude in Chrome cannot automate the Drive upload).
+6. **Post the re-review result to #team-mrv-alerts (short lede post + full detail in its thread):**
+   Team channel, so everyone sees the outcome; the long detail goes in a threaded reply so the channel stays scannable.
+   a. **Post a short, lede-first message** to #team-mrv-alerts (channel C0944NQH1RP): "QA Re-Review: Batch [ID] — [All Resolved / X of Y Unresolved]" plus a one-line outcome. No @-mentions.
+   b. **Reply in that post's thread with the full detail:** full summary of re-review findings (what was corrected, what remains unresolved with current vs. expected values), recommended next steps, and a **direct link to the updated QA checklist file** (using `computer:///` protocol pointing to the file in the MRV Expert workspace folder). No one should have to hunt for the checklist.
+7. **Save completed checklist** to the workspace folder AND note in the #team-mrv-alerts thread that manual upload to the Drive "Completed QA Sheets" folder is needed (Claude in Chrome cannot automate the Drive upload).
 8. **Trigger performance monitor** — log timestamps, error counts, and session metadata.
 
 ## Active Batch Registry
@@ -444,9 +444,9 @@ Performance is tracked in `Claude_QA_Performance_Tracker.xlsx`.
 | Clean Batch | 0 errors, 0 laziness violations |
 | Clean Streak | Consecutive clean batches |
 | 5-Batch Milestone | Note in tracker |
-| 10-Batch Milestone | Email to max@charmindustrial.com with performance data |
+| 10-Batch Milestone | Post to #team-mrv-alerts with performance data (short lede, data in the thread) |
 
-A streak resets on ANY error or laziness violation. Only Max-approved batches count.
+A streak resets on ANY error or laziness violation. Only batches approved in the #team-mrv-alerts thread count.
 
 ## Anti-Patterns — What NOT to Do
 

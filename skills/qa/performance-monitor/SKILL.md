@@ -1,7 +1,7 @@
 ---
 name: qa-performance-monitor
 description: >
-  Performance monitoring sub-agent for Charm Industrial batch QA. Tracks KPIs across QA sessions: timing, error counts (by source: Max vs Garrett), laziness violations, material vs non-material errors, iteration rounds, and trends over time. Updates the Claude_QA_Performance_Tracker.xlsx spreadsheet and reports metrics. ALWAYS trigger this skill when: a batch QA session is initiated (to capture start timestamp and set up tracking), when Max approves a QA checklist (to capture completion timestamp), when Garrett comments "Complete" (to close the QA cycle and log final metrics), or when Max asks about QA performance, trends, error rates, or efficiency metrics. Also trigger for any request to view, analyze, or report on historical QA performance data.
+  Performance monitoring sub-agent for Charm Industrial batch QA. Tracks KPIs across QA sessions: timing, error counts (by source: Max vs Garrett), laziness violations, material vs non-material errors, iteration rounds, and trends over time. Updates the Claude_QA_Performance_Tracker.xlsx spreadsheet and reports metrics. ALWAYS trigger this skill when: a batch QA session is initiated (to capture start timestamp and set up tracking), when a team member approves a QA checklist in the #team-mrv-alerts thread (to capture completion timestamp), when Garrett comments "Complete" (to close the QA cycle and log final metrics), or when Max asks about QA performance, trends, error rates, or efficiency metrics. Also trigger for any request to view, analyze, or report on historical QA performance data.
 ---
 
 # QA Performance Monitor
@@ -51,12 +51,12 @@ Capture a timestamp at each of these moments. Run `date` in bash immediately —
 | T2 | Checklist Draft Complete | QA agent produces the first version of the xlsx checklist |
 | T3 | Adversarial Review Complete | The adversarial reviewer returns its verdict |
 | T4 | Checklist Finalized | QA agent incorporates adversarial feedback and produces final checklist |
-| T5 | Max Review Start | Checklist is presented to Max |
-| T6 | Max Approval | Max approves the checklist |
-| T7 | Garrett Notified | Slack message sent to Garrett |
+| T5 | Max Review Start | Checklist is posted to #team-mrv-alerts for review |
+| T6 | Max Approval | A team member approves the checklist in the #team-mrv-alerts thread (a reply there, or a direct correction in Certify) |
+| T7 | Garrett Notified | Findings post sent to #team-mrv-alerts (no @-mentions) |
 | T8 | Garrett Complete | Garrett comments "Complete" in the thread |
 | T9 | Re-Review Complete | QA agent finishes re-review after Garrett's changes |
-| T10 | Cycle Closed | Final update sent to Max |
+| T10 | Cycle Closed | Final re-review result posted to #team-mrv-alerts |
 
 Store all timestamps in a `batch_timestamps.json` file in the working directory as they're captured:
 

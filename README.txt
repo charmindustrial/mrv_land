@@ -4,7 +4,8 @@ MRV EXPERT WORKSPACE — README
 Last updated: 2026-10-16 (QA moved off Playwright: Certify and Drive are read through
               APIs by skills/qa/container/tools/; added skills/qa/container/ to run
               the QA skills in GCP; browser permissions and the browser-cleanup
-              hook removed from .claude/settings.json)
+              hook removed from .claude/settings.json; comms cluster removed;
+              mrv-standup posts to #team-mrv-alerts, never a DM)
 
 Previously: 2026-10-13 (third full workspace clean-up; added
               automation/workspace-tidy, a weekly sweep -- Mondays 07:00
@@ -206,18 +207,10 @@ SKILLS/  --  WHAT EACH SKILL DOES
         mrv-standup/               Daily weekday sweep of ~33 Charm + Isometric
                                    Slack channels (MRV core, verifier-facing,
                                    and adjacent/cross-team), tiered into
-                                   Watch/FYI/Drop, posted to Max's self-DM.
+                                   Watch/FYI/Drop, posted to #team-mrv-alerts
+                                   (never a DM).
                                    Primary invocation = scheduled remote agent
                                    at 6:30am PT M-F. Also runs ad-hoc.
-
-    skills/comms/                                --- Comms cluster ---
-        verifier-briefing/         Proactive briefings to 350Solutions (Tim
-                                   Hansen) + Isometric (Tom Sellers). Two modes:
-                                   quarterly (90-day lookback, fires 15th of
-                                   Jan/Apr/Jul/Oct) and pre-verification
-                                   (targeted memo before verification opens).
-                                   Output = Gmail draft + Slack DM to Max.
-                                   NEVER sends autonomously.
 
     skills/automation/                           --- Automation cluster ---
         resume-echo-review/        RETIRED 2026-10-01 (no longer scheduled). Was: twice-daily applicant screen for the open
@@ -496,7 +489,6 @@ ROUTING RULES
                                   not a local outputs/ dir)
     wellhead-data-transform     outputs/data-analysis/wellhead-data-transform/
     mrv-standup                 outputs/digests/mrv-standup/run-log.jsonl
-    verifier-briefing           outputs/comms/verifier-briefing/run-log.jsonl
                                 (drafts live in Gmail; never sent autonomously)
                                   (digest itself posts to Slack self-DM)
     ancillary-data-request      outputs/automation/ancillary-data-request/run-log.jsonl

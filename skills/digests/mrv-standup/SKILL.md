@@ -1,16 +1,16 @@
 ---
 name: mrv-standup
-description: Daily MRV standup digest. Scans ~33 Charm Slack channels for MRV-relevant cross-team activity and posts a tiered summary to Max's Slack self-DM. Designed primarily for a scheduled weekday-morning remote agent, but also runs ad-hoc. ALWAYS trigger this skill when Max says "run the MRV standup," "MRV digest," "morning digest," "what's MRV been missing," "give me the standup," or when a scheduled cron fires the digest. The skill is read-only on Slack except for the single self-DM it posts. Do NOT trigger for one-off "what's happening in #channel-X" questions — this is a multi-channel daily sweep, not an ad-hoc lookup.
+description: Daily MRV standup digest. Scans ~33 Charm Slack channels for MRV-relevant cross-team activity and posts a tiered summary to the #team-mrv-alerts channel. Designed primarily for a scheduled weekday-morning remote agent, but also runs ad-hoc. ALWAYS trigger this skill when someone says "run the MRV standup," "MRV digest," "morning digest," "what's MRV been missing," "give me the standup," or when a scheduled cron fires the digest. The skill is read-only on Slack except for the single #team-mrv-alerts post it makes. Do NOT trigger for one-off "what's happening in #channel-X" questions — this is a multi-channel daily sweep, not an ad-hoc lookup.
 ---
 
 # MRV Standup
 
-A pre-loaded morning digest of MRV-relevant cross-team activity. The MRV team is structurally on the back-foot when other teams (forestry, ag, sales, eng, biz dev) explore new feedstocks, offtakes, methodologies, or regulatory positions — by the time the work lands in MRV's lap, bandwidth's been spent. This skill closes that loop daily so Max walks into his workday already aware.
+A pre-loaded morning digest of MRV-relevant cross-team activity. The MRV team is structurally on the back-foot when other teams (forestry, ag, sales, eng, biz dev) explore new feedstocks, offtakes, methodologies, or regulatory positions — by the time the work lands in MRV's lap, bandwidth's been spent. This skill closes that loop daily so the MRV team starts the workday already aware.
 
 ## Invocation paths
 
 - **Scheduled cron** (primary path): a remote agent fires this skill on weekday mornings.
-- **Ad-hoc**: Max says "run the MRV standup," "give me today's digest," "MRV digest," etc. Same procedure.
+- **Ad-hoc**: someone says "run the MRV standup," "give me today's digest," "MRV digest," etc. Same procedure.
 - **Don't run on weekends**. If asked on a weekend, run with a Friday-5pm-PT lookback anyway.
 
 ## Lookback window
@@ -36,7 +36,7 @@ Each entry: `(name, channel_id, default_tier)`. The default tier sets the prior 
 - `#mrv-ops-co` — `C06PL0M23RQ`
 - `#mrv-ledger` — `C05FPPNCV62`
 - `#mrv-protocol` — `C05C1867GSV`
-- `#team-mrv-alerts` — `C0944NQH1RP` *(Jira feed; surface only ticket creations and transitions to `Done`; skip `In progress` / `Review` transitions)*
+- `#team-mrv-alerts` — `C0944NQH1RP` *(Jira feed; surface only ticket creations and transitions to `Done`; skip `In progress` / `Review` transitions. Also the digest's own delivery channel: skip any message starting `*MRV Standup —`, i.e. earlier digests)*
 
 ### Tier-B — Verifier-facing (Isometric workspace + cross-org)
 - `#isometric-charm` (private, Isometric workspace) — `C03V684HHBK`
@@ -70,11 +70,11 @@ Each entry: `(name, channel_id, default_tier)`. The default tier sets the prior 
 - `#safety` — `CCQUBU8N9`
 - `#sales` — `C04RR3T24Q6`
 
-**Unresolved:** `#co` — Max requested but no exact match exists in the workspace channel index (the closest hit was `#colorado-ski-snowboard`, which is unrelated). Skip silently on each run; on the first run after this skill is built, ask Max for the canonical channel ID and update the registry.
+**Unresolved:** `#co` — no exact match exists in the workspace channel index (the closest hit was `#colorado-ski-snowboard`, which is unrelated). Skip it silently on each run; add its channel ID to the registry once one is identified.
 
 ## The filter
 
-Every message gets bucketed into one of three tiers. **Lean liberal.** False negatives (Max misses a thing) cost more than false positives (he ignores a line). When in doubt between Watch and FYI → Watch. Between FYI and Drop → FYI.
+Every message gets bucketed into one of three tiers. **Lean liberal.** False negatives (the team misses a thing) cost more than false positives (a reader skims past a line). When in doubt between Watch and FYI → Watch. Between FYI and Drop → FYI.
 
 ### Watch (top of the digest)
 Anything that *would change a future GHG calc, verification posture, or methodology stance*:
@@ -115,7 +115,7 @@ For each registry entry, in parallel batches of ~6:
 Apply tier rules. Tier-A messages get the lower bar; Tier-C messages must clear the higher bar (explicit MRV/methodology/regulatory hook).
 
 ### 4. Format the digest
-Single Slack message in mrkdwn so it renders cleanly in DM:
+Single Slack message in mrkdwn so it renders cleanly in the channel:
 
 ```
 *MRV Standup — {YYYY-MM-DD}*  _(lookback: {lookback_start} → now)_
@@ -140,20 +140,20 @@ Single Slack message in mrkdwn so it renders cleanly in DM:
 - For threaded posts, link to the thread parent's permalink. To deep-link to the thread view (opens with replies expanded in the side panel), append `?thread_ts=<parent_ts>&cid=<CHANNEL_ID>` to the parent's permalink.
 
 ### 5. Deliver
-- `slack_send_message` to channel = `UL2SL4H5H` (Max's user_id → self-DM)
+- `slack_send_message` to channel = `C0944NQH1RP` (#team-mrv-alerts)
 - Workspace: Charm Industrial
-- Do NOT post anywhere other than the self-DM. Ever.
+- Do NOT post anywhere other than #team-mrv-alerts. Never DM a person (including Max or Garrett). Ever.
 
 ### 6. Log the run
 Append one JSON line to `outputs/digests/mrv-standup/run-log.jsonl`:
 ```json
 {"date":"2026-05-06","lookback_start":"2026-05-05T06:00-07:00","channels_scanned":33,"channels_errored":0,"watch_count":4,"fyi_count":7,"dropped_count":42,"duration_s":47}
 ```
-Lets Max audit cadence and noise level over time without re-reading old DMs.
+Lets the team audit cadence and noise level over time without re-reading old digests.
 
 ## Calibration
 
-After the first 1–2 weeks Max will have feedback on what's surfacing as Watch that should have been FYI (or vice versa), and which channels are pure noise.
+After the first 1–2 weeks the team will have feedback on what's surfacing as Watch that should have been FYI (or vice versa), and which channels are pure noise.
 
 - **Update this SKILL.md** — the channel registry and filter rules are the version-controlled spec. There is no separate config file.
 - If a channel produces zero useful signal across a full month, drop it from the registry rather than tuning the filter around it.
@@ -161,11 +161,11 @@ After the first 1–2 weeks Max will have feedback on what's surfacing as Watch 
 
 ## Constraints
 
-- **Read-only on Slack** except for the one self-DM. No reactions, no replies, no posting to any channel other than `UL2SL4H5H`.
+- **Read-only on Slack** except for the one #team-mrv-alerts post. No reactions, no replies, no DMs, no posting to any channel other than `C0944NQH1RP`.
 - **Don't fabricate.** If a channel returns nothing or errors, skip it silently — don't pad the digest with "no activity in #X."
 - **One message per run.** No follow-up threads, no second messages.
-- **No auto-memory writes.** This skill produces information *for* Max; it doesn't generalize to "things to remember about Max."
-- **Don't try to be clever about deduplication across days.** Today's lookback is independent of yesterday's. If a multi-day thread keeps developing, surface it again — Max can skim past repeats faster than he can dig up things he missed.
+- **No auto-memory writes.** This skill produces information for the team; it doesn't generalize to things to remember about anyone.
+- **Don't try to be clever about deduplication across days.** Today's lookback is independent of yesterday's. If a multi-day thread keeps developing, surface it again — readers can skim past repeats faster than he can dig up things he missed.
 
 ## Output destination
 

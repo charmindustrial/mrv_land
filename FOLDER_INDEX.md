@@ -51,9 +51,7 @@ skills/
 ├── data-analysis/                              ← data analysis cluster
 │   └── wellhead-data-transform/               (Ignition SCADA → VVB format + compliance charts)
 ├── digests/                                    ← cross-team digest cluster
-│   └── mrv-standup/                           (daily MRV-relevance sweep across ~33 Slack channels → self-DM)
-├── comms/                                      ← external-party communication cluster
-│   └── verifier-briefing/                     (proactive briefings to 350Solutions + Isometric; quarterly + pre-verification modes; Gmail draft → Max reviews before send)
+│   └── mrv-standup/                           (daily MRV-relevance sweep across ~33 Slack channels → #team-mrv-alerts, never a DM)
 └── automation/                                 ← scheduled-automation cluster
     ├── resume-echo-review/                     (RETIRED 2026-10-01, no longer scheduled. Was: twice-daily applicant screen for the open "MRV Analyst" Lever posting, building on the one-time manual "Resume Echo Audit" (2026-09-03). Reads every candidate in Lever's "New applicant" stage; new ones go through Gate 1 — resume copies posting/materials language, or the candidate's own LinkedIn contradicts the resume, either disqualifies, no exceptions — then, if clean, Gate 2 — any MRV/carbon-accounting/ESG/LCA/related sustainability experience or degree, not disqualifying, just sets review priority. Updates the persistent artifact and `candidate_registry.json`, drops any candidate whose Lever stage has moved off "New applicant" since the last pass, and alerts Max via a macOS desktop notification — deliberately NOT Slack, see SKILL.md's "Why desktop notification, not Slack." Read-only on Lever and LinkedIn — `~/.claude/hooks/certify_readonly_guard.sh` hard-blocks writes to `hire.lever.co` the same way it does `registry.isometric.com`. Fired by macOS launchd daily at 9:00 and 17:00 local; also runs ad-hoc. Registry + config live in the skill folder, git-tracked like the QA batch registries; run.sh/logs/temp files in `~/.resume-echo-review/`.)
     ├── ancillary-data-request/                 (RP-close reconcile cycle for the three cross-functional ancillary data streams — Community/Alison, Wellhead/Casey, Oxidizer/Evan. 1st of the month: three separate tagged asks posted as top-level messages in #mrv-ops-la, each expecting a threaded reply with a link to the prior month's data. Every run — fired every 3 hours — scans each thread for a qualifying reply from the tagged reporter, routes Wellhead → wellhead-data-transform and Oxidizer → tox-sparging-analysis for processing (Community files as submitted, no processing), uploads the finished product to the Processed Ancillary Data Drafts Drive folder, and alerts Garrett + Max in #team-mrv-alerts per item — noting when the period's last item lands. Stops there — human review + the final drop into the reporting package folder are Max's/Garrett's step. AUTO_POST_APPROVED gate in references/config.json controls whether the monthly asks actually send; runs on macOS launchd. Replaces the retired mrv-mailbox automation as of 2026-09-02 — see archive/mrv-mailbox-superseded/.)
@@ -82,13 +80,11 @@ outputs/
 ├── data-analysis/                              ← cross-skill ad-hoc analyses
 │   └── wellhead-data-transform/               ← cleaned SCADA, compliance charts, eval reports
 ├── digests/
-│   └── mrv-standup/                           ← run-log.jsonl audit trail (digest itself lives in Slack DM)
+│   └── mrv-standup/                           ← run-log.jsonl audit trail (digest itself posts to #team-mrv-alerts)
 ├── automation/
 │   ├── resume-echo-review/                    ← run-log.jsonl audit trail (new/removed candidates, run summaries); candidate verdicts live in skills/automation/resume-echo-review/candidate_registry.json — git-tracked business data, not throwaway runtime state, same treatment as the QA batch registries under skills/qa/
 │   ├── workspace-tidy/                        ← run-log.jsonl: what each weekly sweep deleted and moved
 │   └── ancillary-data-request/                ← run-log.jsonl audit trail; the per-period ledger lives at ~/.ancillary-data-request/ledgers/ (runtime state, like the other launchd-fired automations), not here
-├── comms/
-│   └── verifier-briefing/                     ← run-log.jsonl audit trail (drafts live in Gmail, never sent autonomously)
 ├── deliverables/                               ← finalized EXTERNAL documents only
 │   ├── isometric/                             ← Isometric-bound briefs, responses, guidance requests, QBR
 │   ├── feedstock-suppliers/                   ← onboarding materials (symlinks to operational-documents)
@@ -139,8 +135,7 @@ The per-batch folder bundles checklist + adversarial review + source reads + scr
 | forestry-biomass-screener | `outputs/mrv-operational-documents/` (pre-screen gap reports and Certify fill text) |
 | rec-eligibility-package | Drive: `…/Grid Power RECs/Inventory+Docs/Pre-Review Docs/Q{quarter} {region} {year}/` (checklist + certificate + EC4 grid-region evidence; not a local `outputs/` dir) |
 | wellhead-data-transform | `outputs/data-analysis/wellhead-data-transform/` |
-| mrv-standup | `outputs/digests/mrv-standup/run-log.jsonl` (digest itself posts to Slack self-DM) |
-| verifier-briefing | `outputs/comms/verifier-briefing/run-log.jsonl` (drafts live in Gmail; never sent autonomously) |
+| mrv-standup | `outputs/digests/mrv-standup/run-log.jsonl` (digest itself posts to #team-mrv-alerts) |
 | resume-echo-review (RETIRED 2026-10-01) | `outputs/automation/resume-echo-review/run-log.jsonl`; candidate verdicts in `skills/automation/resume-echo-review/candidate_registry.json`; report is the published "Resume Echo Audit" artifact; alerts via macOS desktop notification only, never Slack |
 | ancillary-data-request | `outputs/automation/ancillary-data-request/run-log.jsonl`; runtime state + per-period ledger in `~/.ancillary-data-request/` (`references/config.json` for IDs, `ledgers/` for state); asks post in `#mrv-ops-la`, alerts post in `#team-mrv-alerts`, finished products upload to the Processed Ancillary Data Drafts Drive folder |
 | kdhe-kora-request | Drive `.../Vaulted/KDHE Requests/` (request `.docx` + per-request received-doc subfolders + the monitoring tracker; no local output cluster) |
@@ -306,13 +301,14 @@ archive/
 
 ## Outstanding Work
 
-- **Resolve `#co` channel ID for mrv-standup registry.** Max requested it but no exact match exists in the channel index (only `#colorado-ski-snowboard` came back). On first run of the standup, ask Max which channel he meant and update `skills/digests/mrv-standup/SKILL.md`.
+- **Resolve `#co` channel ID for mrv-standup registry.** No exact match exists in the channel index (only `#colorado-ski-snowboard` came back). The standup skips it until a channel ID is identified and added to `skills/digests/mrv-standup/SKILL.md`.
 - **Extract shared root from `batch-qa-aecn` / `batch-qa-kerry` / `batch-qa-charm`.** The three batch-QA skills share ~70% of their structure (pre-flight gate, 4-gate workflow, Slack workflow, formatting spec, citation discipline, anti-patterns, key principles, working-with-Max). Each currently duplicates this scaffolding inline. Pulling the common spine into a `skills/qa/_batch-qa-common/` shared reference doc (or a root SKILL.md included by each branch) would remove the drift risk that already exists across the three — e.g., the Slack workflow's siren-emoji prefix rule was added to AECN/Kerry independently after the rule was introduced for AECN. Deferred from the 2026-05-12 Charm-skill build because it touches all three working skills.
 
 ## Recently Resolved (2026-10-16)
 
 - **QA reads Certify and Drive through APIs, not Playwright.** Every QA skill, reference doc, the Knowledge Base and the step-ledger descriptions now use `skills/qa/container/tools/certify_read.py` (read-only Certify REST) and `drive_read.py` (Drive API; Drive MCP connector as the workstation fallback). Rules, gates and penalties were translated, not removed. A document absent from both Drive and the Certify API dump is still a Fail (the API cannot see removal-level sources, so the note says to confirm on the Sources tab).
 - **Browser config removed.** 84 Playwright / chrome-control permission entries and the SessionEnd `browser_cleanup_sessionend.sh` registration removed from `.claude/settings.json`; hook messages that pointed at Playwright now point at the API tools; the dead Playwright-screenshot case was removed from `workspace_hygiene_guard.sh`.
+- **Removed the comms cluster** (`skills/comms/verifier-briefing`). **`mrv-standup` now posts to #team-mrv-alerts** (`C0944NQH1RP`) instead of a DM, and skips its own earlier digests when scanning that channel. Nothing in this codebase DMs Garrett or Max.
 - **Added `skills/qa/container/`** — runs the QA skills in GCP (`charm-mrv`, Cloud Run job `qa-runner`), operator-started via `qa_run.sh` or the `qa-trigger` endpoint, one Claude session per gate, per-mode Knowledge Base slices, robustness tests in the image build, `parity_check.py` for Mac-vs-container comparison. See `skills/qa/container/README.md`.
 
 ## Recently Resolved (2026-10-13)

@@ -40,9 +40,14 @@ KB_SLICE = {
     "re-review": None,
 }
 
+# Models a run may use. The job default is set in deploy.sh (QA_MODEL); a run can
+# override it with the "model" input, e.g. to compare models on the same batch
+# in the parity runs before choosing the cheapest one that holds quality.
+MODELS = ["claude-opus-5-5", "claude-sonnet-5-5", "claude-haiku-5-5"]
+
 FIELDS = [
     "mode",             # one of MODES
-    "batch_id",         # e.g. 2-201 or INJ-09-2026-W2
+    "batch_id",         # e.g. INJ-09-2026-W2 (legacy 2-xxx IDs still accepted)
     "certify_url",      # Certify removal URL(s); comma-separated for multiple scapegoat removals
     "drive_folder",     # batch / RP Site Emissions Drive folder URL
     "reporting_period", # e.g. 2026-09-01 to 2026-09-30
@@ -51,6 +56,7 @@ FIELDS = [
     "publish_folder",   # optional Drive folder for results; defaults to drive_folder
     "notes",            # optional free text for the agent, e.g. answers to its last questions
     "start_gate",       # optional: re-run from this gate even if later gates were recorded complete
+    "model",            # optional: one of MODELS; overrides the job default for this run
     "operator",         # who started the run (filled in by the trigger / CLI)
 ]
 
@@ -68,6 +74,8 @@ def validate(inputs: dict) -> list[str]:
     for f in MODES[mode][2]:
         if not (inputs.get(f) or "").strip():
             problems.append(f"{mode} needs {f}")
+    if inputs.get("model") and inputs["model"] not in MODELS:
+        problems.append(f"model must be one of {MODELS}, got {inputs['model']!r}")
     sg = inputs.get("start_gate")
     if sg and (not sg.isdigit() or int(sg) not in GATES[mode]):
         problems.append(f"start_gate must be one of {GATES[mode]} for {mode}")

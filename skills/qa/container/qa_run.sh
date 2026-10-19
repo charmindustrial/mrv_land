@@ -3,7 +3,7 @@
 #
 #   ./skills/qa/container/qa_run.sh <mode> [--batch ID] [--certify URL] [--drive URL]
 #        [--rp "2026-09-01 to 2026-09-30"] [--site "Basco 6"] [--cobb-row N]
-#        [--publish URL] [--notes "..."] [--start-gate N] [--wait]
+#        [--publish URL] [--notes "..."] [--start-gate N] [--model ID] [--wait]
 #   ./skills/qa/container/qa_run.sh status <execution>
 #
 # Modes: batch-qa-aecn | batch-qa-charm | batch-qa-kerry | site-emissions-qa | re-review
@@ -43,6 +43,7 @@ while [[ $# -gt 0 ]]; do
     --publish)  env[PUBLISH_FOLDER]="$2"; shift 2 ;;
     --notes)    env[NOTES]="$2"; shift 2 ;;
     --start-gate) env[START_GATE]="$2"; shift 2 ;;
+    --model)    env[MODEL]="$2"; shift 2 ;;
     --wait)     wait_flag=(--wait); shift ;;
     *) echo "Unknown option: $1"; exit 1 ;;
   esac

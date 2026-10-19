@@ -71,9 +71,10 @@ Almost all of a run's cost is the model re-reading its context on every turn, so
 | Knowledge Base slice (`kb_slices.py`) | 20–29% of the Knowledge Base: biochar, KDHE permit, SLA, external-document standards, other oil types | Excluded sections are named with reasons, and new sections are kept by default. Sections that carry rules are guarded by a test. The full Knowledge Base is still in the image. |
 | `drive_read.py rows` | Whole COBB / Ops Notes / emission-factor workbooks (Max's notes: a 320 KB COBB dump) | Returns every cell's value, formula, comment and link with its coordinate. Absence claims need a full-tab scan. The whole workbook stays on disk. PDFs and images are never narrowed. |
 | `certify_read.py` summary | Full Certify dumps; ~30 turns of modal clicks and 400-line snapshots on the Mac | Lists every input value, SD and source with its JSON path into the full dump, which stays on disk. |
+| Pinned model (`QA_MODEL`, default `claude-opus-5-5`, overridable per run with `--model`) | Cost drifting with Claude Code's default model | The model is a deliberate choice, compared on the parity batches before any change of default. |
 | Turn cap per gate (`QA_MAX_TURNS_PER_GATE`, default 200), 1 CPU / 2 GiB | Runaway sessions | Hitting the cap marks the gate failed. It never passes; the next run resumes at that gate. |
 
-Unchanged: the model, the four gates, the adversarial reviewer, the independent ledger audit, `run_gates.py`, `audit_checklist.py` and the recompute scripts. The only Mac step dropped is `G4_render_in_excel`, which checks how the checklist looks in Excel. It's allowed `n/a` only when `QA_CONTAINER=1`. The code-enforced formatting checks still run.
+Unchanged: the four gates, the adversarial reviewer, the independent ledger audit, `run_gates.py`, `audit_checklist.py` and the recompute scripts. The only Mac step dropped is `G4_render_in_excel`, which checks how the checklist looks in Excel. It's allowed `n/a` only when `QA_CONTAINER=1`. The code-enforced formatting checks still run.
 
 ## Proving it's as robust as the Mac runs
 
@@ -93,6 +94,8 @@ Unchanged: the model, the four gates, the adversarial reviewer, the independent 
    - It fails if the container grades any item less severely than the Mac did (Fail→Flag/Pass, Flag→Pass), marks an applicable item N/A, or drops an item.
    - Items the container grades more strictly are listed for review.
    - Ship when all 3 pass. Any regression is a bug to fix before going live.
+
+   **Choosing the model the same way.** Run each parity batch on Claude Opus 5.5 (the default) and on Claude Sonnet 5.5 (about half the price), with `--model claude-sonnet-5-5` on the same batch. Use the cheapest model whose runs show **zero regressions** against the Mac baseline, and set it as the default with `QA_MODEL=<model> deploy.sh`. Claude Haiku 5.5 (about 1/40 the price) is also allowed and worth one trial, but the judgment-heavy gates (ticket images, adversarial review, Fail vs Flag) are where a smaller model is most likely to miss findings. Each run's `summary.json` records the model, turns and cost, so the comparison is per batch.
 3. **Cost check.** Each run's `summary.json` reports turns and dollars per gate. Compare against Max's numbers in `batch-qa-aecn/COST_DOWN_BACKLOG.md`: $127–205 for a clean AECN batch.
 
 ## Using the tools on a workstation

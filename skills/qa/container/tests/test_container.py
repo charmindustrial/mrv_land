@@ -297,6 +297,10 @@ def input_validation():
     assert qa_inputs.validate({"mode": "batch-qa-aecn", "batch_id": "2", "certify_url": "x",
                                "drive_folder": "y", "start_gate": "9"})
     assert qa_inputs.validate({"mode": "nope"})
+    ok = {"mode": "re-review", "batch_id": "INJ-09-2026-W4"}
+    for m in qa_inputs.MODELS:
+        assert qa_inputs.validate({**ok, "model": m}) == [], m
+    assert qa_inputs.validate({**ok, "model": "claude-opus-5"}), "unlisted model must be rejected"
 
 
 @test

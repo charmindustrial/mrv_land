@@ -281,6 +281,7 @@ def main() -> int:
             final = sessions[-1]["final_message"] if sessions else ""
             summary = {
                 "run_id": run_id, "inputs": inputs, "outcome": outcome,
+                "model": os.environ.get("QA_MODEL", "(Claude Code default)"),
                 "started_at_utc": started, "finished_at_utc": now(),
                 "total_cost_usd": round(sum(s.get("total_cost_usd") or 0 for s in sessions), 2),
                 "total_turns": sum(s.get("num_turns") or 0 for s in sessions),

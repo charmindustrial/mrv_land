@@ -88,7 +88,7 @@ echo "== Deploy job ${JOB}"
 g run jobs deploy "$JOB" --region="$REGION" --image="${IMAGE_BASE}/${JOB}:${TAG}" \
   --service-account="$RUNNER_SA" --tasks=1 --max-retries=0 --task-timeout=6h \
   --cpu=1 --memory=2Gi \
-  --set-env-vars="QA_STATE_BUCKET=${BUCKET},ISOMETRIC_ENV=prod" \
+  --set-env-vars="QA_STATE_BUCKET=${BUCKET},ISOMETRIC_ENV=prod,QA_MODEL=${QA_MODEL:-claude-opus-5-5}" \
   --set-secrets="ANTHROPIC_API_KEY=anthropic-api-key:latest,ISO_PROD_CLIENT_SECRET=iso-prod-client-secret:latest,ISO_PROD_JWT=iso-prod-jwt:latest"
 
 echo "== Build + deploy trigger ${SERVICE}"

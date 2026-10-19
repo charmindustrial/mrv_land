@@ -525,7 +525,7 @@ Used per-batch to verify every injection event before submission to Certify/veri
 **Header fields:** Batch ID, Reporting Period, Reviewer, Injection Site (Basco 6), Oil Types in Batch
 
 **1. Batch Folder Completeness**
-- Batch folder exists with correct naming (e.g., 2-XXX) [VR Appendix 1]
+- Week folder exists with correct naming (`<RP>/Injection Batch Data/W{n}/` for batch `INJ-MM-YYYY-Wx`; older batches used 2-XXX folders) [VR Appendix 1]
 - Scale Tickets subfolder present and populated [VR Appendix 1]
 - Testing subfolder present with all required lab results [VR Appendix 1]
 - Ops Notes spreadsheet present and complete [VR Appendix 1]

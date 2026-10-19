@@ -16,7 +16,7 @@ recorded as the run's operator.
 Example:
   curl -X POST "$URL/run" -H "Authorization: Bearer $(gcloud auth print-identity-token)" \
     -H "Content-Type: application/json" \
-    -d '{"mode":"batch-qa-aecn","batch_id":"2-201","certify_url":"...","drive_folder":"..."}'
+    -d '{"mode":"batch-qa-aecn","batch_id":"INJ-09-2026-W4-AECN","certify_url":"...","drive_folder":"..."}'
 """
 from __future__ import annotations
 

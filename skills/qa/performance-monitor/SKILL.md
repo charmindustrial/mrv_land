@@ -46,7 +46,7 @@ Capture a timestamp at each of these moments. Run `date` in bash immediately —
 
 | # | Breakpoint | When It Happens |
 |---|-----------|-----------------|
-| T0 | QA Initiation | Max sends "Run QA for batch 2-XXX" |
+| T0 | QA Initiation | The operator sends "Run QA for batch INJ-MM-YYYY-Wx" |
 | T1 | Data Gathering Complete | QA agent finishes reviewing Drive folder, Certify, and COBB |
 | T2 | Checklist Draft Complete | QA agent produces the first version of the xlsx checklist |
 | T3 | Adversarial Review Complete | The adversarial reviewer returns its verdict |
@@ -118,7 +118,7 @@ Beyond timestamping, each major breakpoint also has specific work:
 After closing a QA cycle, report these metrics:
 
 ```
-Batch 2-XXX Performance Summary
+Batch INJ-MM-YYYY-Wx Performance Summary
 ─────────────────────────────
 Timing:
   Data Gathering:     Xm XXs (T0→T1)

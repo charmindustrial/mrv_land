@@ -7,14 +7,14 @@ Runs the existing QA skills (`batch-qa-aecn`, `batch-qa-charm`, `batch-qa-kerry`
 **CLI** (needs `gcloud` and operator IAM from `deploy.sh`):
 
 ```bash
-skills/qa/container/qa_run.sh batch-qa-aecn --batch 2-201 \
+skills/qa/container/qa_run.sh batch-qa-aecn --batch INJ-09-2026-W4-AECN \
   --certify "https://registry.isometric.com/account/certify/project/prj_.../removal/rmv_.../edit" \
   --drive "https://drive.google.com/drive/folders/..." --wait
 
 skills/qa/container/qa_run.sh site-emissions-qa --rp "2026-09-01 to 2026-09-30" --site "Basco 6" \
   --certify "<scapegoat removal URL(s), comma-separated>" --drive "<RP Site Emissions folder>"
 
-skills/qa/container/qa_run.sh re-review --batch 2-201      # after Garrett says he's done
+skills/qa/container/qa_run.sh re-review --batch INJ-09-2026-W4-AECN      # after Garrett says he's done
 skills/qa/container/qa_run.sh status <execution name>
 ```
 
@@ -24,7 +24,7 @@ skills/qa/container/qa_run.sh status <execution name>
 URL=$(gcloud run services describe qa-trigger --project=charm-mrv --region=us-central1 --format='value(status.url)')
 curl -X POST "$URL/run" -H "Authorization: Bearer $(gcloud auth print-identity-token)" \
   -H "Content-Type: application/json" \
-  -d '{"mode":"batch-qa-aecn","batch_id":"2-201","certify_url":"...","drive_folder":"..."}'
+  -d '{"mode":"batch-qa-aecn","batch_id":"INJ-09-2026-W4-AECN","certify_url":"...","drive_folder":"..."}'
 curl "$URL/status/<execution>" -H "Authorization: Bearer $(gcloud auth print-identity-token)"
 ```
 

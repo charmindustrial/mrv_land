@@ -21,7 +21,7 @@ Every section below has truck-batch defaults. Where rail batches differ, look fo
 | Distance evidence | Google Maps (longest route) | **Email/written confirmation from rail logistics provider** (e.g., Watco). No Google Maps for rail. |
 | Distance value applied to rail components | N/A | **Allocated distance** = full leg × upstream allocation fraction. Full SOPOR→Opelousas ≈ 2,199 mi. |
 | Sister batches | None | **2-185 sister batches share a railcar** (typically 4 batches per railcar, e.g. 2-182/183/184/185 from GPRX 5188). Upstream allocation fractions across sisters should sum to ≈ 1.0. |
-| Ops Notes filename | `2-XXX Ops Notes` | `2-XXX Ops Notes Rail` |
+| Ops Notes filename | `INJ-MM-YYYY-Wx Ops Notes` → `AECN Truck` tab | `INJ-MM-YYYY-Wx Ops Notes` → `AECN Rail` tab |
 | Ops Notes shape | Single batch table | `Batch Composition` + `BOLs Loaded` (3 input BOLs) + 4-row offload table with `Upstream Allocation` fractions and pre-allocated distances |
 | COBB tab | `Basco Injection -- COBB` | **`Basco Injection -- COBB`** (same tab — `COBB (with offload info)` is archived). `consumed_lot` follows `Rail_<RAILCAR>_<DATE>_offload_N`. `origin_quantity_kg` = full railcar mass; `offloaded_quantity_kg` = this batch's truck-out share. |
 
@@ -31,9 +31,9 @@ Every section below has truck-batch defaults. Where rail batches differ, look fo
 
 | Item | Check | Primary Source | Expected | Common Failure |
 |------|-------|---------------|----------|----------------|
-| 1.1 | Batch folder exists with correct naming (e.g., 2-XXX) | Google Drive | Folder named with batch ID | Naming inconsistent |
-| 1.2 | Scale Tickets subfolder present and populated | Drive > batch folder | Subfolder with full+empty PDFs | Subfolder empty or missing one ticket |
-| 1.3 | Testing subfolder present with all required lab results | Drive > batch folder | CHN/CoA PDF(s) from SGS | Wrong batch's lab results |
+| 1.1 | Week folder exists with correct naming: `<RP>/Injection Batch Data/W{n}/`, holding `Scale Tickets/`, `Testing/` and `Completed QA Checklists/` | Google Drive | Folder named for the injection week (`W{n}` under the RP's `Injection Batch Data/`), matching the batch ID `INJ-MM-YYYY-Wx` | Naming inconsistent; ad hoc or duplicate week folders |
+| 1.2 | Scale Tickets subfolder present and populated | Drive > week folder > `Scale Tickets/<RAILCAR>/Offload <k>/` (rail) or the truck tickets | Each offload folder holds its full + empty ticket PDFs | Subfolder empty or missing one ticket |
+| 1.3 | Testing subfolder present with all required lab results | Drive > week folder > `Testing/` | CHN/CoA PDF(s) from SGS | Wrong batch's lab results |
 | 1.4 | Ops Notes spreadsheet present and complete | Drive > batch folder | Google Sheet with all sections filled | Ops Notes partially complete |
 | 1.5 | Injection site confirmed as Basco 6 — no references to Vaulted | BOLs, Ops Notes, Certify | All docs say Basco/Evangeline Parish | Legacy Vaulted references not cleaned up |
 

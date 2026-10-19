@@ -9,9 +9,9 @@
 # Modes: batch-qa-aecn | batch-qa-charm | batch-qa-kerry | site-emissions-qa | re-review
 #
 # Examples:
-#   qa_run.sh batch-qa-aecn --batch 2-201 --certify "https://registry.isometric.com/..." \
+#   qa_run.sh batch-qa-aecn --batch INJ-09-2026-W4-AECN --certify "https://registry.isometric.com/..." \
 #     --drive "https://drive.google.com/drive/folders/..." --wait
-#   qa_run.sh re-review --batch 2-201
+#   qa_run.sh re-review --batch INJ-09-2026-W4-AECN
 set -euo pipefail
 
 PROJECT="charm-mrv"

@@ -55,7 +55,7 @@ QA_OPERATORS="user:max@charmindustrial.com,user:garrett.lutz@charmindustrial.com
 ```
 
 Before the first deploy:
-1. Create the secrets `iso-prod-client-secret` and `iso-prod-jwt` in `charm-mrv` Secret Manager from a Certify API credential (Certify → Team settings). `anthropic-api-key` already exists there.
+1. Create the secrets `iso-prod-client-secret` and `iso-prod-jwt` in `charm-mrv` Secret Manager from a Certify API credential (Certify → Team settings). Also create `anthropic-api-key` from an Anthropic API key (none existed in `charm-mrv` as of 2026-10-21).
 2. After the deploy, share the batch and Site Emissions shared drive(s) with `mrv-qa-runner@charm-mrv.iam.gserviceaccount.com`: Viewer on the drives, Content manager on the publish folders.
 3. Seed the state bucket once from the Mac workspace. The commands are printed at the end of `deploy.sh`.
 

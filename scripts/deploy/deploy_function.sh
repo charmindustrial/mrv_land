@@ -2,7 +2,7 @@
 # Deploy a single Cloud Function.
 # Usage: ./scripts/deploy/deploy_function.sh <function_name>
 #   where <function_name> is one of: sgs_test_filer, ops_notes_creator,
-#   scale_ticket_sweep, charm_contents_creator
+#   scale_ticket_sweep, charm_contents_creator, injectate_ph_feed
 set -euo pipefail
 
 FN="${1:-}"
@@ -31,6 +31,13 @@ cp -r "${FN_DIR}/." "$STAGE_DIR/"
 cp -r "$SHARED_DIR" "$STAGE_DIR/shared"
 trap "rm -rf '$STAGE_DIR'" EXIT
 
+# Secrets mounted as env vars. injectate_ph_feed reads BigQuery as the runtime SA
+# (ADC) and needs only the Mangrove token.
+case "$FN" in
+  injectate_ph_feed) SECRETS="MANGROVE_TOKEN=mangrove-api-token:latest" ;;
+  *)                 SECRETS="SA_KEY=mrv-automation-key:latest,ANTHROPIC_API_KEY=anthropic-api-key:latest" ;;
+esac
+
 echo "Deploying $FN from $STAGE_DIR ..."
 
 gcloud functions deploy "$FN" \
@@ -42,7 +49,7 @@ gcloud functions deploy "$FN" \
   --service-account="$SA" \
   --trigger-http \
   --no-allow-unauthenticated \
-  --set-secrets="SA_KEY=mrv-automation-key:latest,ANTHROPIC_API_KEY=anthropic-api-key:latest" \
+  --set-secrets="$SECRETS" \
   --memory=512Mi \
   --timeout=540s \
   --gen2

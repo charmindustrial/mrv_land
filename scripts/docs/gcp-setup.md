@@ -120,6 +120,27 @@ Required so the service account can read Garrett's mailbox.
 
 **Note:** This step requires Workspace Admin. Ask IT if you don't have access.
 
+## Step 7b — injectate_ph_feed: BigQuery read + Mangrove token
+
+The pH feed reads the SCADA historian in a different project and uploads to Mangrove.
+
+```bash
+SA=mrv-automation@charm-mrv.iam.gserviceaccount.com
+
+# Run query jobs on the warehouse project, read only the SCADA dataset
+gcloud projects add-iam-policy-binding prod-data-warehouse-487604 \
+  --member="serviceAccount:${SA}" --role="roles/bigquery.jobUser"
+bq add-iam-policy-binding \
+  --member="serviceAccount:${SA}" --role="roles/bigquery.dataViewer" \
+  prod-data-warehouse-487604:dataset_ignition_scada_uscentral1
+
+# Mangrove API token — must have write:data_feed scope (it uploads CSVs to a data feed)
+read -s MG_TOKEN
+gcloud secrets create mangrove-api-token --project=charm-mrv --replication-policy="automatic"
+printf "%s" "$MG_TOKEN" | gcloud secrets versions add mangrove-api-token --project=charm-mrv --data-file=-
+unset MG_TOKEN
+```
+
 ## Step 8 — Verify
 
 ```bash

@@ -10,6 +10,7 @@ Python Cloud Functions that automate recurring MRV tasks. Runs on GCP project `c
 | `functions/ops_notes_creator/` | **TODO.** Daily sweep for new batches in COBB, create folder + ops notes sheet |
 | `functions/scale_ticket_sweep/` | **TODO.** Daily scale ticket PDF/image read + write loaded/unloaded lbs into ops notes |
 | `functions/charm_contents_creator/` | **TODO.** Daily check for new 3-XX/5-XX batches, create Charm Contents sheet |
+| `functions/injectate_ph_feed/` | **COMPLETE.** Weekly (Sat) inline pH: PH-1041 15-min medians from BigQuery → Mangrove data feed `ph_measurement_basco` |
 | `shared/` | Common helpers (auth, Drive/Sheets, Gmail, Claude API, COBB + inventory lookups, constants) |
 | `deploy/deploy_function.sh` | Deploy a single function |
 | `deploy/create_scheduler_jobs.sh` | Create the 4 daily scheduler jobs (after deploy) |

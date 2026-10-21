@@ -127,9 +127,11 @@ The pH feed reads the SCADA historian in a different project and uploads to Mang
 ```bash
 SA=mrv-automation@charm-mrv.iam.gserviceaccount.com
 
-# Run query jobs on the warehouse project, read only the SCADA dataset
-gcloud projects add-iam-policy-binding prod-data-warehouse-487604 \
+# Query jobs run (and bill) in charm-mrv
+gcloud projects add-iam-policy-binding charm-mrv \
   --member="serviceAccount:${SA}" --role="roles/bigquery.jobUser"
+
+# Read the SCADA dataset — needs IAM rights on prod-data-warehouse-487604
 bq add-iam-policy-binding \
   --member="serviceAccount:${SA}" --role="roles/bigquery.dataViewer" \
   prod-data-warehouse-487604:dataset_ignition_scada_uscentral1

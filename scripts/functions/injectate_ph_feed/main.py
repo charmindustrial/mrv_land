@@ -40,7 +40,10 @@ from week import last_closed_week_start, parse_week_start, week_bounds  # noqa: 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("injectate_ph_feed")
 
-BQ_PROJECT = "prod-data-warehouse-487604"
+# Query jobs run (and bill) in charm-mrv, where mrv-automation has bigquery.jobUser.
+# The SQL names prod-data-warehouse-487604 tables in full, so the only grant needed
+# there is bigquery.dataViewer on dataset_ignition_scada_uscentral1.
+BQ_JOB_PROJECT = "charm-mrv"
 BQ_LOCATION = "us-central1"  # not the US multi-region; omitting it fails like a permissions error
 
 MANGROVE_BASE = "https://app.gomangrove.com/api/v1"
@@ -101,7 +104,7 @@ def run(week_start: str | None = None, dry_run: bool = False, now: datetime | No
 # ---------------------------------------------------------------------------
 
 def query_week(week_start: date) -> list[dict]:
-    client = bigquery.Client(project=BQ_PROJECT, location=BQ_LOCATION)
+    client = bigquery.Client(project=BQ_JOB_PROJECT, location=BQ_LOCATION)
     job = client.query(
         SQL,
         job_config=bigquery.QueryJobConfig(

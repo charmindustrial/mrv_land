@@ -49,7 +49,7 @@ Locally (needs `pip install -r requirements.txt`, BigQuery access via ADC, and `
 ./scripts/deploy/create_scheduler_jobs.sh
 ```
 
-Needs [gcp-setup.md](../../docs/gcp-setup.md) Step 7b first (BigQuery grants + `mangrove-api-token`).
+Runs as `charm-mrv@appspot.gserviceaccount.com` (App Engine default). Needs [gcp-setup.md](../../docs/gcp-setup.md) Step 7b first (dataset read grant + `mangrove-api-token`).
 
 ## Tests
 

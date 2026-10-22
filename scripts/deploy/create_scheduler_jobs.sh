@@ -20,10 +20,14 @@ create_job() {
     return
   fi
 
+  # Skip functions not deployed yet, so one missing function doesn't stop the rest.
   local uri
-  uri=$(gcloud functions describe "$fn" \
-    --project="$PROJECT" --region="$REGION" \
-    --format='value(serviceConfig.uri)')
+  if ! uri=$(gcloud functions describe "$fn" \
+      --project="$PROJECT" --region="$REGION" \
+      --format='value(serviceConfig.uri)' 2>/dev/null) || [[ -z "$uri" ]]; then
+    echo "not deployed: $fn (skipped $name)"
+    return
+  fi
 
   gcloud scheduler jobs create http "$name" \
     --project="$PROJECT" \

@@ -123,13 +123,12 @@ Required so the service account can read Garrett's mailbox.
 ## Step 7b — injectate_ph_feed: BigQuery read + Mangrove token
 
 The pH feed reads the SCADA historian in a different project and uploads to Mangrove.
+It runs as the App Engine default SA, which already holds Editor on charm-mrv (query
+jobs, logs, invoking the function). Editor does not include reading secret values, so
+it needs Secret Accessor on the token secret.
 
 ```bash
-SA=mrv-automation@charm-mrv.iam.gserviceaccount.com
-
-# Query jobs run (and bill) in charm-mrv
-gcloud projects add-iam-policy-binding charm-mrv \
-  --member="serviceAccount:${SA}" --role="roles/bigquery.jobUser"
+SA=charm-mrv@appspot.gserviceaccount.com
 
 # Read the SCADA dataset — needs IAM rights on prod-data-warehouse-487604
 bq add-iam-policy-binding \
@@ -141,6 +140,8 @@ read -s MG_TOKEN
 gcloud secrets create mangrove-api-token --project=charm-mrv --replication-policy="automatic"
 printf "%s" "$MG_TOKEN" | gcloud secrets versions add mangrove-api-token --project=charm-mrv --data-file=-
 unset MG_TOKEN
+gcloud secrets add-iam-policy-binding mangrove-api-token --project=charm-mrv \
+  --member="serviceAccount:${SA}" --role="roles/secretmanager.secretAccessor"
 ```
 
 ## Step 8 — Verify

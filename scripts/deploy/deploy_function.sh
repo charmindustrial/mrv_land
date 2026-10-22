@@ -31,10 +31,13 @@ cp -r "${FN_DIR}/." "$STAGE_DIR/"
 cp -r "$SHARED_DIR" "$STAGE_DIR/shared"
 trap "rm -rf '$STAGE_DIR'" EXIT
 
-# Secrets mounted as env vars. injectate_ph_feed reads BigQuery as the runtime SA
-# (ADC) and needs only the Mangrove token.
+# Per-function secrets (mounted as env vars) and runtime SA. injectate_ph_feed
+# runs as the App Engine default SA, reads BigQuery as it (ADC), and needs only
+# the Mangrove token.
 case "$FN" in
-  injectate_ph_feed) SECRETS="MANGROVE_TOKEN=mangrove-api-token:latest" ;;
+  injectate_ph_feed)
+    SECRETS="MANGROVE_TOKEN=mangrove-api-token:latest"
+    SA="${PROJECT}@appspot.gserviceaccount.com" ;;  # App Engine default (Editor)
   *)                 SECRETS="SA_KEY=mrv-automation-key:latest,ANTHROPIC_API_KEY=anthropic-api-key:latest" ;;
 esac
 

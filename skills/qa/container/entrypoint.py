@@ -130,6 +130,25 @@ def run_folder(inputs: dict) -> Path:
     return WS / "outputs/qa/_container" / slug
 
 
+def smoke_prompt(inputs: dict, rf: Path) -> str:
+    """Container check: exercises every connection a QA run uses, does no QA."""
+    rel_rf = rf.relative_to(WS).as_posix()
+    url = inputs["certify_url"]
+    return "\n".join([
+        "SMOKE TEST of the QA container. This is not a QA run: do not read the QA skills or the",
+        "Knowledge Base, and do exactly these steps, nothing else.",
+        f"1. Run: python3 skills/qa/container/tools/certify_read.py removal '{url}' --out /tmp/smoke/certify_removal.json",
+        "2. Read /tmp/smoke/certify_removal_summary.md. Report the removal ID, the number of components,",
+        "   and removal.co2e_net_removed_kg exactly as written there.",
+        "3. Run: python3 skills/qa/container/tools/drive_read.py search \"name contains 'VVB Guidance'\"",
+        "   Report how many files it found. 0 is expected while the service account has no Drive shares;",
+        "   an error message is not expected, so report any error verbatim.",
+        f"4. Write {rel_rf}/gate_0_result.json as JSON: gate 0, status \"complete\" if steps 1 and 2",
+        "   succeeded, otherwise \"blocked\", and a summary of what each step returned.",
+        "End with one short paragraph stating the result of each step.",
+    ])
+
+
 def session_prompt(inputs: dict, gate: int | None, gates: list, rf: Path) -> str:
     folder, skill_name, _ = qa_inputs.MODES[inputs["mode"]]
     rel_rf = rf.relative_to(WS).as_posix()
@@ -179,7 +198,7 @@ def run_session(prompt: str, transcript: Path) -> dict:
         "claude", "-p", prompt,
         "--output-format", "stream-json", "--verbose",
         "--permission-mode", "bypassPermissions",
-        "--append-system-prompt", (CONTAINER_DIR / "CONTAINER_MODE.md").read_text(),
+        "--append-system-prompt", (CONTAINER_DIR / "CONTAINER_MODE.md").read_text(encoding="utf-8"),
         "--max-turns", os.environ.get("QA_MAX_TURNS_PER_GATE", "200"),
     ]
     if os.environ.get("QA_MODEL"):
@@ -215,7 +234,7 @@ def read_gate_result(rf: Path, gate: int) -> dict:
     if not p.exists():
         return {"status": "failed", "summary": f"session ended without writing {p.name}"}
     try:
-        return json.loads(p.read_text())
+        return json.loads(p.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
         return {"status": "failed", "summary": f"{p.name} is not valid JSON"}
 
@@ -248,7 +267,7 @@ def main() -> int:
         rf = run_folder(inputs)
         rf.mkdir(parents=True, exist_ok=True)
         status_path = rf / "gate_status.json"
-        status = json.loads(status_path.read_text()) if status_path.exists() else {"completed_gates": []}
+        status = json.loads(status_path.read_text(encoding="utf-8")) if status_path.exists() else {"completed_gates": []}
 
         gates = qa_inputs.GATES[inputs["mode"]]
         if os.environ.get("QA_START_GATE"):        # operator override, e.g. a fresh re-run
@@ -261,7 +280,8 @@ def main() -> int:
         for gate in todo:
             label = f"gate{gate}" if gate is not None else "single"
             log(f"--- session {label}")
-            s = run_session(session_prompt(inputs, gate, gates, rf), tmp / f"transcript_{label}.jsonl")
+            prompt = smoke_prompt(inputs, rf) if inputs["mode"] == "smoke" else session_prompt(inputs, gate, gates, rf)
+            s = run_session(prompt, tmp / f"transcript_{label}.jsonl")
             gr = read_gate_result(rf, gate if gate is not None else 0)
             s.update({"gate": gate, "gate_result": gr})
             sessions.append(s)
@@ -272,7 +292,7 @@ def main() -> int:
                 break
             if gate is not None:
                 status["completed_gates"].append(gate)
-                status_path.write_text(json.dumps(status, indent=1))
+                status_path.write_text(json.dumps(status, indent=1), encoding="utf-8")
     finally:
         pushed = []
         try:

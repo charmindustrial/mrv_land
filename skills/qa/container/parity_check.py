@@ -96,7 +96,7 @@ def main() -> int:
     report = compare(base, cont)
     text = json.dumps(report, indent=1)
     if a.out:
-        Path(a.out).write_text(text)
+        Path(a.out).write_text(text, encoding="utf-8")
     print(f"{report['verdict']}: {report['same']} same, {len(report['stricter'])} stricter, "
           f"{len(report['regressions'])} regressions, {len(report['evidence_changed'])} evidence changed "
           f"(baseline {report['baseline_items']} items, container {report['container_items']})")

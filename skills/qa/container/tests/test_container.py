@@ -187,11 +187,13 @@ def _dump():
 @test
 def summary_carries_every_datapoint_value_sd_and_path():
     s = certify_read.summarize(_dump(), "out/certify_removal.json")
-    for needle in ["21845", "1.13", "0.4321", "0.0017", "512", "77.5", "0.1542",
+    for needle in ["21844.99", "1.13", "0.4321", "0.0017", "512", "77.5", "0.1542",
                    "components.0.inputs.0.datapoints.0", "components.1.inputs.0.datapoints.1",
                    "TKT-1.pdf", "route.png", "12345.6", "out/certify_removal.json", "g1", "g2"]:
         assert needle in s, f"summary missing {needle!r}"
     assert s.count("| mass |") + s.count("| carbon |") + s.count("| distances |") == 4, "a datapoint row is missing"
+    exact = certify_read.summarize({**_dump(), "removal": {"co2e_net_removed_kg": 362112.2896088354}}, "x")
+    assert "362112.2896088354" in exact, "summary must not round values"
 
 
 @test
@@ -287,6 +289,8 @@ def every_mode_has_a_slice_entry_and_valid_skill():
         assert mode in qa_inputs.KB_SLICE and mode in qa_inputs.GATES, mode
         sl = qa_inputs.KB_SLICE[mode]
         assert sl is None or sl in kb_slices.SLICES, f"{mode}: unknown slice {sl}"
+        if mode == "smoke":
+            continue                      # container check, no skill
         assert (WS / "skills/qa" / qa_inputs.MODES[mode][0] / "SKILL.md").exists(), mode
 
 

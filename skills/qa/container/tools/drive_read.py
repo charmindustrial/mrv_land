@@ -159,7 +159,7 @@ def cmd_get(svc, ref: str, out_dir: Path, fmt: str | None) -> dict:
     result = {"fetched_at_utc": _now(), "file": meta, "live_source_url": meta.get("webViewLink"),
               "saved_to": str(dest), "bytes": dest.stat().st_size}
     # Sidecar so `tabs` / `rows` can cite the live Drive URL of the file they read.
-    Path(str(dest) + ".meta.json").write_text(json.dumps(result, indent=1))
+    Path(str(dest) + ".meta.json").write_text(json.dumps(result, indent=1), encoding="utf-8")
     return result
 
 
@@ -168,7 +168,7 @@ def _xlsx(local: Path):
     formulas = openpyxl.load_workbook(local, data_only=False)   # formulas, comments, links
     values = openpyxl.load_workbook(local, data_only=True)      # cached values Sheets/Excel computed
     meta_path = Path(str(local) + ".meta.json")
-    meta = json.loads(meta_path.read_text()) if meta_path.exists() else {}
+    meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {}
     return formulas, values, meta.get("live_source_url")
 
 
@@ -239,7 +239,7 @@ def _check_delivery_gate(local: Path) -> None:
     receipt_path = local.resolve().parent / "gate_receipt.json"
     if not receipt_path.exists():
         sys.exit(f"DELIVERY BLOCKED: no gate_receipt.json next to {local.name}. Run run_gates.py first.")
-    receipt = json.loads(receipt_path.read_text())
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     sha = hashlib.sha256(local.read_bytes()).hexdigest()
     if not receipt.get("all_gates_green") or receipt.get("checklist_sha256") != sha:
         sys.exit(f"DELIVERY BLOCKED: gate_receipt.json does not match {local.name} "
@@ -292,7 +292,7 @@ def main() -> int:
         text = json.dumps(result, indent=1, default=str)
         if args.out:
             Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-            Path(args.out).write_text(text)
+            Path(args.out).write_text(text, encoding="utf-8")
             print(f"wrote {args.out}" + (f" ({result['match_count']} matching rows of "
                                          f"{result['rows_scanned']})" if args.cmd == "rows" else ""))
         else:
@@ -314,7 +314,7 @@ def main() -> int:
     text = json.dumps(result, indent=1)
     if args.out:
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-        Path(args.out).write_text(text)
+        Path(args.out).write_text(text, encoding="utf-8")
         print(f"wrote {args.out} ({len(result.get('files', []))} entries)")
     else:
         print(text)

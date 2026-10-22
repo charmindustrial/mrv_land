@@ -7,6 +7,7 @@
 #   ./skills/qa/container/qa_run.sh status <execution>
 #
 # Modes: batch-qa-aecn | batch-qa-charm | batch-qa-kerry | site-emissions-qa | re-review
+#        smoke  (container check: qa_run.sh smoke --certify <removal URL> --wait)
 #
 # Examples:
 #   qa_run.sh batch-qa-aecn --batch INJ-09-2026-W4-AECN --certify "https://registry.isometric.com/..." \

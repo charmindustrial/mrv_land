@@ -17,6 +17,9 @@ MODES = {
     # Operator-started replacement for the scheduled Slack sweep: the operator
     # confirms Garrett has finished, the container re-reviews that one batch.
     "re-review": ("garrett-completion-monitor", "qa-garrett-completion-monitor", ["batch_id"]),
+    # Container check, not a QA: one Certify read, one Drive call, one short model
+    # session and a bucket round trip. Writes only its own run folder.
+    "smoke": (None, None, ["certify_url"]),
 }
 
 # Gates each mode runs, one Claude session per gate (entrypoint.py). The gate
@@ -28,6 +31,7 @@ GATES = {
     "batch-qa-kerry": [1, 2, 3, 4],
     "site-emissions-qa": [1, 2, 3],   # Gate 3 includes "After Gate 3" utilities and delivery
     "re-review": [],
+    "smoke": [],
 }
 
 # Knowledge Base slice each mode reads (knowledge-base/slices/<name>.md, built
@@ -38,6 +42,7 @@ KB_SLICE = {
     "batch-qa-kerry": "kerry",
     "site-emissions-qa": "site-emissions",
     "re-review": None,
+    "smoke": None,
 }
 
 # Models a run may use. The job default is set in deploy.sh (QA_MODEL); a run can

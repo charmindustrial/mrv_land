@@ -63,7 +63,7 @@ BASE_URLS = {
     "sandbox": "https://api.sandbox.isometric.com/mrv/v0",
     "prod": "https://api.isometric.com/mrv/v0",
 }
-UI_REMOVAL_URL = "https://registry.isometric.com/account/certify/project/{prj}/removal/{rmv}/edit"
+UI_REMOVAL_URL = "https://registry.isometric.com/account/certify/project/{prj}/ghg-entry/{rmv}/edit"
 RMV_RE = re.compile(r"rmv_[A-Z0-9]+")
 PRJ_RE = re.compile(r"prj_[A-Z0-9]+")
 
@@ -197,7 +197,8 @@ def dump_removal(c: ReadOnlyCertify, ref: str) -> dict:
 
 def _fmt(v: Any) -> str:
     if isinstance(v, float):
-        return f"{v:.6g}"
+        # Full precision: the checklist cites exact values and compares to ~0.001 tCO2e.
+        return repr(v)
     return "" if v is None else str(v)
 
 
@@ -292,13 +293,13 @@ def main() -> int:
         # The full dump goes to disk only; the agent reads the summary.
         out = Path(args.out or f"certify_{result['removal_id']}.json")
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(text)
+        out.write_text(text, encoding="utf-8")
         summary_path = out.with_name(out.stem + "_summary.md")
-        summary_path.write_text(summarize(result, out.as_posix()))
+        summary_path.write_text(summarize(result, out.as_posix()), encoding="utf-8")
         print(f"wrote {out} (full dump, {len(text) // 1000} KB) and {summary_path} (read this)")
     elif getattr(args, "out", None):
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-        Path(args.out).write_text(text)
+        Path(args.out).write_text(text, encoding="utf-8")
         print(f"wrote {args.out}")
     else:
         print(text)

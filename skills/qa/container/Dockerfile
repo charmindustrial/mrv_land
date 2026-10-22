@@ -31,7 +31,7 @@ RUN python3 skills/qa/container/kb_slices.py
 # The robustness tests (slices, narrowed reads, Certify summary, delivery gate,
 # ledger, parity logic, Max's findings-never-block test) gate the image: a
 # change that weakens any of them cannot be deployed.
-RUN python3 skills/qa/container/tests/test_container.py
+RUN QA_IMAGE_BUILD=1 python3 skills/qa/container/tests/test_container.py
 
 RUN cp skills/qa/container/settings.json .claude/settings.json \
  && mkdir -p .claude/skills outputs/qa \

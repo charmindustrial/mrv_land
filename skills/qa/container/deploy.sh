@@ -77,12 +77,23 @@ trap 'rm -rf "$STAGE"' EXIT
 echo "== Build runner image (staged: skills/qa, knowledge-base, hooks; no other skills, outputs/, archive/ or secrets)"
 # Only the QA skills: the rest of skills/ (orchestrator-mode, lca-model-builder, ...) is never
 # used by a QA run, and some of it (orchestrator-mode) cannot work headless.
-mkdir -p "$STAGE/runner/.claude" "$STAGE/runner/skills"
-cp -r "$WS/skills/qa" "$STAGE/runner/skills/"
-cp -r "$WS/knowledge-base" "$STAGE/runner/"
-cp "$WS/CLAUDE.md" "$WS/README.txt" "$WS/FOLDER_INDEX.md" "$STAGE/runner/"
-cp -r "$WS/.claude/hooks" "$STAGE/runner/.claude/"
-cp "$C/Dockerfile" "$STAGE/runner/Dockerfile"
+# Staged from git (the committed HEAD), not from the working folder: a Windows checkout
+# rewrites shell scripts with CRLF line endings, which broke every hook in the image
+# (2026-10-22 smoke test). git archive gives the repo's own LF content on any machine,
+# and a deploy always matches a commit.
+if [ -n "$(git -C "$WS" status --porcelain -- skills/qa knowledge-base .claude/hooks CLAUDE.md)" ]; then
+  echo "Uncommitted changes under skills/qa, knowledge-base or .claude/hooks. Commit them first:"
+  echo "the image is built from the committed HEAD, so they would not be deployed."
+  exit 1
+fi
+# No CRLF conversion (core.autocrlf applies to archive too) and allow the repo's
+# Windows-invalid archive/ filenames, which are never staged anyway.
+GITA() { git -C "$WS" -c core.autocrlf=false -c core.eol=lf -c core.protectNTFS=false "$@"; }
+mkdir -p "$STAGE/runner"
+GITA archive HEAD skills/qa knowledge-base .claude/hooks CLAUDE.md README.txt FOLDER_INDEX.md \
+  | tar -x -C "$STAGE/runner"
+GITA show HEAD:skills/qa/container/Dockerfile > "$STAGE/runner/Dockerfile"
+echo "staged from commit $(git -C "$WS" rev-parse --short HEAD)"
 g builds submit "$STAGE/runner" --tag="${IMAGE_BASE}/${JOB}:${TAG}"
 
 echo "== Deploy job ${JOB}"
@@ -94,7 +105,9 @@ g run jobs deploy "$JOB" --region="$REGION" --image="${IMAGE_BASE}/${JOB}:${TAG}
 
 echo "== Build + deploy trigger ${SERVICE}"
 mkdir -p "$STAGE/trigger"
-cp "$C/trigger/"* "$C/qa_inputs.py" "$STAGE/trigger/"
+GITA archive HEAD skills/qa/container/trigger skills/qa/container/qa_inputs.py \
+  | tar -x -C "$STAGE/trigger" --strip-components=3
+mv "$STAGE/trigger/trigger/"* "$STAGE/trigger/" && rmdir "$STAGE/trigger/trigger"
 g builds submit "$STAGE/trigger" --tag="${IMAGE_BASE}/${SERVICE}:${TAG}"
 g run deploy "$SERVICE" --region="$REGION" --image="${IMAGE_BASE}/${SERVICE}:${TAG}" \
   --service-account="$TRIGGER_SA" --no-allow-unauthenticated \

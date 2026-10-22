@@ -327,6 +327,20 @@ def gate_prompts_enforce_previous_exit_condition_and_scope():
     assert "run_gates.py" in g4 and "CONTAINER_MODE.md" in g4
 
 
+# ------------------------------------------------------------- image contents
+
+@test
+def image_shell_scripts_have_unix_line_endings():
+    """In the image, a CRLF shell script breaks every hook: bash fails on the stray \\r and the
+    fail-closed hooks then block every tool call (2026-10-22 smoke test). Only checked during
+    the image build (QA_IMAGE_BUILD=1); a Windows checkout legitimately has CRLF on disk."""
+    if os.environ.get("QA_IMAGE_BUILD") != "1":
+        return
+    bad = [str(p.relative_to(WS)) for p in list((WS / ".claude/hooks").glob("*.sh")) + list((WS / "skills/qa").rglob("*.sh"))
+           if b"\r" in p.read_bytes()]
+    assert not bad, f"CRLF line endings in the image: {bad}"
+
+
 # ------------------------------------------------------------- Max's own gate test, unchanged
 
 @test

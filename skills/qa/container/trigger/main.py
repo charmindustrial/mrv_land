@@ -11,7 +11,7 @@ recorded as the run's operator.
   GET  /status/<execution>
                  Execution state from Cloud Run plus the run's summary.json
                  (final agent message, exit code) once it exists.
-  GET  /healthz
+  GET  /health     (not /healthz: Cloud Run reserves paths ending in "z")
 
 Example:
   curl -X POST "$URL/run" -H "Authorization: Bearer $(gcloud auth print-identity-token)" \
@@ -53,8 +53,8 @@ def caller_email() -> str:
         return "unknown"
 
 
-@app.get("/healthz")
-def healthz():
+@app.get("/health")
+def health():
     return "ok"
 
 

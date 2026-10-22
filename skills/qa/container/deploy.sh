@@ -37,7 +37,8 @@ g() { gcloud --project="$PROJECT" "$@"; }
 
 echo "== APIs"
 g services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com \
-  secretmanager.googleapis.com storage.googleapis.com drive.googleapis.com \n  iam.googleapis.com iamcredentials.googleapis.com
+  secretmanager.googleapis.com storage.googleapis.com drive.googleapis.com \
+  iam.googleapis.com iamcredentials.googleapis.com
 
 echo "== Secrets (must exist; values are never handled here)"
 for s in "${SECRETS[@]}"; do

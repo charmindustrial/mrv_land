@@ -50,7 +50,7 @@ The skills read Certify with `skills/qa/container/tools/certify_read.py` and Dri
 |---|---|
 | Open a Drive spreadsheet (COBB, Ops Notes, Standard Emission Factors sheet, `MRV_AECN_Analysis.xlsx`, PP summaries, trackers) | `drive_read.py get <file URL> --out .../sources/` (keeps the full workbook on disk), then `drive_read.py tabs <xlsx>` and `drive_read.py rows <xlsx> --tab "<tab>" --match "<batch id or key>" --out .../<name>_rows.json`. Add `--comments` for every cell comment on the tab, which is the Ops Notes cell-comment step. Formulas, comments and links come back per cell, which covers "click into the computed cell and quote the formula". |
 | Copy the checklist to the Drive mount, or file results to Drive | `drive_read.py put <file> --folder <publish folder>`. Only the run's publish folder is writable. A checklist upload is refused unless `run_gates.py` wrote a green `gate_receipt.json` for that exact file. |
-| Send, draft or schedule Slack or Gmail (QA-complete post, findings thread, re-review result) | **Do not send anything.** No Slack or Gmail tools exist here. Write the exact message(s) you would have sent to `outputs/qa/<batch folder>/delivery_message.md`, each marked as a top-level post or thread reply in #team-mrv-alerts (C0944NQH1RP) — the only destination. No DMs, no emails, no @-mentions. The operator posts them. Leave the registry's `slack_channel` / `thread_ts` unchanged, or null for a new entry. |
+| Send, draft or schedule Slack or Gmail (QA-complete post, findings thread, re-review result) | **Do not send anything.** You have no Slack or Gmail tools. Write every message you would have sent to `outputs/qa/<batch folder>/delivery_messages.json`. The MRV QA bot posts that file to #team-mrv-alerts (C0944NQH1RP) after `run_gates.py` passes, once the operator approves it. Format: `{"posts": [{"text": "<top-level message>", "thread": ["<reply>", ...]}, {"thread_ts": "<existing thread ts>", "text": "<reply there>"}]}`. Plain text with Slack mrkdwn, no @-mentions of anyone (`<@...>`, `<!here>` are refused), no DMs, no emails. A batch QA needs at most two top-level posts: "QA complete" and the findings. Leave the registry's `slack_channel` / `thread_ts` unchanged, or null for a new entry; they are filled in after posting. |
 | Open the checklist in Excel and read Excel's PDF export (`G4_render_in_excel`) | Not possible: there's no Excel here. Mark the step `"done": "n/a"` with the evidence `"No Excel in the GCP QA container (CONTAINER_NA in batch_step_ledger.py); formatting checked by run_gates check_files()"`. Do every other Gate 4 step as written. |
 
 ## Narrowed reads: rules that keep them as strong as full reads
@@ -82,4 +82,4 @@ The last session's final message is saved as the run result. Make it a short sum
 - Pass, Fail, Flag and N/A counts.
 - Every Fail item, one line each.
 - What was published where.
-- Where `delivery_message.md` is.
+- Where `delivery_messages.json` is.

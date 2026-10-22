@@ -97,11 +97,21 @@ echo "staged from commit $(git -C "$WS" rev-parse --short HEAD)"
 g builds submit "$STAGE/runner" --tag="${IMAGE_BASE}/${JOB}:${TAG}"
 
 echo "== Deploy job ${JOB}"
+JOB_SECRETS="ANTHROPIC_API_KEY=anthropic-api-key:latest,ISO_PROD_CLIENT_SECRET=iso-prod-client-secret:latest,ISO_PROD_JWT=iso-prod-jwt:latest"
+# Slack is optional: wired in only once the MRV QA bot token exists in Secret Manager.
+if g secrets describe slack-bot-token >/dev/null 2>&1; then
+  g secrets add-iam-policy-binding slack-bot-token --member="serviceAccount:${RUNNER_SA}" \
+    --role=roles/secretmanager.secretAccessor >/dev/null
+  JOB_SECRETS="${JOB_SECRETS},SLACK_BOT_TOKEN=slack-bot-token:latest"
+  echo "Slack bot token found: posting enabled (auto-post: ${QA_SLACK_AUTOPOST:-0})"
+else
+  echo "No slack-bot-token secret: Slack posting stays off"
+fi
 g run jobs deploy "$JOB" --region="$REGION" --image="${IMAGE_BASE}/${JOB}:${TAG}" \
   --service-account="$RUNNER_SA" --tasks=1 --max-retries=0 --task-timeout=6h \
   --cpu=1 --memory=2Gi \
-  --set-env-vars="QA_STATE_BUCKET=${BUCKET},ISOMETRIC_ENV=prod,QA_MODEL=${QA_MODEL:-claude-opus-5-5}" \
-  --set-secrets="ANTHROPIC_API_KEY=anthropic-api-key:latest,ISO_PROD_CLIENT_SECRET=iso-prod-client-secret:latest,ISO_PROD_JWT=iso-prod-jwt:latest"
+  --set-env-vars="QA_STATE_BUCKET=${BUCKET},ISOMETRIC_ENV=prod,QA_MODEL=${QA_MODEL:-claude-opus-5-5},QA_SLACK_AUTOPOST=${QA_SLACK_AUTOPOST:-0}" \
+  --set-secrets="${JOB_SECRETS}"
 
 echo "== Build + deploy trigger ${SERVICE}"
 mkdir -p "$STAGE/trigger"

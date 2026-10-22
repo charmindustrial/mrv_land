@@ -229,6 +229,31 @@ def run_session(prompt: str, transcript: Path) -> dict:
     }
 
 
+def maybe_autopost(bucket: storage.Bucket, run_id: str, pushed: list[str]) -> None:
+    """Post the run's delivery_messages.json to #team-mrv-alerts, only when
+    QA_SLACK_AUTOPOST=1 and a bot token is configured. Off by default: the operator
+    reviews and posts with `qa_run.sh post <execution>`. slack_post.py enforces the
+    channel, the no-mentions rule and the gate receipt."""
+    if os.environ.get("QA_SLACK_AUTOPOST") != "1" or not os.environ.get("SLACK_BOT_TOKEN"):
+        return
+    files = [WS / p for p in pushed if p.endswith("delivery_messages.json")]
+    if len(files) != 1:
+        log(f"Auto-post skipped: expected 1 delivery_messages.json, found {len(files)}")
+        return
+    sys.path.insert(0, str(CONTAINER_DIR / "tools"))
+    import slack_post
+    try:
+        data = slack_post.load(files[0])
+        slack_post.check_delivery_gate(files[0])
+        posted = slack_post.post_all(data, os.environ["SLACK_BOT_TOKEN"])
+    except Exception as e:  # noqa: BLE001 - a failed post must never fail the QA run
+        log(f"Auto-post NOT done: {e}")
+        return
+    bucket.blob(f"runs/{run_id}/slack_posted.json").upload_from_string(
+        json.dumps({"execution": run_id, "posted_by": "auto", "result": {"posted": posted}}, indent=1))
+    log(f"Auto-posted {len(posted)} message(s) to #team-mrv-alerts")
+
+
 def read_gate_result(rf: Path, gate: int) -> dict:
     p = rf / f"gate_{gate}_result.json"
     if not p.exists():
@@ -312,6 +337,8 @@ def main() -> int:
                 json.dumps(summary, indent=1), content_type="application/json")
             for t in tmp.glob("transcript_*.jsonl"):
                 bucket.blob(f"runs/{run_id}/{t.name}").upload_from_filename(str(t))
+            if outcome == "complete":
+                maybe_autopost(bucket, run_id, pushed)
             release_lock(bucket, run_id)
     log(f"Done: {outcome}. ${summary['total_cost_usd']} over {summary['total_turns']} turns. "
         f"Summary: gs://{bucket.name}/runs/{run_id}/summary.json")

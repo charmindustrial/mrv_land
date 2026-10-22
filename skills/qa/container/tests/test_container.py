@@ -327,6 +327,68 @@ def gate_prompts_enforce_previous_exit_condition_and_scope():
     assert "run_gates.py" in g4 and "CONTAINER_MODE.md" in g4
 
 
+# ------------------------------------------------------------- Slack posting limits
+
+def _delivery(tmp: Path, data: dict, folder: str = "outputs/qa/batch-INJ-10-2026-W3") -> Path:
+    d = tmp / folder
+    d.mkdir(parents=True, exist_ok=True)
+    p = d / "delivery_messages.json"
+    p.write_text(json.dumps(data), encoding="utf-8")
+    return p
+
+
+@test
+def slack_only_team_mrv_alerts_no_mentions_no_dms():
+    import slack_post
+    ok = {"posts": [{"text": "QA complete: INJ-10-2026-W3", "thread": ["detail"]}]}
+    with tempfile.TemporaryDirectory() as d:
+        assert slack_post.load(_delivery(Path(d), ok))
+        for bad in [{**ok, "channel": "C0XXXXXXXXX"},                        # another channel
+                    {**ok, "channel": "D08KEFVRJDP"},                        # a DM
+                    {"posts": [{"text": "done <@U08JW9HQG5B>"}]},           # mention
+                    {"posts": [{"text": "ok", "thread": ["<!here> look"]}]},  # broadcast in a reply
+                    {"posts": [{"text": "x", "thread_ts": "1.2", "thread": ["y"]}]},
+                    {"posts": []}]:
+            try:
+                slack_post.load(_delivery(Path(d), bad))
+                raise AssertionError(f"not refused: {bad}")
+            except slack_post.Refused:
+                pass
+
+
+@test
+def slack_batch_post_needs_matching_green_receipt():
+    import slack_post
+    with tempfile.TemporaryDirectory() as d:
+        p = _delivery(Path(d), {"posts": [{"text": "QA complete"}]})
+        ck = p.parent / "Batch_INJ-10-2026-W3_QA_Checklist.xlsx"
+        ck.write_bytes(b"v1")
+        def gate_ok():
+            try:
+                slack_post.check_delivery_gate(p); return True
+            except slack_post.Refused:
+                return False
+        assert not gate_ok(), "no receipt must refuse"
+        (p.parent / "gate_receipt.json").write_text(json.dumps(
+            {"all_gates_green": True, "checklist_file": ck.name, "checklist_sha256": hashlib.sha256(b"v1").hexdigest()}))
+        assert gate_ok(), "matching green receipt must pass"
+        ck.write_bytes(b"v2")
+        assert not gate_ok(), "checklist edited after gates must refuse"
+
+
+@test
+def slack_posts_replies_into_the_new_thread():
+    import slack_post
+    calls = []
+    orig = slack_post._post
+    slack_post._post = lambda token, text, thread_ts=None: calls.append((text, thread_ts)) or f"ts{len(calls)}"
+    try:
+        slack_post.post_all({"posts": [{"text": "top", "thread": ["r1", "r2"]}, {"thread_ts": "9.9", "text": "re"}]}, "xoxb-test")
+    finally:
+        slack_post._post = orig
+    assert calls == [("top", None), ("r1", "ts1"), ("r2", "ts1"), ("re", "9.9")], calls
+
+
 # ------------------------------------------------------------- image contents
 
 @test

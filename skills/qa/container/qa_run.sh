@@ -5,7 +5,7 @@
 #        [--rp "2026-09-01 to 2026-09-30"] [--site "Basco 6"] [--cobb-row N]
 #        [--publish URL] [--notes "..."] [--start-gate N] [--model ID] [--wait]
 #   ./skills/qa/container/qa_run.sh status <execution>
-#   ./skills/qa/container/qa_run.sh post <execution>   (review, then post its messages to #team-mrv-alerts)
+#   ./skills/qa/container/qa_run.sh post <execution>   (review, then post its messages to #team-mrv-alerts as Hermes)
 #
 # Modes: batch-qa-aecn | batch-qa-charm | batch-qa-kerry | site-emissions-qa | re-review
 #        smoke  (container check: qa_run.sh smoke --certify <removal URL> --wait)
@@ -24,8 +24,9 @@ BUCKET="charm-mrv-qa-state"
 mode="${1:?mode or 'status' required (see header)}"; shift
 
 if [[ "$mode" == "post" ]]; then
-  # Operator-approved Slack delivery: show the run's delivery_messages.json, post on "y",
-  # and record it so the same run can never post twice.
+  # Operator-approved Slack delivery. The preview runs here and needs no token; the post
+  # itself runs inside the job, because only the job's service account can read the
+  # Hermes bot token (it lives in prod-gaia). Each execution posts at most once.
   ex="${1:?execution name required}"
   PYBIN="${QA_PYTHON:-python3}"
   HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -33,20 +34,17 @@ if [[ "$mode" == "post" ]]; then
     echo "Already posted for ${ex}:"; gcloud storage cat "gs://${BUCKET}/runs/${ex}/slack_posted.json"; exit 1
   fi
   rel="$(gcloud storage cat "gs://${BUCKET}/runs/${ex}/summary.json" | "$PYBIN" -c \
-    'import json,sys; s=json.load(sys.stdin); m=[p for p in s.get("state_files_pushed",[]) if p.endswith("delivery_messages.json")]; print(m[0] if len(m)==1 else "")')"
-  [[ -n "$rel" ]] || { echo "Run ${ex} produced no single delivery_messages.json; nothing to post."; exit 1; }
+    'import json,sys; s=json.load(sys.stdin); m=[p for p in s.get("state_files_pushed",[]) if p.endswith("delivery_messages.json")]; print(m[0] if len(m)==1 and s.get("outcome")=="complete" else "")')"
+  [[ -n "$rel" ]] || { echo "Run ${ex} did not complete with a single delivery_messages.json; nothing to post."; exit 1; }
   work="$(mktemp -d)"; trap 'rm -rf "$work"' EXIT
-  dir="$(dirname "$rel")"
-  mkdir -p "$work/$dir"
+  dir="$(dirname "$rel")"; mkdir -p "$work/$dir"
   gcloud storage cp -r "gs://${BUCKET}/state/${dir}/*" "$work/$dir/" >/dev/null   # messages + gate receipt + checklist
   "$PYBIN" "$HERE/tools/slack_post.py" "$work/$rel" --dry-run || exit 1
-  read -r -p $'\nPost these to #team-mrv-alerts as MRV QA? [y/N] ' ok
+  read -r -p $'\nPost these to #team-mrv-alerts as Hermes? [y/N] ' ok
   [[ "$ok" == "y" || "$ok" == "Y" ]] || { echo "Not posted."; exit 0; }
-  out="$(SLACK_BOT_TOKEN="$(gcloud secrets versions access latest --secret=slack-bot-token --project="$PROJECT")" \
-         "$PYBIN" "$HERE/tools/slack_post.py" "$work/$rel" | tail -1)"
-  printf '{"execution": "%s", "posted_by": "%s", "result": %s}\n' "$ex" "$(gcloud config get-value account 2>/dev/null)" "$out" \
-    | gcloud storage cp - "gs://${BUCKET}/runs/${ex}/slack_posted.json" >/dev/null
-  echo "Posted. Record: gs://${BUCKET}/runs/${ex}/slack_posted.json"
+  gcloud run jobs execute "$JOB" --project="$PROJECT" --region="$REGION" --wait \
+    --update-env-vars="^|^QA_MODE=post|QA_POST_EXECUTION=${ex}|QA_OPERATOR=$(gcloud config get-value account 2>/dev/null)"
+  gcloud storage cat "gs://${BUCKET}/runs/${ex}/slack_posted.json" 2>/dev/null || { echo "No post record: check the post run's logs."; exit 1; }
   exit 0
 fi
 

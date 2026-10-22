@@ -289,8 +289,8 @@ def every_mode_has_a_slice_entry_and_valid_skill():
         assert mode in qa_inputs.KB_SLICE and mode in qa_inputs.GATES, mode
         sl = qa_inputs.KB_SLICE[mode]
         assert sl is None or sl in kb_slices.SLICES, f"{mode}: unknown slice {sl}"
-        if mode == "smoke":
-            continue                      # container check, no skill
+        if mode in ("smoke", "post"):
+            continue                      # container check / Slack delivery, no skill
         assert (WS / "skills/qa" / qa_inputs.MODES[mode][0] / "SKILL.md").exists(), mode
 
 
@@ -301,6 +301,8 @@ def input_validation():
     assert qa_inputs.validate({"mode": "batch-qa-aecn", "batch_id": "2", "certify_url": "x",
                                "drive_folder": "y", "start_gate": "9"})
     assert qa_inputs.validate({"mode": "nope"})
+    assert qa_inputs.validate({"mode": "post", "post_execution": "qa-runner-qv6rk"}) == []
+    assert qa_inputs.validate({"mode": "post"}), "post needs post_execution"
     ok = {"mode": "re-review", "batch_id": "INJ-09-2026-W4"}
     for m in qa_inputs.MODELS:
         assert qa_inputs.validate({**ok, "model": m}) == [], m

@@ -20,6 +20,10 @@ MODES = {
     # Container check, not a QA: one Certify read, one Drive call, one short model
     # session and a bucket round trip. Writes only its own run folder.
     "smoke": (None, None, ["certify_url"]),
+    # Operator-approved Slack delivery of an earlier run's delivery_messages.json, posted
+    # from inside the job because only the job's service account can read the bot token.
+    # No model session.
+    "post": (None, None, ["post_execution"]),
 }
 
 # Gates each mode runs, one Claude session per gate (entrypoint.py). The gate
@@ -32,6 +36,7 @@ GATES = {
     "site-emissions-qa": [1, 2, 3],   # Gate 3 includes "After Gate 3" utilities and delivery
     "re-review": [],
     "smoke": [],
+    "post": [],
 }
 
 # Knowledge Base slice each mode reads (knowledge-base/slices/<name>.md, built
@@ -43,6 +48,7 @@ KB_SLICE = {
     "site-emissions-qa": "site-emissions",
     "re-review": None,
     "smoke": None,
+    "post": None,
 }
 
 # Models a run may use. The job default is set in deploy.sh (QA_MODEL); a run can
@@ -61,6 +67,7 @@ FIELDS = [
     "publish_folder",   # optional Drive folder for results; defaults to drive_folder
     "notes",            # optional free text for the agent, e.g. answers to its last questions
     "start_gate",       # optional: re-run from this gate even if later gates were recorded complete
+    "post_execution",   # post mode: the execution whose delivery_messages.json to post
     "model",            # optional: one of MODELS; overrides the job default for this run
     "operator",         # who started the run (filled in by the trigger / CLI)
 ]

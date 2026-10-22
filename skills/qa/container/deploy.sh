@@ -98,14 +98,16 @@ g builds submit "$STAGE/runner" --tag="${IMAGE_BASE}/${JOB}:${TAG}"
 
 echo "== Deploy job ${JOB}"
 JOB_SECRETS="ANTHROPIC_API_KEY=anthropic-api-key:latest,ISO_PROD_CLIENT_SECRET=iso-prod-client-secret:latest,ISO_PROD_JWT=iso-prod-jwt:latest"
-# Slack is optional: wired in only once the MRV QA bot token exists in Secret Manager.
-if g secrets describe slack-bot-token >/dev/null 2>&1; then
-  g secrets add-iam-policy-binding slack-bot-token --member="serviceAccount:${RUNNER_SA}" \
-    --role=roles/secretmanager.secretAccessor >/dev/null
-  JOB_SECRETS="${JOB_SECRETS},SLACK_BOT_TOKEN=slack-bot-token:latest"
-  echo "Slack bot token found: posting enabled (auto-post: ${QA_SLACK_AUTOPOST:-0})"
+# Slack posts go out as Hermes, gaia's Slack bot. Its token stays in prod-gaia
+# (project number 824158515535); prod-gaia grants mrv-qa-runner Secret Accessor on that
+# one secret. Cloud Run checks that access at deploy time, so this fails loudly until the
+# grant exists. QA_SLACK_SECRET=none deploys without Slack.
+QA_SLACK_SECRET="${QA_SLACK_SECRET:-projects/824158515535/secrets/integrations--slack-hermes-bot--token}"
+if [ "$QA_SLACK_SECRET" != "none" ]; then
+  JOB_SECRETS="${JOB_SECRETS},SLACK_BOT_TOKEN=${QA_SLACK_SECRET}:latest"
+  echo "Slack: posting as Hermes via ${QA_SLACK_SECRET} (auto-post: ${QA_SLACK_AUTOPOST:-0})"
 else
-  echo "No slack-bot-token secret: Slack posting stays off"
+  echo "Slack: off (QA_SLACK_SECRET=none)"
 fi
 g run jobs deploy "$JOB" --region="$REGION" --image="${IMAGE_BASE}/${JOB}:${TAG}" \
   --service-account="$RUNNER_SA" --tasks=1 --max-retries=0 --task-timeout=6h \

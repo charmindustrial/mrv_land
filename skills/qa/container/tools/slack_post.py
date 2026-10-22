@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-slack_post.py — post a QA run's delivery messages to #team-mrv-alerts as the MRV QA bot.
+slack_post.py — post a QA run's delivery messages to #team-mrv-alerts as the Slack bot
+(Hermes, gaia's bot; token from prod-gaia via the job's environment).
 
 The only Slack route in the QA. A QA run writes delivery_messages.json (format below);
 this script posts it. The model never posts: it only writes the file.

@@ -307,7 +307,11 @@ def main() -> int:
     os.environ["QA_MODE"] = inputs["mode"]
 
     bucket = storage.Client().bucket(os.environ["QA_STATE_BUCKET"])
-    take_lock(bucket, run_id, inputs)
+    # post runs only read state and write their own runs/<execution> record, so they take
+    # no lock and push no state: posting can never collide with a QA that is running.
+    readonly = inputs["mode"] == "post"
+    if not readonly:
+        take_lock(bucket, run_id, inputs)
     started = now()
     tmp = Path("/tmp/qa-runs") / run_id      # outside outputs/ so transcripts are not pushed as state
     tmp.mkdir(parents=True, exist_ok=True)
@@ -352,7 +356,7 @@ def main() -> int:
     finally:
         pushed = []
         try:
-            pushed = push_state(bucket, before) if before is not None else []
+            pushed = push_state(bucket, before) if before is not None and not readonly else []
         finally:
             final = sessions[-1]["final_message"] if sessions else ""
             summary = {
@@ -370,7 +374,8 @@ def main() -> int:
                 bucket.blob(f"runs/{run_id}/{t.name}").upload_from_filename(str(t))
             if outcome == "complete" and inputs["mode"] != "post":
                 maybe_autopost(bucket, run_id, pushed)
-            release_lock(bucket, run_id)
+            if not readonly:
+                release_lock(bucket, run_id)
     log(f"Done: {outcome}. ${summary['total_cost_usd']} over {summary['total_turns']} turns. "
         f"Summary: gs://{bucket.name}/runs/{run_id}/summary.json")
     print(final, flush=True)

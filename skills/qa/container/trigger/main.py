@@ -11,6 +11,11 @@ recorded as the run's operator.
   GET  /status/<execution>
                  Execution state from Cloud Run plus the run's summary.json
                  (final agent message, exit code) once it exists.
+  GET  /candidates
+                 The latest discovery list (discovery/latest.json): recent Certify
+                 removals resolved to batch ID, mode, Drive folder and reporting period,
+                 each marked ready / needs a person, with its QA status.
+  POST /discover Refresh that list (starts the job in discover mode; no model).
   GET  /health     (not /healthz: Cloud Run reserves paths ending in "z")
 
 Example:
@@ -76,6 +81,27 @@ def run():
     execution = (resp.json().get("metadata") or {}).get("name", "")
     return jsonify({"started": True, "execution": execution.rsplit("/", 1)[-1],
                     "inputs": inputs}), 202
+
+
+@app.get("/candidates")
+def candidates():
+    blob = storage.Client().bucket(BUCKET).blob("discovery/latest.json")
+    if not blob.exists():
+        return jsonify({"error": "no discovery run yet: POST /discover first"}), 404
+    return app.response_class(blob.download_as_text(), mimetype="application/json")
+
+
+@app.post("/discover")
+def discover():
+    env = [{"name": "QA_MODE", "value": "discover"}, {"name": "QA_OPERATOR", "value": caller_email()}]
+    resp = _session.post(
+        f"{RUN_API}/projects/{PROJECT}/locations/{REGION}/jobs/{JOB}:run",
+        json={"overrides": {"containerOverrides": [{"env": env}]}},
+    )
+    if resp.status_code >= 300:
+        return jsonify({"error": "discovery start failed", "detail": resp.text[:1000]}), 502
+    execution = (resp.json().get("metadata") or {}).get("name", "")
+    return jsonify({"started": True, "execution": execution.rsplit("/", 1)[-1]}), 202
 
 
 @app.get("/status/<execution>")

@@ -281,6 +281,41 @@ def run_post_mode(bucket: storage.Bucket, inputs: dict) -> str:
     return post_delivery(bucket, ex, summary.get("state_files_pushed", []), inputs.get("operator", "operator"))
 
 
+def run_discover_mode(bucket: storage.Bucket, run_id: str) -> str:
+    """discover mode: resolve recent removals, mark each with its QA status from earlier
+    runs, and save the list where the trigger's GET /candidates reads it."""
+    sys.path.insert(0, str(CONTAINER_DIR / "tools"))
+    import discover
+    out = discover.discover_all(int(os.environ.get("QA_DISCOVER_LIMIT", "40")))
+    runs = {}
+    for blob in bucket.list_blobs(prefix="runs/"):
+        if blob.name.endswith("/summary.json"):
+            try:
+                s = json.loads(blob.download_as_text())
+            except Exception:  # noqa: BLE001
+                continue
+            url, ex = (s.get("inputs") or {}).get("certify_url", ""), s.get("run_id")
+            if s.get("inputs", {}).get("mode", "").startswith(("batch-", "site-", "re-")):
+                runs.setdefault(url, []).append(s)
+    posted = {b.name.split("/")[1] for b in bucket.list_blobs(prefix="runs/") if b.name.endswith("/slack_posted.json")}
+    for row in out["candidates"]:
+        mine = sorted((s for url, ss in runs.items() if row["removal_id"] in url for s in ss),
+                      key=lambda s: s.get("finished_at_utc") or "")
+        if not mine:
+            row["qa_status"] = "not QA'd"
+            continue
+        last = mine[-1]
+        row["qa_status"] = "posted" if last["run_id"] in posted else last.get("outcome")
+        row["last_execution"], row["last_cost_usd"] = last["run_id"], last.get("total_cost_usd")
+    out["generated_by"] = run_id
+    text = json.dumps(out, indent=1, default=str)
+    bucket.blob("discovery/latest.json").upload_from_string(text, content_type="application/json")
+    bucket.blob(f"runs/{run_id}/candidates.json").upload_from_string(text, content_type="application/json")
+    ready = sum(bool(r.get("ready")) for r in out["candidates"])
+    log(f"Discovery: {len(out['candidates'])} removals, {ready} ready, {len(out['candidates']) - ready} need a person")
+    return "complete"
+
+
 def read_gate_result(rf: Path, gate: int) -> dict:
     p = rf / f"gate_{gate}_result.json"
     if not p.exists():
@@ -309,7 +344,7 @@ def main() -> int:
     bucket = storage.Client().bucket(os.environ["QA_STATE_BUCKET"])
     # post runs only read state and write their own runs/<execution> record, so they take
     # no lock and push no state: posting can never collide with a QA that is running.
-    readonly = inputs["mode"] == "post"
+    readonly = inputs["mode"] in ("post", "discover")
     if not readonly:
         take_lock(bucket, run_id, inputs)
     started = now()
@@ -333,6 +368,9 @@ def main() -> int:
         if inputs["mode"] == "post":               # Slack delivery only, no model session
             todo = []
             outcome = run_post_mode(bucket, inputs)
+        elif inputs["mode"] == "discover":         # refresh the QA candidate list, no model session
+            todo = []
+            outcome = run_discover_mode(bucket, run_id)
         else:
             outcome = "complete"
         log(f"Gates to run: {todo} (already complete: {status['completed_gates']})")
@@ -372,7 +410,7 @@ def main() -> int:
                 json.dumps(summary, indent=1), content_type="application/json")
             for t in tmp.glob("transcript_*.jsonl"):
                 bucket.blob(f"runs/{run_id}/{t.name}").upload_from_filename(str(t))
-            if outcome == "complete" and inputs["mode"] != "post":
+            if outcome == "complete" and inputs["mode"] not in ("post", "discover"):
                 maybe_autopost(bucket, run_id, pushed)
             if not readonly:
                 release_lock(bucket, run_id)

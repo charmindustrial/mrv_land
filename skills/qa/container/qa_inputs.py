@@ -24,6 +24,8 @@ MODES = {
     # from inside the job because only the job's service account can read the bot token.
     # No model session.
     "post": (None, None, ["post_execution"]),
+    # Refresh the list of QA-able removals (tools/discover.py) into the bucket. No model.
+    "discover": (None, None, []),
 }
 
 # Gates each mode runs, one Claude session per gate (entrypoint.py). The gate
@@ -37,6 +39,7 @@ GATES = {
     "re-review": [],
     "smoke": [],
     "post": [],
+    "discover": [],
 }
 
 # Knowledge Base slice each mode reads (knowledge-base/slices/<name>.md, built
@@ -49,6 +52,7 @@ KB_SLICE = {
     "re-review": None,
     "smoke": None,
     "post": None,
+    "discover": None,
 }
 
 # Models a run may use. The job default is set in deploy.sh (QA_MODEL); a run can

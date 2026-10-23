@@ -289,7 +289,7 @@ def every_mode_has_a_slice_entry_and_valid_skill():
         assert mode in qa_inputs.KB_SLICE and mode in qa_inputs.GATES, mode
         sl = qa_inputs.KB_SLICE[mode]
         assert sl is None or sl in kb_slices.SLICES, f"{mode}: unknown slice {sl}"
-        if mode in ("smoke", "post"):
+        if mode in ("smoke", "post", "discover"):
             continue                      # container check / Slack delivery, no skill
         assert (WS / "skills/qa" / qa_inputs.MODES[mode][0] / "SKILL.md").exists(), mode
 
@@ -389,6 +389,46 @@ def slack_posts_replies_into_the_new_thread():
     finally:
         slack_post._post = orig
     assert calls == [("top", None), ("r1", "ts1"), ("r2", "ts1"), ("re", "9.9")], calls
+
+
+# ------------------------------------------------------------- discovery
+
+@test
+def discover_classifies_batch_types_from_component_names():
+    import discover as d
+    cases = {
+        "AECN": ["Injection sequestration", "AECN pyrolysis (from rail loads) - process emissions", "SOPOR to Baton Rouge Rail Transport Process Emissions"],
+        "AECN-Truck": ["AECN pyrolysis (from truck loads) - process emissions", "AECN to LA Tanker Truck Transport Process Emissions - AECN"],
+        "QOWV": ["CO to LA Tanker Truck Transport Process Emissions - QOWV", "QOWV Pyrolysis Emissions"],
+        "WODO": ["CO to LA Flatbed Truck Transport Process Emissions - WODO", "Pyrolysis - Charm WODO PP Emissions"],
+        "KERRY": ["Kerry to Basco Flatbed Truck Transport Process Emissions"],
+    }
+    for want, names in cases.items():
+        got, _ = d.classify(names + ["B6 Injection site diesel emissions"])      # site emissions ignored
+        assert got == want, (want, got)
+    mixed, note = d.classify(["AECN pyrolysis (from rail loads) - x", "AECN pyrolysis (from truck loads) - y"])
+    assert mixed == "AECN" and "rail and truck" in note
+    none, why = d.classify(["QOWV Pyrolysis Emissions", "Kerry to Basco Flatbed Truck"])
+    assert none is None and "several" in why
+
+
+@test
+def discover_week_labels_match_known_batches():
+    import discover as d
+    known = {"2026-10-16": "INJ-10-2026-W3", "2026-10-02": "INJ-10-2026-W1", "2026-09-25": "INJ-09-2026-W4",
+             "2026-08-29": "INJ-08-2026-W5", "2026-06-06": "INJ-06-2026-W1", "2026-07-11": "INJ-07-2026-W2"}
+    for completed, label in known.items():
+        assert d.week_label(completed) == label, (completed, d.week_label(completed))
+    assert d.week_label("2026-10-16", -1) == "INJ-10-2026-W2"
+    assert d.rp_period("October 1 - October 31 RP", "INJ-10-2026-W3") == "2026-10-01 to 2026-10-31"
+
+
+@test
+def discover_rail_plus_truck_pairs_only_exact_sums():
+    import discover as d
+    rail, truck = [153160.0, 12.5, 999.0], [156495.07, 3.2, 88.0]
+    assert d.mass_as_sum(rail, truck, [309655.07])[1:] == (153160.0, 156495.07)
+    assert d.mass_as_sum(rail, truck, [309655.10]) is None, "0.03 kg off must not match"
 
 
 # ------------------------------------------------------------- image contents

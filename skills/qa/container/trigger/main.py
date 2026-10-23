@@ -47,6 +47,20 @@ _creds, _ = google.auth.default(scopes=["https://www.googleapis.com/auth/cloud-p
 _session = AuthorizedSession(_creds)
 
 
+# Who may use this endpoint, until the MRV team has a Google group: Cloud Run's IAM
+# check lets in any principal with run.invoker; this list narrows it to people.
+ALLOWED = {e.strip().lower() for e in os.environ.get("QA_ALLOWED_OPERATORS", "").split(",") if e.strip()}
+
+
+@app.before_request
+def only_allowed_operators():
+    if request.path == "/health" or not ALLOWED:
+        return None
+    if caller_email().lower() not in ALLOWED:
+        return jsonify({"error": "not an allowed QA operator"}), 403
+    return None
+
+
 def caller_email() -> str:
     """Email claim of the identity token Cloud Run already verified."""
     auth = request.headers.get("Authorization", "")

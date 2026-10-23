@@ -588,7 +588,7 @@ Read `references/lessons_learned.md` for the full list with examples. The critic
 - Lab results (Section 4): Open CHN/CoA PDF, read from the report page
 - Certify components (Sections 7, 9): Read every component in the API dump (blueprint, attribution factor, inputs) and compute its value
 - **EF precise values (Section 6 + 9.2 + 9.4):** Open the Standard Emission Factors sheet 2026 tab and read the live cell — do NOT cite from SKILL.md
-- **Carbon range / SD / n (Section 4.2):** Open `MRV_AECN_Analysis.xlsx` — do NOT cite from SKILL.md
+- **Carbon range / SD / n (Section 4.2):** Open `MRV_AECN_Analysis.xlsx` — do NOT cite from SKILL.md. It is on Drive at `MRV / Removals Reporting / QA Reference / MRV_AECN_Analysis.xlsx` (file ID `1rgKO1oNaNGPFvO7cSMywV1YxCIiToZ64`): mean, SD and count are on the `Summary Statistics` tab, B5:B7
 - **BCU eligibility (Section 9.5/9.6):** Open the Bio-oil Geological Storage protocol PDF — do NOT cite from SKILL.md
 - **BCU certificate (Section 9.5):** Open the actual cert PDF in Certify Sources — confirm batch / load / quantity coverage, do NOT confirm presence-on-list-only
 - **Route map (Section 3.5):** Open `AECN to Basco.png` in Certify Sources — do NOT cite the Distance datapoint number as the route verification

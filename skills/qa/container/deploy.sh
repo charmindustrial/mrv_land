@@ -123,7 +123,7 @@ mv "$STAGE/trigger/trigger/"* "$STAGE/trigger/" && rmdir "$STAGE/trigger/trigger
 g builds submit "$STAGE/trigger" --tag="${IMAGE_BASE}/${SERVICE}:${TAG}"
 g run deploy "$SERVICE" --region="$REGION" --image="${IMAGE_BASE}/${SERVICE}:${TAG}" \
   --service-account="$TRIGGER_SA" --no-allow-unauthenticated \
-  --set-env-vars="QA_PROJECT=${PROJECT},QA_REGION=${REGION},QA_JOB=${JOB},QA_STATE_BUCKET=${BUCKET}"
+  --set-env-vars="^|^QA_PROJECT=${PROJECT}|QA_REGION=${REGION}|QA_JOB=${JOB}|QA_STATE_BUCKET=${BUCKET}|QA_ALLOWED_OPERATORS=${QA_ALLOWED_OPERATORS:-garrett.lutz@charmindustrial.com,max@charmindustrial.com}"
 
 echo "== IAM"
 # The trigger starts executions with env overrides (run.jobs.runWithOverrides).

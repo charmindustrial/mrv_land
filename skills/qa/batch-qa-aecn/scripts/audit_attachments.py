@@ -62,7 +62,7 @@ CATEGORY_PATTERNS = {
     # "Distance" added 2026-08-06 from the first Kerry tanker batch, whose route
     # evidence is filed as "Kerry to Basco Distance.png" — a Google Maps capture
     # that none of the AECN-era route filename patterns matched.
-    "map_or_watco": r"to SOPOR|Railyard to Basco|AECN to Basco|to B6|image \(44\)|Watco|Google Maps|Maps|Routing Map|Distance",
+    "map_or_watco": r"to SOPOR|Railyard to Basco|AECN to Basco|to B6|image \(44\)|Watco|Google Maps|Maps|Routing Map|Distance|Truck Route",   # Truck Route: e.g. "RailLogix to Baton Rouge Truck Route.png" (Google Maps capture, INJ-10-2026-W3)
     "production_ci":r"Production Period|CI|Production Emissions|PP\d",   # Charm WODO/Aqueous
 }
 

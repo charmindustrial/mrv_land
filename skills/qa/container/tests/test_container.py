@@ -391,6 +391,38 @@ def slack_posts_replies_into_the_new_thread():
     assert calls == [("top", None), ("r1", "ts1"), ("r2", "ts1"), ("re", "9.9")], calls
 
 
+# ------------------------------------------------------------- Slack post built from the checklist
+
+@test
+def checklist_becomes_the_slack_post():
+    import openpyxl
+    import checklist_to_slack as c2s
+    import slack_post
+    with tempfile.TemporaryDirectory() as d:
+        p = Path(d) / "Batch_X_QA_Checklist.xlsx"
+        wb = openpyxl.Workbook(); ws = wb.active
+        ws.append(["Batch ID", "INJ-10-2026-W3"])
+        ws.append(["Item", "Check", "Status", "Evidence", "Verifier Reference"])
+        ws.append(["1. Batch Folder Completeness"])
+        ws.append(["1.1", "Week folder exists", "Flag", "Testing/ missing at Gate 1", "VR App. 1"])
+        ws.append(["1.2", "Scale tickets present", "Pass", "26 tickets <@U08JW9HQG5B> & co", "VR App. 1"])
+        ws.append(["2. Scale Tickets & Mass Determination"])
+        ws.append(["2.3", "Tractor/trailer match", "Fail", "CH1 full vs CH2 empty", "VR Sec 5.1"])
+        ws.append(["2.4", "Not applicable here", "N/A", "", ""])
+        wb.save(p)
+        out = c2s.build(p, "INJ-10-2026-W3", ["Evidence changed after review: Testing/ added"], None)
+        top = out["posts"][0]["text"]
+        assert "1 Pass · 1 Fail · 1 Flag · 1 N/A" in top, top
+        assert "2.3" in top and "Tractor/trailer match" in top, "every Fail must be in the top post"
+        assert "Evidence changed after review" in top
+        thread = out["posts"][0]["thread"]
+        assert len(thread) == 2 and "Batch Folder Completeness" in thread[0] and "2.3 Fail" in thread[1], thread
+        assert "&lt;@U08JW9HQG5B&gt;" in thread[0], "evidence text must not become a real mention"
+        dj = Path(d) / "delivery_messages.json"
+        dj.write_text(json.dumps(out), encoding="utf-8")
+        slack_post.load(dj)                                   # passes the poster's own checks
+
+
 # ------------------------------------------------------------- discovery
 
 @test

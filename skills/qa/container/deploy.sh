@@ -28,6 +28,7 @@ SERVICE="qa-trigger"
 SECRETS=(anthropic-api-key iso-prod-client-secret iso-prod-jwt)
 IMAGE_BASE="${REGION}-docker.pkg.dev/${PROJECT}/${REPO}"
 TAG="$(date -u +%Y%m%d-%H%M%S)"
+GAIA_CALLERS="${GAIA_CALLERS:-44659893903-compute@developer.gserviceaccount.com,824158515535-compute@developer.gserviceaccount.com}"
 
 : "${QA_OPERATORS:?Set QA_OPERATORS to a comma-separated list like user:name@charmindustrial.com}"
 
@@ -123,9 +124,14 @@ mv "$STAGE/trigger/trigger/"* "$STAGE/trigger/" && rmdir "$STAGE/trigger/trigger
 g builds submit "$STAGE/trigger" --tag="${IMAGE_BASE}/${SERVICE}:${TAG}"
 g run deploy "$SERVICE" --region="$REGION" --image="${IMAGE_BASE}/${SERVICE}:${TAG}" \
   --service-account="$TRIGGER_SA" --no-allow-unauthenticated \
-  --set-env-vars="^|^QA_PROJECT=${PROJECT}|QA_REGION=${REGION}|QA_JOB=${JOB}|QA_STATE_BUCKET=${BUCKET}|QA_ALLOWED_OPERATORS=${QA_ALLOWED_OPERATORS:-garrett.lutz@charmindustrial.com,max@charmindustrial.com}"
+  --set-env-vars="^|^QA_PROJECT=${PROJECT}|QA_REGION=${REGION}|QA_JOB=${JOB}|QA_STATE_BUCKET=${BUCKET}|QA_ALLOWED_OPERATORS=${QA_ALLOWED_OPERATORS:-garrett.lutz@charmindustrial.com,max@charmindustrial.com}|QA_TRUSTED_CALLERS=${GAIA_CALLERS}"
 
 echo "== IAM"
+# gaia's MRV QA Queue page calls qa-trigger from gaia-api (dev and prod runtime SAs), which
+# checks the person itself and names them in X-QA-Operator; qa-trigger trusts only these.
+for sa in ${GAIA_CALLERS//,/ }; do
+  g run services add-iam-policy-binding "$SERVICE" --region="$REGION"     --member="serviceAccount:${sa}" --role=roles/run.invoker >/dev/null
+done
 # The trigger starts executions with env overrides (run.jobs.runWithOverrides).
 g run jobs add-iam-policy-binding "$JOB" --region="$REGION" \
   --member="serviceAccount:${TRIGGER_SA}" --role=roles/run.developer >/dev/null

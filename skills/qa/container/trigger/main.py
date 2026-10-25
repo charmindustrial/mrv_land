@@ -16,6 +16,10 @@ recorded as the run's operator.
                  removals resolved to batch ID, mode, Drive folder and reporting period,
                  each marked ready / needs a person, with its QA status.
   POST /discover Refresh that list (starts the job in discover mode; no model).
+  GET  /delivery/<execution>   The Slack post a finished run would send (for review).
+  POST /post/<execution>       Post it to #team-mrv-alerts as Hermes, once.
+  Callers: a person on QA_ALLOWED_OPERATORS, or a QA_TRUSTED_CALLERS service (gaia-api)
+  acting for such a person named in the X-QA-Operator header.
   GET  /health     (not /healthz: Cloud Run reserves paths ending in "z")
 
 Example:
@@ -50,13 +54,23 @@ _session = AuthorizedSession(_creds)
 # Who may use this endpoint, until the MRV team has a Google group: Cloud Run's IAM
 # check lets in any principal with run.invoker; this list narrows it to people.
 ALLOWED = {e.strip().lower() for e in os.environ.get("QA_ALLOWED_OPERATORS", "").split(",") if e.strip()}
+# Services allowed to act for a signed-in person (gaia-api's runtime service accounts).
+# They check the person themselves, then name them in the X-QA-Operator header.
+TRUSTED = {e.strip().lower() for e in os.environ.get("QA_TRUSTED_CALLERS", "").split(",") if e.strip()}
+
+
+def operator() -> str:
+    """The person a request is for: the caller, or for a trusted service the person it names."""
+    caller = caller_email().lower()
+    named = (request.headers.get("X-QA-Operator") or "").strip().lower()
+    return named if caller in TRUSTED and named else caller
 
 
 @app.before_request
 def only_allowed_operators():
     if request.path == "/health" or not ALLOWED:
         return None
-    if caller_email().lower() not in ALLOWED:
+    if operator() not in ALLOWED:
         return jsonify({"error": "not an allowed QA operator"}), 403
     return None
 
@@ -80,7 +94,7 @@ def health():
 @app.post("/run")
 def run():
     inputs = {k: str(v) for k, v in (request.get_json(silent=True) or {}).items() if v not in (None, "")}
-    inputs["operator"] = caller_email()
+    inputs["operator"] = operator()
     problems = qa_inputs.validate(inputs)
     if problems:
         return jsonify({"error": "invalid inputs", "problems": problems}), 400
@@ -107,7 +121,7 @@ def candidates():
 
 @app.post("/discover")
 def discover():
-    env = [{"name": "QA_MODE", "value": "discover"}, {"name": "QA_OPERATOR", "value": caller_email()}]
+    env = [{"name": "QA_MODE", "value": "discover"}, {"name": "QA_OPERATOR", "value": operator()}]
     resp = _session.post(
         f"{RUN_API}/projects/{PROJECT}/locations/{REGION}/jobs/{JOB}:run",
         json={"overrides": {"containerOverrides": [{"env": env}]}},
@@ -116,6 +130,44 @@ def discover():
         return jsonify({"error": "discovery start failed", "detail": resp.text[:1000]}), 502
     execution = (resp.json().get("metadata") or {}).get("name", "")
     return jsonify({"started": True, "execution": execution.rsplit("/", 1)[-1]}), 202
+
+
+def _summary(execution: str) -> dict | None:
+    blob = storage.Client().bucket(BUCKET).blob(f"runs/{execution}/summary.json")
+    return json.loads(blob.download_as_text()) if blob.exists() else None
+
+
+@app.get("/delivery/<execution>")
+def delivery(execution: str):
+    """The Slack post a finished run would send, for review before posting."""
+    s = _summary(execution)
+    if not s:
+        return jsonify({"error": "no such run"}), 404
+    rel = [p for p in s.get("state_files_pushed", []) if p.endswith("delivery_messages.json")]
+    if s.get("outcome") != "complete" or len(rel) != 1:
+        return jsonify({"error": f"run ended '{s.get('outcome')}' without a single delivery_messages.json"}), 409
+    bucket = storage.Client().bucket(BUCKET)
+    posted = bucket.blob(f"runs/{execution}/slack_posted.json")
+    return jsonify({"execution": execution, "batch_id": (s.get("inputs") or {}).get("batch_id"),
+                    "messages": json.loads(bucket.blob(f"state/{rel[0]}").download_as_text()),
+                    "posted": json.loads(posted.download_as_text()) if posted.exists() else None})
+
+
+@app.post("/post/<execution>")
+def post(execution: str):
+    """Post a reviewed run's messages to #team-mrv-alerts as Hermes (job in post mode)."""
+    s = _summary(execution)
+    if not s or s.get("outcome") != "complete":
+        return jsonify({"error": "only a completed run can be posted"}), 409
+    if storage.Client().bucket(BUCKET).blob(f"runs/{execution}/slack_posted.json").exists():
+        return jsonify({"error": "already posted"}), 409
+    env = [{"name": "QA_MODE", "value": "post"}, {"name": "QA_POST_EXECUTION", "value": execution},
+           {"name": "QA_OPERATOR", "value": operator()}]
+    resp = _session.post(f"{RUN_API}/projects/{PROJECT}/locations/{REGION}/jobs/{JOB}:run",
+                         json={"overrides": {"containerOverrides": [{"env": env}]}})
+    if resp.status_code >= 300:
+        return jsonify({"error": "post start failed", "detail": resp.text[:1000]}), 502
+    return jsonify({"started": True, "execution": ((resp.json().get("metadata") or {}).get("name", "")).rsplit("/", 1)[-1]}), 202
 
 
 @app.get("/status/<execution>")

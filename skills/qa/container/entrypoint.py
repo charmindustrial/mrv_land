@@ -260,10 +260,55 @@ def post_delivery(bucket: storage.Bucket, execution: str, rel_files: list[str], 
 
 
 def maybe_autopost(bucket: storage.Bucket, run_id: str, pushed: list[str]) -> None:
-    """Auto-post a finished run's messages, only when QA_SLACK_AUTOPOST=1. Off by
-    default: the operator reviews and posts with `qa_run.sh post <execution>`."""
+    """Auto-post a finished run's messages when QA_SLACK_AUTOPOST=1 (deploy.sh's default).
+    With it off, the operator reviews and posts with `qa_run.sh post <execution>`."""
     if os.environ.get("QA_SLACK_AUTOPOST") == "1":
         post_delivery(bucket, run_id, pushed, "auto")
+
+
+def blocked_messages(inputs: dict, run_id: str, gate, questions: str) -> dict:
+    """The #team-mrv-alerts notice for a run that stopped for an operator's answers:
+    one line up top, the questions in the thread."""
+    what = inputs.get("batch_id") or inputs.get("reporting_period") or inputs["mode"]
+    at = f" at Gate {gate}" if gate is not None else ""
+    text = (f"QA blocked: {what} ({inputs['mode']}) stopped{at} and needs answers before it can finish. "
+            f"Answer with Resume… on the MRV QA Queue page in Gaia, or re-run with "
+            f"`qa_run.sh {inputs['mode']} --batch {inputs.get('batch_id', '...')} --notes \"...\"`. Run: {run_id}")
+    q = questions.strip()
+    return {"posts": [{"text": text, "thread": [q[:3500] + ("\n…(truncated)" if len(q) > 3500 else "")] if q else []}]}
+
+
+def notify_blocked(bucket: storage.Bucket, run_id: str, inputs: dict, gate, rf: Path | None, final: str) -> None:
+    """Tell #team-mrv-alerts (as Hermes) that a run is blocked, once per execution. Never
+    crashes the run. If the questions can't be posted (e.g. they contain an @-mention),
+    the one-line notice still goes out and points at qa_run.sh status."""
+    marker = bucket.blob(f"runs/{run_id}/slack_blocked_posted.json")
+    if not os.environ.get("SLACK_BOT_TOKEN") or marker.exists():
+        log("Blocked notice not posted: no Slack bot token" if not os.environ.get("SLACK_BOT_TOKEN")
+            else f"Blocked notice already posted for {run_id}")
+        return
+    qf = rf / "operator_questions.md" if rf else None
+    questions = qf.read_text(encoding="utf-8") if qf and qf.exists() else final
+    sys.path.insert(0, str(CONTAINER_DIR / "tools"))
+    import slack_post
+    path = Path("/tmp/qa-runs") / run_id / "blocked_messages.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    data = blocked_messages(inputs, run_id, gate, questions)
+    try:
+        try:
+            path.write_text(json.dumps(data), encoding="utf-8")
+            posted = slack_post.post_all(slack_post.load(path), os.environ["SLACK_BOT_TOKEN"])
+        except slack_post.Refused as e:
+            log(f"Questions not posted ({e}); posting the notice alone")
+            data["posts"][0]["thread"] = [f"The questions could not be posted here. See them with `qa_run.sh status {run_id}`."]
+            path.write_text(json.dumps(data), encoding="utf-8")
+            posted = slack_post.post_all(slack_post.load(path), os.environ["SLACK_BOT_TOKEN"])
+    except Exception as e:  # noqa: BLE001 - report, never crash the run
+        log(f"Blocked notice not posted: {e}")
+        return
+    marker.upload_from_string(json.dumps({"execution": run_id, "posted_at_utc": now(),
+                                          "result": {"posted": posted}}, indent=1))
+    log(f"Posted the blocked notice to #team-mrv-alerts for {run_id}")
 
 
 def run_post_mode(bucket: storage.Bucket, inputs: dict) -> str:
@@ -351,7 +396,7 @@ def main() -> int:
     tmp = Path("/tmp/qa-runs") / run_id      # outside outputs/ so transcripts are not pushed as state
     tmp.mkdir(parents=True, exist_ok=True)
     sessions: list[dict] = []
-    outcome, before = "failed", None
+    outcome, before, rf = "failed", None, None
     try:
         log(f"Pulled {pull_state(bucket)} state files from gs://{bucket.name}/{STATE_PREFIX}")
         before = snapshot_state()
@@ -412,6 +457,8 @@ def main() -> int:
                 bucket.blob(f"runs/{run_id}/{t.name}").upload_from_filename(str(t))
             if outcome == "complete" and inputs["mode"] not in ("post", "discover"):
                 maybe_autopost(bucket, run_id, pushed)
+            if outcome == "blocked":
+                notify_blocked(bucket, run_id, inputs, sessions[-1].get("gate") if sessions else None, rf, final)
             if not readonly:
                 release_lock(bucket, run_id)
     log(f"Done: {outcome}. ${summary['total_cost_usd']} over {summary['total_turns']} turns. "

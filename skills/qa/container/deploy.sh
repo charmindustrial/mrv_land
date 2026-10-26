@@ -106,14 +106,14 @@ JOB_SECRETS="ANTHROPIC_API_KEY=anthropic-api-key:latest,ISO_PROD_CLIENT_SECRET=i
 QA_SLACK_SECRET="${QA_SLACK_SECRET:-projects/824158515535/secrets/integrations--slack-hermes-bot--token}"
 if [ "$QA_SLACK_SECRET" != "none" ]; then
   JOB_SECRETS="${JOB_SECRETS},SLACK_BOT_TOKEN=${QA_SLACK_SECRET}:latest"
-  echo "Slack: posting as Hermes via ${QA_SLACK_SECRET} (auto-post: ${QA_SLACK_AUTOPOST:-0})"
+  echo "Slack: posting as Hermes via ${QA_SLACK_SECRET} (auto-post: ${QA_SLACK_AUTOPOST:-1})"
 else
   echo "Slack: off (QA_SLACK_SECRET=none)"
 fi
 g run jobs deploy "$JOB" --region="$REGION" --image="${IMAGE_BASE}/${JOB}:${TAG}" \
   --service-account="$RUNNER_SA" --tasks=1 --max-retries=0 --task-timeout=6h \
   --cpu=1 --memory=2Gi \
-  --set-env-vars="QA_STATE_BUCKET=${BUCKET},ISOMETRIC_ENV=prod,QA_MODEL=${QA_MODEL:-claude-opus-5-5},QA_SLACK_AUTOPOST=${QA_SLACK_AUTOPOST:-0}" \
+  --set-env-vars="QA_STATE_BUCKET=${BUCKET},ISOMETRIC_ENV=prod,QA_MODEL=${QA_MODEL:-claude-opus-5-5},QA_SLACK_AUTOPOST=${QA_SLACK_AUTOPOST:-1}" \
   --set-secrets="${JOB_SECRETS}"
 
 echo "== Build + deploy trigger ${SERVICE}"

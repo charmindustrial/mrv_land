@@ -477,6 +477,22 @@ def image_shell_scripts_have_unix_line_endings():
     assert not bad, f"CRLF line endings in the image: {bad}"
 
 
+@test
+def blocked_notice_passes_slack_limits_and_carries_the_questions():
+    import entrypoint  # stubs for google.* are set up by gate_prompts_enforce_previous_exit_condition_and_scope
+    import slack_post
+    inputs = {"mode": "batch-qa-kerry", "batch_id": "INJ-10-2026-W3-KERRY"}
+    data = entrypoint.blocked_messages(inputs, "qa-runner-x1", 2, "1. Which COA covers car 4?\n" + "x" * 5000)
+    with tempfile.TemporaryDirectory() as tmp:
+        p = Path(tmp) / "blocked_messages.json"
+        p.write_text(json.dumps(data), encoding="utf-8")
+        slack_post.load(p)                      # channel + no-mentions limits
+    top, thread = data["posts"][0]["text"], data["posts"][0]["thread"]
+    assert "INJ-10-2026-W3-KERRY" in top and "Gate 2" in top and "qa-runner-x1" in top
+    assert thread[0].startswith("1. Which COA") and thread[0].endswith("(truncated)") and len(thread[0]) < 3600
+    assert entrypoint.blocked_messages(inputs, "qa-runner-x1", None, "  ")["posts"][0]["thread"] == []
+
+
 # ------------------------------------------------------------- Max's own gate test, unchanged
 
 @test

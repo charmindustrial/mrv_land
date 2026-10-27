@@ -268,6 +268,26 @@ stripped_corpus = normalize_punct(stripped_corpus)
 # Normalized corpus: collapse all whitespace runs to single space, for fuzzy matching
 norm_corpus = re.sub(r'\s+', ' ', stripped_corpus).strip()
 
+# Second look for a quote the checks below miss (2026-10-27 audit): the tested
+# matcher in ~/.claude/hooks/lib/quote_check.py. It finds the same words in the
+# same order across PDF table bars, page breaks and printed line numbers, in
+# instruction and skill text loaded into the conversation, and in words read
+# out of screenshots and scanned pages. Every word of the quote must still be
+# in something read this session, in order. Claude's own files count only
+# under own_quote_ok's narrow rule (own_files_ok=False). Audit cases: "tubing
+# ... pressures" and a PDF table quote read minutes earlier, both blocked as
+# invented. Built only when a quote fails every other check.
+_qc_holder = []
+
+def _qc_real(q, sentence=''):
+    try:
+        if not _qc_holder:
+            from quote_check import QuoteChecker
+            _qc_holder.append(QuoteChecker(entries, transcript_path))
+        return _qc_holder[0].status(q, sentence, own_files_ok=False) == 'real'
+    except Exception:
+        return False
+
 # ── Gate 3: Citation signals inside written deliverables (.xlsx/.docx) ───────
 # Runs BEFORE the chat-text gates so their early exits (no chat citation signals)
 # cannot skip it. Closes the blind spot where citations are written into a
@@ -405,7 +425,7 @@ try:
 
     DELIV_SIGNAL_RE = re.compile(
         r'(?:§\s*\d[\d.]*[a-z]?|[Ss]ection\s+\d[\d.]*|[Cc]lause\s+\d[\d.]*'
-        r'|[Aa]rticle\s+\d[\d.]*|[Tt]able\s+[A-Z]?\d+)')
+        r'|[Aa]rticle\s+\d[\d.]*|(?<![A-Za-z])[Tt]able\s+[A-Z]?\d+)')
     # Pair quote marks sequentially first, filter by length AFTER pairing --
     # a length threshold baked into the pairing regex itself makes a short
     # genuine quote's closing mark get stolen by the next quote's opening
@@ -417,7 +437,8 @@ try:
             return False
         norm_qt = re.sub(r'\s+', ' ', normalize_punct(qt)).strip()
         return (qt in raw_corpus or qt in stripped_corpus or norm_qt in norm_corpus
-                or _corpus.has_quote(qt))   # honest '...', markdown, line numbers (cluster 12)
+                or _corpus.has_quote(qt)    # honest '...', markdown, line numbers (cluster 12)
+                or _qc_real(qt))            # PDF tables, page breaks, images (2026-10-27)
 
     deliv_violations = []
     deliv_fabricated = []
@@ -551,6 +572,10 @@ try:
     for tid in _publish_ids:
         inp = tool_use_inputs.get(tid, {})
         blob = '\n'.join(_all_strings(inp))
+        # Page markup is not text a reader sees: an HTML attribute such as
+        # style="font-family:Arial;font-size:11pt" is not a quote (2026-10-27
+        # audit). Only whole tags are removed, never a bare '<' or '>'.
+        blob = re.sub(r'</?[A-Za-z][A-Za-z0-9]*(?:\s[^<>]*)?/?>', ' ', blob)
         if not blob:
             continue
         label = tool_uses.get(tid, 'published').split('__')[-1]
@@ -621,7 +646,12 @@ try:
 except Exception:
     sys.exit(0)  # shared library missing/broken -- fail open, never crash
 
-scannable = strip_code_blocks(last_text)
+# A double-quoted passage set in code marks (`"..."`) is still a quote of the
+# source: keep it, so the signal beside it counts as backed AND Gate 2 checks
+# it against what was read. Stripping it made a fully quoted TERC answer read
+# as unquoted (2026-10-27 audit). Bare code (`x = 1`) is still removed.
+scannable = strip_code_blocks(
+    re.sub(r'`(["\u201c][^`\n]{10,}["\u201d])`', r'\1', last_text))
 
 # ── Extract all verbatim quotes (needed by Gate 0 and Gate 1) ────────────────
 # Pair quote marks sequentially first, filter by length AFTER pairing -- see
@@ -738,7 +768,9 @@ SIGNAL_RE = re.compile(
     r'|[Ss]ection\s+\d[\d.]*'
     r'|[Cc]lause\s+\d[\d.]*'
     r'|[Aa]rticle\s+\d[\d.]*'
-    r'|[Tt]able\s+[A-Z]?\d+'
+    # Not the end of a longer word: "an unlocatable 2013 trade article",
+    # "acceptable 5%" (2026-10-27 audit).
+    r'|(?<![A-Za-z])[Tt]able\s+[A-Z]?\d+'
     r'|(?:[Ss]tates?|[Rr]equires?|[Ss]pecifies?|[Mm]andates?|[Pp]rovides?|[Ss]tipulates?)'
       r'\s+that\s+[^”””\'\n]'
     r')',
@@ -771,6 +803,8 @@ _OWN_DOC_LINE_RE = re.compile(r'\b(?:doc|document|file|draft)\s+lines?\s+\d', re
 _OWN_DOC_COUNT_RE = re.compile(
     r'[^.\n"]{0,40}?(?:=\s*\d|\b\d[\d,]*\s+(?:\w+\s+)?(?:rows?|words?|lines?|paragraphs?|'
     r'references?|items?|cells?|characters|chars)\b|\b(?:is\s+)?(?:unchanged|untouched)\b|'
+    # A checklist section's status: "no LCS use, so Section 9 is N/A".
+    r'\bis\s+N/A\b|'
     r'\blines?\s+\d)', re.IGNORECASE)
 _written_names = _corpus.written_basenames()
 
@@ -798,6 +832,13 @@ def _own_doc_pointer(sig, line):
 missing_quote_signals = []
 for sig in signals:
     sig_pos = sig.start()
+    # A section number INSIDE a quoted passage is part of the quoted text, not
+    # a claim of Claude's: '- Tab 5 F6: "... as discussed in Section 7.4.3.5 of
+    # the module"' (2026-10-27 audit). Gate 2 checks that quote against what
+    # was read, so only quotes long enough for Gate 2 (15+ characters) count.
+    if any(_m.start() < sig_pos < _m.end() and len(_m.group(1).strip()) >= 15
+           for _m in quote_matches):
+        continue
     window_start = sig_pos - 250
     window_end   = sig_pos + 500
     nearby = any(window_start <= qs <= window_end for qs in quote_starts)
@@ -899,6 +940,9 @@ for _qi, qt in enumerate(quote_texts if not unindexed_sources else []):
     # quote with no such attribution still fails here.
     _qm = quote_matches[_qi]
     if _corpus.own_quote_ok(qt, _sentence_around(scannable, _qm.start(), _qm.end())):
+        continue
+    # Check 6: quote_check's second look (see _qc_real above).
+    if _qc_real(qt, _sentence_around(scannable, _qm.start(), _qm.end())):
         continue
 
     fabricated.append(qt[:150])

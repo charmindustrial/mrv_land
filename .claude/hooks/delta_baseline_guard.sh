@@ -81,6 +81,12 @@ if cb_tripped "DELTA-BASELINE GUARD"; then
 fi
 
 DELIV_DIRS=("$WORKSPACE/outputs/deliverables" "$WORKSPACE/outputs/mrv-operational-documents")
+# Replay test set (~/.claude/hooks/tests/replay/run.py): a case's fixture files
+# stand in for the deliverables written in that turn, so a past block can be
+# tested again (2026-10-27; before this no block case could run).
+if [ "${CLAUDE_HOOK_REPLAY:-}" = "1" ] && [ -n "${CLAUDE_HOOK_FIXTURES:-}" ]; then
+  DELIV_DIRS=("$CLAUDE_HOOK_FIXTURES/outputs/deliverables" "$CLAUDE_HOOK_FIXTURES/outputs/mrv-operational-documents")
+fi
 
 # Did this turn touch a compliance/planning deliverable? (modified in last 3 min)
 recent="$(find "${DELIV_DIRS[@]}" -type f \( -iname '*.docx' -o -iname '*.md' \) -mmin -3 2>/dev/null \
@@ -104,6 +110,67 @@ authored="$(printf '%s' "$tooluses" \
   | grep -E '^(Write|Edit|MultiEdit|NotebookEdit|Bash|mcp__word__[a-z_]+)	' \
   | grep -E 'outputs/(deliverables|mrv-operational-documents)' || true)"
 [ -z "$authored" ] && exit 0
+
+# The recently changed file must be one THIS session actually wrote (2026-10-27
+# audit: 17 of 32 blocks since 9/15 were wrong). Before this, any call that
+# merely mentioned the folder counted -- an `ls` of it, a backup copy made
+# before a fix, a spreadsheet save -- while a coordinator or another worker had
+# changed a document there in the same three minutes. Now a write-class call
+# (Write/Edit, a Word edit, or a Bash command that really writes) must name
+# one of the recent files, and backup copies ("..._backup_...", ".bak") are
+# not deliverables. Fails open like the rest of this guard.
+named="$(python3 - "$transcript" "$recent" 2>/dev/null <<'PYEOF' || true
+import json, os, re, sys
+sys.path.insert(0, os.path.expanduser('~/.claude/hooks/lib'))
+try:
+    from write_detection import is_real_write
+except Exception:
+    def is_real_write(_c):
+        return True
+BACKUP = re.compile(r'(?:^|[_ .\-])(?:backup|bak)(?:[_ .\-]|$)', re.I)
+names = [os.path.basename(p) for p in sys.argv[2].split('\n') if p.strip()]
+names = [n for n in names if not BACKUP.search(os.path.splitext(n)[0])]
+if not names:
+    sys.exit(0)
+DIRS = re.compile(r'outputs/(?:deliverables|mrv-operational-documents)')
+WORD_WRITES = {'mcp__word__insert_text', 'mcp__word__replace_text', 'mcp__word__format_text',
+               'mcp__word__save_document', 'mcp__word__create_document'}
+calls = []
+with open(sys.argv[1], errors='replace') as fh:
+    for line in fh:
+        if '"tool_use"' not in line:
+            continue
+        try:
+            e = json.loads(line)
+        except Exception:
+            continue
+        c = (e.get('message') or {}).get('content')
+        if not isinstance(c, list):
+            continue
+        for x in c:
+            if isinstance(x, dict) and x.get('type') == 'tool_use':
+                calls.append((x.get('name') or '', x.get('input') or {}))
+word_wrote = any(n in WORD_WRITES for n, _ in calls)
+for n, inp in calls:
+    s = json.dumps(inp, ensure_ascii=False)
+    if not DIRS.search(s):
+        continue
+    if n in ('Write', 'Edit', 'MultiEdit', 'NotebookEdit'):
+        pass
+    elif n == 'Bash':
+        if not is_real_write(inp.get('command', '') if isinstance(inp, dict) else ''):
+            continue
+    elif n.startswith('mcp__word__'):
+        if not word_wrote:
+            continue
+    else:
+        continue
+    if any(b in s for b in names):
+        print('yes')
+        break
+PYEOF
+)"
+[ "$named" = "yes" ] || exit 0
 
 pdd_ok=false; kb_ok=false
 printf '%s' "$tooluses" | grep -q 'Charm_PDD_v1\.12' && pdd_ok=true

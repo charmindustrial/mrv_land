@@ -202,6 +202,34 @@ except Exception:
 _corpus = build_corpus(entries, tool_names, tool_inputs, session_dir,
                        source_file=transcript_path)
 corpus_parts = _corpus.parts
+# Text the system put into the conversation rather than a person typing it
+# (2026-10-27 audit, 31 findings): a coordinator's mid-task message to a
+# worker ("Whole document target 4,000-5,500 words"), a loaded skill's rules,
+# Max's CLAUDE.md shown in a system note. Claude was handed these words, so
+# quoting them or their figures is quoting a source. Hook feedback stays out:
+# it repeats the flagged text back.
+try:
+    from source_corpus import _variants as _sc_variants
+    for _e in entries:
+        _m = _e.get('message', {})
+        if not isinstance(_m, dict) or _m.get('role') != 'user':
+            continue
+        _c = _m.get('content')
+        if isinstance(_c, str):
+            _txts = [_c]
+        elif isinstance(_c, list):
+            _txts = [_x.get('text', '') or '' for _x in _c
+                     if isinstance(_x, dict) and _x.get('type') == 'text']
+        else:
+            _txts = []
+        for _t in _txts:
+            _st = (_t or '').strip()
+            if not _st or 'hook feedback' in _st[:200].lower():
+                continue
+            if _e.get('isMeta') or _st.startswith('<'):
+                corpus_parts.extend(_sc_variants(_t))
+except Exception:
+    pass
 # Documents no reader on this machine could turn into text. Quotes cannot be
 # checked against them, so quotes are NOT reported at all this run -- saying
 # nothing beats calling an honest quote invented.
@@ -220,6 +248,17 @@ norm_corpus = re.sub(r'\s+', ' ', raw_corpus).strip()
 norm_corpus_lower = norm_corpus.lower()
 # number-search corpus: drop thousands separators so "15,000" matches "15000"
 num_corpus = re.sub(r'(?<=\d),(?=\d)', '', raw_corpus)
+# A figure a spreadsheet shows as "7.56496E+4" is also searchable as 75649.6
+# (2026-10-27 audit: a workbook's own value was reported as unsourced).
+def _e_expand(mm):
+    try:
+        v = float(mm.group(0))
+    except ValueError:
+        return ''
+    return ('%.10f' % v).rstrip('0').rstrip('.')
+_e_extra = [_e_expand(mm) for mm in re.finditer(r'(?<![\w.])\d+(?:\.\d+)?[eE][+-]?\d{1,2}(?![\w])', num_corpus)]
+if _e_extra:
+    num_corpus += '\n' + ' '.join(x for x in _e_extra if x)
 
 # ── Extract the FINAL response: assistant text after the last real user turn ──
 last_user = -1
@@ -289,6 +328,56 @@ for tid, inp in tool_inputs.items():
 if not any((t or '').strip() for _, t in resp_sources):
     sys.exit(0)
 
+# ── Shared by the Gate Q additions below (2026-10-27 audit) ─────────────────
+try:
+    from source_corpus import contains_quote as _contains_quote, normalize_for_match as _nfm
+except Exception:
+    def _contains_quote(q, pieces): return False
+    def _nfm(t): return t or ''
+_EDIT_DESC_RE = re.compile(
+    r'\b(?:(?:old|new|original|revised|updated|current) (?:wording|sentence|text|line|paragraph|version)|'
+    r'before|after|was|is now)\s*\**\s*:\s*\**\s*>?\s*$|'
+    r'\b(?:now reads|reads now|now says|rewrote (?:it|this|that|them) (?:to|as)|'
+    r'changed (?:it |this |that )?to|replaced (?:it |this |that )?with)\b',
+    re.IGNORECASE)
+# A heading over a list of the new wording: "Section 2 now reads:" then items.
+_EDIT_DESC_LIST_RE = re.compile(r'\b(?:now reads|now says|reads now)\s*\**\s*:\s*\**\s*\n', re.IGNORECASE)
+_FN_RE = re.compile(r'(?<=[a-z]{3})\d{1,2}(?=[\s,.;:)]|$)')
+_own_edit_cache, _fn_cache = [], []
+
+
+def _own_edit_pieces():
+    if not _own_edit_cache:
+        texts = []
+        for _tid, _inp in tool_inputs.items():
+            if not isinstance(_inp, dict):
+                continue
+            if tool_names.get(_tid) in ('Write', 'Edit', 'MultiEdit'):
+                for _k in ('content', 'new_string', 'old_string'):
+                    if isinstance(_inp.get(_k), str):
+                        texts.append(_inp[_k])
+                for _ed in (_inp.get('edits') or []):
+                    if isinstance(_ed, dict):
+                        texts += [v for v in (_ed.get('new_string'), _ed.get('old_string')) if isinstance(v, str)]
+        try:
+            for _p in list(_corpus.own_files):
+                _t = _corpus._file_text(_p)
+                if _t:
+                    _own_edit_cache.append(_t)
+        except Exception:
+            pass
+        _own_edit_cache.extend(_nfm(t) for t in texts if t)
+        _own_edit_cache.append('')
+    return _own_edit_cache
+
+
+def _fn_parts():
+    if not _fn_cache:
+        _fn_cache.extend(_FN_RE.sub('', p) for p in _corpus.norm_parts())
+        _fn_cache.append('')
+    return _fn_cache
+
+
 def in_corpus_text(s):
     s = re.sub(r'\s+', ' ', s).strip()
     return len(s) >= 3 and s.lower() in norm_corpus_lower
@@ -355,6 +444,129 @@ ARITH_RE = re.compile(
     r'[\$€£]?\s*([\d,]+(?:\.\d+)?(?:[kKmMbB]|bn)?)\s*([×x\*/÷+\-])\s*'
     r'[\$€£]?\s*([\d,]+(?:\.\d+)?(?:[kKmMbB]|bn)?)\s*=\s*[\$€£]?\s*([\d,]+(?:\.\d+)?(?:[kKmMbB]|bn)?)')
 
+# ── Whole-expression check (added 2026-10-27) ────────────────────────────────
+# ARITH_RE sees only the last two numbers before "=", so a correct sum of four
+# terms ("14.708 + 1.915 + 0.764 + 8.880 = 26.267"), a product with a
+# bracket, a leading minus or a right side that is itself a product was
+# reported as wrong math (audit 2026-10-27: 54 of 55 arithmetic findings were
+# this). Before reporting, the WHOLE expression on each side of the "=" is
+# worked out; the finding is dropped only when that whole expression gives
+# the shown result. Wrong math stays wrong at any length.
+_XNUM = r'[\$€£]?\d[\d,]*(?:\.\d+)?(?:\s?(?:k|K|M|bn)\b)?%?'
+_XTOK = re.compile(r'\s*(?:(' + _XNUM + r')|([×x\*/÷+\-−])|(\()|(\)))')
+
+
+def _xnum(tok):
+    t = tok.replace('$', '').replace('€', '').replace('£', '').replace(',', '').strip()
+    pct = t.endswith('%')
+    t = t.rstrip('%').strip()
+    mult = 1.0
+    for suf, mv in (('bn', 1e9), ('k', 1e3), ('K', 1e3), ('M', 1e6)):
+        if t.endswith(suf):
+            t, mult = t[:-len(suf)].strip(), mv
+            break
+    v = float(t) * mult
+    return v / 100.0 if pct else v
+
+
+def _xeval(s):
+    """Value of an arithmetic expression written in prose, or None.
+    Needs at least one operator; numbers, × x * / ÷ + - −, brackets only."""
+    s = s.replace('**', ' ')
+    s = re.sub(r',\s+(?=[×÷])', ' ', s)            # "0.5133, × 44/12"
+    pos, out, ops = 0, [], 0
+    s = s.rstrip()
+    while pos < len(s):
+        m = _XTOK.match(s, pos)
+        if not m or m.end() == pos:
+            return None
+        if m.group(1):
+            if out and out[-1] not in ('*', '/', '+', '-', '('):
+                return None
+            out.append(repr(_xnum(m.group(1))))
+        elif m.group(2):
+            op = m.group(2)
+            if op == 'x':
+                # a letter x is "times" only between two numbers
+                if not out or out[-1] in ('*', '/', '+', '-', '('):
+                    return None
+            op = {'×': '*', 'x': '*', '÷': '/', '−': '-'}.get(op, op)
+            out.append(op)
+            if len(out) > 1:
+                ops += 1
+        elif m.group(3):
+            out.append('(')
+        else:
+            out.append(')')
+        pos = m.end()
+    if not ops:
+        return None
+    try:
+        v = eval(' '.join(out), {'__builtins__': {}}, {})
+        return float(v)
+    except Exception:
+        return None
+
+
+def _xclose(lhs, rhs_val, rhs_txt):
+    if rhs_val is None or lhs is None:
+        return False
+    cands = [rhs_val]
+    if rhs_txt.strip().endswith('%'):
+        cands.append(rhs_val * 100.0)            # "0.13 ÷ 6.669 = 1.9%"
+    for r in cands:
+        for l in (lhs, lhs * 100.0):              # a ratio written as a percentage
+            if l == 0 and r == 0:
+                return True
+            if l and abs(r - l) / abs(l) <= 0.015:
+                return True
+            # a correctly rounded result: 1.949 shown as "1.9"
+            mm = re.search(r'\d[\d,]*(?:\.(\d+))?', rhs_txt)
+            if mm and len(re.sub(r'^[0.,]*', '', mm.group(0).replace(',', ''))) >= 2:
+                d = len(mm.group(1) or '')
+                if abs(r - l) <= 0.5 * 10 ** (-d) * 1.0001:
+                    return True
+    return False
+
+
+def whole_expression_ok(text, eq_pos):
+    """True when the full expression left of the '=' at eq_pos gives the full
+    expression (or number) right of it."""
+    left = text[max(0, eq_pos - 260):eq_pos]
+    # stop at the previous "=", ":", ";", "|", newline or sentence end
+    cut = max(left.rfind(ch) for ch in ('=', ':', ';', '|', '\n', '≈'))
+    if cut >= 0:
+        left = left[cut + 1:]
+    right = text[eq_pos + 1:eq_pos + 200]
+    rcut = min([k for k in (right.find(ch) for ch in ('=', ';', '|', '\n', '≈')) if k >= 0] or [len(right)])
+    right = right[:rcut]
+    # right side: longest leading expression or number
+    rm = re.match(r'\s*\**\s*((?:' + _XNUM + r'|[\s×\*/÷+\-−()]|(?<=\d) x (?=\d))+)', right)
+    if not rm:
+        return False
+    rtxt = rm.group(1).rstrip(' (').strip()
+    while rtxt and rtxt[-1] in '×*/÷+-−(':
+        rtxt = rtxt[:-1].strip()
+    rv = _xeval(rtxt) if re.search(r'\d\s*[×\*/÷+\-−]\s*[\(\d\$€£]', rtxt) else None
+    if rv is None:
+        n = re.match(_XNUM, rtxt)
+        if not n:
+            return False
+        rtxt = n.group(0)
+        try:
+            rv = _xnum(rtxt) if not rtxt.endswith('%') else _xnum(rtxt[:-1])
+        except ValueError:
+            return False
+    # left side: the LONGEST stretch before the "=" that is a whole expression
+    starts = [i for i, ch in enumerate(left)
+              if (ch in '0123456789($€£' or (ch in '-−' and left[i + 1:i + 2].isdigit()))
+              and (i == 0 or left[i - 1] in ' \t("\'*')]
+    for st in starts:
+        lv = _xeval(left[st:])
+        if lv is not None:
+            return _xclose(lv, rv, rtxt)
+    return False
+
 # ── GATE N helpers: claim numbers must be sourced, labeled, or computed ──────
 # Currency, explicit-currency-word amounts, per-unit rates, gCO2e/MJ, percentages.
 # Also QA-measurement units (added 2026-08-27 alongside Gate D below): a QA
@@ -402,6 +614,109 @@ def num_candidates(raw):
         except ValueError: pass
     return [c for c in cands if c]
 
+# ── Gate N: more ways a figure can be shown to trace (2026-10-27) ────────────
+# Audit of every block since 9/15. Each is a check the figure must PASS, not a
+# label it can wear.
+# (1) "= X" anywhere: every spelling of X is tried ("4,445" and "4445"). Only
+#     the first spelling in a random order used to be tried, so "= 4,445 gal"
+#     was reported as unsourced about half the time. "= **109" (bold) and
+#     "= −0.119" (signed) count.
+def shown_result(cands, text):
+    for c in cands:
+        if re.search(r'=\s*\**\s*[−+-]?\s*[\$€£]?\s*' + re.escape(c) + r'(?!\d)', text):
+            return True
+    return False
+
+
+# (2) The working written next to the figure, and it checks out:
+#     after it, in brackets  -- "60.0% (3.52 ÷ 5.867)", "44.9% (98.988 ÷ 220.667 = 0.4486)"
+#     before it              -- "9000 × (200 − 37.0)/(530 − 200), then gives 4,445.5"
+#     A sum that does not give the figure does not count.
+_DERIV_AFTER = re.compile(r'\**[^()\n]{0,60}?\(\s*=?\s*((?:[^()\n]|\([^()\n]{1,60}\)){3,160}?)\s*\)')
+_DERIV_BEFORE = re.compile(r'((?:[\d\$€£(]|[−-](?=\d))(?:[^=\n.;:]|\.(?=\d)){2,160}?)\s*(?:=|≈|,?\s*(?:then\s+)?(?:gives|giving|comes to|equals|works out to)(?:\s+about)?)\s*\**\s*[−+-]?\s*\**\s*$')
+
+
+def _fig(raw):
+    d = re.search(r'\d[\d,]*(?:\.\d+)?', raw)
+    if not d:
+        return None, None
+    return float(d.group(0).replace(',', '')), d.group(0) + ('%' if raw.rstrip().endswith('%') else '')
+
+
+def _matches_fig(val, fig, txt):
+    if val is None or fig is None:
+        return False
+    return _xclose(val, fig, txt) or _xclose(abs(val), fig, txt)
+
+
+def derivation_follows(text, raw, end):
+    m = _DERIV_AFTER.match(text, end)
+    if not m or re.search(r'[.!?]\s', text[end:m.start(1)]):
+        return False
+    inner = m.group(1).split('=')[0]
+    fig, txt = _fig(raw)
+    return _matches_fig(_xeval(inner), fig, txt)
+
+
+def derivation_precedes(text, raw, start):
+    seg = text[max(0, start - 200):start]
+    m = _DERIV_BEFORE.search(seg)
+    if not m:
+        return False
+    fig, txt = _fig(raw)
+    expr = m.group(1)
+    # longest stretch that is a whole expression
+    for i in range(len(expr)):
+        if i and expr[i - 1] not in ' (':
+            continue
+        v = _xeval(expr[i:])
+        if v is not None:
+            return _matches_fig(v, fig, txt)
+    return False
+
+
+def derived_anywhere(text, raw):
+    """The working for this figure is shown beside ANY mention of it in the
+    message (a figure worked out once and repeated later counts)."""
+    for mm in re.finditer(r'(?<![\d.,])' + re.escape(raw) + r'(?![\d])', text):
+        if derivation_follows(text, raw, mm.end()) or derivation_precedes(text, raw, mm.start()):
+            return True
+    return False
+
+
+# (3) A rounded form of a more precise figure in a source: "2,568.8" for
+#     "2,568.8055555555557", "190,578" for "190,578.54" (rounded or cut off at
+#     the shown decimals). Only for figures with five or more significant
+#     digits, where a chance match is not credible. Also the same value with
+#     trailing zeros: "13,720" for "13,720.00", "158.684" for "158.6840".
+def rounded_from_source(cands):
+    for c in cands:
+        if ',' in c:
+            continue
+        mm = re.fullmatch(r'(\d+)(?:\.(\d+))?', c)
+        if not mm:
+            continue
+        tz = r'(?:\.0+)?' if mm.group(2) is None else r'0+'
+        if re.search(r'(?<![\d.])' + re.escape(c) + tz + r'(?![\d.])', num_corpus):
+            return True
+        sig = len((mm.group(1) + (mm.group(2) or '')).lstrip('0'))
+        if mm.group(2) is None:
+            sig = len(mm.group(1).rstrip('0'))
+        if sig < 5:
+            continue
+        dec = len(mm.group(2) or '')
+        x = float(c)
+        half = 0.5 * 10 ** (-dec)
+        for ip in range(int(x - half), int(x + 2 * half) + 1):
+            for hit in re.finditer(r'(?<![\d.])' + str(ip) + r'\.(\d+)(?![\d])', num_corpus):
+                if len(hit.group(1)) <= dec:
+                    continue
+                y = float(hit.group(0))
+                if x - half <= y < x + 2 * half:
+                    return True
+    return False
+
+
 def value_in_corpus(cands):
     for c in cands:
         esc = re.escape(c)
@@ -430,6 +745,24 @@ for src_label, src_text in resp_sources:
     norm_resp = re.sub(r'\s+', ' ', resp_scan).strip()
     prefix = f'[{src_label}] ' if src_label else ''
 
+    # ── Gate Q: two more honest forms of a quote (2026-10-27 audit) ──────────
+    # (a) Claude describing its OWN edit: "Section 2 now reads: "...""",
+    #     "Before: "..." After: "..."", "so I rewrote it to "..."". The words
+    #     must really be in a file this session wrote or an edit it made (old or
+    #     new text); the label must sit before the quote in the same paragraph
+    #     or list.
+    # (b) A source with a footnote number glued to a word ("propagation
+    #     rules8, where") quoted without it.
+    def _edit_quote_ok(q, start, _txt=resp_scan):
+        pre = _txt[max(0, start - 600):start]
+        pre = pre.split('\n\n')[-1]
+        if not (_EDIT_DESC_RE.search(pre[-160:]) or _EDIT_DESC_LIST_RE.search(pre)):
+            return False
+        return _contains_quote(q, _own_edit_pieces())
+
+    def _footnote_ok(q):
+        return _contains_quote(_FN_RE.sub('', q.lower()), _fn_parts())
+
     # ── GATE Q: quoted strings >= 40 chars must exist in the corpus ──────────
     passed_quote_spans = []
     # A quoted passage lives on ONE line. Allowing the pattern to run across a
@@ -455,7 +788,8 @@ for src_label, src_text in resp_sources:
         # own earlier words (clusters 14/19; see source_corpus.own_quote_ok).
         if (in_corpus_text(q) or _corpus.has_quote(q)
                 or _corpus.own_quote_ok(q, _sentence_around(resp_scan, m.start(), m.end()),
-                                        exclude_path=_src_paths.get(src_label))):
+                                        exclude_path=_src_paths.get(src_label))
+                or _edit_quote_ok(q, m.start()) or _footnote_ok(q)):
             passed_quote_spans.append((m.start(), m.end()))
         else:
             snippet = (q[:80] + '…') if len(q) > 80 else q
@@ -491,7 +825,8 @@ for src_label, src_text in resp_sources:
         except ZeroDivisionError:
             expect = None
         if expect is None or expect == 0: continue
-        if not arithmetic_ok(a, op, b, c, expect):
+        if (not arithmetic_ok(a, op, b, c, expect)
+                and not whole_expression_ok(norm_resp, m.start() + m.group(0).index('='))):
             violations.append(('ARITHMETIC',
                 f'{prefix}Shown arithmetic does not compute: {m.group(0).strip()} '
                 f'(expected ≈ {expect:,.2f}).'))
@@ -517,7 +852,11 @@ for src_label, src_text in resp_sources:
             if own_text_count(norm_resp, pos, m.end()):   # a count of Claude's own text
                 continue
             # (c) result of verified arithmetic — approximated: appears as an RHS in resp
-            if re.search(r'=\s*[\$€£]?\s*' + re.escape(cands[0]), norm_resp):
+            if shown_result(cands, norm_resp):           # (c) shown as a result, any spelling
+                continue
+            if derived_anywhere(norm_resp, raw):       # working beside it checks out
+                continue
+            if rounded_from_source(cands):             # rounded form of a sourced figure
                 continue
             snippet_lo = max(0, pos-45)
             ctx = norm_resp[snippet_lo:pos+len(raw)+15].strip()
@@ -609,7 +948,8 @@ for raw_path in deliverable_paths:
             except ZeroDivisionError:
                 expect = None
             if expect is None: continue
-            if expect != 0 and not arithmetic_ok(a, op, b, c, expect):
+            if (expect != 0 and not arithmetic_ok(a, op, b, c, expect)
+                    and not whole_expression_ok(block_norm, m.start() + m.group(0).index('='))):
                 violations.append(('ARITHMETIC',
                     f'[{fname}] shown arithmetic does not compute: '
                     f'{m.group(0).strip()} (expected ≈ {expect:,.2f}).'))
@@ -637,7 +977,11 @@ for raw_path in deliverable_paths:
                     continue
                 if any(rr == cands[0] or rr in cands for rr in arith_results):  # (c) verified arithmetic result
                     continue
-                if re.search(r'=\s*[\$€£]?\s*' + re.escape(cands[0]), block_norm):
+                if shown_result(cands, block_norm):
+                    continue
+                if derived_anywhere(block_norm, raw):
+                    continue
+                if rounded_from_source(cands):
                     continue
                 ctx = block_norm[:160]
                 violations.append(('NUMBER',

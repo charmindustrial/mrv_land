@@ -4,7 +4,9 @@
 # Always exits 0 — failures are logged, never propagated.
 
 LOG="$HOME/.claude/auto-sync.log"
-WORKSPACE="/Users/maxlavine/Desktop/Claude/Skills/MRV Expert"
+# Derived from this file's own location (2026-10-27: a fixed old-account path
+# stopped every backup after the move to this Mac).
+WORKSPACE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 cd "$WORKSPACE" 2>/dev/null || exit 0
 [ -z "$(git status --porcelain 2>/dev/null)" ] && exit 0

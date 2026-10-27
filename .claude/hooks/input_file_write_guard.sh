@@ -37,9 +37,14 @@ tool = os.environ.get("HOOK_TOOL", "")
 cmd  = os.environ.get("HOOK_CMD", "")
 fp   = os.environ.get("HOOK_FP", "")
 
-TREE = "Feedstocks/Biomass/Prospective"
-BIOMASS_ROOT = os.path.expanduser(
-    "~/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Feedstocks/Biomass/Prospective")
+# Any "Prospective" folder under Feedstocks/Biomass (2026-10-27: the tree moved
+# from Biomass/Prospective to Biomass/Current/CO/Prospective, and the check had
+# been guarding a folder that no longer existed).
+TREE_RE = re.compile(r"Feedstocks/Biomass/(?:[^/]+/)*Prospective(?:/|$)")
+_BIO = os.path.expanduser(
+    "~/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Feedstocks/Biomass")
+BIOMASS_ROOTS = [p for p in glob.glob(os.path.join(_BIO, "**", "Prospective"), recursive=True)
+                 if os.path.isdir(p)] if os.path.isdir(_BIO) else []
 
 def is_output(bn):
     b = bn.lower()
@@ -62,8 +67,8 @@ except Exception:
 
 # dynamic: every existing file under the tree that is NOT an output is protected
 protected_basenames = set()
-if os.path.isdir(BIOMASS_ROOT):
-    for p in glob.glob(os.path.join(BIOMASS_ROOT, "**", "*"), recursive=True):
+for _root in BIOMASS_ROOTS:
+    for p in glob.glob(os.path.join(_root, "**", "*"), recursive=True):
         if os.path.isfile(p):
             bn = os.path.basename(p)
             if not is_output(bn) and not bn.startswith("~$"):
@@ -74,7 +79,7 @@ def protected(s):
     for pat in reg:
         if pat in s:
             return f"matches protected-inputs registry entry '{pat}'"
-    if TREE in s and bn and not is_output(bn):
+    if TREE_RE.search(s) and bn and not is_output(bn):
         return "is a pre-existing input under the biomass Prospective tree (read-only)"
     if bn in protected_basenames and not is_output(bn):
         return "is a pre-existing input file (read-only)"

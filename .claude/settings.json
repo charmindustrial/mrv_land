@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/.claude/auto-sync.sh\"",
+            "command": "bash \"/Users/max.levine/Desktop/Claude/Skills/MRV Expert/.claude/auto-sync.sh\"",
             "async": true
           }
         ]
@@ -113,20 +113,11 @@
         ]
       },
       {
-        "matcher": "Write|mcp__playwright__browser_take_screenshot|mcp__playwright-mrv__browser_take_screenshot",
+        "matcher": "Write|mcp__playwright[a-z0-9-]*__browser_take_screenshot",
         "hooks": [
           {
             "type": "command",
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/workspace_hygiene_guard.sh\""
-          }
-        ]
-      },
-      {
-        "matcher": "mcp__claude_ai_Slack__slack_create_canvas|mcp__claude_ai_Slack__slack_update_canvas|mcp__word__create_document|mcp__word__insert_text|mcp__word__replace_text|Write|Edit|mcp__claude_ai_Google_Drive__create_file",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/mrv_doc_output_guard.sh\""
           }
         ]
       },
@@ -326,12 +317,12 @@
       "Bash(open:*)",
       "Bash(mkdir:*)",
       "Bash(cp:*)",
-      "Bash(python3 \"/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/skills/qa/batch-qa-aecn/scripts/audit_checklist.py\":*)",
+      "Bash(python3 \"/Users/max.levine/Desktop/Claude/Skills/MRV Expert/skills/qa/batch-qa-aecn/scripts/audit_checklist.py\":*)",
       "Read(/tmp/**)",
       "Read(/private/tmp/**)",
-      "Read(/Users/maxlavine/.claude/**)",
-      "Read(/Users/maxlavine/Library/CloudStorage/**)",
-      "Read(/Users/maxlavine/Desktop/Claude/Skills/MRV Expert/**)",
+      "Read(/Users/max.levine/.claude/**)",
+      "Read(/Users/max.levine/Library/CloudStorage/**)",
+      "Read(/Users/max.levine/Desktop/Claude/Skills/MRV Expert/**)",
       "WebSearch",
       "WebFetch",
       "Bash(curl:*)",

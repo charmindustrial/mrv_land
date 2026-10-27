@@ -33,6 +33,12 @@ if [ -z "$content" ] || [ -z "$file_path" ]; then exit 0; fi
 case "$file_path" in
   *.py|*.sh|*.xlsx|*.docx|*.pdf|*.png|*.jpg|*.jpeg|*.zip|*.skill) exit 0 ;;
 esac
+# A saved source capture (a Slack search dump, a PDF's text) under raw/ is the
+# source itself, not claims about one (2026-10-27 audit: a raw Slack dump was
+# blocked for the word "provide" in Max's own Slack messages).
+case "$file_path" in
+  */raw/*) exit 0 ;;
+esac
 
 # Scope check: only act on research outputs.
 # Triggers if: file is under outputs/research/, OR content has a Source List header.
@@ -46,7 +52,9 @@ fi
 if [ "$is_research" -eq 0 ]; then exit 0; fi
 
 # Write content to a temp file so Python can read it cleanly
-TMPFILE="$(mktemp /tmp/citation_guard_XXXXXX.txt)"
+# No suffix after the Xs (2026-10-27 audit): macOS mktemp fills only trailing
+# Xs, so "..._XXXXXX.txt" was one fixed name and two writes at once crashed.
+TMPFILE="$(mktemp /tmp/citation_guard_XXXXXX)"
 echo "$content" > "$TMPFILE"
 trap 'rm -f "$TMPFILE"' EXIT
 
@@ -80,9 +88,23 @@ signal_re = re.compile(
 quote_chars = {'"', "'", chr(96), '“', '”', '‘', '’'}
 blockquote_re = re.compile(r'^\s*>', re.MULTILINE)
 
+# A sources section lists what was read ("pages 1-15, covering Sections 1-5.4
+# including Table 5"); it makes no claim about what a document says. 2026-10-27
+# audit: such a line was blocked while every finding above it was quoted.
+source_spans = []
+heads = list(re.finditer(r'^#{1,6}\s.*$', content, re.MULTILINE))
+for k, h in enumerate(heads):
+    # "Sources", "Source List", "Sources read/searched this session" -- not a
+    # findings heading such as "Sources of uncertainty".
+    if re.search(r'\bsources?\b', h.group(0), re.I) and not re.search(r'\bsources?\s+of\b', h.group(0), re.I):
+        end = heads[k + 1].start() if k + 1 < len(heads) else len(content)
+        source_spans.append((h.start(), end))
+
 violations = []
 for match in signal_re.finditer(content):
     start = match.start()
+    if any(a <= start < b for a, b in source_spans):
+        continue
     window = content[start : start + 250]
 
     has_direct_quote = any(c in window for c in quote_chars)

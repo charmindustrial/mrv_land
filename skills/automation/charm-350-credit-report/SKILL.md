@@ -73,7 +73,9 @@ write ever seems required, stop and surface to Max.
   fine but must be labeled as such and NOT auto-sent to colleagues without Max's OK.)
   **Enforced since 2026-10-01:** the report header must state the Certify status verbatim, and
   the posting hook (`~/.claude/hooks/scoped_automation_slack_send.sh`) refuses any send to a
-  colleague whose message lacks "under verification". Any other status goes to Max only, first
+  colleague whose message lacks "under verification" or Certify's own wording "Awaiting
+  verification" (accepted since 2026-10-27; copy whichever Certify shows, never add words it
+  doesn't show). Any other status goes to Max only, first
   line "BACKFILL — needs your OK before forwarding", ledger untouched. (A 2026-10-01 run sent
   the already-issued August statement to all four recipients after quoting this rule to itself.)
 

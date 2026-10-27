@@ -38,7 +38,9 @@ esac
 tool_name="$(echo "$input" | jq -r '.tool_name // empty' 2>/dev/null || echo "")"
 
 # Case 1: Playwright screenshot — require filename starting with outputs/
-if [ "$tool_name" = "mcp__playwright__browser_take_screenshot" ]; then
+# Any Playwright server (playwright, playwright-mrv, -2/-3/-4). Until 2026-10-27 only
+# the first was checked, so -mrv captures into .playwright-mcp/ got through.
+if [[ "$tool_name" == mcp__playwright*__browser_take_screenshot ]]; then
   filename="$(echo "$input" | jq -r '.tool_input.filename // empty' 2>/dev/null || echo "")"
   if [ -z "$filename" ]; then
     echo "DENIED by workspace_hygiene_guard: browser_take_screenshot called without an explicit filename. In the MRV Expert workspace, screenshots must be saved under outputs/qa/batch-<batch_id>/screenshots/ (or outputs/qa/site-emissions-qa/screenshots/ for site emissions QA). Pass filename='outputs/qa/batch-<id>/screenshots/<descriptive_name>.png'." >&2
@@ -47,6 +49,10 @@ if [ "$tool_name" = "mcp__playwright__browser_take_screenshot" ]; then
   # Reject paths that don't route into outputs/. Accept either "outputs/..." (relative) or absolute paths containing "/outputs/".
   case "$filename" in
     outputs/*|*/outputs/*) : ;;
+    # The session scratchpad is outside the workspace and cleared by the system.
+    # Added 2026-10-27: 9 of 13 refusals since 9/15 were throwaway captures sent
+    # there, and the refusals pushed tmp_*.png files into outputs/ instead.
+    /private/tmp/claude-*/*|/tmp/claude-*/*) : ;;
     *)
       echo "DENIED by workspace_hygiene_guard: screenshot filename '$filename' does not route under outputs/. Save to outputs/qa/batch-<batch_id>/screenshots/<name>.png (or outputs/qa/site-emissions-qa/screenshots/<name>.png). The workspace root is not a valid screenshot destination." >&2
       exit 2

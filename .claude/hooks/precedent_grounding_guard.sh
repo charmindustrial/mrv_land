@@ -118,6 +118,7 @@ except Exception:
     WRITE_TOOL_NAMES, PUBLISH_TOOL_NAMES = set(), set()
     def is_real_write(_): return False
 authored_blob_parts = []
+builder_blob_parts = []
 try:
     with open(transcript_path) as f:
         for line in f:
@@ -132,22 +133,42 @@ try:
                 if not isinstance(item, dict) or item.get('type') != 'tool_use':
                     continue
                 name = item.get('name', '')
-                inp_blob = json.dumps(item.get('input', ''))[:5000]
+                # ensure_ascii=False (2026-10-27 audit): the screener's file names
+                # carry an em dash ("Genesee South — BFA v1.3 Gap Checklist.xlsx");
+                # escaped to \u2014 here, no such name could ever match below.
+                inp_blob = json.dumps(item.get('input', ''), ensure_ascii=False)[:5000]
                 if name in WRITE_TOOL_NAMES or name in PUBLISH_TOOL_NAMES:
                     authored_blob_parts.append(name + ' ' + inp_blob)
                 elif name == 'Bash' and is_real_write(inp_blob):
                     authored_blob_parts.append(name + ' ' + inp_blob)
+                if name == 'Bash' and 'build_deliverables.py' in inp_blob:
+                    # The skill's one builder writes both files into the folder it
+                    # is given; its command names that folder, not the files
+                    # (2026-10-27 audit: so the files the skill requires were
+                    # never counted as this session's).
+                    builder_blob_parts.append(inp_blob)
 except Exception:
     pass
 authored_blob = '\n'.join(authored_blob_parts).lower()
+builder_blob = '\n'.join(builder_blob_parts).lower()
 
 def session_authored(path):
-    return os.path.basename(path).lower() in authored_blob
+    if os.path.basename(path).lower() in authored_blob:
+        return True
+    folder = os.path.basename(os.path.dirname(path)).lower()
+    return bool(folder) and folder in builder_blob
 
 # ── find screener outputs under the biomass Prospective tree ──────────────────
+# 2026-10-27 audit: the Prospective folder moved to Biomass/Current/CO/Prospective
+# (after 9/09) while this still named Biomass/Prospective, so the check found no
+# file and could not block at all. Search the whole Biomass tree (~120 files).
 roots = [
-    os.path.expanduser("~/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Feedstocks/Biomass/Prospective"),
+    os.path.expanduser("~/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Feedstocks/Biomass"),
 ]
+# Replay test set (~/.claude/hooks/tests/replay/run.py): the case's fixture
+# files stand in for the Drive folder.
+if os.environ.get('CLAUDE_HOOK_REPLAY') == '1' and os.environ.get('CLAUDE_HOOK_FIXTURES'):
+    roots = [os.environ['CLAUDE_HOOK_FIXTURES']]
 targets = []
 for root in roots:
     if not os.path.isdir(root):

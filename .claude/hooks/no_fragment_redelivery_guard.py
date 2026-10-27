@@ -140,6 +140,14 @@ def check_transcript(transcript_path):
                 final_idx = i
                 final_text = t
                 break
+    # GUARD_CONTRACT rule 12 (2026-10-27 audit): the message in the hook
+    # input wins when the transcript file has not caught up to it. Judged from
+    # the file alone, a correct re-send could be blocked for the previous
+    # draft's missing marker. The live message comes after everything in the
+    # file, so it is judged as standing at the end.
+    live = os.environ.get('HOOK_LAST_ASSISTANT_MESSAGE', '')
+    if live.strip() and ' '.join(live.split()) != ' '.join((final_text or '').split()):
+        final_text, final_idx = live, len(entries)
     if final_idx is None:
         return []
 

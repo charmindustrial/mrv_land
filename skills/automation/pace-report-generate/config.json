@@ -17,8 +17,8 @@
   "deprecated_folder_id": "1oWkk1g15eGs-ueoPFXoFUWNrtNn6oA1B",
   "deprecated_folder_name": "Deprecated/Past",
 
-  "drive_local_folder": "/Users/maxlavine/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Team/OKRs + Pace Reports/2026/Pace Reports",
-  "drive_local_deprecated_folder": "/Users/maxlavine/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Team/OKRs + Pace Reports/2026/Pace Reports/Deprecated Past",
+  "drive_local_folder": "/Users/max.levine/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Team/OKRs + Pace Reports/2026/Pace Reports",
+  "drive_local_deprecated_folder": "/Users/max.levine/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Team/OKRs + Pace Reports/2026/Pace Reports/Deprecated Past",
 
   "person_tabs": ["Max", "Garrett"],
 
@@ -29,9 +29,9 @@
 
   "completion_phrases": ["complete", "completed", "done", "all done", "finished", "all set", "good to go", "should be good"],
 
-  "state_path": "/Users/maxlavine/.pace-report/state.json",
+  "state_path": "/Users/max.levine/.pace-report/state.json",
 
-  "google_token_path": "/Users/maxlavine/.basco-intake/token.json",
+  "google_token_path": "/Users/max.levine/.basco-intake/token.json",
   "_google_token_comment": "Reused from the basco-intake automation, same pattern as eac-inventory-monitor's config. Has drive+spreadsheets+gmail.modify scopes. Used by generate_pace_report.py to move file bytes program-to-program instead of through the model's own output, added 2026-09-17 after two straight scheduled runs (09-09, 09-16) died at the 900s watchdog trying to retype a base64-encoded xlsx through a Bash command.",
 
   "_autonomous_send_comment": "Max explicitly designed and requested this full autonomous cycle (2026-08-27): post to #team-mrv, detect completion, move last week's file to Deprecated, post to #team-strategery -- all without a per-run confirmation. This is a standing, narrow exception scoped to exactly this automation, mirroring charm-350-credit-report's carve-out."

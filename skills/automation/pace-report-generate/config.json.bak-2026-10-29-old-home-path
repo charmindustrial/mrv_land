@@ -1,0 +1,38 @@
+{
+  "_comment": "Single source of truth for changeable facts. Both pace-report-generate and pace-report-finalize read this file (finalize via ../pace-report-generate/config.json). Do not duplicate any of these values in prose or code.",
+
+  "slack_team_mrv_channel_id": "C07AK8ESJ4T",
+  "slack_team_mrv_channel_name": "#team-mrv",
+
+  "slack_team_strategery_channel_id": "C0ATP21E9T2",
+  "slack_team_strategery_channel_name": "#team-strategery",
+
+  "template_file_id": "1MrM_dFYJKRyQOcenOo3TnNhKDvYYePu2",
+  "template_file_name": "MRV Weekly Report & Pace Report (Template).xlsx",
+
+  "parent_folder_id": "1J3KBgXQ0_yIVXehdJ-ti2bLWzs7kQVA_",
+  "parent_folder_name": "2026/Pace Reports",
+  "_parent_folder_comment": "This is the flat 'Pace Reports' folder for the current year. When the team rolls to a new year's folder, update parent_folder_id, deprecated_folder_id, and drive_local_folder together.",
+
+  "deprecated_folder_id": "1oWkk1g15eGs-ueoPFXoFUWNrtNn6oA1B",
+  "deprecated_folder_name": "Deprecated/Past",
+
+  "drive_local_folder": "/Users/maxlavine/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Team/OKRs + Pace Reports/2026/Pace Reports",
+  "drive_local_deprecated_folder": "/Users/maxlavine/Library/CloudStorage/GoogleDrive-max@charmindustrial.com/My Drive/MRV/Team/OKRs + Pace Reports/2026/Pace Reports/Deprecated Past",
+
+  "person_tabs": ["Max", "Garrett"],
+
+  "new_file_title_format": "{m}/{d} MRV Weekly Pace Report.xlsx",
+
+  "team_mrv_post_message": "It's that time of the week! Please fill out your section of the Pace Report",
+  "strategery_post_link_text": "MRV Pace",
+
+  "completion_phrases": ["complete", "completed", "done", "all done", "finished", "all set", "good to go", "should be good"],
+
+  "state_path": "/Users/maxlavine/.pace-report/state.json",
+
+  "google_token_path": "/Users/maxlavine/.basco-intake/token.json",
+  "_google_token_comment": "Reused from the basco-intake automation, same pattern as eac-inventory-monitor's config. Has drive+spreadsheets+gmail.modify scopes. Used by generate_pace_report.py to move file bytes program-to-program instead of through the model's own output, added 2026-09-17 after two straight scheduled runs (09-09, 09-16) died at the 900s watchdog trying to retype a base64-encoded xlsx through a Bash command.",
+
+  "_autonomous_send_comment": "Max explicitly designed and requested this full autonomous cycle (2026-08-27): post to #team-mrv, detect completion, move last week's file to Deprecated, post to #team-strategery -- all without a per-run confirmation. This is a standing, narrow exception scoped to exactly this automation, mirroring charm-350-credit-report's carve-out."
+}
